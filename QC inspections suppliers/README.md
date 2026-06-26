@@ -4,7 +4,7 @@ Compiled incoming-quality-control (IQC) and ATM quality data for pelvic block ti
 
 ## Files
 
-- **Pelvic_Blocks_Quality_062626.xlsx** — master workbook (current). Compiled 06/26/26; SH IQC visits 1–12 (through harvest 06/24/26). Supersedes the 06/10 version (kept in git history).
+- **Pelvic_Blocks_Quality_062626.xlsx** — master workbook (current). Compiled 06/26/26; SH IQC visits 1–14 (through harvest 06/25/26). Supersedes the 06/10 version (kept in git history).
 
 ## Workbook map
 
