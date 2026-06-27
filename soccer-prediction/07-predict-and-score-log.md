@@ -51,11 +51,11 @@ is market-anchored; others are model estimates.
 | Match | Predicted | P(H/D/A) % | Market P(H/D/A) % | Actual | Result ✓/✗ | Score ✓/✗ | Note |
 |---|---|---|---|---|---|---|---|
 | Panama–England | 0–3 | 7/13/80 | — | | | | England may rotate |
-| Croatia–Ghana | 2–1 (CRO) | 40/31/29 | — | | | | Ghana missing Kudus+Salisu; win-and-in |
+| Croatia–Ghana | 1–0 (CRO) | 49/30/21 | 51/30/19 🔒 | | | | Market priced Ghana low (19%); Under 2.5 the play |
 | Colombia–Portugal | 1–2 (POR) | 27/24/49 | 27/24/49 🔒 | | | | Seeding game; anchored |
 | DR Congo–Uzbekistan | 1–1 | 37/30/33 | — | | | | Low stakes |
 | Algeria–Austria | 1–2 (AUT) | 32/28/40 | — | | | | Decides 2nd in Group J |
-| Jordan–Argentina | 0–2 (ARG) | 10/18/72 | — | | | | Rotation trap |
+| Jordan–Argentina | 0–2 (ARG) | 5/11/84 | 5/11/85 🔒 | | | | Market didn't price rotation; Over 2.5 leaned |
 
 ## After the round
 - Compute mean Brier and mean log-loss across the 16 games; that's your round score.
