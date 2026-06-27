@@ -43,6 +43,20 @@ you little; assigning it a *well-calibrated probability* is the skill.
 **Fill the Market P(H/D/A) column from de-vigged Bet365/Kalshi/Polymarket lines in the 48h
 before each game** — comparing our number to the market is half the value of the log.
 
+## June 27 group-stage portfolio (final matchday)
+
+Predictions from [`10-portfolio-2026-06-27.md`](10-portfolio-2026-06-27.md). Only Colombia–Portugal
+is market-anchored; others are model estimates.
+
+| Match | Predicted | P(H/D/A) % | Market P(H/D/A) % | Actual | Result ✓/✗ | Score ✓/✗ | Note |
+|---|---|---|---|---|---|---|---|
+| Panama–England | 0–3 | 7/13/80 | — | | | | England may rotate |
+| Croatia–Ghana | 2–1 (CRO) | 40/31/29 | — | | | | Ghana missing Kudus+Salisu; win-and-in |
+| Colombia–Portugal | 1–2 (POR) | 27/24/49 | 27/24/49 🔒 | | | | Seeding game; anchored |
+| DR Congo–Uzbekistan | 1–1 | 37/30/33 | — | | | | Low stakes |
+| Algeria–Austria | 1–2 (AUT) | 32/28/40 | — | | | | Decides 2nd in Group J |
+| Jordan–Argentina | 0–2 (ARG) | 10/18/72 | — | | | | Rotation trap |
+
 ## After the round
 - Compute mean Brier and mean log-loss across the 16 games; that's your round score.
 - Compare to two baselines: (a) always predict the market favorite, (b) the raw market
