@@ -1,0 +1,9 @@
+Part_ID,Part_Name,Segment,Supplier,Severity_S_1to10,Occurrence_O_1to10,Detection_D_1to10,Action_Priority_H_M_L,Supply_Continuity_1to5,Supplier_Maturity_1to5,B1_Herd_Status_1to5,B2_Abattoir_Controls_1to5,B3_Bioburden_1to5,B4_Viral_TSE_Inactivation_1to5,B5_Immunogenicity_1to5,Pathogen_Tier1_Clear_Y_N,Pathogen_Tier2_Controlled_Y_N,Pathogen_Tier3_Screened_Y_N,Final_Risk_Class,Key_Risk_Drivers,Mitigation_Actions,Owner,Review_Date,Re_Eval_Trigger
+EX-001,Porcine dermal matrix (decellularized),Tissue,Local Abattoir A,10,7,6,High,5,4,4,5,4,3,3,Y,N,N,CRITICAL,"Custom-exempt abattoir (B2=5); Tier2/Tier3 zoonoses not yet screened; sole source","Move to federally-inspected source; add PERV/HEV molecular screening; validate viral inactivation per ISO 22442-3; qualify 2nd herd; handler PPE protocol",,2026-12-27,Any herd/source change or nonconformance
+EX-002,Custom CNC titanium housing,Custom,Precision Co,8,5,3,High,4,2,,,,,,,,,HIGH,"Single source; recall-level if fails","Qualify second machine shop; PPAP on file; tightened incoming sampling",,2026-12-27,SCAR or scorecard drop
+EX-003,Standard M3 fastener,Catalog,Distributor X,3,2,2,Low,1,2,,,,,,,,,LOW,"Commodity, interchangeable","Skip-lot inspection; catalog reorder",,2027-06-27,Periodic review
+,,,,,,,,,,,,,,,,,,,,,,
+# Segment = Tissue | Custom | Catalog. Leave B1-B5 and Pathogen columns blank for non-tissue parts.,,,,,,,,,,,,,,,,,,,,,,
+# Scores: S/O/D = 1-10 (see Framework section 3). Procurement & Layer B = 1-5 where 5 = highest risk (sections 4 & 7).,,,,,,,,,,,,,,,,,,,,,,
+# Action_Priority derived from S/O/D per section 5. Final_Risk_Class derived per section 6.1 (highest triggered class).,,,,,,,,,,,,,,,,,,,,,,
+# Pathogen gates (section 7.3): Tier1 must be Y or part = CRITICAL/do-not-source. Tier2/Tier3 = N escalates class.,,,,,,,,,,,,,,,,,,,,,,
