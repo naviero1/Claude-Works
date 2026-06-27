@@ -3,7 +3,7 @@
     "title": "How the World Uses AI",
     "subtitle": "A data-driven report on global generative-AI usage by country, class, occupation, and demographic",
     "compiled": "2026-06-27",
-    "method": "Synthesized from a multi-source, adversarially fact-checked deep-research pass. 27 sources fetched, 114 claims extracted, 25 verified by 3-vote adversarial verification (23 confirmed). Core findings are vendor first-party usage data (OpenAI, Anthropic) plus independent surveys (Pew, Ipsos, Reuters Institute, Stanford HAI, Microsoft, BCG) and traffic estimates (Similarweb).",
+    "method": "Synthesized from TWO multi-source, adversarially fact-checked deep-research passes: (1) global usage by country/class/occupation/demographics; (2) a deep dive into the granular question taxonomy, prompt behavior, and sensitive/emotional uses. Combined: 50+ sources fetched, ~230 claims extracted, 33 confirmed by 3-vote adversarial verification. Core findings are vendor first-party usage data (OpenAI/NBER w34255, Anthropic Economic Index & affective-use study) plus independent surveys (Pew, Ipsos, Reuters Institute, Stanford HAI, Microsoft, BCG, Common Sense Media, HBR) and traffic estimates (Similarweb).",
     "key_caveat": "Nearly all figures are dated snapshots from 2025-2026. Vendor data is self-reported and platform-specific: Claude skews heavily to developers (coding 34-37%) while consumer ChatGPT coding is only 4.2% — the two paint opposite task pictures because they have different user bases. Gender is name-inferred, not self-reported. Similarweb numbers are modeled web-traffic estimates (exclude apps/API)."
   },
   "hero_stats": [
@@ -241,8 +241,73 @@
       "BCG Asia-Pacific: India leads adoption at 92%; Japan trails at 51%."
     ]
   },
+  "deep_dive": {
+    "granular_taxonomy_pct_of_messages": {
+      "source": "OpenAI/NBER w34255 (some sub-figures read from charts)",
+      "data": [
+        {"task": "Specific-fact lookup", "value": 18.3},
+        {"task": "Editing/critiquing provided text", "value": 10.6},
+        {"task": "Tutoring/teaching", "value": 10.2},
+        {"task": "General how-to advice", "value": 8.5},
+        {"task": "Personal writing/communication", "value": 8.0},
+        {"task": "Computer programming", "value": 4.2},
+        {"task": "Math calculation", "value": 3.0},
+        {"task": "Relationships/personal reflection", "value": 1.9},
+        {"task": "Data analysis", "value": 0.4},
+        {"task": "Games/role-play", "value": 0.4}
+      ]
+    },
+    "topic_shares_pct": {"Practical Guidance": 29, "Seeking Information": 24, "Writing": 24, "Multimedia": 7.3, "Self-Expression": 5.3, "Technical Help": 5.1, "Other": 5.2},
+    "writing_note": "Two-thirds of all Writing requests are edits/critiques/translations/summaries of user-supplied text; only one-third is novel text. Sub-types by frequency: Editing/Critiquing > Personal Writing > Translation > Argument/Summary > Fiction.",
+    "example_prompts_verbatim": {
+      "asking": ["Who was president after Lincoln?", "What was the inflation rate last year?", "How do I create a budget for this quarter?", "What's the difference between correlation and causation?"],
+      "doing": ["Rewrite this email to make it more formal.", "Write a Dockerfile and a minimal docker-compose.yml for this app.", "Produce a project timeline with milestones and risks in a table.", "Extract companies, people, and dates from this text into CSV."]
+    },
+    "claude_collaboration_mode": {
+      "source": "Anthropic Economic Index (Feb 2025)",
+      "augmentation_total": 57, "automation_total": 43,
+      "data": [
+        {"mode": "Task iteration (augmentation)", "value": 31.3},
+        {"mode": "Directive / delegate (automation)", "value": 27.8},
+        {"mode": "Learning (augmentation)", "value": 23.3},
+        {"mode": "Feedback loop (automation)", "value": 14.8},
+        {"mode": "Validation (augmentation)", "value": 2.8}
+      ]
+    },
+    "prompt_literacy": {
+      "source": "arXiv 2509.25513 (n=937 US adults, controlled multi-turn experiment; preprint)",
+      "users_using_any_strategy_pct": 19.1,
+      "engineered_share_of_all_prompts_pct": 6.2,
+      "strategy_breakdown_pct_of_prompts": [
+        {"strategy": "Add contextual info", "value": 2.1},
+        {"strategy": "Cite external references", "value": 1.6},
+        {"strategy": "Specify response style", "value": 1.3}
+      ],
+      "unmeasured_gaps": "Average prompt length, voice-vs-text share, single- vs multi-turn rates, and politeness prevalence are NOT publicly available from primary vendors."
+    },
+    "sensitive_emotional": {
+      "sources": "OpenAI/NBER; Anthropic affective-use study (Clio, ~4.5M conversations); Filtered.com/HBR; Common Sense Media",
+      "perception_vs_reality": "Stated-use rankings (Filtered.com/HBR Zao-Sanders 2025) put 'therapy/companionship' at #1; measured conversation logs show emotional/affective use under 3%.",
+      "data_pct_of_conversations": [
+        {"metric": "Claude — all affective use", "value": 2.9},
+        {"metric": "ChatGPT — relationships/reflection", "value": 1.9},
+        {"metric": "ChatGPT — games/role-play", "value": 0.4},
+        {"metric": "Claude — companionship + roleplay (upper bound)", "value": 0.5},
+        {"metric": "Claude — romantic/sexual roleplay (upper bound)", "value": 0.1}
+      ],
+      "claude_affective_note": "Most affective use is interpersonal advice & coaching, not companionship.",
+      "teens": "72% of US teens (13-17) have used an AI companion at least once; over half use companion platforms a few times a month (Common Sense Media 2025). Intense emotional use concentrates on purpose-built apps (Character.AI, Replika), not general assistants."
+    }
+  },
   "sources": [
     {"name": "OpenAI / NBER — 'How People Use ChatGPT' (w34255, Sept 2025)", "url": "https://openai.com/index/how-people-are-using-chatgpt/", "type": "primary vendor"},
+    {"name": "OpenAI/NBER working paper page (w34255)", "url": "https://www.nber.org/papers/w34255", "type": "primary research"},
+    {"name": "Anthropic Economic Index — original paper (arXiv 2503.04761)", "url": "https://arxiv.org/html/2503.04761v1", "type": "primary research"},
+    {"name": "Anthropic — How people use Claude for support, advice & companionship", "url": "https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship", "type": "primary vendor"},
+    {"name": "Anthropic Economic Index — March 2026 report", "url": "https://www.anthropic.com/research/economic-index-march-2026-report", "type": "primary vendor"},
+    {"name": "Prompt-strategy study (arXiv 2509.25513)", "url": "https://arxiv.org/pdf/2509.25513", "type": "academic preprint"},
+    {"name": "HBR — How People Are Really Using Gen AI in 2025 (Zao-Sanders)", "url": "https://hbr.org/2025/04/how-people-are-really-using-gen-ai-in-2025", "type": "secondary"},
+    {"name": "Harvard Business School AI Institute — What people actually do with ChatGPT", "url": "https://aiinstitute.hbs.edu/heres-what-people-actually-do-with-chatgpt/", "type": "secondary"},
     {"name": "OpenAI economic-research usage paper (PDF)", "url": "https://cdn.openai.com/pdf/a253471f-8260-40c6-a2cc-aa93fe9f142e/economic-research-chatgpt-usage-paper.pdf", "type": "primary vendor"},
     {"name": "Anthropic Economic Index — September 2025 report", "url": "https://www.anthropic.com/research/anthropic-economic-index-september-2025-report", "type": "primary vendor"},
     {"name": "Anthropic Economic Index — January 2026 report", "url": "https://www.anthropic.com/research/anthropic-economic-index-january-2026-report", "type": "primary vendor"},

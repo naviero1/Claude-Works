@@ -79,6 +79,20 @@
   .srclist{column-count:1; font-size:13px}
   .srclist li{margin:8px 0; color:#cbd5ee}
   .scale-note{font-size:12px;color:var(--muted);margin-top:6px}
+  /* prompt bubbles */
+  .pcol h4{font-size:13px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 8px;color:var(--muted)}
+  .bubble{background:#0e1830;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:9px 13px;margin:8px 0;font-size:14px;color:#dbe4f7}
+  .bubble.do{border-left-color:var(--accent2)}
+  .bubble.feel{border-left-color:var(--accent3)}
+  .bubble .ex{color:#9fb0d6;font-size:12px;display:block;margin-bottom:2px}
+  .taxrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .taxrow .pct{font-weight:700;font-variant-numeric:tabular-nums;color:#eaf0ff}
+  .taxrow small{color:var(--muted);display:block;font-size:12px}
+  .vsbox{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:6px}
+  .vsbox>div{padding:18px}
+  .vsbox .l{border-right:1px solid var(--line)}
+  .vsbox .big{font-size:34px;font-weight:800;line-height:1}
+  .vsbox .ttl{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
   @media(max-width:820px){
     .grid2,.grid3,.herostats,.toc{grid-template-columns:1fr}
     .bar-row{grid-template-columns:120px 1fr 48px}
@@ -94,7 +108,7 @@
     <p class="lede">A data-driven look at who actually uses generative AI — and how — across countries, income levels, occupations, and generations. Built from vendor usage data, national surveys, and traffic analytics, each figure adversarially fact-checked.</p>
     <div class="meta-row">
       <span class="chip">Compiled 27 Jun 2026</span>
-      <span class="chip">27 sources · 114 claims · 23 verified 3-0</span>
+      <span class="chip">Two research passes · 50+ sources · ~230 claims · 33 verified 3-0</span>
       <span class="chip">4 lenses: country · class · occupation · demographics</span>
     </div>
     <div class="herostats" id="herostats"></div>
@@ -110,12 +124,15 @@
       <a href="#tools"><b>02</b>The tools: who wins the traffic</a>
       <a href="#modalities"><b>03</b>Modalities: it's still mostly text</a>
       <a href="#prompts"><b>04</b>Prompts &amp; tasks: what people ask for</a>
-      <a href="#class"><b>05</b>Class &amp; the digital divide</a>
-      <a href="#occupation"><b>06</b>Occupation &amp; use-case</a>
-      <a href="#demographics"><b>07</b>Demographics: age &amp; gender</a>
-      <a href="#geography"><b>08</b>Geography: leaders &amp; challengers</a>
-      <a href="#caveats"><b>09</b>Caveats &amp; method</a>
-      <a href="#sources"><b>10</b>Sources</a>
+      <a href="#taxonomy"><b>05</b>Deep dive: the question taxonomy + real prompts</a>
+      <a href="#phrasing"><b>06</b>Deep dive: how people actually phrase prompts</a>
+      <a href="#sensitive"><b>07</b>Deep dive: sensitive &amp; emotional uses</a>
+      <a href="#class"><b>08</b>Class &amp; the digital divide</a>
+      <a href="#occupation"><b>09</b>Occupation &amp; use-case</a>
+      <a href="#demographics"><b>10</b>Demographics: age &amp; gender</a>
+      <a href="#geography"><b>11</b>Geography: leaders &amp; challengers</a>
+      <a href="#caveats"><b>12</b>Caveats &amp; method</a>
+      <a href="#sources"><b>13</b>Sources</a>
     </div>
   </div>
 </section>
@@ -238,10 +255,132 @@
   </div>
 </section>
 
-<!-- 05 CLASS -->
+<!-- 05 TAXONOMY -->
+<section id="taxonomy">
+  <div class="wrap">
+    <div class="kicker">05 · Deep dive — the question taxonomy</div>
+    <h2>What people actually type, in detail</h2>
+    <p class="sub">OpenAI hand-built a taxonomy from ~1.1M real conversations. Below it is what people are really doing message-by-message — and it's not what the headlines suggest. The single biggest activity is looking up specific facts; the second is editing text people already wrote. "Creative AI writing a novel" barely registers.</p>
+    <div class="card">
+      <h3>The granular breakdown <span class="tag">% of all ChatGPT messages</span></h3>
+      <div id="taxonomy-chart"></div>
+      <div class="cap">Top-line topics: Practical Guidance 29% · Seeking Information 24% · Writing 24% · Multimedia 7.3% · Self-Expression 5.3% · Technical Help 5.1%. <b>Source:</b> OpenAI/NBER w34255 (some sub-figures read from charts; treat last decimal as approximate).</div>
+    </div>
+    <div class="grid2">
+      <div class="card pcol">
+        <h3>Real example prompts</h3>
+        <p class="divider-num">Taken verbatim from the OpenAI paper. ~49% of messages are <b>Asking</b>, ~40% are <b>Doing</b>, ~11% are <b>Expressing</b>.</p>
+        <h4 style="margin-top:14px">Asking (seeking info / advice)</h4>
+        <div class="bubble"><span class="ex">factual lookup</span>"Who was president after Lincoln?"</div>
+        <div class="bubble"><span class="ex">data point</span>"What was the inflation rate last year?"</div>
+        <div class="bubble"><span class="ex">how-to / planning</span>"How do I create a budget for this quarter?"</div>
+        <div class="bubble"><span class="ex">concept explainer</span>"What's the difference between correlation and causation?"</div>
+        <h4 style="margin-top:16px">Doing (produce an output)</h4>
+        <div class="bubble do"><span class="ex">rewrite / edit</span>"Rewrite this email to make it more formal."</div>
+        <div class="bubble do"><span class="ex">write code</span>"Write a Dockerfile and a minimal docker-compose.yml for this app."</div>
+        <div class="bubble do"><span class="ex">structure / plan</span>"Produce a project timeline with milestones and risks in a table."</div>
+        <div class="bubble do"><span class="ex">extract / transform</span>"Extract companies, people, and dates from this text into CSV."</div>
+        <div class="cap"><b>Source:</b> OpenAI/NBER, example prompts quoted verbatim.</div>
+      </div>
+      <div class="card">
+        <h3>Two surprises hiding in the data</h3>
+        <p class="pull">⅔ of all "writing" is editing — not creating</p>
+        <p style="color:var(--muted);margin-top:-4px">Two-thirds of Writing requests ask the AI to edit, critique, translate or summarize text the user already supplied. Only one-third is novel text from scratch, and fiction is the rarest writing sub-type of all.</p>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:18px 0">
+        <p class="pull">It's becoming a search engine</p>
+        <p style="color:var(--muted);margin-top:-4px">"Seeking Information" nearly doubled (14% → 24%) in a year, overtaking Writing. Specific-fact lookup alone is now ~18% of all messages — the single largest activity.</p>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:18px 0">
+        <h3 style="margin-top:6px">How people work <em>with</em> AI (Claude)</h3>
+        <p class="divider-num">Collaboration mode — augmentation (work together) vs automation (delegate).</p>
+        <div id="augmentation-chart"></div>
+        <div class="legend">
+          <span><i style="background:var(--accent2)"></i>Augmentation (57%)</span>
+          <span><i style="background:var(--accent4)"></i>Automation (43%)</span>
+        </div>
+        <div class="cap"><b>Source:</b> Anthropic Economic Index (Clio, O*NET task mapping).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 PHRASING -->
+<section id="phrasing">
+  <div class="wrap">
+    <div class="kicker">06 · Deep dive — prompt behavior</div>
+    <h2>Almost nobody "prompt-engineers"</h2>
+    <p class="sub">For all the talk of prompt engineering, the data shows people just ask plain questions. In a controlled study of nearly 1,000 US adults, only one in five ever used <em>any</em> prompting technique — and those techniques made up a tiny fraction of all prompts.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3>The prompt-literacy gap</h3>
+        <div class="vsbox">
+          <div class="l"><div class="ttl">Users who ever used a strategy</div><div class="big" style="color:var(--accent3)">19.1%</div><div style="color:var(--muted);font-size:13px;margin-top:6px">~1 in 5 people</div></div>
+          <div><div class="ttl">Of all prompts that were "engineered"</div><div class="big" style="color:var(--accent4)">6.2%</div><div style="color:var(--muted);font-size:13px;margin-top:6px">the other ~94% are plain questions</div></div>
+        </div>
+        <p class="divider-num" style="margin-top:18px">When people <em>do</em> add technique, here's what they reach for (% of all prompts):</p>
+        <div id="strategy-chart"></div>
+        <div class="cap"><b>Source:</b> arXiv 2509.25513 — n=937 nationally representative US adults, multi-turn experiment. Preprint; controlled topics, not organic logs.</div>
+      </div>
+      <div class="card">
+        <h3>What the picture is — and isn't</h3>
+        <ul class="facts">
+          <li><b>Plain language wins.</b> Most users type the way they'd talk to a person, not a machine — short, direct questions.</li>
+          <li><b>Follow-ups do the refining.</b> Rather than crafting one perfect prompt, people iterate in conversation — the multi-turn chat is the real "prompt."</li>
+          <li><b>Skill compounds.</b> Technical users (e.g. developers on Claude) issue far more structured, tool-like requests than mainstream users.</li>
+        </ul>
+        <div class="note" style="margin-top:16px"><b>An honest gap.</b> Hard, audited numbers for average prompt length, voice-vs-text share, single- vs multi-turn rates, and "please/thank you" politeness are <em>not</em> publicly available from the primary vendors. We've flagged these rather than cite unreliable estimates — see Caveats.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SENSITIVE -->
+<section id="sensitive">
+  <div class="wrap">
+    <div class="kicker">07 · Deep dive — sensitive &amp; emotional uses</div>
+    <h2>Companionship &amp; therapy: huge in headlines, small in the logs</h2>
+    <p class="sub">This is where perception and reality diverge most. In surveys that rank use cases by what people <em>talk about</em>, "therapy / companionship" tops the list. But when researchers measure <em>actual conversations</em>, emotional and companionship use is a low single-digit share — though it is far more intense among teens.</p>
+    <div class="card">
+      <h3>Perception vs. reality</h3>
+      <div class="vsbox">
+        <div class="l">
+          <div class="ttl">Stated-use ranking (what people discuss)</div>
+          <div class="big" style="color:var(--accent3)">#1</div>
+          <div style="color:var(--muted);font-size:13.5px;margin-top:8px">"Therapy / companionship" is the <b>top-ranked</b> generative-AI use case — up from #2 the year before.</div>
+          <div class="cap" style="margin-top:10px">Filtered.com / HBR (Zao-Sanders), 2025 — ranked from public discourse (Reddit, Quora, media).</div>
+        </div>
+        <div>
+          <div class="ttl">Measured in real conversation logs</div>
+          <div class="big" style="color:var(--accent2)">&lt;3%</div>
+          <div style="color:var(--muted);font-size:13.5px;margin-top:8px">Emotional / affective use is a <b>low single-digit</b> share of what people actually send.</div>
+          <div class="cap" style="margin-top:10px">OpenAI (1.9%) &amp; Anthropic affective study (2.9%), 2025.</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Emotional use, by the numbers <span class="tag">% of conversations</span></h3>
+        <div id="sensitive-chart"></div>
+        <div class="cap">On Claude, of the 2.9% "affective" share, <b>most is interpersonal advice &amp; coaching</b> — not companionship. Romantic/sexual roleplay is under 0.1%. <b>Source:</b> OpenAI/NBER; Anthropic affective-use study (Clio, ~4.5M conversations).</div>
+      </div>
+      <div class="card">
+        <h3>Teens are the exception</h3>
+        <p class="pull">72%</p>
+        <p style="color:var(--muted);margin-top:-4px">of US teens (13–17) have used an AI companion at least once; over half use companion platforms a few times a month.</p>
+        <ul class="facts" style="margin-top:14px">
+          <li>Among teens, dedicated <b>companion apps</b> (Character.AI, Replika) drive far higher emotional engagement than general assistants.</li>
+          <li>On general assistants like ChatGPT &amp; Claude, companionship stays under ~0.5% — the intense use happens on purpose-built platforms.</li>
+          <li>The aggregate "small share" hides a small group of <b>very heavy</b> emotional users.</li>
+        </ul>
+        <div class="cap"><b>Source:</b> Common Sense Media, 2025 (US teen companion-bot survey).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 CLASS -->
 <section id="class">
   <div class="wrap">
-    <div class="kicker">05 · Class &amp; the digital divide</div>
+    <div class="kicker">08 · Class &amp; the digital divide</div>
     <h2>AI adoption tracks income — closely</h2>
     <p class="sub">Usage rises almost in lockstep with wealth. A 1% higher GDP per capita is associated with about 0.7% higher AI usage per capita. The result is a sharp Global North–South divide, even as poorer countries grow fastest.</p>
     <div class="grid2">
@@ -270,7 +409,7 @@
 <!-- 06 OCCUPATION -->
 <section id="occupation">
   <div class="wrap">
-    <div class="kicker">06 · Occupation &amp; use-case</div>
+    <div class="kicker">09 · Occupation &amp; use-case</div>
     <h2>From students to engineers to enterprises</h2>
     <p class="sub">The same tool serves wildly different jobs. Developers lean on Claude for code; office workers use ChatGPT to write; students use AI for coursework; enterprises wire it into APIs to automate whole tasks.</p>
     <div class="grid2">
@@ -319,7 +458,7 @@
 <!-- 07 DEMOGRAPHICS -->
 <section id="demographics">
   <div class="wrap">
-    <div class="kicker">07 · Demographics</div>
+    <div class="kicker">10 · Demographics</div>
     <h2>AI is young — and no longer male</h2>
     <p class="sub">Usage drops steeply with age, and nearly half of all ChatGPT messages come from people under 26. The early male skew has effectively vanished.</p>
     <div class="grid2">
@@ -351,7 +490,7 @@
 <!-- 08 GEOGRAPHY -->
 <section id="geography">
   <div class="wrap">
-    <div class="kicker">08 · Geography</div>
+    <div class="kicker">11 · Geography</div>
     <h2>Who drives the volume — and who's catching up</h2>
     <p class="sub">The United States generates the most AI usage in absolute terms, but ranks only third per capita. India and Brazil are now top-three traffic sources for ChatGPT, and India leads Asia-Pacific on workplace adoption.</p>
     <div class="grid2">
@@ -374,15 +513,15 @@
 <!-- 09 CAVEATS -->
 <section id="caveats">
   <div class="wrap">
-    <div class="kicker">09 · Caveats &amp; method</div>
+    <div class="kicker">12 · Caveats &amp; method</div>
     <h2>How to read these numbers</h2>
     <div class="grid2">
       <div class="card">
         <h3>What we did</h3>
         <ul class="facts">
-          <li>Decomposed the question into 5 research angles and ran parallel web searches.</li>
-          <li>Fetched 27 sources and extracted 114 falsifiable claims.</li>
-          <li>Put the top 25 through 3-vote adversarial verification; 23 survived (2 were refuted and dropped).</li>
+          <li>Ran <b>two</b> multi-angle research passes — one on global usage, one drilling into prompts/questions and emotional use.</li>
+          <li>Fetched 50+ sources and extracted ~230 falsifiable claims across both passes.</li>
+          <li>Put the strongest claims through 3-vote adversarial verification; 33 survived (refuted claims were dropped).</li>
           <li>Prioritised primary vendor data and named survey houses over blogs.</li>
         </ul>
       </div>
@@ -403,7 +542,7 @@
 <!-- 10 SOURCES -->
 <section id="sources">
   <div class="wrap">
-    <div class="kicker">10 · Sources</div>
+    <div class="kicker">13 · Sources</div>
     <h2>Every source behind this report</h2>
     <p class="sub">Tagged by type. Primary vendor usage data and named survey houses carry the most weight; traffic estimates and secondary outlets are used for corroboration and trend direction.</p>
     <ol class="srclist" id="srclist"></ol>
@@ -546,7 +685,14 @@ const D = {
     ["Euronews — DeepSeek gains traction in developing nations","https://www.euronews.com/next/2026/01/09/deepseeks-ai-gains-traction-in-developing-nations-microsoft-report-says","secondary"],
     ["Business of Apps — DeepSeek statistics","https://www.businessofapps.com/data/deepseek-statistics/","secondary"],
     ["BCG — Generative AI adoption in Asia (2025)","https://www.bcg.com/publications/2025/generative-ai-adoption-in-asia","survey"],
-    ["DataReportal — Digital 2026 Global Overview","https://datareportal.com/reports/digital-2026-global-overview-report","aggregator"]
+    ["DataReportal — Digital 2026 Global Overview","https://datareportal.com/reports/digital-2026-global-overview-report","aggregator"],
+    ["OpenAI/NBER — “How People Use ChatGPT” (working paper w34255)","https://www.nber.org/papers/w34255","primary research"],
+    ["Anthropic Economic Index — original paper (arXiv 2503.04761)","https://arxiv.org/html/2503.04761v1","primary research"],
+    ["Anthropic — How people use Claude for support, advice & companionship","https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship","primary vendor"],
+    ["Anthropic Economic Index — March 2026 report","https://www.anthropic.com/research/economic-index-march-2026-report","primary vendor"],
+    ["Prompt-strategy study — nationally representative US adults (arXiv 2509.25513)","https://arxiv.org/pdf/2509.25513","academic preprint"],
+    ["Harvard Business Review — How People Are Really Using Gen AI in 2025 (Zao-Sanders)","https://hbr.org/2025/04/how-people-are-really-using-gen-ai-in-2025","secondary"],
+    ["Harvard Business School AI Institute — What people actually do with ChatGPT","https://aiinstitute.hbs.edu/heres-what-people-actually-do-with-chatgpt/","secondary"]
   ]
 };
 
@@ -654,6 +800,40 @@ hbars("gender",D.gender,{max:100});
 $("youthstats").innerHTML=D.youth.map(y=>`<div class="hs"><div class="v">${y.v}</div><div class="l">${y.l}</div></div>`).join("");
 hbars("chatgpt-country",D.chatgptCountry,{max:16});
 hbars("claude-country",D.claudeCountry,{max:24});
+
+/* --- deep-dive charts --- */
+hbars("taxonomy-chart",[
+  {n:"Specific-fact lookup",v:18.3,c:"var(--accent)"},
+  {n:"Editing / critiquing your text",v:10.6,c:"var(--accent3)"},
+  {n:"Tutoring / teaching",v:10.2,c:"var(--accent2)"},
+  {n:"General how-to advice",v:8.5,c:"var(--accent)"},
+  {n:"Personal writing / comms",v:8.0,c:"var(--accent3)"},
+  {n:"Computer programming",v:4.2,c:"var(--accent5)"},
+  {n:"Math calculation",v:3.0,c:"var(--accent5)"},
+  {n:"Relationships / reflection",v:1.9,c:"var(--accent4)"},
+  {n:"Data analysis",v:0.4,c:"#6f86c9"},
+  {n:"Games / role-play",v:0.4,c:"#7a6fc9"}
+],{max:19});
+hbars("augmentation-chart",[
+  {n:"Task iteration",v:31.3,c:"var(--accent2)"},
+  {n:"Directive (delegate)",v:27.8,c:"var(--accent4)"},
+  {n:"Learning",v:23.3,c:"var(--accent2)"},
+  {n:"Feedback loop",v:14.8,c:"var(--accent4)"},
+  {n:"Validation",v:2.8,c:"var(--accent2)"}
+],{max:33});
+hbars("strategy-chart",[
+  {n:"Add contextual info",v:2.1,c:"var(--accent)"},
+  {n:"Cite external references",v:1.6,c:"var(--accent)"},
+  {n:"Specify response style",v:1.3,c:"var(--accent)"}
+],{max:2.4});
+hbars("sensitive-chart",[
+  {n:"Claude — all affective use",v:2.9,c:"var(--accent2)"},
+  {n:"ChatGPT — relationships / reflection",v:1.9,c:"var(--accent)"},
+  {n:"ChatGPT — games / role-play",v:0.4,c:"var(--accent3)"},
+  {n:"Claude — companionship + roleplay",v:0.5,c:"var(--accent5)"},
+  {n:"Claude — romantic / sexual roleplay",v:0.1,c:"var(--accent4)"}
+],{max:3.1,scaleNote:"Companionship/roleplay shares are upper bounds (reported as “<0.5%” and “<0.1%”)."});
+
 $("srclist").innerHTML=D.sources.map(s=>`<li><a href="${s[1]}" target="_blank" rel="noopener">${s[0]}</a> <span class="tag">${s[2]}</span></li>`).join("");
 </script>
 </body>
