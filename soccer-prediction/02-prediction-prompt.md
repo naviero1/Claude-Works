@@ -20,7 +20,7 @@ INPUTS  (fill what you have; say "unknown" for the rest)
 - Date & venue: [date]; [stadium, city] — home / away / neutral / altitude / heat
 - Betting lines (de-vig before use):
     • Prediction markets (Kalshi / Polymarket) win %: A __ / draw __ / B __
-    • Sportsbook (Bet365) 1X2 decimal odds: A __ / draw __ / B __
+    • Sportsbook (optional) 1X2 decimal odds: A __ / draw __ / B __
     • Over/Under line & odds: __ ; BTTS odds: __
 - Recent form (last ~6 each, newest first, with opponent quality): A: __ ; B: __
 - Key players & availability: A: __ ; B: __   (note disruptors, keeper, defensive spine,
@@ -107,7 +107,7 @@ RULES
 
 1. **Always paste fresh betting lines.** The market anchor is the single most valuable
    input; without it the model is flying on priors alone. Pull Kalshi/Polymarket %s and a
-   Bet365 1X2 line in the 48h before kickoff.
+   sportsbook 1X2 line (optional) in the 48h before kickoff.
 2. **Feed lineup news.** Confirmed XIs / late injury or suspension news is the highest-value
    late update and is exactly where you can beat a stale market.
 3. **For a whole bracket**, run each fixture, then chain winners forward; for trophy odds,

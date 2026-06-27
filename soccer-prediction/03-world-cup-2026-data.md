@@ -13,7 +13,7 @@ through). **Round of 32 runs June 28 → July 3.**
 
 ## Market-implied trophy odds (the team-strength tiers)
 
-Blended from Polymarket, Kalshi, and Bet365 outright markets (implied probability to *win
+Blended from Polymarket and Kalshi outright markets (implied probability to *win
 the tournament*). These set our relative strength tiers. Note how bunched the top is — a
 function of the 48-team format and comparable elite-squad depth.
 
@@ -83,5 +83,5 @@ Dates/venues per FIFA scheduling sources; some slotting depends on final third-p
 - Olympics.com R32 full schedule — https://www.olympics.com/en/news/fifa-world-cup-2026-bracket-round-32-full-schedule-live-updates
 - Polymarket WC winner market — https://polymarket.com/event/world-cup-winner
 - Kalshi WC winner market — https://kalshi.com/markets/kxmenworldcup/mens-world-cup-winner/kxmenworldcup-26
-- Bet365 / aggregated outright odds (Oddspedia) — https://oddspedia.com/insights/football/world-cup-2026-outright-odds
+- Aggregated outright odds (Oddspedia) — https://oddspedia.com/insights/football/world-cup-2026-outright-odds
 - Kalshi & Polymarket odds tracker (DeFiRate) — https://defirate.com/prediction-markets/world-cup-odds/

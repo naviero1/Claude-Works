@@ -40,7 +40,7 @@ you little; assigning it a *well-calibrated probability* is the skill.
 | Argentina–Cabo Verde | 2–0 | 80/14/6 | — | | | | | |
 | Colombia–Croatia | 2–1 | 48/28/24 | — | | | | | James vs aging Croatia core |
 
-**Fill the Market P(H/D/A) column from de-vigged Bet365/Kalshi/Polymarket lines in the 48h
+**Fill the Market P(H/D/A) column from de-vigged Polymarket/Kalshi lines in the 48h
 before each game** — comparing our number to the market is half the value of the log.
 
 ## June 27 group-stage portfolio (final matchday)

@@ -53,9 +53,10 @@ correct portfolio when you have no measured edge — discipline, not action.
 - Do **not** cross-parlay independent games to manufacture odds; it multiplies vig and variance.
 
 ## What would unlock larger allocation (the real edges to hunt)
-1. **Bet365 vs prediction-market divergence.** If Bet365's de-vigged 1X2 differs from
-   Polymarket/Kalshi by ≥4–5%, *that gap is the edge* — stake the cheaper side. (You're my only
-   Bet365 source — send those lines.)
+1. **Cross-market divergence (Polymarket vs Kalshi).** When the two prediction markets disagree by
+   ≥3–4% on the same outcome, the cheaper side is value. **Caveat:** they usually track each other
+   very tightly (today they were ~1% apart), so this is a thin, occasional source — not a reliable
+   well. With Bet365 excluded, our edge comes mainly from #2 and #3 below, not cross-book gaps.
 2. **Lineup news.** If Argentina confirms heavy rotation after the market has stopped moving,
    **Under 2.5 / Jordan +1.5** becomes a genuine value position (1–1.5 u). Lineup-gated.
 3. **Live line lag.** Prediction markets can lag a goal/red card by seconds — only actionable if

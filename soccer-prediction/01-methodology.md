@@ -62,7 +62,7 @@ real money disciplines them. We anchor on three complementary venues:
 |---|---|---|---|
 | **Kalshi** | Regulated US prediction market (event contracts) | Continuous, de-vigged-ish probabilities; deep volume ($500M+ on WC winner) | Thinner on obscure single matches until days before |
 | **Polymarket** | Crypto prediction market | Real-time crowd probability; fast to react to news | Same thinness on minor matches; reflects a particular trader base |
-| **Bet365** | Traditional sportsbook | Sharp 1X2 / over-under / BTTS lines on every match | Prices include the **vig (overround)** — must be removed |
+| *Sportsbooks (optional)* | Traditional books | Sharp 1X2 / over-under / BTTS lines | **Not used in this project** (prediction markets only); vig must be removed if added |
 
 **De-vigging (remove the bookmaker margin).** Sportsbook odds sum to >100% implied
 probability. Normalize:

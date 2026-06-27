@@ -1,4 +1,4 @@
-# Live Odds — Market Reference (Polymarket · Kalshi · Bet365)
+# Live Odds — Market Reference (Polymarket · Kalshi)
 
 How to read and use the betting markets that anchor every prediction. Built from live
 Polymarket + Kalshi screenshots of the **Colombia vs Portugal** Group K decider (June 27, 2026),
@@ -75,7 +75,7 @@ to score (BTTS ~59%), Portugal more likely to strike first (58%).
 > live test of the method — check it after tonight's result.
 
 ## Workflow for feeding me odds
-- **Screenshots:** send Polymarket/Kalshi (or Bet365) shots; I read the 3-way + totals + team
+- **Screenshots:** send Polymarket/Kalshi shots; I read the 3-way + totals + team
   totals + BTTS + goalscorer and produce a fully anchored prediction.
 - **What's most valuable:** the 3-way moneyline (anchor), the team totals (the λ split), and the
   goalscorer market (disruptor check). Those three pin the whole forecast.
