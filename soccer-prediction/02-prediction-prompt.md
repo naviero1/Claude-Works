@@ -56,10 +56,17 @@ METHOD  — reason through every layer, showing your work briefly:
      rarely flips the favorite, but it routinely turns a comfortable line into a coin-flip
      and drags games toward low scores / penalties.
 
-6. CONTEXT & MINDSET (lightest touch)
+6. CONTEXT, MENTALITY & MINDSET
    - Rest, travel, altitude/heat, congestion, knockout pressure, penalty history, H2H.
-   - Morale / momentum / narrative / sentiment: use ONLY as a tie-breaker between balanced
-     scenarios or to flag an emotionally loaded game. Label this adjustment low-confidence.
+   - MENTALITY ("Uruguay principle"): identify whether the underdog is a high-belief, well-
+     organized side that historically punches above its talent (Uruguay, Croatia, Morocco, Iran,
+     Japan archetype). If so, RAISE the draw probability, raise the underdog's defensive floor,
+     favor unders, and WIDEN the distribution — do NOT price the favorite above ~70% without a
+     strong, specific reason. Talent + belief is what produces unpredictable results.
+   - Morale / momentum / narrative / sentiment: use as a tie-breaker between balanced scenarios
+     or to flag an emotionally loaded game (host nation, cinderella, wounded giant, rivalry).
+     Label these low-confidence. When genuinely uncertain, report a FLATTER distribution rather
+     than faking precision.
 
 7. RECONCILE
    - Combine layers into final λ_A, λ_B and a final P(A)/P(draw)/P(B). If your number now

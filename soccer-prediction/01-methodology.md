@@ -134,6 +134,34 @@ otherwise-balanced scenarios, or a flag for an "emotionally loaded" game (host n
 cinderella with nothing to lose, a team in crisis). An LLM's edge here is breadth of recent
 context a pure stats model can't see — used carefully and labeled with low confidence.
 
+## 6b. Mentality, belief & irreducible uncertainty — the "Uruguay principle"
+
+The most important idea pure stats models miss: **a team can systematically overperform its
+raw talent through mentality** — collective belief, defensive resilience, big-game temperament,
+tactical discipline. **Uruguay is the archetype** ("garra charrúa"): outside Valverde (genuinely
+elite) and Bentancur, few individual "disruptors" — Núñez is erratic — yet they can hold or draw
+a far more talented Spain. That is not a fluke; it's mentality + organization compressing a
+talent gap. The same DNA shows up in Croatia, Morocco, Iran, Japan, and the Greece-2004 archetype.
+
+This has three modeling consequences:
+
+1. **Mentality raises the underdog's floor and pulls games toward draws/penalties.** Increase
+   P(draw) and the underdog's defensive solidity; favor unders. Talent + belief mixed together
+   is what produces "unpredictable results."
+2. **Don't over-price favorites against high-belief, well-organized sides.** A favorite that
+   talent alone says is 75–80% should often be marked down toward 55–65% here. **Widen the
+   distribution.**
+3. **It is a source of irreducible uncertainty.** Some single games are genuinely unpredictable;
+   the honest output is a *flatter* distribution (e.g., 50/30/20), not false precision. This is
+   *why* we anchor to markets and report distributions — the market already prices much of this,
+   and a distribution captures "the upset is live" in a way a point estimate never can.
+
+**Detecting high-mentality sides:** a history of punching above talent in big games; strong
+defensive organization and an experienced spine; "nothing to lose" or "wounded giant" narratives;
+derby/rivalry intensity; proven shootout temperament. **Mentality vs cohesion:** cohesion = how
+well they play together (system/chemistry); mentality = belief/resilience under pressure. They
+compound, and mentality especially spikes in knockouts and shootouts.
+
 ## 7. Output discipline
 
 Always produce a **distribution**, never a single fake-precise score:

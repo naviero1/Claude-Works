@@ -2,7 +2,14 @@
 
 Hosts: USA / Canada / Mexico. Format: 48 teams, 12 groups (A–L). Advancing to Round of 32:
 12 group winners + 12 runners-up + 8 best third-placed teams. **Final: July 19, MetLife
-Stadium (NJ).** Group stage is complete; **Round of 32 runs June 28 → July 3.**
+Stadium (NJ).** The **final group games conclude June 27** — including the **Group K decider
+Colombia vs Portugal (Jun 27, 7:30 PM)**, which sets their R32 seeding (both likely already
+through). **Round of 32 runs June 28 → July 3.**
+
+> **Correction (v1.2):** Colombia and Portugal are in the **same group (K)** and play tonight —
+> they are *not* an R32 tie. The R32 seeding below (Colombia→Croatia, Portugal→Ghana) assumes
+> the expected group outcome and may swap depending on tonight's result. See the live worked
+> example in [`09-live-odds-market-reference.md`](09-live-odds-market-reference.md).
 
 ## Market-implied trophy odds (the team-strength tiers)
 
