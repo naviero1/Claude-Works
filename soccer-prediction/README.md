@@ -16,7 +16,11 @@ coin flip — its value is as an **adjustment layer** on a sound quantitative ba
 | [`01-methodology.md`](01-methodology.md) | The theory: Maher → Dixon-Coles → modern extensions, plus how betting markets, players, and cohesion enter the model. |
 | [`02-prediction-prompt.md`](02-prediction-prompt.md) | **The deliverable** — the curated, reusable prompt to paste into any AI model. |
 | [`03-world-cup-2026-data.md`](03-world-cup-2026-data.md) | Live tournament snapshot: results, standings, market odds (as of 2026-06-27). |
-| [`04-round-of-32-predictions.md`](04-round-of-32-predictions.md) | Worked predictions for all 16 Round of 32 fixtures using the methodology. |
+| [`04-round-of-32-predictions.md`](04-round-of-32-predictions.md) | Worked predictions for all 16 Round of 32 fixtures (v1.1, player-adjusted). |
+| [`05-disruptor-rubric-and-worked-example.md`](05-disruptor-rubric-and-worked-example.md) | Turns "X is a disruptor" into a ±λ number; a fully worked Poisson example. |
+| [`06-bracket-simulation.md`](06-bracket-simulation.md) | Monte-Carlo method for trophy odds + a market-anchored current read. |
+| [`07-predict-and-score-log.md`](07-predict-and-score-log.md) | Brier/log-loss scoring template to grade forecasts vs outcomes. |
+| [`08-player-ratings.md`](08-player-ratings.md) | Disruptor leaderboard, R32 availability watch, cohesion index, per-team ratings. |
 
 ## The layered model in one picture
 
@@ -35,6 +39,9 @@ coin flip — its value is as an **adjustment layer** on a sound quantitative ba
 ## Status
 
 - **v1.0** — initial methodology, prompt, WC2026 data snapshot, and R32 predictions.
+- **v1.1** — added disruptor rubric + worked example, bracket simulation, scoring log, and a full
+  player-ratings reference (real club/CL/Copa Libertadores/MLS data + EA FC cross-check);
+  R32 predictions re-adjusted for player availability and cohesion.
 
 > Predictions are model estimates for research/entertainment. Per-match betting lines
 > firm up in the 48h before kickoff; always refresh them before relying on a forecast.

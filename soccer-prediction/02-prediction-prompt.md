@@ -97,6 +97,9 @@ RULES
    simulate the bracket many times (or read the outright market directly).
 4. **Score yourself.** Log predicted vs actual and compute Brier score / log-loss over time;
    that feedback is how the methodology earns trust.
+5. **Quantify the player layer.** Use the [disruptor rubric](05-disruptor-rubric-and-worked-example.md)
+   to turn "X is a disruptor" into an actual ±λ adjustment, and follow the worked Poisson example
+   there so the λ/μ → scoreline math is consistent every time.
 
 ## Variants
 - **Quick mode:** keep only layers 1 (market), 2 (stats), 4 (players) and the OUTPUT block.

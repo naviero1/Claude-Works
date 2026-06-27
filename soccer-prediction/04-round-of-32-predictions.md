@@ -88,6 +88,38 @@ Spain · Switzerland · Portugal · Egypt · Argentina · Colombia.
 *(Re-run each tie once the bracket is concrete; later rounds are best handled by simulating
 the bracket many times rather than a single chain.)*
 
+## v1.1 — Player & availability adjustments (after deep player research)
+
+The player/disruptor + cohesion research (see [`08-player-ratings.md`](08-player-ratings.md))
+moves several lines. The biggest deltas:
+
+- **Brazil–Japan** → *closer than the market.* Brazil are materially weakened (**Raphinha OUT**;
+  Neymar/Rodrygo/Estêvão unavailable) — Vinícius Jr is now the lone elite weapon. But Japan also
+  lose **Mitoma + Minamino** (and Endo is doubtful), thinning their creativity. Net: still Brazil
+  (2–1) but lower confidence; Japan's cohesion makes the upset price likely too long.
+- **Portugal–Ghana** → *upgrade Portugal.* **Kudus + Salisu OUT** strips Ghana's best player and a
+  defender. Revise to **3–0**, confidence High.
+- **South Africa–Canada** → *upgrade Canada.* SA lose all-time top scorer **Zwane (suspended)**;
+  Canada have an in-form Jonathan David (group hat-trick). Hold **Canada 2–1**, nudge confidence up
+  to Medium (watch Davies' fitness).
+- **Germany–Paraguay** → *slight Germany upgrade.* Paraguay lose midfield goal threat **Diego Gómez
+  (suspended)**; Germany still without Schlotterbeck. Hold **2–1**.
+- **Netherlands–Morocco** → *upset even more live.* The Dutch start a makeshift CB pairing
+  (**Timber + de Ligt both OUT**) against Hakimi/Brahim and a shootout-proof keeper in Bono. True
+  coin-flip; lean Morocco on **draw-then-penalties**.
+- **Mexico–Ecuador** → *keeps the coin-flip.* Mexico's first-choice GK **Malagón is OUT** (39-yo
+  Ochoa in goal) — a real vulnerability that offsets the Azteca-altitude home edge. Ecuador have
+  Caicedo (control) + Plata (scored vs Germany, Libertadores-tested). Hold **1–1, Mexico narrow.**
+- **France–Sweden** → *France even safer.* Sweden lose CB **Hien** against Mbappé/Dembélé. Hold **3–1**.
+- **Switzerland–Iran** → *lowest-scoring game on the board.* Iran's low block + **Taremi (Olympiacos)**
+  on the counter; Azmoun omitted. Favor the **under**; Switzerland 1–0 or pens.
+- **Colombia–Croatia** → **Luis Díaz** (not James) is Colombia's swing factor; James (34, MLS) is the
+  set-piece architect. Croatia's core looks a step slow. Hold **Colombia 2–1**.
+- **Australia–Egypt** → **Salah** is the difference-maker in a coin-flip; hold **Egypt 1–2**.
+
+> Net bracket effect: Brazil and Netherlands are the two "favorites" whose paths got harder; Portugal
+> and Canada got easier. Argentina, France and Spain remain the cleanest favorites in R32.
+
 ## Scoring & feedback
 Log each predicted scoreline vs the actual result and compute Brier score / log-loss. After
 the round, update team strengths (time-decay weight the new games) and re-anchor to the
