@@ -1,211 +1,223 @@
-# Supplier Part Risk Analysis — Framework & Scoring Rubric (v0.1 draft)
+# Supplier Part Risk Analysis — Framework & Scoring Rubric (v0.2 draft)
 
-**Purpose:** a single, repeatable method to evaluate **every part** we buy — standard/catalog parts, custom-engineered parts, and **porcine tissue sourced from local slaughterhouses** — and assign each a defensible **risk class** with a matching action plan.
+**Context:** Built for a **tissue-models** operation (ex-vivo **porcine tissue** sourced from local slaughterhouses, used as a substrate for **surgical R&D, instrument/energy-device testing, and training** — *not* an implantable medical device). Also covers standard/catalog and custom-engineered purchased parts.
 
-**Status:** First draft. Scoring anchors are adapted from recognized standards (see *Traceability* §9) so the method is audit-defensible. Acceptance thresholds (§6) are **placeholders that management must ratify** before use.
+**Status:** Draft. Scoring anchors are adapted from recognized risk methods (see *Traceability* §9) so the method is defensible. Acceptance thresholds (§6) are **placeholders to be ratified internally** (Quality + EHS).
 
-> ⚠️ **Scope assumption:** This draft assumes the porcine tissue feeds a **biomedical / tissue-engineering** application. If the end use is food, pet-food, or research-reagent grade, the governing standards in §8 change. Confirm before finalizing.
+> ✅ **Scope correction from v0.1:** Tissue models are **not medical devices**, so medical-device standards (ISO 14971/13485/**22442**/10993/14160) are **optional good-practice references, not governing**. Xenotransplant concerns (PERV, decellularization, α-Gal, residual DNA) are **out of scope** — they apply to implants, not test/training substrates. The biological layer is re-centered on **handler biosafety** and **model fitness-for-purpose**.
 
 ---
 
 ## 1. Design principle
 
-Risk is not one number. Both ISO 14971 (medical-device risk management) and the AIAG-VDA FMEA method decompose it:
+Risk is multi-dimensional. We keep the **FMEA scoring engine** (it's general-purpose and audit-friendly) but point it at the consequences that actually matter for tissue models: **staff infection, invalid test/training results, and operational/compliance loss.**
 
-- **ISO 14971** — *risk = probability of occurrence of harm × severity of that harm.* The standard deliberately **does not** mandate a risk matrix or acceptable levels; the manufacturer must **define its own objective acceptability criteria and record the categorization system in the risk management file.**
-- **AIAG-VDA FMEA** — splits "probability" into **Occurrence** (how often the cause happens) and **Detection** (chance it escapes), scores **Severity / Occurrence / Detection** 1–10, and prioritizes with **Action Priority (AP: High/Medium/Low)** — which weights **Severity first, then Occurrence, then Detection.** (RPN was *dropped* in the 2019 edition because it weights S, O, D equally.)
+- **FMEA (AIAG-VDA)** — score **Severity / Occurrence / Detection** 1–10; prioritize with **Action Priority (AP: High/Medium/Low)**, which weights **Severity → Occurrence → Detection**. (RPN was retired in 2019 because it weights S/O/D equally.)
+- **Self-defined acceptability** — the ISO 14971 *principle* still helps even though the standard doesn't govern us: **we** define and document our own objective acceptability criteria and keep the records. Here that means a **Quality + EHS** policy, not a regulatory submission.
 
-We therefore use a **two-layer model**:
+**Two-layer model:**
 
 | Layer | Applies to | What it scores |
 |---|---|---|
 | **Layer A — Universal supplier-part risk** | **All** parts | Failure consequence (S), defect likelihood (O), escape likelihood (D) → **Action Priority**; plus **Supply Continuity** and **Supplier Maturity** |
-| **Layer B — Biological source risk** | **Tissue parts only** | Herd/source status, abattoir/collection controls, bioburden, viral/TSE inactivation, immunogenicity, + pathogen-exclusion gate |
+| **Layer B — Tissue risk** | **Tissue only** | **Fitness-for-purpose**, **lot-to-lot consistency & traceability**, **handler biosafety**, **cold chain**, **waste/disposal** + a legal/biosafety **gate** |
 
-A tissue part carries **both** an A score and a B score; for biologics the B layer can override and force a higher class. Custom and catalog parts use Layer A only.
+A tissue part carries **both** A and B scores; Layer B can override and force a higher class. Custom and catalog parts use Layer A only.
 
 ---
 
-## 2. Step-by-step process (mirrors ISO 14971 clause flow)
+## 2. Use-case tier (tissue only) — sets the consistency bar
 
-1. **Identify & segment the part** — Tissue / Custom / Catalog (drives which layers apply).
-2. **Score Layer A** — Severity, Occurrence, Detection (§3) → derive **Action Priority** (§5).
-3. **Score procurement axes** — Supply Continuity + Supplier Maturity (§4).
-4. **If tissue → score Layer B** (§7) and run the **pathogen-exclusion gate** (§7.3).
-5. **Aggregate → Final Risk Class** (§6).
-6. **Assign actions** from the playbook (§6.2): sourcing strategy, incoming-inspection level, audit cadence, safety stock.
-7. **Record & trace** — owner, review date, re-evaluation trigger; keep the record in the risk file (§9).
+How strict the **consistency/traceability** requirement is depends on what the model is *for*. Tag each tissue part:
+
+| Use tier | Examples | Consistency/traceability rigor |
+|---|---|---|
+| **T1 — V&V / test data** | Energy-device performance, design verification, claims support | **Highest** — reproducible lots, full traceability, test-method validation, controlled acceptance criteria |
+| **T2 — Training** | Surgeon wet-labs, instrument familiarization | **Medium** — fidelity matters; statistical reproducibility less critical |
+| **T3 — R&D / prototyping** | Feasibility, early design iteration | **Lower** — flexible fidelity |
+| **T4 — Demo / marketing** | Trade shows, sales demos | **Appearance/behavior** over data integrity |
+
+> **Open item:** confirm which tiers apply (a part may span several). T1 is the only tier that pulls in test-method-validation rigor (e.g., ISO/IEC 17025-style repeatability) — if any tissue feeds V&V data, that axis weights heavily.
 
 ---
 
 ## 3. Layer A — core scoring scales (1–10)
 
-Anchors adapted from AIAG-VDA FMEA tables D1/D2/D3 to a purchased-part / medical context.
+S/O/D structure from AIAG-VDA, anchors re-pointed at tissue-model consequences.
 
-### 3.1 Severity (S) — consequence if this part fails
+### 3.1 Severity (S) — consequence if this part / tissue fails its purpose
 | Score | Anchor |
 |---:|---|
-| 10 | Failure can cause **patient death or serious injury**, or **transmit infectious disease** (no warning). |
-| 9 | **Regulatory noncompliance / reportable event**; loss of sterility or biocompatibility. |
-| 8 | **Loss of primary product function** — recall-level. |
-| 7 | Degradation of primary function. |
-| 6 | Loss of a secondary function. |
-| 5 | Degradation of a secondary function. |
-| 4 | Major appearance/usability defect; rework required. |
-| 3 | Minor, noticeable defect. |
-| 2 | Slight defect. |
+| 10 | **Staff exposure causing serious zoonotic infection**; **or** invalid tissue model produces erroneous **V&V data that could drive an unsafe device decision**. |
+| 9 | **Compliance breach** — illegal/undocumented byproduct sourcing, biohazard-waste or lab-safety violation. |
+| 8 | Model failure **invalidates a critical test/study** — must repeat; major program/schedule impact. |
+| 7 | Degrades validity of test or training results. |
+| 6 | Loss of a secondary test/training capability. |
+| 5 | Degraded secondary capability. |
+| 4 | Usable but poor fidelity; re-prep/rework needed. |
+| 3 | Minor inconsistency, noticeable. |
+| 2 | Slight. |
 | 1 | No discernible effect. |
 
-### 3.2 Occurrence (O) — likelihood the supplier ships a nonconforming part
-| Score | Anchor (supplier/process maturity) |
+### 3.2 Occurrence (O) — likelihood the supplier delivers nonconforming material
+| Score | Anchor (supplier/source maturity) |
 |---:|---|
-| 10 | New supplier/process, **no history**, no prevention controls. |
-| 9 | First use of new material/process by this supplier; no validation experience. |
-| 8–6 | Increasingly similar to a proven process; partial history; PPM high→moderate. |
-| 5–4 | Proven process with minor changes; documented capability. |
-| 3–2 | Mature process, **long history of low PPM**, capable (Cpk OK). |
-| 1 | Failure cause **eliminated** by design/process control. |
+| 10 | New supplier/source, **no history**, no controls. |
+| 9 | First use of new source/process; no validation experience. |
+| 8–6 | Increasingly similar to a proven source; partial history; defect rate high→moderate. |
+| 5–4 | Proven source with minor changes; documented track record. |
+| 3–2 | Mature source, **long history of good conformance**. |
+| 1 | Failure cause **eliminated** by control. |
 
-### 3.3 Detection (D) — likelihood a defect **escapes our incoming controls**
+### 3.3 Detection (D) — likelihood a problem **escapes our incoming/intake checks**
 | Score | Anchor |
 |---:|---|
-| 10 | **No incoming inspection or test exists** for this characteristic. |
-| 9 | Inspection not specific to the failure mode/cause. |
-| 8 | New/unproven test method. |
+| 10 | **No intake inspection/acceptance check exists** for this characteristic. |
+| 9 | Check not specific to the failure mode (e.g., visual only, misses freshness/pathology). |
+| 8 | New/unproven acceptance method. |
 | 7–5 | Proven method but sampling-based / detects late. |
-| 4–2 | Proven method, effective sampling or SPC, catches early. |
-| 1 | Defect **cannot pass** (100% automated detection / error-proofing). |
+| 4–2 | Proven method, effective sampling, catches early. |
+| 1 | Problem **cannot pass** (100% check / error-proofing). |
 
 ---
 
 ## 4. Procurement axes (1–5; 5 = highest risk)
 
-Adapted from the Kraljic supply-risk axis and the CSQP/Gordon supplier-scorecard criteria.
+From Kraljic supply-risk segmentation + CSQP/Gordon scorecard criteria.
 
 ### 4.1 Supply Continuity Risk
 | Score | Condition |
 |---:|---|
-| 5 | **Sole source**, no qualified alternative, long/variable lead time, financially weak supplier, high switching cost. |
+| 5 | **Sole source**, no qualified alternative, variable availability, high switching cost. |
 | 4 | Single source, alternative exists but unqualified. |
-| 3 | Dual source, moderate lead time. |
-| 2 | Multi-source, short lead time, stable. |
-| 1 | Commodity, many interchangeable sources, financially strong. |
+| 3 | Dual source, moderate reliability. |
+| 2 | Multi-source, reliable. |
+| 1 | Many interchangeable sources. |
 
 ### 4.2 Supplier Maturity Risk *(inverse of scorecard performance)*
-Drivers (from CSQP 100-pt scorecard): **certifications (ISO 13485/9001), PPM, SCAR responsiveness, on-time delivery, audit results.**
+Drivers (CSQP 100-pt scorecard): quality/defect history, corrective-action responsiveness, on-time delivery, documentation, audit results.
 | Score | Condition |
 |---:|---|
-| 5 | Uncertified, no quality history, poor/late SCAR response. |
-| 4 | Certified to ISO 9001 only; spotty history. |
-| 3 | Certified, average scorecard. |
-| 2 | Strong scorecard, low PPM, responsive. |
-| 1 | ISO 13485 certified, excellent scorecard, validated processes. |
+| 5 | No quality system, no history, poor/late corrective action. |
+| 4 | Basic controls; spotty history. |
+| 3 | Average track record. |
+| 2 | Strong record, responsive. |
+| 1 | Mature quality system, excellent record. |
 
 ---
 
 ## 5. Action Priority (AP) — from S, O, D
 
-Per AIAG-VDA, AP prioritizes **the action**, not just the score, weighting **Severity → Occurrence → Detection**. Simplified working rule (use the full AIAG-VDA AP table for edge cases):
+Severity-weighted, per AIAG-VDA. Working rule (use the full AP table for edge cases):
 
 | Condition | AP |
 |---|---|
-| **S 9–10** with O ≥ 2 (any meaningful chance) | **High** |
+| **S 9–10** with O ≥ 2 | **High** |
 | S 7–8 with O ≥ 4, **or** S 4–6 with O ≥ 6 and D ≥ 5 | **High** |
-| Mid combinations (moderate S with moderate O/D) | **Medium** |
+| Moderate S with moderate O/D | **Medium** |
 | Low S, low O, strong detection | **Low** |
 
-- **High** → action to improve prevention/detection **is required**, *or* documented justification that controls are adequate.
-- **Medium** → action **should** be taken or justified.
-- **Low** → action optional/monitor.
-- Any **Severity 9–10** item with AP High/Medium → **management review** regardless of class.
+- **High** → action required *or* documented justification controls are adequate.
+- **Medium** → action should be taken or justified.
+- **Low** → optional / monitor.
+- Any **Severity 9–10** with AP High/Medium → escalate to management/EHS review.
 
 ---
 
 ## 6. Final Risk Class & acceptability
 
-### 6.1 Classification rule (placeholder — ratify before use)
-Assign the **highest** class triggered by any rule below.
+### 6.1 Classification rule (placeholder — ratify with Quality + EHS)
+Assign the **highest** class triggered.
 
 | Final Class | Triggered when… |
 |---|---|
-| **CRITICAL** | Tissue **pathogen Tier-1 gate not cleared** (§7.3); **or** any Layer-B dimension = 5; **or** AP High **with** S 9–10; **or** AP High with Supply Continuity = 5. |
+| **CRITICAL** | Tissue **legal/biosafety gate not cleared** (§7.3); **or** any Layer-B dimension = 5; **or** AP High with S 9–10; **or** AP High with Supply Continuity = 5. |
 | **HIGH** | AP High; **or** any Layer-B dimension = 4; **or** Supply Continuity = 5; **or** Supplier Maturity = 5. |
 | **MEDIUM** | AP Medium; **or** any procurement/Layer-B axis = 3. |
 | **LOW** | AP Low and all axes ≤ 2. |
 
-> **ISO 14971 note:** these thresholds are *our* acceptability criteria. The standard requires top management to define and document them as policy, and to record the categorization scheme in the risk management file. Treat the table above as a **draft for ratification**, not an external requirement.
-
 ### 6.2 Action playbook by class
-| Class | Sourcing | Incoming inspection | Audit cadence | Inventory | Re-eval trigger |
+| Class | Sourcing | Intake acceptance | Audit cadence | Buffer | Re-eval trigger |
 |---|---|---|---|---|---|
-| **Critical** | Dual-source mandatory; contingency plan | Tightened / 100% or validated lot release | On-site annually + for-cause | Safety stock + qualified buffer | Any nonconformance; any source/herd change |
-| **High** | Qualify a second source | Tightened sampling (e.g. ISO 2859) | On-site every 1–2 yr | Safety stock | Adverse trend; SCAR |
+| **Critical** | Dual-source required; contingency plan | Tightened / lot-by-lot acceptance | On-site annually + for-cause | Qualified buffer stock | Any nonconformance; source/herd change |
+| **High** | Qualify a second source | Tightened sampling | On-site every 1–2 yr | Safety stock | Adverse trend; corrective action |
 | **Medium** | Monitor single source | Normal sampling | Remote/desk review yearly | Standard | Scorecard drop |
-| **Low** | Catalog reorder | Skip-lot / reduced | Self-assessment | Min/reorder | Periodic |
+| **Low** | Reorder | Reduced / skip-lot | Self-assessment | Min/reorder | Periodic |
 
 ---
 
-## 7. Layer B — Biological source risk (porcine tissue only)
+## 7. Layer B — Tissue risk (porcine, ex-vivo, non-implant)
 
-Score each dimension 1–5 (5 = highest risk). Anchors built on *Diseases of Swine* (11th ed.) source-risk framework + xenobiology domain knowledge.
+Score each 1–5 (5 = highest risk).
 
 ### 7.1 Dimensions
-| Dim | What it measures | 5 (worst) → 1 (best) |
+| Dim | Measures | 5 (worst) → 1 (best) |
 |---|---|---|
-| **B1 Herd / source status** | Health status & geography of source herd | 5: unknown/open herd, no health data, region with ASF/CSF/FMD/PRV concern → 1: certified closed high-health (SPF/PRRS-neg) herd in disease-free zone |
-| **B2 Abattoir / collection controls** | Inspection status, cold chain, traceability | 5: **custom-exempt/uninspected** abattoir, no lot trace, long warm time → 1: federally inspected, validated cold chain, full traceability to source animal/lot |
-| **B3 Bioburden & contamination** | Initial microbial load, endotoxin | 5: uncontrolled, untested → 1: low validated bioburden + endotoxin within limits |
-| **B4 Viral/TSE inactivation & sterilization** | Validated inactivation capability & SAL | 5: none/unvalidated → 1: validated viral-inactivation + sterilization to defined SAL |
-| **B5 Immunogenicity / decellularization** | α-Gal, residual DNA, biocompatibility | 5: not addressed → 1: validated decellularization, residual DNA & α-Gal within limits, biocompatibility tested |
+| **B1 Fitness-for-purpose / fidelity** | Right species/organ/cut; mechanically representative; no disqualifying pathology or damage | 5: wrong/variable anatomy, unfit → 1: specified anatomy, validated representativeness |
+| **B2 Freshness / cold chain** | Time-from-slaughter, temperature control, degradation | 5: uncontrolled warm time, unknown age → 1: validated cold chain, defined max time-to-use |
+| **B3 Lot-to-lot consistency & traceability** | Reproducibility + source/species/date/lot records *(weight by use tier §2)* | 5: no traceability, high variability → 1: full traceability, controlled lot acceptance (req'd for T1/V&V) |
+| **B4 Handler biosafety / zoonotic exposure** | Staff infection risk from raw tissue + controls in place | 5: no PPE/biosafety practice, untested source → 1: BMBL-aligned practice, PPE, source controls, trained staff |
+| **B5 Waste / biohazard disposal** | Compliant disposal & decontamination | 5: no defined biohazard waste path → 1: compliant disposal + decon validated |
 
-### 7.2 Why abattoir inspection is necessary but **not sufficient**
-Ante-/post-mortem inspection screens out overtly diseased animals and gross lesions, but **does not detect** the agents most relevant to biomedical tissue — HEV, *Trichinella* (low burden), *Toxoplasma*, PCV, PERV, latent herpesviruses, subclinical *Salmonella*/MRSA/*Strep suis* carriage. Those require **lab testing, herd history, and source certification.** Inspection is a baseline, not the safeguard.
+### 7.2 Handler biosafety — the dominant tissue risk
+Raw porcine tissue exposes **your staff** to zoonoses, the highest-likelihood real harm here. Key agents (from *Diseases of Swine*):
+- **Through skin breaks / contact:** *Strep suis* (serious — meningitis/sepsis), *Erysipelothrix* (erysipeloid), *Brucella*, *Leptospira*.
+- **Blood/fluids & ingestion:** Hepatitis E, *Salmonella*, *Toxoplasma*, *Trichinella*.
+- **Aerosol during cutting:** Influenza A, *Strep suis*.
+- **Colonization:** livestock-associated MRSA.
 
-### 7.3 Pathogen-exclusion gate (run for every tissue lot/source)
-| Tier | Agents | Control & gate |
+**Control hierarchy:** source from health-monitored herds → **PPE + cut discipline** (the key control) → biosafety practices per **CDC/NIH BMBL** at the appropriate biosafety level → trained handlers → defined waste/decon. *Abattoir inspection alone is not a safeguard — it misses HEV, Trichinella, Toxo, subclinical carriers.*
+
+### 7.3 Legal / biosafety gate (run for every tissue source)
+| Tier | Concern | Gate |
 |---|---|---|
-| **Tier 1 — Deal-breakers (regulatory/trade)** | African Swine Fever, Classical Swine Fever, Foot-and-Mouth, Pseudorabies (PRV) | Source region/herd must be **status-clear** (WOAH/USDA). **Not clear → CRITICAL, do not source.** |
-| **Tier 2 — Handler/recipient zoonoses** | Hepatitis E, *Strep suis*, *Erysipelothrix*, *Trichinella*, *Toxoplasma*, *Brucella*, *Leptospira*, *Salmonella*, MRSA, Influenza A | Requires herd controls + **handler PPE/cut discipline** + targeted testing. Gaps escalate class. |
-| **Tier 3 — Biomedical/xeno, invisible to inspection** | **PERV**, porcine cytomegalovirus / herpesviruses, PCV | Require **molecular screening + certified herds** — cannot be excluded by inspection. Gaps escalate class. |
+| **Gate 1 — Legal sourcing & reportable disease** | African/Classical Swine Fever, FMD status; legal byproduct/inedible-material sourcing (USDA/APHIS, state ag) | Source must be **legally documented & status-clear**. Not clear → **CRITICAL, do not source**. |
+| **Gate 2 — Handler zoonoses** | HEV, *Strep suis*, *Erysipelothrix*, *Brucella*, *Leptospira*, *Salmonella*, MRSA, Influenza A, *Trichinella*, *Toxoplasma* | Requires PPE + BMBL-aligned practices + trained staff. Gaps escalate class. |
 
-**Controls hierarchy (best→baseline):** certified closed high-health herd → documented herd/geographic status → lab screening for inspection-invisible agents → ante/post-mortem inspection (baseline only) → handler PPE & cut discipline.
+*(v0.1 had a third "xeno" tier — removed: PERV/PCMV/PCV are implant concerns, not relevant to ex-vivo test/training tissue.)*
 
 ---
 
-## 8. Standards this method should cite (governing framework)
+## 8. Standards & references that actually apply
 
-| Standard | Role | In our library? |
+**Governing (occupational / operational — not device regulation):**
+| Reference | Role | Have it? |
 |---|---|---|
-| AIAG-VDA FMEA Handbook (2019) | S/O/D scales, Action Priority | ✅ |
-| ISO 14971:2019 | Risk-management process & acceptability | ✅ |
-| ISO 13485:2016 / ISO 9001:2015 | Supplier-control & QMS requirements | ✅ |
-| **ISO 22442-1/-2/-3** | **Medical devices using animal tissue** — risk mgmt, sourcing/collection controls, **viral/TSE inactivation validation** | ❌ **gap** |
-| **ISO 10993 series** | Biological evaluation / biocompatibility | ❌ gap |
-| **ISO 14160** | Sterilization of single-use animal-tissue devices (liquid chemical) | ❌ gap |
-| **ISO 11135 / 11137** | EO / radiation sterilization validation | ❌ gap |
-| **WOAH (OIE) / USDA-FSIS / EMA TSE guidance** | Herd & abattoir status, TSE sourcing | ❌ gap |
+| **CDC/NIH BMBL** (Biosafety in Microbiological and Biomedical Laboratories) | Safe handling of porcine tissue; biosafety levels & practices | ❌ (free from CDC) |
+| **OSHA biosafety / general duty** (note: 1910.1030 bloodborne is human-source — animal tissue falls under general biosafety) | Worker protection | ❌ (free) |
+| **USDA APHIS / state Dept. of Agriculture** | Legal sourcing of animal byproduct / inedible material | ❌ (free) |
+| **IATA DGR / DOT 49 CFR (UN3373, Cat. B)** | If tissue is shipped between sites | ❌ (ref) |
+| Local biohazard / medical-waste disposal rules | Disposal path | ❌ (jurisdiction-specific) |
+
+**Optional good-practice references (rigor, not required):**
+| Reference | When useful | Have it? |
+|---|---|---|
+| AIAG-VDA FMEA Handbook (2019) | The S/O/D + Action Priority engine | ✅ |
+| ISO 14971:2019 | Borrow the acceptability-criteria *discipline* | ✅ |
+| ISO/IEC 17025 (or internal test-method validation) | **Only if tissue feeds V&V data (T1)** — repeatability/reproducibility | ❌ |
+| Tissue-engineering / biomechanics texts (Badylak; Bronzino) | Defining "representative" fidelity (B1) | ✅ |
+
+> **Net change from v0.1:** the medical-device standards I flagged as critical gaps (ISO 22442/10993/14160) are **no longer needed**. The real reference gap is **biosafety/handling/sourcing** material, most of which is **free** (CDC BMBL, OSHA, USDA APHIS).
 
 ---
 
-## 9. Traceability (audit defensibility)
+## 9. Traceability (defensibility)
 
 | Rubric element | Source |
 |---|---|
-| Severity / Occurrence / Detection 1–10 anchors | AIAG-VDA FMEA Handbook, tables D1/D2/D3 |
-| Action Priority (H/M/L, Severity-weighted; RPN retired) | AIAG-VDA FMEA Handbook §2.5.10 |
-| Risk = severity × probability; manufacturer-defined acceptability; risk management file & traceability | ISO 14971:2019 cl. 3.18, 4.2, 4.4, 4.5, 5.5, 6 |
-| Supply Continuity axis (Kraljic supply-risk) | CSQP Handbook, Kraljic portfolio model (Ch. 2) |
-| Supplier Maturity / 100-pt scorecard drivers | CSQP Handbook, Fig. 3.4; Gordon, Ch. 1–3 |
-| Risk-based audit cadence & finding classes (Critical/Major/Minor) | CSQP Handbook, Ch. 6 (Table 6.1) |
-| Porcine agent list, herd/source factors, inspection limits, transmission routes | Diseases of Swine, 11th ed. (Ch. 1, 5, 9, 12 + domain knowledge) |
-
-*Note:* the AIAG-VDA full AP table, the CSQP PPAP/control-plan chapters (Part III), and Gordon's scorecard case study (Ch. 6–9) were beyond the extracted text and should be consulted directly when finalizing.
+| S/O/D 1–10 anchors; Action Priority (Severity-weighted; RPN retired) | AIAG-VDA FMEA Handbook, tables D1/D2/D3, §2.5.10 |
+| Self-defined acceptability discipline + record-keeping | ISO 14971:2019 (cl. 4.2/4.4/5.5/6) — used as principle, not as governing standard |
+| Supply Continuity (Kraljic) | CSQP Handbook, Ch. 2 |
+| Supplier Maturity / scorecard drivers | CSQP Handbook Fig. 3.4; Gordon Ch. 1–3 |
+| Risk-based audit cadence & finding classes | CSQP Handbook Ch. 6 (Table 6.1) |
+| Porcine zoonoses, transmission routes, inspection limits | Diseases of Swine, 11th ed. (Ch. 1/5/9/12 + domain knowledge) |
+| Handling biosafety practices | CDC/NIH BMBL *(to be acquired)* |
 
 ---
 
-## 10. How to use the template
-See `Risk_Scoring_Template.csv` — one row per part. Fill segment, the Layer A scores, procurement axes, and (for tissue) the Layer B columns + pathogen gates. The Final Risk Class and actions follow §6.
+## 10. Using the template
+See `Risk_Scoring_Template.csv` — one row per part. Tag tissue parts with a **use tier** (§2), fill Layer A + procurement axes + (for tissue) Layer B and the legal/biosafety gate. Final class & actions follow §6.
 
 ---
 
-*v0.1 — generated as a first draft for review. Open items: (1) confirm tissue end-use grade; (2) management to ratify acceptability thresholds (§6.1); (3) acquire gap standards (§8).*
+*v0.2 — re-scoped for tissue models (non-device). Open items: (1) confirm tissue use tier(s) (§2) — V&V vs training/R&D/demo; (2) Quality + EHS to ratify acceptability thresholds (§6.1); (3) acquire CDC BMBL + USDA/APHIS sourcing guidance (§8, mostly free).*
