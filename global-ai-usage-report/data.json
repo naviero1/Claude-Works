@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "title": "How the World Uses AI",
+    "subtitle": "A data-driven report on global generative-AI usage by country, class, occupation, and demographic",
+    "compiled": "2026-06-27",
+    "method": "Synthesized from a multi-source, adversarially fact-checked deep-research pass. 27 sources fetched, 114 claims extracted, 25 verified by 3-vote adversarial verification (23 confirmed). Core findings are vendor first-party usage data (OpenAI, Anthropic) plus independent surveys (Pew, Ipsos, Reuters Institute, Stanford HAI, Microsoft, BCG) and traffic estimates (Similarweb).",
+    "key_caveat": "Nearly all figures are dated snapshots from 2025-2026. Vendor data is self-reported and platform-specific: Claude skews heavily to developers (coding 34-37%) while consumer ChatGPT coding is only 4.2% — the two paint opposite task pictures because they have different user bases. Gender is name-inferred, not self-reported. Similarweb numbers are modeled web-traffic estimates (exclude apps/API)."
+  },
+  "hero_stats": [
+    {"value": "700M+", "label": "ChatGPT weekly active users (Jul 2025)", "source": "OpenAI/NBER"},
+    {"value": "~10%", "label": "of the world's adults message ChatGPT weekly", "source": "OpenAI/NBER"},
+    {"value": "1B+", "label": "people use generative-AI platforms monthly", "source": "Multiple, late 2025"},
+    {"value": "53%", "label": "population adoption within 3 years — faster than PC or internet", "source": "Stanford HAI 2026"},
+    {"value": "16.3%", "label": "of the world's working-age population used genAI (H2 2025)", "source": "Microsoft AI Diffusion"},
+    {"value": "18B", "label": "messages sent to ChatGPT every week", "source": "OpenAI/NBER"}
+  ],
+  "tool_market_share": {
+    "title": "AI-tool web traffic share (Aug 2025)",
+    "unit": "% of all AI-tool web traffic / monthly visits",
+    "source": "Similarweb, Aug 2025 (modeled web traffic, excludes apps & API)",
+    "data": [
+      {"tool": "ChatGPT", "share": 69.0, "visits_b": 5.846},
+      {"tool": "Google Gemini", "share": 8.5, "visits_b": 0.723},
+      {"tool": "DeepSeek", "share": 3.8, "visits_b": 0.319},
+      {"tool": "Claude", "share": 1.8, "visits_b": 0.148},
+      {"tool": "Perplexity", "share": 1.8, "visits_b": 0.148}
+    ]
+  },
+  "tool_share_trend": {
+    "title": "ChatGPT vs Gemini traffic share, year-over-year",
+    "source": "Similarweb / unite.ai, 2025-2026",
+    "note": "ChatGPT still dominant but ceding share as Gemini climbs.",
+    "data": [
+      {"period": "2024 (YoY base)", "ChatGPT": 87.2, "Gemini": 5.4},
+      {"period": "Aug 2025", "ChatGPT": 69.0, "Gemini": 8.5},
+      {"period": "Jan 2026", "ChatGPT": 64.5, "Gemini": 21.5}
+    ]
+  },
+  "modalities": {
+    "title": "How people use ChatGPT, by modality / task type (consumer)",
+    "unit": "% of messages",
+    "source": "OpenAI/NBER 'How People Use ChatGPT', data through Jul 2025",
+    "note": "Usage is overwhelmingly text. Multimedia jumped to ~7% after April 2025 image-gen launch. Voice and video shares are not separately quantified in available sources.",
+    "data": [
+      {"category": "Text (writing, info, guidance)", "value": 85.0},
+      {"category": "Multimedia / image", "value": 7.0},
+      {"category": "Computer programming", "value": 4.2},
+      {"category": "Math calculations", "value": 3.0},
+      {"category": "Relationships / personal", "value": 1.9},
+      {"category": "Data analysis", "value": 0.4},
+      {"category": "Games / role-play", "value": 0.4}
+    ]
+  },
+  "chatgpt_topics": {
+    "title": "ChatGPT conversation topics (consumer)",
+    "unit": "% of conversations",
+    "source": "OpenAI/NBER, Jul 2024 → mid 2025",
+    "note": "Top 3 topics = ~77% of all conversations. Writing fell as Seeking Information rose.",
+    "data": [
+      {"topic": "Practical Guidance", "y2024": 29, "y2025": 29},
+      {"topic": "Writing", "y2024": 36, "y2025": 24},
+      {"topic": "Seeking Information", "y2024": 14, "y2025": 24}
+    ]
+  },
+  "intent_split": {
+    "title": "ChatGPT message intent",
+    "unit": "% of messages",
+    "source": "OpenAI/NBER",
+    "data": [
+      {"intent": "Asking (info / decision support)", "value": 49},
+      {"intent": "Doing (producing output)", "value": 40},
+      {"intent": "Expressing (opinions / feelings)", "value": 11}
+    ]
+  },
+  "claude_vs_chatgpt_tasks": {
+    "title": "Coding: the great platform divide",
+    "unit": "% of usage that is coding / programming",
+    "source": "OpenAI (ChatGPT consumer 4.2%) vs Anthropic Economic Index (Claude.ai 34-37%, API 46%)",
+    "note": "Same question — 'how do people use AI' — yields opposite answers depending on the tool's user base.",
+    "data": [
+      {"platform": "ChatGPT (consumer)", "value": 4.2},
+      {"platform": "Claude.ai (consumer)", "value": 36.0},
+      {"platform": "Claude API (enterprise)", "value": 46.0}
+    ]
+  },
+  "claude_task_mix": {
+    "title": "Claude.ai task mix (occupational categories)",
+    "unit": "% of conversations",
+    "source": "Anthropic Economic Index 2025-2026",
+    "data": [
+      {"category": "Computer & Mathematical (coding)", "value": 34.0},
+      {"category": "Arts / Design / Media", "value": 10.3},
+      {"category": "Education / Tutoring", "value": 12.4},
+      {"category": "Office & Administrative", "value": 7.9},
+      {"category": "Scientific", "value": 7.2}
+    ]
+  },
+  "claude_context_split": {
+    "title": "Why people open Claude vs the enterprise API",
+    "source": "Anthropic Economic Index, Jan 2026",
+    "data": {
+      "consumer": [
+        {"context": "Work", "value": 46},
+        {"context": "Personal", "value": 35},
+        {"context": "Coursework", "value": 19}
+      ],
+      "api": [
+        {"context": "Work-related", "value": 74},
+        {"context": "Other", "value": 26}
+      ]
+    },
+    "automation": {
+      "note": "Enterprise API skews to automation (do the task for me); consumer use is more collaborative.",
+      "data": [
+        {"mode": "API — Automation", "value": 77},
+        {"mode": "API — Augmentation", "value": 12},
+        {"mode": "Consumer — Automation (approx)", "value": 50}
+      ]
+    }
+  },
+  "work_vs_nonwork": {
+    "title": "ChatGPT: personal use is overtaking work use",
+    "unit": "share of daily messages (%)",
+    "source": "OpenAI/NBER Table 1",
+    "data": [
+      {"period": "Jun 2024", "nonwork": 53, "work": 47, "total_daily_m": 451},
+      {"period": "Jun 2025", "nonwork": 73, "work": 27, "total_daily_m": 2627}
+    ]
+  },
+  "income_divide": {
+    "title": "AI adoption tracks income (the digital divide)",
+    "source": "Anthropic Economic Index; Microsoft AI Diffusion Report",
+    "facts": [
+      "A 1% higher GDP per capita is associated with ~0.7% higher Claude usage per capita.",
+      "Global North: 24.7% of working-age population used AI tools vs a markedly lower share in the Global South (H2 2025).",
+      "Lower-income countries show the fastest growth but the lowest per-capita levels.",
+      "Coursework use is more common in lower-income countries; work & personal use dominate in higher-income ones."
+    ]
+  },
+  "country_per_capita": {
+    "title": "Claude usage per capita, indexed (AUI)",
+    "unit": "Anthropic AI Usage Index (1.0 = expected share for population)",
+    "source": "Anthropic Economic Index, Sept 2025",
+    "data": [
+      {"country": "Israel", "aui": 7.0},
+      {"country": "Singapore", "aui": 4.57},
+      {"country": "Australia", "aui": 4.10},
+      {"country": "United States", "aui": 3.62},
+      {"country": "Indonesia", "aui": 0.36},
+      {"country": "India", "aui": 0.27},
+      {"country": "Nigeria", "aui": 0.20}
+    ]
+  },
+  "country_absolute": {
+    "title": "Who generates the most AI usage (absolute volume)",
+    "source": "Anthropic (Claude share, Sept 2025) & Similarweb (ChatGPT traffic, Aug 2025)",
+    "claude_share": [
+      {"country": "United States", "value": 21.6},
+      {"country": "India", "value": 7.2},
+      {"country": "Brazil", "value": 3.7}
+    ],
+    "chatgpt_traffic": [
+      {"country": "United States", "value": 15.09},
+      {"country": "India", "value": 9.31},
+      {"country": "Brazil", "value": 5.31},
+      {"country": "United Kingdom", "value": 4.30},
+      {"country": "Indonesia", "value": 3.72}
+    ]
+  },
+  "deepseek_regional": {
+    "title": "DeepSeek: the Global South / price-sensitive challenger",
+    "unit": "estimated market share (%)",
+    "source": "Microsoft AI Economy Institute / Euronews / Business of Apps, 2025-2026",
+    "note": "DeepSeek reached ~130M active users by end-2025 (33M Jan → 100M May → 130M Nov); #2 in China.",
+    "data": [
+      {"country": "China", "value": 89},
+      {"country": "Belarus", "value": 56},
+      {"country": "Cuba", "value": 49},
+      {"country": "Russia", "value": 43}
+    ]
+  },
+  "demographics_age": {
+    "title": "AI chatbot use falls sharply with age (US)",
+    "unit": "% who use AI chatbots",
+    "source": "Pew Research Center, Feb 2026 survey (n=5,119)",
+    "data": [
+      {"group": "18–29", "use": 66, "daily": 31},
+      {"group": "30–49", "use": 58, "daily": 34},
+      {"group": "50–64", "use": 45, "daily": 19},
+      {"group": "65+", "use": 23, "daily": 8}
+    ]
+  },
+  "chatgpt_adoption_age": {
+    "title": "Share of US adults who have used ChatGPT, by age",
+    "unit": "%",
+    "source": "Pew Research Center, Jun 2025",
+    "note": "34% of all US adults have used ChatGPT — double the 2023 share.",
+    "data": [
+      {"group": "Under 30", "value": 58},
+      {"group": "30–49", "value": 41},
+      {"group": "50–64", "value": 25},
+      {"group": "65+", "value": 12}
+    ]
+  },
+  "gender_gap": {
+    "title": "ChatGPT's gender gap has closed",
+    "unit": "% of active users with typically-masculine first names",
+    "source": "OpenAI/NBER (name-inferred proxy)",
+    "data": [
+      {"period": "Launch (late 2022)", "value": 80},
+      {"period": "Jun 2025", "value": 48}
+    ]
+  },
+  "youth_share": {
+    "title": "AI is young: nearly half of ChatGPT messages come from under-26s",
+    "source": "OpenAI/NBER",
+    "facts": [
+      "~46% of ChatGPT messages come from users aged 18–25.",
+      "64% of US teens (13–17) use AI chatbots; ~30% of those use them daily.",
+      "Among US teens, ChatGPT leads at 59% — more than double any competitor.",
+      "80% of university students now use generative AI (Stanford HAI 2026)."
+    ]
+  },
+  "occupation": {
+    "title": "Usage by occupation & context",
+    "source": "Anthropic Economic Index; BCG Asia-Pacific (Jul 2025, 4,500+ employees, 9 markets); Stanford HAI",
+    "facts": [
+      "Software/coding is the single largest professional use of Claude (34-37% of conversations).",
+      "Writing is the #1 work task on ChatGPT (40% of work messages).",
+      "~10% of all ChatGPT messages are tutoring / teaching requests.",
+      "In Asia-Pacific, 78% of employees report weekly AI use — above the global average.",
+      "Students/coursework = 19% of Claude.ai usage; 80% of university students use genAI."
+    ]
+  },
+  "global_surveys": {
+    "title": "Independent multi-country surveys",
+    "source": "Reuters Institute; Ipsos AI Monitor 2025; BCG",
+    "facts": [
+      "Weekly genAI use nearly doubled in one year: 18% (2024) → 34% (2025) across 6 countries; ever-used rose 40% → 61% (Reuters Institute, Argentina/Denmark/France/Japan/UK/US).",
+      "Ipsos AI Monitor 2025 surveyed 23,216 adults across 30 countries (Mar–Apr 2025); 67% say they understand what AI is.",
+      "BCG Asia-Pacific: India leads adoption at 92%; Japan trails at 51%."
+    ]
+  },
+  "sources": [
+    {"name": "OpenAI / NBER — 'How People Use ChatGPT' (w34255, Sept 2025)", "url": "https://openai.com/index/how-people-are-using-chatgpt/", "type": "primary vendor"},
+    {"name": "OpenAI economic-research usage paper (PDF)", "url": "https://cdn.openai.com/pdf/a253471f-8260-40c6-a2cc-aa93fe9f142e/economic-research-chatgpt-usage-paper.pdf", "type": "primary vendor"},
+    {"name": "Anthropic Economic Index — September 2025 report", "url": "https://www.anthropic.com/research/anthropic-economic-index-september-2025-report", "type": "primary vendor"},
+    {"name": "Anthropic Economic Index — January 2026 report", "url": "https://www.anthropic.com/research/anthropic-economic-index-january-2026-report", "type": "primary vendor"},
+    {"name": "Anthropic Economic Index (hub)", "url": "https://www.anthropic.com/economic-index", "type": "primary vendor"},
+    {"name": "Similarweb — Most Used AI Tools (Aug 2025)", "url": "https://www.similarweb.com/blog/marketing/seo/most-used-ai/", "type": "traffic estimate"},
+    {"name": "Similarweb — Top AI Chatbots & Tools", "url": "https://www.similarweb.com/top-websites/ai-chatbots-and-tools/", "type": "traffic estimate"},
+    {"name": "unite.ai — ChatGPT market share falls to 68%", "url": "https://www.unite.ai/chatgpts-market-share-falls-to-68-percent-as-gemini-closes-the-gap/", "type": "secondary"},
+    {"name": "Pew Research — How opinions and use of AI differ by age (Jun 2026)", "url": "https://www.pewresearch.org/internet/2026/06/17/how-opinions-and-use-of-ai-differ-by-age/", "type": "survey"},
+    {"name": "Pew Research — 34% of US adults have used ChatGPT (Jun 2025)", "url": "https://www.pewresearch.org/short-reads/2025/06/25/34-of-us-adults-have-used-chatgpt-about-double-the-share-in-2023/", "type": "survey"},
+    {"name": "Pew Research — Teens, social media and AI chatbots (Dec 2025)", "url": "https://www.pewresearch.org/internet/2025/12/09/teens-social-media-and-ai-chatbots-2025/", "type": "survey"},
+    {"name": "Ipsos AI Monitor 2025", "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-06/Ipsos-AI-Monitor-2025.pdf", "type": "survey"},
+    {"name": "Reuters Institute — Generative AI and News Report 2025", "url": "https://reutersinstitute.politics.ox.ac.uk/sites/default/files/2025-10/Gen_AI_and_News_Report_2025.pdf", "type": "survey"},
+    {"name": "Stanford HAI — 2026 AI Index Report", "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report", "type": "primary research"},
+    {"name": "Microsoft — AI Diffusion Report 2025 H2", "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2026/01/Microsoft-AI-Diffusion-Report-2025-H2.pdf", "type": "primary research"},
+    {"name": "Microsoft — Global AI adoption in 2025 (a widening digital divide)", "url": "https://blogs.microsoft.com/on-the-issues/2026/01/08/global-ai-adoption-in-2025/", "type": "primary research"},
+    {"name": "Euronews — DeepSeek gains traction in developing nations", "url": "https://www.euronews.com/next/2026/01/09/deepseeks-ai-gains-traction-in-developing-nations-microsoft-report-says", "type": "secondary"},
+    {"name": "Business of Apps — DeepSeek statistics", "url": "https://www.businessofapps.com/data/deepseek-statistics/", "type": "secondary"},
+    {"name": "BCG — Generative AI adoption in Asia (2025)", "url": "https://www.bcg.com/publications/2025/generative-ai-adoption-in-asia", "type": "survey"},
+    {"name": "DataReportal — Digital 2026 Global Overview", "url": "https://datareportal.com/reports/digital-2026-global-overview-report", "type": "aggregator"}
+  ]
+}
