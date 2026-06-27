@@ -36,6 +36,10 @@ METHOD  — reason through every layer, showing your work briefly:
    - De-vig the sportsbook odds:  implied_i = 1/odds_i ;  fair_i = implied_i / Σ implied.
    - Reconcile with prediction-market %. State a single anchor: P(A win)/P(draw)/P(B win).
    - This is the number to beat. You will only move off it with a stated reason.
+   - BUT the market is CROWD BELIEF, not truth — it carries biases (favorite-longshot, recency/
+     narrative, sentiment-inflated popular teams, thin-market noise, slow-to-price rotation). It is
+     a strong prior to reconcile against, NOT a verdict. A defensible *structural* divergence (you
+     can name why the crowd is wrong) is a legitimate edge — don't reflexively fold to the price.
 
 2. STATISTICAL BASE (Dixon-Coles)
    - Assign each side an attack and defense strength relative to this field.

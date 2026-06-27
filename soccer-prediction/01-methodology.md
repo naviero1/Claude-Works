@@ -80,6 +80,31 @@ don't, defer to the market. A disciplined predictor moves off the market only wi
 - **Per-match 1X2 odds** → the direct prior for a specific game.
 - **Over/Under & BTTS lines** → the market's view of total goals → sanity-checks λ + μ.
 
+## 2b. The market is crowd belief, not ground truth
+
+Kalshi/Polymarket prices aggregate the crowd's knowledge **and its biases**. Real money disciplines
+them, which makes them the best available *baseline* — but a baseline is a prior, not a verdict.
+Documented ways the crowd is wrong:
+
+- **Favorite-longshot bias** — longshots overbet, heavy favorites slightly underbet.
+- **Recency / narrative bias** — a thrashing (Germany's 7-1) or a star's hot week gets overpriced;
+  crowds chase the last result.
+- **Sentiment / public-team inflation** — popular nations (Brazil, Argentina, England) attract
+  "fan money" beyond merit.
+- **Thin-market noise** — minor matches and obscure props have little volume; prices are wide,
+  stale, easily moved, and barely "wise" at all.
+- **Slow to price structural/analytical factors** — squad rotation, a tactical mismatch, a cohesion
+  or fitness nuance not yet in the headlines. The crowd reacts to public news; analysis can lead it.
+- **Reflexive herding** and **90'-vs-ET settlement** quirks.
+
+So the discipline cuts **both ways**: don't stake phantom edges *against* an efficient price, but
+don't capitulate to the crowd either. Our independent work (Dixon-Coles + players + cohesion +
+mentality + expert read) is most valuable exactly at **defensible divergences** — where we can name
+a *structural reason* the crowd is mispricing (a sentiment-inflated favorite, a thin market, a
+rotation the public hasn't priced). Those are the real edges; agreeing with the market is just
+paying the vig. **Treat the market as the strongest single input to reconcile against — never as
+truth that overrides analysis by default.**
+
 ## 3. The player layer — stars and disruptors
 
 Team-strength ratings are *averages*; individual players create fat tails.
