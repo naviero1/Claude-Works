@@ -21,6 +21,10 @@ coin flip — its value is as an **adjustment layer** on a sound quantitative ba
 | [`06-bracket-simulation.md`](06-bracket-simulation.md) | Monte-Carlo method for trophy odds + a market-anchored current read. |
 | [`07-predict-and-score-log.md`](07-predict-and-score-log.md) | Brier/log-loss scoring template to grade forecasts vs outcomes. |
 | [`08-player-ratings.md`](08-player-ratings.md) | Disruptor leaderboard, R32 availability watch, cohesion index, per-team ratings. |
+| [`09-live-odds-market-reference.md`](09-live-odds-market-reference.md) | How to read Polymarket/Kalshi/Bet365, de-vig, and extract λ; worked example. |
+| [`10-portfolio-2026-06-27.md`](10-portfolio-2026-06-27.md) | Per-game predicted results + bet-style suggestions for June 27; anchored where market data exists. |
+| [`11-staking-allocation-2026-06-27.md`](11-staking-allocation-2026-06-27.md) | Bankroll/unit framework + concrete stake sizing across June 27 games. |
+| [`tools/fetch_odds.py`](tools/fetch_odds.py) | Live-odds connector (Kalshi + Polymarket public APIs). |
 
 ## The layered model in one picture
 
