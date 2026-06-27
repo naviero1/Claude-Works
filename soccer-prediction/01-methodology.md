@@ -162,6 +162,18 @@ derby/rivalry intensity; proven shootout temperament. **Mentality vs cohesion:**
 well they play together (system/chemistry); mentality = belief/resilience under pressure. They
 compound, and mentality especially spikes in knockouts and shootouts.
 
+## 6c. Expert-in-the-loop (the human prior)
+
+The literature on combining ML models with human experts finds the hybrid beats either alone.
+A trained eye (a current/former player, a scout) is the best available sensor for the layers
+the numbers handle worst: real match-fitness and form, true disruptor impact, whether a team's
+*shape* holds under pressure, and mentality/belief. Formally it's a **strong Bayesian prior**
+on the qualitative layers, and on those dimensions it can override the stats — which lag reality
+by weeks. The discipline: reconcile the expert read with the market. When a trusted expert and
+the market disagree sharply on a game, that is precisely where the edge (or the hidden risk)
+lives — flag it, don't average it away. This project treats a vetted human read as a
+first-class input, captured in the prompt's `Expert read` field.
+
 ## 7. Output discipline
 
 Always produce a **distribution**, never a single fake-precise score:

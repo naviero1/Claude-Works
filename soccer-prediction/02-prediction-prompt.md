@@ -27,6 +27,8 @@ INPUTS  (fill what you have; say "unknown" for the rest)
   suspensions, injuries, fitness doubts)
 - Cohesion notes: settled XI? same-club spine? drilled system? new manager? : A __ / B __
 - Head-to-head & other context: __
+- Expert read (trusted human scout, e.g. a semi-pro player): __   ← weight HIGH on form,
+  disruptor impact, cohesion, and mentality; it sees what stats and EA-FC ratings miss
 
 METHOD  — reason through every layer, showing your work briefly:
 
@@ -67,6 +69,14 @@ METHOD  — reason through every layer, showing your work briefly:
      or to flag an emotionally loaded game (host nation, cinderella, wounded giant, rivalry).
      Label these low-confidence. When genuinely uncertain, report a FLATTER distribution rather
      than faking precision.
+
+6b. EXPERT READ (if provided)
+   - A trusted human scout's opinion is a STRONG prior on the qualitative layers (form,
+     disruptor impact, cohesion, mentality). It can override the stats on those dimensions —
+     stats lag reality, and a trained eye catches "looks cooked / looks unplayable / shape is
+     fragile" before the numbers do. Reconcile it with the market; don't ignore it. If the
+     expert and the market disagree sharply, that flagged game is where the real edge (or the
+     real risk) lives — call it out.
 
 7. RECONCILE
    - Combine layers into final λ_A, λ_B and a final P(A)/P(draw)/P(B). If your number now
