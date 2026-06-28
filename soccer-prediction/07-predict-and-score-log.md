@@ -50,12 +50,20 @@ is market-anchored; others are model estimates.
 
 | Match | Predicted | P(H/D/A) % | Market P(H/D/A) % | Actual | Result ✓/✗ | Score ✓/✗ | Note |
 |---|---|---|---|---|---|---|---|
-| Panama–England | 0–3 | 7/13/80 | — | | | | England may rotate |
-| Croatia–Ghana | 1–0 (CRO) | 49/30/21 | 51/30/19 🔒 | | | | Market priced Ghana low (19%); Under 2.5 the play |
-| Colombia–Portugal | 1–2 (POR) | 27/24/49 | 27/24/49 🔒 | | | | Seeding game; anchored |
-| DR Congo–Uzbekistan | 1–1 | 37/30/33 | — | | | | Low stakes |
-| Algeria–Austria | 1–2 (AUT) | 32/28/40 | — | | | | Decides 2nd in Group J |
-| Jordan–Argentina | 0–2 (ARG) | 5/11/84 | 5/11/85 🔒 | | | | Market didn't price rotation; Over 2.5 leaned |
+| Panama–England | 0–3 | 7/13/80 | — | **0–2** | ✓ | ✗ | ENG win ✓, margin off · Brier .06 |
+| Croatia–Ghana | 1–0 (CRO) | 49/30/21 | 51/30/19 🔒 | **2–1** | ✓ | ✗ | CRO win ✓; **Under 2.5 LOST** (3 g) · Brier .39 (mkt .37) |
+| Colombia–Portugal | 1–2 (POR) | 27/24/49 | 27/24/49 🔒 | **0–0** | ✗ | ✗ | Draw; **Over+BTTS LOST**; cagey seeding game · Brier .89 |
+| DR Congo–Uzbekistan | 1–1 | 37/30/33 | — | **3–1** | ✗ | ✗ | DRC win; passed (0u) · Brier .60 |
+| Algeria–Austria | 1–2 (AUT) | 32/28/40 | — | **3–3** | ✗ | ✗ | Wild draw; passed (0u) · Brier .78 |
+| Jordan–Argentina | 0–2 (ARG) | 5/11/84 | 5/11/85 🔒 | **1–3** | ✓ | ✗ | ARG win ✓; Messi started+scored → trigger correctly stood down · Brier .04 |
+
+**June 27 grade:** results **3/6** correct (England, Croatia, Argentina ✓; Colombia–Portugal, DRC,
+Algeria–Austria ✗), exact scores **0/6**, mean Brier ≈ **0.46**. On all three market-anchored games
+the market beat us *narrowly*. **Staked P&L: −2.0u** — both active bets lost (Croatia–Ghana Under;
+Colombia–Portugal Over/BTTS). The Jordan–Argentina trigger **correctly stood down** (Messi started),
+and the three passes avoided further losses. Lesson: the Colombia–Portugal **0-0** is the one I
+*flagged but didn't back* — I noted the cagey/rotation seeding-game scenario and an Under hedge, then
+sided with the market's Over. The contrarian read was right; I didn't trust it.
 
 ## After the round
 - Compute mean Brier and mean log-loss across the 16 games; that's your round score.
