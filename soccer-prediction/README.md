@@ -24,7 +24,9 @@ coin flip — its value is as an **adjustment layer** on a sound quantitative ba
 | [`09-live-odds-market-reference.md`](09-live-odds-market-reference.md) | How to read Polymarket/Kalshi, de-vig, and extract λ; worked example. |
 | [`10-portfolio-2026-06-27.md`](10-portfolio-2026-06-27.md) | Per-game predicted results + bet-style suggestions for June 27; anchored where market data exists. |
 | [`11-staking-allocation-2026-06-27.md`](11-staking-allocation-2026-06-27.md) | Bankroll/unit framework + concrete stake sizing across June 27 games. |
-| [`tools/fetch_odds.py`](tools/fetch_odds.py) | Live-odds connector (Kalshi + Polymarket public APIs). |
+| [`12-r32-scoreline-scenarios.md`](12-r32-scoreline-scenarios.md) | Top-5 scoreline distributions for all 16 R32 games (Poisson+DC). |
+| [`13-matchday-analysis-playbook.md`](13-matchday-analysis-playbook.md) | **Oscar's method, merged** — disruption scoring, archetypes, half-by-half goals, $100 allocation. |
+| [`tools/fetch_odds.py`](tools/fetch_odds.py) · [`tools/match_analysis.py`](tools/match_analysis.py) | Odds connector + per-match Poisson/DC analysis (scores, halves, early goal). |
 
 ## The layered model in one picture
 
