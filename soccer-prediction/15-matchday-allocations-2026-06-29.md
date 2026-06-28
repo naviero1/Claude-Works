@@ -89,6 +89,35 @@ Lower conviction → smaller value stake, more held.
 
 ---
 
+## Four $100 allocations per game (choose your risk profile)
+
+EV and P(profit) computed against the model's scenario distribution (`/tmp` evaluator). Decimal
+odds from the live to-advance + exact-score prices; **Under 2.5 price is *estimated*** (no live
+totals board). The EV edge lives almost entirely in the two **to-advance bargains** (Morocco 47% vs
+38%, Paraguay 24% vs 15%) — exact-score legs are ~fairly priced and only shape variance.
+
+### Netherlands–Morocco
+| | Objective | Allocation | EV | P(profit) | Best / Worst |
+|---|---|---|---|---|---|
+| **A** | **Max-EV** | $65 Morocco-adv · $20 1-1 · $15 Morocco 1-0 | **+$15** | 54% | +$258 / −$100 |
+| **B** | **Max P(profit)** | $80 NED-adv · $20 1-1 | −$13 | **60%** | +$162 / −$100 |
+| **C** | Balanced spread | $30 MAR-adv · $18 1-1 · $12 NED 1-0 · $12 0-0 · $14 NED 2-1 · $14 MAR 2-1 | +$1 | 39% | +$179 / −$100 |
+| **D** | Low-scoring thesis | $35 Under 2.5* · $20 1-1 · $20 0-0 · $25 MAR-adv | +$1 | 38% | +$228 / −$100 |
+→ **Pick A** (best EV *and* 54% hit). **B** only if you want the highest hit-rate and accept −EV. C/D — the exact-score vig eats them; skip.
+
+### Germany–Paraguay
+| | Objective | Allocation | EV | P(profit) | Best / Worst |
+|---|---|---|---|---|---|
+| **A** | **Max-EV** | $30 PAR-adv · $40 Under 2.5* · $15 1-1 · $15 0-0 | **+$32** | 41% | +$417 / −$100 |
+| **B** | **Max P(profit)** | $90 GER-adv · $10 PAR-adv | −$5 | **76%** | +$4 / −$33 |
+| **C** | **Balanced** | $16 GER 1-0 · $16 GER 2-0 · $12 GER 2-1 · $12 1-1 · $10 GER 3-0 · $34 PAR-adv | +$20 | **69%** | +$260 / −$100 |
+| **D** | Low-scoring/value | $45 Under 2.5* · $20 PAR-adv · $20 1-1 · $15 GER 1-0 | +$20 | 48% | +$331 / −$100 |
+→ **Pick C** — the standout: +$20 EV *and* 69% P(profit). **A** maxes EV (+$32) but only 41% hits. **B** is the safe-but-pointless favorite play (76% hit, but best case is +$4).
+
+\* Under-2.5 price estimated; confirm with a live totals screenshot. **All EV figures are only as
+right as the model** — the edge rests on the "favorite is overpriced" thesis, strongest for
+Netherlands (CB injuries) and weaker for Germany (no single structural reason).
+
 ## What would sharpen these (Oscar's eye + more market)
 1. **Oscar's read** on (a) **Morocco's cohesion / Hakimi vs the patched Dutch back line**, and (b)
    whether **Germany look vulnerable** or are rounding into form — both would move the stakes.
