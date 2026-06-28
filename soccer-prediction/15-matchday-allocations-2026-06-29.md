@@ -123,3 +123,24 @@ Netherlands (CB injuries) and weaker for Germany (no single structural reason).
    whether **Germany look vulnerable** or are rounding into form — both would move the stakes.
 2. **Totals + 90-minute 3-way screenshots** for these two games (not yet liquid) → unlocks a fully
    diversified, P(profit)-maximizing portfolio instead of the advance-anchored version above.
+
+---
+
+## 3) Brazil vs Japan — NO EDGE (pass)
+
+Included for contrast. Market **Brazil 74% to advance**; my reassessed model **70%** → essentially
+aligned. No structural mispricing (Brazil lose Raphinha; Japan lose Mitoma/Minamino — symmetric).
+
+- **Scores:** 1-1 (~12%) · Brazil 1-0 (~11%) · Brazil 2-0 (~10%). W/D/W 52/26/22. Advance Bra 70 / Jpn 30.
+- **Goals:** O2.5 49% (coin-flip), early-goal ~36%, halves 1.2 / 1.5, BTTS 52%.
+
+| Allocation | EV | P(profit) |
+|---|---|---|
+| A Max-EV (Japan lean) | −$0.4 | 44% |
+| B Max P(profit) (Brazil) | −$5.4 | 74% |
+| C Balanced | −$9.3 | 43% |
+| D Low-scoring/Japan | −$0.7 | 30% |
+
+**Verdict: pass.** Every allocation is break-even or −EV — the market is efficient here. The
+disciplined move is to deploy the $100 on the actual bargains (Netherlands–Morocco A,
+Germany–Paraguay C), not to manufacture action on an efficient line.
