@@ -15,7 +15,7 @@ Pelvic scope throughout: **666506 (Pelvic Block Non-Intact) and 666541 (Female P
 - Fixed the mislabeled series ("Female Pelvic (506's)" → **"Pelvic Block (506's)"**); title/footnote updated to the new basis.
 
 **Slide 1 — inviting finding added**
-- The highlighted answer paragraph now carries a one-line sensitivity finding that points to the analysis: *"+10% harvest yield frees ~79 pigs and ~1.5 labor-hrs/wk at Martins — see slide 3."*
+- The highlighted answer paragraph now carries a one-line sensitivity finding that points to the analysis: *"Lifting pelvic harvest yield pays back hard: +10 pts (25%→35%) frees ~246 pigs & ~4.8 labor-hrs/wk at Martins, and ~+20 pts (→45%) finally clears 125% on labor — see slide 3."*
 
 **Slide 3 — NEW, reference only**
 - A clean, themed table of the pelvic harvest-yield sensitivity (the backup for the slide-1 finding). Headroom cells are color-coded (green ≥ 1.25×, red below).
@@ -39,17 +39,17 @@ Follows the **Tissue_Model formulas exactly** (validated to reproduce the model'
 - `Pigs Consumed (O) = ROUND(Net Harvest J ÷ Harvest Yield N)` → higher yield, fewer pigs.
 - `Planned Labor (Q) = J × min/60 + (O − J) × 7/360` → the `(O − J)` term is the **rework on every wasted pig**, so higher yield cuts labor too.
 
-Improvements are **relative** to the 25% base (i.e. +10% → yield 0.275). Aggregated at Martins (labor cap 36 h; non-pelvic Martins labor 12.13 h fixed):
+Improvements are in **percentage points** above the 25% base (i.e. +10 pts → yield 0.35). Aggregated at Martins (labor cap 36 h; non-pelvic Martins labor 12.13 h fixed):
 
 | Yield gain | Yield | Pigs freed/wk | Labor freed/wk | Labor headroom | Pig headroom |
 |---|---|---|---|---|---|
-| Today | 25.0% | — | — | 1.01× | 1.23× |
-| +5% | 26.3% | 41 | 0.8 h | 1.04× | 1.29× |
-| +10% | 27.5% | 79 | 1.5 h | 1.06× | 1.35× |
-| +15% | 28.8% | 113 | 2.2 h | 1.08× | 1.40× |
-| +20% | 30.0% | 144 | 2.8 h | 1.10× | 1.46× |
-| +25% | 31.3% | 173 | 3.4 h | 1.12× | 1.52× |
+| Today | 25% | — | — | 1.01× | 1.23× |
+| +5 pts | 30% | 144 | 2.8 h | 1.10× | 1.46× |
+| +10 pts | 35% | 246 | 4.8 h | 1.17× | 1.68× |
+| +15 pts | 40% | 324 | 6.3 h | 1.23× | 1.90× |
+| +20 pts | 45% | 384 | 7.5 h | **1.28×** | 2.12× |
+| +25 pts | 50% | 432 | 8.4 h | 1.33× | 2.33× |
 
-**Finding:** yield gains clear the **pig** constraint past 125% almost immediately (+5%), but **labor** — the binding constraint at Martins — only reaches 1.12× even at +25%. Yield helps materially, but labor still needs re-balancing off Martins (Milestone 3).
+**Finding:** the **pig** constraint clears 125% immediately, but **labor** — the binding constraint at Martins — needs about **+20 points (yield to 45%)** to cross 1.25× (1.28×). Yield is the lever, but a sizeable lift is required, so pair the yield study with re-balancing labor off Martins (Milestone 3).
 
-> If you meant harvesting-yield improvement in **percentage points** (25% → 35% at "+10%") rather than relative, it's a one-line change — the numbers get substantially larger (e.g. +10pts frees ~246 pigs/wk). Say the word.
+> Modeled as percentage points (per your call). Relative gains (25% × 1.10) are available instead — one-line change.
