@@ -74,7 +74,7 @@ Speaker-note takeaway: Female Pelvic ran ≥100% through Feb then **slid steadil
 
 ## Open items (your notes + things to fix before presenting)
 
-1. **"Add 250 as denominator"** — your sticky note on slide 2. The chart today normalizes each tissue to *its own* ask (Ask = 100%). Your ask is to re-base attainment on a **flat 250** (`harvested ÷ 250`) so the series are comparable across tissues. *Not yet applied.*
+1. **"Add 250 as denominator" — ✅ DONE.** Applied in [`deliverables/`](deliverables/CHANGES.md): the slide-2 chart now plots the two pelvics (666541, 666506) against a **flat 250** ask, backed by a new `Attainment @250 (Pelvics)` tab in the workbook. The 506 series was also relabeled "Pelvic Block (506's)". *(Original files in `source-files/` are unchanged; updated copies are in `deliverables/`.)*
 2. **"Why is attainment dropping?"** — your note lists the suspected culprits: **harvesting yield, labor**. (The model backs this up: Pelvic harvesting yield = 0.25 and Martins is labor-bound — see `FINDINGS.md §4`.)
 3. **Quarter-label caveat** — confirm the figures are **busiest-quarter 2027**, not Q4'26; the model's header cell A1 reportedly reads "Q4'26 BP". Relabel or re-point if needed.
 4. **Chart series mislabel** — the second series is titled "Female Pelvic (506's)", but **666506 is Pelvic Block Non-Intact**, not Female Pelvic. Likely should read "Pelvic Block (506's)".
