@@ -16,6 +16,7 @@ Two source workbooks were intaken (originals in [`source-files/`](source-files/)
 |---|---|
 | `Part_Supplier_RiskAssessmentTool_v2.xlsx` | The **capacity + supplier-risk model**. Holds the demand→tissue BOM, slaughterhouse allocations, per-tissue yields/labor, per-slaughterhouse capacity math, and the supplier risk scorecards (`Tissue_Model`, `Part_Model`). |
 | `Weekly_goals_2026_SUMMARY_062426.xlsx` | The **weekly harvesting actuals**: per-week "Ask vs Achieved" by slaughterhouse and tissue, rolled up into attainment %, YTD, and 2026 projections. This is the source of the attainment data the boss's slide is built from. |
+| `Tissue_Capacity_2026_2027.pptx` | The **exec-summary deck** (2 slides) — already substantially built. Answers both halves of the boss's ask. Documented slide-by-slide in [`DECK_NOTES.md`](DECK_NOTES.md), including your "add 250 as denominator" note and the open edits still to apply. |
 
 > Note: the two `Weekly_goals` uploads were byte-identical (same MD5 `d79b677...`), so only one copy is kept.
 
@@ -32,7 +33,7 @@ Two source workbooks were intaken (originals in [`source-files/`](source-files/)
 
 - On the attainment chart: **use a consistent denominator of 250** instead of each tissue's own weekly "ask." In the weekly file every tissue/house has a different ask vs attainment, which makes the bars non-comparable. Re-graphing attainment as **harvested ÷ 250** puts every tissue on the same baseline. *(See `FINDINGS.md` for a worked example.)*
 
-> Heads-up: the **PowerPoint itself was not uploaded** — only the two Excel files and the "Goal updates" screenshot. If you want me to actually build/edit the slide, the deck (or a blank target) will need to come over too.
+> Update: the **deck has now been uploaded** (`Tissue_Capacity_2026_2027.pptx`) and is already largely built — see [`DECK_NOTES.md`](DECK_NOTES.md). Your "add 250 as denominator" note currently lives as a sticky note on slide 2 and has **not** been applied to the chart yet.
 
 ---
 
@@ -97,7 +98,9 @@ Full detail and the data tables behind these are in **[`FINDINGS.md`](FINDINGS.m
 
 ## Suggested next steps (not yet done)
 
-1. Build the **single-slide exec summary**: by-part-supplier capacity vs **2027 demand × 1.25**, filtered to medium/high-risk tissues only — answers "do we have risk of not meeting 125% of 2027 demand?"
-2. Re-graph attainment with the **flat 250 denominator** per your note.
-3. Draft the **mitigation/milestone list** (Martins Pelvic Block yield study first), pulled from the low-attainment + low-headroom tissues.
-4. Get the **PowerPoint deck** uploaded if you want me to produce the actual slide rather than the underlying tables/figures.
+The exec slide is already built (capacity vs 125% of 2027 demand) and the mitigation milestones are drafted on it — so the remaining work is edits/verification, not a from-scratch build (full list in [`DECK_NOTES.md`](DECK_NOTES.md) → *Open items*):
+
+1. **Apply the flat-250 denominator** to the slide-2 attainment chart per your note (currently normalized to each tissue's own ask).
+2. **Verify the quarter** — confirm figures are busiest-quarter **2027**, not Q4'26 (model header A1 reportedly reads "Q4'26 BP").
+3. **Fix the chart label** — series "Female Pelvic (506's)" should read "Pelvic Block (506's)" (666506 = Pelvic Block, not Female Pelvic).
+4. **Tidy slide 1** — remove the stray/duplicated "SH" / "Labor · Pelvic block" fragments.
