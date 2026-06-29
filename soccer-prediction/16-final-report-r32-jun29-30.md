@@ -34,17 +34,20 @@ shootout vs a Dutch back line missing both first-choice CBs.)
 | C | Balanced | $30 MAR-adv · $18 1-1 · $12 NED 1-0 · $12 0-0 · $14 NED 2-1 · $14 MAR 2-1 | +$1 | 39% |
 | D | Low-scoring | $35 Under 2.5* · $20 1-1 · $20 0-0 · $25 MAR-adv | +$1 | 38% |
 
-### 2. 🇨🇮 Côte d'Ivoire vs Norway — TMRW 1 PM — **PASS**
-Market **NOR 66% / CIV 36%**; my model **NOR 63 / CIV 37** → **aligned, no edge** (like Brazil–Japan).
-All four allocations are −EV (best −$5). Norway has Haaland and is fairly priced. **No bet.**
-Scores: 1-1 13% · Nor 1-0 10% · Nor 2-1 9%. O2.5 46%.
+### 2. 🇨🇮 Côte d'Ivoire vs Norway — TMRW 1 PM — **MARGINAL PASS** (updated with real prices)
+Market **NOR 65% / CIV 36%**; my model **NOR 63 / CIV 37** → **essentially aligned**. With the *real*
+exact-score prices (vs my earlier estimates), allocation **A (CIV/draw lean) is marginally +EV
+(+$4.6, 51%)** — but that's **within model noise**, not a conviction bet. The rest are −EV.
+**Verdict: small dab on the CIV/draw side at most, or pass.** Norway (Haaland) fairly priced.
 
-| Objective | EV | P(profit) |
+| Objective (real prices) | EV | P(profit) |
 |---|---|---|
-| Max-EV (CIV lean) | −$8.8 | 51% |
-| Max P(profit) (Norway) | −$5.1 | 68% |
-| Balanced | −$9.0 | 40% |
-| Low-scoring | −$5.6 | 33% |
+| A) Max-EV (CIV/draw) | **+$4.6** | 51% |
+| B) Max P(profit) (Norway) | −$4.1 | 68% |
+| C) Balanced | −$5.4 | 39% |
+
+Extra-Time market: **Yes 38%** vs my draw-after-90 ~27% — but "No ET" pays ~1.0×, so unbettable.
+Scores: 1-1 14% · NOR 1-0 11% · NOR 2-1 10% · NOR 2-0 9% · CIV 2-1 8%.
 
 ### 3. 🇫🇷 France vs Sweden — TMRW 5 PM — **model-only, likely PASS**
 No market screenshot yet. My model: **France 80% to advance**, W/D/W 62/22/16; scores France 2-0 /
