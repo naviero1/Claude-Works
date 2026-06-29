@@ -80,3 +80,10 @@ sided with the market's Over. The contrarian read was right; I didn't trust it.
 | R16 | | | | | |
 | QF | | | | | |
 | SF+ | | | | | |
+
+## R32 results — live grading (Jun 28–29)
+| Game | Our call | Actual | Result | Note |
+|---|---|---|---|---|
+| South Africa–Canada | Canada adv (60%) | Canada 1-0 | ✓ | clean |
+| Brazil–Japan | Brazil adv (70%); bet=pass | Brazil 2-1 | ✓ + exact score | pass correct (no edge) |
+| Germany–Paraguay | bet=Paraguay-adv value (mkt 15%) | 1-1 → ET (final pending) | scoreline ✗ / **bargain ✓** | Paraguay led in reg, took 86% favorite to ET — fade-the-favorite thesis vindicated |
