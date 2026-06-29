@@ -68,15 +68,38 @@ goal and force ET.
 
 **Recommend C** (robust to Sweden's true number); A/D for value hunters; B is the trap.
 
-### 4. 🇲🇽 Mexico vs Ecuador — TMRW 9 PM — **model-only, the live edge candidate** ⭐
-My model: **Mexico 57% / Ecuador 43%**, and the **lowest-scoring game on the board** — O2.5 just
-**38%**, goals ~1.0 / 1.2 by half, P(first-15' goal) 31%. Top scores 1-1 14% · Mex 1-0 12% · 0-0 12%.
-This is the one most likely to hide value: if the market overprices **host Mexico** (and it's playing
-at altitude with a backup keeper — Malagón out, Ochoa/Rangel in), then **Ecuador-to-advance** and/or
-**Under 2.5** are the bargains. **Need the Polymarket screenshot to size it** — this is the game to
-send me next.
+### 4. 🇲🇽 Mexico vs Ecuador — TMRW 9 PM — **Ecuador-advance value** (moderate conviction)
+Market **MEX 64% / ECU 37%** to advance; my model **57 / 43** → **Ecuador-to-advance is the value**.
+Lowest-total game on the board (model O2.5 38%) — **but the market agrees** (it prices 0-0 at 16%,
+1-1 at 15%), so an *Under* play is **not** value; the edge is *only* Ecuador-advance. Mexico's edge =
+home + altitude (Azteca); Ecuador's case = quality (Caicedo, Plata, beat Germany) + Mexico's
+first-choice keeper out (Malagón → Ochoa).
 
-\* Under-2.5 prices estimated pending a live totals board.
+| | Objective | Allocation | EV | P(profit) |
+|---|---|---|---|---|
+| A | Max-EV | $100 ECU-adv | +$15.5 | 43% |
+| **D ✅** | **Ecuador value + draw hedge** | $70 ECU-adv · $15 1-1 · $15 0-0 | **+$6** | **51%** |
+| B | Balanced (+ Mexico hedge) | $55 ECU-adv · $25 MEX 1-0 · $20 MEX 2-0 | −$2 | 63% |
+| C | Max P(profit) (Mexico) | $85 MEX-adv · $15 ECU-adv | −$7 | 57% |
+
+**Recommend D** — positive EV *and* >50% to profit. Moderate conviction; don't oversize (Mexico's
+altitude/home edge is real).
+
+---
+
+## ✅ Complete slate — recommended play per game
+| Game | Verdict | Recommended | EV / P(profit) |
+|---|---|---|---|
+| 🇳🇱 Netherlands–Morocco | **BET** (highest conviction) | A: $65 MAR-adv · $20 1-1 · $15 MAR 1-0 | +$15 / 54% |
+| 🇲🇽 Mexico–Ecuador | **BET** (moderate) | D: $70 ECU-adv · $15 1-1 · $15 0-0 | +$6 / 51% |
+| 🇫🇷 France–Sweden | **small/optional** (low conv.) | C: France scores + $40 SWE-adv | +$18 / 59% |
+| 🇨🇮 CIV–Norway | marginal pass | small A (CIV/draw) or skip | +$5 / 51% |
+| 🇧🇷 Brazil–Japan | **pass** | — | no edge |
+| 🇩🇪 Germany–Paraguay | done | C (Paraguay dart) — vindicated (ET) | — |
+
+**Conviction ranking of the live edges:** Morocco-advance > Ecuador-advance > Sweden-advance.
+All three are *fade-the-overpriced-favorite* plays; Morocco is the cleanest (CB injuries), Sweden the
+thinnest (France genuinely dominant).
 
 ---
 
