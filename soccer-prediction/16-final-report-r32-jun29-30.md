@@ -49,12 +49,24 @@ exact-score prices (vs my earlier estimates), allocation **A (CIV/draw lean) is 
 Extra-Time market: **Yes 38%** vs my draw-after-90 ~27% — but "No ET" pays ~1.0×, so unbettable.
 Scores: 1-1 14% · NOR 1-0 11% · NOR 2-1 10% · NOR 2-0 9% · CIV 2-1 8%.
 
-### 3. 🇫🇷 France vs Sweden — TMRW 5 PM — **model-only, likely PASS**
-No market screenshot yet. My model: **France 80% to advance**, W/D/W 62/22/16; scores France 2-0 /
-1-1 / 1-0; O2.5 55%, goals 1.3 / 1.6 by half. France are a strong, *fairly-priceable* favorite —
-I'd expect the market to be efficient here (no obvious structural mispricing). **Provisional pass;
-send the market and I'll confirm.** Only angle worth checking: Sweden have Isak + Gyökeres, so a
-*Sweden-to-advance* longshot could have thin value if the market overshoots France.
+### 3. 🇫🇷 France vs Sweden — TMRW 5 PM — **low-conviction Sweden-advance value**
+Market **France 89% / Sweden 12%** to advance; my model **France 80%** (max ~85% even at λ 2.4). So
+the market is more bullish on France than the model at *any* reasonable λ → **Sweden-to-advance
+(mkt 12%, model 15–20%) is the value**. Scores: France 2-0 / 1-1 / 1-0; O2.5 55%; goals 1.3 / 1.6.
+
+**Caveat (important):** lower conviction than Morocco. The big EV rests on the model being right that
+France is "only" 80–85%, when France have been the tournament's best team (10 group goals) and Sweden
+are weak + missing CB Hien — so 89% might just be *correct*. Sweden's case: Isak + Gyökeres can nick a
+goal and force ET.
+
+| | Objective | Allocation | EV | P(profit) |
+|---|---|---|---|---|
+| A | Max-EV (Sweden dart) | $40 SWE-adv · $25 1-1 · $20 0-0 · $15 SWE 1-0 | +$46 | 33% |
+| B | Max P(profit) (France) | $90 FRA-adv · $10 SWE-adv | −$3 | 80% (best +$1) |
+| **C ✅** | **Balanced** | $18 FRA 2-0 · $16 FRA 1-0 · $14 FRA 2-1 · $12 FRA 3-0 · $40 SWE-adv | **+$18** | **59%** |
+| D | Concentrated Sweden | $70 SWE-adv · $30 1-1 | +$62 | 29% |
+
+**Recommend C** (robust to Sweden's true number); A/D for value hunters; B is the trap.
 
 ### 4. 🇲🇽 Mexico vs Ecuador — TMRW 9 PM — **model-only, the live edge candidate** ⭐
 My model: **Mexico 57% / Ecuador 43%**, and the **lowest-scoring game on the board** — O2.5 just
