@@ -7,6 +7,8 @@ Pelvic scope throughout: **666506 (Pelvic Block Non-Intact) and 666541 (Female P
 
 ## `Tissue_Capacity_2026_2027.pptx`  (3 slides)
 
+> **Current baseline = your revision** (uploaded as `Tissue_Capacity_2026_2027_2.pptx`, 2026-06-29). It keeps everything below and adds your manual edits: milestone-1/2 **progress notes** ("Started… 30 samples/wk for 4 weeks"; "Already root-causing yield spec fails"), the **"Slaughter House" / "Cap type – Tissue family"** legend labels on the slide-1 table, and **"Seasonality"** added to the slide-2 culprits. Future deck edits build on this file.
+
 **Slide 2 — pelvic attainment chart**
 - Re-pointed to the **flat-250** basis (`% = harvested ÷ 250`); the "Ask (100%)" line now represents the 250/wk standard.
 - **Zeros excluded:** each biweekly point now averages only weeks with harvest > 0, so an off-week no longer halves the point. Only 666506 was affected (weeks 12/29 and 05/25); 666541 had no zero weeks.
