@@ -67,9 +67,14 @@ headers=["Sale price","Selling option","Comm %","Comm $","Other\nclosing $",
          "Total\nsell costs","NET proceeds\n(money back)","Shortfall\nvs $48k",
          "YOUR pay\n@80%","YOUR pay\n@70%","Her total\n@80%","Her total\n@70%",
          "Price\nfactor","Exposure\nfactor","P(sold by\nend Jul)","P(sold by\nend Aug)",
-         "P(sold by\nend Sep)","P(sold by\nend Oct)"]
+         "P(sold by\nend Sep)","P(sold by\nend Oct)","★ RECOMMENDATION"]
+tag_hdr=PatternFill("solid",fgColor="BF8F00")
+tag_fill=PatternFill("solid",fgColor="FFE699")
+tags={(405000,"FSBO + buyer agent (2.5%)"):"★ BEST VALUE — low cost to Oscar + decent odds",
+      (409900,"FSBO + buyer agent (2.5%)"):"★ CHEAPEST for Oscar — list high, cut later if needed",
+      (399000,"Typical agent (5.5%)"):"★ BEST ODDS / hands-off if you want it sold"}
 for i,h in enumerate(headers):
-    fill = prob_hdr if i>=12 else hdr_fill
+    fill = tag_hdr if i==18 else (prob_hdr if i>=12 else hdr_fill)
     cell(ws,f"{get_column_letter(i+1)}{H}",h,HDR,fill,align="center",bd=True)
 ws.row_dimensions[H].height=42
 
@@ -105,12 +110,54 @@ for sp in sale_prices:
         cell(ws,p,f"=1-(1-{o})*(1-MIN(0.95,$O$5*{m}*{n}*$O$12))",None,prob_fill,pct0,bd=True)
         cell(ws,q,f"=1-(1-{p})*(1-MIN(0.95,$O$5*{m}*{n}*$O$13))",None,prob_fill,pct0,bd=True)
         cell(ws,rr,f"=1-(1-{q})*(1-MIN(0.95,$O$5*{m}*{n}*$O$14))",BOLD,prob_fill,pct0,bd=True)
+        tg=tags.get((sp,name))
+        if tg:
+            cell(ws,f"S{r}",tg,BOLD,tag_fill,None,"left",bd=True)
+            for col in "ABIJOPQR":
+                ws[f"{col}{r}"].fill=tag_fill
+        else:
+            cell(ws,f"S{r}","",None,None,None,None,bd=True)
         r+=1
+LAST=r-1
 
-widths=[12,28,8,11,10,11,13,11,11,11,11,11,9,9,10,10,10,10]
+widths=[12,28,8,11,10,11,13,11,11,11,11,11,9,9,10,10,10,10,46]
 for i,w in enumerate(widths):
     ws.column_dimensions[get_column_letter(i+1)].width=w
 ws.freeze_panes=f"A{H+1}"
+
+# ---- AVERAGES / SUMMARY BLOCK ----
+S=LAST+2
+cell(ws,f"A{S}","AVERAGE ACROSS ALL 20 SCENARIOS (equal weight)",HDR,hdr_fill)
+ws.merge_cells(f"A{S}:F{S}")
+rng=f"{H+1}:{LAST}"
+hcol=f"H{H+1}:H{LAST}"; icol=f"I{H+1}:I{LAST}"; jcol=f"J{H+1}:J{LAST}"
+summ=[("Average loss of Francie's $48k capital (shortfall)",f"=AVERAGE({hcol})"),
+      ("Average she keeps of the $48k",f"=$B$5-AVERAGE({hcol})"),
+      ("Average COST TO OSCAR @ 80%",f"=AVERAGE({icol})"),
+      ("Average COST TO OSCAR @ 70%",f"=AVERAGE({jcol})")]
+rr=S+1
+for lab,formula in summ:
+    cell(ws,f"A{rr}",lab,BOLD); ws.merge_cells(f"A{rr}:F{rr}")
+    cell(ws,f"G{rr}",formula,BOLD,you_fill if "OSCAR" in lab else her_fill,money,bd=True)
+    rr+=1
+
+rr+=1
+cell(ws,f"A{rr}","AVERAGE COST TO OSCAR BY ROUTE (across the 5 prices)",HDR,hdr_fill)
+ws.merge_cells(f"A{rr}:F{rr}"); rr+=1
+routes=[("Full-service agent (6%)",[19,23,27,31,35]),
+        ("Typical agent (5.5%)",[20,24,28,32,36]),
+        ("FSBO + buyer agent (3%)",[21,25,29,33,37]),
+        ("FSBO + buyer agent (2.5%)",[22,26,30,34,38])]
+cell(ws,f"A{rr}","Route",BOLD,grp_fill,bd=True); ws.merge_cells(f"A{rr}:D{rr}")
+cell(ws,f"E{rr}","Avg loss of $48k",BOLD,grp_fill,align="center",bd=True); ws.merge_cells(f"E{rr}:F{rr}")
+cell(ws,f"G{rr}","Oscar @80%",BOLD,grp_fill,align="center",bd=True)
+cell(ws,f"H{rr}","Oscar @70%",BOLD,grp_fill,align="center",bd=True); rr+=1
+for label,rows_ in routes:
+    cell(ws,f"A{rr}",label,None,None,None,"left",bd=True); ws.merge_cells(f"A{rr}:D{rr}")
+    cell(ws,f"E{rr}","=AVERAGE("+",".join(f'H{x}' for x in rows_)+")",None,None,money,bd=True); ws.merge_cells(f"E{rr}:F{rr}")
+    cell(ws,f"G{rr}","=AVERAGE("+",".join(f'I{x}' for x in rows_)+")",BOLD,you_fill,money,bd=True)
+    cell(ws,f"H{rr}","=AVERAGE("+",".join(f'J{x}' for x in rows_)+")",BOLD,you_fill,money,bd=True)
+    rr+=1
 
 # ================= NOTES =================
 ns=wb.create_sheet("Notes & Assumptions"); ns.column_dimensions["A"].width=104
@@ -159,6 +206,23 @@ notes=[
  ("  by the end of that month. They rise across months because each month adds another chance,",None,None),
  ("  even though the per-month odds shrink seasonally.",None,None),
  ("• 'Sold' here = under contract / offer accepted, not the closing date (closing is ~30–45 days later).",None,None),
+ ("",None,None),
+ ("TAGGED 'BEST' OPTIONS (★ on the Scenarios tab) — why these",BOLD,None),
+ ("• ★ CHEAPEST for Oscar: $409,900 FSBO + buyer agent 2.5% → you pay ~$5,900, ~57% sold by Oct.",None,None),
+ ("  Logic: list high as FSBO; you can always cut the price later, but you can't un-cut it. Lowest cost.",None,None),
+ ("• ★ BEST VALUE: $405,000 FSBO + buyer agent 2.5% → you pay ~$9,700, ~61% by Oct. A small price",None,None),
+ ("  trim buys better odds while still skipping the listing commission — the best cost-vs-odds balance.",None,None),
+ ("• ★ BEST ODDS / hands-off: $399,000 typical agent (5.5%) → you pay ~$23,900, ~74% by Oct. Pick",None,None),
+ ("  this if a fast, certain, low-effort sale matters more than saving money. Costs you the most.",None,None),
+ ("• Pattern: every $1 of commission or price cut comes straight out of Oscar's pocket via the 80/70",None,None),
+ ("  split, because it shrinks the net proceeds that repay her $48k. FSBO is Oscar's biggest saver.",None,None),
+ ("",None,None),
+ ("AVERAGE LOSS OF FRANCIE'S $48k (summary block under the table)",BOLD,None),
+ ("• Averaged equally across all 20 scenarios: ~$24,200 of her $48k is NOT returned by the sale",None,None),
+ ("  (she gets back ~$23,800). Oscar's average cost is 80% of that ≈ $19,300 (or ~$16,900 at 70%).",None,None),
+ ("• This equal-weight average spans cheap and expensive cases; your REAL number depends on the",None,None),
+ ("  option you choose — see the per-route averages: FSBO routes cut Oscar's average cost to ~$14k,",None,None),
+ ("  vs ~$25k with a full-service agent.",None,None),
  ("",None,None),
  ("THE CORE TENSION",BOLD,None),
  ("• Lower price / using an agent = HIGHER chance of selling soon, but LOWER net proceeds = you pay",None,None),
