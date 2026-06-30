@@ -300,5 +300,97 @@ cell(cs,"A23","The ★ stars are the tagged picks. Points up high cost Oscar the
 cs.column_dimensions["A"].width=15; cs.column_dimensions["B"].width=15
 cs.column_dimensions["D"].width=15; cs.column_dimensions["E"].width=15; cs.column_dimensions["F"].width=30
 
+# ================= DIVORCE SETTLEMENT TAB =================
+ds=wb.create_sheet("Divorce Settlement")
+cell(ds,"A1","Divorce Settlement Scenarios (NC) — what it costs Oscar",TITLE,title_fill)
+ds.merge_cells("A1:F1"); ds.row_dimensions[1].height=22
+cell(ds,"A2","General information, NOT legal advice. NC equitable distribution is fact-specific — confirm with a NC family-law attorney.",Font(italic=True,size=9))
+
+cell(ds,"A4","INPUTS (edit yellow)",BOLD)
+inp=[("Mortgage payoff","B5",356149.76,money,False),
+     ("Her separate down payment (traces to house)","B6",48000,money,False),
+     ("Marital 401k you contributed (Aug23–May26)","B7",15000,money,False),
+     ("Her half of marital 401k (max she can claim)","B8","=B7/2",money,True),
+     ("Joint account balance (split 50/50)","B9",0,money,False),
+     ("Your post-separation mortgage credit (optional)","B10",0,money,False),
+     ("Representative sale price","B11",399000,money,False),
+     ("Commission %","B12",0.055,pct,False),
+     ("Transfer tax %","B13",0.002,pct,False),
+     ("Other closing flat $","B14",2000,money,False)]
+r=5
+for lab,cref,val,fmt,isf in inp:
+    cell(ds,f"A{r}",lab); cell(ds,cref,val,BOLD,None if isf else param_fill,fmt,bd=True); r+=1
+
+cell(ds,"A16","Selling costs"); cell(ds,"B16","=B11*B12+B11*B13+B14",None,None,money,bd=True)
+cell(ds,"A17","Net proceeds (she takes as her credit)",BOLD); cell(ds,"B17","=B11-B5-B16",BOLD,her_fill,money,bd=True)
+cell(ds,"A18","Shortfall vs her $48k (market loss on HER money)"); cell(ds,"B18","=MAX(0,B6-B17)",None,None,money,bd=True)
+
+T=20
+heads=["Settlement option","Cash you pay her","Assets you give up","YOUR TOTAL COST","Her total recovery","vs her ask, you SAVE"]
+for i,h in enumerate(heads):
+    cell(ds,f"{get_column_letter(i+1)}{T}",h,HDR,hdr_fill,align="center",bd=True)
+ds.row_dimensions[T].height=30
+# rows 21..24
+cell(ds,"A21","Her full ask — 80% of shortfall"); cell(ds,"B21","=B18*0.8",None,None,money,bd=True); cell(ds,"C21",0,None,None,money,bd=True)
+cell(ds,"A22","Her ask — 70% of shortfall"); cell(ds,"B22","=B18*0.7",None,None,money,bd=True); cell(ds,"C22",0,None,None,money,bd=True)
+cell(ds,"A23","Negotiated middle (give your 401k share)"); cell(ds,"B23",0,None,None,money,bd=True); cell(ds,"C23","=B8",None,None,money,bd=True)
+cell(ds,"A24","★ Clean trade / legal baseline (recommended)",BOLD,tag_fill); cell(ds,"B24",0,None,tag_fill,money,bd=True); cell(ds,"C24","=MAX(0,B8-B10)",None,tag_fill,money,bd=True)
+for rw in (21,22,23,24):
+    fillv = tag_fill if rw==24 else None
+    cell(ds,f"D{rw}",f"=B{rw}+C{rw}",BOLD,fillv if rw==24 else you_fill,money,bd=True)
+    cell(ds,f"E{rw}",f"=B17+D{rw}",None,fillv if rw==24 else her_fill,money,bd=True)
+    cell(ds,f"F{rw}",f"=$D$21-D{rw}",BOLD,fillv,money,bd=True)
+    if rw==24:
+        cell(ds,f"A{rw}","★ Clean trade / legal baseline (recommended)",BOLD,tag_fill,None,"left",bd=True)
+
+# savings-by-price mini matrix
+M=27
+cell(ds,f"A{M}","WHAT HER 80% ASK COSTS YOU vs A CLEAN TRADE — by sale price",HDR,hdr_fill)
+ds.merge_cells(f"A{M}:F{M}")
+mh=["Sale price","Her 80% ask costs you","Clean trade costs you","You SAVE"]
+for i,h in enumerate(mh):
+    cell(ds,f"{get_column_letter(i+1)}{M+1}",h,BOLD,grp_fill,align="center",bd=True)
+mr=M+2
+for p in [390000,395000,399000,405000,409900]:
+    cell(ds,f"A{mr}",p,None,None,money,bd=True)
+    cell(ds,f"B{mr}",f"=MAX(0,$B$6-({p}-$B$5-({p}*$B$12+{p}*$B$13+$B$14)))*0.8",None,you_fill,money,bd=True)
+    cell(ds,f"C{mr}","=MAX(0,$B$8-$B$10)",None,None,money,bd=True)
+    cell(ds,f"D{mr}",f"=B{mr}-C{mr}",BOLD,tag_fill,money,bd=True)
+    mr+=1
+
+# house options notes
+hn=mr+2
+optnotes=[
+ ("FOUR OPTIONS FOR THE HOUSE (fastest first)",BOLD),
+ ("1. SELL now, she takes 100% of net proceeds, both sign a full mutual release. Fast; crystallizes the",None),
+ ("   loss — which she bears (it's her separate money that the market moved), not you. You walk from the debt.",None),
+ ("2. LUMP-SUM BUYOUT: you keep the house, pay her a fixed sum (~current net equity) to release ALL claims,",None),
+ ("   she quitclaims. Fastest + most certain cap on your cost; you keep future appreciation. Needs you to",None),
+ ("   refinance the mortgage into your name alone (likely doable on $140k income).",None),
+ ("3. RENT & DELAY to spring 2027 (better season + possible price recovery) → smaller loss → less owed. But",None),
+ ("   you'd still settle her $48k credit in the divorce now; only do this if you keep the asset yourself.",None),
+ ("4. HER DEAL (pay 70–80% of the shortfall): the most expensive for you and NOT required by NC law. Avoid",None),
+ ("   signing this as written — it makes you personally insure her investment against the market.",None),
+ ("",None),
+ ("WHY THE CLEAN TRADE IS YOUR BASELINE",BOLD),
+ ("• Her $48k down payment is her SEPARATE property — she can trace it into the house and take the net",None),
+ ("  proceeds, but NC caps that at the equity that actually EXISTS. The market shortfall is a loss on HER",None),
+ ("  investment; the law does not make you cover it with cash.",None),
+ ("• Her affair during the marriage BARS her alimony (N.C.G.S. 50-16.3A). Short marriage. No kids together.",None),
+ ("• Only real marital asset of yours she can reach is ~half your $15k 401k ≈ $7.5k — offer to trade it for",None),
+ ("  her dropping the shortfall guarantee, and you both walk clean.",None),
+ ("• You've paid the mortgage from your salary since separation → ask for a post-separation reimbursement",None),
+ ("  credit, which offsets anything you'd owe her.",None),
+ ("",None),
+ ("FAST + CHEAP PATH",BOLD),
+ ("• One separation agreement settling everything (property + mutual alimony waiver + house). ~$1.5k–$4k total,",None),
+ ("  signed in weeks. Then file for absolute divorce after the 1-yr separation (~May 2027): ~$225 + minimal.",None),
+ ("• Do NOT file equitable-distribution / alimony claims in court — that triggers the $15k–$40k litigation path.",None),
+]
+for i,(txt,font) in enumerate(optnotes):
+    cell(ds,f"A{hn+i}",txt,font)
+ds.column_dimensions["A"].width=52
+for c in "BCDEF": ds.column_dimensions[c].width=17
+
 wb.save("/home/user/Claude-Works/House_Sale_Scenarios_537_Duchart.xlsx")
 print("saved")
