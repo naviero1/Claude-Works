@@ -50,10 +50,10 @@ cell(ws,"N3","PROBABILITY MODEL (edit yellow)",BOLD)
 params=[("N4","Est. current market value","O4",410000,money),
         ("N5","Base monthly sale chance (h0)","O5",0.25,pct),
         ("N6","Price sensitivity (k)","O6",7,'0.0'),
-        ("N7","Exposure: full agent","O7",1.10,'0.00'),
+        ("N7","Exposure: full-service agent","O7",1.10,'0.00'),
         ("N8","Exposure: typical agent","O8",1.05,'0.00'),
-        ("N9","Exposure: FSBO + buyer agent","O9",0.85,'0.00'),
-        ("N10","Exposure: full FSBO","O10",0.55,'0.00'),
+        ("N9","Exposure: FSBO + buyer agent 3%","O9",0.90,'0.00'),
+        ("N10","Exposure: FSBO + buyer agent 2.5%","O10",0.85,'0.00'),
         ("N11","Season — Jul 2026","O11",1.05,'0.00'),
         ("N12","Season — Aug 2026","O12",0.95,'0.00'),
         ("N13","Season — Sep 2026","O13",0.85,'0.00'),
@@ -77,8 +77,8 @@ sale_prices=[390000,395000,399000,405000,409900]
 # option: (label, commission, exposure-param-cell)
 options=[("Full-service agent (6%)",0.06,"$O$7"),
          ("Typical agent (5.5%)",0.055,"$O$8"),
-         ("FSBO + buyer agent (2.5%)",0.025,"$O$9"),
-         ("Full FSBO — no agents (0%)",0.00,"$O$10")]
+         ("FSBO + buyer agent (3%)",0.03,"$O$9"),
+         ("FSBO + buyer agent (2.5%)",0.025,"$O$10")]
 
 r=H+1
 for sp in sale_prices:
@@ -149,8 +149,11 @@ notes=[
  ("• h0 = 0.25/month: the baseline ~ derived from an ~85-day median time-to-contract.",None,None),
  ("• Price factor = EXP(−k × (price − market value)/market value), k=7. Pricing BELOW the ~$410k",None,None),
  ("  market value raises odds; pricing at/above lowers them. Adjust 'market value' and k to taste.",None,None),
- ("• Exposure factor: full agent 1.10, typical agent 1.05, FSBO+buyer-agent 0.85, full FSBO 0.55.",None,None),
- ("  Pure FSBO (offering NO buyer-agent commission) is penalized most — many agents won't show it.",None,None),
+ ("• Exposure factor: full-service 1.10, typical agent 1.05, FSBO+3% buyer agent 0.90, FSBO+2.5% 0.85.",None,None),
+ ("  ASSUMPTION: the buyer always has a realtor, so you ALWAYS pay a buyer's-agent commission. 'FSBO'",None,None),
+ ("  means you skip the LISTING agent only (saving ~3%) and still pay the buyer's agent — there is no",None,None),
+ ("  0% / no-commission case. FSBO is penalized a little (amateur photos/marketing/negotiation), not a",None,None),
+ ("  lot, because a competitive buyer-agent commission still gets the home shown.",None,None),
  ("• Season factor: Jul 1.05, Aug 0.95, Sep 0.85, Oct 0.75 (declining into fall, per above).",None,None),
  ("• The four 'P(sold by end of month)' columns are CUMULATIVE — the chance you're under contract",None,None),
  ("  by the end of that month. They rise across months because each month adds another chance,",None,None),
