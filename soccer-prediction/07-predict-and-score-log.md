@@ -87,3 +87,19 @@ sided with the market's Over. The contrarian read was right; I didn't trust it.
 | South Africa–Canada | Canada adv (60%) | Canada 1-0 | ✓ | clean |
 | Brazil–Japan | Brazil adv (70%); bet=pass | Brazil 2-1 | ✓ + exact score | pass correct (no edge) |
 | Germany–Paraguay | bet=Paraguay-adv value (mkt 15%) | 1-1 → ET (final pending) | scoreline ✗ / **bargain ✓** | Paraguay led in reg, took 86% favorite to ET — fade-the-favorite thesis vindicated |
+
+## R32 first-half results (Jun 28–30) — full grading
+| Game | Result | Advanced | Our bet | P&L (if $100/game) |
+|---|---|---|---|---|
+| SA–Canada | Canada 1-0 | Canada | pass | — |
+| Brazil–Japan | Brazil 2-1 | Brazil | pass (no edge) | — |
+| Germany–Paraguay | 1-1 → Paraguay | **Paraguay** | PAR-adv @15% (alloc C) | **+$260** ✅ |
+| Netherlands–Morocco | 1-1 → Morocco (pens) | **Morocco** | MAR-adv @38% (alloc A) | **+$204** ✅ |
+| CIV–Norway | Norway 2-1 | Norway | marginal pass | — |
+| France–Sweden | France 3-0 | France | alloc C (hedged) | +$9 |
+| Mexico–Ecuador | Mexico 2-1 | Mexico | ECU-adv (alloc D) | −$100 ✗ |
+| **Slate total** | | | **$400 staked** | **+$373 (+93%)** |
+
+**Takeaway:** the two fade-the-overpriced-favorite bets (Morocco, Paraguay) both hit; passes were
+correct; one lower-conviction fade (Ecuador) lost. +EV process + favorable variance. See
+[`17-r32-results-and-realign.md`](17-r32-results-and-realign.md) for realigned upcoming predictions.
