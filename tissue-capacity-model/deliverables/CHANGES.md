@@ -1,6 +1,18 @@
 # Deliverables — flat-250 pelvic attainment + yield sensitivity
 
-## Update — labor reallocation + combined pelvic line (latest)
+## Update — two pelvic graphs on revised asks (latest, `_update063026`)
+
+- **Slide 2 now has TWO weekly charts side by side** (replacing the single combined line), each attainment = weekly harvested ÷ a per-tissue ask:
+  - **Female Pelvic (666541) ÷ 170/wk** — line runs ~38–190%.
+  - **Pelvic Block (666506) ÷ 60/wk** — line runs ~0–338% (small ask, so harvest often exceeds it); the two no-harvest weeks (12/29, 05/25) are shown as gaps.
+  - Dashed grey line = 100% (the ask) on each. 666518 dropped (it was all zeros).
+- **Weekly workbook:** new `Pelvic Attainment (170-60)` tab with the per-week harvested / ask / % for both tissues (18 charts preserved). The uploaded file is now canonical.
+- Everything else (slide 1, slide 3, the labor-reallocation numbers, the model sheet) is unchanged from the prior iteration.
+- Deck delivered as **`Tissue_Capacity_2026_2027_update063026.pptx`**.
+
+---
+
+## Update — labor reallocation + combined pelvic line
 
 Built on the user's revised model (`1387ef2e-…RiskAssessmentTool_v2.xlsx`), now canonical.
 
