@@ -1,6 +1,17 @@
 # Deliverables — flat-250 pelvic attainment + yield sensitivity
 
-## Update — reverted to single combined pelvic line vs 250 (latest)
+## Update — data-driven pelvic standard = 290/wk (latest)
+
+Replaced the arbitrary 250 with a justified standard for combined pelvics (506+541; 518/540 discontinued).
+
+- **Recommended standard: 290/week** = **125% of the 2027 build-plan demand at Martins** (1.25 × 231/wk, where 231 = 506 ≈ 52 + 541 ≈ 179). The 25% uplift is the deck's coverage goal and the safety margin for the low-yield, **more-stringent 506** (historic attainment 61% vs 541's 73%). Validated against historic harvest (combined avg 252/wk = **87%** of 290).
+- **New standalone workbook: `Pelvic_Harvest_Standard_Martins.xlsx`** — full basis to present/defend the number: recommendation + alternatives (231 demand-only → 109%, 290 → 87%, 354 operational ask → 71%), build-plan demand, 25-week historic harvest & ask, and a 506-vs-541 stringency/yield comparison.
+- **Slide 2** chart now plots combined `(506+541) ÷ 290/wk` (renamed from 506+518+541); title/footnote updated. Weekly workbook tab refreshed to `Pelvic Attainment @290`.
+- Honest read: combined pelvic *volume* runs ~87% of the 125% target (peaks over 100% some weeks) — the gap is yield/quality (the 506 stringency), not raw volume.
+
+---
+
+## Superseded — reverted to single combined pelvic line vs 250
 
 Per request, went back to the combined format and dropped the two per-tissue (170/60) graphs.
 
