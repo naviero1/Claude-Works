@@ -1,6 +1,9 @@
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
+from openpyxl.chart import ScatterChart, Reference, Series
+from openpyxl.chart.label import DataLabelList
+from openpyxl.chart.marker import Marker
 
 wb = openpyxl.Workbook()
 
@@ -241,6 +244,61 @@ notes=[
 for idx,(txt,font,fill) in enumerate(notes,start=1):
     cell(ns,f"A{idx}",txt,font,fill)
 ns.row_dimensions[1].height=24
+
+# ================= CHART: COST vs ODDS =================
+cs=wb.create_sheet("Chart — Cost vs Odds")
+cell(cs,"A1","Trade-off: what Oscar pays (@80%) vs. odds the house is sold by end of October",TITLE,title_fill)
+cs.merge_cells("A1:H1"); cs.row_dimensions[1].height=22
+
+# helper table: ALL 20 points (live refs into Scenarios)
+cell(cs,"A3","All options",BOLD)
+cell(cs,"A4","P(sold by Oct)",BOLD); cell(cs,"B4","Oscar pay @80%",BOLD)
+hr=5
+for rsrc in range(H+1,LAST+1):
+    cell(cs,f"A{hr}",f"=Scenarios!R{rsrc}",fmt=pct0)
+    cell(cs,f"B{hr}",f"=Scenarios!I{rsrc}",fmt=money)
+    hr+=1
+all_end=hr-1
+
+# helper table: the 3 tagged picks (separate highlighted series)
+cell(cs,"D3","★ Recommended picks",BOLD)
+cell(cs,"D4","P(sold by Oct)",BOLD); cell(cs,"E4","Oscar pay @80%",BOLD); cell(cs,"F4","Label",BOLD)
+pick_rows={34:"BEST VALUE ($405k FSBO 2.5%)",38:"CHEAPEST ($409.9k FSBO 2.5%)",28:"BEST ODDS ($399k agent 5.5%)"}
+pr=5
+for srcrow,lab in pick_rows.items():
+    cell(cs,f"D{pr}",f"=Scenarios!R{srcrow}",fmt=pct0)
+    cell(cs,f"E{pr}",f"=Scenarios!I{srcrow}",fmt=money)
+    cell(cs,f"F{pr}",lab)
+    pr+=1
+pick_end=pr-1
+
+chart=ScatterChart()
+chart.title="Oscar's cost vs. probability of sale by October"
+chart.x_axis.title="Probability sold by end of October"
+chart.y_axis.title="Oscar's payment to Francie (@80%)"
+chart.x_axis.numFmt='0%'; chart.y_axis.numFmt='$#,##0'
+chart.x_axis.delete=False; chart.y_axis.delete=False
+chart.height=12; chart.width=22
+
+xall=Reference(cs,min_col=1,min_row=5,max_row=all_end)
+yall=Reference(cs,min_col=2,min_row=5,max_row=all_end)
+s_all=Series(yall,xall,title="All 20 options")
+s_all.marker=Marker(symbol="circle",size=6)
+s_all.graphicalProperties.line.noFill=True
+chart.series.append(s_all)
+
+xpk=Reference(cs,min_col=4,min_row=5,max_row=pick_end)
+ypk=Reference(cs,min_col=5,min_row=5,max_row=pick_end)
+s_pk=Series(ypk,xpk,title="★ Recommended")
+s_pk.marker=Marker(symbol="star",size=12)
+s_pk.graphicalProperties.line.noFill=True
+chart.series.append(s_pk)
+
+cs.add_chart(chart,"H3")
+cell(cs,"A22","Read it like this: down-and-to-the-right is ideal (cheap for Oscar AND likely to sell).",BOLD)
+cell(cs,"A23","The ★ stars are the tagged picks. Points up high cost Oscar the most; points to the left are least likely to sell.")
+cs.column_dimensions["A"].width=15; cs.column_dimensions["B"].width=15
+cs.column_dimensions["D"].width=15; cs.column_dimensions["E"].width=15; cs.column_dimensions["F"].width=30
 
 wb.save("/home/user/Claude-Works/House_Sale_Scenarios_537_Duchart.xlsx")
 print("saved")
