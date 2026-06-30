@@ -1,6 +1,15 @@
 # Deliverables — flat-250 pelvic attainment + yield sensitivity
 
-## Update — two pelvic graphs on revised asks (latest, `_update063026`)
+## Update — reverted to single combined pelvic line vs 250 (latest)
+
+Per request, went back to the combined format and dropped the two per-tissue (170/60) graphs.
+
+- **Slide 2: one weekly line** — `(666506 + 666518 + 666541) harvested ÷ 250/wk`, Martins only, 25 weekly points, with the dashed 100% (= 250) ask line. (666518 still all zeros.) This restores the prior combined-weekly chart exactly; slides 1 and 3 and the model are unchanged.
+- **Weekly workbook:** the `Pelvic Attainment @250` tab now holds the combined weekly calc (506 + 518 + 541 vs 250); replaces the short-lived 170/60 tab. 18 charts preserved.
+
+---
+
+## Superseded — two pelvic graphs on revised asks (`_update063026` naming originated here)
 
 - **Slide 2 now has TWO weekly charts side by side** (replacing the single combined line), each attainment = weekly harvested ÷ a per-tissue ask:
   - **Female Pelvic (666541) ÷ 170/wk** — line runs ~38–190%.
