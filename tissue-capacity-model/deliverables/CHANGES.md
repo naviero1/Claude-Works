@@ -1,6 +1,15 @@
 # Deliverables — flat-250 pelvic attainment + yield sensitivity
 
-## Update — data-driven pelvic standard = 290/wk (latest)
+## Update — slide 2: attainment graph removed (latest)
+
+Adopted the user's revised deck (`…_update063026_1.pptx`) and cleaned slide 2 after they deleted the pelvic attainment chart:
+- Removed the two chart leftovers — the "Left:/Right:" footnote reference and the "250 denominator / why is attainment dropping" sticky note.
+- Widened the constraint map (cards + driver-tissue lists) to full slide width and moved the constraint chips to the right so the slide fills evenly without the chart.
+- Slides 1 and 3 are the user's version, unchanged. The 290-standard analysis and `Pelvic_Harvest_Standard_Martins.xlsx` remain in the repo for reference even though the attainment chart is no longer shown.
+
+---
+
+## Superseded — data-driven pelvic standard = 290/wk
 
 Replaced the arbitrary 250 with a justified standard for combined pelvics (506+541; 518/540 discontinued).
 
