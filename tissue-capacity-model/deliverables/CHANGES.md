@@ -6,7 +6,7 @@ Built on the user's revised model (`1387ef2e-…RiskAssessmentTool_v2.xlsx`), no
 
 - **Martins labor capacity changed: 36 → 40.5 h/wk** (daily 7.2 → 8.1; the only input the user changed). Downstream, per the Tissue_Model: **labor util 99% → 88%**, **labor headroom 1.01× → 1.14×**.
 - **Consequence (important):** freezer is now **88%** too, so Martins is **labor/freezer co-limited at ~1.14×** — still below 125%. Because freezer is unaffected by harvest yield, **yield gains no longer move Martins' binding constraint** (overall stays ~1.14× until freezer is addressed). Updated the slide-1 table/headline/"what we're seeing", the slide-2 Martins card, the slide-3 sensitivity (labor-headroom column + "how to read"), and the model's `Pelvic Yield Sensitivity` sheet to reflect this.
-- **Slide-2 chart combined into ONE pelvic line:** `(Female Pelvic 541 + Pelvic Block 506) ÷ 250/wk`. Because two tissues now share a single 250 ask, the line frequently sits **above 100%** (combined pelvic output often exceeds 250/wk). Series: `88, 63, 84, 67, 127, 130, 65, 125, 141, 123, 119, 78`.
+- **Slide-2 chart = ONE WEEKLY pelvic line:** `(Pelvic Block 506 + SM Intact 518 + Female Pelvic 541) ÷ 250/wk`, 25 weekly points (switched from biweekly). **666518 is currently all zeros** in the weekly data, so it's in the formula but doesn't move the line. Because the pelvic codes share a single 250 ask, the line frequently sits **above 100%** (combined pelvic output often exceeds 250/wk). Weekly series: `70, 106, 66, 59, 70, 98, 47, 86, 115, 139, 110, 150, 65, 66, 98, 153, 158, 124, 121, 125, 162, 76, 108, 49, 97`.
 
 ---
 
