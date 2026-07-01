@@ -20,7 +20,8 @@ coin flip — its value is as an **adjustment layer** on a sound quantitative ba
 | [`05-disruptor-rubric-and-worked-example.md`](05-disruptor-rubric-and-worked-example.md) | Turns "X is a disruptor" into a ±λ number; a fully worked Poisson example. |
 | [`06-bracket-simulation.md`](06-bracket-simulation.md) | Monte-Carlo method for trophy odds + a market-anchored current read. |
 | [`07-predict-and-score-log.md`](07-predict-and-score-log.md) | Brier/log-loss scoring template to grade forecasts vs outcomes. |
-| [`08-player-ratings.md`](08-player-ratings.md) | Disruptor leaderboard, R32 availability watch, cohesion index, per-team ratings. |
+| [`08-player-ratings.md`](08-player-ratings.md) | Original R32 ratings (superseded by v2 for live teams; kept for eliminated sides). |
+| [`18-player-ratings-v2.md`](18-player-ratings-v2.md) | **Post-R32 expanded ratings** — 7-9 players/team across 25 live teams, re-scored for form. |
 | [`09-live-odds-market-reference.md`](09-live-odds-market-reference.md) | How to read Polymarket/Kalshi, de-vig, and extract λ; worked example. |
 | [`10-portfolio-2026-06-27.md`](10-portfolio-2026-06-27.md) | Per-game predicted results + bet-style suggestions for June 27; anchored where market data exists. |
 | [`11-staking-allocation-2026-06-27.md`](11-staking-allocation-2026-06-27.md) | Bankroll/unit framework + concrete stake sizing across June 27 games. |
