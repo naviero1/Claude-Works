@@ -54,20 +54,23 @@ Fernandes) but **laboured past Croatia and Ronaldo looked disconnected**. **Earl
 equaliser to Spain's superiority — this one has real penalty-shootout risk, where Portugal's edge lies.
 **Predicted:** Spain to advance, most likely 1-1 or a 1-0/2-1 Spain win.
 
-### 2. 🇺🇸 USA vs Belgium 🇧🇪 — 8 PM ET, Seattle
+### 2. 🇺🇸 USA vs Belgium 🇧🇪 — 8 PM ET, Seattle — *goals revised UP (λ 1.5/1.6, total 3.1)*
+Both teams attack, both defenses leak (Belgium conceded 2 to Senegal; USA shipped 3 to Türkiye), and
+game-state (host pushing, Belgium must win) invites goals. Only brake: Courtois + knockout-opening caution.
+
 | Metric | Value |
 |---|---|
 | **Advance** | **Belgium 53% / USA 47%** (near coin-flip) |
-| W/D/W (90') | USA 34 / draw 27 / **Belgium 39** |
-| Top scores | **1-1 13%** · Belgium 1-0 9% · Belgium 2-1 9% · USA 1-0 8% · USA 2-1 8% |
-| Goals | O2.5 51% · BTTS 56% · 1H ~1.2 / 2H ~1.5 |
+| W/D/W (90') | USA 35 / draw 25 / **Belgium 40** |
+| **Total goals** | 0:5 · 1:13 · 2:22 · 3:22 · 4:17 · 5:11 · 6+:9 → **3+ = 60%, 4+ = 38%, 5+ = 20%** |
+| **Over / BTTS** | O1.5 82% · **O2.5 60%** · O3.5 38% · O4.5 20% · **BTTS 63%** |
+| Top scores | **1-1 11%** · Bel 2-1 9% · USA 2-1 8% · Bel 1-0 7% · **2-2 6%** · Bel 2-0 6% · USA 1-0 6% |
 
-**Read:** A genuine coin-flip. **USA** have home advantage (Seattle), Pochettino, a convincing 2-0 over
-Bosnia, and **Balogun available** (playing despite the red-card controversy) alongside Pulisic.
-**Belgium** are more talented (De Bruyne, Doku, and **Courtois** — elite in a shootout) but **laboured
-to a 3-2 AET win over Senegal** and look beatable. Talent gives Belgium a slight edge; the host factor
-makes USA very live. **Predicted:** lean Belgium narrowly, but this is the day's true 50/50 — and if
-the market overprices Belgium, **USA-to-advance is the value.**
+**Read:** Coin-flip on the winner but a **likely open, high-scoring game** — a **2-1 / 2-2 / 3-2 type
+of tie, not a 1-0.** USA have the host edge (Seattle), Pochettino, a 2-0 over Bosnia, and **Balogun
+available** (red-card controversy) with Pulisic; Belgium more talented (De Bruyne, Doku, **Courtois**)
+but laboured past Senegal. **Best reads: Over 2.5 (60%) and BTTS Yes (63%).** If the market overprices
+Belgium, **USA-to-advance** is also value.
 
 ---
 
