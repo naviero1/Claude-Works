@@ -103,3 +103,11 @@ sided with the market's Over. The contrarian read was right; I didn't trust it.
 **Takeaway:** the two fade-the-overpriced-favorite bets (Morocco, Paraguay) both hit; passes were
 correct; one lower-conviction fade (Ecuador) lost. +EV process + favorable variance. See
 [`17-r32-results-and-realign.md`](17-r32-results-and-realign.md) for realigned upcoming predictions.
+
+## R32 second half + R16 (Jul 1–5) — see 19-round-of-16-tracking-and-today.md
+R32 2nd half: England 2-1 DRC, Belgium 3-2 Senegal (AET), USA 2-0 Bosnia, Spain 3-0 Austria,
+Portugal 2-1 Croatia, Switzerland 2-0 Algeria, Egypt 1-1 Australia (4-2 pens), Argentina 3-2 CV (AET),
+Colombia bt Ghana. **All 9 favorites advanced (9/9 modal picks)**; the 4 closest ties (per model)
+went to ET/pens/scare. No fades bet (no markets) — correct, favorites won.
+R16 so far: Morocco 3-0 Canada · France 1-0 Paraguay · England 3-2 Mexico · **Norway 2-1 Brazil (UPSET,
+Brazil out)** — aligned with v2 ratings (Haaland↑10, Vinícius↓).
