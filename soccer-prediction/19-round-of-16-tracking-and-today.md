@@ -84,9 +84,18 @@ Belgium, **USA-to-advance** is also value.
 
 ## R16 — July 7 (finalized with Oscar's eye-test)
 
-### Egypt vs Argentina — Argentina 84% / Egypt 16% advance
-- **Predicted: Argentina 2-0 / 2-1** · scores: Arg 2-0 12 · Arg 1-0 10 · Arg 2-1 10 · 1-1 10 · Arg 3-0 8. O2.5 58 · BTTS 51.
-- **Oscar's read (folded in):** Cape Verde beat Argentina via *individual brilliance* (a curling worldie) + a *cohesive team that physically grew into the game*; **Egypt is less cohesive** → Argentina more comfortable (λ nudged to 2.15). The transferable risk is Argentina fading late to an individual moment — Egypt's version is **Salah** (BTTS live). Egypt's only realistic path = a Salah goal, not a collective upset.
+### Egypt vs Argentina — Argentina 84% / Egypt 16% advance  *(goals revised UP: λ_ARG 2.15 → 2.4)*
+- **Predicted: Argentina 2-1 / 3-1** (was 2-0/2-1). **Argentina goals: 2+ 68% · 3+ 42% · 4+ 21%.**
+  Total O2.5 63% · O3.5 41% · BTTS ~51%.
+- **Striker vs defender eval:** Egypt's CBs (**Hegazi ~35, no pace** + Abdelmonem) and modest fullbacks
+  are a clear level below Argentina's attack (**Messi** unlocks the block, **Lautaro** Serie A top
+  scorer + **Álvarez** finish it); El Shenawy dependable but not elite. Egypt's only defensive value is
+  collective discipline (held Iran 0-0, Australia 1-1).
+- **The brake:** Argentina game-manage once ahead (they *faded* vs Cape Verde; Messi 39 conserves) — so
+  it's 3-1 if switched on, 2-0 if they coast. **Sharpest angles: Over 2.5 (63%) and Argentina team-total
+  over 2.5 (42%)**, not the winner.
+- **Oscar's earlier read (still holds):** Egypt less cohesive than Cape Verde → Argentina more
+  comfortable; the transferable risk is a **Salah** individual moment (BTTS live), not a collective upset.
 
 ### Switzerland vs Colombia — Colombia 56% / Switzerland 44% advance
 - **Predicted: Colombia narrow 1-0 / 2-1** · scores: 1-1 13 · Col 1-0 10 · Col 2-1 9 · 0-0 8 · Swi 1-0 8. O2.5 48 (low).
