@@ -79,3 +79,17 @@ Belgium, **USA-to-advance** is also value.
   name). **Portugal–Spain**: Spain fairly favored, but Portugal's **Diogo Costa shootout edge** means
   *Portugal-to-advance* could be underpriced if the market pushes Spain past ~65%.
 - Send the two Polymarket/Kalshi boards and I'll run the 4-allocation menu for each.
+
+---
+
+## R16 — July 7 (finalized with Oscar's eye-test)
+
+### Egypt vs Argentina — Argentina 84% / Egypt 16% advance
+- **Predicted: Argentina 2-0 / 2-1** · scores: Arg 2-0 12 · Arg 1-0 10 · Arg 2-1 10 · 1-1 10 · Arg 3-0 8. O2.5 58 · BTTS 51.
+- **Oscar's read (folded in):** Cape Verde beat Argentina via *individual brilliance* (a curling worldie) + a *cohesive team that physically grew into the game*; **Egypt is less cohesive** → Argentina more comfortable (λ nudged to 2.15). The transferable risk is Argentina fading late to an individual moment — Egypt's version is **Salah** (BTTS live). Egypt's only realistic path = a Salah goal, not a collective upset.
+
+### Switzerland vs Colombia — Colombia 56% / Switzerland 44% advance
+- **Predicted: Colombia narrow 1-0 / 2-1** · scores: 1-1 13 · Col 1-0 10 · Col 2-1 9 · 0-0 8 · Swi 1-0 8. O2.5 48 (low).
+- **Oscar's read (folded in):** Colombia stronger, Switzerland holds the line hard, **decided by disruptors.** Swing = **Luis Díaz**; if the Swiss block holds it's a grind to **penalties, where Sommer favors Switzerland.** Real shootout risk; Switzerland very live if it stays level.
+
+*Method note: first games finalized under the new "ask Oscar's eye-test before locking" habit from the retrospective.*
