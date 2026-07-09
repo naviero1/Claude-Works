@@ -1,0 +1,78 @@
+<div class="viz-root">
+<style>
+.viz-root{--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;--grid:#e1e0d9;--axis:#c3c2b7;
+  --s1:#2a78d6;--s2:#1baf7a;--s8:#eb6834;--ref:#d03b3b;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--surface);color:var(--ink);
+  padding:22px 20px 26px;max-width:820px;margin:0 auto;}
+@media (prefers-color-scheme:dark){.viz-root{--surface:#1a1a19;--ink:#fff;--ink2:#c3c2b7;--muted:#898781;
+  --grid:#2c2c2a;--axis:#383835;--s1:#3987e5;--s2:#199e70;--s8:#d95926;--ref:#e66767;}}
+:root[data-theme=dark] .viz-root{--surface:#1a1a19;--ink:#fff;--ink2:#c3c2b7;--grid:#2c2c2a;--axis:#383835;
+  --s1:#3987e5;--s2:#199e70;--s8:#d95926;--ref:#e66767;}
+:root[data-theme=light] .viz-root{--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--grid:#e1e0d9;--axis:#c3c2b7;
+  --s1:#2a78d6;--s2:#1baf7a;--s8:#eb6834;--ref:#d03b3b;}
+.viz-root h1{font-size:20px;margin:0 0 4px;}
+.viz-root .sub{color:var(--ink2);font-size:13.5px;margin:0 0 18px;line-height:1.5;}
+.viz-root h2{font-size:14px;margin:22px 0 2px;}
+.chart{width:100%;height:auto;overflow:visible;}
+.grid{stroke:var(--grid);stroke-width:1;}
+.ref{stroke:var(--ref);stroke-width:1.5;stroke-dasharray:5 4;}
+.reflab{fill:var(--ref);font-size:11px;font-weight:600;}
+.tick{fill:var(--muted);font-size:11.5px;font-variant-numeric:tabular-nums;}
+.ptitle{fill:var(--ink);font-size:13px;font-weight:600;}
+.tot{fill:var(--ink);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;}
+.line{fill:none;stroke-width:2.5;}
+.s1{stroke:var(--s1);} .s2{stroke:var(--s2);}
+.fill.s1{fill:var(--s1);stroke:none;} .fill.s8{fill:var(--s8);stroke:none;}
+.mk.s1{fill:var(--s1);stroke:var(--surface);stroke-width:2;}
+.mk.s2{fill:var(--s2);stroke:var(--surface);stroke-width:2;}
+.lab{font-size:12px;font-weight:600;} .s1t{fill:var(--s1);} .s2t{fill:var(--s2);}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2);margin:6px 0 0;}
+.legend span{display:inline-flex;align-items:center;gap:7px;}
+.sw{width:14px;height:14px;border-radius:3px;display:inline-block;}
+.grid2{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;}
+.grid2>div{flex:1 1 330px;}
+.note{background:rgba(235,104,52,0.08);border-left:3px solid var(--s8);padding:12px 14px;border-radius:6px;
+  margin-top:20px;font-size:13px;line-height:1.55;color:var(--ink);}
+.note b{color:var(--s8);}
+</style>
+
+<h1>The house sale is uncertain — the $14k is not</h1>
+<p class="sub">The market decides the sale price and whether it even sells this fall. Your $14,000 is a fixed
+29% of her $48k that lands in her hands no matter which way that goes.</p>
+
+<h2>1 · How likely is the house to be under contract by end of October?</h2>
+<svg viewBox="0 0 760 340" class="chart" role="img" aria-label="Probability of sale by end of October">
+  <line class="grid" x1="70" y1="290.0" x2="660" y2="290.0"/><text class="tick" x="60" y="294.0" text-anchor="end">0%</text><line class="grid" x1="70" y1="242.0" x2="660" y2="242.0"/><text class="tick" x="60" y="246.0" text-anchor="end">20%</text><line class="grid" x1="70" y1="194.0" x2="660" y2="194.0"/><text class="tick" x="60" y="198.0" text-anchor="end">40%</text><line class="grid" x1="70" y1="146.0" x2="660" y2="146.0"/><text class="tick" x="60" y="150.0" text-anchor="end">60%</text><line class="grid" x1="70" y1="98.0" x2="660" y2="98.0"/><text class="tick" x="60" y="102.0" text-anchor="end">80%</text><line class="grid" x1="70" y1="50.0" x2="660" y2="50.0"/><text class="tick" x="60" y="54.0" text-anchor="end">100%</text>
+  <polyline class="line s1" points="70.0,98.0 217.5,105.2 365.0,112.4 512.5,122.0 660.0,131.6"/>
+  <polyline class="line s2" points="70.0,117.2 217.5,126.8 365.0,134.0 512.5,143.6 660.0,153.2"/>
+  <circle class="s1 mk" cx="70.0" cy="98.0" r="4.5"/><circle class="s2 mk" cx="70.0" cy="117.2" r="4.5"/><circle class="s1 mk" cx="217.5" cy="105.2" r="4.5"/><circle class="s2 mk" cx="217.5" cy="126.8" r="4.5"/><circle class="s1 mk" cx="365.0" cy="112.4" r="4.5"/><circle class="s2 mk" cx="365.0" cy="134.0" r="4.5"/><circle class="s1 mk" cx="512.5" cy="122.0" r="4.5"/><circle class="s2 mk" cx="512.5" cy="143.6" r="4.5"/><circle class="s1 mk" cx="660.0" cy="131.6" r="4.5"/><circle class="s2 mk" cx="660.0" cy="153.2" r="4.5"/><text class="lab s1t" x="668.0" y="131.6">With agent</text><text class="lab s2t" x="668.0" y="167.2">FSBO</text><text class="tick" x="70.0" y="312" text-anchor="middle">$390k</text><text class="tick" x="217.5" y="312" text-anchor="middle">$395k</text><text class="tick" x="365.0" y="312" text-anchor="middle">$399k</text><text class="tick" x="512.5" y="312" text-anchor="middle">$405k</text><text class="tick" x="660.0" y="312" text-anchor="middle">$409.9k</text>
+  <text class="tick" x="365" y="330" text-anchor="middle">list / sale price</text>
+</svg>
+<div class="legend"><span><i class="sw" style="background:var(--s1)"></i>With agent</span>
+<span><i class="sw" style="background:var(--s2)"></i>FSBO</span></div>
+<p class="sub" style="margin-top:8px">Even at the most sellable end, it's a <b>57–80% chance</b> — not a certainty — and the
+higher the price, the lower the odds.</p>
+
+<h2>2 · Where the $14k puts her recovery of the $48k</h2>
+<div class="grid2"><div><svg viewBox="0 0 380 320" class="chart" role="img" aria-label="If sold with an agent">
+      <text class="ptitle" x="46" y="26">If sold with an agent</text>
+      <line class="grid" x1="54" y1="286.0" x2="352" y2="286.0"/><text class="tick" x="46" y="290.0" text-anchor="end">0%</text><line class="grid" x1="54" y1="186.0" x2="352" y2="186.0"/><text class="tick" x="46" y="190.0" text-anchor="end">50%</text><line class="grid" x1="54" y1="86.0" x2="352" y2="86.0"/><text class="tick" x="46" y="90.0" text-anchor="end">100%</text><line class="ref" x1="54" y1="86.0" x2="352" y2="86.0"/><text class="reflab" x="56" y="80.0" text-anchor="start">her full $48k</text><rect class="s1 fill" x="66.8" y="246.0" width="34" height="40.0" rx="3"/><rect class="s8 fill" x="66.8" y="188.0" width="34" height="56.0" rx="3"/><rect class="s1 fill" x="126.4" y="226.0" width="34" height="60.0" rx="3"/><rect class="s8 fill" x="126.4" y="168.0" width="34" height="56.0" rx="3"/><rect class="s1 fill" x="186.0" y="210.0" width="34" height="76.0" rx="3"/><rect class="s8 fill" x="186.0" y="152.0" width="34" height="56.0" rx="3"/><rect class="s1 fill" x="245.6" y="186.0" width="34" height="100.0" rx="3"/><rect class="s8 fill" x="245.6" y="128.0" width="34" height="56.0" rx="3"/><rect class="s1 fill" x="305.2" y="168.0" width="34" height="118.0" rx="3"/><rect class="s8 fill" x="305.2" y="110.0" width="34" height="56.0" rx="3"/><text class="tot" x="83.8" y="181.0" text-anchor="middle">49%</text><text class="tot" x="143.4" y="161.0" text-anchor="middle">59%</text><text class="tot" x="203.0" y="145.0" text-anchor="middle">67%</text><text class="tot" x="262.6" y="121.0" text-anchor="middle">79%</text><text class="tot" x="322.2" y="103.0" text-anchor="middle">88%</text><text class="tick" x="83.8" y="306" text-anchor="middle">$390k</text><text class="tick" x="143.4" y="306" text-anchor="middle">$395k</text><text class="tick" x="203.0" y="306" text-anchor="middle">$399k</text><text class="tick" x="262.6" y="306" text-anchor="middle">$405k</text><text class="tick" x="322.2" y="306" text-anchor="middle">$409.9k</text>
+    </svg></div><div><svg viewBox="0 0 380 320" class="chart" role="img" aria-label="If sold FSBO (your cheaper route)">
+      <text class="ptitle" x="46" y="26">If sold FSBO (your cheaper route)</text>
+      <line class="grid" x1="54" y1="286.0" x2="352" y2="286.0"/><text class="tick" x="46" y="290.0" text-anchor="end">0%</text><line class="grid" x1="54" y1="186.0" x2="352" y2="186.0"/><text class="tick" x="46" y="190.0" text-anchor="end">50%</text><line class="grid" x1="54" y1="86.0" x2="352" y2="86.0"/><text class="tick" x="46" y="90.0" text-anchor="end">100%</text><line class="ref" x1="54" y1="86.0" x2="352" y2="86.0"/><text class="reflab" x="56" y="80.0" text-anchor="start">her full $48k</text><rect class="s1 fill" x="66.8" y="198.0" width="34" height="88.0" rx="3"/><rect class="s8 fill" x="66.8" y="140.0" width="34" height="56.0" rx="3"/><rect class="s1 fill" x="126.4" y="176.0" width="34" height="110.0" rx="3"/><rect class="s8 fill" x="126.4" y="118.0" width="34" height="56.0" rx="3"/><rect class="s1 fill" x="186.0" y="160.0" width="34" height="126.0" rx="3"/><rect class="s8 fill" x="186.0" y="102.0" width="34" height="56.0" rx="3"/><rect class="s1 fill" x="245.6" y="136.0" width="34" height="150.0" rx="3"/><rect class="s8 fill" x="245.6" y="78.0" width="34" height="56.0" rx="3"/><rect class="s1 fill" x="305.2" y="116.0" width="34" height="170.0" rx="3"/><rect class="s8 fill" x="305.2" y="58.0" width="34" height="56.0" rx="3"/><text class="tot" x="83.8" y="133.0" text-anchor="middle">73%</text><text class="tot" x="143.4" y="111.0" text-anchor="middle">84%</text><text class="tot" x="203.0" y="95.0" text-anchor="middle">92%</text><text class="tot" x="262.6" y="71.0" text-anchor="middle">104%</text><text class="tot" x="322.2" y="51.0" text-anchor="middle">114%</text><text class="tick" x="83.8" y="306" text-anchor="middle">$390k</text><text class="tick" x="143.4" y="306" text-anchor="middle">$395k</text><text class="tick" x="203.0" y="306" text-anchor="middle">$399k</text><text class="tick" x="262.6" y="306" text-anchor="middle">$405k</text><text class="tick" x="322.2" y="306" text-anchor="middle">$409.9k</text>
+    </svg></div></div>
+<div class="legend"><span><i class="sw" style="background:var(--s1)"></i>What the house returns her</span>
+<span><i class="sw" style="background:var(--s8)"></i>+ your $14k (a flat 29%)</span>
+<span><i class="sw" style="border:1.5px dashed var(--ref);background:transparent"></i>her full $48k</span></div>
+
+<div class="note">
+<b>Why it's an overly generous gesture, on every measure:</b><br>
+• <b>Against the law</b> — a court would likely make you pay her almost nothing extra; she takes what the house
+returns and absorbs the rest as a loss on her own money. The whole orange band is a gift, not a debt.<br>
+• <b>Against reality</b> — $14k is <b>guaranteed cash today</b>, while the blue bar is a maybe: it depends on a
+price no one controls and a sale that's only 57–80% likely this fall. You're handing her certainty and keeping
+the risk.<br>
+• <b>Against the outcome</b> — that flat 29% lifts her to roughly three-quarters, and often past 100%, of every
+dollar she put in — in most cases making her whole or better while the market loss stays yours.
+</div>
+</div>
