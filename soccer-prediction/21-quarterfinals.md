@@ -76,3 +76,16 @@ shootout keeper, the "adjusted" advance shades accordingly.*
   Argentina's dominance is overstated and Sommer tilts a shootout. This is the QF value spot.
 - **Morocco-to-advance** similarly, if France is pushed past ~68% (Bono shootout).
 Send the Polymarket/Kalshi boards and I'll size the $100 allocations.
+
+---
+
+## 3 scores + advancer per QF (final summary)
+| Match | Score 1 | Score 2 | Score 3 | Advances |
+|---|---|---|---|---|
+| Morocco–France | Draw 1-1 (13%) | France 1-0 (11%) | France 2-0 (10%) | **France ~63%** (Morocco 37% via Bono pens) |
+| Spain–Belgium | Draw 1-1 (12%) | Spain 2-1 (9%) | Belgium 2-1 (8%) | **Spain ~56%** (Belgium 44%) |
+| Norway–England | Draw 1-1 (11%) | England 2-1 (9%) | Norway 2-1 (8%) | **England ~53%** (Norway 47%, coin-flip) |
+| Switzerland–Argentina | Draw 1-1 (13%) | Argentina 1-0 (13%) | Argentina 2-0 (10%) | **Argentina ~57%** (Switzerland 43% — top upset) |
+
+**Predicted semifinalists: France, Spain, England, Argentina** — with **Switzerland** the likeliest to
+bust the bracket. Every game's modal score is **1-1** (tight, knockout-tense).
