@@ -6,8 +6,11 @@ the Richmond hold. Adjust the assumptions below and rerun to test scenarios
 (e.g. higher usage, longer production lead, different triggers).
 
 Run: python3 restock_simulation.py
+Also writes Restock_Schedule_Year1.csv (all POs and deliveries, chronological).
 """
+import csv
 import math
+import os
 from datetime import date, timedelta
 
 # ---- Assumptions (edit these) ----
@@ -39,6 +42,14 @@ pending_po = None      # (arrival_date, qty_a, qty_b, placed_date)
 po_log = []
 box_order_next = False
 trucks, loads, alerts = [], [], []
+sched = [
+    {"Date": "2026-07-08", "Event": "Pratt PO-1 placed", "Part A": MOQ_STD[0], "Part B": MOQ_STD[1],
+     "Boxes": BOX_ORDER_QTY, "Pallets to KWE": "", "Richmond A after": "", "Richmond B after": "",
+     "Notes": "MOQ 15 plt held in Richmond + first box order; in stock 2026-07-22"},
+    {"Date": str(FIRST_DELIVERY), "Event": "Go-live delivery to KWE", "Part A": 100, "Part B": 90,
+     "Boxes": BOX_ORDER_QTY, "Pallets to KWE": 5, "Richmond A after": MOQ_STD[0] - 100,
+     "Richmond B after": MOQ_STD[1] - 90, "Notes": "2 plt A + 1 plt B + 2 plt boxes"},
+]
 t = FIRST_DELIVERY + timedelta(days=TRUCK_INTERVAL_DAYS)
 while t <= END:
     trucks.append(t)
@@ -62,11 +73,22 @@ while d <= END:
         if la or lb or lbox:
             plt = math.ceil(la / A_PER_PLT) + math.ceil(lb / B_PER_PLT) + math.ceil(lbox / BOX_PER_PLT)
             loads.append((d, la, lb, lbox, plt, rich_a, rich_b))
+            sched.append({"Date": str(d), "Event": "Truck delivery to KWE", "Part A": la or "",
+                          "Part B": lb or "", "Boxes": lbox or "", "Pallets to KWE": plt,
+                          "Richmond A after": round(rich_a), "Richmond B after": round(rich_b), "Notes": ""})
         if box - daily * TRUCK_INTERVAL_DAYS <= BOX_NEXT_TRUCK_MIN:
             box_order_next = True   # PO placed today, arrives on next truck (2-wk lead)
+            sched.append({"Date": str(d), "Event": "Box PO placed", "Part A": "", "Part B": "",
+                          "Boxes": BOX_ORDER_QTY, "Pallets to KWE": "", "Richmond A after": "",
+                          "Richmond B after": "",
+                          "Notes": f"2-week lead; arrives on truck {d + timedelta(days=TRUCK_INTERVAL_DAYS)}"})
         if pending_po is None and rich_b <= RICHMOND_B_TRIGGER:
             mix = MOQ_ALT if len(po_log) % 2 == 0 else MOQ_STD   # PO-2 alt, PO-3 std, ...
             pending_po = (d + timedelta(days=INSULATION_LEAD_DAYS), mix[0], mix[1], d)
+            sched.append({"Date": str(d), "Event": f"Pratt PO-{len(po_log) + 2} placed",
+                          "Part A": mix[0], "Part B": mix[1], "Boxes": "", "Pallets to KWE": "",
+                          "Richmond A after": "", "Richmond B after": "",
+                          "Notes": f"MOQ 15 plt for Richmond hold; in stock {d + timedelta(days=INSULATION_LEAD_DAYS)}"})
     if d >= USAGE_START:
         box -= daily; a -= daily; b -= daily
     if min(box, a, b) < -0.5:
@@ -99,3 +121,12 @@ print("\n=== Monthly KWE peak pallet positions / min on-hand ===")
 for (y, m), pk, mn in rows:
     print(f"{y}-{m:02d}  peak {pk} plt   min box={mn[0]:4.0f} A={mn[1]:4.0f} B={mn[2]:4.0f}")
 print("\n" + ("\n".join(alerts) if alerts else "No stockouts; Richmond hold never ran short."))
+
+csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Restock_Schedule_Year1.csv")
+sched.sort(key=lambda r: r["Date"])
+with open(csv_path, "w", newline="") as f:
+    w = csv.DictWriter(f, fieldnames=["Date", "Event", "Part A", "Part B", "Boxes",
+                                      "Pallets to KWE", "Richmond A after", "Richmond B after", "Notes"])
+    w.writeheader()
+    w.writerows(sched)
+print(f"Schedule written to {csv_path}")

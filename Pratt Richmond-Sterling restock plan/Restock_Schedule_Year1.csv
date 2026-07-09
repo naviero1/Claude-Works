@@ -1,0 +1,37 @@
+Date,Event,Part A,Part B,Boxes,Pallets to KWE,Richmond A after,Richmond B after,Notes
+2026-07-08,Pratt PO-1 placed,500,450,175,,,,MOQ 15 plt held in Richmond + first box order; in stock 2026-07-22
+2026-07-22,Go-live delivery to KWE,100,90,175,5,400,360,2 plt A + 1 plt B + 2 plt boxes
+2026-08-19,Truck delivery to KWE,50,90,,2,350,270,
+2026-08-19,Box PO placed,,,175,,,,2-week lead; arrives on truck 2026-09-02
+2026-09-02,Truck delivery to KWE,50,90,175,4,300,180,
+2026-09-02,Pratt PO-2 placed,450,540,,,,,MOQ 15 plt for Richmond hold; in stock 2026-09-30
+2026-09-16,Truck delivery to KWE,50,,,1,250,180,
+2026-09-30,Truck delivery to KWE,50,90,,2,650,630,
+2026-10-14,Truck delivery to KWE,50,,,1,600,630,
+2026-10-14,Box PO placed,,,175,,,,2-week lead; arrives on truck 2026-10-28
+2026-10-28,Truck delivery to KWE,,90,175,3,600,540,
+2026-11-11,Truck delivery to KWE,100,,,2,500,540,
+2026-11-25,Truck delivery to KWE,,90,,1,500,450,
+2026-12-09,Truck delivery to KWE,100,,,2,400,450,
+2026-12-09,Box PO placed,,,175,,,,2-week lead; arrives on truck 2026-12-23
+2026-12-23,Truck delivery to KWE,,90,175,3,400,360,
+2027-01-06,Truck delivery to KWE,50,,,1,350,360,
+2027-01-20,Truck delivery to KWE,50,90,,2,300,270,
+2027-01-20,Box PO placed,,,175,,,,2-week lead; arrives on truck 2027-02-03
+2027-02-03,Truck delivery to KWE,50,,175,3,250,270,
+2027-02-17,Truck delivery to KWE,50,90,,2,200,180,
+2027-02-17,Pratt PO-3 placed,500,450,,,,,MOQ 15 plt for Richmond hold; in stock 2027-03-17
+2027-03-03,Truck delivery to KWE,50,,,1,150,180,
+2027-03-17,Truck delivery to KWE,50,90,,2,600,540,
+2027-03-17,Box PO placed,,,175,,,,2-week lead; arrives on truck 2027-03-31
+2027-03-31,Truck delivery to KWE,50,,175,3,550,540,
+2027-04-14,Truck delivery to KWE,50,90,,2,500,450,
+2027-05-12,Truck delivery to KWE,100,90,,3,400,360,
+2027-05-12,Box PO placed,,,175,,,,2-week lead; arrives on truck 2027-05-26
+2027-05-26,Truck delivery to KWE,,,175,2,400,360,
+2027-06-09,Truck delivery to KWE,50,90,,2,350,270,
+2027-06-23,Truck delivery to KWE,50,,,1,300,270,
+2027-07-07,Truck delivery to KWE,50,90,,2,250,180,
+2027-07-07,Box PO placed,,,175,,,,2-week lead; arrives on truck 2027-07-21
+2027-07-07,Pratt PO-4 placed,450,540,,,,,MOQ 15 plt for Richmond hold; in stock 2027-08-04
+2027-07-21,Truck delivery to KWE,50,,175,3,200,180,
