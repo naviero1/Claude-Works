@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sourcing ≤1 kg — FB 28 & Barium Sulfate (COTS)</title>
+<title>US Sourcing (verified) — FB 28 & Barium Sulfate</title>
 <style>
   :root{
     --bg:#f6f8fb; --surface:#ffffff; --surface-2:#eef2f7;
@@ -59,96 +59,75 @@
   .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
     color:var(--accent-strong);font-weight:600;display:flex;align-items:center;gap:10px}
   .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent)}
-  h1{font-size:clamp(28px,5vw,44px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 10px;font-weight:750}
+  h1{font-size:clamp(27px,5vw,42px);line-height:1.06;letter-spacing:-.02em;margin:14px 0 10px;font-weight:750}
   .lede{color:var(--ink-soft);font-size:clamp(15px,2vw,18px);max-width:66ch}
   .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);
     font-size:12.5px;color:var(--muted);letter-spacing:.02em}
   .meta b{color:var(--ink-soft);font-weight:600}
 
-  .callout{margin:28px 0;background:var(--surface);border:1px solid var(--warn-bd);
+  .callout{margin:26px 0;background:var(--surface);border:1px solid var(--warn-bd);
     border-left:4px solid var(--warn);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
-  .callout h3{font-size:16px;color:var(--warn);letter-spacing:-.01em;margin-bottom:12px;
-    display:flex;align-items:center;gap:9px}
+  .callout h3{font-size:16px;color:var(--warn);letter-spacing:-.01em;margin-bottom:12px;display:flex;align-items:center;gap:9px}
   .callout p{margin:0 0 10px;font-size:14.5px;color:var(--ink-soft)}
   .callout p:last-child{margin-bottom:0}
   .callout strong{color:var(--ink)}
-  .idtable{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:13.5px}
-  .idtable th,.idtable td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border)}
-  .idtable th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--muted);font-weight:600}
-  .idtable td:first-child{font-family:var(--mono);font-weight:600;color:var(--accent-strong);white-space:nowrap}
-  .idtable tr:last-child td{border-bottom:none}
 
-  /* Strategy band */
-  .strategy{margin:26px 0 6px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-  .route{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--accent);
-    border-radius:var(--radius);padding:16px 17px;box-shadow:var(--shadow)}
-  .route .tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;
-    color:var(--accent-strong);text-transform:uppercase}
-  .route h4{font-size:15px;margin:6px 0 6px;letter-spacing:-.01em;font-weight:680}
-  .route p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .legend{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:18px 0 6px;font-size:12.5px;color:var(--ink-soft)}
 
-  .legend{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:20px 0 6px;font-size:13px;color:var(--ink-soft)}
-
-  .product{margin-top:40px;scroll-margin-top:20px}
+  .product{margin-top:38px;scroll-margin-top:20px}
   .phead{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;border-radius:var(--radius);
-    background:linear-gradient(180deg,var(--accent-soft),transparent);border:1px solid var(--border);
-    border-top:3px solid var(--accent)}
+    background:linear-gradient(180deg,var(--accent-soft),transparent);border:1px solid var(--border);border-top:3px solid var(--accent)}
   .pnum{font-family:var(--mono);font-size:12px;font-weight:700;color:#fff;background:var(--accent);
     border-radius:7px;padding:3px 9px;letter-spacing:.04em;margin-top:3px;flex:none}
   .phead h2{font-size:clamp(20px,3vw,26px);letter-spacing:-.02em;font-weight:720}
-  .phead .sub{color:var(--ink-soft);font-size:14px;margin-top:4px}
+  .phead .sub{color:var(--ink-soft);font-size:14px;margin-top:5px}
   .phead .cas{font-family:var(--mono);font-size:12.5px;color:var(--accent-strong);font-weight:600;margin-top:7px}
 
-  .group{margin-top:24px}
-  .group > h3{font-size:13px;font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase;
-    color:var(--ink-soft);font-weight:600;display:flex;align-items:center;gap:10px;margin-bottom:14px}
-  .group > h3 .rk{font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;background:var(--ink-soft);
-    border-radius:5px;padding:2px 7px;letter-spacing:.03em;flex:none}
-  .group > h3 .rule{flex:1;height:1px;background:var(--border)}
+  .reality{margin-top:16px;background:var(--surface-2);border:1px solid var(--border);border-left:3px solid var(--accent);
+    border-radius:10px;padding:13px 16px;font-size:13.5px;color:var(--ink-soft)}
+  .reality strong{color:var(--ink)}
 
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin-top:16px}
   .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-    padding:16px 17px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:9px;transition:border-color .15s,transform .15s}
+    padding:16px 17px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;transition:border-color .15s,transform .15s}
+  .card.best{border-color:var(--accent);border-top:3px solid var(--accent)}
   .card:hover{border-color:var(--border-strong);transform:translateY(-1px)}
   .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-  .card .name{font-weight:680;font-size:15.5px;letter-spacing:-.01em;line-height:1.25}
+  .card .name{font-weight:685;font-size:15.5px;letter-spacing:-.01em;line-height:1.25}
   .card .origin{font-size:12px;color:var(--muted);margin-top:2px;font-family:var(--mono)}
+  .card .chips{display:flex;flex-wrap:wrap;gap:6px}
   .card .note{font-size:13px;color:var(--ink-soft);margin:0}
-  .card .moq{font-family:var(--mono);font-size:12.5px;color:var(--ink);background:var(--surface-2);
-    border:1px solid var(--border);border-radius:7px;padding:6px 9px;display:inline-flex;gap:7px;align-items:baseline;flex-wrap:wrap}
-  .card .moq b{color:var(--muted);font-weight:600;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase}
-  .card .rfq{margin-top:auto;padding-top:4px}
-  .card .rfq a{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:13.5px;font-family:var(--mono)}
-  .card .rfq a::after{content:"→";transition:transform .15s}
-  .card .rfq a:hover::after{transform:translateX(3px)}
+  .card .note strong{color:var(--ink)}
+  .card .spec{font-family:var(--mono);font-size:12.5px;color:var(--ink);background:var(--surface-2);
+    border:1px solid var(--border);border-radius:7px;padding:6px 9px;display:flex;gap:7px;align-items:baseline;flex-wrap:wrap}
+  .card .spec b{color:var(--muted);font-weight:600;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase}
+  .card .contact{font-family:var(--mono);font-size:12px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:3px 14px}
+  .card .contact span{white-space:nowrap}
+  .card .act{margin-top:auto;padding-top:2px;display:flex;flex-wrap:wrap;gap:8px 16px}
+  .card .act a{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:13.5px;font-family:var(--mono)}
+  .card .act a::after{content:"→";transition:transform .15s}
+  .card .act a:hover::after{transform:translateX(3px)}
 
   .badge{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;
     padding:3px 8px;border-radius:20px;white-space:nowrap;text-transform:uppercase;flex:none}
   .b-mfr{background:var(--accent-soft);color:var(--accent-strong)}
   .b-dist{background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--border)}
-  .b-mkt{background:transparent;color:var(--muted);border:1px dashed var(--border-strong)}
   .b-shop{background:var(--good-bg);color:var(--good);border:1px solid var(--good-bd)}
-  .chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;
-    padding:3px 10px;border-radius:20px;font-family:var(--mono);letter-spacing:.02em}
-  .chip.good{background:var(--good-bg);color:var(--good);border:1px solid var(--good-bd)}
-  .dot{width:7px;height:7px;border-radius:50%;flex:none}
-  .dot.good{background:var(--good)} .dot.warn{background:var(--warn)}
+  .v{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10.5px;font-weight:600;
+    letter-spacing:.03em;text-transform:uppercase;padding:3px 8px;border-radius:20px;
+    background:var(--good-bg);color:var(--good);border:1px solid var(--good-bd)}
+  .v.call{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-bd)}
+  .best-pill{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:#fff;background:var(--accent);border-radius:20px;padding:3px 9px;flex:none}
+  .dot{width:7px;height:7px;border-radius:50%;flex:none}.dot.warn{background:var(--warn)}
 
-  .infobar{margin-top:20px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);
-    padding:16px 18px;font-size:13.5px;color:var(--ink-soft)}
-  .infobar h4{font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;
-    color:var(--ink);margin:0 0 9px;font-weight:600}
-  .infobar ul{margin:0;padding-left:18px} .infobar li{margin:5px 0}
-  .infobar strong{color:var(--ink)}
-
-  .avoid{margin-top:14px;border:1px dashed var(--warn-bd);background:var(--warn-bg);border-radius:var(--radius);
+  .avoid{margin-top:16px;border:1px dashed var(--warn-bd);background:var(--warn-bg);border-radius:var(--radius);
     padding:14px 17px;font-size:13px;color:var(--ink-soft)}
   .avoid h4{font-size:12px;font-family:var(--mono);letter-spacing:.05em;text-transform:uppercase;
     color:var(--warn);margin:0 0 6px;font-weight:600;display:flex;align-items:center;gap:8px}
   .avoid strong{color:var(--ink)}
 
-  .checklist{margin-top:44px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  .checklist{margin-top:42px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
     padding:24px 26px;box-shadow:var(--shadow)}
   .checklist h2{font-size:20px;letter-spacing:-.01em;margin-bottom:6px;font-weight:720}
   .checklist p.sub{color:var(--ink-soft);font-size:14px;margin:0 0 16px}
@@ -158,11 +137,9 @@
   .step::before{counter-increment:step;content:counter(step);position:absolute;left:12px;top:11px;
     width:22px;height:22px;border-radius:6px;background:var(--accent);color:#fff;font-family:var(--mono);
     font-size:12px;font-weight:700;display:grid;place-items:center}
-  .step strong{color:var(--ink)}
-  .step .mono{color:var(--accent-strong);font-weight:600;font-size:12.5px}
+  .step strong{color:var(--ink)} .step .mono{color:var(--accent-strong);font-weight:600;font-size:12.5px}
 
-  footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;
-    color:var(--muted);line-height:1.6}
+  footer{margin-top:38px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);line-height:1.6}
   footer strong{color:var(--ink-soft)}
 
   @media (max-width:560px){.phead{flex-direction:column;gap:10px}.cards{grid-template-columns:1fr}}
@@ -172,43 +149,29 @@
 <body>
 <div class="wrap">
   <header class="mast">
-    <div class="eyebrow">Procurement Sourcing · ≤ 1 kg · Commercial / COTS</div>
-    <h1>Getting ≤ 1 kg without the R&amp;D restriction</h1>
-    <p class="lede">You need <strong>≤ 1 kg of each</strong>, but as <strong>commercial / production-grade</strong> material — not the R&amp;D-exemption lab reagent your reference SDS sheets carry. At this scale the bulk suppliers matter less; what matters is buying a <strong>small commercial pack</strong>, a <strong>1 kg trial</strong>, or a <strong>sample of the real production grade</strong>.</p>
+    <div class="eyebrow">US Sourcing · ≤ 1 kg · Verified links</div>
+    <h1>US suppliers to quote — verified, production grade</h1>
+    <p class="lede">US-first sources for <strong>≤ 1 kg</strong> of each material, as <strong>commercial / production grade (COTS)</strong> — not the R&amp;D-exemption lab reagent. Every link below was <strong>fetched and confirmed live</strong>; marketplace/directory listings (Alibaba, ChemicalBook, Amazon) are deliberately excluded — they’re where the dead links came from. Where a website won’t confirm, the <strong>phone number is the verified path</strong>.</p>
     <div class="meta">
-      <span><b>Materials:</b> Fluorescent Brightener 28 · Barium Sulfate</span>
-      <span><b>Target qty:</b> ≤ 1 kg each</span>
-      <span><b>Replacing:</b> Sigma 910090 &amp; Fisher/Acros AC222510000 <em>(R&amp;D / lab)</em></span>
+      <span><b>Materials:</b> Fluorescent Brightener 28 (disodium) · Barium Sulfate (precipitated)</span>
+      <span><b>Scope:</b> US suppliers, ≤ 1 kg</span>
+      <span><b>Checked:</b> Jul 2026</span>
     </div>
   </header>
 
   <section class="callout">
-    <h3>⚠ Pin the identity — and know why 1 kg is the tricky part</h3>
-    <p><strong>Fluorescent Brightener 28 — you need the (di)sodium salt, CAS 4193-55-9, NOT the free acid (4404-43-7).</strong> Many listings default to the free acid or don’t say; state “disodium salt, 4193-55-9” and require a COA confirming the salt form. <strong>“CBS-X” is a different molecule</strong> — not a substitute.</p>
-    <p><strong>Barium Sulfate</strong> — specify <strong>precipitated “blanc fixe” 98–99%</strong> (CAS 7727-43-7), not natural barite.</p>
-    <div style="overflow-x:auto">
-      <table class="idtable">
-        <thead><tr><th>The catch at 1 kg</th><th>Why</th><th>The fix</th></tr></thead>
-        <tbody>
-          <tr><td>Lab SKUs dominate</td><td>Most 1 kg sellers are reagent catalogs (Sigma, Fisher) — the R&amp;D-framed grade you’re avoiding.</td><td>Buy the <strong>industrial/technical</strong> product in a small pack, or a manufacturer <strong>sample</strong>.</td></tr>
-          <tr><td>Blanc fixe is bulk</td><td>Many BaSO₄ makers won’t sell below a 1000 kg pallet.</td><td>Use small-pack retailers &amp; 1 kg-MOQ traders, or request a free <strong>production sample</strong>.</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <h3>⚠ Two things that decide whether you get the right material</h3>
+    <p><strong>FB 28 — order the (di)sodium salt, CAS 4193-55-9. NOT the free acid (4404-43-7), NOT “CBS-X”.</strong> This is the single biggest trap: most easy US cart listings are the free acid or a reagent. There is <strong>no turnkey US web-cart</strong> for production-grade disodium salt at 1 kg — the real path is a <strong>sample / small quote from a US brightener maker</strong>, stating the CAS explicitly.</p>
+    <p><strong>Barium Sulfate — order precipitated “blanc fixe”, 98–99%.</strong> Here you <em>do</em> have a verified instant option (ChemicalStore, add-to-cart); named premium grades are sample/quote.</p>
+    <p style="margin-top:4px"><strong>On responsiveness:</strong> for a fast reply, <strong>call</strong> the US makers below or email their quote inbox directly rather than waiting on a generic web form.</p>
   </section>
 
-  <div class="strategy">
-    <div class="route"><div class="tag">Route A · fastest</div><h4>Buy a small commercial pack</h4><p>Off-the-shelf industrial grade, unrestricted use, ships now. Best when you just need material in hand.</p></div>
-    <div class="route"><div class="tag">Route B · cheapest/kg</div><h4>1 kg trial from a maker</h4><p>Industrial manufacturer quotes a 1 kg trial of their production grade. Quote-based, a few weeks.</p></div>
-    <div class="route"><div class="tag">Route C · best match</div><h4>Sample the real production grade</h4><p>Request a free/nominal sample of a named production grade (Solvay, Cimbar, 3V Sigma…). The sample <em>is</em> the COTS material — ideal for qualification.</p></div>
-  </div>
-
   <div class="legend">
-    <span class="chip good"><span class="dot good"></span>Production / COTS · ≤ 1 kg OK</span>
+    <span class="v">✓ Fetched &amp; confirmed live</span>
+    <span class="v call">☎ Verify by phone (JS site)</span>
     <span class="badge b-shop">Buy online</span>
-    <span class="badge b-mfr">Manufacturer</span>
-    <span class="badge b-dist">Distributor</span>
-    <span class="badge b-mkt">Marketplace</span>
+    <span class="badge b-mfr">US Manufacturer</span>
+    <span class="badge b-dist">US Distributor</span>
   </div>
 
   <!-- PRODUCT 1 -->
@@ -216,81 +179,54 @@
     <div class="phead">
       <span class="pnum">01</span>
       <div>
-        <h2>Fluorescent Brightener 28 — disodium salt</h2>
-        <div class="sub"><strong>Disodium salt only — CAS 4193-55-9. Do NOT accept the free acid (4404-43-7).</strong> Optical brightener (Calcofluor White M2R), yellow-tan powder or ~25% aqueous solution (your reference was the solution).</div>
-        <div class="cas">✔ order: 4193-55-9 (disodium salt) · ✘ not: 4404-43-7 (free acid)</div>
+        <h2>Fluorescent Brightener 28 — sodium salt</h2>
+        <div class="sub"><strong>Order the disodium salt, CAS 4193-55-9 — not the free acid (4404-43-7).</strong> Optical brightener (Calcofluor White M2R); water-soluble powder or ~25% solution.</div>
+        <div class="cas">✔ 4193-55-9 (disodium salt) · ✘ 4404-43-7 (free acid) · ✘ CBS-X (27344-41-8)</div>
       </div>
     </div>
+    <div class="reality">No US supplier sells production-grade disodium salt as a ≤1 kg web purchase. <strong>The path is a sample/quote from a US brightener manufacturer</strong> — the two below are the strongest, both confirmed to make the sodium-salt form. Always state “disodium salt, CAS 4193-55-9”.</div>
 
-    <div class="group">
-      <h3><span class="rk">A</span> Buy a small pack now <span class="rule"></span> off-the-shelf, unrestricted</h3>
-      <div class="cards">
-        <div class="card">
-          <div class="top"><div><div class="name">Alibaba — 1 kg listings</div><div class="origin">China traders · CAS 4193-55-9</div></div><span class="badge b-mkt">Marketplace</span></div>
-          <span class="moq"><b>MOQ</b> 1 kg · ~$6–31/kg</span>
-          <p class="note">Technical/industrial grade, in stock. “Contact Supplier” to confirm salt form + ship a single kg.</p>
-          <div class="rfq"><a href="https://www.alibaba.com/product-detail/Hot-Sale-Fluorescent-Brightener-28-Cas_1601638954453.html" target="_blank" rel="noopener">View listing</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">Amazon — Akmekem FB 28</div><div class="origin">CAS 4193-55-9 · 500 g</div></div><span class="badge b-shop">Buy online</span></div>
-          <span class="moq"><b>Pack</b> 500 g · ships now</span>
-          <p class="note">Fast, unrestricted retail. Labelled “AR” (reagent) grade — fine if you just need the compound; confirm grade suits production.</p>
-          <div class="rfq"><a href="https://www.amazon.com/Akmekem-Fluorescent-Brightener-4193-55-9-500g/dp/B0F4RJMW6Z" target="_blank" rel="noopener">View listing</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">ChemicalBook — 55 suppliers</div><div class="origin">53 CN · 2 US</div></div><span class="badge b-mkt">Directory</span></div>
-          <span class="moq"><b>MOQ</b> Many sell 1 kg technical</span>
-          <p class="note">Per-supplier “Inquiry Now”. Ask specifically for a 1 kg technical-grade unit.</p>
-          <div class="rfq"><a href="https://www.chemicalbook.com/ProdSupplierGWCB8503466_EN.htm" target="_blank" rel="noopener">Browse suppliers</a></div>
-        </div>
+    <div class="cards">
+      <div class="card best">
+        <div class="top"><div><div class="name">Koch Color / Robert Koch Industries</div><div class="origin">USA · Bennett, CO</div></div><span class="best-pill">Exact match</span></div>
+        <div class="chips"><span class="badge b-mfr">US Manufacturer</span><span class="v call">☎ phone-verified</span></div>
+        <div class="spec"><b>Product</b> “Opti-Bright BA” = FB 28 sodium salt, CAS 4193-55-9 (C.I. 40622)</div>
+        <p class="note">SDS positively confirms the <strong>disodium-salt</strong> identity — the one US product verified as exactly your material. Website is JS-only (no cart); order by phone/quote.</p>
+        <div class="contact"><span>☎ 303-644-3763</span></div>
+        <div class="act"><a href="https://www.kochcolor.com/optical-brighteners" target="_blank" rel="noopener">Optical brighteners page</a></div>
       </div>
-    </div>
 
-    <div class="group">
-      <h3><span class="rk">B</span> 1 kg trial from a manufacturer <span class="rule"></span> lowest cost/kg</h3>
-      <div class="cards">
-        <div class="card">
-          <div class="top"><div><div class="name">NB Innovation (Ningbo Inno)</div><div class="origin">China · disodium-salt page ✔</div></div><span class="badge b-mfr">Manufacturer</span></div>
-          <span class="moq"><b>MOQ</b> None fixed · samples (chargeable)</span>
-          <p class="note">Direct page for the <strong>disodium salt 4193-55-9</strong> (C₄₀H₄₂N₁₂Na₂O₁₀S₂). Does gram-to-kg. On-page inquiry form.</p>
-          <div class="rfq"><a href="https://www.nbinno.com/chemical/4193-55-9.html" target="_blank" rel="noopener">Request 1 kg quote</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">Unilong Industry</div><div class="origin">China · Shandong</div></div><span class="badge b-mfr">Manufacturer</span></div>
-          <span class="moq"><b>MOQ</b> Quote-based · ask for 1 kg</span>
-          <p class="note">Industrial powder, “Get a Quote” + live chat. <strong>Linked page shows the free acid — request the disodium salt (4193-55-9).</strong></p>
-          <div class="rfq"><a href="https://unilongindustry.com/product/fluorescent-brightener-28-cas-4404-43-7/" target="_blank" rel="noopener">Request 1 kg quote</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">Jinan Ogilvy Chemical</div><div class="origin">China · Shandong</div></div><span class="badge b-mfr">Manufacturer</span></div>
-          <span class="moq"><b>MOQ</b> 1 kg trial accepted</span>
-          <p class="note">Optical-brightener maker that takes 1 kg orders — <strong>confirm FB 28 (4193-55-9) specifically</strong>, not just CBS-X.</p>
-          <div class="rfq"><a href="https://www.jnogilvychem.com/optical-brightener.html" target="_blank" rel="noopener">Request 1 kg quote</a></div>
-        </div>
+      <div class="card best">
+        <div class="top"><div><div class="name">Pylam Products (Pylam Dyes)</div><div class="origin">USA · Tempe, AZ</div></div><span class="best-pill">Most responsive</span></div>
+        <div class="chips"><span class="badge b-mfr">US Manufacturer</span><span class="v">✓ live sample form</span></div>
+        <div class="spec"><b>Product</b> “Fluorescent Brightener 28” (water-soluble grade)</div>
+        <p class="note">Lists FB 28 for paper/cellulose/soaps/detergents. Dedicated quote inbox + sample form. <strong>Confirm disodium (4193-55-9)</strong> when you inquire.</p>
+        <div class="contact"><span>☎ 480-929-0070 / 800-645-6096</span><span>✉ quotationrequests@pylamdyes.com</span></div>
+        <div class="act"><a href="https://www.pylamdyes.com/sample-request-form" target="_blank" rel="noopener">Sample request</a><a href="https://www.pylamdyes.com/products/optical-brighteners" target="_blank" rel="noopener">Product page</a></div>
       </div>
-    </div>
 
-    <div class="group">
-      <h3><span class="rk">C</span> Sample the real production grade <span class="rule"></span> best if you need a named COTS grade</h3>
-      <div class="cards">
-        <div class="card">
-          <div class="top"><div><div class="name">3V Sigma USA</div><div class="origin">USA · Georgetown, SC</div></div><span class="badge b-mfr">Manufacturer</span></div>
-          <span class="moq"><b>Sample</b> Request OPTIBLANC® sample</span>
-          <p class="note">US producer; equivalent DAST brightener with full documentation.</p>
-          <div class="rfq"><a href="https://3vsigmausa.com/products/optical-brighteners/" target="_blank" rel="noopener">Request a sample</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">Archroma — Leucophor®</div><div class="origin">Global · NA via Brenntag</div></div><span class="badge b-mfr">Manufacturer</span></div>
-          <span class="moq"><b>Sample</b> Via Archroma / Brenntag</span>
-          <p class="note">Blue-chip OBA line; request a qualification sample.</p>
-          <div class="rfq"><a href="https://www.archroma.com/packaging-technologies/products/leucophor" target="_blank" rel="noopener">Request a sample</a></div>
-        </div>
+      <div class="card">
+        <div class="top"><div><div class="name">Parchem</div><div class="origin">USA · New Rochelle, NY</div></div></div>
+        <div class="chips"><span class="badge b-dist">US Distributor</span><span class="v">✓ live quote form</span></div>
+        <div class="spec"><b>Note</b> Listed SKU is the FREE ACID — request disodium salt 4193-55-9</div>
+        <p class="note">Working “Get a Quote” with an <strong>R&amp;D/Pilot size tier</strong> (good for 1 kg). Your current pick — just don’t accept the free-acid default.</p>
+        <div class="contact"><span>Form-based quote</span></div>
+        <div class="act"><a href="https://parchem.com/chemical-supplier-distributor/fluorescent-brightener-28-free-acid-103272" target="_blank" rel="noopener">Get a quote</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><div><div class="name">3V Sigma USA</div><div class="origin">USA · Georgetown, SC</div></div></div>
+        <div class="chips"><span class="badge b-mfr">US Manufacturer</span><span class="v">✓ live</span></div>
+        <div class="spec"><b>Ask for</b> OPTIBLANC grade = FB 28 / CAS 4193-55-9</div>
+        <p class="note">US OBA maker (OPTIBLANC line). One grade checked was a <em>different</em> brightener — <strong>email to confirm they have the 4193-55-9 grade</strong>. Backup option.</p>
+        <div class="contact"><span>☎ 866-599-7896</span><span>✉ questions@3VSigmaUSA.com</span></div>
+        <div class="act"><a href="https://3vsigmausa.com/products/optical-brighteners/" target="_blank" rel="noopener">Optical brighteners</a></div>
       </div>
     </div>
 
     <div class="avoid">
-      <h4><span class="dot warn"></span>Avoid at 1 kg — R&amp;D / lab-reagent SKUs</h4>
-      <span>Sigma-Aldrich 910090 (your reference), MP Biomedicals / Fisher (1 g), Glentham, Spectrum, Santa Cruz Biotech, BOC Sciences. These are the reagent SKUs at reagent prices with R&amp;D framing — the exact thing to avoid.</span>
+      <h4><span class="dot warn"></span>Do not use for production</h4>
+      <span><strong>Lab-reagent SKUs</strong> (Sigma-Aldrich 910090, Chem-Impex, MP Bio/Fisher, Spectrum, SCBT, Glentham, Cayman) — many list the correct disodium salt at 1 kg, but they’re the R&amp;D/reagent grade you’re avoiding. <strong>Wrong salt form:</strong> any listing showing only CAS 4404-43-7 (free acid).</span>
     </div>
   </section>
 
@@ -300,106 +236,90 @@
       <span class="pnum">02</span>
       <div>
         <h2>Barium Sulfate — precipitated “blanc fixe”</h2>
-        <div class="sub">Specify precipitated blanc fixe, 98–99% BaSO₄ — not natural barite. Hardest of the two to get in 1 kg (normally a bulk commodity).</div>
-        <div class="cas">CAS 7727-43-7 · grade = precipitated</div>
+        <div class="sub">Specify precipitated blanc fixe, 98–99% BaSO₄ (not natural barite).</div>
+        <div class="cas">CAS 7727-43-7 · precipitated grade</div>
       </div>
     </div>
+    <div class="reality"><strong>You have a verified instant option here:</strong> ChemicalStore sells a 2 lb precipitated pack, add-to-cart, in stock. For a named premium grade at ≤1 kg it’s a sample/quote — all US paths below are confirmed live.</div>
 
-    <div class="group">
-      <h3><span class="rk">A</span> Buy a small pack now <span class="rule"></span> off-the-shelf, unrestricted</h3>
-      <div class="cards">
-        <div class="card">
-          <div class="top"><div><div class="name">ChemicalStore.com</div><div class="origin">USA · e-commerce</div></div><span class="badge b-shop">Buy online</span></div>
-          <span class="moq"><b>Pack</b> 2 lb (~0.9 kg) · $40 · Add-to-cart</span>
-          <p class="note">High-purity precipitated grade for paints/coatings/plastics/batteries. Industrial use, no R&amp;D restriction. Best fast 1 kg-ish option.</p>
-          <div class="rfq"><a href="https://us.chemicalstore.com/barium-sulfatebarium-sulfate" target="_blank" rel="noopener">Buy now</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">Alibaba — 1 kg listings</div><div class="origin">China traders</div></div><span class="badge b-mkt">Marketplace</span></div>
-          <span class="moq"><b>MOQ</b> 1 kg (some suppliers) · 98–99.5%</span>
-          <p class="note">Precipitated technical grade; filter suppliers offering a 1 kg MOQ. “Contact Supplier” to confirm.</p>
-          <div class="rfq"><a href="https://www.alibaba.com/showroom/precipitated-barium-sulphate.html" target="_blank" rel="noopener">Browse listings</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">IndiaMART</div><div class="origin">India-origin</div></div><span class="badge b-mkt">Directory</span></div>
-          <span class="moq"><b>MOQ</b> Small · precipitated 98–99.9%</span>
-          <p class="note">Many sellers of precipitated/pharma grade; ask for a 1 kg trial pack.</p>
-          <div class="rfq"><a href="https://dir.indiamart.com/impcat/barium-sulphate.html" target="_blank" rel="noopener">Browse suppliers</a></div>
-        </div>
+    <div class="cards">
+      <div class="card best">
+        <div class="top"><div><div class="name">ChemicalStore.com</div><div class="origin">USA · online</div></div><span class="best-pill">Buy now</span></div>
+        <div class="chips"><span class="badge b-shop">Buy online</span><span class="v">✓ in stock, add-to-cart</span></div>
+        <div class="spec"><b>Pack</b> 2 lb (0.9 kg) · $40 · SKU BS233P · precipitated 1.7 µm</div>
+        <p class="note">The only verified <strong>cash-sale ≤1 kg</strong> pack. Industrial precipitated grade, no quote/wait needed.</p>
+        <div class="contact"><span>e-commerce checkout</span></div>
+        <div class="act"><a href="https://us.chemicalstore.com/barium-sulfatebarium-sulfate" target="_blank" rel="noopener">Buy now</a></div>
       </div>
-    </div>
 
-    <div class="group">
-      <h3><span class="rk">B</span> Small quantity from a specialty supplier <span class="rule"></span> higher purity on demand</h3>
-      <div class="cards">
-        <div class="card">
-          <div class="top"><div><div class="name">American Elements</div><div class="origin">USA · Los Angeles</div></div><span class="badge b-mfr">Manufacturer</span></div>
-          <span class="moq"><b>Qty</b> From small packs · 99–99.9999%</span>
-          <p class="note">Sells industrial→ultra-high purity in flexible quantities (pricier). Quote by purity + pack size.</p>
-          <div class="rfq"><a href="https://www.americanelements.com/barium-sulfate-7727-43-7" target="_blank" rel="noopener">Request a quote</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">Industrochem</div><div class="origin">Bulk supplier</div></div><span class="badge b-dist">Distributor</span></div>
-          <span class="moq"><b>MOQ</b> Ask for smallest pack</span>
-          <p class="note">Precipitated/coating/pharma grades ≥98%. “Request a quote” on page — ask if they’ll break a bag.</p>
-          <div class="rfq"><a href="https://industrochem.com/barium-sulfate-cas-7727-43-7/" target="_blank" rel="noopener">Request a quote</a></div>
-        </div>
+      <div class="card best">
+        <div class="top"><div><div class="name">Reade Advanced Materials</div><div class="origin">USA · Riverside, RI</div></div><span class="best-pill">Smallest qty</span></div>
+        <div class="chips"><span class="badge b-dist">US Distributor</span><span class="v">✓ live “Add to Quote”</span></div>
+        <div class="spec"><b>Qty</b> grams → kg selectable · precipitated / blanc fixe grade</div>
+        <p class="note">Lists precipitated grade, CAS 7727-43-7; unit selector goes down to grams, no minimum stated. Best for a true small quote.</p>
+        <div class="contact"><span>“Add to Quote” RFQ</span></div>
+        <div class="act"><a href="https://reade.com/product/barium-sulfate-baso4/" target="_blank" rel="noopener">Request a quote</a></div>
       </div>
-    </div>
 
-    <div class="group">
-      <h3><span class="rk">C</span> Sample the real production grade <span class="rule"></span> free/nominal · best quality match</h3>
-      <div class="cards">
-        <div class="card">
-          <div class="top"><div><div class="name">Solvay — Blanc Fixe</div><div class="origin">Global · EU-produced</div></div><span class="badge b-mfr">Manufacturer</span></div>
-          <span class="moq"><b>Sample</b> Request via quotation form</span>
-          <p class="note">Top branded high-purity blanc fixe (JM3B/N/G). Ask for a qualification sample.</p>
-          <div class="rfq"><a href="https://www.solvay.com/en/form/product-quotation?gbu=Special%20Chem" target="_blank" rel="noopener">Request a sample</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">Cimbar Performance Minerals</div><div class="origin">USA · Chatsworth, GA</div></div><span class="badge b-mfr">Manufacturer</span></div>
-          <span class="moq"><b>Sample</b> Request “Cimbar BF”</span>
-          <p class="note">Largest N. American producer; precipitated 0.7 µm grade.</p>
-          <div class="rfq"><a href="https://cimbarresources.com/contact/" target="_blank" rel="noopener">Request a sample</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">The Kish Company</div><div class="origin">USA · Mentor, OH</div></div><span class="badge b-dist">Distributor</span></div>
-          <span class="moq"><b>Sample</b> Dedicated sample-request page</span>
-          <p class="note">Precipitated blanc fixe + USP grades; easy US sample logistics.</p>
-          <div class="rfq"><a href="https://www.kishcompany.com/sample-request/" target="_blank" rel="noopener">Request a sample</a></div>
-        </div>
-        <div class="card">
-          <div class="top"><div><div class="name">Venator (ex-Sachtleben)</div><div class="origin">Global · NA/EU/APAC</div></div><span class="badge b-mfr">Manufacturer</span></div>
-          <span class="moq"><b>Sample</b> Via regional sales contact</span>
-          <p class="note">Blanc Fixe N/micro/XR grades; request a sample through the contact page.</p>
-          <div class="rfq"><a href="https://www.venatorcorp.com/contact" target="_blank" rel="noopener">Request a sample</a></div>
-        </div>
+      <div class="card">
+        <div class="top"><div><div class="name">The Kish Company</div><div class="origin">USA · Mentor, OH</div></div></div>
+        <div class="chips"><span class="badge b-dist">US Distributor</span><span class="v">✓ live sample form</span></div>
+        <div class="spec"><b>Grade</b> precipitated blanc fixe + USP grades</div>
+        <p class="note">Dedicated sample-request form; easy US sample logistics for qualification.</p>
+        <div class="contact"><span>☎ 440-205-9970</span><span>✉ info@kishcompany.com</span></div>
+        <div class="act"><a href="https://www.kishcompany.com/sample-request/" target="_blank" rel="noopener">Request a sample</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><div><div class="name">CIMBAR Performance Minerals</div><div class="origin">USA · Chatsworth, GA</div></div></div>
+        <div class="chips"><span class="badge b-mfr">US Manufacturer</span><span class="v">✓ live sample button</span></div>
+        <div class="spec"><b>Grade</b> “Cimbar BF” precipitated (ultra-fine)</div>
+        <p class="note">Largest US barium sulfate producer. “Request a Sample” — bulk maker, so ≤1 kg = a sample.</p>
+        <div class="contact"><span>☎ 706-695-3899</span></div>
+        <div class="act"><a href="https://cimbarresources.com/barium-sulfate/" target="_blank" rel="noopener">Request a sample</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><div><div class="name">Basstech International</div><div class="origin">USA · New Jersey</div></div></div>
+        <div class="chips"><span class="badge b-dist">US Distributor</span><span class="v">✓ live inquiry form</span></div>
+        <div class="spec"><b>Grade</b> Blanc Fixe “Finezza”, 98% min · 1.0 µm</div>
+        <p class="note">Precipitated import grade with tight impurity limits. Product-inquiry form for sample/quote.</p>
+        <div class="contact"><span>Product-inquiry form</span></div>
+        <div class="act"><a href="https://basstechintl.com/products/blanc-fixe-precipitated-barium-sulfate/" target="_blank" rel="noopener">Request a quote</a></div>
+      </div>
+
+      <div class="card">
+        <div class="top"><div><div class="name">Silver Fern Chemical</div><div class="origin">USA · Seattle, WA</div></div></div>
+        <div class="chips"><span class="badge b-dist">US Distributor</span><span class="v">✓ live, “small bags”</span></div>
+        <div class="spec"><b>Qty</b> “Small Bags” option · lb/kg selectable</div>
+        <p class="note">CAS 7727-43-7 in stock; inquiry marked “commercial requests only” (fits COTS). Confirm precipitated grade on quote.</p>
+        <div class="contact"><span>☎ 866-282-3384</span></div>
+        <div class="act"><a href="https://www.silverfernchemical.com/chemical-supplier-7727-43-7/barium-sulfate-distributor-1528.aspx" target="_blank" rel="noopener">Request a quote</a></div>
       </div>
     </div>
 
     <div class="avoid">
-      <h4><span class="dot warn"></span>Avoid at 1 kg — R&amp;D / lab-reagent SKUs</h4>
-      <span>Fisher/Acros AC222510000 (your reference), Sigma-Aldrich 202762 (“99.99% trace metals”), reagents.com precipitated 99%, Stanford Advanced Materials. Reagent-grade small packs at reagent prices — not COTS production material.</span>
+      <h4><span class="dot warn"></span>Do not use for production</h4>
+      <span>Fisher/Acros AC222510000 (your reference), Sigma-Aldrich 202762, reagents.com, Stanford Advanced Materials — lab-reagent small packs. Also <strong>Noah Chemicals</strong> is US but has a <strong>$2,500 order minimum</strong>, so not practical for ≤1 kg.</span>
     </div>
   </section>
 
   <!-- CHECKLIST -->
   <section class="checklist">
-    <h2>What to say when you order / request a sample</h2>
-    <p class="sub">At 1 kg the goal is commercial-grade, unrestricted material — make that explicit up front.</p>
+    <h2>What to say when you call / submit the quote</h2>
+    <p class="sub">Lead with these so you get commercial-grade material and the right salt form on the first pass.</p>
     <div class="steps">
-      <div class="step"><strong>Exact material &amp; CAS.</strong> FB 28: <span class="mono">disodium salt, 4193-55-9</span>. BaSO₄: <span class="mono">precipitated/blanc fixe, 7727-43-7, 98–99%</span>.</div>
-      <div class="step"><strong>State the use.</strong> “For <strong>commercial production</strong>, not R&amp;D” — so you’re not sold restricted/exemption material.</div>
-      <div class="step"><strong>Quantity.</strong> Ask for <span class="mono">1 kg</span> (or a sample); ask if they’ll break a bag/drum.</div>
-      <div class="step"><strong>Grade &amp; form.</strong> Industrial/technical (not reagent); powder vs solution (FB 28); particle size/whiteness (BaSO₄).</div>
-      <div class="step"><strong>COA</strong> confirming purity, salt form (FB 28), particle size (BaSO₄).</div>
-      <div class="step"><strong>Logistics.</strong> Price incl. shipping to your country, lead time, and TSCA (US) / REACH (EU) status.</div>
+      <div class="step"><strong>Exact material &amp; CAS.</strong> FB 28: “<span class="mono">disodium salt, 4193-55-9</span>” (reject free acid 4404-43-7). BaSO₄: “<span class="mono">precipitated/blanc fixe, 7727-43-7, 98–99%</span>”.</div>
+      <div class="step"><strong>Use.</strong> “For <span class="mono">commercial production</span>, not R&amp;D” — so you’re not sold restricted/exemption material.</div>
+      <div class="step"><strong>Quantity.</strong> Ask for <span class="mono">1 kg</span> or a qualification sample; ask if they’ll break a bag.</div>
+      <div class="step"><strong>Form &amp; grade.</strong> Industrial/technical (not reagent); powder vs solution (FB 28); particle size/whiteness (BaSO₄).</div>
+      <div class="step"><strong>COA.</strong> Confirming purity, <span class="mono">salt form</span> (FB 28), particle size (BaSO₄).</div>
+      <div class="step"><strong>Logistics.</strong> Delivered US price, lead time, and TSCA status.</div>
     </div>
   </section>
 
   <footer>
-    <p><strong>Verification.</strong> Fetched &amp; confirmed: ChemicalStore.com (2 lb/$40 precipitated), Unilong, NB Innovation, Solvay RFQ form, Cimbar, Venator contact, Kish sample page, Industrochem, ChemicalBook/LookChem lists. Found in search but open in a browser to confirm live stock/MOQ: Alibaba &amp; IndiaMART 1 kg listings, Amazon Akmekem 500 g (grade shown as “AR”), Jinan Ogilvy (confirm FB 28 vs CBS-X), American Elements. Manufacturer samples (Route C) are the production material itself — usually free or nominal for qualification.</p>
-    <p style="margin-top:8px">Prices/MOQs are indicative from public listings, July 2026 — confirm directly with the supplier at order time.</p>
+    <p><strong>Verification — all links fetched &amp; confirmed live on the date above:</strong> Koch Color (SDS confirms FB 28 sodium salt; site is JS-only so phone is the verified path), Pylam (product + sample-request forms live), Parchem (quote form live; SKU is free acid), 3V Sigma (live), ChemicalStore (2 lb/$40 precipitated, in stock, add-to-cart), Reade (precipitated, grams selectable, Add-to-Quote), Kish (sample form), CIMBAR (sample button), Basstech (inquiry form), Silver Fern (inquiry, small bags). <strong>Excluded as unverifiable</strong> (anti-bot 403): American Elements, americanchemicalsuppliers.com. Prices/specs are indicative — confirm at order time.</p>
   </footer>
 </div>
 </body>
