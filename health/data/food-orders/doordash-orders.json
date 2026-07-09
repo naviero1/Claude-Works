@@ -1,0 +1,933 @@
+{
+ "description": "DoorDash order history extracted from Gmail order-confirmation emails. NOTE: DoorDash emails do not include item-level detail \u2014 only restaurant, timestamp, total, payment method, and delivery address. Item detail requires a DoorDash account export or screenshots.",
+ "coverage": "2025-10-10 through 2026-07-07 (dense era). Older sparse history in historical-orders-2021-2025.json.",
+ "orders": [
+  {
+   "thread_id": "19f3d182bf2f2114",
+   "datetime_utc": "2026-07-07T15:00:20Z",
+   "restaurant": "Bul Box",
+   "total": 24.65,
+   "paid_with": "credits",
+   "message_id": null,
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19f37f5a21eabc0d",
+   "datetime_utc": "2026-07-06T15:04:32Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.9,
+   "paid_with": "credits",
+   "message_id": null,
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19f1953470197f9e",
+   "message_id": "19f1959f50c9bf4b",
+   "datetime_utc": "2026-06-30T16:25:52Z",
+   "restaurant": "Mahana Fresh",
+   "total": 21.54,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19f1953470197f9e",
+   "message_id": "19f1953470197f9e",
+   "datetime_utc": "2026-06-30T16:18:35Z",
+   "restaurant": "Mahana Fresh",
+   "total": 21.04,
+   "paid_with": "MasterCard x5523",
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "19f066f4cf03acd0",
+   "datetime_utc": "2026-06-27T00:16:24Z",
+   "restaurant": "McDonald's",
+   "total": 24.83,
+   "paid_with": "Apple Pay and/or credits",
+   "message_id": null,
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "19efa7798eb228d9",
+   "datetime_utc": "2026-06-24T16:30:00Z",
+   "restaurant": "Bul Box",
+   "total": 24.94,
+   "paid_with": "credits",
+   "message_id": null,
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19ef51f2d5b4ca49",
+   "datetime_utc": "2026-06-23T15:35:19Z",
+   "restaurant": "Chick-fil-A",
+   "total": 27.43,
+   "paid_with": "credits",
+   "message_id": null,
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19eeb2cf78b776a4",
+   "datetime_utc": "2026-06-21T17:14:11Z",
+   "restaurant": "Food Lion",
+   "total": 77.61,
+   "paid_with": "Apple Pay and/or credits",
+   "message_id": null,
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "19ecbf46792e14d0",
+   "message_id": "19ecbf46792e14d0",
+   "datetime_utc": "2026-06-15T15:44:11Z",
+   "restaurant": "Bul Box",
+   "total": 14.11,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19ec3501ecb6fda2",
+   "message_id": "19ec3501ecb6fda2",
+   "datetime_utc": "2026-06-13T23:27:47Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 37.09,
+   "paid_with": "Apple",
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "19eb25c24a740b60",
+   "message_id": "19eb25c24a740b60",
+   "datetime_utc": "2026-06-10T16:27:21Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 21.01,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19ead196c57bd3ce",
+   "message_id": "19ead196c57bd3ce",
+   "datetime_utc": "2026-06-09T15:56:23Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.65,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19ea7dbe792e78ad",
+   "message_id": "19ea7dbe792e78ad",
+   "datetime_utc": "2026-06-08T15:31:05Z",
+   "restaurant": "Bul Box",
+   "total": 23.9,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e9f0b4ea358970",
+   "message_id": "19e9f0b4ea358970",
+   "datetime_utc": "2026-06-06T22:26:17Z",
+   "restaurant": "ALDI",
+   "total": 19.17,
+   "paid_with": "Apple",
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "19e99bb2d326d541",
+   "message_id": "19e99bb2d326d541",
+   "datetime_utc": "2026-06-05T21:40:39Z",
+   "restaurant": "Arby's",
+   "total": 28.37,
+   "paid_with": "Apple",
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "19e8ea10abe85e2c",
+   "datetime_utc": "2026-06-03T17:56:17Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.65,
+   "paid_with": "credits",
+   "message_id": null,
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e88d49fdcd5a44",
+   "datetime_utc": "2026-06-02T14:54:55Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 29.35,
+   "paid_with": "credits",
+   "message_id": null,
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e7447adc3c231e",
+   "datetime_utc": "2026-05-29T15:08:32Z",
+   "restaurant": "Bul Box",
+   "total": 23.9,
+   "paid_with": "credits",
+   "message_id": null,
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e6f5c2ee2c7dac",
+   "message_id": "19e6f5c2ee2c7dac",
+   "datetime_utc": "2026-05-28T16:12:51Z",
+   "restaurant": "Chuy's",
+   "total": 21.98,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e6a5080d370788",
+   "message_id": "19e6a5080d370788",
+   "datetime_utc": "2026-05-27T16:41:59Z",
+   "restaurant": "Pei Wei",
+   "total": 21.45,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e5037cb28a8dca",
+   "message_id": "19e5037cb28a8dca",
+   "datetime_utc": "2026-05-22T15:04:52Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 17.99,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e4b16d68cae37a",
+   "message_id": "19e4b16d68cae37a",
+   "datetime_utc": "2026-05-21T15:10:46Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 24.61,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e42be758360681",
+   "message_id": "19e42be758360681",
+   "datetime_utc": "2026-05-20T00:17:16Z",
+   "restaurant": "Arby's",
+   "total": 28.48,
+   "paid_with": "Apple",
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "19e2c2f076df6dec",
+   "message_id": "19e2c2f076df6dec",
+   "datetime_utc": "2026-05-15T15:08:57Z",
+   "restaurant": "Chick-fil-A",
+   "total": 19.86,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e21e4d79940e9c",
+   "message_id": "19e21e4d79940e9c",
+   "datetime_utc": "2026-05-13T15:11:44Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 28.33,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e08a8759097e8b",
+   "message_id": "19e08a8759097e8b",
+   "datetime_utc": "2026-05-08T17:35:17Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 21.42,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19e0371982b3938f",
+   "message_id": "19e0371982b3938f",
+   "datetime_utc": "2026-05-07T17:17:15Z",
+   "restaurant": "Chick-fil-A",
+   "total": 19.32,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19df3a0378a76558",
+   "message_id": "19df3a0378a76558",
+   "datetime_utc": "2026-05-04T15:34:15Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 27.26,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19de5f2e25073001",
+   "message_id": "19de5f2e25073001",
+   "datetime_utc": "2026-05-01T23:49:52Z",
+   "restaurant": "Arby's",
+   "total": 33.05,
+   "paid_with": "MasterCard x5523",
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "19de4140cb8ac0ba",
+   "message_id": "19de4140cb8ac0ba",
+   "datetime_utc": "2026-05-01T15:06:51Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 28.08,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19dcfe53c66b59be",
+   "message_id": "19dcfe53c66b59be",
+   "datetime_utc": "2026-04-27T17:03:19Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 20.92,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19dc009c12be39d7",
+   "message_id": "19dc009c12be39d7",
+   "datetime_utc": "2026-04-24T15:09:17Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 27.26,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19dbb098e02f535c",
+   "message_id": "19dbb098e02f535c",
+   "datetime_utc": "2026-04-23T15:50:58Z",
+   "restaurant": "Bul Box",
+   "total": 28.07,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19dabda8c758b05b",
+   "message_id": "19dabda8c758b05b",
+   "datetime_utc": "2026-04-20T17:05:17Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.21,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19d96ed05ac4f4a6",
+   "message_id": "19d96ed05ac4f4a6",
+   "datetime_utc": "2026-04-16T15:33:27Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 28.82,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19d91d9249bf7351",
+   "message_id": "19d91d9249bf7351",
+   "datetime_utc": "2026-04-15T15:53:39Z",
+   "restaurant": "Bul Box",
+   "total": 14.36,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19d7829c0e34d148",
+   "message_id": "19d7829c0e34d148",
+   "datetime_utc": "2026-04-10T16:11:34Z",
+   "restaurant": "Bul Box",
+   "total": 24.94,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19d68a44db32f23a",
+   "message_id": "19d68a44db32f23a",
+   "datetime_utc": "2026-04-07T15:51:30Z",
+   "restaurant": "Urban Turban Indian Grill and Bar",
+   "total": 27.95,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19d449a50533d844",
+   "message_id": "19d449a50533d844",
+   "datetime_utc": "2026-03-31T15:54:16Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 24.38,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19d2ad56556ce208",
+   "message_id": "19d2ad56556ce208",
+   "datetime_utc": "2026-03-26T15:48:40Z",
+   "restaurant": "Bul Box",
+   "total": 24.94,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19d25d6272dcf8d8",
+   "message_id": "19d25d6272dcf8d8",
+   "datetime_utc": "2026-03-25T16:31:24Z",
+   "restaurant": "Mexican jv American",
+   "total": 28.25,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19d20607e8c68005",
+   "message_id": "19d20607e8c68005",
+   "datetime_utc": "2026-03-24T15:04:46Z",
+   "restaurant": "Bul Box",
+   "total": 24.94,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19d0183e1d4e5962",
+   "message_id": "19d0183e1d4e5962",
+   "datetime_utc": "2026-03-18T15:15:12Z",
+   "restaurant": "Bul Box",
+   "total": 24.94,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19cd89109ec2d593",
+   "message_id": "19cd89109ec2d593",
+   "datetime_utc": "2026-03-10T16:25:07Z",
+   "restaurant": "Mexican jv American",
+   "total": 16.34,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19cd35787f231f99",
+   "message_id": "19cd35787f231f99",
+   "datetime_utc": "2026-03-09T16:04:13Z",
+   "restaurant": "Bul Box",
+   "total": 23.08,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19cc410686ad351d",
+   "message_id": "19cc410686ad351d",
+   "datetime_utc": "2026-03-06T16:52:14Z",
+   "restaurant": "Chick-fil-A",
+   "total": 20.36,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19cb99a69530b627",
+   "message_id": "19cb99a69530b627",
+   "datetime_utc": "2026-03-04T16:07:09Z",
+   "restaurant": "Firehouse Subs",
+   "total": 19.41,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c9fe117d7778a6",
+   "message_id": "19c9fe117d7778a6",
+   "datetime_utc": "2026-02-27T16:14:13Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 17.18,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c9ad6bed34b0df",
+   "message_id": "19c9ad6bed34b0df",
+   "datetime_utc": "2026-02-26T16:44:49Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 30.82,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c95aee91ab6cb9",
+   "message_id": "19c95aee91ab6cb9",
+   "datetime_utc": "2026-02-25T16:43:13Z",
+   "restaurant": "Bul Box",
+   "total": 12.76,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c90785083f5470",
+   "message_id": "19c90785083f5470",
+   "datetime_utc": "2026-02-24T16:25:28Z",
+   "restaurant": "Will and Well Salads",
+   "total": 43.24,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c8b6265d2e2823",
+   "message_id": "19c8b6265d2e2823",
+   "datetime_utc": "2026-02-23T16:43:25Z",
+   "restaurant": "Bul Box",
+   "total": 22.54,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c76c4a18e3ceab",
+   "message_id": "19c76c4a18e3ceab",
+   "datetime_utc": "2026-02-19T16:38:42Z",
+   "restaurant": "Bul Box",
+   "total": 26.71,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c57f86b16877b2",
+   "message_id": "19c57f86b16877b2",
+   "datetime_utc": "2026-02-13T17:07:02Z",
+   "restaurant": "Bad Daddy's Burger Bar",
+   "total": 30.5,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c52ce53e11db29",
+   "message_id": "19c52ce53e11db29",
+   "datetime_utc": "2026-02-12T17:02:57Z",
+   "restaurant": "Bul Box",
+   "total": 26.21,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c4d9faeddbea77",
+   "message_id": "19c4d9faeddbea77",
+   "datetime_utc": "2026-02-11T16:53:56Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 35.19,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c48acf89f70d5f",
+   "message_id": "19c48acf89f70d5f",
+   "datetime_utc": "2026-02-10T17:50:20Z",
+   "restaurant": "Bul Box",
+   "total": 27.57,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c33aefe33575f9",
+   "message_id": "19c33aefe33575f9",
+   "datetime_utc": "2026-02-06T16:00:31Z",
+   "restaurant": "Bul Box",
+   "total": 24.94,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c248304c0d6c26",
+   "message_id": "19c248304c0d6c26",
+   "datetime_utc": "2026-02-03T17:18:09Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 24.11,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19c05adfbfb51cea",
+   "message_id": "19c05adfbfb51cea",
+   "datetime_utc": "2026-01-28T17:36:53Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.36,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19bebb1714773e98",
+   "message_id": "19bebb1714773e98",
+   "datetime_utc": "2026-01-23T16:30:31Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 24.88,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19bdc1f10cd68e57",
+   "message_id": "19bdc1f10cd68e57",
+   "datetime_utc": "2026-01-20T15:56:20Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 19.9,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19bbd95e5ba5de8f",
+   "message_id": "19bbd95e5ba5de8f",
+   "datetime_utc": "2026-01-14T17:37:53Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 19.4,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19bb814bffcd1872",
+   "message_id": "19bb814bffcd1872",
+   "datetime_utc": "2026-01-13T15:58:45Z",
+   "restaurant": "Chick-fil-A",
+   "total": 23.93,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19bb2fe038d85050",
+   "message_id": "19bb2fe038d85050",
+   "datetime_utc": "2026-01-12T16:15:47Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 27.01,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19b9e58a91e7a4ee",
+   "message_id": "19b9e58a91e7a4ee",
+   "datetime_utc": "2026-01-08T16:02:46Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 33.88,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19b996447b05a552",
+   "message_id": "19b996447b05a552",
+   "datetime_utc": "2026-01-07T16:57:22Z",
+   "restaurant": "Lucky Chicken",
+   "total": 29.94,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19b94238fa5fcd98",
+   "message_id": "19b94238fa5fcd98",
+   "datetime_utc": "2026-01-06T16:28:35Z",
+   "restaurant": "HERITAGE  TACO STREET",
+   "total": 25.76,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19b8f057c49dca35",
+   "message_id": "19b8f057c49dca35",
+   "datetime_utc": "2026-01-05T16:37:39Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.9,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19b2d6d5c1d7c673",
+   "message_id": null,
+   "datetime_utc": "2025-12-17T17:48:00Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 22.76,
+   "paid_with": null,
+   "delivery_address": null
+  },
+  {
+   "thread_id": "19b27ee89e24814a",
+   "message_id": null,
+   "datetime_utc": "2025-12-16T16:11:00Z",
+   "restaurant": "Mexican jv American",
+   "total": 27.8,
+   "paid_with": null,
+   "delivery_address": null
+  },
+  {
+   "thread_id": "19b1e63a6a1af89d",
+   "message_id": null,
+   "datetime_utc": "2025-12-14T19:43:00Z",
+   "restaurant": "Khao Sen",
+   "total": 81.15,
+   "paid_with": null,
+   "delivery_address": null
+  },
+  {
+   "thread_id": "19b0e2fddce2d9f1",
+   "datetime_utc": "2025-12-11T16:12:54Z",
+   "restaurant": "Mexican jv American",
+   "total": 29.55,
+   "paid_with": "credits",
+   "message_id": null,
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19b090441092930a",
+   "message_id": "19b090441092930a",
+   "datetime_utc": "2025-12-10T16:07:10Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 23.23,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19b03d2bbe4c2f73",
+   "message_id": "19b03d2bbe4c2f73",
+   "datetime_utc": "2025-12-09T15:54:59Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 19.9,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19aef6c9eb57f60c",
+   "message_id": "19aef6c9eb57f60c",
+   "datetime_utc": "2025-12-05T16:51:03Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 19.9,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19aea62e242c3997",
+   "message_id": "19aea62e242c3997",
+   "datetime_utc": "2025-12-04T17:22:18Z",
+   "restaurant": "Chick-fil-A",
+   "total": 27.49,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19ae4e9925c8ffac",
+   "message_id": "19ae4e9925c8ffac",
+   "datetime_utc": "2025-12-03T15:51:42Z",
+   "restaurant": "HERITAGE  TACO STREET",
+   "total": 22.25,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19adfc94e93cf651",
+   "message_id": "19adfc94e93cf651",
+   "datetime_utc": "2025-12-02T15:58:21Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.4,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19abc0ba63fe5fd3",
+   "message_id": "19abc0ba63fe5fd3",
+   "datetime_utc": "2025-11-25T17:24:29Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 27.01,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19aa7523b59def48",
+   "message_id": "19aa7523b59def48",
+   "datetime_utc": "2025-11-21T16:49:34Z",
+   "restaurant": "Chick-fil-A",
+   "total": 22.23,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19aa220c4b0bd0f6",
+   "message_id": "19aa220c4b0bd0f6",
+   "datetime_utc": "2025-11-20T16:37:26Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.4,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a9d2dbff12ac58",
+   "message_id": "19a9d2dbff12ac58",
+   "datetime_utc": "2025-11-19T17:33:31Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 27.21,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a97d36b72f0a30",
+   "message_id": "19a97d36b72f0a30",
+   "datetime_utc": "2025-11-18T16:36:45Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.9,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a92a3d5e3b24af",
+   "message_id": "19a92a3d5e3b24af",
+   "datetime_utc": "2025-11-17T16:26:39Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.9,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a7df179479e379",
+   "message_id": "19a7df179479e379",
+   "datetime_utc": "2025-11-13T15:59:27Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.4,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a78c4fd64b272d",
+   "message_id": "19a78c4fd64b272d",
+   "datetime_utc": "2025-11-12T15:52:45Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 22.43,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a54b6a7803c3d2",
+   "message_id": "19a54b6a7803c3d2",
+   "datetime_utc": "2025-11-05T15:50:46Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 23.23,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a4a6c3e48b161b",
+   "message_id": "19a4a6c3e48b161b",
+   "datetime_utc": "2025-11-03T15:53:18Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 26.4,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a3ade0bed3597e",
+   "message_id": "19a3ade0bed3597e",
+   "datetime_utc": "2025-10-31T15:23:40Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 23.23,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a35cd54cb22a82",
+   "message_id": "19a35cd54cb22a82",
+   "datetime_utc": "2025-10-30T15:47:19Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 18.45,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a2b5915758ec49",
+   "message_id": "19a2b5915758ec49",
+   "datetime_utc": "2025-10-28T15:04:08Z",
+   "restaurant": "Farmside Kitchen",
+   "total": 30.18,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a2673a4915c9d3",
+   "message_id": "19a2673a4915c9d3",
+   "datetime_utc": "2025-10-27T16:15:02Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 28.16,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a16d1ed608e0b2",
+   "message_id": "19a16d1ed608e0b2",
+   "datetime_utc": "2025-10-24T15:24:05Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 30.78,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a11c56073a2237",
+   "message_id": "19a11c56073a2237",
+   "datetime_utc": "2025-10-23T15:52:17Z",
+   "restaurant": "Guasaca",
+   "total": 20.33,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a0c65a808899d3",
+   "message_id": "19a0c65a808899d3",
+   "datetime_utc": "2025-10-22T14:49:38Z",
+   "restaurant": "CAVA",
+   "total": 27.03,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "19a024441000baab",
+   "message_id": "19a024441000baab",
+   "datetime_utc": "2025-10-20T15:36:57Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 23.88,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "199ed78b98d6dea3",
+   "message_id": "199ed78b98d6dea3",
+   "datetime_utc": "2025-10-16T14:42:15Z",
+   "restaurant": "CAVA",
+   "total": 23.77,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "199e87584a9967bd",
+   "message_id": "199e87584a9967bd",
+   "datetime_utc": "2025-10-15T15:20:39Z",
+   "restaurant": "La Cocina Mexican Restaurant",
+   "total": 19.08,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "199e3d745a78509e",
+   "message_id": "199e3d745a78509e",
+   "datetime_utc": "2025-10-14T17:49:18Z",
+   "restaurant": "Chipotle Mexican Grill",
+   "total": 16.8,
+   "paid_with": "credits",
+   "delivery_address": "1650 Tw Alexander Dr, Durham, NC 27703, USA"
+  },
+  {
+   "thread_id": "199d6613a57a5c1a",
+   "message_id": "199d6613a57a5c1a",
+   "datetime_utc": "2025-10-12T03:05:19Z",
+   "restaurant": "Sheetz",
+   "total": 31.25,
+   "paid_with": "PayPal",
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "199d44dadfbd3fde",
+   "message_id": "199d44dadfbd3fde",
+   "datetime_utc": "2025-10-11T17:24:43Z",
+   "restaurant": "Papa Johns Pizza",
+   "total": 58.56,
+   "paid_with": "Apple",
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  },
+  {
+   "thread_id": "199d029ee3611b27",
+   "message_id": "199d029ee3611b27",
+   "datetime_utc": "2025-10-10T22:07:11Z",
+   "restaurant": "McDonald's",
+   "total": 25.18,
+   "paid_with": "PayPal",
+   "delivery_address": "537 Duchart Ln, Fuquay Varina, NC 27526, USA"
+  }
+ ]
+}
