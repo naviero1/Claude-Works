@@ -392,5 +392,67 @@ for i,(txt,font) in enumerate(optnotes):
 ds.column_dimensions["A"].width=52
 for c in "BCDEF": ds.column_dimensions[c].width=17
 
+# ================= WHY $14K WORKS TAB =================
+w=wb.create_sheet("Why $14k Works")
+cell(w,"A1","Why a $14,000 guaranteed payment is a generous deal",TITLE,title_fill)
+w.merge_cells("A1:H1"); w.row_dimensions[1].height=22
+
+cell(w,"A3","INPUTS (edit yellow)",BOLD)
+wi=[("Her capital (down payment)","B4",48000,money,False),
+    ("Your guaranteed cash to her","B5",14000,money,False),
+    ("= that as % of her $48k","B6","=B5/B4",pct,True),
+    ("Mortgage payoff","B7",356149.76,money,False),
+    ("Commission % (5.5% agent / 2.5% FSBO)","B8",0.055,pct,False),
+    ("Transfer tax %","B9",0.002,pct,False),
+    ("Other closing flat $","B10",2000,money,False)]
+rr=4
+for lab,cref,val,fmt,isf in wi:
+    cell(w,f"A{rr}",lab); cell(w,cref,val,BOLD,None if isf else param_fill,fmt,bd=True); rr+=1
+
+T=12
+heads=["Sale price","Net proceeds\n(her house return)","House return\n% of $48k",
+       "Your $14k\n(% of $48k)","Her total\n(flat $14k)","Total\n% of $48k",
+       "Capped payment\n(no overpay)","Her total\n(capped)"]
+for i,h in enumerate(heads):
+    cell(w,f"{get_column_letter(i+1)}{T}",h,HDR,hdr_fill,align="center",bd=True)
+w.row_dimensions[T].height=42
+r=T+1
+for p in [390000,395000,399000,405000,409900]:
+    a=f"A{r}";b=f"B{r}";c=f"C{r}";d=f"D{r}";e=f"E{r}";ff=f"F{r}";g=f"G{r}";hh=f"H{r}"
+    cell(w,a,p,None,grp_fill,money,bd=True)
+    cell(w,b,f"={p}-$B$7-({p}*$B$8+{p}*$B$9+$B$10)",BOLD,her_fill,money,bd=True)
+    cell(w,c,f"={b}/$B$4",None,None,pct0,bd=True)
+    cell(w,d,"=$B$6",None,you_fill,pct0,bd=True)
+    cell(w,e,f"={b}+$B$5",BOLD,None,money,bd=True)
+    cell(w,ff,f"={e}/$B$4",BOLD,None,pct0,bd=True)
+    cell(w,g,f"=MIN($B$5,MAX(0,$B$4-{b}))",None,you_fill,money,bd=True)
+    cell(w,hh,f"={b}+{g}",None,None,money,bd=True)
+    r+=1
+
+notes2=[
+ ("",None),
+ ("HOW TO READ THIS",BOLD),
+ ("• Your $14,000 = 29.2% of her $48k, handed to her GUARANTEED — regardless of what the house sells for,",None),
+ ("  when it sells, or whether it sits unsold while you keep paying the mortgage.",None),
+ ("• Her house return (net proceeds) stacks ON TOP of that 29%. So her total = 29% floor + house return.",None),
+ ("• 'Capped payment' column = pay MIN($14k, whatever gets her to exactly $48k). Use this so a strong FSBO",None),
+ ("  sale doesn't push her PAST her full $48k (she'd otherwise land at 104–114%). It only ever helps you.",None),
+ ("",None),
+ ("WHY IT'S GENEROUS (three yardsticks)",BOLD),
+ ("• vs. the law: NC likely requires ~$0–$7,500 from you (her $48k is separate property capped at actual",None),
+ ("  equity; alimony barred by the affair). $14k is roughly double her strongest legal claim.",None),
+ ("• vs. her real recovery: guaranteed cash beats an uncertain sale. The house is only ~57–82% likely to be",None),
+ ("  under contract by end of October, at an unknown price in a soft market. $14k removes all that risk for her.",None),
+ ("• vs. her alternative: fighting it in court likely nets her ~$0–$7,500 minus $10k+ in her own legal fees —",None),
+ ("  a negative result. $14k beats that decisively.",None),
+ ("",None),
+ ("Not legal advice — confirm with a NC family-law attorney before signing anything.",Font(italic=True,size=9)),
+]
+nr=r+1
+for txt,font in notes2:
+    cell(w,f"A{nr}",txt,font); nr+=1
+w.column_dimensions["A"].width=40
+for c in "BCDEFGH": w.column_dimensions[c].width=15
+
 wb.save("/home/user/Claude-Works/House_Sale_Scenarios_537_Duchart.xlsx")
 print("saved")
