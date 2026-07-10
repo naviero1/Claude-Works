@@ -1,132 +1,164 @@
 """Daily inventory simulation for the Pratt Richmond -> KWE Sterling restock plan.
 
-Validates the order cadence in Restock_Plan.md: biweekly transfer truck with
-reorder-point triggers, box POs on a 2-week lead, and Pratt MOQ POs replenishing
-the Richmond hold. Adjust the assumptions below and rerun to test scenarios
-(e.g. higher usage, longer production lead, different triggers).
+Rev B (Jul 9): Pratt clarified that deliveries to KWE come in FIXED INCREMENTS
+per part, two options:
 
+  Option 1 (as quoted)   boxes 175 (2 plt) | Part A 200 (4 plt) | Part B 180 (2 plt)
+                         insulation MOQ 500 A / 450 B (last release of each MOQ is partial)
+  Option 2 (adjusted)    boxes 250 (3 plt) | Part A 250 (5 plt) | Part B 270 (3 plt)
+                         insulation MOQ 500 A / 540 B (= exactly 2 releases per part)
+
+Each part rides its own cadence: a release/PO is placed (2-week lead assumed)
+when projected stock at arrival hits the safety floor. Insulation ships from the
+MOQ stock Pratt holds in Richmond; a new MOQ PO is placed when the hold can no
+longer fill one full release. KWE warehouse space is UNKNOWN — this sim reports
+the space each option needs (average and receipt-day peak positions).
+
+Usage: 100 boxes/month = 100 boxes + 100 Part A + 100 Part B (1 set per box).
 Run: python3 restock_simulation.py
-Also writes Restock_Schedule_Year1.csv (all POs and deliveries, chronological).
+Writes Restock_Schedule_Year1.csv for the baseline scenario (Option 1).
 """
 import csv
 import math
 import os
 from datetime import date, timedelta
 
-# ---- Assumptions (edit these) ----
-USAGE_PER_MONTH = 100          # boxes shipped/month; 1 box = 1 Part A + 1 Part B
-BOX_PER_PLT = 87.5             # Pratt: 80-90 boxes/pallet, 175 = 2 pallets
+# ---- Shared assumptions (edit these) ----
+USAGE_PER_MONTH = 100
 A_PER_PLT = 50
 B_PER_PLT = 90
-BOX_ORDER_QTY = 175            # fixed order increment, 2-week lead
-MOQ_STD = (500, 450)           # 10 plt A / 5 plt B
-MOQ_ALT = (450, 540)           # 9 plt A / 6 plt B (proposed alternate mix)
+RELEASE_LEAD_DAYS = 14         # notice for a release from the Richmond hold (assumed)
+BOX_LEAD_DAYS = 14             # quoted box production lead
 INSULATION_LEAD_DAYS = 28      # assumed production lead for an MOQ run (unconfirmed)
-TRUCK_INTERVAL_DAYS = 14       # Richmond -> Sterling transfer cadence
+SAFETY_UNITS = 50              # order so stock at arrival >= ~2 weeks of usage
 
-A_TRIGGER = 60                 # send 1 plt A when KWE on-hand <= this (2 plt if <= 25)
-B_TRIGGER = 75                 # send 1 plt B when KWE on-hand <= this
-BOX_NEXT_TRUCK_MIN = 90        # order boxes when projected on-hand at next truck <= this
-RICHMOND_B_TRIGGER = 180       # place next Pratt MOQ PO when Richmond B <= this
-
-FIRST_DELIVERY = date(2026, 7, 22)   # go-live: 175 boxes + 2 plt A + 1 plt B (5 positions)
+FIRST_DELIVERY = date(2026, 7, 22)
 USAGE_START = date(2026, 8, 1)
 END = date(2027, 7, 31)
-# ----------------------------------
+
+SCENARIOS = [
+    {"name": "Option 1 (as quoted)", "inc_a": 200, "inc_b": 180, "box_qty": 175, "box_plt": 2,
+     "moq": (500, 450), "baseline": True},
+    {"name": "Option 2 (adjusted)", "inc_a": 250, "inc_b": 270, "box_qty": 250, "box_plt": 3,
+     "moq": (500, 540), "baseline": False},
+]
+# -----------------------------------------
 
 daily = USAGE_PER_MONTH / 30.44
-box, a, b = float(BOX_ORDER_QTY), 100.0, 90.0
-rich_a, rich_b = MOQ_STD[0] - a, MOQ_STD[1] - b   # PO-1 held in Richmond
 
-pending_po = None      # (arrival_date, qty_a, qty_b, placed_date)
-po_log = []
-box_order_next = False
-trucks, loads, alerts = [], [], []
-sched = [
-    {"Date": "2026-07-08", "Event": "Pratt PO-1 placed", "Part A": MOQ_STD[0], "Part B": MOQ_STD[1],
-     "Boxes": BOX_ORDER_QTY, "Pallets to KWE": "", "Richmond A after": "", "Richmond B after": "",
-     "Notes": "MOQ 15 plt held in Richmond + first box order; in stock 2026-07-22"},
-    {"Date": str(FIRST_DELIVERY), "Event": "Go-live delivery to KWE", "Part A": 100, "Part B": 90,
-     "Boxes": BOX_ORDER_QTY, "Pallets to KWE": 5, "Richmond A after": MOQ_STD[0] - 100,
-     "Richmond B after": MOQ_STD[1] - 90, "Notes": "2 plt A + 1 plt B + 2 plt boxes"},
-]
-t = FIRST_DELIVERY + timedelta(days=TRUCK_INTERVAL_DAYS)
-while t <= END:
-    trucks.append(t)
-    t += timedelta(days=TRUCK_INTERVAL_DAYS)
 
-rows, month_key, month_peak, month_min = [], None, 0, None
-d = FIRST_DELIVERY
-while d <= END:
-    if pending_po and d == pending_po[0]:
-        rich_a += pending_po[1]
-        rich_b += pending_po[2]
-        po_log.append(pending_po)
-        pending_po = None
-    if d in trucks:
-        la = 100 if a <= 25 else (50 if a <= A_TRIGGER else 0)
-        lb = 90 if b <= B_TRIGGER else 0
-        lbox = BOX_ORDER_QTY if box_order_next else 0
-        box_order_next = False
-        a += la; b += lb; box += lbox
-        rich_a -= la; rich_b -= lb
-        if la or lb or lbox:
-            plt = math.ceil(la / A_PER_PLT) + math.ceil(lb / B_PER_PLT) + math.ceil(lbox / BOX_PER_PLT)
-            loads.append((d, la, lb, lbox, plt, rich_a, rich_b))
-            sched.append({"Date": str(d), "Event": "Truck delivery to KWE", "Part A": la or "",
-                          "Part B": lb or "", "Boxes": lbox or "", "Pallets to KWE": plt,
-                          "Richmond A after": round(rich_a), "Richmond B after": round(rich_b), "Notes": ""})
-        if box - daily * TRUCK_INTERVAL_DAYS <= BOX_NEXT_TRUCK_MIN:
-            box_order_next = True   # PO placed today, arrives on next truck (2-wk lead)
+def run(sc):
+    inc_a, inc_b = sc["inc_a"], sc["inc_b"]
+    box_per_plt = sc["box_qty"] / sc["box_plt"]
+    moq_a, moq_b = sc["moq"]
+
+    # go-live: first A + B releases and first box order arrive together
+    a, b, box = float(inc_a), float(inc_b), float(sc["box_qty"])
+    rich_a, rich_b = moq_a - inc_a, moq_b - inc_b
+    golive_plt = math.ceil(inc_a / A_PER_PLT) + math.ceil(inc_b / B_PER_PLT) + sc["box_plt"]
+
+    sched = [{"Date": "2026-07-08", "Event": "Pratt PO-1 placed", "Part A": moq_a, "Part B": moq_b,
+              "Boxes": sc["box_qty"], "Pallets to KWE": "",
+              "Notes": f"MOQ held in Richmond + first box order; in stock {FIRST_DELIVERY}"},
+             {"Date": str(FIRST_DELIVERY), "Event": "Go-live delivery to KWE", "Part A": inc_a,
+              "Part B": inc_b, "Boxes": sc["box_qty"], "Pallets to KWE": golive_plt,
+              "Notes": "First release of every part together — peak footprint"}]
+
+    pend = {"a": None, "b": None, "box": None}   # arrival date + qty
+    pending_moq = None
+    moq_pos = [("2026-07-08", str(FIRST_DELIVERY))]
+    drops = {"a": 0, "b": 0, "box": 0}
+    monthly = {}
+    alerts = []
+    peak_overall = 0
+
+    d = FIRST_DELIVERY + timedelta(days=1)
+    while d <= END:
+        if pending_moq and d == pending_moq[0]:
+            rich_a += pending_moq[1]
+            rich_b += pending_moq[2]
+            sched.append({"Date": str(pending_moq[3]), "Event": f"Pratt PO-{len(moq_pos) + 1} placed",
+                          "Part A": pending_moq[1], "Part B": pending_moq[2], "Boxes": "",
+                          "Pallets to KWE": "", "Notes": f"MOQ for Richmond hold; in stock {d}"})
+            moq_pos.append((str(pending_moq[3]), str(d)))
+            pending_moq = None
+        if pend["a"] and d == pend["a"][0]:
+            qa = pend["a"][1]
+            a += qa
+            drops["a"] += 1
+            sched.append({"Date": str(d), "Event": "Part A release to KWE", "Part A": qa, "Part B": "",
+                          "Boxes": "", "Pallets to KWE": math.ceil(qa / A_PER_PLT),
+                          "Notes": f"Richmond A after: {rich_a:.0f}" + (" (partial)" if qa != inc_a else "")})
+            pend["a"] = None
+        if pend["b"] and d == pend["b"][0]:
+            qb = pend["b"][1]
+            b += qb
+            drops["b"] += 1
+            sched.append({"Date": str(d), "Event": "Part B release to KWE", "Part A": "", "Part B": qb,
+                          "Boxes": "", "Pallets to KWE": math.ceil(qb / B_PER_PLT),
+                          "Notes": f"Richmond B after: {rich_b:.0f}" + (" (partial)" if qb != inc_b else "")})
+            pend["b"] = None
+        if pend["box"] and d == pend["box"][0]:
+            box += sc["box_qty"]
+            drops["box"] += 1
+            sched.append({"Date": str(d), "Event": "Box delivery to KWE", "Part A": "", "Part B": "",
+                          "Boxes": sc["box_qty"], "Pallets to KWE": sc["box_plt"], "Notes": ""})
+            pend["box"] = None
+
+        if pend["a"] is None and rich_a > 0 and a - daily * RELEASE_LEAD_DAYS <= SAFETY_UNITS:
+            qa = min(inc_a, rich_a)
+            rich_a -= qa
+            pend["a"] = (d + timedelta(days=RELEASE_LEAD_DAYS), qa)
+        if pend["b"] is None and rich_b > 0 and b - daily * RELEASE_LEAD_DAYS <= SAFETY_UNITS:
+            qb = min(inc_b, rich_b)
+            rich_b -= qb
+            pend["b"] = (d + timedelta(days=RELEASE_LEAD_DAYS), qb)
+        # replenish the Richmond hold when total insulation runway (Sterling + Richmond
+        # + in-transit) drops below production lead + 2-week buffer
+        pipe_a = a + rich_a + (pend["a"][1] if pend["a"] else 0)
+        pipe_b = b + rich_b + (pend["b"][1] if pend["b"] else 0)
+        if pending_moq is None and min(pipe_a, pipe_b) / daily <= INSULATION_LEAD_DAYS + 21:
+            pending_moq = (d + timedelta(days=INSULATION_LEAD_DAYS), moq_a, moq_b, d)
+        if pend["box"] is None and box - daily * BOX_LEAD_DAYS <= SAFETY_UNITS:
+            pend["box"] = (d + timedelta(days=BOX_LEAD_DAYS), sc["box_qty"])
             sched.append({"Date": str(d), "Event": "Box PO placed", "Part A": "", "Part B": "",
-                          "Boxes": BOX_ORDER_QTY, "Pallets to KWE": "", "Richmond A after": "",
-                          "Richmond B after": "",
-                          "Notes": f"2-week lead; arrives on truck {d + timedelta(days=TRUCK_INTERVAL_DAYS)}"})
-        if pending_po is None and rich_b <= RICHMOND_B_TRIGGER:
-            mix = MOQ_ALT if len(po_log) % 2 == 0 else MOQ_STD   # PO-2 alt, PO-3 std, ...
-            pending_po = (d + timedelta(days=INSULATION_LEAD_DAYS), mix[0], mix[1], d)
-            sched.append({"Date": str(d), "Event": f"Pratt PO-{len(po_log) + 2} placed",
-                          "Part A": mix[0], "Part B": mix[1], "Boxes": "", "Pallets to KWE": "",
-                          "Richmond A after": "", "Richmond B after": "",
-                          "Notes": f"MOQ 15 plt for Richmond hold; in stock {d + timedelta(days=INSULATION_LEAD_DAYS)}"})
-    if d >= USAGE_START:
-        box -= daily; a -= daily; b -= daily
-    if min(box, a, b) < -0.5:
-        alerts.append(f"{d} STOCKOUT box={box:.0f} A={a:.0f} B={b:.0f}")
-    if rich_a < -0.5 or rich_b < -0.5:
-        alerts.append(f"{d} RICHMOND SHORT A={rich_a:.0f} B={rich_b:.0f}")
-    pos = (math.ceil(max(box, 0) / BOX_PER_PLT) + math.ceil(max(a, 0) / A_PER_PLT)
-           + math.ceil(max(b, 0) / B_PER_PLT))
-    mk = (d.year, d.month)
-    if mk != month_key:
-        if month_key:
-            rows.append((month_key, month_peak, month_min))
-        month_key, month_peak, month_min = mk, pos, (box, a, b)
-    month_peak = max(month_peak, pos)
-    month_min = tuple(min(x, y) for x, y in zip(month_min, (box, a, b)))
-    d += timedelta(days=1)
-rows.append((month_key, month_peak, month_min))
+                          "Boxes": sc["box_qty"], "Pallets to KWE": "",
+                          "Notes": f"2-week lead; arrives {d + timedelta(days=BOX_LEAD_DAYS)}"})
 
-print(f"Go-live {FIRST_DELIVERY}: 175 boxes + 100 A + 90 B (5 pallet positions)\n")
-print("=== Truck deliveries (units of A / B / boxes -> pallets; Richmond hold after) ===")
-for dt, la, lb, lbox, plt, ra, rb in loads:
-    print(f"{dt}  A={la:3d} B={lb:3d} box={lbox:3d}  {plt} plt   Richmond {ra:4.0f}A/{rb:4.0f}B")
-print("\n=== Pratt MOQ POs (Richmond hold replenishment) ===")
-print(f"placed 2026-07-08 -> in stock {FIRST_DELIVERY}: {MOQ_STD[0]}A/{MOQ_STD[1]}B  (PO-1)")
-for arr, qa, qb, placed in po_log:
-    print(f"placed {placed} -> in stock {arr}: {qa}A/{qb}B")
-if pending_po:
-    print(f"placed {pending_po[3]} -> in stock {pending_po[0]}: {pending_po[1]}A/{pending_po[2]}B (in transit at sim end)")
-print("\n=== Monthly KWE peak pallet positions / min on-hand ===")
-for (y, m), pk, mn in rows:
-    print(f"{y}-{m:02d}  peak {pk} plt   min box={mn[0]:4.0f} A={mn[1]:4.0f} B={mn[2]:4.0f}")
-print("\n" + ("\n".join(alerts) if alerts else "No stockouts; Richmond hold never ran short."))
+        if d >= USAGE_START:
+            a -= daily; b -= daily; box -= daily
+        if min(a, b, box) < -0.5:
+            alerts.append(f"{d} STOCKOUT A={a:.0f} B={b:.0f} box={box:.0f}")
+        pos = (math.ceil(max(a, 0) / A_PER_PLT) + math.ceil(max(b, 0) / B_PER_PLT)
+               + math.ceil(max(box, 0) / box_per_plt))
+        peak_overall = max(peak_overall, pos)
+        mk = f"{d.year}-{d.month:02d}"
+        cur = monthly.setdefault(mk, {"peak": 0, "sum": 0, "n": 0})
+        cur["peak"] = max(cur["peak"], pos)
+        cur["sum"] += pos
+        cur["n"] += 1
+        d += timedelta(days=1)
 
-csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Restock_Schedule_Year1.csv")
-sched.sort(key=lambda r: r["Date"])
-with open(csv_path, "w", newline="") as f:
-    w = csv.DictWriter(f, fieldnames=["Date", "Event", "Part A", "Part B", "Boxes",
-                                      "Pallets to KWE", "Richmond A after", "Richmond B after", "Notes"])
-    w.writeheader()
-    w.writerows(sched)
-print(f"Schedule written to {csv_path}")
+    return {"sched": sorted(sched, key=lambda r: r["Date"]), "monthly": monthly, "drops": drops,
+            "moq_pos": moq_pos, "peak": peak_overall, "alerts": alerts, "golive_plt": golive_plt}
+
+
+for sc in SCENARIOS:
+    r = run(sc)
+    avg = sum(m["sum"] for m in r["monthly"].values()) / max(1, sum(m["n"] for m in r["monthly"].values()))
+    print("=" * 78)
+    print(f"{sc['name']}   A {sc['inc_a']}/drop, B {sc['inc_b']}/drop, boxes {sc['box_qty']}/drop")
+    print(f"  go-live footprint: {r['golive_plt']} pallet positions")
+    print(f"  year-1 drops after go-live: A x{r['drops']['a']}, B x{r['drops']['b']}, boxes x{r['drops']['box']}")
+    print(f"  Pratt MOQ POs: {len(r['moq_pos'])} placed {[p[0] for p in r['moq_pos']]}")
+    print(f"  KWE space needed: avg {avg:.1f} positions, worst receipt-day peak {r['peak']}")
+    print(f"  monthly peaks: " + " ".join(f"{k}:{v['peak']}" for k, v in sorted(r['monthly'].items())))
+    print("  " + ("; ".join(r["alerts"]) if r["alerts"] else "no stockouts"))
+    if sc["baseline"]:
+        csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Restock_Schedule_Year1.csv")
+        with open(csv_path, "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=["Date", "Event", "Part A", "Part B", "Boxes",
+                                              "Pallets to KWE", "Notes"])
+            w.writeheader()
+            w.writerows(r["sched"])
+        print(f"  baseline schedule written to {csv_path}")
