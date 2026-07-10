@@ -309,14 +309,15 @@ cell(ds,"A2","General information, NOT legal advice. NC equitable distribution i
 cell(ds,"A4","INPUTS (edit yellow)",BOLD)
 inp=[("Mortgage payoff","B5",356149.76,money,False),
      ("Her separate down payment (traces to house)","B6",48000,money,False),
-     ("Marital 401k you contributed (Aug23–May26)","B7",15000,money,False),
-     ("Her half of marital 401k (max she can claim)","B8","=B7/2",money,True),
+     ("Your marital 401k (Aug23–May26)","B7",20000,money,False),
+     ("Net 401k she can claim (her ~$12k offsets yours)","B8","=MAX(0,(B7-B15)/2)",money,True),
      ("Joint account balance (split 50/50)","B9",0,money,False),
      ("Your post-separation mortgage credit (optional)","B10",0,money,False),
      ("Representative sale price","B11",399000,money,False),
      ("Commission %","B12",0.055,pct,False),
      ("Transfer tax %","B13",0.002,pct,False),
-     ("Other closing flat $","B14",2000,money,False)]
+     ("Other closing flat $","B14",2000,money,False),
+     ("Her marital 401k (Aug23–May26)","B15",12000,money,False)]
 r=5
 for lab,cref,val,fmt,isf in inp:
     cell(ds,f"A{r}",lab); cell(ds,cref,val,BOLD,None if isf else param_fill,fmt,bd=True); r+=1
@@ -380,8 +381,10 @@ optnotes=[
  ("  modest/short: ~2.75-yr marriage + her ~$30k savings, car & remaining $90k (separate assets that cut",None),
  ("  against 'need') + her earning capacity. A court might award a small short-term amount — or none. No kids.",None),
  ("• The mutual ALIMONY WAIVER in the agreement is a key part of what your settlement money buys.",None),
- ("• Only real marital asset of yours she can reach is ~half your $15k 401k ≈ $7.5k — offer to trade it for",None),
- ("  her dropping the shortfall guarantee, and you both walk clean.",None),
+ ("• 401k nearly washes out: your ~$20k and her ~$12k marital contributions offset, so a strict 50/50 split",None),
+ ("  nets her only ~$4k from you — not the ~$7.5k it looked like before. Trade even that for her dropping the",None),
+ ("  shortfall guarantee and you both walk clean. (401k set aside during the marriage is marital for BOTH of",None),
+ ("  you regardless of the account — it's funded by wages, not by her savings.)",None),
  ("• You've paid the mortgage from your salary since separation → ask for a post-separation reimbursement",None),
  ("  credit, which offsets anything you'd owe her.",None),
  ("",None),
@@ -442,10 +445,10 @@ notes2=[
  ("  sale doesn't push her PAST her full $48k (she'd otherwise land at 104–114%). It only ever helps you.",None),
  ("",None),
  ("WHY IT'S GENEROUS (three yardsticks)",BOLD),
- ("• vs. the law (property): NC likely requires ~$0–$7,500 (her $48k is separate property capped at actual",None),
- ("  equity; only ~half your $15k 401k is reachable). Alimony is NOT barred (her affair was pre-marriage), but",None),
- ("  it's likely modest/short given the ~2.75-yr marriage and her own separate assets. $14k covers property +",None),
- ("  a full alimony waiver in one number — still at/above what she'd realistically get.",None),
+ ("• vs. the law (property): NC likely requires only ~$4k (her $48k is separate property capped at actual",None),
+ ("  equity; and her ~$12k 401k offsets your ~$20k, so the marital split nets her ~$4k). Alimony is NOT barred",None),
+ ("  (her affair was pre-marriage) but is likely modest/short given the ~2.75-yr marriage and her own assets.",None),
+ ("  $14k covers property + a full alimony waiver in one number — well above what she'd realistically get.",None),
  ("• vs. her real recovery: guaranteed cash beats an uncertain sale. The house is only ~57–82% likely to be",None),
  ("  under contract by end of October, at an unknown price in a soft market. $14k removes all that risk for her.",None),
  ("• vs. her alternative: fighting it in court likely nets her ~$0–$7,500 minus $10k+ in her own legal fees —",None),
