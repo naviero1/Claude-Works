@@ -30,7 +30,10 @@ P('A. The parties were lawfully married on August [__], 2023.')
 P('B. The parties separated on May [__], 2026, and have lived continuously separate and apart since that date '
   'with the intent to end the marriage.')
 P('C. No children were born of or adopted during this marriage, and Wife is not now pregnant.')
-P('D. The parties desire to settle, fully and finally, all rights and obligations arising from their marriage, '
+P('D. For reference only, Wife entered the marriage with approximately $90,000 received from her prior divorce, '
+  'which was applied approximately as follows: $30,000 to the parties’ savings, $48,000 to the down payment on '
+  'the residence, and $12,000 to Wife’s retirement account.')
+P('E. The parties desire to settle, fully and finally, all rights and obligations arising from their marriage, '
   'including all rights to property (equitable distribution), spousal support, and related claims.',after=8)
 P('NOW, THEREFORE, in consideration of the mutual promises below and other good and valuable consideration, '
   'the parties agree as follows:',after=8)
@@ -40,10 +43,9 @@ NUM('The parties shall continue to live separate and apart. Each may reside wher
     'conduct their affairs as if unmarried. Neither shall molest, harass, or interfere with the other.')
 
 H('2. Separate Property Retained by Each Party',12)
-NUM('Wife shall retain as her sole and separate property: (a) the approximately $30,000 in savings previously '
-    'delivered to her by Husband; (b) her motor vehicle (approx. $17,000); and (c) the remainder of the funds '
-    'she brought into the marriage (approximately $90,000 received from her prior divorce), together with any '
-    'account holding those funds.')
+NUM('Wife shall retain as her sole and separate property the approximately $30,000 in savings previously '
+    'delivered to her by Husband, together with any account holding her separate funds. Wife’s motor vehicle and '
+    'retirement account are addressed in Sections 6 and 4 below.')
 NUM('Husband shall retain as his sole and separate property all property owned by him before the marriage or '
     'otherwise titled in his name, except as specifically provided in this Agreement.')
 NUM('Each party waives any claim to the separate property of the other.')
