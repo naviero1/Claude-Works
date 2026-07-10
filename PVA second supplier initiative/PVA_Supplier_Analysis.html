@@ -1,0 +1,360 @@
+<title>PVA Secondary Supplier — Sourcing Analysis</title>
+<style>
+  :root{
+    --bg:#F4F6F7; --surface:#FFFFFF; --surface-2:#EDF1F2;
+    --ink:#16242B; --ink-soft:#41545B; --muted:#6E7D83;
+    --line:#D8E0E2; --line-strong:#C2CDCF;
+    --accent:#0F6E7A; --accent-rgb:15,110,122; --accent-ink:#0B525C; --accent-soft:#E4EFF0;
+    --good:#2E7D46; --good-bg:#E5F1E8; --warn:#9C5A0C; --warn-bg:#F6EBDB; --crit:#AE382C; --crit-bg:#F6E4E1;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono","Menlo","Consolas",monospace;
+    --maxw:70rem; --read:44rem;
+    --sh:0 1px 2px rgba(22,36,43,.05),0 6px 20px rgba(22,36,43,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0E171B; --surface:#152128; --surface-2:#1A2830;
+      --ink:#E8EFF1; --ink-soft:#AEBEC4; --muted:#7E9096;
+      --line:#26363D; --line-strong:#33474F;
+      --accent:#3AAFBD; --accent-rgb:58,175,189; --accent-ink:#7FD3DD; --accent-soft:#123239;
+      --good:#5FB97C; --good-bg:#153025; --warn:#E0A24A; --warn-bg:#332512; --crit:#E27C6E; --crit-bg:#331d19;
+      --sh:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.28);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#F4F6F7; --surface:#FFFFFF; --surface-2:#EDF1F2;
+    --ink:#16242B; --ink-soft:#41545B; --muted:#6E7D83;
+    --line:#D8E0E2; --line-strong:#C2CDCF;
+    --accent:#0F6E7A; --accent-rgb:15,110,122; --accent-ink:#0B525C; --accent-soft:#E4EFF0;
+    --good:#2E7D46; --good-bg:#E5F1E8; --warn:#9C5A0C; --warn-bg:#F6EBDB; --crit:#AE382C; --crit-bg:#F6E4E1;
+    --sh:0 1px 2px rgba(22,36,43,.05),0 6px 20px rgba(22,36,43,.05);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E171B; --surface:#152128; --surface-2:#1A2830;
+    --ink:#E8EFF1; --ink-soft:#AEBEC4; --muted:#7E9096;
+    --line:#26363D; --line-strong:#33474F;
+    --accent:#3AAFBD; --accent-rgb:58,175,189; --accent-ink:#7FD3DD; --accent-soft:#123239;
+    --good:#5FB97C; --good-bg:#153025; --warn:#E0A24A; --warn-bg:#332512; --crit:#E27C6E; --crit-bg:#331d19;
+    --sh:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.28);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:clamp(1.1rem,3vw,2.6rem);}
+  a{color:var(--accent-ink);text-underline-offset:2px;text-decoration-thickness:.06em}
+
+  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 .5rem;}
+  h1,h2,h3{text-wrap:balance;margin:0;letter-spacing:-.015em;line-height:1.15;}
+  h1{font-size:clamp(1.7rem,4.4vw,2.6rem);font-weight:700}
+  h2{font-size:clamp(1.25rem,2.6vw,1.6rem);font-weight:650}
+  h3{font-size:1.02rem;font-weight:650}
+  p{margin:.5rem 0}
+  .lede{max-width:var(--read);color:var(--ink-soft);font-size:1.06rem}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  /* header */
+  header.top{border-bottom:1px solid var(--line);padding-bottom:1.6rem;margin-bottom:2.2rem}
+  .accentrule{height:3px;width:3.4rem;background:var(--accent);border-radius:2px;margin:.9rem 0 1.2rem}
+  .metarow{display:flex;flex-wrap:wrap;gap:.5rem .9rem;align-items:center;margin-top:1rem;
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;color:var(--muted)}
+  .pill{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.68rem;
+    letter-spacing:.08em;text-transform:uppercase;padding:.28rem .6rem;border-radius:999px;border:1px solid var(--line-strong)}
+  .pill.status{color:var(--accent-ink);background:var(--accent-soft);border-color:transparent}
+  .pill .dot{width:.5rem;height:.5rem;border-radius:50%;background:currentColor}
+  .notice{margin-top:1.2rem;display:flex;gap:.7rem;align-items:flex-start;
+    background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:.5rem;padding:.75rem .95rem;max-width:var(--read);color:var(--ink-soft);font-size:.94rem}
+  .notice b{color:var(--ink)}
+
+  /* stat tiles */
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.85rem;margin:0 0 2.6rem}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:.7rem;padding:1rem 1.05rem;box-shadow:var(--sh)}
+  .tile .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .tile .v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.6rem;font-weight:600;
+    letter-spacing:-.02em;margin:.35rem 0 .15rem;line-height:1.05}
+  .tile .s{font-size:.82rem;color:var(--ink-soft)}
+
+  section{margin:0 0 2.7rem;scroll-margin-top:1rem}
+  .sec-head{margin-bottom:1.1rem}
+  .grid-read{max-width:var(--read)}
+
+  /* callout */
+  .callout{background:var(--surface);border:1px solid var(--line);border-radius:.7rem;padding:1.1rem 1.2rem;
+    box-shadow:var(--sh)}
+  .callout.gate{border-left:3px solid var(--crit)}
+  .callout.key{border-left:3px solid var(--accent);background:var(--accent-soft);border-color:transparent}
+  .callout .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--crit)}
+  .callout.key .lbl{color:var(--accent-ink)}
+
+  /* tables */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:.7rem;background:var(--surface);box-shadow:var(--sh)}
+  table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.92rem}
+  caption{caption-side:top;text-align:left;padding:.9rem 1rem .2rem;color:var(--muted);
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+  th,td{padding:.62rem .85rem;text-align:left;border-bottom:1px solid var(--line)}
+  thead th{font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;vertical-align:bottom;background:var(--surface-2)}
+  tbody th{font-weight:600}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+  tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+  .cap-row th{color:var(--accent-ink)}
+  /* heatmap cells */
+  .s1{background:rgba(var(--accent-rgb),.07)}
+  .s2{background:rgba(var(--accent-rgb),.14)}
+  .s3{background:rgba(var(--accent-rgb),.23)}
+  .s4{background:rgba(var(--accent-rgb),.34)}
+  .s5{background:rgba(var(--accent-rgb),.46)}
+
+  /* pricing ladder */
+  .ladder{display:grid;gap:.7rem;max-width:46rem}
+  .rung{display:grid;grid-template-columns:7.5rem 6rem 4.5rem 1fr;gap:.8rem;align-items:center;
+    background:var(--surface);border:1px solid var(--line);border-radius:.6rem;padding:.7rem .95rem;box-shadow:var(--sh)}
+  .rung .price{font-family:var(--mono);font-weight:650;font-size:1.05rem;letter-spacing:-.01em}
+  .rung .drum,.rung .delta{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-soft);font-size:.9rem}
+  .rung .role{font-size:.92rem;color:var(--ink-soft)}
+  .rung.anchor{border-color:var(--accent);border-left:3px solid var(--accent);background:var(--accent-soft)}
+  .rung.anchor .role{color:var(--ink)}
+  .rung.bench{opacity:.85}
+  @media(max-width:560px){.rung{grid-template-columns:1fr 1fr;row-gap:.3rem}.rung .role{grid-column:1/-1}}
+
+  /* cadence */
+  .cad{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.85rem}
+  .cad .c{background:var(--surface);border:1px solid var(--line);border-radius:.7rem;padding:1rem 1.05rem;box-shadow:var(--sh)}
+  .cad .c.rec{border-top:3px solid var(--good)}
+  .cad .c.opt{border-top:3px solid var(--accent)}
+  .cad .c.no{border-top:3px solid var(--crit)}
+  .cad h3{display:flex;align-items:baseline;gap:.5rem;justify-content:space-between}
+  .cad .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .45rem;border-radius:999px}
+  .tag.rec{color:var(--good);background:var(--good-bg)} .tag.opt{color:var(--accent-ink);background:var(--accent-soft)} .tag.no{color:var(--crit);background:var(--crit-bg)}
+  .cad ul{margin:.7rem 0 0;padding-left:1.05rem;color:var(--ink-soft);font-size:.9rem}
+  .cad li{margin:.28rem 0}
+
+  /* suppliers */
+  .sups{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:.85rem}
+  .sup{background:var(--surface);border:1px solid var(--line);border-radius:.7rem;padding:1rem 1.05rem;box-shadow:var(--sh);display:flex;flex-direction:column;gap:.5rem}
+  .sup .h{display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem}
+  .sup .nm{font-weight:650;line-height:1.25}
+  .sup .loc{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+  .sup .facts{font-size:.88rem;color:var(--ink-soft);margin:0}
+  .sup .open{font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:.5rem;margin-top:auto}
+  .st{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.24rem .5rem;border-radius:999px;white-space:nowrap;border:1px solid transparent}
+  .st.lead{color:#fff;background:var(--accent)}
+  .st.eng{color:var(--accent-ink);background:var(--accent-soft)}
+  .st.res{color:var(--ink-soft);background:var(--surface-2);border-color:var(--line)}
+  .st.cau{color:var(--warn);background:var(--warn-bg)}
+  .st.elim{color:var(--crit);background:var(--crit-bg)}
+
+  .dropped{margin-top:.9rem;font-size:.88rem;color:var(--muted);max-width:var(--read)}
+
+  /* factors */
+  .factors{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.85rem}
+  .factor{background:var(--surface);border:1px solid var(--line);border-radius:.7rem;padding:1rem 1.05rem;box-shadow:var(--sh)}
+  .factor h3{margin-bottom:.35rem}
+  .factor p{font-size:.9rem;color:var(--ink-soft);margin:.2rem 0 0}
+
+  /* steps */
+  ol.steps{max-width:var(--read);counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:.55rem}
+  ol.steps li{counter-increment:s;display:grid;grid-template-columns:1.7rem 1fr;gap:.75rem;align-items:start;
+    background:var(--surface);border:1px solid var(--line);border-radius:.55rem;padding:.7rem .85rem;box-shadow:var(--sh)}
+  ol.steps li::before{content:counter(s);font-family:var(--mono);font-weight:650;color:var(--accent-ink);
+    background:var(--accent-soft);border-radius:.4rem;width:1.7rem;height:1.7rem;display:grid;place-items:center;font-size:.85rem}
+  ol.steps b{color:var(--ink)}
+
+  footer{border-top:1px solid var(--line);margin-top:1rem;padding-top:1.4rem;color:var(--muted);font-size:.86rem}
+  footer .links{display:flex;flex-wrap:wrap;gap:.5rem .9rem;font-family:var(--mono);font-size:.78rem;margin:.4rem 0 1rem}
+  .caveat{font-size:.82rem;color:var(--muted);max-width:var(--read);margin-top:.6rem}
+  hr.soft{border:none;border-top:1px solid var(--line);margin:2.4rem 0}
+  :where(a,button):focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+  @media (prefers-reduced-motion:no-preference){.tile,.sup,.rung{transition:transform .15s ease}}
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <p class="eyebrow">Supplier Management · Sourcing Analysis</p>
+    <h1>PVA Secondary Supplier</h1>
+    <div class="accentrule"></div>
+    <p class="lede">Qualifying a backup toll blender for our liquid PVA solution to remove single-source
+      dependence on SNP. This page summarizes the volume, the economics, the pricing strategy, and the
+      supplier field — the factors behind why we're working with <b>CJB</b> and <b>APV</b>.</p>
+    <div class="metarow">
+      <span class="pill status"><span class="dot"></span>In progress</span>
+      <span>UPDATED 2026-06-27</span><span>·</span>
+      <span>OWNER: OSCAR P</span><span>·</span>
+      <span>INCUMBENT: SNP</span>
+    </div>
+    <div class="notice"><span>⚖️</span><div><b>Nothing is decided.</b> Allocation, price, and award are open.
+      The figures below are scenarios that update as real quotes — and any SNP re-price — arrive.</div></div>
+  </header>
+
+  <div class="tiles">
+    <div class="tile"><div class="k">Total demand</div><div class="v">1,300<span style="font-size:.9rem"> lb/wk</span></div><div class="s">≈ 2.9 drums/wk · ~150 drums/yr</div></div>
+    <div class="tile"><div class="k">Baseline · all-SNP</div><div class="v">$50.7k<span style="font-size:.9rem">/yr</span></div><div class="s">$0.75/lb · $337.50/drum</div></div>
+    <div class="tile"><div class="k">2nd-source cap</div><div class="v">1<span style="font-size:.9rem"> drum/wk</span></div><div class="s">~35% of volume · ~52 drums/yr</div></div>
+    <div class="tile"><div class="k">Cost of redundancy</div><div class="v">$6–12k<span style="font-size:.9rem">/yr</span></div><div class="s">at proposed price · SNP holding</div></div>
+  </div>
+
+  <section>
+    <div class="sec-head"><p class="eyebrow">The constraint</p><h2>One hard gate decides who qualifies</h2></div>
+    <div class="callout gate">
+      <p class="lbl">Deal-breaker</p>
+      <p style="margin:.3rem 0 0"><b>Hold a full batch at 90–95 °C (194–203 °F) for 30–45 min under agitation.</b>
+      Super-hydrolyzed high-MW PVA won't dissolve otherwise. Confirmed by our 5TT-11A bench process and the
+      Sekisui/Kuraray guides. This single requirement <b>eliminated ArroChem (85 °C ceiling) and ILC Dover</b>,
+      and it's the first question for every candidate.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><p class="eyebrow">Economics</p><h2>What a second source costs</h2>
+      <p class="lede" style="margin-top:.5rem">The “redundancy premium” is the extra you pay over the all-SNP baseline.
+      Three levers drive it: how much volume the second source gets, how much more it charges than SNP, and
+      whether SNP raises its price on the volume it keeps. Capped at <b>1 drum/week (~35%)</b>.</p></div>
+    <div class="tablewrap">
+      <table>
+        <caption>Annual premium over the $50,700 all-SNP baseline</caption>
+        <thead>
+          <tr>
+            <th>Allocation to 2nd source</th>
+            <th class="n">2nd +50%<br>SNP holds</th>
+            <th class="n">2nd +50%<br>SNP +10%</th>
+            <th class="n">2nd +100%<br>SNP +20%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>20% <span class="mono" style="color:var(--muted);font-size:.8rem">(~0.6 drum/wk)</span></th>
+            <td class="n s1">$5,070</td><td class="n s2">$9,126</td><td class="n s4">$18,252</td>
+          </tr>
+          <tr class="cap-row">
+            <th>35% <span class="mono" style="color:var(--accent-ink);font-size:.8rem">(~1 drum/wk · CAP)</span></th>
+            <td class="n s2">$8,872</td><td class="n s3">$12,168</td><td class="n s5">$24,336</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout key" style="margin-top:1rem">
+      <p class="lbl">Key insight</p>
+      <p style="margin:.3rem 0 0">An SNP price increase lands on the <b>larger retained volume</b> (~65%), so it's often
+      a bigger driver of total cost than the second-source premium itself. At price <b>parity with SNP holding, the cost is ≈ $0</b>
+      — the ideal but unlikely floor.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><p class="eyebrow">Pricing</p><h2>What to propose to APV</h2>
+      <p class="lede" style="margin-top:.5rem">SNP is cheap because PVA is its core product. APV is a mid-size coatings
+      house running single 55-gal batches, so a premium is fair — anchor low, settle in a band, hold a walk-away.</p></div>
+    <div class="ladder">
+      <div class="rung bench"><span class="price">$0.75/lb</span><span class="drum">$338/drum</span><span class="delta">—</span><span class="role">SNP benchmark — state it</span></div>
+      <div class="rung anchor"><span class="price">$1.00/lb</span><span class="drum">$450/drum</span><span class="delta">+33%</span><span class="role"><b>Opening anchor</b> — Option A (base solution)</span></div>
+      <div class="rung"><span class="price">$1.10–1.25</span><span class="drum">$495–560</span><span class="delta">+47–67%</span><span class="role">Settle band — Option B (compounded) at top</span></div>
+      <div class="rung"><span class="price">$1.50/lb</span><span class="drum">$675/drum</span><span class="delta">+100%</span><span class="role">Walk-away ceiling</span></div>
+    </div>
+    <p class="caveat">Frame it as a recurring rotation — ~52 drums/yr ≈ 23,400 lb ≈ <b>~$23–26k/yr</b> of steady business,
+    not a one-off. The resin cost (~$3/lb) behind the floor is an estimate; tighten it with the real Selvol S-1551F-D price.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><p class="eyebrow">Cadence</p><h2>Order rhythm is set by the 18-day shelf life</h2>
+      <p class="lede" style="margin-top:.5rem">Made fresh, no stockpiling. At ~1 drum/week you can hold at most ~2 drums
+      before the oldest ages out — which rules out large batches.</p></div>
+    <div class="cad">
+      <div class="c rec"><h3>Weekly · 1 drum/wk <span class="tag rec">Recommended</span></h3>
+        <ul><li>Matches the 1-drum/week cap</li><li>Freshest; well within shelf life</li><li>APV does small batches (from 5 gal) → single drum is fine</li></ul></div>
+      <div class="c opt"><h3>Biweekly · 2 drums/2 wks <span class="tag opt">Optional</span></h3>
+        <ul><li>Still ~1/wk average &amp; within shelf life</li><li>Means holding 2 drums at once</li><li>Marginally fewer setups — minor price help</li></ul></div>
+      <div class="c no"><h3>3+ drums / batch <span class="tag no">Avoid</span></h3>
+        <ul><li>Exceeds the 1-drum/week cap</li><li>3+ weeks supply &gt; 18-day shelf life</li><li>Oldest drum ages out → waste / risk</li></ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><p class="eyebrow">The field</p><h2>Supplier status</h2>
+      <p class="lede" style="margin-top:.5rem">US-only, screened on the 90–95 °C gate and small-batch fit. Two candidates
+      clear the bar and are engaged; the rest are reserves, eliminated, or the wrong size.</p></div>
+    <div class="sups">
+      <div class="sup">
+        <div class="h"><div><div class="nm">CJB Applied Technologies</div><div class="loc">Valdosta, GA</div></div><span class="st lead">Leading</span></div>
+        <p class="facts">Gate cleared 06/26 — holds 90–95 °C for 45 min–1 hr, jacketed 316L, no fisheyes, prior HMW-PVA experience.
+          40-gal min / single drum OK; 3–4 day lead; ex-Lonza (Proxel) formulator on staff.</p>
+        <div class="open"><b>Open:</b> NDA on process (McC); pricing not yet quoted.</div>
+      </div>
+      <div class="sup">
+        <div class="h"><div><div class="nm">APV Engineered Coatings</div><div class="loc">Akron, OH</div></div><span class="st eng">Engaged</span></div>
+        <p class="facts">Interested and seeking pricing. Small batches from 5 gal; pigment-dispersion is a house specialty
+          (useful for our colorants); ISO 9001 / EPA-registered.</p>
+        <div class="open"><b>Open:</b> re-confirm 90–95 °C hold; send the pricing envelope ($1.00/lb anchor).</div>
+      </div>
+      <div class="sup">
+        <div class="h"><div><div class="nm">Columbus Chemical (CCI)</div><div class="loc">Columbus, WI</div></div><span class="st res">Reserve</span></div>
+        <p class="facts">Strong on paper — batch floor 20 L–20,000 L, heating/cooling, in-house lab, ISO 9001. Widest range = least shelf-life waste.</p>
+        <div class="open"><b>Held</b> pending the CJB / APV track.</div>
+      </div>
+      <div class="sup">
+        <div class="h"><div><div class="nm">Piedmont Chemical</div><div class="loc">High Point, NC</div></div><span class="st res">Reserve</span></div>
+        <p class="facts">Pilot reactors 5–100 gal, textile/PVA heritage, family-owned — good blend of PVA know-how and small-batch fit.</p>
+        <div class="open"><b>Held</b> pending the CJB / APV track.</div>
+      </div>
+      <div class="sup">
+        <div class="h"><div><div class="nm">CORECHEM</div><div class="loc">Knoxville, TN</div></div><span class="st cau">Caution</span></div>
+        <p class="facts">Low-MOQ and start-up friendly, but smallest tank ~250 gal (~4.5 drums) may overshoot the 18-day shelf life.</p>
+        <div class="open"><b>Open:</b> confirm partial-batch capability before pursuing.</div>
+      </div>
+      <div class="sup">
+        <div class="h"><div><div class="nm">ArroChem</div><div class="loc">Mount Holly, NC</div></div><span class="st elim">Eliminated</span></div>
+        <p class="facts">Volume fit was perfect (55-gal min), but an 85 °C ceiling can't reach the 90–95 °C cook.</p>
+        <div class="open"><b>Closed</b> unless they add heating capability.</div>
+      </div>
+      <div class="sup">
+        <div class="h"><div><div class="nm">ILC Dover</div><div class="loc">Frederica, DE</div></div><span class="st elim">Eliminated</span></div>
+        <p class="facts">Can't reach 95 °C, and it's an equipment/containment firm (Ingersoll Rand) — not a drum toll blender.</p>
+        <div class="open"><b>Closed out.</b></div>
+      </div>
+    </div>
+    <p class="dropped"><b>Dropped — too large / MOQ mismatch:</b> Goulston, 3V Sigma, Royal Chemical (220-gal liquid MOQ), Columbia Chemical.
+      <b>Resin path (reference only):</b> producers Sekisui &amp; Kuraray won't sell direct at this volume — Brenntag already stocks Selvol in drums.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><p class="eyebrow">Other factors</p><h2>What else shapes the decision</h2></div>
+    <div class="factors">
+      <div class="factor"><h3>Low-volume leverage</h3><p>This is a small, bottleneck account — weak price leverage.
+        Two qualified, interested suppliers (CJB + APV) is the real lever: it disciplines pricing and protects continuity.</p></div>
+      <div class="factor"><h3>Business retention</h3><p>Sell the relationship, not the volume — qualified, recurring,
+        blue-chip, low-touch, room to grow. Use the Intuitive name for credibility; set expectations at the division level.</p></div>
+      <div class="factor"><h3>Quality &amp; regulatory</h3><p>FDA QMSR is in force (2026-02-02): supplier controls follow
+        ISO 13485 §7.4, built on GHTF/SG3/N17, with a Supplier Quality Agreement (change-notification + right-to-audit).</p></div>
+      <div class="factor"><h3>The gating unknown</h3><p>Viscosity target &amp; tolerance still pending from SNP CoA history —
+        it blocks any firm quote. Suppliers can quote against the 10–12% solids spec meanwhile.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><p class="eyebrow">Sequence</p><h2>Next steps</h2></div>
+    <ol class="steps">
+      <li><span><b>Pull SNP CoA history</b> → finalize viscosity &amp; pH targets. The #1 blocker for any firm quote.</span></li>
+      <li><span><b>CJB NDA on process</b> — in work with McC; needed before sharing the full spec.</span></li>
+      <li><span>Send CJB the full spec + RFQ for <b>Option A &amp; B</b> per-drum pricing.</span></li>
+      <li><span>Re-confirm APV's 90–95 °C hold and send the <b>$1.00/lb</b> pricing benchmark.</span></li>
+      <li><span>Execute a <b>Supplier Quality Agreement</b> with the selected source.</span></li>
+    </ol>
+  </section>
+
+  <hr class="soft">
+  <footer>
+    <p class="eyebrow" style="margin-bottom:.3rem">Source files</p>
+    <div class="links">
+      <a href="https://github.com/naviero1/Claude-Works/pull/2">GitHub PR #2</a>
+      <a href="https://github.com/naviero1/Claude-Works/tree/claude/pva-secondary-supplier-0as6wu/PVA%20second%20supplier%20initiative">Initiative folder</a>
+      <span>Pricing model · Report · Slides · CJB interview</span>
+    </div>
+    <p class="caveat">Every figure flows from <b>PVA_Second_Source_Pricing_Model.xlsx</b>; change an input and the scenarios
+      recompute. Nothing on this page is a committed decision. Prices assume a ~$3/lb resin estimate pending the real Selvol quote.</p>
+  </footer>
+
+</div>
