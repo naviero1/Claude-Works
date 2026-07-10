@@ -89,3 +89,17 @@ Send the Polymarket/Kalshi boards and I'll size the $100 allocations.
 
 **Predicted semifinalists: France, Spain, England, Argentina** — with **Switzerland** the likeliest to
 bust the bracket. Every game's modal score is **1-1** (tight, knockout-tense).
+
+---
+
+## Refined for today/tomorrow (after France 2-0 Morocco, Jul 9)
+**Lesson from France–Morocco:** Morocco ground it 0-0 for an hour, but France's *elite* quality
+(Mbappé+Dembélé) broke the block — never reached a Bono shootout. So: **elite attacking favorites
+break low blocks; less-clinical ones (Argentina) get stuck.** Also corrected: Switzerland (not
+Argentina) is the fatigued side — they played 120'+pens vs Colombia.
+
+| Match | 3 scores | Advances |
+|---|---|---|
+| **Belgium–Spain** (7/10) | 1-1 12% · Spain 2-1 9% · Belgium 2-1 8% | **Spain ~57%** · goal-fest, Over 2.5/BTTS |
+| **Norway–England** (7/11) | 1-1 11% · Eng 2-1 9% · Nor 2-1 8% | **England ~52%** (coin-flip; England missing banned CB Quansah) · O2.5/BTTS |
+| **Argentina–Switzerland** (7/11) | 1-1 13% · Arg 1-0 13% · Arg 2-0 10% | **Argentina ~62%** (up from 57 — SUI is the tired side) · SUI ~38% live via low block + Sommer pens |
