@@ -79,11 +79,16 @@ Digital Foundry's year-one verdict, verified verbatim: Switch 2 port quality is 
 | **88** | Cyberpunk 2077: Ultimate Edition (2025) | 85 | 8.7 | DF: "quite remarkable" — 4 modes (30fps Quality / 40fps Performance), DLSS; Phantom Liberty areas dip | The flagship launch port: all of Night City + Phantom Liberty, portable. Stutter when driving fast into new areas; otherwise a triumph. |
 | **88** | Red Dead Redemption: Switch 2 Edition (Dec 2025) | 88 | n/a | Locked 60fps, DLSS 1440p docked / 1080p handheld, HDR, mouse-aim | DF: "arguably the most substantial improvement over what came before." Critics call it the best version of the game, full stop. |
 | **88** | Final Fantasy VII Remake Intergrade (Jan 2026) | 89 | 8.8 | DF: stable 30fps, DLSS to 1080p — "best-looking game on Switch 2" at its release | Gorgeous, rock-solid port. Players' one wish: a 40fps mode. |
+| **88** | Final Fantasy VII Rebirth (Jun 2026) | 87 | 8.9 | DF: mostly-stable 30fps, cuts to ~Series S level — "the most ambitious Switch 2 port" | The full, massive game (92 overall across platforms), intact and portable. |
 | **87** | Split Fiction (2025) | 88 | 8.4 | ~1080p UE5 at 30fps docked (handheld runs freer); near Series S visual parity | The best co-op game of its generation, couch or online (friend's pass included). Docked 30fps cap is the only real knock. |
 | **86** | Street Fighter 6: Years 1-2 Fighters Edition (2025) | 86 | 7.8 | DF: "tournament-worthy" — locked 60fps in matches, DLSS, full crossplay | Competition-grade on a handheld. World Tour mode runs rougher; the fighting core doesn't. |
+| **86** | Pragmata (Apr 2026) | 88 | 8.9 | DF: DLSS from 540p — looks better than Series S, but unlocked 30–50fps with no cap option | Capcom's new sci-fi IP, a genuine hit (1M in 2 days). "Ambitious port held back by performance hiccups" — smoother handheld (VRR). |
 | **85** | Yakuza 0: Director's Cut (2025) | 85 | 7.9 | 4K/60 docked, 1080p handheld — the cleanest big port of the launch window | The best starting point for the whole series, now with new cutscenes and English dub. |
-| **84** | Devil May Cry 5: Devil Hunter Edition (Jun 2026) | 85 | n/a | RE Engine uncapped frame rate (Capcom pattern), runs well overall; Vergil + most Special Edition content | Stylish-action royalty, portable. |
+| **84** | Devil May Cry 5: Devil Hunter Edition (Jun 2026) | 86 | 7.5 | 60fps Quality mode / up-to-120fps Performance mode, solid docked and handheld | "Another great Capcom port" — Vergil included; missing Turbo and Legendary Dark Knight modes keeps it from definitive. |
 | **84** | Resident Evil 7: Gold (Feb 2026, native) | n/a | n/a | DF: locked 60fps throughout — "RE7 excels"; the stronger of the two RE ports | Replaces the old cloud version with a genuinely excellent native port. |
+| **83** | Indiana Jones and the Great Circle (May 2026) | 82 | 8.9 | DF: ray-traced GI intact + DLSS, sensible 30fps with wobbles in open areas | "A technical marvel" (Nintendo Life) with great gyro aim — one of the system's most impressive ports. |
+| **82** | Tony Hawk's Pro Skater 3+4 (Jul 2025) | 83 | n/a | Solid day-one Switch 2 version | The remake done right, portable. |
+| **82** | Sonic Racing: CrossWorlds (Dec 2025) | 85 | n/a | Runs well on Switch 2 | Tied for the best-reviewed Sonic racer ever — the kart alternative to Mario Kart World. |
 | **81** | Hogwarts Legacy (2025) | 82 | 7.9 | DF: 30fps held, DLSS from 720p docked — soft image but a massive leap over the Switch 1 port | The definitive portable Hogwarts. |
 | **81** | Resident Evil Village: Gold (Feb 2026, native) | n/a | n/a | DF: "needs work" — unlocked, misses its 60fps target outdoors (~40fps dips) | Great game, mid-tier port. Handheld VRR helps; docked doesn't. |
 | **80** | Star Wars Outlaws: Gold Edition (Sep 2025) | 81 | 7.0 | DF: "the most impressive Switch 2 port to date... a ray-tracing revelation" — RT retained, 30fps locked, DLSS | The port outclasses the game — solid open-world Star Wars, technical showcase. |
@@ -162,6 +167,7 @@ Metacritic scores below are the **Switch-specific** versions, verified July 2026
 | **84** | The Witcher 3: Complete Edition (2019) | 85 | 8.9 | The canonical "miracle port" — holds 30fps, very soft image (~540p portable) | All of it, portable, somehow. Visual compromise is real; players forgave it (8.9). |
 | **83** | The Elder Scrolls V: Skyrim (2017) | 84 | 8.3 | Stable 30fps, 1080p docked | The port that proved the concept in year one. |
 | **83** | Alien: Isolation (2019) | 83 | 8.5 | DF: "brilliant conversion" — arguably the best console version at the time | Best-in-class horror, best-in-class port. |
+| **83** | It Takes Two (2022) | 82 | n/a | Solid port; also plays via Switch 2 back-compat | The 2021 GOTY co-op — no dedicated Switch 2 edition, but Split Fiction is Hazelight's successor there. |
 | **82** | Octopath Traveler II (2023) | 85 | 8.3 | No notable issues | The HD-2D formula, matured. |
 | **82** | Dark Souls: Remastered (2018) | ≈84 | 8.2 | Stable 30fps | The pilgrimage, portable. |
 | **80** | Octopath Traveler (2018) | 83 | 8.2 | Clean | The HD-2D original. |
@@ -221,7 +227,8 @@ Not AAA, all essential. This is the Vampire Survivors / Factorio / Dave the Dive
 | Jul 16, 2026 | Fitness Boxing 3 — Switch 2 Edition | — |
 | Jul 23, 2026 | Splatoon Raiders | Single-player-focused Splatoon spin-off, Switch 2 |
 | Aug 11, 2026 | The Elder Scrolls IV: Oblivion Remastered | DLSS, 30fps target per pre-release specs |
-| Aug 28, 2026 | **Elden Ring: Tarnished Edition** | Delayed a full year "for performance adjustments" after a ~15fps Gamescom build DF called "basically unacceptable" — watch the DF review before buying |
+| Aug 27, 2026 | Metal Gear Solid: Master Collection Vol. 2 | (MGS Delta itself is NOT announced for Switch 2) |
+| Aug 28, 2026 | **Elden Ring: Tarnished Edition** | Includes Shadow of the Erdtree. Delayed a full year "for performance adjustments" after a ~15fps Gamescom build DF called "basically unacceptable" — watch the DF review before buying |
 | Sep 17, 2026 | Fire Emblem: Fortune's Weave | Switch 2 |
 | Oct 8, 2026 | Kingdom Hearts I–III (native collection) | Replaces the delisted cloud versions; saves transfer |
 | Oct 9, 2026 | Dragon's Dogma 2: Dark Arisen | Capcom RE Engine — expect the uncapped-fps pattern |
@@ -229,6 +236,7 @@ Not AAA, all essential. This is the Vampire Survivors / Factorio / Dave the Dive
 | TBA 2026 | Stellar Blade | Former PS5 exclusive |
 | TBA | Zelda: Ocarina of Time (Switch 2) / Nintendo Switch Sports Resort | Announced, undated |
 | TBA | Marvel Rivals | Confirmed in development (GDC 2026) |
+| TBA | Monster Hunter Wilds | Switch 2 port officially confirmed in development (Summer Game Fest, June 2026) |
 | TBA | Mewgenics | 2026's highest-rated PC game (90); Switch 2 called "the front-runner" for its console debut |
 | ~2027 | Slay the Spire 2 | Console versions at 1.0 |
 | TBA | DOOM: The Dark Ages | Rumored/leaked, not announced |
