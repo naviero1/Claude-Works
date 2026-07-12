@@ -462,5 +462,83 @@ for txt,font in notes2:
 w.column_dimensions["A"].width=40
 for c in "BCDEFGH": w.column_dimensions[c].width=15
 
+# ================= HER $35K-TOTAL OFFER TAB =================
+z=wb.create_sheet("Her $35k-Total Offer")
+cell(z,"A1","Francie's $35k-TOTAL offer — modeled & compared to your $14k plan",TITLE,title_fill)
+z.merge_cells("A1:H1"); z.row_dimensions[1].height=22
+cell(z,"A2","Her logic: (money she gets from the house) + (cash you give her) = $35,000 total, capped. You cover any shortfall and KEEP any house proceeds above $35k.",Font(italic=True,size=9))
+
+cell(z,"A4","INPUTS (edit yellow)",BOLD)
+zi=[("Her fixed TOTAL (her offer)","B5",35000,money,False),
+    ("Mortgage payoff","B6",356149.76,money,False),
+    ("Transfer tax %","B7",0.002,pct,False),
+    ("Other closing flat $","B8",2000,money,False),
+    ("(compare) Your $14k top-up","B9",14000,money,False),
+    ("(compare) Her $48k cap in that plan","B10",48000,money,False)]
+rr=5
+for lab,cref,val,fmt,isf in zi:
+    cell(z,f"A{rr}",lab); cell(z,cref,val,BOLD,param_fill,fmt,bd=True); rr+=1
+
+T=12
+heads=["Sale price","Route","Net proceeds\n(house money)","Her TOTAL\n($35k deal)",
+       "YOUR cost\n($35k deal)","YOUR cost\n($14k deal)","$35k deal\nsaves you","Cheaper\nfor you"]
+for i,h in enumerate(heads):
+    cell(z,f"{get_column_letter(i+1)}{T}",h,HDR,hdr_fill,align="center",bd=True)
+z.row_dimensions[T].height=42
+rows=[(390000,"Agent 5.5%",0.055),(395000,"Agent 5.5%",0.055),(399000,"Agent 5.5%",0.055),
+      (405000,"Agent 5.5%",0.055),(409900,"Agent 5.5%",0.055),
+      (390000,"FSBO 2.5%",0.025),(395000,"FSBO 2.5%",0.025),(399000,"FSBO 2.5%",0.025),
+      (405000,"FSBO 2.5%",0.025),(409900,"FSBO 2.5%",0.025)]
+r=T+1
+for p,route,c in rows:
+    a=f"A{r}";b=f"B{r}";d=f"D{r}";e=f"E{r}";f=f"F{r}";g=f"G{r}";hh=f"H{r}";i=f"I{r}"
+    cell(z,a,p,None,grp_fill,money,bd=True)
+    cell(z,b,route,None,None,None,"left",bd=True)
+    cell(z,f"C{r}",f"={p}-$B$6-({p}*{c}+{p}*$B$7+$B$8)",BOLD,None,money,bd=True)
+    cell(z,d,"=$B$5",None,her_fill,money,bd=True)                     # her total always 35k
+    cell(z,e,f"=$B$5-C{r}",BOLD,you_fill,money,bd=True)               # your cost = 35k - net
+    cell(z,f,f"=MIN($B$9,MAX(0,$B$10-C{r}))",None,None,money,bd=True) # your 14k-deal cost
+    cell(z,g,f"={f}-{e}",BOLD,None,money,bd=True)                     # positive = 35k cheaper
+    cell(z,hh,f'=IF({e}<{f},"$35k deal","$14k deal")',None,None,None,"center",bd=True)
+    r+=1
+LASTZ=r-1
+# averages
+cell(z,f"A{r+1}","AVG — Agent route",BOLD)
+cell(z,f"E{r+1}",f"=AVERAGE(E{T+1}:E{T+5})",BOLD,you_fill,money,bd=True)
+cell(z,f"F{r+1}",f"=AVERAGE(F{T+1}:F{T+5})",None,None,money,bd=True)
+cell(z,f"A{r+2}","AVG — FSBO route (your likely path)",BOLD)
+cell(z,f"E{r+2}",f"=AVERAGE(E{T+6}:E{T+10})",BOLD,tag_fill,money,bd=True)
+cell(z,f"F{r+2}",f"=AVERAGE(F{T+6}:F{T+10})",None,None,money,bd=True)
+
+vn=r+4
+vnotes=[
+ ("THE VERDICT — is $35k fair?",BOLD),
+ ("• The crossover: her $35k-total is CHEAPER for you than your own $14k plan whenever the house nets more",None),
+ ("  than $21,000. On the FSBO route (your likely path) it nets $21k–$41k — so $35k-total beats your $14k",None),
+ ("  plan in almost every FSBO case, and you even KEEP proceeds above $35k at the high end.",None),
+ ("• On FSBO your average cost under $35k-total is ~$4k — which is about what NC law would make you pay",None),
+ ("  anyway (~$4k for the 401k). So on your likely route it's genuinely FAIR to both: she gets a guaranteed",None),
+ ("  $35k, you pay roughly your legal share, and her recovery is capped BELOW her $48k.",None),
+ ("• The catch: $35k is GUARANTEED, so YOU carry the downside. If the house sells badly (agent + low price,",None),
+ ("  big concessions, or a long delay), your top-up climbs — up to ~$25k at a $390k agent sale.",None),
+ ("• It is NOT 'generous of her' in the strict sense — she'd legally bear the whole market loss on her own",None),
+ ("  $48k — but she HAS moved a long way down (from ~$25k+ to a capped $35k), so it's a reasonable landing.",None),
+ ("",None),
+ ("HOW TO MAKE IT FAIR TO YOU (if you accept $35k)",BOLD),
+ ("• Since you're guaranteeing the number, YOU control the sale: you pick FSBO vs agent, set the list price,",None),
+ ("  and approve any offer. That lets you steer net proceeds up and shrink your top-up.",None),
+ ("• Keep it a FIXED $35k total (cleaner than percentages) and put in writing that proceeds above $35k are",None),
+ ("  yours. Francie herself said 'it's a signed agreement' that matters — so get it signed and notarized.",None),
+ ("• Hold firm on the MUTUAL non-disparagement clause (the Alessia/your-daughter issue). She resisted it;",None),
+ ("  it belongs in the signed document, binding both of you.",None),
+ ("• Optional counter: given her ~$4k legal floor, a fixed total of ~$28k–$30k is defensible — but $35k is",None),
+ ("  not unfair to you on the FSBO math, and may be worth it to close cleanly.",None),
+]
+for i,(txt,font) in enumerate(vnotes):
+    cell(z,f"A{vn+i}",txt,font)
+z.column_dimensions["A"].width=40
+for c in "BCDEFGH": z.column_dimensions[c].width=15
+cell(z,"H12","",None)
+
 wb.save("/home/user/Claude-Works/House_Sale_Scenarios_537_Duchart.xlsx")
 print("saved")
