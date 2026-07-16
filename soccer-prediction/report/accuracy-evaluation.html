@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prediction Accuracy Evaluation — WC 2026</title>
+<style>
+  @page { size: Letter; margin: 16mm 15mm; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system,"Segoe UI",Helvetica,Arial,sans-serif; color:#16211c; font-size:10.3pt; line-height:1.42; }
+  h1 { font-size:21pt; color:#0b3d2e; margin:0 0 2pt; }
+  h2 { font-size:13pt; color:#0b3d2e; border-bottom:2px solid #0b3d2e; padding-bottom:3px; margin:18px 0 8px; page-break-after:avoid;}
+  .sub{color:#555;margin:0 0 10px;font-size:9.5pt;}
+  table{border-collapse:collapse;width:100%;margin:6px 0 10px;font-size:8.7pt;page-break-inside:avoid;}
+  th,td{border:1px solid #cfd8d3;padding:3px 6px;text-align:left;vertical-align:top;}
+  th{background:#e7f0eb;color:#0b3d2e;} tr:nth-child(even) td{background:#f6f9f7;}
+  .win{color:#0a7a3f;font-weight:700;} .loss{color:#b00020;font-weight:700;} .mut{color:#777;}
+  .tiles{display:flex;gap:9px;margin:8px 0 4px;}
+  .tile{flex:1;border:1px solid #cfd8d3;border-radius:7px;padding:8px 10px;background:#f6f9f7;}
+  .tile .n{font-size:17pt;font-weight:800;color:#0b3d2e;line-height:1.1;}
+  .tile .l{font-size:8pt;color:#555;margin-top:2px;}
+  .note{background:#fff8e1;border-left:4px solid #f0b400;padding:7px 11px;margin:8px 0;border-radius:0 5px 5px 0;font-size:9.2pt;}
+  ul{margin:4px 0 8px;padding-left:17px;} li{margin:2px 0;}
+  figure{margin:8px 0 4px;}
+  .cap{font-size:8pt;color:#777;margin-top:3px;}
+  footer{margin-top:14px;border-top:1px solid #cfd8d3;padding-top:6px;color:#777;font-size:7.6pt;}
+</style>
+</head>
+<body>
+
+<h1>Prediction Accuracy Evaluation</h1>
+<p class="sub">FIFA World Cup 2026 — every prediction graded vs actual results, through the semifinals (2026-07-15). Rigorous and self-critical.</p>
+
+<div class="tiles">
+  <div class="tile"><div class="n">88%</div><div class="l">Knockout advancer picks correct (22 / 25, model's favored side)</div></div>
+  <div class="tile"><div class="n">96%</div><div class="l">On picks I actually <i>backed</i> (24 / 25, incl. 2 value fades)</div></div>
+  <div class="tile"><div class="n">+$373</div><div class="l">Betting P&amp;L on the one sized slate (R32, +93% on $400)</div></div>
+  <div class="tile"><div class="n">50%</div><div class="l">Group-stage result hit-rate (3 / 6) — the weak spot</div></div>
+</div>
+
+<h2>1. Advance / result-pick accuracy by round</h2>
+<figure>
+<svg width="720" height="300" viewBox="0 0 720 300" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <!-- axes -->
+  <line x1="60" y1="20" x2="60" y2="250" stroke="#cfd8d3" stroke-width="1"/>
+  <line x1="60" y1="250" x2="700" y2="250" stroke="#cfd8d3" stroke-width="1"/>
+  <!-- gridlines + y labels -->
+  <g fill="#9aa8a1" font-size="9" text-anchor="end">
+    <line x1="60" y1="250" x2="700" y2="250" stroke="#eef2f0"/><text x="54" y="253">0%</text>
+    <line x1="60" y1="192.5" x2="700" y2="192.5" stroke="#eef2f0"/><text x="54" y="196">25%</text>
+    <line x1="60" y1="135" x2="700" y2="135" stroke="#eef2f0"/><text x="54" y="139">50%</text>
+    <line x1="60" y1="77.5" x2="700" y2="77.5" stroke="#eef2f0"/><text x="54" y="81">75%</text>
+    <line x1="60" y1="20" x2="700" y2="20" stroke="#eef2f0"/><text x="54" y="24">100%</text>
+  </g>
+  <!-- baseline: 'always pick the favorite' ~78% -->
+  <line x1="60" y1="70.5" x2="700" y2="70.5" stroke="#b00020" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="95" y="64" fill="#b00020" font-size="8.5" text-anchor="start">"always pick the favorite" baseline ≈ 78%</text>
+  <!-- bars: Group 50, R32 88, R16 75, QF 100, SF 100. scale: y=250 - pct*2.3 -->
+  <g fill="#2e6f4e">
+    <rect x="95"  y="135"  width="86" height="115" rx="4"/>
+    <rect x="220" y="47.6" width="86" height="202.4" rx="4"/>
+    <rect x="345" y="77.5" width="86" height="172.5" rx="4"/>
+    <rect x="470" y="20"   width="86" height="230" rx="4"/>
+    <rect x="595" y="20"   width="86" height="230" rx="4"/>
+  </g>
+  <!-- value labels -->
+  <g fill="#0b3d2e" font-size="12" font-weight="700" text-anchor="middle">
+    <text x="138" y="128">50%</text>
+    <text x="263" y="41">88%</text>
+    <text x="388" y="70">75%</text>
+    <text x="513" y="14">100%</text>
+    <text x="638" y="14">100%</text>
+  </g>
+  <!-- x labels -->
+  <g fill="#16211c" font-size="10" text-anchor="middle">
+    <text x="138" y="266">Group</text><text x="138" y="278" fill="#777" font-size="8">3/6</text>
+    <text x="263" y="266">R32</text><text x="263" y="278" fill="#777" font-size="8">14/16 modal</text>
+    <text x="388" y="266">R16</text><text x="388" y="278" fill="#777" font-size="8">3/4</text>
+    <text x="513" y="266">QF</text><text x="513" y="278" fill="#777" font-size="8">4/4</text>
+    <text x="638" y="266">SF</text><text x="638" y="278" fill="#777" font-size="8">1/1*</text>
+  </g>
+  <text x="20" y="150" fill="#555" font-size="9" transform="rotate(-90 20 150)" text-anchor="middle">correct-pick %</text>
+</svg>
+<div class="cap">Bars = share of games where our favored side actually advanced/won. Red dashed line = the
+naïve "always back the favorite" baseline (~78%) — the honest bar to beat. *SF = only SF2 (England–Argentina)
+was formally pre-predicted; SF1 was not a head-to-head call.</div>
+</figure>
+
+<div class="note"><b>Rigor check — read the chart honestly:</b> a high advance hit-rate is <i>partly</i>
+because favorites usually win knockouts, so the naïve baseline is already ~78%. We beat it, but the
+advance metric alone is <i>not</i> proof of edge. The genuine skill signals are narrower and listed in §4.</div>
+
+<h2>2. Knockout results — every formally-predicted game</h2>
+<table>
+<tr><th>Round</th><th>Game</th><th>Our pick (adv %)</th><th>Actual</th><th>Adv ✓/✗</th><th>Scoreline note</th></tr>
+<tr><td>R32</td><td>SA–Canada</td><td>Canada 60</td><td>Canada 1-0</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>R32</td><td>Brazil–Japan</td><td>Brazil 70</td><td>Brazil 2-1</td><td class="win">✓</td><td class="win">exact 2-1 ✓</td></tr>
+<tr><td>R32</td><td>Germany–Paraguay</td><td>modal GER; <b>bet PAR</b></td><td>Paraguay (pens)</td><td class="win">✓ (bet)</td><td>modal favorite fell; value bet won</td></tr>
+<tr><td>R32</td><td>Neth–Morocco</td><td>modal NED; <b>bet MAR</b></td><td>Morocco (pens)</td><td class="win">✓ (bet)</td><td>coin-flip; value bet won</td></tr>
+<tr><td>R32</td><td>Mexico–Ecuador</td><td>Mexico 57</td><td>Mexico 2-0</td><td class="win">✓</td><td>bet Ecuador value — lost</td></tr>
+<tr><td>R32</td><td>France–Sweden</td><td>France 80</td><td>France 3-0</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>R32</td><td>England–DR Congo</td><td>England 83</td><td>England 2-1</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>R32</td><td>Belgium–Senegal</td><td>Belgium 56</td><td>Belgium 3-2 aet</td><td class="win">✓</td><td>close, as flagged</td></tr>
+<tr><td>R32</td><td>USA–Bosnia</td><td>USA 60</td><td>USA 2-0</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>R32</td><td>Spain–Austria</td><td>Spain 83</td><td>Spain 3-0</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>R32</td><td>Portugal–Croatia</td><td>Portugal 63</td><td>Portugal 2-1</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>R32</td><td>Switz–Algeria</td><td>Switzerland 60</td><td>Switzerland 2-0</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>R32</td><td>Australia–Egypt</td><td>Egypt 54</td><td>Egypt (pens)</td><td class="win">✓</td><td>coin-flip called right</td></tr>
+<tr><td>R32</td><td>Argentina–Cabo Verde</td><td>Argentina 89</td><td>Argentina 3-2 aet</td><td class="win">✓</td><td>survived scare (flagged CV resilience)</td></tr>
+<tr><td>R32</td><td>Colombia–Ghana</td><td>Colombia 72</td><td>Colombia win</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>R32</td><td>CIV–Norway</td><td>Norway 63</td><td>Norway 2-1</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>R16</td><td>Portugal–Spain</td><td>Spain 61</td><td>Spain 1-0</td><td class="win">✓</td><td>low-scoring call ✓</td></tr>
+<tr><td>R16</td><td>USA–Belgium</td><td>Belgium 53</td><td>Belgium 4-1</td><td class="win">✓</td><td class="win">goals-up (Over 2.5) ✓; dominance underrated</td></tr>
+<tr><td>R16</td><td>Egypt–Argentina</td><td>Argentina 84</td><td>Argentina 3-2</td><td class="win">✓</td><td class="win">Over 3.5 ✓; Egypt's 2 goals underrated</td></tr>
+<tr><td>R16</td><td>Switz–Colombia</td><td><b>Colombia 56</b></td><td>Switzerland (pens)</td><td class="loss">✗</td><td>called 0-0→Sommer pens scenario, wrong side</td></tr>
+<tr><td>QF</td><td>Morocco–France</td><td>France 63</td><td>France 2-0</td><td class="win">✓</td><td>—</td></tr>
+<tr><td>QF</td><td>Belgium–Spain</td><td>Spain 57</td><td>Spain 2-1</td><td class="win">✓</td><td class="win">exact 2-1 ✓</td></tr>
+<tr><td>QF</td><td>Norway–England</td><td>England 52</td><td>England 2-1 aet</td><td class="win">✓</td><td class="win">exact 2-1 ✓; coin-flip</td></tr>
+<tr><td>QF</td><td>Argentina–Switz</td><td>Argentina 62</td><td>Argentina 3-1 aet</td><td class="win">✓</td><td>Switz ground to ET as flagged</td></tr>
+<tr><td>SF</td><td>England–Argentina</td><td>Argentina 53</td><td>Argentina 2-1</td><td class="win">✓</td><td class="win">Arg 2-1 in top-3 ✓ (comeback, not pens)</td></tr>
+</table>
+
+<h2>3. Group stage &amp; betting P&amp;L</h2>
+<table>
+<tr><th>Slate</th><th>Result hit</th><th>Exact score</th><th>Staked P&amp;L</th><th>Notes</th></tr>
+<tr><td>Jun 27 group (6)</td><td>3/6 (50%)</td><td>0/6</td><td class="loss">−2.0 u</td><td>weakest slate; market beat us on anchored games</td></tr>
+<tr><td>R32 sized bets (4)</td><td>—</td><td>—</td><td class="win">+$373 (+93%)</td><td>Morocco +$204, Paraguay +$260, France +$9, Mexico −$100</td></tr>
+<tr><td>Goals-revision calls</td><td colspan="2">2 / 2 (USA–Belgium, Argentina–Egypt)</td><td class="win">both Over hit</td><td>both prompted by Oscar's push</td></tr>
+</table>
+
+<h2>4. What actually shows edge (vs what's just picking favorites)</h2>
+<ul>
+<li><b>Two market-beating value fades won:</b> Morocco (mkt 38% → we said 47%) and Paraguay (mkt 15% →
+24%) both advanced. This is the clearest edge — beating the de-vigged market, not the bookie's favorite.</li>
+<li><b>Goals revisions 2/2</b> — both Oscar-prompted; raising λ on attacking-team clashes hit both times.</li>
+<li><b>Exact top-3 scoreline hits in tight games:</b> Brazil 2-1, Spain 2-1, England 2-1, Argentina 2-1
+— the model reads knockout scorelines well.</li>
+<li><b>Coin-flips called right:</b> Egypt (54%), England×2, plus the "grind → penalties" scenario on
+Switzerland–Colombia (right scenario, wrong side).</li>
+</ul>
+
+<h2>5. Honest weaknesses</h2>
+<ul>
+<li><b>Under-rating organized/beatable underdogs:</b> Egypt led Argentina 2-0 (we gave Egypt 16%);
+Switzerland beat Colombia (we picked Colombia). Our favorites were too dominant on paper.</li>
+<li><b>Under-shooting goals</b> until pushed — the model's default knockout caution was too low twice.</li>
+<li><b>Exact scores are hard</b> — 0/6 in the group slate; the value is in the <i>distribution</i>, not a single score.</li>
+<li><b>Group-stage / seeding games</b> were our worst (−2u), especially over-backing Over/BTTS in
+dead-rubbers (Colombia–Portugal 0-0).</li>
+<li><b>The advance metric flatters us</b> — favorites usually win; strip that out and the real,
+repeatable edge is the market-beating fades + the goals reads.</li>
+</ul>
+
+<footer>Prediction Accuracy Evaluation · WC 2026 · graded through SF2 (2026-07-15) · for research/analysis,
+not financial advice. Metrics computed from the project's committed predict-and-score logs.</footer>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Soccer Match Prediction — Methodology &amp; Accuracy Report</title>
+<style>
+  @page { size: Letter; margin: 20mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #1a1a1a;
+         font-size: 10.5pt; line-height: 1.45; }
+  h1 { font-size: 22pt; color: #0b3d2e; margin: 0 0 2pt; }
+  h2 { font-size: 14pt; color: #0b3d2e; border-bottom: 2px solid #0b3d2e; padding-bottom: 3px;
+       margin: 20px 0 8px; page-break-after: avoid; }
+  h3 { font-size: 11.5pt; color: #14603f; margin: 12px 0 4px; page-break-after: avoid; }
+  .sub { color: #555; font-size: 10pt; margin: 0 0 4px; }
+  .tag { display:inline-block; background:#0b3d2e; color:#fff; border-radius:4px; padding:1px 7px;
+         font-size:8.5pt; letter-spacing:.3px; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 12px; font-size: 9pt;
+          page-break-inside: avoid; }
+  th, td { border: 1px solid #cfd8d3; padding: 4px 7px; text-align: left; vertical-align: top; }
+  th { background: #e7f0eb; color:#0b3d2e; }
+  tr:nth-child(even) td { background: #f6f9f7; }
+  code, .mono { font-family: "SF Mono", Consolas, monospace; font-size: 9pt; background:#eef2f0;
+                padding:1px 4px; border-radius:3px; }
+  .eq { font-family: "SF Mono", Consolas, monospace; font-size: 9pt; background:#0b3d2e; color:#e8f5ee;
+        padding:8px 10px; border-radius:5px; white-space:pre-wrap; margin:6px 0; }
+  .win { color:#0a7a3f; font-weight:700; } .loss { color:#b00020; font-weight:700; }
+  ul { margin:4px 0 8px; padding-left:18px; } li { margin:2px 0; }
+  .callout { background:#fff8e1; border-left:4px solid #f0b400; padding:7px 11px; margin:8px 0;
+             border-radius:0 5px 5px 0; }
+  .muted { color:#666; } .small { font-size:8.5pt; }
+  .grid2 { display:flex; gap:14px; } .grid2 > div { flex:1; }
+  footer { margin-top:16px; border-top:1px solid #cfd8d3; padding-top:6px; color:#777; font-size:8pt; }
+  .pb { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<h1>Soccer Match Prediction — Methodology &amp; Accuracy Report</h1>
+<p class="sub">A market-anchored, Dixon-Coles–based system with player, cohesion, mentality and
+expert layers · FIFA World Cup 2026 · Report generated 2026-07-01</p>
+<p><span class="tag">STATS-LED · MINDSET-ADJUSTS · MARKET-ANCHORED</span></p>
+
+<h2>1. Philosophy in one paragraph</h2>
+<p>Predict a <strong>distribution of scorelines</strong>, never a single fake-precise score. Anchor
+every forecast to the <strong>betting market</strong> (Kalshi / Polymarket) because market-implied
+probabilities are the best-calibrated public forecast that exists — but treat the market as
+<em>crowd belief, not ground truth</em>. Our independent analysis (Dixon-Coles + players + cohesion +
+mentality + a human expert) earns its keep only at <strong>defensible divergences</strong>: spots
+where we can name a structural reason the crowd is mispricing. Bet only those; pass everything else.</p>
+
+<h2>2. The layered model</h2>
+<div class="eq">MARKET ANCHOR   → de-vigged Kalshi / Polymarket implied probabilities (the prior)
++ DIXON-COLES   → team attack/defense → expected goals λ, μ
++ FORM &amp; DECAY  → recent matches weighted more (time decay ξ); signal vs noise
++ PLAYERS       → disruptor availability &amp; impact; H2H neutralisation
++ COHESION      → collective &gt; sum of parts (settled XI, system, chemistry)
++ MENTALITY     → belief/resilience compresses talent gaps (the "Uruguay principle")
++ EXPERT        → a trusted player's eye on form/fitness/tactics (strong prior)
+= SCORELINE DISTRIBUTION + ADVANCE PROBABILITY + $100 ALLOCATION</div>
+
+<h3>2.1 Market anchor — crowd belief, not truth</h3>
+<p>De-vig sportsbook/market prices so they sum to 1: <span class="mono">fair_i = implied_i / Σ implied_j</span>.
+Prediction markets are near-fair already. The market is the number <em>to beat</em>, moved off only
+with a stated reason. It carries biases we exploit: <strong>favorite-longshot</strong>,
+<strong>recency/narrative</strong>, <strong>sentiment-inflated popular teams</strong> (Brazil,
+Argentina, England), <strong>thin-market noise</strong>, and it is <strong>slow to price structural
+factors</strong> (rotation, key injuries) until the team sheet drops.</p>
+
+<h3>2.2 Dixon-Coles statistical core</h3>
+<p>Each match = two Poisson processes. Expected goals:</p>
+<div class="eq">λ (home) = α_home · β_away · γ        μ (away) = α_away · β_home
+α = attack rating · β = defense weakness · γ = home advantage</div>
+<p>Two corrections over naïve Poisson:</p>
+<ul>
+<li><strong>τ low-score correction (ρ):</strong> reweights 0-0, 1-0, 0-1, 1-1 — real football has more
+cagey low-scoring games than independence implies. We use ρ ≈ −0.06.</li>
+<li><strong>Time decay (ξ):</strong> each past match weighted <span class="mono">exp(−ξ·Δt)</span> —
+recent form matters more.</li>
+</ul>
+
+<h3>2.3 Advance probability (knockouts)</h3>
+<p>Markets quote <em>to-advance</em> (incl. ET/penalties), not 90-minute results. We convert:</p>
+<div class="eq">advance_home = P(win 90') + P(draw) · q      q = 0.5 + 0.5·(winFav − winDog)/(winFav + winDog)</div>
+<p>The better side wins the shootout/ET slightly more often. This fix alone closed most of the early
+gap between our numbers and the market on favorites.</p>
+
+<h3>2.4 Player / disruptor layer</h3>
+<p>Rate each likely starter's <strong>disruption degree (1–10)</strong> — capacity to swing a tight
+game (Messi/Mbappé 10; Kane/Bellingham/Musiala/Yamal/Haaland 8–9; Pulisic/Cherki/James "relatively"
+6–7). Then: (1) <strong>availability gate</strong> — not playing → 0; (2) <strong>form multiplier</strong>
+— last-10 output, opponent-adjusted; (3) <strong>H2H neutralisation</strong> — net disruption that
+survives the matchup drives the edge, converted to a ±λ adjustment. In knockouts, individual
+match-winners weigh more than in league play.</p>
+
+<h3>2.5 Cohesion &amp; 2.6 Mentality (the Uruguay principle)</h3>
+<p><strong>Cohesion</strong> = how well a team plays as a unit (settled XI, same-club spine, drilled
+system) — mainly lowers goals conceded and lifts draw probability (Morocco, Iran, Japan, Cape Verde).
+<strong>Mentality</strong> = belief/resilience under pressure; it compresses talent gaps and raises
+draw/penalty likelihood. Both mean: <em>do not over-price a favorite against a high-belief, organised
+underdog; widen the distribution.</em> This is a source of irreducible uncertainty — expressed as a
+flatter distribution, not false precision.</p>
+
+<h3>2.7 Expert-in-the-loop &amp; 2.8 Goals by half</h3>
+<p>A trusted human read (a current/former player) is a first-class input on form, fitness, tactics and
+mentality — a strong Bayesian prior that can override lagging stats. Goals split ≈ <strong>45% first
+half / 55% second half</strong>; early-goal probability
+<span class="mono">= 1 − e^(−(λ_h+λ_a)·15/90)</span>.</p>
+
+<h3>2.9 Allocation &amp; staking ($100 per match)</h3>
+<p>Edge is measured <strong>vs the de-vigged market</strong>: if our probability equals the market's,
+edge = 0 and the correct stake is 0 (agreeing with the price just pays the vig). For each candidate
+bet at price <span class="mono">m</span> (odds <span class="mono">o = 1/m</span>), our prob
+<span class="mono">p</span>:</p>
+<div class="eq">edge = p − m      EV($1) = p·(o−1) − (1−p)   [&gt;0 ⇒ "bargain"]      Kelly f = edge/(o−1)  (use ¼·f)</div>
+<p>We present <strong>four allocation styles</strong> per game — Max-EV, Max probability-of-profit,
+Balanced, Low-scoring — because <em>maximising EV and maximising P(profit) rarely point at the same
+bet</em>. Caps: ≤5% bankroll/day, ≤2.5%/game. The durable edge lives in the <strong>to-advance
+markets on over-priced favorites</strong>, not in exact scores or totals (which are ~fairly priced).</p>
+
+<h2 class="pb">3. Workflow — how a match is analysed</h2>
+<ol>
+<li>Pull the live Kalshi/Polymarket board (to-advance % + exact scores + totals). De-vig.</li>
+<li>Build λ, μ from strength/form + reconcile to the market's totals/team-totals.</li>
+<li>Adjust for players (availability, disruptors, H2H), cohesion, mentality; fold in the expert read.</li>
+<li>Compute the scoreline grid → top scenarios, W/D/W, advance %, O2.5, BTTS, goals by half.</li>
+<li>Compare to the market; deviate only with a named structural reason.</li>
+<li>Build the four $100 allocations; recommend one by risk profile; log the pick before kickoff.</li>
+<li>After the game: grade result, exact score, Brier, and bet P&amp;L; feed lessons back.</li>
+</ol>
+
+<h2>4. Prediction accuracy history</h2>
+
+<h3>4.1 June 27 — final group matchday (6 games)</h3>
+<p>First live test. Three games market-anchored, three model-only.</p>
+<table>
+<tr><th>Match</th><th>Predicted</th><th>Actual</th><th>Result</th><th>Note</th></tr>
+<tr><td>Panama–England</td><td>0–3</td><td>0–2</td><td class="win">✓</td><td>ENG win; margin off</td></tr>
+<tr><td>Croatia–Ghana</td><td>1–0</td><td>2–1</td><td class="win">✓</td><td>CRO win; Under 2.5 lost (3 g)</td></tr>
+<tr><td>Colombia–Portugal</td><td>1–2</td><td>0–0</td><td class="loss">✗</td><td>Draw; Over/BTTS lost</td></tr>
+<tr><td>DR Congo–Uzbekistan</td><td>1–1</td><td>3–1</td><td class="loss">✗</td><td>Passed (0 stake)</td></tr>
+<tr><td>Algeria–Austria</td><td>1–2</td><td>3–3</td><td class="loss">✗</td><td>Passed (0 stake)</td></tr>
+<tr><td>Jordan–Argentina</td><td>0–2</td><td>1–3</td><td class="win">✓</td><td>ARG win; rotation trigger stood down</td></tr>
+</table>
+<p><strong>Grade:</strong> results 3/6, exact scores 0/6, mean Brier ≈ 0.46. Staked P&amp;L
+<span class="loss">−2.0 units</span> (both active bets lost). <strong>Lesson:</strong> the Colombia–Portugal
+0-0 was a cagey dead-rubber I flagged but didn't back — the contrarian read was right and I didn't
+trust it. Down-weight Over/BTTS in no-stakes seeding games.</p>
+
+<h3>4.2 Round of 32 — first half (7 games, Jun 28–30)</h3>
+<table>
+<tr><th>Game</th><th>Result</th><th>Advanced</th><th>Our bet</th><th>Net (if $100)</th></tr>
+<tr><td>South Africa–Canada</td><td>0–1</td><td>Canada</td><td>pass</td><td>—</td></tr>
+<tr><td>Brazil–Japan</td><td>2–1</td><td>Brazil</td><td>pass (no edge)</td><td>—</td></tr>
+<tr><td>Germany–Paraguay</td><td>1–1 → Paraguay</td><td class="win">Paraguay</td><td>Paraguay-adv @15%</td><td class="win">+$260</td></tr>
+<tr><td>Netherlands–Morocco</td><td>1–1 → Morocco (pens)</td><td class="win">Morocco</td><td>Morocco-adv @38%</td><td class="win">+$204</td></tr>
+<tr><td>Côte d'Ivoire–Norway</td><td>1–2</td><td>Norway</td><td>marginal pass</td><td>—</td></tr>
+<tr><td>France–Sweden</td><td>3–0</td><td>France</td><td>alloc C (hedged)</td><td class="win">+$9</td></tr>
+<tr><td>Mexico–Ecuador</td><td>2–1</td><td>Mexico</td><td>Ecuador-adv (alloc D)</td><td class="loss">−$100</td></tr>
+<tr><td><strong>Slate</strong></td><td colspan="3"><strong>$400 staked</strong></td><td class="win"><strong>+$373 (+93%)</strong></td></tr>
+</table>
+<div class="callout"><strong>Headline:</strong> both "fade the over-priced favorite" bets hit —
+<strong>Morocco</strong> (crowd 38% → we said 47%; won on penalties, Bono the hero) and
+<strong>Paraguay</strong> (crowd 15% → we said 24%; Germany knocked out). The no-edge games were
+correctly passed; the diversified France allocation banked a small win off the exact-score hedge even
+though the Sweden thesis was wrong.</div>
+
+<h3>4.3 Honest calibration notes</h3>
+<ul>
+<li><strong>Process worked:</strong> the system located the two mispriced favorites, bet the +EV
+underdog, and passed the efficient lines. Betting edges 3 of 4 profitable.</li>
+<li><strong>Respect variance:</strong> Morocco won on penalties and Paraguay went to ET — near
+coin-flips in the moment; we caught the good side. The bets were +EV (the durable part); a +93% slate
+regresses over time.</li>
+<li><strong>The loss is instructive:</strong> Mexico–Ecuador was the <em>lower-conviction</em> fade
+(Mexico's altitude/home edge was real) — flagged "don't oversize," and it lost. Conviction ranking
+matters.</li>
+<li><strong>Where the edge lives:</strong> to-advance markets on over-priced favorites — not
+scorelines or totals, which the market prices efficiently (often richer than our model).</li>
+</ul>
+
+<h3>4.4 Running scorecard</h3>
+<table>
+<tr><th>Slate</th><th>Result hit</th><th>Exact score</th><th>Staked P&amp;L</th><th>Verdict</th></tr>
+<tr><td>Jun 27 group (6)</td><td>3/6</td><td>0/6</td><td class="loss">−2.0 u</td><td>market beat us on anchored games</td></tr>
+<tr><td>R32 first half (7)</td><td>5/7 modal · <span class="win">2/2 headline bets</span></td><td>Brazil 2-1 ✓</td><td class="win">+$373</td><td>both fades hit; passes correct</td></tr>
+</table>
+
+<h2>5. Key lessons codified</h2>
+<ul>
+<li>Anchor to the market; deviate only with a nameable structural reason (crowd belief ≠ truth).</li>
+<li>The recurring edge is <strong>fading sentiment-inflated favorites in to-advance markets</strong>
+(validated by Morocco &amp; Paraguay).</li>
+<li>Cohesive/high-mentality underdogs drag favorites to penalties — where shootout keepers (Bono)
+swing ties; price that in.</li>
+<li>Max-EV ≠ max-P(profit): always present the allocation menu, size by conviction, cap exposure.</li>
+<li>Dead-rubber / seeding games skew low-scoring — down-weight Over/BTTS.</li>
+<li>Grade everything (Brier + P&amp;L) before the next slate; that feedback is the system.</li>
+</ul>
+
+<h2>6. Repository map</h2>
+<p class="small muted">All analysis is versioned on branch <span class="mono">claude/soccer-prediction-research-payza0</span>.</p>
+<table class="small">
+<tr><th>File</th><th>Contents</th></tr>
+<tr><td>01-methodology.md</td><td>Full theory: Dixon-Coles, market layer, players, cohesion, mentality, expert</td></tr>
+<tr><td>02-prediction-prompt.md</td><td>Portable, reusable prediction prompt</td></tr>
+<tr><td>05 / 13</td><td>Disruptor rubric + worked example; match-day analysis playbook</td></tr>
+<tr><td>07-predict-and-score-log.md</td><td>Every prediction graded (Brier + P&amp;L)</td></tr>
+<tr><td>12 / 17</td><td>R32 scoreline scenarios; results report + realigned predictions</td></tr>
+<tr><td>15 / 16</td><td>Match-day allocations &amp; final reports (Jun 29–30 slate)</td></tr>
+<tr><td>tools/*.py</td><td>Poisson/DC engine, allocation evaluator, odds connector</td></tr>
+</table>
+
+<footer>Soccer Match Prediction System · Methodology &amp; Accuracy Report · For research/analysis,
+not financial advice · Generated from the project repository, 2026-07-01.</footer>
+
+</body>
+</html>
