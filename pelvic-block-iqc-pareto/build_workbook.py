@@ -487,45 +487,123 @@ par.column_dimensions["D"].width = 13
 par.column_dimensions["E"].width = 24
 par.column_dimensions["F"].width = 10
 
-# ---- Pareto chart ----
+# ---- Pareto chart (styled) ----
+from openpyxl.chart.marker import DataPoint, Marker
+from openpyxl.chart.label import DataLabelList
+from openpyxl.chart.shapes import GraphicalProperties
+from openpyxl.drawing.line import LineProperties
+from openpyxl.chart.text import RichText, Text
+from openpyxl.chart.title import Title
+from openpyxl.drawing.text import (Paragraph, ParagraphProperties, CharacterProperties,
+                                   Font as DrawFont, RichTextProperties, RegularTextRun)
+
+C_VITAL = "2E5B8A"   # deep blue  - vital-few bars
+C_TAIL  = "AFC7E3"   # light blue - long-tail bars
+C_LINE  = "C0504D"   # red        - cumulative line
+C_GRID  = "E6E6E6"
+C_AXTX  = "595959"
+
+def _txpr(size=900, color=C_AXTX, rot=None, bold=False):
+    cp = CharacterProperties(latin=DrawFont(typeface="Calibri"), sz=size, b=bold, solidFill=color)
+    body = RichTextProperties(rot=rot) if rot is not None else RichTextProperties()
+    return RichText(bodyPr=body, p=[Paragraph(pPr=ParagraphProperties(defRPr=cp), endParaRPr=cp)])
+
+def _title(text, size=1200, color="1F3864"):
+    cp = CharacterProperties(latin=DrawFont(typeface="Calibri"), sz=size, b=True, solidFill=color)
+    rt = RichText(p=[Paragraph(pPr=ParagraphProperties(defRPr=cp),
+                               r=[RegularTextRun(rPr=cp, t=text)])])
+    t = Title(tx=Text(rich=rt)); t.overlay = False
+    return t
+
+# short category labels + 80% target helper column, placed under the chart footprint
+SHORT = {"D6":"Membrane dmg","D1":"Ureters n/e","D4":"Susp. ligament","D5":"Urethra cut",
+         "D3":"Ureter missing","D8":"Bowel cut","D2":"Ureter cut","D7":"Bladder def.",
+         "D9":"Blood clots","D10":"Broad ligament"}
+LBL_COL, THR_COL = 13, 14                       # cols M, N (hidden under the chart)
+par.cell(ph, THR_COL, "80% target")
+for i, code in enumerate(order):
+    par.cell(first + i, LBL_COL, f"{code} · {SHORT[code]}")
+    par.cell(first + i, THR_COL, 0.8)
+
 bar = BarChart()
-bar.type = "col"; bar.style = 10
-bar.title = "Defect Pareto — Rejected Pelvic Blocks (SH: Martins, 2026-07-08)"
-bar.y_axis.title = "Defect count"
-bar.x_axis.title = "Defect mode"
-data_ref = Reference(par, min_col=4, min_row=first-1, max_row=last)   # include header for legend
-cats_ref = Reference(par, min_col=3, min_row=first, max_row=last)
+bar.type = "col"; bar.grouping = "clustered"; bar.gapWidth = 55
+data_ref = Reference(par, min_col=4, min_row=first-1, max_row=last)   # incl. header for legend
+cats_ref = Reference(par, min_col=LBL_COL, min_row=first, max_row=last)
 bar.add_data(data_ref, titles_from_data=True)
 bar.set_categories(cats_ref)
-bar.y_axis.majorGridlines = ChartLines()
-bar.gapWidth = 40
+
+bs = bar.series[0]
+bs.graphicalProperties = GraphicalProperties(solidFill=C_VITAL)   # legend swatch
+for i in range(n):
+    dp = DataPoint(idx=i)
+    dp.spPr = GraphicalProperties(solidFill=(C_VITAL if i < 4 else C_TAIL),
+                                  ln=LineProperties(solidFill="FFFFFF", w=9525))
+    bs.data_points.append(dp)
+bdl = DataLabelList(); bdl.showVal = True; bdl.numFmt = "0"; bdl.position = "outEnd"
+bdl.txPr = _txpr(950, "404040", bold=True)
+bs.dLbls = bdl
+
+bar.y_axis.title = "Defect count"
+bar.y_axis.number_format = "0"
+bar.y_axis.scaling.min = 0
+bar.y_axis.majorGridlines = ChartLines(spPr=GraphicalProperties(ln=LineProperties(solidFill=C_GRID, w=6350)))
+bar.y_axis.txPr = _txpr()
+bar.y_axis.delete = False
+bar.x_axis.delete = False
+bar.x_axis.majorGridlines = None
+bar.x_axis.txPr = _txpr(850, rot=-2700000)       # rotate category labels -45°
+bar.x_axis.spPr = GraphicalProperties(ln=LineProperties(solidFill="BFBFBF", w=9525))
 
 line = LineChart()
 cum_ref = Reference(par, min_col=6, min_row=first-1, max_row=last)
+thr_ref = Reference(par, min_col=THR_COL, min_row=ph, max_row=last)
 line.add_data(cum_ref, titles_from_data=True)
+line.add_data(thr_ref, titles_from_data=True)
+
+cs = line.series[0]                               # cumulative %
+cs.graphicalProperties = GraphicalProperties(ln=LineProperties(solidFill=C_LINE, w=28575))
+cs.marker = Marker(symbol="circle", size=6)
+cs.marker.spPr = GraphicalProperties(solidFill=C_LINE, ln=LineProperties(solidFill="FFFFFF", w=9525))
+cs.smooth = False
+cdl = DataLabelList(); cdl.showVal = True; cdl.numFmt = "0%"; cdl.position = "t"
+cdl.txPr = _txpr(850, C_LINE, bold=True)
+cs.dLbls = cdl
+
+ts = line.series[1]                               # 80% target line
+_lp = LineProperties(solidFill="A6A6A6", w=9525); _lp.prstDash = "dash"
+ts.graphicalProperties = GraphicalProperties(ln=_lp)
+ts.marker = Marker(symbol="none")
+ts.smooth = False
+
 line.y_axis.axId = 200
 line.y_axis.title = "Cumulative %"
 line.y_axis.crosses = "max"
-line.y_axis.number_format = "0%"
 line.y_axis.scaling.min = 0
 line.y_axis.scaling.max = 1
-s = line.series[0]
-s.smooth = False
-s.marker.symbol = "circle"; s.marker.size = 5
+line.y_axis.number_format = "0%"
+line.y_axis.majorGridlines = None
+line.y_axis.txPr = _txpr()
+line.y_axis.delete = False
 
 bar.y_axis.crosses = "autoZero"
 bar += line
-bar.width = 24; bar.height = 12
+bar.title = _title("Defect Pareto — Rejected Pelvic Blocks   (SH: Martins, 2026-07-08)")
+bar.legend.position = "b"
+bar.legend.overlay = False
+bar.width = 26; bar.height = 12.5
 par.add_chart(bar, "H4")
+# Helper cols M/N sit UNDER the chart (visually covered); do NOT hide them, or
+# Excel's "plot visible cells only" would drop the category labels & 80% line.
+par.cell(ph, LBL_COL).font = font(8, italic=True, color=GREY)
 
-# station-rollup snapshot image (visual aid for the supplier conversation)
+# station-rollup snapshot image (below the station table, clear of the chart)
 import os
 from openpyxl.drawing.image import Image as XLImage
 _img = "/home/user/Claude-Works/pelvic-block-iqc-pareto/Station_rollup_preview.png"
 if os.path.exists(_img):
     im = XLImage(_img)
-    im.width = int(im.width * 0.62); im.height = int(im.height * 0.62)
-    par.add_image(im, "H28")
+    im.width = int(im.width * 0.60); im.height = int(im.height * 0.60)
+    par.add_image(im, f"A{slast + 3}")
 
 # ============================================================================
 # SHEET 5: ROOT CAUSE 5-WHY
