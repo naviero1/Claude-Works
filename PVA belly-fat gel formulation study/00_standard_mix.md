@@ -17,7 +17,7 @@
 
 | Material | Mass frac | Wet g/batch | Solid g/batch | Role |
 |---|---|---|---|---|
-| **Selvol S-1551F-D** (PVA resin) | 0.1061 | 240.00 | 240.00 | Structural polymer. Super-hydrolyzed (~99 %+), high-MW PVA. Treated as 100 % solids. Specs per supplier CoA/brochure. |
+| **Selvol S-1551F-D** (PVA resin) | 0.1061 | 240.00 | 240.00 | Structural polymer. Super-hydrolyzed (~99 %+), high-MW PVA. Treated as 100 % solids. Closest catalog analog **Selvol 165 / 165SF** (99.3+ %, 62–72 cP, DP 1600–2200) — see [`01_pva_grade_reference.md`](01_pva_grade_reference.md). Specs per supplier CoA/brochure. |
 | **Proxel BD20** | 0.0010 | 2.26 | 0.44 | Biocide/preservative — 1,2-benzisothiazolin-3-one (BIT), ~20 % active (Lonza). |
 | **NaCl** | 0.0080 | 18.00 | 18.00 | Salt, ~0.80 wt %. Tonicity/conductivity; modest effect on gelation & acoustics. |
 | **Petal Pink Proline Powder** | 0.0013 | 3.00 | 3.00 | Pigment (flesh/fat tone). |
