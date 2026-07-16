@@ -12,7 +12,7 @@ standard mix stays fixed; the study explains the science and tunes the **downstr
 | [`00_standard_mix.md`](00_standard_mix.md) | The **fixed baseline** formulation (Selvol S-1551F-D PVA, NaCl, Proxel BD20, Proline pigments) + process, QC specs, shelf life. |
 | [`01_pva_grade_reference.md`](01_pva_grade_reference.md) | Brochure-grounded **PVA grade reference** — Selvol/Kuraray MW & hydrolysis specs, cryogel-relevant grades, and identification of S-1551F-D. |
 | [`02_belly_fat_freeze_thaw_study.md`](02_belly_fat_freeze_thaw_study.md) | **Main study**: cryogelation physics, freeze–thaw tuning, belly-fat mechanical targets, recommended protocol, numeric tables, pitfalls, and a prioritized experiment plan. |
-| `03_multi_organ_phantom_playbook.md` | *(in progress)* Extending the PVA-cryogel base to **other organs** (lung, liver, kidney, muscle, vessel, etc.) + profile of IMRA Surgical. |
+| [`03_multi_organ_phantom_playbook.md`](03_multi_organ_phantom_playbook.md) | **Multi-organ playbook**: reusing the ~10 % PVA base for lung, liver, kidney, muscle, vessel, prostate, brain, etc. — per-organ targets, additive toolkit, in-depth lung, non-PVA blocks, layering, and a profile of **IMRA Surgical**. |
 | [`brochures/`](brochures/) | Supplier TDS/brochures (Selvol, Kuraray) + drop-zone for the rest. |
 
 ## Headline findings (belly fat)
