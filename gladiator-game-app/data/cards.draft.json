@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "game": "GLADIATOR — A Card Game",
+    "rulesVersion": "5.0",
+    "status": "DRAFT — pending creator confirmation (see docs/03-questions-for-creator.md)",
+    "sources": ["gladiatorrules_v50.docx", "gladiatorcards.pdf", "gladiatorhadesdeck.pdf"],
+    "totals": { "gladiators": 33, "equipment": 117, "attack": 30, "hades": 30, "playableCards": 210, "playerAidCards": 6, "allCardsInBox": 216 },
+    "notes": [
+      "copies = number of physical cards in the print sheets, verified to match the rulebook component list.",
+      "rulesText is authoritative card text; structured fields are convenience data for the engine.",
+      "openQuestion fields reference docs/03-questions-for-creator.md."
+    ]
+  },
+
+  "constants": {
+    "players": { "min": 2, "max": 6 },
+    "incomePerTurn": 30,
+    "marketSize": 3,
+    "marketRefreshCost": 20,
+    "handLimit": 6,
+    "unarmedAttack": 10,
+    "minHitDamage": 5,
+    "damageRounding": "up to nearest 5",
+    "dodgeCap": 4,
+    "dodgeFloorWhenReduced": 1,
+    "autoHitRoll": 6,
+    "reviveVita": 30,
+    "laurelsToWin": 3,
+    "startingDenarii": { "value": 0, "openQuestion": "Q1" }
+  },
+
+  "gladiators": [
+    { "id": "vulgaris", "name": "Vulgaris Gladiator", "flavor": "The everyman of the arena, steady and dependable.", "vita": 100, "dodge": 1, "copies": 11, "rulesText": null },
+    { "id": "velox", "name": "Velox Gladiator", "flavor": "Fleet of foot, striking before the eye can follow.", "vita": 80, "dodge": 2, "copies": 9, "rulesText": "Speed: At the start of the Attack Phase, draw 2 Attack cards, choose 1 to play, discard the other." },
+    { "id": "bestia", "name": "Bestia Gladiator", "flavor": "A mountain of fury that knows no fear.", "vita": 130, "dodge": 0, "dodgeNote": "Never dodges (always struck)", "copies": 8, "rulesText": "Rage: +10 to all attacks.", "openQuestion": "Q10" },
+    { "id": "retiarius", "name": "Retiarius Gladiator", "flavor": "Net and trident, the fisherman of the sands.", "vita": 90, "dodge": 2, "copies": 3, "rulesText": "Begins with a Rete already equipped (cannot unequip or sell). It still occupies 1 weapon slot." },
+    { "id": "invictus", "name": "Invictus Gladiator", "flavor": "The undefeated champion, blessed by the gods.", "vita": 120, "dodge": 3, "copies": 1, "rulesText": "May only equip body armor. May not equip shields, helmets, or limb guards." },
+    { "id": "debilis", "name": "Debilis Gladiator", "flavor": "Battered and bloodied, but not yet finished.", "vita": 80, "dodge": 1, "copies": 1, "rulesText": null, "openQuestion": "Q14" }
+  ],
+
+  "weapons": [
+    { "id": "pugio", "name": "Pugio (Dagger)", "flavor": "A legionary's last resort — swift and deadly up close.", "hands": 1, "attack": { "type": "fixed", "value": 15 }, "cost": 20, "sell": 10, "copies": 11, "rulesText": "If the defending Gladiator has fewer than 30 VITA, double this weapon's Attack before subtracting armor." },
+    { "id": "gladius", "name": "Gladius (Short Sword)", "flavor": "The blade that conquered the known world.", "hands": 1, "attack": { "type": "fixed", "value": 50 }, "cost": 40, "sell": 20, "copies": 7, "rulesText": "Cannot be paired with a Tridens (Trident)." },
+    { "id": "pilum", "name": "Pilum (Spear)", "flavor": "Punches through shield and armor alike.", "hands": 1, "attack": { "type": "fixed", "value": 50 }, "cost": 50, "sell": 25, "copies": 5, "rulesText": "Ignores 5 points of the defender's armor." },
+    { "id": "sica", "name": "Sica (Curved Blade)", "flavor": "The Thracian's blade, made to hook past a shield.", "hands": 1, "attack": { "type": "fixed", "value": 35 }, "cost": 40, "sell": 20, "copies": 4, "rulesText": "Ignores 20 points of the defender's armor." },
+    { "id": "tridens", "name": "Tridens (Trident)", "flavor": "The fisherman's spear, turned to blood sport.", "hands": 1, "mainHandOnly": true, "attack": { "type": "fixed", "value": 60 }, "cost": 60, "sell": 30, "copies": 5, "rulesText": "Cannot be paired with a Gladius (Short Sword). Main hand only." },
+    { "id": "spatha", "name": "Spatha (Long Sword)", "flavor": "A cavalry blade of fearsome reach.", "hands": 2, "attack": { "type": "fixed", "value": 80 }, "cost": 65, "sell": 35, "copies": 4, "rulesText": "Two-handed weapon. Occupies both slots." },
+    { "id": "flagrum", "name": "Flagrum (Whip)", "flavor": "A cruel lash that strips weapons from the grip.", "hands": 1, "attack": { "type": "fixed", "value": 25 }, "cost": 30, "sell": 15, "copies": 3, "rulesText": "On a hit, target must discard one card of their choice from their hand." },
+    { "id": "rete", "name": "Rete (Net)", "flavor": "Cast to entangle and ensnare.", "hands": 1, "attack": { "type": "fixed", "value": 0 }, "cost": 25, "sell": 15, "copies": 3, "maxPerGladiator": 1, "rulesText": "Reduces target's dodge range by 1 (minimum 1). One-handed. Maximum 1 per Gladiator." },
+    { "id": "leo", "name": "Leo (Lion)", "flavor": "An unleashed beast, as likely to maul as obey.", "hands": 2, "attack": { "type": "dieMultiplier", "multiplier": 10, "range": [10, 60], "openQuestion": "Q2" }, "cost": 70, "sell": 35, "copies": 2, "rulesText": "Two-handed weapon. Damage 10–60. Ignores armor. Reduces dodge by 1 (minimum 1)." },
+    { "id": "ursus", "name": "Ursus (Bear)", "flavor": "A towering brute of claw and muscle.", "hands": 1, "attack": { "type": "dieMultiplier", "multiplier": 8, "range": [8, 48], "openQuestion": "Q2" }, "cost": 50, "sell": 25, "copies": 3, "rulesText": "One-handed. Damage 8–48. Reduces auto-hit damage you take this round by 10." },
+    { "id": "canis", "name": "Canis (War Dog)", "flavor": "A trained killer that slips past armor.", "hands": 1, "attack": { "type": "dieMultiplier", "multiplier": 5, "range": [5, 30], "openQuestion": "Q2" }, "cost": 45, "sell": 25, "copies": 3, "rulesText": "One-handed. Damage 5–30. Ignores armor." }
+  ],
+
+  "armor": [
+    { "id": "subarmalis", "name": "Subarmalis (Padded Vest)", "flavor": "Humble quilted padding, better than bare skin.", "slot": "body", "def": 20, "cost": 15, "sell": 10, "copies": 6, "rulesText": "Body armor." },
+    { "id": "parma", "name": "Parma (Round Shield)", "flavor": "A light round shield favoured by skirmishers.", "slot": "offHand", "def": 25, "cost": 20, "sell": 10, "copies": 5, "rulesText": "Occupies off-hand weapon slot." },
+    { "id": "manica", "name": "Manica (Arm Guard)", "flavor": "Overlapping plates guarding the sword-arm.", "slot": "arm", "def": 25, "cost": 20, "sell": 10, "copies": 4, "rulesText": null },
+    { "id": "ocreae", "name": "Ocreae (Greaves)", "flavor": "Bronze guards for the front-line shins.", "slot": "legs", "def": 25, "cost": 20, "sell": 10, "copies": 4, "rulesText": null },
+    { "id": "cassis", "name": "Cassis (Helmet)", "flavor": "A simple iron helm.", "slot": "head", "def": 20, "cost": 10, "sell": 5, "copies": 5, "rulesText": null },
+    { "id": "galea", "name": "Galea (Visored Helmet)", "flavor": "A crested, visored helm that defies the net.", "slot": "head", "def": 25, "cost": 25, "sell": 15, "copies": 4, "rulesText": "Negates the Rete's dodge reduction effect.", "openQuestion": "Q9" },
+    { "id": "scutum", "name": "Scutum (Large Shield)", "flavor": "The great curved shield of the legions.", "slot": "offHand", "def": 35, "cost": 35, "sell": 20, "copies": 4, "rulesText": "Occupies off-hand weapon slot." },
+    { "id": "loricaSquamata", "name": "Lorica Squamata (Scale Armor)", "flavor": "Overlapping scales that turn aside a blow.", "slot": "body", "def": 35, "cost": 40, "sell": 20, "copies": 3, "rulesText": "Body armor. Reduces auto-hit damage by 10." },
+    { "id": "loricaSegmentata", "name": "Lorica Segmentata (Plate Armor)", "flavor": "Banded iron plate, the finest coin can buy.", "slot": "body", "def": 45, "cost": 55, "sell": 30, "copies": 2, "rulesText": "Body armor. Reduces auto-hit damage by 20. Cannot be worn with other body armor." }
+  ],
+
+  "specials": [
+    { "id": "aquaVitae", "name": "Aqua Vitae (Water of Life)", "flavor": "A sacred draught that restores the flesh.", "sell": 15, "copies": 6, "drawOnly": true, "oneUse": true, "rulesText": "Restore 30 VITA. May be used at any time, including during the Attack Phase after taking damage. Cannot use if your VITA goes below 0.", "openQuestion": "Q7" },
+    { "id": "harena", "name": "Harena (Sand)", "flavor": "A fistful of arena dust, flung to blind.", "sell": 10, "copies": 4, "drawOnly": true, "oneUse": true, "rulesText": "Throw at an opponent to reduce their dodge range by 1 for the Attack Phase (minimum 1). Must be declared after drawing an attack card." },
+    { "id": "furor", "name": "Furor (Rage)", "flavor": "The battle-fury that guides a killing blow.", "sell": 10, "copies": 4, "drawOnly": true, "oneUse": true, "rulesText": "Add 1 to your attack roll this phase (a roll of 5 becomes 6, triggering an auto-hit). Must be declared after drawing an attack card.", "openQuestion": "Q6" },
+    { "id": "medicusScroll", "name": "Medicus Scroll (Physician's Scroll)", "flavor": "The arena physician's healing art.", "sell": 10, "copies": 4, "drawOnly": true, "oneUse": true, "rulesText": "Restore 20 VITA to your Gladiator. May be used at any time, including during the Attack Phase after taking damage. Cannot use if VITA goes below 0." },
+    { "id": "interceptio", "name": "Interceptio (Sabotage)", "flavor": "A bribe, a theft — the games are never fair.", "sell": 10, "copies": 3, "drawOnly": true, "oneUse": true, "rulesText": "Can only be used during the Equip Phase. Remove one equipped one-handed weapon or armor from any opponent. They receive half its sell value (rounded up to the nearest 5).", "openQuestion": "Q8" },
+    { "id": "fortuna", "name": "Fortuna (Fortune)", "flavor": "The goddess of luck smiles upon you.", "sell": 5, "copies": 3, "drawOnly": true, "oneUse": true, "rulesText": "Draw 2 equipment cards, keep 1, then discard the other." }
+  ],
+
+  "legendaries": [
+    { "id": "fulgurIovis", "name": "Fulgur Iovis (Lightning of Jupiter)", "flavor": "The thunderbolt of the king of gods.", "type": "weapon", "hands": 2, "attack": { "type": "fixed", "value": 60 }, "sell": 50, "copies": 1, "rulesText": "Attacks two players simultaneously. Roll for attack once. Each opponent dodges separately. Deals 60 damage minus armor to each hit. Auto-hit: deal 60 damage to both opponents, ignores armor.", "openQuestion": "Q5" },
+    { "id": "loricaHephaesti", "name": "Lorica Hephaesti (Armor of Hephaestus)", "flavor": "Forged in divine fire to turn aside death.", "type": "armor", "slot": "body", "def": 45, "sell": 50, "copies": 1, "rulesText": "45 defense. Once per game, use it to negate one hit entirely (take 0 damage)." },
+    { "id": "ensisMartis", "name": "Ensis Martis (Blade of Mars)", "flavor": "The war god's sword thirsts for blood.", "type": "weapon", "hands": 1, "attack": { "type": "fixed", "value": 70 }, "sell": 50, "copies": 1, "rulesText": "On a successful hit, draw and immediately play an extra attack card.", "openQuestion": "Q11" },
+    { "id": "talariaMercurii", "name": "Talaria Mercurii (Sandals of Mercury)", "flavor": "Winged sandals of the messenger god.", "type": "accessory", "slot": "none", "sell": 50, "copies": 1, "rulesText": "Adds 2 to your dodge range. Maximum total dodge range is 4." },
+    { "id": "hastaAchillis", "name": "Hasta Achillis (Spear of Achilles)", "flavor": "The hero's spear, guided by fate.", "type": "weapon", "hands": 1, "attack": { "type": "fixed", "value": 60 }, "sell": 50, "copies": 1, "rulesText": "Auto-hits on a roll of 5 or 6 (not just 6)." },
+    { "id": "cerberus", "name": "Cerberus (Hound of Hades)", "flavor": "The three-headed hound of the underworld.", "type": "weapon", "hands": 1, "attack": { "type": "dieMultiplier", "multiplier": 8, "range": [8, 48], "openQuestion": "Q2" }, "sell": 50, "copies": 1, "rulesText": "Damage 8–48. Ignores armor. Reduces dodge by 1 (minimum 1)." }
+  ],
+
+  "legendaryRules": {
+    "drawOnly": true,
+    "maxPerGladiator": 1,
+    "uniqueCopies": true,
+    "marketBehavior": "If flipped into the Market, discard it and redraw (same as specials).",
+    "openQuestion": "Q16"
+  },
+
+  "attackCards": [
+    { "id": "attackLeft", "name": "Attack Left", "copies": 9, "rulesText": "Attack the player to your left.", "openQuestion": "Q4" },
+    { "id": "attackRight", "name": "Attack Right", "copies": 9, "rulesText": "Attack the player to your right.", "openQuestion": "Q4" },
+    { "id": "attackChoice", "name": "Attack Your Choice", "copies": 6, "rulesText": "Attack a player of your choice." },
+    { "id": "pass", "name": "Pass", "copies": 6, "rulesText": "Do nothing this Attack Phase." }
+  ],
+
+  "hadesCards": {
+    "usage": "Play on your turn while eliminated. One use — discard.",
+    "watch": {
+      "effect": "none",
+      "cards": [
+        "You went on a date with Persephone. Distracted, you do nothing this turn.",
+        "Stuck feeding Cerberus — all three heads. No meddling this turn.",
+        "Charon's ferry is running late. You wait on the riverbank.",
+        "Lost in the Fields of Asphodel. You wander aimlessly this turn.",
+        "Hades has you organizing the underworld's scrolls. Busywork.",
+        "You drank from the river Lethe and forgot what you meant to do.",
+        "The shades are throwing a feast. You attend instead of scheming.",
+        "You argue with the ferryman over the toll. The turn slips away.",
+        "Elysium's gates were open for a tour. You couldn't resist.",
+        "You tried to bribe a Fury. It did not go well. Nothing happens.",
+        "You lost a sandal in the Styx and spent the turn fishing for it.",
+        "Hades put you on judgment duty. Paperwork for the damned.",
+        "Mesmerized by the three-headed dog, you stare the turn away.",
+        "You wait in the long queue at the gates of Tartarus.",
+        "You linger to watch your own funeral games. Bittersweet."
+      ]
+    },
+    "wrathOfTheDead": {
+      "effect": "all living gladiators",
+      "cards": [
+        { "text": "The dead riot in the stands! All living gladiators' dodge −1 this round (min 1).", "effectKey": "allDodgeMinus1" },
+        { "text": "A cold wind blows from Hades. All living gladiators take 5 damage.", "effectKey": "allDamage5" },
+        { "text": "The restless crowd jeers. Every living gladiator discards 1 card.", "effectKey": "allDiscard1" },
+        { "text": "Ghostly hands rattle the racks. All attack rolls −1 this round.", "effectKey": "allRollsMinus1" },
+        { "text": "The underworld stirs. All living gladiators' dodge −1 this round (min 1).", "effectKey": "allDodgeMinus1" },
+        { "text": "Shrieking shades unnerve the arena. All attack rolls −1 this round.", "effectKey": "allRollsMinus1" },
+        { "text": "A chill grips the sand. The lowest-HP living gladiator takes 5 damage.", "effectKey": "lowestHpDamage5" },
+        { "text": "Straps rot in the underworld air. All living gladiators' armor −10 this round.", "effectKey": "allArmorMinus10" }
+      ]
+    },
+    "whisperFromBelow": {
+      "effect": "one gladiator of the dead player's choice",
+      "cards": [
+        { "text": "You whisper a curse. Chosen gladiator's dodge −1 this round (min 1).", "effectKey": "targetDodgeMinus1" },
+        { "text": "A sudden cramp! Chosen gladiator drops a weapon — it is inactive this round.", "effectKey": "targetWeaponInactive" },
+        { "text": "Their armor comes untied. Chosen gladiator's armor −10 this round.", "effectKey": "targetArmorMinus10" },
+        { "text": "You spook their nerve. Chosen gladiator's next attack roll −1 this round.", "effectKey": "targetRollMinus1" },
+        { "text": "A shade trips them. Chosen gladiator's attack hits a RANDOM player this round.", "effectKey": "targetAttackRandom", "openQuestion": "Q13" },
+        { "text": "The dead clutch their arm. Chosen gladiator may not play a Special this round.", "effectKey": "targetNoSpecials" },
+        { "text": "A ghostly grip drags at them. Chosen gladiator's dodge −1 this round (min 1).", "effectKey": "targetDodgeMinus1" }
+      ]
+    }
+  }
+}
