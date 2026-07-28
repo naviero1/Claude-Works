@@ -17,7 +17,7 @@ beyond the current base of **Nahunta** (great culture, volume-limited) and
 | Models & Make-vs-Buy | Model A (we harvest on-site) vs Model B (they harvest) vs buy-direct, and cost drivers |
 | Call Question Sheet | Outreach script to qualify each plant (mirror of the CJB agenda style) |
 | Sources & Confidence | Every source + a confidence rating |
-| APHIS & EU Export | *(added)* Whether EU export requires APHIS certification from suppliers |
+| APHIS & EU Export | APHIS vs FSIS vs state inspection, what the EU actually requires (Reg 1069/2009 & 142/2011), the medical-device angle, and a supplier checklist for EU-bound tissue |
 
 ## Requirements this study was built against
 - **Volume band 80–3,000 hogs/week** is a hard gate — *unless* the plant specializes in
