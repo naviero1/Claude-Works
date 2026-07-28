@@ -3,7 +3,7 @@
 Second-source qualification study for the porcine tissue-harvesting operation —
 finding additional slaughterhouse suppliers (and national direct-tissue vendors)
 beyond the current base of **Nahunta** (great culture, volume-limited) and
-**Martin's** (see correction below).
+**Martin's Pork Products** (see benchmark note below).
 
 ## Deliverable
 **`Tissue_Supplier_Study.xlsx`** — a 7+ tab workbook:
@@ -34,8 +34,10 @@ beyond the current base of **Nahunta** (great culture, volume-limited) and
    organ exception; full pelvic/abdominal/thoracic harvest to spec.
 3. **Piedmont Custom Meats (NC)** & **Acre Station (NC)** — best in-region new fits.
 4. **Virginia** (EcoFriendly, T&E Meats, Blue Ridge) — strongest humane-certified USDA bench.
-5. **Corrections:** Martin's Abattoir closed in 2013 (was a cattle plant); Nahunta is
-   NC state-inspected, not USDA-FSIS — which ties into the APHIS/EU-export question.
+5. **Benchmark note:** the "Martin's" incumbent is **Martin's Pork Products (Falcon, NC)** —
+   an active USDA Talmadge-Aiken slaughter + processing plant (Est. TA-6720, ~75 staff), not
+   the unrelated *Martin's Abattoir* in Godwin that closed in 2013. Nahunta is NC state-inspected,
+   not USDA-FSIS — which ties into the APHIS/EU-export question.
 
 ## Important caveats
 - Weekly volumes and certifications for small/custom plants are largely **unpublished** —
