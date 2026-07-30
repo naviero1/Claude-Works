@@ -16,9 +16,11 @@ multi-sheet Excel workbook:
 Counts are driven by formulas referencing the Inspection Log, so appending new
 inspection rows updates the Pareto and Dashboard automatically.
 
-Batches ingested so far:
-  * Kill 2026-05-27 (Martins)  - 31 inspected, 8 pass, 23 fail
-  * Kill 2026-07-08 (Martins)  - 26 inspected, 1 pass, 25 fail
+Inspection sheets ingested so far (grouped by kill date on the Dashboard):
+  * Kill 2026-05-27 (Martins)             - 31 inspected, 8 pass, 23 fail
+  * Kill 2026-07-08 (Martins)             - 26 inspected, 1 pass, 25 fail
+  * Kill 2026-07-28 (Martins, Rasmin)     - 30 inspected, 1 pass, 29 fail
+  * Kill 2026-07-28 (Martins, Toni)       - 12 inspected, 0 pass, 12 fail
 """
 
 import os
@@ -67,8 +69,8 @@ TAXONOMY = [
      "Method / Handling",
      "Excessive pull force / rough handling tears ligament attachments.",
      "Control pull-force & angle on gut set removal; handle block by support surface, not by ligaments."),
-    ("D5", "Urethra breach (cut / laceration / hole)",
-     "Urethra transected, lacerated or perforated (incl. hole in distal urethra).",
+    ("D5", "Urethra breach (cut / laceration / hole / separation)",
+     "Urethra transected, lacerated, perforated or separated (incl. hole in distal urethra).",
      "Major", "Carcass splitting saw / bung dropping", "S4", "Carcass splitting",
      "Machine / Method",
      "Splitting saw off-center through pelvis, or bung-drop cut catches/perforates urethra.",
@@ -109,6 +111,18 @@ TAXONOMY = [
      "Machine / Method",
      "Saw path or traction at the pelvic floor separates the bladder neck from the urethra.",
      "Center pelvic split; protect bladder neck at the pelvic outlet; control traction."),
+    ("D12", "Bladder cut / hole (breach)",
+     "Bladder wall cut open or holed. Urine-contamination risk. Distinct from D7 (deformed) & D11 (neck separation).",
+     "Major", "Evisceration knife / splitting saw", "S3", "Evisceration",
+     "Machine / Method",
+     "Knife nick or saw path opens the bladder; or over-distended bladder ruptures under handling.",
+     "Protect bladder during gut removal; verify saw path; manage bladder fill (lairage/water timing)."),
+    ("D13", "Block too short / undersized",
+     "Harvested pelvic block dimensionally too short / fails the length template (insufficient tissue retained).",
+     "Major", "Pelvic-block separation cut (cut-boundary placement)", "S3", "Evisceration",
+     "Method / Man",
+     "Separation cut placed too close; insufficient block length retained vs template/spec.",
+     "Define & train pelvic-block cut boundaries / minimum length; cut to template; provide a length gauge."),
 ]
 DEFECT_CODES = [t[0] for t in TAXONOMY]
 NAME_OF = {t[0]: t[1] for t in TAXONOMY}
@@ -163,6 +177,33 @@ BATCHES = [
             (1, "Pass", "", [], ""),
         ],
     ),
+    dict(
+        insp_date="2026-07-29", kill_date="2026-07-28", harvest_date="2026-07-28", slaughterhouse="Martins",
+        sh_tech="", inspector="Rasmin", batch="", part_name="Pelvic block",
+        rows=[
+            (2, "Fail", "large hole in bladder", ["D12"], ""),
+            (2, "Fail", "Ureter lac", ["D2"], ""),
+            (1, "Pass", "no damage found", [], ""),
+            (6, "Fail", "ureter not imbedded", ["D1"], ""),
+            (12, "Fail", 'hole in mesentary membrane in critical area greater than 1.5"', ["D6"], ""),
+            (6, "Fail", "Block too short", ["D13"], ""),
+            (1, "Fail", "laceration in urethra", ["D5"],
+                "Sheet's handwritten total read '1 Pass / 22 failures'; per-row entries sum to 29 fails (used here)."),
+        ],
+    ),
+    dict(
+        insp_date="2026-07-29", kill_date="2026-07-28", harvest_date="2026-07-28", slaughterhouse="Martins",
+        sh_tech="", inspector="Toni", batch="", part_name="Tiss, porcine, fem, Pelvic block",
+        rows=[
+            (1, "Fail", "bowel is cut open", ["D8"], ""),
+            (5, "Fail", 'membrane damage greater than .5" in critical area', ["D6"], ""),
+            (1, "Fail", "urethra cut, bowel damaged", ["D5", "D8"], ""),
+            (2, "Fail", "ureter is damaged and cut off", ["D2"], ""),
+            (1, "Fail", "bladder is cut open", ["D12"], ""),
+            (1, "Fail", 'bladder is cut open, urethra seperated, membrane damage greater than .5"', ["D12", "D5", "D6"], ""),
+            (1, "Fail", "short block", ["D13"], ""),
+        ],
+    ),
 ]
 
 # ----- expand into one record per physical block -----
@@ -187,10 +228,14 @@ for r in records:
 order = sorted(DEFECT_CODES, key=lambda c: (-counts[c], int(c[1:])))
 total_def = sum(counts.values())
 
-# per-batch stats
-batch_stats = []
+# per-batch stats, grouped by KILL DATE (sheets that share a kill date aggregate into one row)
+kill_dates = []
 for b in BATCHES:
-    recs = [r for r in records if r["kill_date"] == b["kill_date"]]
+    if b["kill_date"] not in kill_dates:
+        kill_dates.append(b["kill_date"])
+batch_stats = []
+for kd in sorted(kill_dates):
+    recs = [r for r in records if r["kill_date"] == kd]
     insp = len(recs)
     passed = sum(1 for r in recs if r["result"] == "Pass")
     failed = insp - passed
@@ -199,7 +244,7 @@ for b in BATCHES:
         for c in r["codes"]:
             bcounts[c] += 1
     top = max(bcounts, key=lambda c: bcounts[c])
-    batch_stats.append(dict(kill=b["kill_date"], insp=insp, passed=passed, failed=failed,
+    batch_stats.append(dict(kill=kd, insp=insp, passed=passed, failed=failed,
                             fpy=passed / insp if insp else 0, top=top, topn=bcounts[top]))
 
 # station rollup
@@ -270,10 +315,10 @@ readme = [
     ("  b. Put a 1 in each defect column (D1–D11) that applies. Use the dropdown. If a NEW defect type appears, add it to 'Defect Taxonomy' first, then add its column.", "P"),
     ("  c. Pareto + Dashboard recalc automatically. Re-sort the Pareto table high->low if the ranking changes (counts are live; row order is not).", "P"),
     ("", ""),
-    ("WHAT THE DATA SAYS SO FAR  (2 batches, SH: Martins — kills 2026-05-27 & 2026-07-08)", "H"),
+    ("WHAT THE DATA SAYS SO FAR  (4 inspection sheets across 3 kill dates: 2026-05-27, 2026-07-08, 2026-07-28 — SH: Martins)", "H"),
     (f"  {sum(bs['insp'] for bs in batch_stats)} blocks inspected · {sum(bs['passed'] for bs in batch_stats)} pass · {sum(bs['failed'] for bs in batch_stats)} fail · combined First Pass Yield {sum(bs['passed'] for bs in batch_stats)/sum(bs['insp'] for bs in batch_stats)*100:.1f}% · {total_def} defect occurrences", "P"),
-    ("  Vital few (~78%): membrane damage (critical area), ureters not embedded, urethra breach, suspensory-ligament damage.  ~78% of ALL defects originate at ONE station: Evisceration.", "P"),
-    ("  OPEN ITEM: 5 blocks (kill 2026-05-27) with an 8\" hole in the bladder suspensory ligament are recorded as PASS pending ME/DE determination — flip to Fail + tag D4 if confirmed.", "P"),
+    ("  Vital few (~80%): membrane damage (critical area), ureters not embedded, urethra breach, bowel/colon/rectum breach, suspensory-ligament damage.  ~84% of ALL defects originate at ONE station: Evisceration.", "P"),
+    ("  OPEN ITEMS: (1) 5 blocks (kill 2026-05-27), 8\" hole in bladder suspensory ligament — recorded PASS pending ME/DE (flip to Fail + tag D4 if confirmed).  (2) Rasmin 07-28 sheet handwritten total said '22 fails' but per-row entries sum to 29 (used).", "P"),
     ("", ""),
     ("SEVERITY KEY", "H"),
     ("  Critical = function-destroying or food-safety (e.g. bowel/colon/rectum breach = contamination).   Major = block rejected.   Minor = cosmetic / recoverable.", "P"),
@@ -470,7 +515,8 @@ def _title(text, size=1200, color=NAVY):
 
 SHORT = {"D6":"Membrane dmg","D1":"Ureters n/e","D5":"Urethra breach","D4":"Susp. ligament",
          "D8":"Bowel/colon","D2":"Ureter cut","D3":"Ureter missing","D7":"Bladder def.",
-         "D9":"Blood clots","D10":"Broad ligament","D11":"Bladder neck sep."}
+         "D9":"Blood clots","D10":"Broad ligament","D11":"Bladder neck sep.",
+         "D12":"Bladder breach","D13":"Block too short"}
 LBL_COL, THR_COL = 13, 14                              # Pareto-sheet helper cols (M/N), sit UNDER the chart
 par.cell(ph, THR_COL, "80% target")
 for i, code in enumerate(order):
@@ -515,7 +561,7 @@ line.y_axis.scaling.min = 0; line.y_axis.scaling.max = 1; line.y_axis.number_for
 line.y_axis.majorGridlines = None; line.y_axis.txPr = _txpr(); line.y_axis.delete = False
 bar.y_axis.crosses = "autoZero"
 bar += line
-bar.title = _title("Defect Pareto — Rejected Pelvic Blocks   (SH: Martins, 2 batches)")
+bar.title = _title("Defect Pareto — Rejected Pelvic Blocks   (SH: Martins · 3 kill dates)")
 bar.legend.position = "b"; bar.legend.overlay = False
 bar.width = 26; bar.height = 12.5
 par.add_chart(bar, "H4")
@@ -598,7 +644,7 @@ rc.add_data_validation(dv3); dv3.add(f"K{hr+1}:K{hr+40}")
 # ============================================================================
 dash = wb.create_sheet("Dashboard"); dash.sheet_view.showGridLines = False
 title_block(dash, "DASHBOARD — SUMMARY",
-            "SH: Martins  |  2 batches ingested (kills 2026-05-27 & 2026-07-08)", 7)
+            "SH: Martins  |  4 inspection sheets across 3 kill dates (2026-05-27, 2026-07-08, 2026-07-28)", 7)
 kpis = [
     ("Blocks Inspected", f"=COUNTIF('Inspection Log'!{RESULT_COL}{data_first}:{RESULT_COL}{RNG},\"Pass\")+COUNTIF('Inspection Log'!{RESULT_COL}{data_first}:{RESULT_COL}{RNG},\"Fail\")", "0"),
     ("Pass", f'=COUNTIF(\'Inspection Log\'!{RESULT_COL}{data_first}:{RESULT_COL}{RNG},"Pass")', "0"),
@@ -657,9 +703,12 @@ vc = dash.cell(kr, 2); vc.value = fs_formula; vc.font = font(13, True, "C00000")
 kr += 1
 dash.cell(kr, 1, "  (Critical codes: " + ", ".join(fs_codes) + " — membrane damage & bowel/colon/rectum breach)").font = font(9, italic=True, color=GREY)
 kr += 2
-dash.cell(kr, 1, "OPEN ITEM").font = font(11, True, "C00000"); dash.cell(kr, 1).fill = fill(AMBER); dash.cell(kr, 1).border = BORDER
+dash.cell(kr, 1, "OPEN ITEMS").font = font(11, True, "C00000"); dash.cell(kr, 1).fill = fill(AMBER); dash.cell(kr, 1).border = BORDER
 kr += 1
-dash.cell(kr, 1, "5 blocks (kill 2026-05-27), 8\" hole in bladder suspensory ligament, recorded as PASS pending ME/DE determination. If confirmed Fail -> tag D4.").font = font(9, italic=True, color="833C00")
+dash.cell(kr, 1, "1)  5 blocks (kill 2026-05-27), 8\" hole in bladder suspensory ligament, recorded as PASS pending ME/DE determination. If confirmed Fail -> tag D4.").font = font(9, italic=True, color="833C00")
+dash.merge_cells(start_row=kr, start_column=1, end_row=kr, end_column=7)
+kr += 1
+dash.cell(kr, 1, "2)  Rasmin 07-28 sheet: handwritten total read '1 Pass / 22 failures', but the per-row entries sum to 29 fails — the granular rows were used. Confirm with inspector.").font = font(9, italic=True, color="833C00")
 dash.merge_cells(start_row=kr, start_column=1, end_row=kr, end_column=7)
 
 dash.column_dimensions["A"].width = 34
