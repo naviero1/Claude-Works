@@ -10,11 +10,22 @@ so corrective action can be taken *before* the eviscerated tissue block reaches 
 Everything up to *"delivered to us"* is the **supplier's** (slaughterhouse) to control:
 
 ```
-Live animal → S1 Sticking/Bleeding → S2 Bung dropping/Rodding → S3 Evisceration (knife + gut pull)
+Live animal → S1 Sticking/Bleeding → S2 Bung + aitch bone → S3 Evisceration (belly opening + gut-set traction)
             → S4 Carcass splitting (saw) → S5 Handling & Pit drop → [ delivered to us ]
                                                                         │
-                    OUR side:  harvest techs receive block from pit → spec-out / accept → IQC (this data)
+                    OUR side:  harvest techs recover block from the pit → spec-out / accept → IQC (this data)
 ```
+
+The pelvic block is the **caudal end of the "gut set" (green offal)** dropped during evisceration. Almost every defect is inflicted at one of **four caudal substeps** — bung/aitch cut, belly opening, gut-set traction, or the split saw — and the **damage signature** tells you which:
+
+| Signature on the block | Cause | Station |
+|---|---|---|
+| Straight kerf + bone dust, mirror cut | Saw | S4 Splitting |
+| Clean single slit | Knife | S2 Bung/aitch · S3 belly |
+| Frayed, stretched tear (no bone dust) | Traction | S3 Evisceration pull |
+| Petechiae / speckle in fat | Blood splash | S1 Stun/stick |
+
+**≈84% of all 122 defects trace to the Evisceration zone (S3).** See the **Root-Cause Deep-Dive** sheet and `RootCause_map.png` for the full process study, per-substep fixes, contributing factors, supplier questions, and glossary — grounded in USDA-FSIS / Purdue / FAO slaughter references and porcine pelvic anatomy.
 
 ## Files
 
@@ -26,15 +37,17 @@ Live animal → S1 Sticking/Bleeding → S2 Bung dropping/Rodding → S3 Eviscer
 | `source_IQC_Martins_failed_blocks_2026-07-28_rasmin.xlsx` | Original IQC tally sheet (kill 2026-07-28, inspector Rasmin). |
 | `source_IQC_Martins_failed_blocks_2026-07-28_toni.xlsx` | Original IQC tally sheet (kill 2026-07-28, inspector Toni). |
 | `Pareto_preview.png` / `Station_rollup_preview.png` | Static previews of the two key charts (combined). |
-| `build_workbook.py` / `make_previews.py` | Reproducible builders (defect taxonomy + root-cause map live in `build_workbook.py`). |
+| `RootCause_map.png` | Infographic: the four caudal substeps → defects → damage signature → fix. |
+| `build_workbook.py` / `make_previews.py` / `make_rootcause_map.py` | Reproducible builders (defect taxonomy + root-cause map live in `build_workbook.py`). |
 
 ### Workbook sheets
 1. **README** — how the framework works + process flow.
 2. **Inspection Log** — master data, one row per block. *Append future inspections here.*
-3. **Defect Taxonomy** — controlled vocabulary (D1–D11) + root-cause map (process step, supplier station, 6M cause, mechanism, corrective action).
+3. **Defect Taxonomy** — controlled vocabulary (D1–D13) + root-cause map (process step, supplier station, 6M cause, mechanism, corrective action).
 4. **Pareto** — auto-calculating defect Pareto (chart) + rollup by supplier station.
-5. **Root Cause 5-Why** — RCA template, seeded for the vital-few defects, with a Lessons-Learned column.
-6. **Dashboard** — combined KPIs + a per-batch breakdown to watch the trend.
+5. **Root-Cause Deep-Dive** — the pork evisceration process studied: where each defect is born, a damage-signature diagnostic, contributing factors, supplier walk-through questions, and a glossary.
+6. **Root Cause 5-Why** — RCA template, seeded for the vital-few + new defects, with a Lessons-Learned column.
+7. **Dashboard** — combined KPIs + a per-batch breakdown to watch the trend.
 
 ## Data so far — SH: Martins (4 inspection sheets, 3 kill dates)
 

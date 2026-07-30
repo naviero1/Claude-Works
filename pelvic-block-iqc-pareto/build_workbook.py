@@ -6,12 +6,13 @@ Ingests rejected-pelvic-block IQC inspection data (SH: Martins), normalizes each
 free-text scrap reason into a controlled defect taxonomy, and produces a
 multi-sheet Excel workbook:
 
-  1. README            - how the framework works + process flow
-  2. Inspection Log    - one row per physical block (master data, append future batches here)
-  3. Defect Taxonomy   - controlled vocabulary + root-cause map (the framework)
-  4. Pareto            - auto-calculating defect Pareto (chart) + supplier-station rollup
-  5. Root Cause (5-Why)- structured RCA template seeded for the vital-few defects
-  6. Dashboard         - combined KPIs + per-batch breakdown
+  1. README              - how the framework works + process flow
+  2. Inspection Log      - one row per physical block (master data, append future batches here)
+  3. Defect Taxonomy     - controlled vocabulary + root-cause map (the framework)
+  4. Pareto              - auto-calculating defect Pareto (chart) + supplier-station rollup
+  5. Root-Cause Deep-Dive- pork evisceration process study; damage-signature diagnostic
+  6. Root Cause (5-Why)  - structured RCA template seeded for the vital-few + new defects
+  7. Dashboard           - combined KPIs + per-batch breakdown
 
 Counts are driven by formulas referencing the Inspection Log, so appending new
 inspection rows updates the Pareto and Dashboard automatically.
@@ -47,82 +48,82 @@ from openpyxl.utils import get_column_letter
 TAXONOMY = [
     ("D1", "Ureters not embedded",
      "Ureter(s) dislodged/stripped from the surrounding pelvic fat & fascia; no longer seated in tissue.",
-     "Major", "Gut/pluck removal (traction) + pit handling", "S3", "Evisceration",
+     "Major", "Evisceration traction (gut-set withdrawal)", "S3", "Evisceration",
      "Method / Handling",
-     "Tensile traction: block pulled/stripped so fascia separates from ureter; over-trim.",
-     "Standardize gut-pull technique & pull-force; reduce stripping of perirenal fat; gentler drop to pit."),
+     "The ureter runs retroperitoneally in sublumbar fat (ventral to psoas, through the lateral bladder ligaments); caudo-ventral pull on the gut set peels it out of that fat bed intact-but-loose.",
+     "Cut the ureters & sublumbar attachments BEFORE withdrawing the gut set (per hand-slaughter standard); slower, controlled set removal; gentler pit drop."),
     ("D2", "Ureter cut / severed",
      "Ureter partially or fully transected / cut off (sharp cut edge).",
-     "Major", "Evisceration knife / splitting saw", "S3", "Evisceration",
+     "Major", "Bung/aitch coring, split saw, or traction avulsion", "S3", "Evisceration",
      "Machine / Method",
-     "Sharp laceration by evisceration knife or off-line pelvic saw path.",
-     "Retrain knife path around pelvic organs; verify saw alignment through symphysis."),
+     "Coring knife/aitch blade cuts the pelvic ureter (step 8); split saw shears it if off-center (11); over-pull avulses it at the narrow external-iliac crossing (10).",
+     "Coring depth/axis control; verify aitch-blade & split-saw alignment; cut-don't-over-pull the gut set."),
     ("D3", "Ureter missing",
      "One ureter (left or right) absent from the block.",
-     "Major", "Bung dropping / splitting (over-cut) or lost in handling", "S2", "Bung dropping",
+     "Major", "Bung/aitch over-cut or lost in the dropped set", "S2", "Bung + aitch bone",
      "Method / Handling",
-     "Over-aggressive bung/pelvic cut removes ureter, or ureter lost during drop/collection.",
-     "Tighten bung-dropping cut boundary; audit pit collection for detached tissue."),
+     "Aitch/bung over-cut removes the distal ureter, or it avulses at the iliac crossing and is lost in the dropped gut set / pit.",
+     "Tighten bung/aitch cut boundary & coring axis; audit pit collection for detached tissue."),
     ("D4", "Suspensory ligaments damaged",
      "Suspensory ligament(s) torn/frayed or holed (incl. bladder suspensory ligament).",
-     "Major", "Gut pull (traction) + handling", "S3", "Evisceration",
+     "Major", "Evisceration traction (gut-set withdrawal)", "S3", "Evisceration",
      "Method / Handling",
-     "Excessive pull force / rough handling tears ligament attachments.",
-     "Control pull-force & angle on gut set removal; handle block by support surface, not by ligaments."),
+     "The bladder is slung by a median ligament (ventral) & paired lateral ligaments (dorsolateral, carrying the ureters); traction on the gut set tears these off the bladder/body wall; the midline knife/saw severs the median ligament.",
+     "Handle the block by a support surface, not by the ligaments; control pull-force & angle; cut attachments first."),
     ("D5", "Urethra breach (cut / laceration / hole / separation)",
      "Urethra transected, lacerated, perforated or separated (incl. hole in distal urethra).",
-     "Major", "Carcass splitting saw / bung dropping", "S4", "Carcass splitting",
+     "Major", "Aitch-bone cut & carcass split saw (midline)", "S4", "Carcass splitting",
      "Machine / Method",
-     "Splitting saw off-center through pelvis, or bung-drop cut catches/perforates urethra.",
-     "Center pelvic split on symphysis; calibrate/align splitting saw; slow through pelvic zone."),
+     "The urethra sits on the midline directly under the pubic symphysis — in the path of BOTH the aitch-bone cut (step 8) and the split saw (step 11); a midline pizzle cut severs the penile urethra in barrows.",
+     "Center the pelvic split on the symphysis; calibrate/align split saw & guide; verify aitch-blade alignment; size-class sorting; keep the pizzle cut off-center."),
     ("D6", "Membrane damage in critical area",
      "Hole/tear in the mesentery membrane separating bowel from pelvic organs, in the critical zone (>1.5\").",
-     "Critical", "Evisceration knife technique / bung dropping", "S3", "Evisceration",
+     "Critical", "Evisceration traction (gut-set withdrawal)", "S3", "Evisceration",
      "Method / Man",
-     "Knife nick or tensile tear of membrane during gut removal / bung loosening.",
-     "Retrain evisceration knife depth & path; slow line in pelvic zone; blunt-dissect where possible."),
+     "The thin, fenestrated mesentery/broad-ligament membrane is the weakest element under traction and tears/holes first — especially where fingers/hook engage it to pull, or where the knife releases the set.",
+     "Cut membrane attachments before pulling; blunt-dissect; slow the line through the pelvic zone; ergonomic relief so operators aren't yanking to keep pace."),
     ("D7", "Bladder deformed / deformed attachment",
      "Bladder misshapen or attachment distorted.",
      "Minor", "Live-animal fill state / handling pressure", "S6", "Live / physiology",
      "Material / Handling",
-     "Distended (full) bladder at slaughter, or compression during handling.",
-     "Manage lairage/feed-water timing to reduce bladder fill; avoid compressing block."),
+     "Distended (full) bladder at slaughter, or compression/traction on the attachment during handling.",
+     "Manage lairage feed/water withdrawal (fasting) to empty the bladder; avoid compressing the block."),
     ("D8", "Bowel / colon / rectum breach",
      "Bowel integrity breached - cut, hole, or separation of colon/rectum. FOOD-SAFETY / contamination risk.",
-     "Critical", "Evisceration / bung dropping", "S3", "Evisceration",
+     "Critical", "Bung margin / belly-opening knife / traction", "S3", "Evisceration",
      "Method / Man",
-     "Knife slip or aggressive bung separation opens/severs colon or rectum.",
-     "Reinforce bung-bagging/tie-off; retrain knife path; treat as contamination CCP at supplier."),
+     "A <1/2\" circumanal margin nicks the rectum (step 8); the knife perforates the colon at belly opening (step 9); pull separates colon from rectum (step 10). Bung not sealed before withdrawal.",
+     "Hold a >=1/2\" circumanal margin; seal/bag the bung BEFORE pulling; retrain knife path; treat as a contamination CCP."),
     ("D9", "Blood clots",
-     "Retained blood clots in the tissue block.",
-     "Minor", "Sticking / bleeding efficiency", "S1", "Sticking / Bleeding",
+     "Retained blood clots / blood-splash speckle in the tissue block.",
+     "Minor", "Stunning + sticking (stun-to-stick interval)", "S1", "Sticking / Bleeding",
      "Method",
-     "Incomplete exsanguination (stick placement / stun-to-stick interval / bleed time).",
-     "Verify stick placement & bleed-out time; check stun-to-stick interval."),
+     "Electrical-stun blood-pressure spike + a long/variable stun-to-stick interval ruptures capillaries (splash/speckle) and leaves vessels filled; incomplete bleed-out.",
+     "Shorten & stabilize the stun-to-stick interval; verify stick placement & bleed-out time; consider CO2 stun (fewer hemorrhages)."),
     ("D10", "Broad ligament hole / tear",
-     "Large hole/tear in the broad ligament.",
-     "Major", "Evisceration / bung dropping", "S3", "Evisceration",
+     "Large hole/tear in the broad ligament (mesometrium in gilts).",
+     "Major", "Evisceration traction (gut-set withdrawal)", "S3", "Evisceration",
      "Method / Handling",
-     "Traction tear or knife nick near broad ligament during gut removal.",
-     "Control pull-force; retrain knife path near broad ligament."),
+     "The broad ligament suspending the uterus/ovary is torn by the same caudo-ventral pull on the gut set; the ovarian suspensory ligament is a common tear point.",
+     "Control pull-force; cut attachments before pulling; retrain knife path near the broad ligament."),
     ("D11", "Bladder neck separation",
      "Bladder detached/separated at the neck (bladder-urethra junction at the pelvic floor).",
-     "Major", "Carcass splitting saw / pelvic outlet cut", "S4", "Carcass splitting",
+     "Major", "Aitch-bone cut & split saw (symphysis plane)", "S4", "Carcass splitting",
      "Machine / Method",
-     "Saw path or traction at the pelvic floor separates the bladder neck from the urethra.",
-     "Center pelvic split; protect bladder neck at the pelvic outlet; control traction."),
+     "The neck is sheared at the pubic-symphysis plane by the aitch cut / split saw, or avulsed by traction on the urethra/ligaments.",
+     "Center the pelvic split; protect the bladder neck at the pelvic outlet; verify aitch-blade alignment; control traction."),
     ("D12", "Bladder cut / hole (breach)",
      "Bladder wall cut open or holed. Urine-contamination risk. Distinct from D7 (deformed) & D11 (neck separation).",
-     "Major", "Evisceration knife / splitting saw", "S3", "Evisceration",
+     "Major", "Belly opening (knife) - full-bladder risk", "S3", "Evisceration",
      "Machine / Method",
-     "Knife nick or saw path opens the bladder; or over-distended bladder ruptures under handling.",
-     "Protect bladder during gut removal; verify saw path; manage bladder fill (lairage/water timing)."),
+     "The knife tip enters the cavity and punctures a distended, thin-walled bladder (a full bladder sits abdominally, in the knife's path) instead of riding along the body wall.",
+     "'Unzip' belly cut (handle inside, blade riding outward); sharper knives; fasting/feed-water withdrawal to empty the bladder before slaughter."),
     ("D13", "Block too short / undersized",
      "Harvested pelvic block dimensionally too short / fails the length template (insufficient tissue retained).",
-     "Major", "Pelvic-block separation cut (cut-boundary placement)", "S3", "Evisceration",
+     "Major", "Aitch/split cut height + harvester recovery boundary", "S3", "Evisceration",
      "Method / Man",
-     "Separation cut placed too close; insufficient block length retained vs template/spec.",
-     "Define & train pelvic-block cut boundaries / minimum length; cut to template; provide a length gauge."),
+     "The distal urethra/bladder-neck was already transected high at the aitch-bone cut or split (steps 8/11), leaving insufficient distal length; or the harvester sets the cranial boundary too tight to the bladder.",
+     "Define minimum block length & cut boundaries vs a template/gauge; align aitch/split to preserve distal urethra length; train the recovery boundary cut."),
 ]
 DEFECT_CODES = [t[0] for t in TAXONOMY]
 NAME_OF = {t[0]: t[1] for t in TAXONOMY}
@@ -304,11 +305,12 @@ readme = [
     ("                                                                                    OUR side ->  Harvest techs receive block from pit  ->  spec-out / accept  ->  IQC inspection (this data)", "FLOW"),
     ("", ""),
     ("THE SHEETS", "H"),
-    ("  1. Inspection Log   Master data — ONE ROW PER BLOCK. Each free-text scrap reason is normalized into 1/0 flags against the defect taxonomy. Append future batches here.", "P"),
-    ("  2. Defect Taxonomy  Controlled vocabulary (D1–D11) + root-cause map: each defect -> process step, supplier station, 6M cause, mechanism, corrective action.", "P"),
-    ("  3. Pareto           Auto-calculating defect Pareto (bar + cumulative line) and a rollup by SUPPLIER STATION — the key view for the supplier conversation.", "P"),
-    ("  4. Root Cause 5-Why  Structured RCA template, seeded for the vital-few defects, with a Lessons-Learned column to fill in over time.", "P"),
-    ("  5. Dashboard        Combined KPIs + a per-batch breakdown so you can watch the trend batch over batch.", "P"),
+    ("  1. Inspection Log      Master data — ONE ROW PER BLOCK. Each free-text scrap reason is normalized into 1/0 flags against the defect taxonomy. Append future batches here.", "P"),
+    ("  2. Defect Taxonomy     Controlled vocabulary (D1–D13) + root-cause map: each defect -> process step, supplier station, 6M cause, mechanism, corrective action.", "P"),
+    ("  3. Pareto              Auto-calculating defect Pareto (bar + cumulative line) and a rollup by SUPPLIER STATION — the key view for the supplier conversation.", "P"),
+    ("  4. Root-Cause Deep-Dive  The pork evisceration process studied: where each defect is BORN, a damage-signature diagnostic, contributing factors, supplier questions, glossary.", "P"),
+    ("  5. Root Cause 5-Why     Structured RCA template, seeded for the vital-few + new defects, with a Lessons-Learned column to fill in over time.", "P"),
+    ("  6. Dashboard           Combined KPIs + a per-batch breakdown so you can watch the trend batch over batch.", "P"),
     ("", ""),
     ("HOW TO ADD THE NEXT INSPECTION", "H"),
     ("  a. In 'Inspection Log', add one row per inspected block (metadata + Result = Pass/Fail + verbatim reason).", "P"),
@@ -585,7 +587,166 @@ if os.path.exists(_img):
     par.add_image(im, f"A{slast + 3}")
 
 # ============================================================================
-# SHEET 5: ROOT CAUSE 5-WHY
+# SHEET 5: ROOT-CAUSE DEEP-DIVE  (pork evisceration process study)
+# ============================================================================
+dd = wb.create_sheet("Root-Cause Deep-Dive"); dd.sheet_view.showGridLines = False
+DDN = 5
+title_block(dd, "ROOT-CAUSE DEEP-DIVE — THE PORK EVISCERATION PROCESS",
+            "Where each defect is BORN, before the block reaches the harvest tech. Read the damage 'signature' (Section D) to name the station.", DDN)
+
+def dd_sec(r, text):
+    dd.merge_cells(start_row=r, start_column=1, end_row=r, end_column=DDN)
+    c = dd.cell(r, 1, text); c.font = font(11, True, WHITE); c.fill = fill(NAVY)
+    c.alignment = Alignment(horizontal="left", vertical="center", indent=1); dd.row_dimensions[r].height = 22
+    return r + 1
+
+def dd_row(r, cells, header=False, zebra=False, h=46, fillc=None):
+    col = 1
+    for text, span in cells:
+        for k in range(span):
+            cc = dd.cell(r, col + k); cc.border = BORDER
+            if header: cc.fill = fill(BLUE)
+            elif fillc: cc.fill = fill(fillc)
+            elif zebra: cc.fill = fill(LT_GREY)
+        c = dd.cell(r, col, text)
+        if span > 1: dd.merge_cells(start_row=r, start_column=col, end_row=r, end_column=col + span - 1)
+        if header: c.font = font(10, True, WHITE); c.alignment = CENTER
+        else: c.font = font(9); c.alignment = LEFT_TOP
+        col += span
+    dd.row_dimensions[r].height = h
+    return r + 1
+
+def dd_text(r, text, bold=False, h=30, color="222222", fillc=None):
+    dd.merge_cells(start_row=r, start_column=1, end_row=r, end_column=DDN)
+    c = dd.cell(r, 1, text); c.font = font(10, bold, color); c.alignment = LEFT_TOP
+    if fillc: c.fill = fill(fillc)
+    dd.row_dimensions[r].height = h
+    return r + 1
+
+r = 4
+# --- A. Orientation ---
+r = dd_sec(r, "A.  WHERE YOUR PELVIC BLOCK COMES FROM")
+r = dd_text(r, "Your pelvic block is NOT harvested as a designed unit. It is the caudal (tail) end of the 'gut set' (green offal) — the abdominal-pelvic digestive tract plus the urogenital organs (bladder, ureters, urethra, bladder neck, ligaments, membranes, adjacent colon/rectum) — that is dropped out of the carcass during EVISCERATION onto the viscera table ('the pit'). The supplier's harvester then recovers the pelvic portion from that dropped set.", h=60)
+r = dd_text(r, "So almost every defect is inflicted during one of FOUR caudal kill-floor substeps — (1) bung + aitch-bone cut, (2) belly opening, (3) evisceration traction, (4) the split saw — or during the harvester's own boundary cut. The damage SIGNATURE (Section D) tells you which one.", bold=True, h=44, color=NAVY, fillc=LT_BLUE)
+r += 1
+
+# --- B. Process flow ---
+r = dd_sec(r, "B.  THE PROCESS (stunning -> chilling) — steps 8-11 are the ones that touch the pelvic block")
+r = dd_row(r, [("Step", 1), ("Operation", 2), ("Touches the pelvic block?", 2)], header=True, h=20)
+flow = [
+    ("1", "Stunning", "Indirect — drives blood splash / clot retention", False),
+    ("2", "Sticking / bleeding (exsanguination)", "Indirect — stun-to-stick interval -> retained clots", False),
+    ("3-6", "Scald -> dehair -> singe -> polish/wash", "No", False),
+    ("7", "Head dropping", "No", False),
+    ("8", "Bung dropping + AITCH-BONE opening", "YES - PRIMARY: rectum, bladder neck, urethra, distal ureters", True),
+    ("9", "Belly + brisket opening", "YES - HIGH: bladder puncture; sets the plane the gut set is pulled through", True),
+    ("10", "EVISCERATION (gut-set / green-offal withdrawal)", "YES - PRIMARY: strips ureters, tears membranes & ligaments", True),
+    ("11", "Carcass SPLITTING (saw through spine + pelvis)", "YES - HIGH: off-center split shears urethra / bladder neck / ureter", True),
+    ("12", "Final-rail trim & inspection", "Trimming can shorten attached urogenital tissue", False),
+    ("13", "Chilling", "No", False),
+]
+for step, op, touch, hot in flow:
+    r = dd_row(r, [(step, 1), (op, 2), (touch, 2)], h=26, fillc=(AMBER if hot else None))
+r += 1
+
+# --- C. The four caudal substeps -> what they create ---
+r = dd_sec(r, "C.  THE FOUR CAUDAL SUBSTEPS  —  what each one creates, and how")
+r = dd_row(r, [("Substep (station)", 1), ("Defects it creates", 1), ("Mechanism", 1), ("Damage signature", 1), ("Primary fix", 1)], header=True, h=30)
+substeps = [
+    ("Bung dropping + aitch-bone (S2, step 8)",
+     "Rectum nick (D8); distal ureter cut/missing (D2/D3); urethra & bladder-neck cut (D5/D11)",
+     "Coring knife too deep / off-axis; the aitch blade crosses the midline urethra & bladder neck",
+     "Clean knife slit; fecal spill if rectum",
+     "Coring depth/axis control; >=1/2\" circumanal margin; aitch-blade alignment; size-adaptive settings"),
+    ("Belly + brisket opening (S3, step 9)",
+     "Bladder hole (D12); median-ligament cut (D4)",
+     "Knife tip stabs the distended bladder instead of riding the body wall",
+     "Single clean slit; URINE spill",
+     "'Unzip' handle-in belly cut; sharper knives; FAST the hogs to empty the bladder"),
+    ("Evisceration traction (S3, step 10)",
+     "Ureters not embedded (D1); mesentery / broad / suspensory tears (D6/D10/D4); avulsed ureter (D2)",
+     "Caudo-ventral PULL peels the ureter out of its sublumbar fat bed; the thin membranes tear first",
+     "Irregular, stretched, FRAYED tear; NO bone dust",
+     "Cut ureters & attachments BEFORE pulling; slower set removal; ergonomic relief"),
+    ("Carcass split saw (S4, step 11)",
+     "Urethra / bladder-neck / ureter transection (D5/D11/D2)",
+     "Saw through the pubic symphysis bisects the midline urogenital tissue; off-center shears one side",
+     "Straight parallel KERF + bone dust; matching cut on the mirror side",
+     "Saw/guide calibration; blade condition; size-class sorting"),
+]
+for a, b, c, d, e in substeps:
+    r = dd_row(r, [(a, 1), (b, 1), (c, 1), (d, 1), (e, 1)], h=74, zebra=True)
+r += 1
+
+# --- D. Damage-signature diagnostic ---
+r = dd_sec(r, "D.  DAMAGE-SIGNATURE DIAGNOSTIC  —  read the defect, name the station  (the most useful tool here)")
+r = dd_row(r, [("What you see on the block", 2), ("What it means", 2), ("Look at this station", 1)], header=True, h=20)
+sigs = [
+    ("Straight, parallel-sided cut + bone dust/marrow; matching cut on the mirror side", "SAW cut", "S4 Carcass splitting"),
+    ("Single clean slit, no bone dust", "KNIFE cut", "S2 Bung/aitch  or  S3 belly opening"),
+    ("Irregular, stretched, FRAYED tear; no bone dust", "TRACTION tear", "S3 Evisceration (the pull)"),
+    ("Petechiae / speckle in fat & connective tissue", "Blood splash", "S1 Stunning / sticking"),
+    ("Fecal spill at the cut", "Rectum / colon breach", "S2 bung margin  /  S3 belly knife"),
+    ("Urine spill at the cut", "Bladder breach", "S3 belly opening (full bladder)"),
+    ("Missing distal urethra / short block", "Cut too high upstream", "S2 aitch / S4 split, then harvest boundary"),
+]
+for s, m, st in sigs:
+    r = dd_row(r, [(s, 2), (m, 2), (st, 1)], h=30, zebra=True)
+r += 1
+
+# --- E. Contributing factors ---
+r = dd_sec(r, "E.  CONTRIBUTING FACTORS  —  track these as covariates (by shift, station, hog weight class)")
+r = dd_row(r, [("Factor", 1), ("Why it matters", 2), ("What to do / track", 2)], header=True, h=20)
+factors = [
+    ("Line speed", "NSIS removed the federal max line-speed cap; a faster line = rushed coring margins, off-center saw, more yanking", "Correlate defect rate with line speed / shift; ergonomic relief"),
+    ("Hog size variability", "Bung / aitch / saw are set for an 'average' pelvis and mis-locate on off-size hogs", "Size-class sorting; size-adaptive tool settings; track defects by weight class"),
+    ("Bladder fill (fasting)", "A full bladder is abdominal & thin-walled, in the knife's path; fasting empties it (~70% of contamination variance)", "Enforce feed/water withdrawal; verify lairage time; track by fasting time"),
+    ("Stun-to-stick interval", "Long / variable interval -> blood splash & retained clots (D9)", "Shorten & stabilize the interval; consider CO2 stun"),
+    ("Knife sharpness", "A dull knife needs more force -> over-travel into bladder / urethra / ureter", "Steel/replace on schedule; sharpness checks"),
+    ("Saw alignment / calibration", "Off-center / worn saw shears the midline urogenital tissue", "Calibrate guide & blade; preventive-maintenance schedule"),
+    ("Operator training / fatigue", "Margin-setting, the 'unzip' cut, and the cut-vs-yank decision are all skill & attention dependent", "Train the four substeps; rotate to manage fatigue; track by station/shift"),
+]
+for f, w, t in factors:
+    r = dd_row(r, [(f, 1), (w, 2), (t, 2)], h=40, zebra=True)
+r += 1
+
+# --- F. Take to the supplier ---
+r = dd_sec(r, "F.  TAKE TO THE SUPPLIER  —  walk the line and ask / observe")
+supplier_q = [
+    ("Bung / aitch (S2):", "What coring tool & margin? Is the bung sealed/bagged BEFORE withdrawal? Is aitch-blade alignment checked per hog? Size-adaptive?"),
+    ("Belly opening (S3):", "Is the 'unzip' (handle-in) technique used? Knife-sharpening schedule? What is the fasting / feed-water-withdrawal time before slaughter?"),
+    ("Traction (S3):", "Are the ureters & sublumbar attachments CUT before the gut set is pulled, or yanked? Line speed at evisceration? Operator ergonomics?"),
+    ("Split saw (S4):", "How is the split centered? Guide/blade calibration & PM frequency? Are hogs sorted by size class?"),
+    ("Cross-cut:", "Can they share defect data by shift, station, and hog weight class so we can correlate?"),
+]
+for lab, q in supplier_q:
+    r = dd_row(r, [(lab, 1), (q, 4)], h=32, zebra=True)
+r += 1
+
+# --- G. Glossary ---
+r = dd_sec(r, "G.  GLOSSARY  (use the right terms with the supplier)")
+gloss = [
+    ("Aitch bone", "The pelvic bone / pubic symphysis. 'Opening the aitch' = splitting the symphysis on the midline to open the pelvic canal."),
+    ("Bung", "The terminal rectum / anus. 'Bunging' / 'bung dropping' = coring it free of the pelvic wall and sealing it (tie / clip / bag)."),
+    ("Rodding", "Inserting a rod to free & seal a tube — classically the weasand (esophagus) — before the pull. A 'rodding gun' does the coring/sealing."),
+    ("Weasand", "The esophagus (industry term)."),
+    ("Pluck", "The thoracic organ set removed together — heart, lungs, liver, trachea ('red offal')."),
+    ("Gut set / green offal", "The abdominal-pelvic digestive tract removed as a unit (stomach, intestines, rectum), carrying the bladder/urogenital organs. Your block is its caudal end."),
+    ("Brisket cut", "The cut that opens the sternum / chest to access the pluck."),
+    ("Pizzle", "The penis (barrows); in the pig it is the extrapelvic continuation of the urethra, so a mishandled pizzle cut is a urethra defect."),
+    ("Split / sides", "Sawing the carcass into two 'sides' down the spine and through the pelvis."),
+]
+for term, mean in gloss:
+    r = dd_row(r, [(term, 1), (mean, 4)], h=28, zebra=True)
+r += 1
+r = dd_text(r, "Process grounded in the USDA-FSIS swine HACCP model, Purdue Extension AS-671-W hand-slaughter guide, the FAO slaughter manual, Frontmatec/DMRI/Marel equipment references, and porcine pelvic anatomy (ureter retroperitoneal course; bladder median/lateral ligaments; midline urethra under the pubic symphysis). Defect->substep attributions are engineering inferences — validate them against your incoming-defect photos and a walk of the supplier's evisceration & splitting stations.", h=56, color=GREY)
+
+for col, w in {"A": 21, "B": 30, "C": 31, "D": 25, "E": 29}.items():
+    dd.column_dimensions[col].width = w
+dd.freeze_panes = dd.cell(4, 1)
+
+# ============================================================================
+# SHEET 6: ROOT CAUSE 5-WHY
 # ============================================================================
 rc = wb.create_sheet("Root Cause 5-Why"); rc.sheet_view.showGridLines = False
 rc_headers = ["Code", "Defect Mode", "Why 1", "Why 2", "Why 3", "Why 4", "Why 5 (root cause)",
@@ -596,33 +757,57 @@ hr = 4
 for j, h in enumerate(rc_headers, start=1): style_header(rc.cell(hr, j, h))
 rc.row_dimensions[hr].height = 26
 seed = {
-    "D6": ["Membrane torn/holed in critical area (>1.5\")", "Knife path too deep / tensile tear during gut pull",
-           "Evisceration technique not standardized for pelvic zone", "No defined knife depth/path SOP + line-speed pressure",
-           "(confirm w/ supplier) training + line-speed control gap",
-           "Retrain knife depth & path in pelvic zone; blunt-dissect; slow line through pelvic cut",
+    "D6": ["Hole/tear in mesentery membrane, critical zone (>1.5\")",
+           "The thin fenestrated membrane is the weakest element under traction — it tears first",
+           "Gut set pulled caudo-ventrally; fingers/hook engage the membrane to pull",
+           "'Pull-don't-cut' evisceration; attachments not released first; line-speed pressure",
+           "(confirm) no cut-first SOP for pelvic attachments + speed/ergonomic load on eviscerator",
+           "Cut membrane attachments BEFORE pulling; blunt-dissect; slow line through pelvic zone; ergonomic relief",
            "SH Martins - Evisceration lead", "", "Open", ""],
-    "D1": ["Ureters not embedded in tissue", "Fascia/perirenal fat stripped away from ureter",
-           "Excessive pull force / over-trim during gut set removal", "Pull technique & trim spec not controlled",
-           "(confirm) handling standard missing",
-           "Standardize pull-force & angle; limit fat stripping; gentler pit drop",
+    "D1": ["Ureter lying free, its fat bed empty (not embedded)",
+           "Retroperitoneal ureter (in sublumbar fat) peeled out of its bed during the pull",
+           "Gut set withdrawn WITHOUT first releasing ureter / sublumbar attachments",
+           "Hand-slaughter standard ('cut the ureters, don't yank') not applied on the line",
+           "(confirm) cut-first standard missing; speed rewards pulling over cutting",
+           "Cut ureters & sublumbar attachments before withdrawing the set; controlled removal; gentler pit drop",
            "SH Martins - Evisceration lead", "", "Open", ""],
-    "D5": ["Urethra cut / laceration / hole", "Sharp transection or perforation through pelvic zone",
-           "Splitting saw off-center / bung-drop cut catches urethra", "Saw alignment & pelvic-split centering not verified",
-           "(confirm) saw calibration + technique gap",
-           "Center split on symphysis; calibrate/align saw; slow through pelvic zone",
-           "SH Martins - Splitting lead", "", "Open", ""],
-    "D4": ["Suspensory ligaments torn/frayed/holed", "Block pulled/handled by the ligaments",
-           "Rough handling + high traction on removal", "No 'support-surface' handling rule",
-           "(confirm) handling standard missing",
-           "Handle block by support surface, not ligaments; control pull force",
-           "SH Martins - Evisceration lead", "", "Open", ""],
-    "D8": ["Bowel/colon/rectum breached (FOOD SAFETY)", "Knife slip or aggressive bung separation opens colon/rectum",
-           "Bung not adequately bagged/tied before cut", "Bung-dropping CCP not robust",
-           "(confirm) contamination-control gap at bung station",
-           "Reinforce bung bag/tie-off; retrain knife path; treat as contamination CCP",
+    "D5": ["Urethra cut / laceration / hole / separation",
+           "The urethra sits on the midline directly under the pubic symphysis",
+           "In the plane of BOTH the aitch-bone cut and the split saw; off-axis / over-deep cut hits it",
+           "Saw/guide & aitch-blade alignment not verified per hog size; size variability",
+           "(confirm) size-adaptive settings + saw calibration gap",
+           "Center split on symphysis; calibrate saw/guide; verify aitch-blade; size-class sorting",
+           "SH Martins - Splitting / Bung lead", "", "Open", ""],
+    "D8": ["Rectum / colon breached (FOOD SAFETY)",
+           "<1/2\" circumanal margin nicks rectum; knife perforates colon; pull separates colon",
+           "Coring margin too tight at speed; bung not sealed before the pull",
+           "Margin/seal SOP not enforced; bung-dropping CCP not robust",
+           "(confirm) contamination-control gap at the bung/aitch station + speed",
+           "Hold >=1/2\" margin; seal/bag bung BEFORE pulling; retrain knife path; contamination CCP",
            "SH Martins - Bung/Evisc. lead", "", "Open", ""],
+    "D4": ["Median/lateral bladder & suspensory ligaments torn",
+           "Traction on the gut set/bladder tears the ligaments off the bladder/body wall",
+           "Block pulled/handled BY the ligaments; median ligament severed by midline knife/saw",
+           "No 'handle-by-support-surface' rule; pull-force & angle uncontrolled",
+           "(confirm) handling standard missing + speed",
+           "Handle by a support surface, not the ligaments; control pull-force; cut attachments first",
+           "SH Martins - Evisceration lead", "", "Open", ""],
+    "D12": ["Bladder cut open / large hole (urine spill)",
+            "Knife tip punctures a distended, thin-walled bladder during belly opening",
+            "Bladder full & sitting abdominally (in the knife's path); stab entry, not an 'unzip'",
+            "Fasting (feed/water withdrawal) not enforced; belly-cut technique not standardized",
+            "(confirm) lairage feed-water timing + belly-opening technique gap",
+            "Fasting to empty the bladder; 'unzip' handle-in belly cut; sharper knives",
+            "SH Martins - Evisc./Lairage lead", "", "Open", ""],
+    "D13": ["Block too short / fails the length template",
+            "Distal urethra/bladder-neck already transected high at the aitch-bone cut or split",
+            "Aitch/split cut takes too much distal length, OR harvester boundary set too tight to bladder",
+            "No cut-height / minimum-length spec vs a template at aitch/split + recovery",
+            "(confirm) length spec/gauge missing across aitch, split, and recovery cut",
+            "Define min block length & boundaries vs template/gauge; align aitch/split to preserve distal urethra",
+            "SH Martins - Splitting + Harvest lead", "", "Open", ""],
 }
-seed_order = ["D6", "D1", "D5", "D4", "D8"]
+seed_order = ["D6", "D1", "D5", "D8", "D4", "D12", "D13"]
 for i, code in enumerate(seed_order):
     rr = hr + 1 + i
     vals = [code, NAME_OF[code]] + seed[code]
@@ -636,7 +821,7 @@ for i, code in enumerate(seed_order):
         if j == 11: c.fill = fill("FFF2CC"); c.font = font(9, True, "833C00")
         if j == 12: c.fill = fill(LT_GREY)
     rc.row_dimensions[rr].height = 60
-for i in range(3):
+for i in range(2):
     rr = hr + 1 + len(seed_order) + i
     for j in range(1, len(rc_headers) + 1):
         c = rc.cell(rr, j, None); c.border = BORDER

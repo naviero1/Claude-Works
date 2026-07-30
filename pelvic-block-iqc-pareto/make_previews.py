@@ -51,7 +51,7 @@ plt.savefig("Pareto_preview.png",dpi=130,bbox_inches="tight"); print("saved Pare
 
 # station rollup
 fig2,axs=plt.subplots(figsize=(9,4.4)); fig2.subplots_adjust(top=0.82,bottom=0.16)
-st_lbl=["S3 Evisceration","S4 Carcass\nsplitting","S2 Bung\ndropping","S1 Sticking /\nbleeding","S6 Live /\nphysiology"]
+st_lbl=["S3 Evisceration","S4 Carcass\nsplitting","S2 Bung +\naitch bone","S1 Sticking /\nbleeding","S6 Live /\nphysiology"]
 st_cnt=[102,15,3,1,1]; st_col=[C_VITAL]+[C_TAIL]*4
 b2=axs.bar(range(len(st_cnt)),st_cnt,color=st_col,edgecolor="white",linewidth=1,zorder=3,width=0.66)
 axs.set_xticks(range(len(st_cnt))); axs.set_xticklabels(st_lbl,fontsize=9,color=C_AX)
