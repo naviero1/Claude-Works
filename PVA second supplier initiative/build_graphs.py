@@ -145,8 +145,8 @@ def build():
     baseline = DRUMS_YR*SNP_DRUM
     scen=[
      ("All-SNP baseline", baseline),
-     ("Market @25%", scenario(0.25,MKT_DRUM_BASE)),
-     ("Market @35%", scenario(0.35,MKT_DRUM_BASE)),
+     ("Market (high $2.55) @25%", scenario(0.25,MKT_DRUM_HI)),
+     ("Market (high $2.55) @35%", scenario(0.35,MKT_DRUM_HI)),
      ("CJB @25% — Yr 1 (credit)", scenario(0.25,CJB_LANDED,QUAL)),
      ("CJB @25% — Yr 2+", scenario(0.25,CJB_LANDED)),
      ("CJB @35% — Yr 1 (credit)", scenario(0.35,CJB_LANDED,QUAL)),
@@ -173,7 +173,7 @@ def build():
     # realistic-only chart (baseline + market), CJB excluded so scale is readable
     an.cell(row=16,column=2,value="Realistic options only (CJB excluded — it is ~10x and dwarfs the scale)").font=f(bold=True,size=10,color="1F3864")
     r=17
-    real=[("All-SNP baseline",baseline),("Market @25%",scenario(0.25,MKT_DRUM_BASE)),("Market @35%",scenario(0.35,MKT_DRUM_BASE))]
+    real=[("All-SNP baseline",baseline),("Market (high $2.55) @25%",scenario(0.25,MKT_DRUM_HI)),("Market (high $2.55) @35%",scenario(0.35,MKT_DRUM_HI))]
     an.cell(row=r,column=2,value="Scenario").font=f(bold=True,color="FFFFFF"); an.cell(row=r,column=2).fill=HDR
     an.cell(row=r,column=3,value="Annual $").font=f(bold=True,color="FFFFFF"); an.cell(row=r,column=3).fill=HDR
     for i,(name,val) in enumerate(real):

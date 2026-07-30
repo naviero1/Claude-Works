@@ -14,7 +14,7 @@ SNP_DRUM=DRUM_LB*SNP_LB                       # 337.50
 CJB_LANDED=DRUM_LB*TOLL_MID+MATERIALS+FREIGHT # 3787.5
 CJB_CREDITED=CJB_LANDED-CREDIT
 DRUMS_YR=DEMAND*WEEKS/DRUM_LB                 # 150.2
-MKT_LB=1.40; MKT_DRUM=MKT_LB*DRUM_LB          # 630
+MKT_LB=2.55; MKT_DRUM=MKT_LB*DRUM_LB          # 1147.5  (HIGH-end market rate per user request)
 def acct(split, secprice, credit=0):
     return DRUMS_YR*(1-split)*SNP_DRUM + DRUMS_YR*split*secprice - credit
 baseline=DRUMS_YR*SNP_DRUM
@@ -56,8 +56,8 @@ fig.tight_layout(); fig.savefig("chart1_credit.png",bbox_inches="tight"); plt.cl
 
 # ============ CHART 2 — total annual cost, ALL options (horizontal) ============
 rows=[("All-SNP baseline",baseline,GREYc),
-      ("Market @25%",acct(0.25,MKT_DRUM),MKTc),
-      ("Market @35% (~1 drum/wk)",acct(0.35,MKT_DRUM),MKTc),
+      ("Market (high) @25%",acct(0.25,MKT_DRUM),MKTc),
+      ("Market (high) @35% (~1 drum/wk)",acct(0.35,MKT_DRUM),MKTc),
       ("CJB @25% — Year 1 (credit)",acct(0.25,CJB_LANDED,QUAL),CJBc1),
       ("CJB @25% — Year 2+",acct(0.25,CJB_LANDED),CJBc),
       ("CJB @35% — Year 1 (credit)",acct(0.35,CJB_LANDED,QUAL),CJBc1),
@@ -76,8 +76,8 @@ ax.set_yticks(list(y)); ax.set_yticklabels(labels,fontsize=10)
 ax.xaxis.set_major_formatter(FuncFormatter(money))
 ax.set_xlim(0,max(vals)*1.18)
 ax.set_title("Total annual account cost — all options",fontsize=14,fontweight="bold",color=NAVY,pad=28,loc="left")
-ax.text(0,1.04,"Whole account (second-source slice + retained SNP). CJB runs ~3–4.5× the entire current spend; the \$4,900 credit is invisible at this scale.",
-        transform=ax.transAxes,fontsize=10,color="#555555")
+ax.text(0,1.04,"Whole account (2nd-source slice + retained SNP). Market shown at the HIGH-end rate \$2.55/lb. CJB still runs ~2.5–3.5× even the high market; its \$4,900 credit is invisible here.",
+        transform=ax.transAxes,fontsize=9.5,color="#555555")
 ax.set_xlabel("$ per year")
 ax.grid(axis="x",color="#EEEEEE",zorder=0)
 for s in ("top","right"): ax.spines[s].set_visible(False)
@@ -85,7 +85,7 @@ fig.tight_layout(); fig.savefig("chart2_all.png",bbox_inches="tight"); plt.close
 
 # ============ CHART 3 — realistic options (SNP vs Market), with premium ============
 r3=[("All-SNP\nbaseline",baseline,GREYc),
-    ("Market @25%",acct(0.25,MKT_DRUM),MKTc),
+    ("Market\n@25%",acct(0.25,MKT_DRUM),MKTc),
     ("Market @35%\n(~1 drum/wk)",acct(0.35,MKT_DRUM),MKTc)]
 labels=[r[0] for r in r3]; vals=[r[1] for r in r3]; cols=[r[2] for r in r3]
 fig,ax=plt.subplots(figsize=(8.5,5.6),dpi=150)
@@ -104,7 +104,7 @@ ax.set_xticks(list(x)); ax.set_xticklabels(labels,fontsize=10)
 ax.yaxis.set_major_formatter(FuncFormatter(money)); ax.set_ylim(0,max(vals)*1.18)
 ax.set_title("Realistic options — cost of a second source vs staying all-SNP",
              fontsize=13.5,fontweight="bold",color=NAVY,pad=28,loc="left")
-ax.text(0,1.045,"Using the researched market base of \$1.40/lb (≈1.9× SNP). This is the true redundancy premium — the bars exclude CJB, which is ~10× off-scale.",
+ax.text(0,1.045,"Using the HIGH-end researched market rate of \$2.55/lb (≈3.4× SNP) — the conservative worst case. Bars exclude CJB, which is still ~2.5–3.5× higher, off-scale.",
         transform=ax.transAxes,fontsize=9.5,color="#555555")
 ax.set_ylabel("$ per year")
 ax.grid(axis="y",color="#EEEEEE",zorder=0)
