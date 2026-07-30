@@ -13,6 +13,7 @@ multi-sheet Excel workbook:
   5. Root-Cause Deep-Dive- pork evisceration process study; damage-signature diagnostic
   6. Root Cause (5-Why)  - structured RCA template seeded for the vital-few + new defects
   7. Dashboard           - combined KPIs + per-batch breakdown
+  8. Yield & Alignment   - good-pelvic rate across the board + harvest-tech / inspector alignment
 
 Counts are driven by formulas referencing the Inspection Log, so appending new
 inspection rows updates the Pareto and Dashboard automatically.
@@ -311,6 +312,7 @@ readme = [
     ("  4. Root-Cause Deep-Dive  The pork evisceration process studied: where each defect is BORN, a damage-signature diagnostic, contributing factors, supplier questions, glossary.", "P"),
     ("  5. Root Cause 5-Why     Structured RCA template, seeded for the vital-few + new defects, with a Lessons-Learned column to fill in over time.", "P"),
     ("  6. Dashboard           Combined KPIs + a per-batch breakdown so you can watch the trend batch over batch.", "P"),
+    ("  7. Yield & Alignment   Good-pelvic % across the board; what it may mean for harvest-tech training; and tech<->inspector alignment (with input cells).", "P"),
     ("", ""),
     ("HOW TO ADD THE NEXT INSPECTION", "H"),
     ("  a. In 'Inspection Log', add one row per inspected block (metadata + Result = Pass/Fail + verbatim reason).", "P"),
@@ -911,6 +913,124 @@ dash.column_dimensions["A"].width = 34
 dash.column_dimensions["B"].width = 14
 for col in "CDE": dash.column_dimensions[col].width = 12
 dash.column_dimensions["F"].width = 30; dash.column_dimensions["G"].width = 12
+
+# ============================================================================
+# SHEET 8: YIELD & ALIGNMENT
+# ============================================================================
+ya = wb.create_sheet("Yield & Alignment"); ya.sheet_view.showGridLines = False
+YAN = 7
+title_block(ya, "YIELD & INSPECTOR–TECH ALIGNMENT",
+            "How many pelvics are good across the board — and what it may say about harvest-tech training and tech<->inspector alignment.", YAN)
+INSP_COL = get_column_letter(7)   # G = Inspector
+
+def ya_countifs(crit, result=None):
+    parts = [f"'Inspection Log'!{col}{data_first}:{col}{RNG},\"{val}\"" for col, val in crit]
+    if result:
+        parts.append(f"'Inspection Log'!{RESULT_COL}{data_first}:{RESULT_COL}{RNG},\"{result}\"")
+    return "COUNTIFS(" + ",".join(parts) + ")"
+
+def ya_sec(r, text):
+    ya.merge_cells(start_row=r, start_column=1, end_row=r, end_column=YAN)
+    c = ya.cell(r, 1, text); c.font = font(11, True, WHITE); c.fill = fill(NAVY)
+    c.alignment = Alignment(horizontal="left", vertical="center", indent=1); ya.row_dimensions[r].height = 20
+    return r + 1
+
+def ya_text(r, text, bold=False, color="222222", h=30, italic=False, fillc=None):
+    ya.merge_cells(start_row=r, start_column=1, end_row=r, end_column=YAN)
+    c = ya.cell(r, 1, text); c.font = font(10, bold, color, italic=italic); c.alignment = LEFT_TOP
+    if fillc: c.fill = fill(fillc)
+    ya.row_dimensions[r].height = h
+    return r + 1
+
+pass_all = ya_countifs([], "Pass"); fail_all = ya_countifs([], "Fail")
+
+r = 4
+# --- headline ---
+r = ya_sec(r, "GOOD PELVICS — ACROSS THE BOARD  (First Pass Yield = good / inspected)")
+ya.merge_cells(start_row=r, start_column=1, end_row=r + 2, end_column=2)
+big = ya.cell(r, 1)
+big.value = f"=IFERROR({pass_all}/({pass_all}+{fail_all}),0)"
+big.number_format = "0.0%"; big.font = Font(name="Calibri", size=40, bold=True, color="C00000")
+big.alignment = CENTER
+for rr in range(r, r + 3):
+    for cc in (1, 2): ya.cell(rr, cc).border = BORDER; ya.cell(rr, cc).fill = fill(LT_GREY)
+ya.merge_cells(start_row=r, start_column=3, end_row=r, end_column=YAN)
+ya.cell(r, 3, "of pelvic blocks that reach inspection pass IQC on the first look.").font = font(11, True, "222222")
+ya.cell(r, 3).alignment = LEFT
+ya.merge_cells(start_row=r + 1, start_column=3, end_row=r + 1, end_column=YAN)
+ya.cell(r + 1, 3).value = f'="= "&{pass_all}&" good  /  "&({pass_all}+{fail_all})&" inspected  ->  ~9 of every 10 blocks are rejected"'
+ya.cell(r + 1, 3).font = font(11, False, "444444"); ya.cell(r + 1, 3).alignment = LEFT
+ya.merge_cells(start_row=r + 2, start_column=3, end_row=r + 2, end_column=YAN)
+ya.cell(r + 2, 3, "A yield this low is first a SUPPLIER signal (84% of defects are evisceration-origin) — but it also frames the tech/inspector questions below.").font = font(10, True, "833C00")
+ya.cell(r + 2, 3).alignment = LEFT_TOP
+ya.row_dimensions[r].height = 28; ya.row_dimensions[r + 1].height = 18; ya.row_dimensions[r + 2].height = 30
+r += 3
+r = ya_text(r, "Caveat: the 8 passes on 2026-05-27 include 5 blocks recorded Pass pending ME/DE. If those are confirmed failures, the across-the-board good rate falls to ~5% (5/99).", italic=True, color=GREY, h=16)
+r += 1
+
+# --- by inspection sheet ---
+r = ya_sec(r, "GOOD RATE BY INSPECTION SHEET  (kill date x inspector)")
+hdrs = ["Kill Date", "Inspector", "Inspected", "Good (pass)", "Good %", "", ""]
+for j, hh in enumerate(hdrs[:5], start=1): style_header(ya.cell(r, j, hh))
+ya.row_dimensions[r].height = 22
+r += 1
+for b in BATCHES:
+    crit = [(KILL_COL, b["kill_date"])]
+    if b["inspector"]: crit.append((INSP_COL, b["inspector"]))
+    insp_f = f"={ya_countifs(crit,'Pass')}+{ya_countifs(crit,'Fail')}"
+    ya.cell(r, 1, b["kill_date"]).alignment = CENTER
+    ya.cell(r, 2, b["inspector"] or "(unnamed)").alignment = CENTER
+    ya.cell(r, 3).value = insp_f
+    ya.cell(r, 4).value = f"={ya_countifs(crit,'Pass')}"
+    ya.cell(r, 5).value = f"=IFERROR(D{r}/C{r},0)"; ya.cell(r, 5).number_format = "0.0%"
+    for j in range(1, 6):
+        cc = ya.cell(r, j); cc.border = BORDER; cc.font = font(10); cc.alignment = CENTER
+    r += 1
+# total
+ya.cell(r, 1, "ALL").font = font(10, True, NAVY); ya.cell(r, 1).alignment = CENTER
+ya.cell(r, 2, "").border = BORDER
+ya.cell(r, 3).value = f"={pass_all}+{fail_all}"
+ya.cell(r, 4).value = f"={pass_all}"
+ya.cell(r, 5).value = f"=IFERROR(D{r}/C{r},0)"; ya.cell(r, 5).number_format = "0.0%"
+for j in range(1, 6):
+    cc = ya.cell(r, j); cc.border = BORDER; cc.fill = fill(LT_BLUE); cc.font = font(10, True); cc.alignment = CENTER
+r += 2
+
+# --- interpretation: training ---
+r = ya_sec(r, "WHAT THIS COULD MEAN ABOUT HARVEST-TECH TRAINING")
+r = ya_text(r, "The harvest techs are the first-pass filter: they recover blocks from the pit and keep (spec-out) or discard each one. A ~10% good rate can mean two very different things, and the current data cannot fully separate them:", h=30)
+r = ya_text(r, "1)  MATERIAL (most likely).  The incoming tissue is overwhelmingly defective — 84% of defects are evisceration-origin — so even a perfectly-trained tech would keep mostly-bad blocks because there is little good material to choose from. Here the low yield is a SUPPLIER signal, not a tech signal.", h=42, fillc=LT_GREY)
+r = ya_text(r, "2)  CALIBRATION GAP.  If the techs are keeping blocks that inspectors then reject, their internal 'good/bad' threshold is looser than the inspection spec — a training / standardization gap. The tell for this is a high tech KEEP rate paired with a low IQC pass rate (see alignment below).", h=42, fillc=LT_GREY)
+r = ya_text(r, "Reading them together: because the defects are dominated by real, supplier-side damage, (1) is the stronger explanation today — but (2) cannot be ruled out until we log the techs' keep/discard decisions. A quick check: have a lead re-grade a sample of kept AND discarded blocks against the written spec and compare to both the tech and the inspector.", bold=True, color=NAVY, h=44)
+r += 1
+
+# --- alignment ---
+r = ya_sec(r, "INSPECTOR <-> HARVEST-TECH ALIGNMENT  (agreement on the good/bad call)")
+r = ya_text(r, "Alignment = do the harvest tech (keep/discard) and the inspector (pass/fail) make the SAME good/bad call on the same block? What we can see now: the inspected blocks are the ones the techs KEPT, and inspectors pass only ~10% of them — so on the KEEP decision the two groups agree ~10% of the time (9 of 10 blocks a tech judged good enough to keep, the inspector rejected). That is a strong misalignment signal, but it is confounded with material quality, and we cannot yet see the techs' DISCARD calls.", h=64)
+r = ya_text(r, "To measure alignment properly, enter the harvest-tech first-pass numbers below (received from pit, discarded first-pass). Then the agreement metrics compute automatically. Also re-inspect a sample of discarded blocks to catch over-discarding (good blocks thrown away).", bold=True, color=NAVY, h=34)
+r += 1
+al_hdr = ["Kill Date", "Received from pit  (enter)", "Tech discarded 1st-pass  (enter)", "IQC inspected (=kept)", "IQC good", "Tech reject %", "Good-from-pit %"]
+for j, hh in enumerate(al_hdr, start=1): style_header(ya.cell(r, j, hh))
+ya.row_dimensions[r].height = 34
+r += 1
+al_first = r
+for kd in sorted(kill_dates):
+    crit = [(KILL_COL, kd)]
+    ya.cell(r, 1, kd).alignment = CENTER
+    ya.cell(r, 2).fill = fill("FFF2CC")            # input: received
+    ya.cell(r, 3).fill = fill("FFF2CC")            # input: discarded
+    ya.cell(r, 4).value = f"={ya_countifs(crit,'Pass')}+{ya_countifs(crit,'Fail')}"   # kept = inspected
+    ya.cell(r, 5).value = f"={ya_countifs(crit,'Pass')}"
+    ya.cell(r, 6).value = f'=IF(B{r}="","",IFERROR(C{r}/B{r},0))'; ya.cell(r, 6).number_format = "0.0%"
+    ya.cell(r, 7).value = f'=IF(B{r}="","",IFERROR(E{r}/B{r},0))'; ya.cell(r, 7).number_format = "0.0%"
+    for j in range(1, 8):
+        cc = ya.cell(r, j); cc.border = BORDER; cc.font = font(10); cc.alignment = CENTER
+    r += 1
+ya.cell(r, 1, "Tech reject % = discarded / received.   Good-from-pit % = IQC good / received (the true end-to-end yield).   IQC good / IQC inspected = the agreement on kept blocks (headline above).").font = font(9, italic=True, color=GREY)
+ya.merge_cells(start_row=r, start_column=1, end_row=r, end_column=YAN); ya.row_dimensions[r].height = 26
+
+for col, w in {"A": 13, "B": 24, "C": 26, "D": 18, "E": 12, "F": 14, "G": 16}.items():
+    ya.column_dimensions[col].width = w
 
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Pelvic_Block_IQC_Pareto_RootCause.xlsx")
 wb.save(out)

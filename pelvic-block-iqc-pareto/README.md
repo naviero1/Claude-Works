@@ -38,7 +38,8 @@ The pelvic block is the **caudal end of the "gut set" (green offal)** dropped du
 | `source_IQC_Martins_failed_blocks_2026-07-28_toni.xlsx` | Original IQC tally sheet (kill 2026-07-28, inspector Toni). |
 | `Pareto_preview.png` / `Station_rollup_preview.png` | Static previews of the two key charts (combined). |
 | `RootCause_map.png` | Infographic: the four caudal substeps → defects → damage signature → fix. |
-| `build_workbook.py` / `make_previews.py` / `make_rootcause_map.py` | Reproducible builders (defect taxonomy + root-cause map live in `build_workbook.py`). |
+| `Yield_snapshot.png` | Snapshot: good-pelvic % across the board + the tech↔inspector alignment point. |
+| `build_workbook.py` / `make_previews.py` / `make_rootcause_map.py` / `make_yield_snapshot.py` | Reproducible builders (defect taxonomy + root-cause map live in `build_workbook.py`). |
 
 ### Workbook sheets
 1. **README** — how the framework works + process flow.
@@ -48,6 +49,7 @@ The pelvic block is the **caudal end of the "gut set" (green offal)** dropped du
 5. **Root-Cause Deep-Dive** — the pork evisceration process studied: where each defect is born, a damage-signature diagnostic, contributing factors, supplier walk-through questions, and a glossary.
 6. **Root Cause 5-Why** — RCA template, seeded for the vital-few + new defects, with a Lessons-Learned column.
 7. **Dashboard** — combined KPIs + a per-batch breakdown to watch the trend.
+8. **Yield & Alignment** — good-pelvic % across the board; what it may mean for harvest-tech training; and tech↔inspector alignment (with input cells to capture the techs' first-pass discard data going forward).
 
 ## Data so far — SH: Martins (4 inspection sheets, 3 kill dates)
 
@@ -70,6 +72,11 @@ The pelvic block is the **caudal end of the "gut set" (green offal)** dropped du
 | 3 | Urethra breach — cut/laceration/hole/separation (D5) | 14 | 11% |
 | 4 | Bowel/colon/rectum breach (D8) | 9 | 7% |
 | 5 | Suspensory ligaments damaged (D4) | 8 | 7% |
+
+### Yield & tech↔inspector alignment (sheet 8)
+**Good pelvics across the board: 10.1% (10 of 99).** So ~9 of every 10 blocks that reach inspection are rejected. A rate this low is *first a supplier signal* (84% of defects are evisceration-origin), but it also frames two people-side questions:
+- **Harvest-tech training** — if techs are keeping blocks inspectors then reject, their internal threshold is looser than the spec (a calibration gap). Because the defects are dominated by real supplier-side damage, the *material* explanation is stronger today, but the training gap can't be ruled out without the techs' discard data.
+- **Alignment** — the inspected blocks are the ones the techs *kept*, and inspectors pass only ~10% of them, so the two groups agree on the "keep" call only ~10% of the time. That's a misalignment signal, but it's confounded with material quality. To measure it cleanly, log each tech's keep/discard vs the inspector's pass/fail per block (input cells are on sheet 8), and re-inspect a sample of discards to catch over-discarding.
 
 ### Where they're born — rollup by supplier station
 **84% of all defects (102 of 122) trace to one station: Evisceration (S3).** Carcass splitting (S4 — urethra breaches + bladder-neck separation) is second at 12%. Lead the supplier conversation with **evisceration knife technique and gut-pull/traction handling in the pelvic zone**, then splitting-saw alignment.
