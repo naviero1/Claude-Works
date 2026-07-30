@@ -512,6 +512,18 @@ def _title(text, size=1200, color=NAVY):
     cp = CharacterProperties(latin=DrawFont(typeface="Calibri"), sz=size, b=True, solidFill=color)
     rt = RichText(p=[Paragraph(pPr=ParagraphProperties(defRPr=cp), r=[RegularTextRun(rPr=cp, t=text)])])
     t = Title(tx=Text(rich=rt)); t.overlay = False; return t
+def _vals_only(num_fmt, size, color, position, bold=True):
+    """Data labels that show ONLY the value (Excel otherwise adds series + category names)."""
+    dl = DataLabelList()
+    dl.showVal = True; dl.showSerName = False; dl.showCatName = False
+    dl.showLegendKey = False; dl.showPercent = False; dl.showBubbleSize = False
+    dl.numFmt = num_fmt; dl.position = position; dl.txPr = _txpr(size, color, bold=bold)
+    return dl
+def _no_labels():
+    dl = DataLabelList()
+    dl.showVal = False; dl.showSerName = False; dl.showCatName = False
+    dl.showLegendKey = False; dl.showPercent = False; dl.showBubbleSize = False
+    return dl
 
 SHORT = {"D6":"Membrane dmg","D1":"Ureters n/e","D5":"Urethra breach","D4":"Susp. ligament",
          "D8":"Bowel/colon","D2":"Ureter cut","D3":"Ureter missing","D7":"Bladder def.",
@@ -534,8 +546,7 @@ for i in range(n):
     dp.spPr = GraphicalProperties(solidFill=(C_VITAL if i < nfew else C_TAIL),
                                   ln=LineProperties(solidFill="FFFFFF", w=9525))
     bs.data_points.append(dp)
-bdl = DataLabelList(); bdl.showVal = True; bdl.numFmt = "0"; bdl.position = "outEnd"
-bdl.txPr = _txpr(950, "404040", bold=True); bs.dLbls = bdl
+bs.dLbls = _vals_only("0", 1000, "404040", "outEnd")
 bar.y_axis.title = "Defect count"; bar.y_axis.number_format = "0"; bar.y_axis.scaling.min = 0
 bar.y_axis.majorGridlines = ChartLines(spPr=GraphicalProperties(ln=LineProperties(solidFill=C_GRID, w=6350)))
 bar.y_axis.txPr = _txpr(); bar.y_axis.delete = False
@@ -546,16 +557,16 @@ bar.x_axis.spPr = GraphicalProperties(ln=LineProperties(solidFill="BFBFBF", w=95
 line = LineChart()
 line.add_data(Reference(par, min_col=6, min_row=first - 1, max_row=last), titles_from_data=True)
 line.add_data(Reference(par, min_col=THR_COL, min_row=ph, max_row=last), titles_from_data=True)
-cs = line.series[0]
-cs.graphicalProperties = GraphicalProperties(ln=LineProperties(solidFill=C_LINE, w=28575))
-cs.marker = Marker(symbol="circle", size=6)
+cs = line.series[0]                                  # cumulative % — subtle reference, NO point labels
+cs.graphicalProperties = GraphicalProperties(ln=LineProperties(solidFill=C_LINE, w=19050))
+cs.marker = Marker(symbol="circle", size=5)
 cs.marker.spPr = GraphicalProperties(solidFill=C_LINE, ln=LineProperties(solidFill="FFFFFF", w=9525))
 cs.smooth = False
-cdl = DataLabelList(); cdl.showVal = True; cdl.numFmt = "0%"; cdl.position = "t"
-cdl.txPr = _txpr(850, C_LINE, bold=True); cs.dLbls = cdl
+cs.dLbls = _no_labels()                              # declutter: exact %s live in the Pareto table, not on the line
 ts = line.series[1]
 _lp = LineProperties(solidFill="A6A6A6", w=9525); _lp.prstDash = "dash"
 ts.graphicalProperties = GraphicalProperties(ln=_lp); ts.marker = Marker(symbol="none"); ts.smooth = False
+ts.dLbls = _no_labels()
 line.y_axis.axId = 200; line.y_axis.title = "Cumulative %"; line.y_axis.crosses = "max"
 line.y_axis.scaling.min = 0; line.y_axis.scaling.max = 1; line.y_axis.number_format = "0%"
 line.y_axis.majorGridlines = None; line.y_axis.txPr = _txpr(); line.y_axis.delete = False

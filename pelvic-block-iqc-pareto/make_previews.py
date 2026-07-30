@@ -35,16 +35,15 @@ for s in ("top","right"): ax.spines[s].set_visible(False)
 ax.spines["left"].set_color("#BFBFBF"); ax.spines["bottom"].set_color("#BFBFBF")
 
 ax2=ax.twinx()
-ax2.plot(range(len(counts)),cum,color=C_LINE,marker="o",ms=6,lw=2.3,zorder=4,mec="white",mew=1)
+# cumulative line = subtle reference (no per-point labels); exact %s live in the Pareto table
+ax2.plot(range(len(counts)),cum,color=C_LINE,marker="o",ms=4.5,lw=1.7,zorder=4,mec="white",mew=0.8,alpha=0.9)
 ax2.axhline(80,color="#A6A6A6",ls=(0,(5,3)),lw=1.1,zorder=2)
 ax2.yaxis.set_major_formatter(PercentFormatter()); ax2.set_ylim(0,105); ax2.set_yticks(range(0,101,20))
 ax2.set_ylabel("Cumulative %",fontsize=11,fontweight="bold",color=C_AX); ax2.tick_params(colors=C_AX)
 ax2.spines["top"].set_visible(False)
-for x,y in zip(range(len(counts)),cum):
-    ax2.text(x,y+3,f"{y:.0f}%",ha="center",fontsize=8.5,fontweight="bold",color=C_LINE)
-leg=[Patch(facecolor=C_VITAL,label="Count (vital few)"),Patch(facecolor=C_TAIL,label="Count (tail)"),
+leg=[Patch(facecolor=C_VITAL,label="Count (vital few — fix first)"),Patch(facecolor=C_TAIL,label="Count (tail)"),
      Line2D([0],[0],color=C_LINE,marker="o",label="Cumulative %"),
-     Line2D([0],[0],color="#A6A6A6",ls="--",label="80% target")]
+     Line2D([0],[0],color="#A6A6A6",ls="--",label="80% line")]
 ax.legend(handles=leg,loc="upper center",bbox_to_anchor=(0.5,-0.30),ncol=4,frameon=False,fontsize=9)
 ax.set_title("Defect Pareto — Rejected Pelvic Blocks   (SH: Martins · 3 kill dates · 99 inspected · 89 fail · 122 defects)",
              fontsize=12.5,fontweight="bold",color=C_TITLE,pad=14)
