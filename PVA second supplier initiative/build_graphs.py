@@ -152,16 +152,20 @@ def build():
      ("CJB @35% — Yr 1 (credit)", scenario(0.35,CJB_LANDED,QUAL)),
      ("CJB @35% — Yr 2+", scenario(0.35,CJB_LANDED)),
     ]
+    an.column_dimensions['D'].width=22
     r=5
     an.cell(row=r,column=2,value="Scenario").font=f(bold=True,color="FFFFFF"); an.cell(row=r,column=2).fill=HDR; an.cell(row=r,column=2).border=BORD
-    an.cell(row=r,column=3,value="Annual $").font=f(bold=True,color="FFFFFF"); an.cell(row=r,column=3).fill=HDR; an.cell(row=r,column=3).border=BORD
+    an.cell(row=r,column=3,value="Total account $/yr").font=f(bold=True,color="FFFFFF"); an.cell(row=r,column=3).fill=HDR; an.cell(row=r,column=3).border=BORD
+    an.cell(row=r,column=4,value="EXTRA vs all-SNP $/yr").font=f(bold=True,color="FFFFFF"); an.cell(row=r,column=4).fill=HDR; an.cell(row=r,column=4).border=BORD
     for i,(name,val) in enumerate(scen):
         rr=6+i
         an.cell(row=rr,column=2,value=name).font=f(); an.cell(row=rr,column=2).border=BORD
         c=an.cell(row=rr,column=3,value=round(val)); c.number_format=CUR0; c.alignment=Alignment(horizontal="center"); c.border=BORD
-        if "baseline" in name: an.cell(row=rr,column=2).fill=GREY; c.fill=GREY
-        elif "Market" in name: an.cell(row=rr,column=2).fill=GOOD; c.fill=GOOD
-        else: an.cell(row=rr,column=2).fill=BAD; c.fill=BAD
+        e=an.cell(row=rr,column=4,value=round(val-baseline)); e.number_format=CUR0; e.alignment=Alignment(horizontal="center"); e.border=BORD; e.font=f(bold=True)
+        if "baseline" in name: an.cell(row=rr,column=2).fill=GREY; c.fill=GREY; e.fill=GREY
+        elif "Market" in name: an.cell(row=rr,column=2).fill=GOOD; c.fill=GOOD; e.fill=GOOD
+        else: an.cell(row=rr,column=2).fill=BAD; c.fill=BAD; e.fill=BAD
+    an.cell(row=6+len(scen)+1,column=2,value="EXTRA = the redundancy premium (what dual-sourcing ADDS). The drums are bought either way, so this is the real decision number.").font=f(size=9,italic=True,color="404040")
     last=6+len(scen)-1
     ch=BarChart(); ch.type="bar"; ch.title="Total annual account cost — all options"
     ch.x_axis.title="$ / year"; ch.height=10; ch.width=22

@@ -54,61 +54,46 @@ leg=[mpatches.Patch(color=MKTc,label="Orders 1–7: net after $700 credit"),
 ax.legend(handles=leg,loc="upper left",fontsize=9,framealpha=0.95)
 fig.tight_layout(); fig.savefig("chart1_credit.png",bbox_inches="tight"); plt.close(fig)
 
-# ============ CHART 2 — total annual cost, ALL options (horizontal) ============
-rows=[("All-SNP baseline",baseline,GREYc),
-      ("Market (high) @25%",acct(0.25,MKT_DRUM),MKTc),
-      ("Market (high) @35% (~1 drum/wk)",acct(0.35,MKT_DRUM),MKTc),
-      ("CJB @25% — Year 1 (credit)",acct(0.25,CJB_LANDED,QUAL),CJBc1),
-      ("CJB @25% — Year 2+",acct(0.25,CJB_LANDED),CJBc),
-      ("CJB @35% — Year 1 (credit)",acct(0.35,CJB_LANDED,QUAL),CJBc1),
-      ("CJB @35% — Year 2+",acct(0.35,CJB_LANDED),CJBc)]
+# ============ CHART 2 — EXTRA annual cost (redundancy premium), all options ============
+def premium(split,secprice): return DRUMS_YR*split*(secprice-SNP_DRUM)
+rows=[("Market @25% (high $2.55/lb)",premium(0.25,MKT_DRUM),MKTc),
+      ("Market @35% (high, ~1 drum/wk)",premium(0.35,MKT_DRUM),MKTc),
+      ("CJB @25% — Year 2+",premium(0.25,CJB_LANDED),CJBc),
+      ("CJB @35% — Year 2+ (~1 drum/wk)",premium(0.35,CJB_LANDED),CJBc)]
 labels=[r[0] for r in rows]; vals=[r[1] for r in rows]; cols=[r[2] for r in rows]
-fig,ax=plt.subplots(figsize=(11,5.8),dpi=150)
-y=range(len(rows))
-bars=ax.barh(list(y),vals,color=cols,zorder=3,height=0.66)
-ax.invert_yaxis()
+fig,ax=plt.subplots(figsize=(11,5.0),dpi=150)
+y=range(len(rows)); bars=ax.barh(list(y),vals,color=cols,zorder=3,height=0.60); ax.invert_yaxis()
 for b,v in zip(bars,vals):
-    ax.text(v+2500,b.get_y()+b.get_height()/2,money(v),va="center",ha="left",
-            fontsize=10,fontweight="bold",color=NAVY)
-ax.axvline(baseline,color=GREYc,ls="--",lw=1.4,zorder=1)
-ax.text(baseline,-0.7,f"baseline {money(baseline)}",color=GREYc,fontsize=9,ha="center")
+    ax.text(v+2000,b.get_y()+b.get_height()/2,f"+{money(v)}/yr",va="center",ha="left",fontsize=10.5,fontweight="bold",color=NAVY)
 ax.set_yticks(list(y)); ax.set_yticklabels(labels,fontsize=10)
-ax.xaxis.set_major_formatter(FuncFormatter(money))
-ax.set_xlim(0,max(vals)*1.18)
-ax.set_title("Total annual account cost — all options",fontsize=14,fontweight="bold",color=NAVY,pad=28,loc="left")
-ax.text(0,1.04,"Whole account (2nd-source slice + retained SNP). Market shown at the HIGH-end rate \$2.55/lb. CJB still runs ~2.5–3.5× even the high market; its \$4,900 credit is invisible here.",
-        transform=ax.transAxes,fontsize=9.5,color="#555555")
-ax.set_xlabel("$ per year")
+ax.xaxis.set_major_formatter(FuncFormatter(money)); ax.set_xlim(0,max(vals)*1.22)
+ax.set_title("EXTRA annual cost of a second source (the redundancy premium)",fontsize=14,fontweight="bold",color=NAVY,pad=28,loc="left")
+ax.text(0,1.05,"Only the ADDED cost vs staying 100% SNP — the drums you buy anyway (at SNP) are excluded. Market at high-end \\$2.55/lb; CJB toll literal.",transform=ax.transAxes,fontsize=9.5,color="#555555")
+ax.set_xlabel("Extra $ per year vs all-SNP baseline")
 ax.grid(axis="x",color="#EEEEEE",zorder=0)
-for s in ("top","right"): ax.spines[s].set_visible(False)
+for sp in ("top","right"): ax.spines[sp].set_visible(False)
 fig.tight_layout(); fig.savefig("chart2_all.png",bbox_inches="tight"); plt.close(fig)
 
-# ============ CHART 3 — realistic options (SNP vs Market), with premium ============
-r3=[("All-SNP\nbaseline",baseline,GREYc),
-    ("Market\n@25%",acct(0.25,MKT_DRUM),MKTc),
-    ("Market @35%\n(~1 drum/wk)",acct(0.35,MKT_DRUM),MKTc)]
-labels=[r[0] for r in r3]; vals=[r[1] for r in r3]; cols=[r[2] for r in r3]
-fig,ax=plt.subplots(figsize=(8.5,5.6),dpi=150)
-x=range(len(r3))
-bars=ax.bar(list(x),vals,color=cols,zorder=3,width=0.64)
-for b,v in zip(bars,vals):
-    ax.text(b.get_x()+b.get_width()/2,v+400,money(v),ha="center",va="bottom",fontsize=11,fontweight="bold",color=NAVY)
-# premium annotations
-for i,(lab,v,c) in enumerate(r3):
-    if i>0:
-        d=v-baseline
-        ax.text(i,v*0.42,f"+${d/1000:.1f}k\n(+{d/baseline*100:.0f}%)",ha="center",va="center",
-                fontsize=11,fontweight="bold",color="white")
-ax.axhline(baseline,color=GREYc,ls="--",lw=1.3,zorder=1)
-ax.set_xticks(list(x)); ax.set_xticklabels(labels,fontsize=10)
-ax.yaxis.set_major_formatter(FuncFormatter(money)); ax.set_ylim(0,max(vals)*1.18)
-ax.set_title("Realistic options — cost of a second source vs staying all-SNP",
-             fontsize=13.5,fontweight="bold",color=NAVY,pad=28,loc="left")
-ax.text(0,1.045,"Using the HIGH-end researched market rate of \$2.55/lb (≈3.4× SNP) — the conservative worst case. Bars exclude CJB, which is still ~2.5–3.5× higher, off-scale.",
-        transform=ax.transAxes,fontsize=9.5,color="#555555")
-ax.set_ylabel("$ per year")
-ax.grid(axis="y",color="#EEEEEE",zorder=0)
-for s in ("top","right"): ax.spines[s].set_visible(False)
+# ============ CHART 3 — market redundancy premium, LOW/BASE/HIGH range ============
+import numpy as np
+MKT_LO=0.85*DRUM_LB; MKT_BS=1.40*DRUM_LB; MKT_HI=2.55*DRUM_LB
+groups=[("25% split",0.25),("35% split (~1 drum/wk)",0.35)]
+tiers=[("Low  $0.85/lb",MKT_LO,"#A9D08E"),("Base $1.40/lb",MKT_BS,MKTc),("High $2.55/lb",MKT_HI,"#1E7A34")]
+fig,ax=plt.subplots(figsize=(10,5.6),dpi=150)
+x=np.arange(len(groups)); w=0.26
+for i,(tname,dp,c) in enumerate(tiers):
+    vv=[premium(sp,dp) for _,sp in groups]
+    bars=ax.bar(x+(i-1)*w,vv,width=w,color=c,zorder=3,label=tname)
+    for b,v in zip(bars,vv):
+        ax.text(b.get_x()+b.get_width()/2,v+700,money(v),ha="center",va="bottom",fontsize=9.5,fontweight="bold",color=NAVY)
+ax.set_xticks(x); ax.set_xticklabels([g[0] for g in groups],fontsize=11)
+ax.yaxis.set_major_formatter(FuncFormatter(money))
+ax.set_title("Market redundancy premium — EXTRA $/yr by rate scenario",fontsize=13.5,fontweight="bold",color=NAVY,pad=30,loc="left")
+ax.text(0,1.06,"Added cost of a market second source vs all-SNP (drums bought anyway excluded). Base case is modest; the high-end is the worst case you asked to feature.",transform=ax.transAxes,fontsize=9.3,color="#555555")
+ax.set_ylabel("Extra $ per year vs all-SNP baseline")
+ax.legend(fontsize=9,framealpha=0.95,loc="upper left"); ax.grid(axis="y",color="#EEEEEE",zorder=0)
+for sp in ("top","right"): ax.spines[sp].set_visible(False)
+ax.set_ylim(0,premium(0.35,MKT_HI)*1.2)
 fig.tight_layout(); fig.savefig("chart3_realistic.png",bbox_inches="tight"); plt.close(fig)
 
 print("charts rendered: chart1_credit.png chart2_all.png chart3_realistic.png")
