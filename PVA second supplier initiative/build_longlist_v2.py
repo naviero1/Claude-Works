@@ -334,6 +334,169 @@ for cat,who,role,fill in sh:
         cell.alignment=Alignment(wrap_text=True,vertical="top"); cell.border=BORD; cell.fill=fill
     r+=1
 
+# ================= TAB 6: GLOSSARY =================
+G=wb.create_sheet("Glossary")
+G.sheet_view.showGridLines=False
+G.column_dimensions['A'].width=2
+G.column_dimensions['B'].width=30
+G.column_dimensions['C'].width=62
+G.column_dimensions['D'].width=62
+G['B2']="Glossary — the acronyms and concepts in this project, in plain English"
+G['B2'].font=F(bold=True,size=15,color="1F3864")
+G['B3']="Written for the buyer, not the chemist. 'Why it matters to us' is the practical consequence for this sourcing decision."
+G['B3'].font=F(italic=True,size=9,color="595959")
+
+gr=5
+def gsec(title):
+    global gr
+    cell=G.cell(row=gr,column=2,value=title); cell.font=F(bold=True,size=11,color="FFFFFF")
+    for col in (2,3,4): G.cell(row=gr,column=col).fill=HDR
+    gr+=1
+    for i,h in enumerate(["Term","What it means","Why it matters to us"]):
+        cc=G.cell(row=gr,column=2+i,value=h); cc.font=F(bold=True,size=9,color="1F3864"); cc.fill=SUB; cc.border=BORD
+    gr+=1
+def g(term,mean,why,fill=None):
+    global gr
+    for i,val in enumerate([term,mean,why]):
+        cell=G.cell(row=gr,column=2+i,value=val)
+        cell.font=F(size=9,bold=(i==0)); cell.alignment=Alignment(wrap_text=True,vertical="top"); cell.border=BORD
+        if fill: cell.fill=fill
+    gr+=1
+
+gsec("1. THE VISCOSITY SPEC, DECODED  —  'less than 2,500 cps, Brookfield, spindle #3, 10 RPM, 25 C'")
+g("Viscosity","How thick a liquid is — its resistance to flowing. Water is thin, honey is thick.",
+  "It is our main quality number. Too thin or too thick means the PVA did not dissolve correctly, or the solids are off.",A_F)
+g("cps  (or cP) — centipoise","The unit viscosity is measured in. Reference points: water ≈ 1 cps; olive oil ≈ 80; motor oil ≈ 200-400; corn syrup ≈ 2,000-5,000; honey ≈ 10,000; ketchup ≈ 50,000. (1 cps = 1 mPa·s, the metric equivalent you may see instead.)",
+  "Our limit of 2,500 cps is roughly thick-syrup consistency — clearly viscous, but pourable and pumpable with ordinary equipment. For a coatings or adhesives toll blender this is an easy fluid; many of them routinely run 50,000+ cps.",A_F)
+g("Brookfield","The brand of viscometer that became the industry standard method. It spins a metal probe in the liquid and measures how hard the liquid resists — that resistance converts to viscosity.",
+  "Saying 'Brookfield' pins down the METHOD. A different instrument type can give a different number for the same liquid, so the method has to match or the numbers are not comparable.",A_F)
+g("Spindle #3","The specific probe that spins in the liquid. Brookfield spindles are numbered — lower numbers are physically larger (for thin liquids), higher numbers are smaller (for thick liquids). #3 is a mid-range probe.",
+  "The spindle sets the measuring range. The SAME liquid measured with a different spindle gives a DIFFERENT number. This is why the spindle must be named, not assumed.",A_F)
+g("10 RPM","How fast the spindle turns — 10 revolutions per minute.",
+  "This is the one people miss. Polymer solutions like ours are 'shear-thinning': the faster you stir them, the thinner they read. The same drum can measure ~3,000 cps at 5 RPM and ~2,000 at 20 RPM. Quote a viscosity without the RPM and the number means nothing.",A_F)
+g("25 C  (77 F)","The temperature of the sample when measured.",
+  "Viscosity falls sharply as liquid warms. A sample measured warm reads far lower than the same sample at 25 C. Specifying 25 C stops a supplier from passing a batch simply by testing it warm.",A_F)
+g("Why all four together","Method + spindle + speed + temperature.",
+  "Change any one and the number changes. This is why our CoA requirement names all four — it is the difference between a spec and a suggestion. If a supplier reports viscosity their own way, we cannot compare it to the incumbent's.",A_F)
+
+gsec("2. THE CHEMISTRY")
+g("PVA  /  PVOH","Polyvinyl alcohol. A synthetic polymer that dissolves in water. Both abbreviations mean the same thing (PVOH is used to avoid confusion with polyvinyl acetate, PVAc).",
+  "The active ingredient of our product. We buy it as a dry solid and dissolve it in water.")
+g("Resin","In this industry, the dry solid polymer before it is dissolved — granules or powder.",
+  "Distinguishes the dry raw material from the finished liquid. This distinction is exactly what made CJB's '$8.00 per pound' quote ambiguous: per pound of dry resin, or of finished liquid? A 450 lb drum contains only ~45-50 lb of resin — a ~10x difference.",D_F)
+g("Degree of hydrolysis","PVA is made by converting polyvinyl acetate. The degree of hydrolysis is how much of that conversion was completed: partially hydrolyzed ≈ 87-89%, fully ≈ 98-99%, SUPER-hydrolyzed > 99%.",
+  "THE reason our process needs 90-95 C. The more hydrolyzed the polymer, the more tightly its chains pack together, and the hotter the water must be to pull them apart. Partially hydrolyzed PVA dissolves in warm water; ours does not.",GOLD)
+g("High molecular weight (high-MW)","Long polymer chains rather than short ones.",
+  "Long chains dissolve more slowly (hence the 30-45 minute hold) and thicken the solution more (hence a viscosity spec at all).")
+g("Total solids  /  %TS","The percentage of the finished liquid that is actual material rather than water. Ours is 10-12%.",
+  "The concentration check. Measured by drying a sample and weighing what remains. If water boils off during an uncovered cook, %TS drifts up and viscosity with it.")
+g("Aqueous","Water-based — the liquid it is dissolved in is water.",
+  "Distinguishes our product from solvent-based chemistry. It also means suppliers set up only for solvent work are the wrong shops.")
+g("Brand names you will see","Selvol (Sekisui) · Poval and Elvanol (Kuraray) · Gohsenol (Mitsubishi Chemical). Our spec references Selvol S-1551F-D or equivalent.",
+  "These are competing brands of the same class of material. 'Or equivalent' means another maker's matching grade is acceptable — useful leverage on resin price.")
+g("NaCl","Common salt (sodium chloride), a minor ingredient in our formula.",
+  "Small amount, but it is why 316L stainless matters — chlorides corrode lesser steels (see section 4).")
+g("Biocide  /  Proxel BD20","A preservative that stops bacteria and mould growing in a water-based product. Proxel is a specific brand.",
+  "Water-based products spoil. Our process adds it hot in the final 10 minutes — a sequencing detail a blender must follow exactly.")
+
+gsec("3. THE PROCESS AND EQUIPMENT")
+g("Toll blending  /  toll manufacturing","WE supply the raw materials and the formula; the manufacturer only processes them and charges a conversion fee.",
+  "Our preferred model. It removes their markup on materials and lets us control the exact resin grade — which matters for consistency.",A_F)
+g("Contract manufacturing","The manufacturer BUYS the raw materials themselves and sells us finished product, marking up the materials.",
+  "The alternative model. Usually simpler but more expensive, because you pay a margin on materials too (CJB proposed cost + 15%).")
+g("Conversion fee","The charge for the processing work alone — labour, energy, QC, cleaning, packaging, overhead and profit. No materials.",
+  "The number to compare across toll blenders. Ask for it per drum or per batch, never as a bare 'per pound'.")
+g("Batch","One discrete production run. Everything is mixed together, processed, then packaged.",
+  "Our product is made in batches, one drum at a time. Opposite of continuous production, which runs nonstop.")
+g("Minimum batch size","The smallest quantity a given vessel can run properly — a tank must be filled to a certain level for the agitator to work.",
+  "One of our two killer questions. Our drum is ~50 gallons. A shop whose smallest vessel is 2,000 gallons cannot make it economically, whatever their price list says.",GOLD)
+g("MOQ — minimum order quantity","The smallest ORDER they will accept commercially. Different from minimum batch size, which is a physical limit.",
+  "A shop might physically manage 50 gallons but refuse orders under 500. Ask both.")
+g("Jacketed vessel","A tank with a hollow outer layer — the 'jacket' — through which steam, hot oil, or cooling water flows to heat or cool the contents. The heating fluid never touches the product.",
+  "This is the equipment that clears our 90-95 C requirement. A tank without a jacket generally cannot.",GOLD)
+g("Steam jacket  /  hot oil","The two common heating fluids. Low-pressure steam runs about 110-120 C; hot oil systems can exceed 250 C.",
+  "Either comfortably clears our 90-95 C. This is why 'steam-jacketed' on a supplier's website is a strong positive signal.")
+g("Reactor","A jacketed vessel built for chemical reactions — heavier duty, often pressure-rated, with better temperature control.",
+  "More capability than we need (we only dissolve, we do not react), but reactors always clear the heat gate.")
+g("Pilot plant  /  pilot reactor","Small-scale equipment used for trial batches and development before full production.",
+  "Our best opening. Piedmont's 5-100 gallon pilot reactors fit our ~50-gallon batch almost exactly, where their production vessels would be far too big.",A_F)
+g("Agitation","Stirring. 'Variable speed' means the rate can be adjusted.",
+  "PVA must be stirred steadily as it dissolves or it clumps. Too vigorous too early also causes problems.")
+g("Fisheyes  /  gels","Lumps of partly-dissolved polymer — a soft outer layer wrapped around dry powder inside.",
+  "The classic PVA failure, and what a trial batch is really testing for. Caused by too-low temperature, too-short hold, or bad addition order. Brenntag's attempt failed this way.",D_F)
+g("200 micron filtration","Straining the finished liquid through a screen with 200-micrometre openings (about 0.2 mm) to catch undissolved bits. Roughly equivalent to a 70-mesh screen.",
+  "A relatively coarse polish, not fine filtration. It removes gels and specks; it does not sterilise or clarify.")
+g("Micron vs mesh","Two ways of stating filter fineness, running in OPPOSITE directions. Micron = hole size, so smaller number = finer. Mesh = wires per inch, so higher number = finer. 200 micron ≈ 70 mesh; 100 mesh ≈ 150 micron (finer than we require).",
+  "Easy to misread in a supplier's spec. If they say '100 mesh', that is finer than our 200 micron and therefore acceptable.")
+g("Shelf life — 18 days","How long the product stays usable after production.",
+  "Drives everything about cadence. We cannot stockpile, so we need weekly made-to-order batches — which is why a shop with a 250-gallon minimum is a problem: ~4.5 drums made, only ~2 usable in time.",GOLD)
+
+gsec("4. MATERIALS OF CONSTRUCTION")
+g("Stainless steel  304 vs 316L","Grades of stainless. 316L contains molybdenum, which resists pitting from chlorides. The 'L' means low carbon, which resists corrosion at welds.",
+  "Our formula contains salt (NaCl) — a chloride. Over time chlorides pit ordinary 304 steel, which risks both corrosion and metal contamination. 316L is the safer contact surface.")
+g("Glass-lined","A steel vessel with a fused glass interior — chemically inert.",
+  "Common in reactors for aggressive chemistry. Fine for us, simply more than we need.")
+g("Hastelloy","A high-nickel alloy for severely corrosive service.",
+  "Seeing it on a supplier's equipment list signals a heavy-duty synthesis shop — usually a sign they are bigger and pricier than we need.")
+
+gsec("5. QUALITY AND DOCUMENTATION")
+g("CoA — Certificate of Analysis","A document listing the ACTUAL measured test results for that specific lot.",
+  "What we require every shipment: lot #, production date, %TS, final pH, and Brookfield viscosity. Real numbers, per batch.",A_F)
+g("CoC — Certificate of Conformance","A statement that the product meets spec, without necessarily giving the measured numbers.",
+  "Weaker than a CoA. If a supplier offers a CoC, ask for a CoA instead.")
+g("Lot  /  batch number","The unique ID for one production run.",
+  "Traceability. If a problem appears later, the lot number identifies exactly which batch and when it was made.")
+g("Retained sample","A sample of each batch kept by the manufacturer for a set period.",
+  "Lets a dispute be settled later by re-testing what was actually shipped. Worth asking who retains and for how long.")
+g("pH","Acidity or alkalinity, 0-14. Neutral is 7.",
+  "One of our three QC checks. Drift indicates a formulation or contamination problem.")
+g("ISO 9001","The general quality-management standard — documented, repeatable processes and records. Not industry-specific.",
+  "Our practical baseline requirement. Widely held, so asking for it costs nothing.",A_F)
+g("ISO 13485","The quality-management standard specific to MEDICAL DEVICES. Stricter documentation, validation and traceability.",
+  "CONFIRMED NOT REQUIRED for us. Worth knowing because it commands a real price premium — which is why the medical-grade suppliers were deprioritised.",A_F)
+g("cGMP","'Current Good Manufacturing Practice' — the FDA-enforced rules for making drugs and some devices.",
+  "More than we need. Signals a pharma-grade shop and pharma-grade pricing.")
+g("FDA registration","A facility listing itself with the FDA. A registration, not an approval or endorsement.",
+  "Relevant only if the end use demands it. Ours does not.")
+g("QMSR","FDA's Quality Management System Regulation, which harmonises the old US device rules with ISO 13485.",
+  "Came up early as a possible requirement. With ISO 13485 confirmed unnecessary, this is background only.")
+g("FDA warning letter","A formal FDA notice of significant violations at a facility.",
+  "A genuine red flag in supplier diligence — one candidate (Medical Products Laboratories) has one open. Never advance a supplier without confirming it is closed.",D_F)
+
+gsec("6. COMMERCIAL AND SOURCING TERMS")
+g("RFQ  /  RFP  /  RFI","Request for Quote (price for a defined thing) · Request for Proposal (how would you solve this) · Request for Information (general capability enquiry).",
+  "Ours is genuinely an RFQ: the specification is fixed and we want a price.")
+g("NDA","Non-disclosure agreement — a confidentiality contract.",
+  "Must be signed before we share the full formula. Our RFQ template deliberately withholds the formula so outreach can start before the NDA is in place.",A_F)
+g("Qualification  /  first article","The trial batch proving a new supplier can make the product to spec before production begins.",
+  "What the $4,900 CJB batch was. Its pass/fail test is now concrete: does it come in under 2,500 cps at our stated conditions?")
+g("Second source  /  dual sourcing","Deliberately qualifying a second supplier for the same item.",
+  "The whole point of this project. It is insurance against a single supplier failing — and the premium is the extra cost over single-sourcing.")
+g("Cost of redundancy  /  premium","The EXTRA annual cost of buying some volume from a pricier second source instead of all from the incumbent.",
+  "The real decision number — not total spend, since those drums get bought either way. See the cost-scenarios workbook.",A_F)
+g("Incumbent","The current supplier.",
+  "SNP, at $0.75/lb delivered. Also our price benchmark.")
+g("Lead time","Time from placing the order to receiving goods.",
+  "With an 18-day shelf life, a long lead time eats the usable window.")
+g("LTL freight","'Less than truckload' — shipping that does not fill a truck, so the load is consolidated with others.",
+  "How a single drum ships. Costs much more per pound than a full load, which is why freight is a real line item at our volume.")
+g("Drum  /  IBC tote","55-gallon drum ≈ 450 lb of our product. An IBC tote is a large cube, typically 275-330 gallons.",
+  "We buy drums. A tote would exceed what we can use inside the 18-day shelf life.")
+g("Consignment","We own the raw materials and place them at the supplier's site; they process from our stock.",
+  "The purest version of tolling, and worth proposing — it removes any markup on materials entirely.")
+
+gsec("7. UNITS AND QUICK CONVERSIONS")
+g("Our drum","55 US gallons ≈ 450 lb net of finished solution (density just above water, ~8.5 lb/gal).",
+  "Convert every quote to $ per drum. It is the only way to compare a per-pound quote against a per-batch one.",A_F)
+g("Our demand","1,300 lb/week ≈ 2.9 drums/week ≈ 150 drums/year. A 35% second-source share ≈ 1 drum/week.",
+  "The volume any supplier is being asked to serve.")
+g("Temperature","90-95 C = 194-203 F.  25 C = 77 F.  40 C = 104 F.",
+  "US shops often work in Fahrenheit. Quoting both avoids a misunderstanding on the single most important requirement.",A_F)
+g("Weight","1 kg = 2.205 lb.  1 metric tonne (MT) = 1,000 kg = 2,205 lb ≈ 4.9 of our drums.",
+  "Commodity resin prices are usually published per kg or per MT, so converting to $/lb is needed to compare.")
+g("Viscosity","1 cps = 1 mPa·s (millipascal-second).",
+  "Some suppliers and instruments report in mPa·s. The numbers are identical — no conversion needed.")
+
 out="/home/user/Claude-Works/PVA second supplier initiative/PVA_Supplier_Longlist.xlsx"
 wb.save(out)
 print("saved",out)
