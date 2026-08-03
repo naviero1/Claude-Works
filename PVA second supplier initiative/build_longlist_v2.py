@@ -63,7 +63,7 @@ kv("REXCO-USA — was Tier A, now C","Makes pigmented aqueous PVA solutions, but
 kv("5 companies DROPPED","Peach State Labs (dead URL — the Rome GA business is now Polyventive), Aicello (no US manufacturing), Troy Chemical (listing conflated two companies; intended one acquired 2022), CHT USA (Richmond VA is a SILICONE plant — silicone contamination is close to worst-case for a waterborne coating), South Coast Terminals (self-documented disqualification: 10 MT minimum batches).",D_F)
 
 sec("WHAT'S NEW IN v2")
-kv("Medical-grade candidates added","v1 had none screened for this. Since the product goes into an Intuitive device, ISO 13485 / FDA-registered liquid manufacturers were searched specifically: Polysciences, Hydromer, HR Pharmaceuticals, Strukmyer, GeminiBio, Kingchem, Alpha Teknova, Biocoat, NEXT Medical. Expect these to price well above $0.75/lb — use them only if Intuitive requires a 13485 supply chain.")
+kv("ISO 13485 NOT required — RESOLVED","Confirmed by Oscar: we do not need an ISO 13485 supplier. That closes an open blocker and simplifies the search. The medical-grade candidates found in research (Polysciences, Hydromer, HR Pharmaceuticals, Strukmyer, GeminiBio, Kingchem, Alpha Teknova, Biocoat, NEXT Medical) are therefore DEPRIORITIZED to Tier C — they would price well above the incumbent for a certification we do not need. They stay listed only as a fallback if Quality later asks for a stricter supply chain. What we DO still want from any supplier: ISO 9001, a QC lab, lot traceability, and a CoA carrying %TS, pH and Brookfield viscosity.",A_F)
 kv("Best small-batch find","Avion Manufacturing (Medina, OH) publishes batch sizes of 1–55 gallons and 60–275 gallons — the best cadence fit found anywhere. ISO 9001. Heat capability is the one unknown; ask it first.")
 kv("Regional coverage filled","West: Sunland Chemical (LA — jacketed from 50 gal). Northeast: Shamrock Technologies (Newark NJ — 50-gal jacketed oil-heated kettles, ISO 9001). Midwest: Applied Material Solutions (WI — steam and hot-oil reactors from 140 gal).")
 kv("Non-obvious category worth a look","Mallard Creek Polymers (Charlotte, NC) — emulsion polymer plants DISSOLVE PVOH IN HOT WATER as a routine step in vinyl acetate emulsion production. That capability is real but never advertised as 'PVA tolling.'")
@@ -140,20 +140,31 @@ def add_verified():
                     clip(v.get("medical_quality_signals"),140),clip(v.get("contact_route"),160),
                     clip(assess,420),v.get("confidence","")))
     return out
+MEDICAL_TOKENS=("polysciences","hydromer","hr pharmaceutical","strukmyer","geminibio","gemini bio",
+                "kingchem","alpha teknova","biocoat","next medical","medical products laboratories")
+def is_medical(n): return any(t in (n or "").lower() for t in MEDICAL_TOKENS)
+MED_NOTE=("ISO 13485 NOT REQUIRED (confirmed by Oscar) — deprioritized. Medical-grade pricing would run well above "
+          "the incumbent for a certification we do not need. Keep only as a fallback if Quality later asks for a "
+          "stricter supply chain. | ")
 def add_new():
     out=[]
     for v in newc:
         n=v.get("name","")
-        if key(n) in seen: continue
-        seen.add(key(n))
+        # collapse near-duplicates that differ only by suffix (e.g. "Hydromer, Inc." vs "Hydromer, Inc. (OTC: HYDI)")
+        base=re.sub(r'[^a-z]','',(n or '').lower().split("(")[0])[:10]
+        if key(n) in seen or base in seen: continue
+        seen.add(key(n)); seen.add(base)
         heat=(v.get("heat_gate_evidence") or "")
         strong = any(w in heat.upper() for w in ("STRONG","GOOD","CONFIRM","PUBLISHED:","STRONGEST"))
         silent = heat.strip().upper().startswith(("SILENT","NOT PUBLISHED","UNVERIFIED","UNKNOWN"))
         t = "B" if strong else ("C" if silent else "B")
+        why=clip(v.get("why_relevant"),420)
+        if is_medical(n):
+            t="C"; why=MED_NOTE+clip(v.get("why_relevant"),240)
         out.append((t,n+"  [NEW]",v.get("location",""),v.get("url",""),
                     clip(heat,260),clip(v.get("small_batch_evidence"),160),
                     clip(v.get("quality_certs"),140),clip(v.get("contact_route"),160),
-                    clip(v.get("why_relevant"),420),clip(v.get("confidence"),24)))
+                    why,clip(v.get("confidence"),24)))
     return out
 
 allrows = rows + add_verified() + add_new()
@@ -192,7 +203,7 @@ A.freeze_panes="A5"; A.row_dimensions[4].height=28
 acts=[
  ("WAVE 0 — unblock (do first, internal)","","","","","",""),
  ("BLOCKER","Internal — whoever holds SNP CoA history","Internal","Pull the viscosity target AND tolerance from SNP CoA history (Brookfield, spindle #3, 10 RPM, 25 C). Until this exists, nobody can quote firmly or pass/fail a trial batch.","This has been pending the whole project and gates every firm quote and every qualification.","Oscar",""),
- ("BLOCKER","Internal — Quality / Regulatory","Internal","Is an ISO 13485 / FDA-registered supplier REQUIRED for this component, or is ISO 9001 + CoA + traceability acceptable? Ask about QMSR implications.","Decides whether the medical-grade candidates are mandatory (they cost far more) or optional. Changes the whole shortlist.","Oscar",""),
+ ("RESOLVED","Quality / Regulatory — ISO 13485","Closed","No ISO 13485 required (confirmed by Oscar). Medical-grade candidates deprioritized to Tier C. Still specify on every RFQ: ISO 9001, lot traceability, and a CoA with lot #, production date, %TS, pH, Brookfield viscosity (spindle #3, 10 RPM, 25 C).","Removes a whole cost tier from the search — generic ISO 9001 tollers are now fully in scope.","Oscar","DONE"),
  ("BLOCKER","Internal — McC","Internal","Get the NDA template ready to execute before sharing the full spec/formula with any new supplier.","Every candidate will ask for the formula before quoting firmly.","Oscar",""),
  ("WAVE 1 — highest-information calls (this week)","","","","","",""),
  ("1","Sekisui Specialty Chemicals — technical service","Web form + ask for tech service","Do you sell a made-to-spec PVOH SOLUTION in 450-lb drums for our formula (~10-12% solids, super-hydrolyzed, plus NaCl, pigment, and a hot biocide addition)? What is the minimum order, and can you support ~1 drum/week? If not made-to-spec, which catalog solution is closest?","POTENTIAL GAME-CHANGER: they already package cooked PVOH solutions in 450-lb drums and market 'no cooking required.' If they can do our formula, we skip tolling entirely. Also free grade/cook expertise either way.","Oscar",""),
@@ -210,8 +221,8 @@ acts=[
  ("12","Colonial Chemical Solutions (Savannah GA)","RFQ email","Use the RFQ template. Plus: their heated tank is large (6,000 gal) — ask which vessel would run a 50-gal batch and what its max temperature is.","Published 50-gallon minimum is the single best cadence fit on the list; Georgia freight.","Oscar",""),
  ("13","Avion Manufacturing (Medina OH)  [NEW]","RFQ email","LEAD WITH THE HEAT QUESTION — their site never mentions heated or jacketed vessels. If yes, use the full RFQ.","Best small-batch fit found anywhere: publishes 1-55 gallon and 60-275 gallon batch ranges, ISO 9001. Heat is the single unknown.","Oscar",""),
  ("WAVE 3 — conditional / specialist","","","","","",""),
- ("14","Polysciences (Warrington PA)  [NEW]","RFQ email — ONLY IF 13485 required","Use the RFQ template. Plus: can you hold 90-95 C, and can you fill 55-gal drums?","ISO 13485 + FDA-registered AND a genuine polymer chemistry manufacturer — the best medical-grade + polymer overlap found. Expect a premium.","Oscar",""),
- ("15","Hydromer (Branchburg NJ / Concord NC)  [NEW]","RFQ email — ONLY IF 13485 required","Use the RFQ template. Plus: will you toll someone else's formula, and can you fill 55-gal drums?","ISO 13485 + ISO 9001 + FDA registered; their entire business is aqueous polymer solutions for Class II/III devices.","Oscar",""),
+ ("14","Aexcel Corporation (Mentor OH)","RFQ email","LEAD WITH THE HEAT QUESTION — their site is silent on temperature. If yes, send the full RFQ.","Best batch-size fit in Tier B and an explicit toll model that already assumes customer-supplied raw materials — exactly our arrangement. Packages to 55-gal drums and IBCs.","Oscar",""),
+ ("15","Sandstrom Coating Technologies (Port Byron IL)","RFQ email","Use the RFQ template. Plus: confirm maximum vessel temperature.","Their published toll model describes ours almost word for word: customer provides the formula and the raw materials, they process and package. ISO 9001, vessels from 1 gal.","Oscar",""),
  ("16","Mallard Creek Polymers (Charlotte NC)  [NEW]","RFQ email","Use the RFQ template, but frame it their way: 'you already dissolve PVOH in hot water as the protective colloid step in vinyl acetate emulsions — we want that step alone, as a toll.'","Non-obvious but real: emulsion polymer plants dissolve PVOH in hot water routinely. Never advertised as PVA tolling.","Oscar",""),
  ("17","Sunland Chemical (Los Angeles CA)  [NEW]","RFQ email","Use the RFQ template. Plus: confirm max temperature on the jacketed tanks.","Best WEST-coast fit: 18 blending tanks 5-6,000 gal, jacketed heating available from 50 gal up.","Oscar",""),
  ("18","Shamrock Technologies (Newark NJ)  [NEW]","RFQ email","Use the RFQ template. Plus: confirm max oil-jacket temperature on the 50-gal unit.","Best NORTHEAST fit: 50-gal jacketed high-shear (= one drum) and 500/1,200-gal oil-heated jacketed kettles; ISO 9001 + a cGMP clean room.","Oscar",""),
@@ -286,8 +297,8 @@ sh=[
  ("Resin supply","Kuraray America; Mitsubishi Chemical America; Chang Chun (import)","Resin source if we consign materials, plus free technical validation of the dissolution profile — and referrals to blenders who already cook their resin.",C_F),
  ("Resin distribution","Brenntag; Tilley; Palmer Holland; The Chemical Company","Drum-quantity resin if we supply materials to a toller. TCC and Tilley can also refer blenders. (Tilley runs its own blending plant but has a 220-gal minimum.)",C_F),
  ("Toll blenders","Tier A/B on the Longlist tab","The core search. Two questions decide most of them: hold 90-95 C, and minimum batch size.",B_F),
- ("Medical-grade CMs","Polysciences; Hydromer; HR Pharmaceuticals; Strukmyer; GeminiBio; Kingchem; Alpha Teknova; Biocoat; NEXT Medical","Only relevant if Intuitive requires an ISO 13485 / FDA-registered supply chain. Expect prices well above $0.75/lb — confirm the requirement before spending time here.",B_F),
- ("Internal — Quality/Reg","Intuitive Quality / Regulatory","Decides the ISO 13485 question and QMSR implications. This single answer reshapes the shortlist.",D_F),
+ ("Medical-grade CMs","Polysciences; Hydromer; HR Pharmaceuticals; Strukmyer; GeminiBio; Kingchem; Alpha Teknova; Biocoat; NEXT Medical","NOT NEEDED — ISO 13485 is not required (confirmed by Oscar). Parked as a fallback only; do not spend time here.",C_F),
+ ("Internal — Quality/Reg","Intuitive Quality / Regulatory","RESOLVED — ISO 13485 not required. Still specify on every RFQ: ISO 9001, lot traceability, and a CoA with lot #, production date, %TS, pH, Brookfield viscosity (spindle #3, 10 RPM, 25 C).",A_F),
  ("Internal — spec owner","Whoever holds SNP CoA history","The viscosity target and tolerance. Still pending, and it blocks every firm quote and every trial pass/fail.",D_F),
  ("Internal — legal","McC","NDA execution before sharing the formula with any new supplier.",D_F),
  ("Closed out","CJB Applied Technologies","Quote was ~10x the incumbent all-in. Cancellation note drafted; keep the relationship cordial.",C_F),
