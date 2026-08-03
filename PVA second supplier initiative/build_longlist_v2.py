@@ -73,6 +73,14 @@ kv("Regional coverage filled","West: Sunland Chemical (LA — jacketed from 50 g
 kv("Non-obvious category worth a look","Mallard Creek Polymers (Charlotte, NC) — emulsion polymer plants DISSOLVE PVOH IN HOT WATER as a routine step in vinyl acetate emulsion production. That capability is real but never advertised as 'PVA tolling.'")
 kv("One diligence warning","Medical Products Laboratories (Philadelphia) looks like a strong process match on paper but has an FDA warning letter. Do not advance without confirming it is closed out. Listed so it's on your radar, not as a recommendation.",D_F)
 
+sec("NATIONWIDE SWEEP — what searching beyond the East Coast actually found")
+kv("The structural finding","Across the Midwest, Mountain, South-Central and Western states, a clear pattern emerged: shops that publish a batch MINIMUM publish 200-3,000 gallons, and shops that publish HEAT capability don't publish minimums. Almost nobody publishes both. That is the real explanation for the $8.00-8.50/lb quote — it was not bad luck or a bad actor, it is what the industry's published capability floor implies for a 50-gallon job. The handful of shops that break the pattern are the ones worth our time.",GOLD)
+kv("3 companies now publish BOTH gates","Specialty Organics (Adelanto CA) — 5-to-500-gallon jacketed mixers plus a 150 psi steam boiler. Ascent Chemicals (Cleveland TN) — 5-gal jacketed reactors, steam and hot-oil, ISO 9001, CoA every shipment, and a stated customer-supplies-materials toll model. Seatex (Rosenberg TX) — a 100-gal steam-jacketed pilot reactor plus a 100-ton chilling system, which is precisely our heat-then-cool cycle. All three go to Tier A.",A_F)
+kv("One error corrected","Columbia Chemical was previously dropped as 'Brunswick OH — too big' with no evidence cited. Verified directly: they are in AKRON, hold ISO 9001:2015, publish 'heating and cooling capabilities', package into drums/totes/pails, and explicitly market 'smaller scale custom blending'. Un-dropped to Tier B.",A_F)
+kv("Lead every call with the heat question","In roughly 30 Western sites checked, exactly ONE published heat capability. The gate will mostly have to be cleared by phone, not by research. Open with 'do you have a jacketed vessel that will hold 90-95 C for 45 minutes?' and let it disqualify people inside the first minute.",GOLD)
+kv("Regions that came back empty","Honest answer so nobody re-walks this ground: Louisiana, Arkansas, Mississippi, Kansas and Nebraska produced nothing verifiable. Nevada, Arizona, Idaho and Washington produced nothing qualified. Colorado and Utah are one-name states. Oregon has one verified option (FORREST) plus one unverifiable (Griffin). California carries essentially the entire Western list.")
+kv("Rejected for scale, with reasons","Not padded into the list: Bernard Labs Cincinnati (excellent 250 F heat but a 300-gal minimum = 6 drums, which outlives our 18-day shelf life), McGean (1,000-7,000 gal), Jayne Products (300-2,100 gal), Goodwin (500-40,000 gal), Custom Ag Formulators (200 gal min), Crown Technology and Superior Industrial (5,000 gal), Third Coast (1,000-90,000 gal), Kinpak (300,000 gal). Also rejected: the Texas/Louisiana oilfield blenders as a class, Cosway (no drums), Chemsultants (output is coated film, not drums), and Accublends (domain now for sale — defunct).",D_F)
+
 sec("HOW TO READ THE TIERS")
 kv("Tier A","Published evidence supports the heat gate AND a toll model AND a workable batch size. Call these first.")
 kv("Tier B","Real, capable shops where one or both gates are unpublished. One phone call moves them to A or out.")
@@ -171,6 +179,83 @@ def add_new():
                     why,clip(v.get("confidence"),24)))
     return out
 
+# ---- NATIONWIDE SWEEP (West / Midwest+Mountain / South-Central) ----
+NW=[
+ ("A","Specialty Organics  [NATIONWIDE]","Adelanto, CA","https://soichem.com/chemical-manufacturing/",
+  "BOTH GATES PUBLISHED: 'glass lined and stainless-steel mixers ranging from 5 gallons to 500 gallons' with 'heating/cooling jackets to accommodate various process temperatures', plus a 'steam boiler rated up to 150 psi' (~185 C available).",
+  "5 GALLONS — our ~50-gal batch is mid-range for them","In-house QC lab; ISO 9001 silent","soichem.com/contact-us (RFQ form has a 'contract manufacturing' checkbox) | 760-246-9000 | sales@soichem.com",
+  "BEST WEST-COAST FIND. The only shop in ~30 Western sites checked that publishes BOTH gates. Adhesives/coatings culture is right for a PVA cook, pilot-plant model means 50 drums/yr is normal-sized, and high-desert overhead beats LA-basin.","H"),
+ ("A","Ascent Chemicals  [NATIONWIDE]","Cleveland, TN","https://ascentchem.com/equipment/",
+  "BOTH GATES PUBLISHED: reactor list includes '5 gal, jacketed', '600 gal coiled hot oil', '2700 gal jacketed (steam)', '4000 gal jacketed hot oil'.",
+  "5 gal jacketed / 30 gal reactors / 50 gal mix tanks — ASK which vessel runs ~52 gal, since the next hot-oil reactor jumps to 600 gal","ISO 9001:2015 + 'Certificate of Analysis (COA) provided with each shipment'","ascentchem.com/contact-us | 423-476-6518 | inquiries@ascentchem.com",
+  "Publishes a customer-supplies-materials toll model ('Customer provides raw materials', 'Customer owns materials and finished goods') AND steam/hot-oil jackets AND ISO 9001 AND CoA-per-shipment — all in one place. Water-based systems named explicitly.","H"),
+ ("A","Seatex  [NATIONWIDE]","Rosenberg, TX","https://seatexcorp.com/about/specialty-chemicals-equipment/",
+  "BOTH GATES PUBLISHED: 'up to 150-psi steam and our 100-ton chilling system'; jacketed tanks with 'tempered water, steam, and glycol'.",
+  "'pilot reactors of up to 100 gal' + 'No batch size is too big or too small'","ISO 9001:2015; EPA, GMP, NSF, Kosher, UL registered","seatexcorp.com/contact-us | 713-357-5300 | info@seatexcorp.com",
+  "BEST EQUIPMENT FIT FOUND: a 100-gal steam-jacketed pilot reactor plus a chilling system is exactly our heat-to-95 then cool-to-40 cycle. Risk: a large house (7x 6,000-gal reactors) may price this as a pilot-line job — get the pilot conversion rate specifically.","M-H"),
+ ("B","Columbia Chemical  [NATIONWIDE]","Akron, OH","https://www.columbiachemical.com/about-us/toll-blending-services/",
+  "'Heating and cooling capabilities' listed with stainless steel reactors, glass-lined reactor, and PE/PP tanks. I verified this page directly.",
+  "Minimum not published; max 'Up to 3,000 gallons'. Explicitly markets 'smaller scale custom blending'.","ISO 9001:2015 accredited","Toll-blending contact form on the page | 330-225-3200",
+  "PREVIOUSLY DROPPED IN ERROR. An earlier roster listed this as 'Brunswick OH — too big, dropped' with no evidence cited. Verified: they are in AKRON, hold ISO 9001:2015, package into totes/drums/pails, publish heating AND cooling, and market smaller-scale custom blending. Metal-finishing chemistry house, so aqueous process work is their day job.","H"),
+ ("B","AVEKA Group  [NATIONWIDE]","Woodbury + Cottage Grove, MN","https://www.aveka.com/liquid-blending/",
+  "STRONGEST HEAT IN THE MIDWEST: 'Jacketed tanks for both heating and cooling', plus jet cookers with 'Temperatures up to 160 C' and 'Retention time from 2 to 20 minutes'.",
+  "Minimum SILENT (max 9,400 L). Claims to accommodate 'both small and large production runs' — get the floor in the first sentence.","ISO 9001:2015 at the Minnesota sites (Iowa sites are food-grade — steer to MN)","aveka.com/contact-us-2 | 888-317-3700",
+  "A dedicated toll processor whose entire business is running other people's formulas, with jacketed heat/cool stated outright. Our 90-95 C hold sits well inside their envelope. Only open question is the batch floor.","M-H"),
+ ("B","Seal Bond  [NATIONWIDE]","Norton Shores, MI","https://seal-bond.com/toll-private-label-manufacturing",
+  "SILENT — nothing on jackets, steam, or temperature. This is the one question to ask.",
+  "BEST PUBLISHED SMALL BATCH IN THE MIDWEST: 'Scale-up capabilities from 500 g to 500 gal' — our 50-gal batch is comfortably inside","ISO 9001 certified","seal-bond.com/contact-us | 616-850-0507 | dketelhut@seal-bond.com",
+  "Passes the small-batch gate outright and in writing — the gate that killed most candidates. Toll model stated as 'outsource adhesive or sealant production while retaining ownership of proprietary formulas'. One phone question decides it.","M"),
+ ("B","American Blending Company  [NATIONWIDE]","Norwalk, CA","http://www.americanblendingcompany.com/",
+  "SILENT — no mention of jacket, steam, or temperature. Ask first.",
+  "165 gallons is the smallest of five liquid blenders (then 375 / 550 / 1,000 / 1,870)","ISO 9001:2015 + on-site lab testing EVERY batch for pH, specific gravity, VISCOSITY, clarity, with lot traceability","americanblendingcompany.com/contact | 562-404-8300",
+  "BEST QUALITY WRAPPER ON THE WEST COAST: viscosity is already a routine per-batch QC test for them, 55-gal drums are standard packaging, and they sign NDAs as a matter of course. Toll blending since 1985. Only the heat gate is unknown.","M-H"),
+ ("B","Specialty Adhesives & Coatings  [NATIONWIDE]","Memphis, TN (+ a Texas plant)","https://specialtyadhesivesinc.com/our_products/water-based-product/",
+  "Not stated, but STRONGLY IMPLIED: they manufacture starch/dextrin adhesives, which are a 85-95 C cook. You cannot run that product line without hold-temperature kettles. Verify — this is inference, not a quote.",
+  "SILENT. Packages '5 gal pails, 55 gallon drums (metal or fiber), tote bins and bulk'","No ISO stated; documented quality program covering raw materials through logistics","specialtyadhesivesinc.com/contact | 1-800-728-9171",
+  "ALREADY MAKES PVOH PRODUCTS — their water-based line is explicitly 'PVOH and starch/dextrin based'. Closest chemistry culture found in the region, and custom formulation turnaround is 'a matter of days'. Consider them as a possible SUPPLIER of the finished solution, not only as a toller.","M"),
+ ("B","Moon Chemical Products  [NATIONWIDE]","Oklahoma City, OK","https://moonchemical.com/custom-blending",
+  "SILENT on jackets/steam. Nearest signals: 'processing both endothermic and exothermic reactions' and 'ability to hydrate polymers using high-speed sheer blades'.",
+  "'from 5 gallons up to 12,000 gallons' — a genuine 5-gal floor","No ISO. Retained samples kept 6 months minimum; lot number recorded on package, batch record, BOL and invoice","moonchemical.com/contact | 405-787-4110",
+  "BEST PRICE-CULTURE MATCH FOUND: a 60-year-old independent that genuinely runs 5-55 gallon liquid batches and already talks about polymer hydration. Most likely of any candidate to quote near the incumbent rather than at a big-house rate.","M"),
+ ("B","CHEM Group  [NATIONWIDE]","Evansville, IN","https://chemgroupus.com/custom-toll-manufacturing",
+  "'Heating/cooling systems with temperature control' listed with stainless reactors and mix tanks. No temperature figure given.",
+  "SILENT — 'stainless steel reactors of various capacities', no numbers","No ISO stated. On-site analytical lab with GC, Karl Fischer and VISCOMETERS; batch documentation, CoAs, traceability","sales@chemgroupus.com | 800-489-2306",
+  "Their standard commercial arrangement is a word-for-word match to ours: fee-based processing where 'customers maintain material ownership'. They own viscometers. Caveat: published work is heat-transfer fluids and solvents, so aqueous polymer is off their beaten path.","M"),
+ ("C","Miles Chemical  [NATIONWIDE]","Arleta + Anaheim, CA","https://mileschemical.com/chemical-blending/",
+  "SILENT","SILENT. Packaging list runs 5-gal pails to totes — 55-gal drums conspicuously absent, so confirm they fill 55s","ISO 9001 + ISO 14001 + OHSAS 18001 + NACD Responsible Distribution; lab with titration, AA, ICP","mileschemical.com contact page | 818-504-3355 | cs@mileschemical.com",
+  "A distributor that blends, so they already think in conversion-fee terms, and the certification stack plus in-house lab covers the CoA and traceability ask. Two blanks to clear: heat, and whether they fill 55-gal drums.","M"),
+ ("C","PCI Manufacturing  [NATIONWIDE]","St. Louis, MO","https://pcistl.com/",
+  "SILENT","'batch sizes ranging from 100 to 3,000 gallons' — an honest published floor at 2x our batch, where most competitors publish nothing","No ISO claimed; 'documented quality systems, batch tracking, SOP-driven processes'","pcistl.com/start-your-quote | 314-872-9333 | sales@pcistl.com",
+  "Publishes a real minimum close to our size and advertises 'viscosity-flexible liquid filling', which says they handle syrupy material. Two unknowns: heat, and no ISO certificate.","M"),
+ ("C","Florida CirTech  [NATIONWIDE]","Greeley, CO","https://floridacirtech.com/toll-blending/",
+  "SILENT","SILENT","ISO 9001:2015; customer portal issues Certificates of Analysis, SDS and quality docs as a productized deliverable","floridacirtech.com/contact | 970-346-8002",
+  "The only credible ISO 9001 toll blender verifiable in Colorado, and a PCB-chemistry house so aqueous process chemistry is their day job. Our CoA requirement is already something they ship as standard. Both gates unverified — a discovery call.","M"),
+ ("C","Nelson Brothers Specialty Chemicals  [NATIONWIDE]","Parrish, AL","https://www.nbspecchem.com/services/toll-manufacturing/",
+  "SILENT — only 'multiple reaction vessels which provide a high degree of manufacturing flexibility'","'whether you need one drum or a rail car of product' — an unusually explicit welcome for small orders","No ISO stated","nbspecchem.com/rfq | 866-753-6902",
+  "'One drum' language is rare and worth testing. Their emulsifier business implies real reaction vessels. Everything else needs verifying.","M-L"),
+ ("C","Brainerd Chemical  [NATIONWIDE]","Tulsa, OK","https://brainerdchemical.com/blending/",
+  "SILENT — no mention of steam, jackets or temperature anywhere","'Batch sizes from 55 to 40,000 gallons' — the 55-gal floor is exactly our batch","SILENT on ISO, CoA and traceability","brainerdchemical.com/getstartednow | 918-622-1214",
+  "The published 55-gallon floor matches our drum precisely. But with heat, certifications and traceability all unpublished, this is a pure cold call.","L-M"),
+ ("C","Sanco Industries  [NATIONWIDE]","Fort Wayne, IN","https://www.sancoind.com/en/toll-blending",
+  "SILENT","SILENT","SILENT","sancoind.com/en/contact-us | 260-426-6281",
+  "Describes our exact business model in one sentence: 'Our Biologist and Chemist can take your formula, raw materials, and packaging and turn it into a finished product, ready for shipping.' Cheapest possible qualifying call; both gates completely unverified.","M-L"),
+ ("C","Sky Blue Chemical  [NATIONWIDE]","Ogden, UT","https://www.skybluechemical.com/services",
+  "SILENT","SILENT","SILENT (third-party profiles mention pursuing ISO 9001:2015 — unverified)","skybluechemical.com/request-a-quote | 801-394-8611 | cs@skybluechemical.com",
+  "An 11-50 person family shop since 1963 — the size profile that quotes $0.75-1.50/lb rather than $8. Also the only real toll blender verifiable in Utah. Everything technical is unverified.","M-L"),
+ ("C","Allied International  [NATIONWIDE]","Buena Park, CA","https://alliedin.com/",
+  "SILENT (checked services, about and FAQ pages)","SILENT","EPA facility number only; no ISO 9001 claimed anywhere","alliedin.com/contact (quote within 24 hrs) | 714-736-9811",
+  "Small independent since 1972 — the kind of shop that quotes a low conversion fee rather than a big-house rate. But the site discloses nothing about either gate, and no ISO.","L-M"),
+ ("C","FORREST Technical Coatings  [NATIONWIDE]","Eugene, OR","https://forrestpaint.com/toll-chemical-manufacturing/",
+  "SILENT for process heat. CAUTION: the site's '1,200 F' references are the SERVICE temperature of their high-temp paints, not process capability — do not misread as a heat-gate pass.","SILENT","ISO 9001:2015","forrestpaint.com/contact | 1-800-537-7201",
+  "The only independent toll manufacturer verifiable in the entire Pacific Northwest. Water-based coatings shop that tolls for other brands, so the model fits even though the equipment is unproven.","L-M"),
+ ("C","Griffin Chem Solutions  [UNVERIFIED]","Albany + Salem, OR","https://griffinchemsolutions.com",
+  "COULD NOT VERIFY — site sits behind a bot-challenge and returned only challenge pages to every fetch attempt.","Search-extracted text (NOT read from their server) claims 'the capacity to blend by the truckload down to a gallon at a time' and a 40,000 sq ft Albany facility with fifteen liquid blending systems.","Claims operation 'based on ISO-9001 (2015) standards' — unverified","griffinchemsolutions.com (site would not load) — phone via search listing",
+  "LISTED WITH A WARNING, NOT AS A VERIFIED LEAD. If the 'truckload down to a gallon' claim is real it is an excellent small-batch answer, and Oregon is otherwise nearly empty. Treat every capability claim as unconfirmed until they say it on the phone.","UNVERIFIED"),
+]
+for row in NW:
+    if key(row[1]) not in seen:
+        rows.append(row); seen.add(key(row[1]))
+
 allrows = rows + add_verified() + add_new()
 allrows.sort(key=lambda x:(TIER_ORDER.get(x[0],9), x[1]))
 
@@ -224,6 +309,16 @@ acts=[
  ("11","Capital Resin (Columbus OH)","RFQ email","Use the RFQ template. Plus: confirm they will run a simple dissolution (not just synthesis), and ask about cross-contamination controls from resin production.","Heat gate is unambiguously trivial for their equipment; ISO 9001; explicit toll model; pilot-scale vessels.","Oscar",""),
  ("12","Colonial Chemical Solutions (Savannah GA)","RFQ email","Use the RFQ template. Plus: their heated tank is large (6,000 gal) — ask which vessel would run a 50-gal batch and what its max temperature is.","Published 50-gallon minimum is the single best cadence fit on the list; Georgia freight.","Oscar",""),
  ("13","Avion Manufacturing (Medina OH)  [NEW]","RFQ email","LEAD WITH THE HEAT QUESTION — their site never mentions heated or jacketed vessels. If yes, use the full RFQ.","Best small-batch fit found anywhere: publishes 1-55 gallon and 60-275 gallon batch ranges, ISO 9001. Heat is the single unknown.","Oscar",""),
+ ("WAVE 2b — nationwide finds that publish BOTH gates (add to the RFQ batch)","","","","","",""),
+ ("13a","Specialty Organics (Adelanto CA)  [NATIONWIDE]","RFQ email","Use the RFQ template. Plus: confirm the 5-500 gal jacketed mixers are available for recurring production, and ask about ISO 9001 (not stated) and lot traceability.","Only shop in ~30 Western sites checked that publishes BOTH gates: 5-to-500-gal jacketed mixers and a 150 psi steam boiler. Adhesives/coatings culture, pilot-plant business model, low-overhead location.","Oscar",""),
+ ("13b","Ascent Chemicals (Cleveland TN)  [NATIONWIDE]","RFQ email","Use the RFQ template. Open with: 'what is your smallest HEATED vessel between 50 and 200 gallons?' — their 5-gal jacketed unit jumps straight to a 600-gal hot-oil reactor, and that answer decides the price.","Publishes the customer-supplies-materials toll model, steam and hot-oil jackets, ISO 9001:2015, and a CoA with every shipment — the most complete documented package found nationwide.","Oscar",""),
+ ("13c","Seatex (Rosenberg TX)  [NATIONWIDE]","RFQ email","Use the RFQ template. Ask specifically for the 100-gal PILOT reactor conversion rate before they route you to the 6,000-gal plant.","Best equipment fit found: a 100-gal steam-jacketed pilot reactor plus a 100-ton chilling system is exactly our heat-to-95 then cool-to-40 cycle. ISO 9001:2015.","Oscar",""),
+ ("13d","Columbia Chemical (Akron OH)","RFQ email","Use the RFQ template. Plus: they publish no minimum — ask for it directly, and which vessel would run a 50-gal batch.","PREVIOUSLY DROPPED IN ERROR. Verified: ISO 9001:2015, publishes heating AND cooling, packages to drums, and markets 'smaller scale custom blending'. Metal-finishing house, so aqueous chemistry is routine.","Oscar",""),
+ ("13e","Specialty Adhesives & Coatings (Memphis TN)  [NATIONWIDE]","Phone first","Ask two things: (1) do you already cook PVOH solutions, and would you sell us one made to our spec? (2) if not, would you toll it? Their starch/dextrin line implies hold-temperature kettles — confirm.","THEY ALREADY MAKE PVOH PRODUCTS. Their water-based line is explicitly 'PVOH and starch/dextrin based'. Potentially a SUPPLIER of the finished product, not just a toller — same angle as Sekisui.","Oscar",""),
+ ("13f","AVEKA Group (Woodbury MN)  [NATIONWIDE]","RFQ email","Use the RFQ template. Open with the batch-size floor — it is the only unknown.","A pure toll processor (their whole business is other people's formulas) publishing 'jacketed tanks for both heating and cooling' plus jet cookers to 160 C. ISO 9001:2015 at the MN sites — steer away from the Iowa food-grade plants.","Oscar",""),
+ ("13g","Seal Bond (Norton Shores MI)  [NATIONWIDE]","RFQ email","LEAD WITH THE HEAT QUESTION — the site is silent on it. Everything else already fits.","Best published small-batch evidence in the Midwest: 'scale-up capabilities from 500 g to 500 gal', ISO 9001, and a toll model built on customers retaining their formulas.","Oscar",""),
+ ("13h","American Blending Company (Norwalk CA)  [NATIONWIDE]","RFQ email","LEAD WITH THE HEAT QUESTION. Then confirm a 50-gal batch works in their 165-gal blender.","Best quality wrapper on the West Coast: ISO 9001:2015, every batch lab-tested for pH, specific gravity and VISCOSITY with lot traceability, and 55-gal drums as standard packaging. Signs NDAs routinely.","Oscar",""),
+ ("13i","Moon Chemical Products (Oklahoma City OK)  [NATIONWIDE]","RFQ email","LEAD WITH THE HEAT QUESTION. If yes, this is a strong price candidate.","Best price-culture match found nationwide: a 60-year-old independent genuinely running 5-55 gallon liquid batches, already describing polymer hydration. Retained samples and full lot tracking despite no ISO.","Oscar",""),
  ("WAVE 3 — conditional / specialist","","","","","",""),
  ("14","Aexcel Corporation (Mentor OH)","RFQ email","LEAD WITH THE HEAT QUESTION — their site is silent on temperature. If yes, send the full RFQ.","Best batch-size fit in Tier B and an explicit toll model that already assumes customer-supplied raw materials — exactly our arrangement. Packages to 55-gal drums and IBCs.","Oscar",""),
  ("15","Sandstrom Coating Technologies (Port Byron IL)","RFQ email","Use the RFQ template. Plus: confirm maximum vessel temperature.","Their published toll model describes ours almost word for word: customer provides the formula and the raw materials, they process and package. ISO 9001, vessels from 1 gal.","Oscar",""),
