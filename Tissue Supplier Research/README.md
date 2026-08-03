@@ -19,6 +19,7 @@ beyond the current base of **Nahunta** (great culture, volume-limited) and
 | APHIS & EU Export | APHIS vs FSIS vs state inspection, how to check export status yourself (the lookup sites), what the EU requires (Reg 1069/2009 & 142/2011), the medical-device angle, and a supplier checklist |
 | Call Question Sheet | Outreach script to qualify each plant (mirror of the CJB agenda style), incl. an EU-export section |
 | Sources & Confidence | Every source + a confidence rating |
+| **Deep Study (Verified)** | **Output of a 21-agent adversarial-verification re-run — 121 facility records, 10 candidates attacked by skeptic agents. These verdicts OVERRIDE the other tabs where they conflict.** Full narrative in `Deep_Study_Synthesis.md`. |
 
 ## Requirements this study was built against
 - **Volume band 200–3,000 hogs/week** is a hard gate — *unless* the plant specializes in
@@ -30,7 +31,18 @@ beyond the current base of **Nahunta** (great culture, volume-limited) and
 - Every plant assessed on **Model A** (send our harvesters, rent space) and **Model B**
   (they harvest, we send inspectors/trainers).
 
-## Headline findings
+## ⚠ Read the Deep Study tab first
+A second, exhaustive pass (21 agents, adversarial verification) **overturned both of the
+earlier top picks**. In short:
+- **Nahunta is PROMOTED** — it already publishes a research **Specimen Permits** pathway and
+  sells fresh viscera retail. But it is **state-inspected only, so it can never supply Europe.**
+- **Martin's Pork Products is back IN BAND** — the "6,500/wk, too big" figure was refuted.
+- **Piedmont and Acre Station were downgraded** on volume (FSIS "Very Small"; ~150/wk actual).
+- **T&E Meats was killed** on verified FSIS humane-handling suspensions.
+- The band 200–3,000/wk contains only **~17 US plants**, so the recommendation is a
+  **three-lane portfolio**, not a single supplier.
+
+## Headline findings (first pass — superseded where the Deep Study disagrees)
 1. **Midwest Research Swine (MN)** — best overall fit: porcine-only abattoir already
    harvesting organs for biomedical/xeno research at ~385 hogs/week.
 2. **Smithfield BioScience (Denison, IA)** — the large packer that qualifies via the
