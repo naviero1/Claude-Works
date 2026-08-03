@@ -54,6 +54,10 @@ kv("1. SNP is a PVA specialist — that's why $0.75/lb is hard to beat","SNP's o
 kv("2. Sekisui already sells cooked PVOH solution in 450-lb drums","Sekisui (the Selvol resin producer) markets ready-to-use PVOH SOLUTIONS packaged in 450-lb drums and 2,250-lb totes — our exact drum size — on the pitch that 'no cooking required.' Our old roster had them as 'advisor only.' That looks wrong. This is a potential ALTERNATE PATH: buy the solution instead of tolling it. Open risk: their minimum order may be far above 1 drum/week.",GOLD)
 kv("3. Piedmont has 5–100 gallon pilot reactors","Already on our roster but under-prioritized. Steam AND hot-oil reactors with reflux (routinely run above 100 C), plus a dedicated 5–100 gal pilot fleet. Our ~50-gal batch fits a 100-gal reactor almost perfectly — rare, since most tollers start at 500–1,000 gal.",GOLD)
 
+sec("SPEC NOW CONFIRMED — both open blockers closed")
+kv("Viscosity target — CONFIRMED","< 2,500 cps, Brookfield spindle #3, 10 RPM, 25 C. This was the longest-standing open item on the project and it gated every firm quote. Two consequences: (1) suppliers can now quote firmly and a qualification batch can be judged pass/fail against a real number; (2) commercially it is good news — under 2,500 cps is an easily pumped and easily filtered fluid, so no blender can price this as a 'difficult, high-viscosity' job. Put the number in every RFQ and require it on every CoA.",A_F)
+kv("ISO 13485 — NOT required","Confirmed: no ISO 13485 supplier needed. Still require ISO 9001, lot traceability, and a CoA with lot #, production date, %TS, pH, and viscosity.",A_F)
+
 sec("MAJOR CORRECTIONS TO v1 (why the tiers moved)")
 kv("PhilChem — was Tier A, now B","MIS-TARGETED. PhilChem (Greer, SC) is a DRY blending / repackaging house — 'specialty formulated dry blends,' 250 MM lb/yr dry capacity. The jacketed heated-vessel language that earned it Tier A lives on the PARENT site (Mount Vernon Chemicals) and describes other plants. Contact the group and ask which plant runs jacketed liquid batches.")
 kv("Chemjet — was Tier A, now C","TWO ERRORS. Houston is a sales office; the plants are in Conroe and Odessa, TX. And it's an oilfield / drilling-fluids house — a poor fit for a medical-device component. A 'heat room' is also not a jacketed vessel.")
@@ -202,7 +206,7 @@ A.freeze_panes="A5"; A.row_dimensions[4].height=28
 
 acts=[
  ("WAVE 0 — unblock (do first, internal)","","","","","",""),
- ("BLOCKER","Internal — whoever holds SNP CoA history","Internal","Pull the viscosity target AND tolerance from SNP CoA history (Brookfield, spindle #3, 10 RPM, 25 C). Until this exists, nobody can quote firmly or pass/fail a trial batch.","This has been pending the whole project and gates every firm quote and every qualification.","Oscar",""),
+ ("RESOLVED","Viscosity specification","Closed","SPEC CONFIRMED: Brookfield viscosity < 2,500 cps, spindle #3, 10 RPM, 25 C. Put this in every RFQ and on every CoA, and use it as the pass/fail criterion for any qualification batch.","Was the longest-standing blocker on this project. With it, suppliers can quote firmly and a trial batch can actually be judged pass/fail. Also good news commercially: under 2,500 cps is an easily pumpable, easily filterable fluid — no special high-viscosity equipment needed, so no blender can charge a premium for 'difficult' handling.","Oscar","DONE"),
  ("RESOLVED","Quality / Regulatory — ISO 13485","Closed","No ISO 13485 required (confirmed by Oscar). Medical-grade candidates deprioritized to Tier C. Still specify on every RFQ: ISO 9001, lot traceability, and a CoA with lot #, production date, %TS, pH, Brookfield viscosity (spindle #3, 10 RPM, 25 C).","Removes a whole cost tier from the search — generic ISO 9001 tollers are now fully in scope.","Oscar","DONE"),
  ("BLOCKER","Internal — McC","Internal","Get the NDA template ready to execute before sharing the full spec/formula with any new supplier.","Every candidate will ask for the formula before quoting firmly.","Oscar",""),
  ("WAVE 1 — highest-information calls (this week)","","","","","",""),
@@ -269,10 +273,30 @@ def block(title,body,fill=None,height=None):
     if height: T.row_dimensions[r].height=height
     r+=2
 
+VISC="finished viscosity under 2,500 cps (Brookfield, spindle #3, 10 RPM, 25 C)"
+email_body=rfq["email_body"].replace(
+  "The product is an aqueous PVA solution, roughly 10-12% solids.",
+  "The product is an aqueous PVA solution, roughly 10-12% solids, "+VISC+".")
+web_body=rfq["web_form_body"].replace(
+  "Product is an aqueous PVA solution, ~10-12% solids, that has to reach",
+  "Product is an aqueous PVA solution, ~10-12% solids, under 2,500 cps, that has to reach")
+
 block("EMAIL — subject line", rfq["email_subject"], A_F, 22)
-block("EMAIL — body (send as-is)", rfq["email_body"], A_F, 290)
-block("WEBSITE CONTACT FORM (shorter — for small text boxes)", rfq["web_form_body"], B_F, 170)
+block("EMAIL — body (send as-is)", email_body, A_F, 300)
+block("WEBSITE CONTACT FORM (shorter — for small text boxes)", web_body, B_F, 180)
 block("PHONE — opening lines", rfq["phone_opener"], C_F, 90)
+block("IF THEY ASK FOR SPEC DETAIL (send after they confirm they can do it)",
+ "Aqueous polyvinyl alcohol solution, made to order.\n\n"
+ "• Total solids: 10-12%, in water\n"
+ "• Viscosity: UNDER 2,500 cps — Brookfield, spindle #3, 10 RPM, 25 C\n"
+ "• Process: heat to 90-95 C and hold 30-45 min under agitation to fully dissolve; cool to <=40 C; filter to 200 micron; fill 55-gal drums (~450 lb net)\n"
+ "• Materials: we supply the resin and all other raw materials\n"
+ "• Shelf life: 18 days — made fresh to order, no stockpiling\n"
+ "• Cadence: ~1 drum/week, ~50 drums/year\n"
+ "• CoA required every shipment: lot #, production date, % total solids, final pH, Brookfield viscosity (spindle #3, 10 RPM, 25 C)\n"
+ "• Quality: ISO 9001 and lot traceability preferred. ISO 13485 not required.\n"
+ "• Handling: protect from freezing in transit and storage\n\n"
+ "Full formula released under NDA.", None, 210)
 block("WHAT CHANGED vs your original, and why",
  "Your original was good and short — these keep that. What was added, and the reason for each:\n\n"
  "• THE HOLD, not just the temperature. Your version said 'heat up to 95 C.' The real gate is holding 90-95 C for 30-45 minutes — that is what separates a real heating system from one that can briefly touch temperature. It also states the failure mode plainly ('if your equipment tops out below 90 C') so a shop running 85 C cannot talk itself into a yes.\n\n"
@@ -299,7 +323,7 @@ sh=[
  ("Toll blenders","Tier A/B on the Longlist tab","The core search. Two questions decide most of them: hold 90-95 C, and minimum batch size.",B_F),
  ("Medical-grade CMs","Polysciences; Hydromer; HR Pharmaceuticals; Strukmyer; GeminiBio; Kingchem; Alpha Teknova; Biocoat; NEXT Medical","NOT NEEDED — ISO 13485 is not required (confirmed by Oscar). Parked as a fallback only; do not spend time here.",C_F),
  ("Internal — Quality/Reg","Intuitive Quality / Regulatory","RESOLVED — ISO 13485 not required. Still specify on every RFQ: ISO 9001, lot traceability, and a CoA with lot #, production date, %TS, pH, Brookfield viscosity (spindle #3, 10 RPM, 25 C).",A_F),
- ("Internal — spec owner","Whoever holds SNP CoA history","The viscosity target and tolerance. Still pending, and it blocks every firm quote and every trial pass/fail.",D_F),
+ ("Internal — spec owner","Viscosity specification","RESOLVED — < 2,500 cps, Brookfield spindle #3, 10 RPM, 25 C. Now the pass/fail criterion for any qualification batch, and a required CoA field.",A_F),
  ("Internal — legal","McC","NDA execution before sharing the formula with any new supplier.",D_F),
  ("Closed out","CJB Applied Technologies","Quote was ~10x the incumbent all-in. Cancellation note drafted; keep the relationship cordial.",C_F),
 ]
