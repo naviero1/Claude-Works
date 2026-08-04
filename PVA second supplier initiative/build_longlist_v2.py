@@ -73,6 +73,11 @@ kv("Regional coverage filled","West: Sunland Chemical (LA — jacketed from 50 g
 kv("Non-obvious category worth a look","Mallard Creek Polymers (Charlotte, NC) — emulsion polymer plants DISSOLVE PVOH IN HOT WATER as a routine step in vinyl acetate emulsion production. That capability is real but never advertised as 'PVA tolling.'")
 kv("One diligence warning","Medical Products Laboratories (Philadelphia) looks like a strong process match on paper but has an FDA warning letter. Do not advance without confirming it is closed out. Listed so it's on your radar, not as a recommendation.",D_F)
 
+sec("SUPPLIER RESPONSES — live status")
+kv("ELIMINATED: Columbus Chemical Industries (CCI), Phoenix AZ","CCI told Oscar directly they CANNOT HOLD THE TEMPERATURE. Eliminated. Note this overrides the old roster entry, which recorded 'heating/cooling: Yes' — that was never verified, and direct contact has now disproven it. Their excellent batch range (20 L to 20,000 L) is irrelevant: the heat gate is binary.",D_F)
+kv("WATCH THE NAME — two different companies","COLUMBUS Chemical INDUSTRIES (Columbus WI / Phoenix AZ) is ELIMINATED. COLUMBIA Chemical (Akron OH) is a SEPARATE company and remains an active Tier B candidate. The names are one letter apart and both are Midwest chemical firms — do not let the CCI elimination knock out Columbia by mistake.",GOLD)
+kv("The heat gate is now 3-for-3 as a screen","ILC Dover (85 C ceiling), ArroChem (85 C ceiling), and now CCI have all failed on holding temperature. That is three suppliers eliminated by one question. It confirms the tactic: ask about the 90-95 C hold in the first sixty seconds of every contact, before discussing anything else.",A_F)
+
 sec("NATIONWIDE SWEEP — what searching beyond the East Coast actually found")
 kv("The structural finding","Across the Midwest, Mountain, South-Central and Western states, a clear pattern emerged: shops that publish a batch MINIMUM publish 200-3,000 gallons, and shops that publish HEAT capability don't publish minimums. Almost nobody publishes both. That is the real explanation for the $8.00-8.50/lb quote — it was not bad luck or a bad actor, it is what the industry's published capability floor implies for a 50-gallon job. The handful of shops that break the pattern are the ones worth our time.",GOLD)
 kv("3 companies now publish BOTH gates","Specialty Organics (Adelanto CA) — 5-to-500-gallon jacketed mixers plus a 150 psi steam boiler. Ascent Chemicals (Cleveland TN) — 5-gal jacketed reactors, steam and hot-oil, ISO 9001, CoA every shipment, and a stated customer-supplies-materials toll model. Seatex (Rosenberg TX) — a 100-gal steam-jacketed pilot reactor plus a 100-ton chilling system, which is precisely our heat-then-cool cycle. All three go to Tier A.",A_F)
@@ -115,9 +120,10 @@ curated=[
  ("A","APV Engineered Coatings","Akron OH","https://www.apvcoatings.com",
   "Verbal yes earlier — RE-CONFIRM the 90-95 C hold explicitly.","Excellent — from ~5 gal","ISO 9001 / EPA-reg","already engaged — resume with prior contact",
   "WARMEST LEAD — you were mid-interview. Pigment-dispersion specialty fits our pigmented product. Close the heat gate and get a per-drum number.","H"),
- ("B","Columbus Chemical (CCI)","Columbus WI / Phoenix AZ","https://www.columbuschemical.com",
-  "Yes — heating/cooling capability","Excellent — 20 L to 20,000 L (~5 gal floor); widest range = least shelf-life waste","ISO 9001, in-house lab","on roster — resume",
-  "ON OUR ROSTER. Lowest batch floor of the roster group; can scale if demand grows.","M"),
+ ("ELIM","Columbus Chemical Industries (CCI)","Columbus WI / Phoenix AZ","https://www.columbuschemical.com",
+  "FAILS — CANNOT HOLD THE TEMPERATURE. Confirmed directly by CCI Phoenix to Oscar. This OVERRIDES the earlier roster note of 'Yes — heating/cooling', which was never verified.",
+  "Was excellent on paper (20 L to 20,000 L, ~5 gal floor). Irrelevant now — the heat gate is binary.","ISO 9001, in-house lab","CLOSED OUT — no further action",
+  "ELIMINATED on the hard gate. WATCH THE NAME: this is COLUMBUS Chemical INDUSTRIES (Columbus WI / Phoenix AZ). It is a DIFFERENT company from COLUMBIA Chemical of Akron OH, which remains an active Tier B candidate. Do not confuse the two.","CONFIRMED"),
  ("C","CORECHEM","Knoxville TN","https://www.corechemtn.com",
   "Confirm","CAUTION — smallest tank ~250 gal (~4.5 drums) may overshoot the 18-day shelf life","Not published","on roster",
   "ON OUR ROSTER. Ask specifically about PARTIAL batches — a full 250-gal batch is ~4.5 drums but only ~2 are usable in 18 days.","M"),
@@ -131,7 +137,7 @@ for row in curated:
 
 LOC={'philchemmountv': 'Greer, SC (parent: Mount Vernon Chemicals)', 'tiarcotrcctiar': 'Dalton, GA', 'mfgchemical': 'Chattanooga TN; plants Dalton GA', 'chemjet': 'CORRECTED: plants Conroe & Odessa TX (Houston = sales office)', 'rexcousapartal': 'Conyers, GA', 'colonialchemic': 'Savannah GA (+Atlanta, Charlotte, Richmond)', 'tollsolutionsl': 'Duncan, SC', 'keypolymer': 'Lawrence, MA', 'valpacinc': 'Federalsburg & Hurlock, MD', 'hydritechemica': 'Brookfield WI (multi-site)', 'aexcelcorporat': 'Mentor, OH', 'apollochemical': 'Burlington, NC', 'nationfordchem': 'Fort Mill, SC', 'ethoxchemicals': 'Greenville, SC', 'peachstatelabs': 'Rome, GA (URL dead — now Polyventive)', 'polyventivefor': 'Calhoun / Dalton / Rome, GA', 'sandstromcoati': 'Port Byron, IL', 'sierraperforma': 'Minnetonka, MN', 'americandisper': 'Louisville, KY', 'alphachemicals': 'Stoughton, MA', 'capitalresinco': 'Columbus, OH', 'seacoleseacole': 'CORRECTED: Plymouth, MN', 'customchemical': 'Santa Fe Springs, CA', 'camcochemicalf': 'Florence, KY', 'hubbardhallwat': 'Waterbury CT + Inman SC', 'hansonchemical': 'Friendship, NY', 'tbkonetbkmanuf': 'Carrollton, TX', 'spectrachemlod': 'Lodi, NJ', 'spectracoloran': 'Union, SC', 'kurarayamerica': 'Houston / Pasadena / La Porte, TX', 'monosolkuraray': 'Merrillville, IN', 'mitsubishichem': 'US sales office only (no US plant)', 'changchunpetro': 'Taiwan (US = distribution only)', 'aicelloamerica': 'Japan (no US manufacturing)', 'thechemicalcom': 'Jamestown, RI', 'stonermoldings': 'Quarryville, PA', 'troychemicaltr': 'Florham Park, NJ', 'chemicalsolven': 'Cleveland, OH', 'chtusa': 'Richmond, VA (silicone plant)', 'southernchemic': 'Dalton, GA', 'southcoastterm': 'Houston, TX', 'formulacorp': 'Auburn, WA'}
 
-TIER_ORDER={"A":0,"B":1,"C":2,"DROP":3}
+TIER_ORDER={"A":0,"B":1,"C":2,"ELIM":3,"DROP":4}
 def add_verified():
     out=[]
     for v in verified:
@@ -262,7 +268,7 @@ allrows.sort(key=lambda x:(TIER_ORDER.get(x[0],9), x[1]))
 r=2
 for row in allrows:
     t=row[0]
-    fill = A_F if t=="A" else B_F if t=="B" else D_F if t=="DROP" else C_F
+    fill = A_F if t=="A" else B_F if t=="B" else D_F if t in ("DROP","ELIM") else C_F
     for j,val in enumerate(row):
         cell=L.cell(row=r,column=1+j,value=val)
         cell.alignment=Alignment(wrap_text=True,vertical="top",horizontal="center" if j in(0,9) else "left")
