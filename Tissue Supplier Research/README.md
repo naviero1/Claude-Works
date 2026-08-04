@@ -26,9 +26,11 @@ beyond the current base of **Nahunta** (great culture, Medium tier) and
 ## Requirements this study was built against
 - **Volume is OPEN — capacity is not a filter.** No plant is excluded for being too small or
   too large; every supplier is listed and classified into a tier instead:
-  **Small 0–300/wk · Medium 350–2,500/wk · High >2,500/wk** (301–349 = Small/Medium boundary).
+  **Small 0–300/wk · Medium 350–2,500/wk · Medium-High 2,500–5,000/wk · High >5,000/wk**
+  (301–349 = Small/Medium boundary; 2,500 = the Medium / Medium-High hinge).
   Tier drives the *operating model*, not inclusion: Small → Model A / aggregation; Medium →
-  single-plant program; High → Model B or a biologics arm (constraint there is access, not volume).
+  single-plant program; Medium-High → regional packers and cull-sow plants (larger anatomy);
+  High → Model B or a biologics arm (constraint there is access, not volume).
 - **Any plant not USDA-inspected or not APHIS-certified is explicitly flagged**, and every
   plant now carries a **USDA/FSIS enforcement** history and an **APHIS export status**.
 - **Welfare/culture** (the Nahunta standard) is a scored tie-breaker — documented
