@@ -13,6 +13,7 @@ Compiled incoming-quality-control (IQC) and ATM quality data for pelvic block ti
 | `Slaughterhouse IQC` | **Pre-freeze** | SH-floor inspections by ATM inspectors. Self-contained — does *not* feed the sheets below. Source for the tally sheets the quality techs send in. |
 | `SmartAssessment` | Analysis | Claude's working analyst notes: objective, stage/yield model, root-cause findings (incl. the Parks 05/11 event), defect-origin tagging, spec corrections, caveats, and recommended next steps. Verify with Quality before external use. |
 | `ATM_Scrap_TableuData` | ATM (post-freeze) | Batch-less ATM scrap summarized from Tableau (June 2026, Martins 666541/666506): weekly trend, overall-by-part, and a stage-to-stage lag correlation to SH harvest ~1–1.5 months prior. |
+| `Quality Summary by Part` | Analysis | First-pass-yield summary by part number — 666541, 666506, 666521 (thoracic) with 666518 for context — plus a part-by-part read. Thoracic 666521 is logged in the raw data but excluded from the pelvic-block totals. |
 | `Master Data` | Post-freeze (ATM) | Long-format defect log — one row per (date × lot × defect). Single source of truth for everything below it. |
 | `Receipt Summary` | Post-freeze (ATM) | One row per receipt event with totals + rejection rate. |
 | `Defect Pivot 666541-F / 666540-M / 666518-F` | Post-freeze (ATM) | Defect × date pivots per part, SUMIFS off `Master Data`. |
