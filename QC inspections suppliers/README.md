@@ -10,10 +10,9 @@ Compiled incoming-quality-control (IQC) and ATM quality data for pelvic block ti
 
 | Sheet | Stage | Purpose |
 |---|---|---|
-| `Slaughterhouse IQC` | **Pre-freeze** | SH-floor inspections by ATM inspectors. Self-contained — does *not* feed the sheets below. Source for the tally sheets the quality techs send in. |
+| `Slaughterhouse IQC` | **Pre-freeze** | Product-agnostic SH-floor inspection log — one row per part per harvest date, all families (pelvic 666541/506/518, thoracic 666521, …). Family subtotals + a grand total, then the SH→ATM comparison and data notes. Self-contained — does *not* feed the ATM-side sheets below. |
 | `SmartAssessment` | Analysis | Claude's working analyst notes: objective, stage/yield model, root-cause findings (incl. the Parks 05/11 event), defect-origin tagging, spec corrections, caveats, and recommended next steps. Verify with Quality before external use. |
-| `ATM_Scrap_TableuData` | ATM (post-freeze) | Batch-less ATM scrap summarized from Tableau (June 2026, Martins 666541/666506): weekly trend, overall-by-part, and a stage-to-stage lag correlation to SH harvest ~1–1.5 months prior. |
-| `Quality Summary by Part` | Analysis | First-pass-yield summary by part number — 666541, 666506, 666521 (thoracic) with 666518 for context — plus a part-by-part read. Thoracic 666521 is logged in the raw data but excluded from the pelvic-block totals. |
+| `Quality Dashboard` | Analysis | Live first-pass-yield views by **Product Family** (Pelvic Block / Thoracic), by **Part** (666541/506/518/521), and by **Slaughterhouse** (Martins/Parks/Nahunta), with FPY/scrap heatmaps and a part-by-part read. All figures pull live from the Inspection Log. |
 | `Master Data` | Post-freeze (ATM) | Long-format defect log — one row per (date × lot × defect). Single source of truth for everything below it. |
 | `Receipt Summary` | Post-freeze (ATM) | One row per receipt event with totals + rejection rate. |
 | `Defect Pivot 666541-F / 666540-M / 666518-F` | Post-freeze (ATM) | Defect × date pivots per part, SUMIFS off `Master Data`. |
@@ -23,16 +22,16 @@ Compiled incoming-quality-control (IQC) and ATM quality data for pelvic block ti
 
 ## Updating with new SH IQC tally sheets
 
-The `Slaughterhouse IQC` sheet has five blocks. To add a visit:
+The `Slaughterhouse IQC` sheet is one product-agnostic **Inspection Log** plus rollups. To add a visit:
 
-1. **Inspection Metadata** — add a Visit row (dates, SH, inspector, SH tech, intact/non-intact lots + PNs).
-2. **Raw Inspection Data** — one row per harvest-date × lot × condition. Enter `# Inspected/Pass/Fail` + scrap reason only; First Pass Yield is a formula (`=IFERROR(H/G,0)`).
-3. **Batch-Level Rollup** — one row per lot aggregated across harvest dates; extend the TOTAL `SUM` range.
-4. **SH → ATM Yield Comparison** — add rows (ATM columns stay 0 until the matching ATM receipt arrives).
-5. **Notes** — append any judgment calls.
+1. **Inspection Log** — add one row per part per harvest date: Harvest Date, Slaughterhouse, Inspector, SH Tech, Product Family, Part #, Description, Lot, then `# Inspected/Pass/Fail` + scrap reason. First-Pass Yield is a formula (`=IFERROR(J/I,0)`); keep rows in date order and extend the log range (`$…$6:$…$49`) used by the totals if you add rows.
+2. **Totals by Product Family** — driven by `SUMIF` over the log; the grand total covers all families. No manual edits unless the log range grows.
+3. **SH → ATM Yield Comparison** — batch-tracked intact lots only (Martins 666541); ATM columns stay 0 until the matching receipt arrives.
+4. **Notes** — append any judgment calls.
+5. The **Quality Dashboard** tab updates automatically (by Family / Part / Slaughterhouse).
 
-Recurring interpretation calls to flag rather than guess: tally sheets that combine two harvest days without splitting counts, lot numbers that look carried-over from a prior week, and PN typo normalization (e.g. 668518 → 666518).
+Recurring interpretation calls to flag rather than guess: tally counts that don't foot (inspected ≠ pass + fail), tally sheets that combine two harvest days without splitting counts, lot numbers carried over from a prior week, and PN typo normalization (e.g. 668518 → 666518). New product families (e.g. thoracic 666521) are first-class — just set the Product Family column.
 
 ## ATM quality data (no batch numbers)
 
-Going forward the ATM quality data will no longer carry batch/lot numbers. Plan is a separate sheet populated/inferred from Tableau exports — TBD.
+The ATM quality data no longer carries batch/lot numbers, so it can't be split by supplier. The earlier Tableau-scrap tab was removed; ATM figures now live only in the ATM-side analysis tabs.
