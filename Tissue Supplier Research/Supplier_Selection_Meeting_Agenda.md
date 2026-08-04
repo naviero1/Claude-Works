@@ -16,7 +16,11 @@
 Preparation to onboard a new tissue supplier given lead time.
 
 **2) Confirm Requirements (current) — 25 min**
-- **Volume band:** 200 to 3,000 hogs weekly — unless organ-specialist exception.
+- **Volume: OPEN — capacity is no longer a filter.** No plant is excluded for being too small
+  or too large. Every supplier is listed and classified into a tier instead:
+  **Small 0–300/wk · Medium 350–2,500/wk · High >2,500/wk.**
+  *Discuss:* which tier(s) do we actually want, and does tier change the operating model
+  (Small → Model A / aggregation; Medium → single-plant program; High → Model B or a biologics arm)?
 - **Certifications:** USDA inspected (yes); APHIS (yes, for exports); humane culture (not being flagged with animal cruelty).
 - Other requirements other than geographic.
 - **How do we want to weight these requirements?**

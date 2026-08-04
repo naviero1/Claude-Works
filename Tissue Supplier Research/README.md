@@ -2,17 +2,19 @@
 
 Second-source qualification study for the porcine tissue-harvesting operation —
 finding additional slaughterhouse suppliers (and national direct-tissue vendors)
-beyond the current base of **Nahunta** (great culture, volume-limited) and
+beyond the current base of **Nahunta** (great culture, Medium tier) and
 **Martin's Pork Products** (see benchmark note below).
 
 ## Deliverable
-**`Tissue_Supplier_Study.xlsx`** — a 9-tab workbook:
+**`Tissue_Supplier_Study.xlsx`** — a 12-tab workbook:
 
 | Tab | What's in it |
 |---|---|
-| Overview & Method | Purpose, the target spec (200–3,000 hogs/wk, cert rules, welfare), the two operating models, key findings |
+| Overview & Method | Purpose, the target spec (volume **open**, classified by tier; cert rules; welfare), the two operating models, key findings |
+| Action Items | Sequenced meetings + priority contact order + RFQ/P templates (email and short site/call) |
+| Anatomical Spec | Fill-in per-block spec (pelvic / bariatric / thoracic) — decides **sow vs market hog**, action #1 |
 | Legend & Scoring | Status/fit codes, certification codes, how "Fit" is judged |
-| Supplier Roster | Master list of slaughterhouses by region: **NC** (primary), **SC / TN / VA**, **Iowa & Midwest** — with **USDA/FSIS enforcement** and **APHIS export status** columns |
+| Supplier Roster | Master list of slaughterhouses by region: **NC** (primary), **SC / TN / VA**, **Iowa & Midwest** — with **Volume tier**, **USDA/FSIS enforcement** and **APHIS export status** columns |
 | National Direct Suppliers | Vendors selling finished porcine tissue/organs, price-per-tissue where real, plus an **EU-export fit** column |
 | Models & Make-vs-Buy | Model A (we harvest on-site) vs Model B (they harvest) vs buy-direct, and cost drivers |
 | TCO Calculator | Editable calculator — total cost to self-harvest one organ/block, with a per-slaughterhouse comparison grid and buy-direct benchmark |
@@ -22,12 +24,17 @@ beyond the current base of **Nahunta** (great culture, volume-limited) and
 | **Deep Study (Verified)** | **Output of a 21-agent adversarial-verification re-run — 121 facility records, 10 candidates attacked by skeptic agents. These verdicts OVERRIDE the other tabs where they conflict.** Full narrative in `Deep_Study_Synthesis.md`. |
 
 ## Requirements this study was built against
-- **Volume band 200–3,000 hogs/week** is a hard gate — *unless* the plant specializes in
-  organ/tissue harvesting (then large is in-scope; e.g. Smithfield BioScience).
+- **Volume is OPEN — capacity is not a filter.** No plant is excluded for being too small or
+  too large; every supplier is listed and classified into a tier instead:
+  **Small 0–300/wk · Medium 350–2,500/wk · High >2,500/wk** (301–349 = Small/Medium boundary).
+  Tier drives the *operating model*, not inclusion: Small → Model A / aggregation; Medium →
+  single-plant program; High → Model B or a biologics arm (constraint there is access, not volume).
 - **Any plant not USDA-inspected or not APHIS-certified is explicitly flagged**, and every
   plant now carries a **USDA/FSIS enforcement** history and an **APHIS export status**.
 - **Welfare/culture** (the Nahunta standard) is a scored tie-breaker — documented
-  humane-handling actions drop a plant to CAUTION.
+  humane-handling actions drop a plant to CAUTION. With volume no longer a gate, **welfare and
+  certification are now the main differentiators**; the only remaining exclusions are for
+  suspended inspection or a welfare record, never for size.
 - Every plant assessed on **Model A** (send our harvesters, rent space) and **Model B**
   (they harvest, we send inspectors/trainers).
 
@@ -37,9 +44,10 @@ earlier top picks**. In short:
 - **Nahunta is PROMOTED** — it already publishes a research **Specimen Permits** pathway and
   sells fresh viscera retail. But it is **state-inspected only, so it can never supply Europe.**
 - **Martin's Pork Products is back IN BAND** — the "6,500/wk, too big" figure was refuted.
-- **Piedmont and Acre Station were downgraded** on volume (FSIS "Very Small"; ~150/wk actual).
+- **Piedmont and Acre Station** turned out far smaller than reported (FSIS "Very Small"; ~150/wk actual) — both now sit in the **Small tier**, and with capacity open they remain viable Model A / aggregation candidates rather than being excluded.
 - **T&E Meats was killed** on verified FSIS humane-handling suspensions.
-- The band 200–3,000/wk contains only **~17 US plants**, so the recommendation is a
+- The 200–3,000/wk range contains only **~17 US plants** nationally — which is *why* capacity
+  is now open and classified by tier rather than filtered, and why the recommendation is a
   **three-lane portfolio**, not a single supplier.
 
 ## Headline findings (first pass — superseded where the Deep Study disagrees)
