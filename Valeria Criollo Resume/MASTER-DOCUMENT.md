@@ -105,8 +105,9 @@ Core positioning: MS-trained immunologist and biotech co-founder with a rare ble
 | M.S. | North Carolina State University (College of Veterinary Medicine) | Comparative Biomedical Sciences — Immunology concentration | Aug 2021 – Apr 2025 | ✅ program name confirmed |
 | B.S. | EAP Zamorano (Escuela Agrícola Panamericana, Honduras) | Business Administration / Agribusiness Management | 2012 – 2015 | ✅ institution confirmed |
 
-- MS thesis title & advisor: ❓ (advisor likely Raveendra R. Kulkarni, based on publications)
-- GPA/honors: ❓
+- Education section **confirmed accurate by candidate** ✅
+- MS thesis title & advisor: not provided (optional on an industry resume; advisor likely R.R. Kulkarni based on publications — will not assert without confirmation)
+- GPA/honors: not provided (optional)
 - Zamorano: "Agribusiness Management Valedictorian" + "Meritorious Thesis" ✅ (belong here)
 
 ---
@@ -147,13 +148,13 @@ Core positioning: MS-trained immunologist and biotech co-founder with a rare ble
 
 ---
 
-## 9. Skills Inventory ⏳
+## 9. Skills Inventory ✅ (from candidate)
 
-- **Lab/scientific techniques:** flow cytometry (+FlowJo?), immunopathology/histopathology, ELISA, PCR/qPCR, cell culture, in vivo model design, vaccine formulation, necropsy… ❓ confirm full list
-- **Data & biostatistics:** biostatistics (methods?), R / SAS / SPSS / GraphPad Prism / Python / Excel? ❓
-- **Regulatory & quality:** FDA registration, NDC, CAPA, RCA, change control, GDP, data integrity/ALCOA+, SOP development, QMS, deviation management, ICH Q9, mock audits, inspection readiness (from GxP/GliaBeauty context) — confirm hands-on vs. familiarity ❓
-- **Commercial/tools:** LinkedIn Sales Navigator, CRM (Salesforce/HubSpot?), MS Office/Google Workspace ❓
-- **Languages:** Spanish, English (+Portuguese/German?) ❓
+- **Lab/scientific techniques (proficient):** Flow cytometry & FlowJo analysis · ELISA · ELISpot · PCR / qPCR · Western blot · immunohistochemistry (IHC) & histopathology · immunopathology · cell culture · primary cell isolation · necropsy · in vivo model design & dosing · vaccine formulation & immunogenicity testing · aseptic technique.
+- **Data & biostatistics:** GraphPad Prism · SAS · R · Python · JMP · Excel (**all except SPSS**). Methods: experimental design · power/sample-size analysis · ANOVA · regression · survival analysis · mixed models · data visualization.
+- **Regulatory & quality (hands-on):** FDA product registration & NDC assignment · IACUC protocol development & compliance · CAPA · root cause analysis · change control · SOP development · QMS · deviation management · ICH Q9 quality risk management · GLP / GMP / GDP · 21 CFR. **NOT personally hands-on: ALCOA+ / data integrity** (works with it in a BD/consulting context via GxP Engaged, but do not list as a personal competency).
+- **Commercial & software:** Business development · LinkedIn Sales Navigator · CRM (Salesforce, HubSpot) · LIMS / ELN · MS Office · Google Workspace.
+- **Languages:** English (native/bilingual) · Spanish (native/bilingual) · Portuguese (conversational). _(No German.)_
 
 ---
 
