@@ -33,8 +33,8 @@ _Cary, NC · Jul 2026 – Present_
 ### GliaBeauty — Co-Founder & Chief Executive Officer
 _Raleigh, NC (laboratories in Mexico) · Sep 2023 – Dec 2025_
 
-- Co-founded and led a regenerative-medicine company (**team of 9**); **raised $2M** and scaled to **~$30K/month in revenue** (~20,000 units/month).
-- Directed **FDA product registration**, securing a registered product with an assigned **National Drug Code (NDC)**.
+- Co-founded and led a regenerative-medicine venture (**team of 9**) structured as two affiliated entities — **CryoGen, LLC** (pharmaceutical, clinical trials & regulatory) and **GliaBeauty** (cosmetic products & marketing); **raised $2M** and scaled to **~$30K/month in revenue** (~20,000 units/month).
+- Directed **FDA product registration** and clinical-trial operations through the CryoGen pharmaceutical arm, securing a registered product with an assigned **National Drug Code (NDC)**.
 - Established the **quality and regulatory processes** governing R&D, preclinical testing, and clinical-trial design across **US operations and Mexico-based laboratories**, enabling **cross-border (Mexico–US) commercialization and importation**.
 - Negotiated and managed strategic partnerships with **Biogenics, Lumaclear, and Inclusive Health Irya Inc.**
 - **Co-inventor** on a filed U.S. patent (skin-treatment compositions and methods; see Patents).
@@ -46,10 +46,10 @@ _Raleigh, NC · Jan 2019 – Mar 2026_
 - Authored and optimized **SOPs and IACUC protocols**; designed and validated **5 in vivo models**, ensuring regulatory and animal-welfare compliance.
 - Directed vaccine-candidate development and preclinical efficacy studies; conducted biostatistical analysis (SAS, R, Prism) to support data-driven decisions.
 
-### CEVA Santé Animale — Program Coordinator (R&D)
+### CEVA Santé Animale — Program Coordinator
 _Remote / Latin America & Europe · Jan 2019 – Feb 2026_
 
-- Coordinated international veterinary R&D projects, serving as **liaison across European and Latin American teams** to align project delivery with **regulatory requirements**.
+- Coordinated an **international veterinary certification program** (delivered with NC State College of Veterinary Medicine), certifying veterinarians across **Latin America and Europe**; served as **bilingual liaison** for translation and clinical assistance.
 
 ### Duke University Health System — Animal Care Technician
 _Durham, NC · 2018_

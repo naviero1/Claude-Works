@@ -36,15 +36,16 @@ _Raleigh, NC · Jan 2019 – Mar 2026_
 ### GliaBeauty — Co-Founder & Chief Executive Officer
 _Raleigh, NC (laboratories in Mexico) · Sep 2023 – Dec 2025_
 
-- Co-founded a regenerative-medicine company developing **stem cell– and exosome-based** skin and hair therapies; directed R&D from concept to a **FDA-registered product** with an assigned National Drug Code (NDC).
-- Designed and oversaw **preclinical testing (including in vivo models), clinical-trial design, and data analysis**.
+- Co-founded a regenerative-medicine venture — **GliaBeauty** (cosmetic) and its affiliated pharmaceutical/clinical entity **CryoGen, LLC** — developing **stem cell– and exosome-based** skin and hair therapies; directed R&D from concept to a **FDA-registered product** with an assigned National Drug Code (NDC).
+- Designed and oversaw **preclinical testing (including in vivo models), clinical-trial design, and data analysis** through the CryoGen clinical arm.
 - **Co-inventor** on a filed U.S. patent for skin-treatment compositions and methods (see Patents).
-- Built and led a **team of 9** across US and Mexico-based operations.
+- Built and led a **team of 9** across US and Mexico-based laboratories and operations.
 
-### CEVA Santé Animale — Program Coordinator (R&D)
+### CEVA Santé Animale — Program Coordinator
 _Remote / Latin America & Europe · Jan 2019 – Feb 2026_
 
-- Coordinated international veterinary R&D projects as **liaison across European and Latin American teams**, aligning study timelines, documentation, and regulatory requirements.
+- Coordinated an **international veterinary certification program** delivered in partnership with **NC State College of Veterinary Medicine**, extending professional certification to veterinarians across **Latin America and Europe**.
+- Served as **bilingual liaison** providing **translation and clinical assistance** to program participants across multiple countries.
 
 ### Duke University — Laboratory Technician, Bohórquez Lab
 _Durham, NC · Apr 2016 – Apr 2017_

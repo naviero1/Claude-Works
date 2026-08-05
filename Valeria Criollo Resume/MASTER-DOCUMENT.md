@@ -46,9 +46,9 @@ Core positioning: MS-trained immunologist and biotech co-founder with a rare ble
 
 ### 3.2 GliaBeauty — Co-Founder & CEO
 - **Dates:** Co-Founder & **CEO Sep 2023 – Dec 2025** (successor took over as CEO Dec 2025; remains co-owner? ❓) · **Location:** Raleigh, NC (laboratories in **Mexico** ✅)
-- **Company:** Regenerative-medicine / pharmaceutical company — stem cell & exosome therapies (skin & hair restoration).
+- **Company:** Regenerative-medicine venture — stem cell & exosome therapies (skin & hair restoration). **Two-entity structure (✅ clarified):** **CryoGen, LLC** = pharmaceutical / clinical-trials / regulatory arm; **GliaBeauty** = cosmetic products + marketing arm. Affiliated entities co-founded by the candidate.
 - **What she did (from LinkedIn):** Founded and led the company; directed R&D resulting in FDA-registered products with assigned NDCs; oversaw clinical trial design, data analysis, preclinical testing including in vivo models; spearheaded hair-restoration innovation using regenerative medicine.
-- **Related IP:** Co-inventor on US patent application (see §6). NOTE: patent assignee on record is **CryoGen, LLC**, not GliaBeauty — relationship ❓
+- **Related IP:** Co-inventor on US patent application (see §6), held by CryoGen, LLC (the pharmaceutical arm). ✅ relationship clarified.
 - **Metrics (✅ from candidate):**
   - **1 product FDA-registered** (with assigned NDC).
   - **Team of 9.**
@@ -62,10 +62,9 @@ Core positioning: MS-trained immunologist and biotech co-founder with a rare ble
 ### 3.3 CEVA Santé Animale — Program Coordinator
 - **Dates:** Jan 2019 – Feb 2026 ✅ · **Location:** listed Rio de Janeiro Area, Brazil (arrangement — remote/part-time? ❓)
 - **Company:** Global animal-health / veterinary pharmaceutical company (HQ Libourne, France; ~top-6 globally). ✅
-- **What she did (from LinkedIn):** Coordinated international veterinary R&D projects; liaised between global teams for project delivery and regulatory alignment.
+- **What it actually was (✅ clarified):** Remote/international role coordinating a **veterinary certification program delivered in partnership with NC State College of Veterinary Medicine**, extending professional certification to veterinarians in countries across **Latin America and Europe**. Candidate served as the **bilingual liaison providing translation and clinical assistance** to program participants across countries.
 - **Metrics (✅ from candidate):**
-  - Served as the **liaison across European and Latin American countries/teams**.
-  - ❓ still needed: remote/part-time arrangement; # projects coordinated; species/therapeutic areas.
+  - Liaison across **European and Latin American** countries/teams.
 
 ### 3.4 North Carolina State University — College of Veterinary Medicine — Lab Manager
 - **Dates:** Jan 2019 – Mar 2026 · **Location:** Raleigh, NC
@@ -126,8 +125,7 @@ Core positioning: MS-trained immunologist and biotech co-founder with a rare ble
 
 ## 6. Patents / Intellectual Property
 
-- **US Patent Application US 2023/0277439 A1 — "Compositions and Methods of Use for the Treatment of Skin."** Co-inventor: **Criollo Vinueza VM** (listed last of 8 inventors). Applicant/assignee of record: **CryoGen, LLC**. Published 2023 (application — "A1", not yet granted at publication). ✅ inventor link confirmed. Status per candidate: **Filed (patent pending)**. ✅
-  - ❓ Relationship between CryoGen, LLC and GliaBeauty (needed to decide how to attribute the patent on the resume).
+- **US Patent Application US 2023/0277439 A1 — "Compositions and Methods of Use for the Treatment of Skin."** Co-inventor: **Criollo Vinueza VM** (listed last of 8 inventors). Applicant/assignee of record: **CryoGen, LLC** (the pharmaceutical arm of the venture; GliaBeauty is the affiliated cosmetic/marketing arm). Published 2023 (application — "A1", not yet granted). ✅ inventor link confirmed. Status per candidate: **Filed (patent pending)**. ✅
 
 ---
 
@@ -170,9 +168,9 @@ Core positioning: MS-trained immunologist and biotech co-founder with a rare ble
 - [ ] GliaBeauty: still co-owner after Dec 2025 CEO handoff?
 - [ ] GliaBeauty: reconcile $30K/mo revenue vs. 20K units/mo (per-unit price)
 - [ ] GliaBeauty: confirm partner legal names (Biogenics, Lumaclear, Inclusive Health Irya Inc.)
-- [ ] CryoGen ↔ GliaBeauty relationship (patent attribution)
-- [ ] CEVA working arrangement (remote/part-time) given concurrency with NCSU
-- [ ] Duke Apr 2017 → 2018 gap
+- [x] CryoGen ↔ GliaBeauty relationship — CryoGen = pharma/clinical/regulatory arm; GliaBeauty = cosmetic/marketing arm ✅
+- [x] CEVA working arrangement — remote international certification-program liaison (with NC State CVM) ✅
+- [ ] Duke Apr 2017 → 2018 gap (minor)
 - [ ] MS thesis title & advisor; GPA/honors
 - [ ] Full skills/techniques/software inventory
 - [ ] Additional languages
