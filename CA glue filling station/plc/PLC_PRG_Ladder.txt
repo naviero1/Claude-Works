@@ -1,0 +1,638 @@
+(*=====================================================================
+  CA GLUE FILLING STATION - LADDER PROGRAM (PLC_PRG, language: LD)
+  Target: CODESYS 3.5 (IEC 61131-3)
+  ---------------------------------------------------------------------
+  This file is the rung-by-rung source listing. Transcribe each
+  NETWORK into a CODESYS LD network in the same order - ORDER MATTERS
+  (see the PDF guide, chapter "Scan cycle & network order").
+  Exactly one buildable rung is drawn per network; derivations live in
+  the comments. All GVL operands are written fully qualified (GVL_IO.).
+
+  Legend:   --| |--  normally-open contact   (TRUE passes power)
+            --|/|--  normally-closed contact (FALSE passes power)
+            --( )--  output coil             --(S)-- set (latch) coil
+            --(R)--  reset (unlatch) coil
+            [TON tName PT:=x]  on-delay timer function block
+            +---+ vertical bars join parallel branches (OR)
+
+  Local variable declarations for PLC_PRG:
+  ---------------------------------------------------------------------
+  PROGRAM PLC_PRG
+  VAR
+      (* A: flasher *)
+      tBlinkA, tBlinkB : TON;
+      Blink            : BOOL;   (* 1 Hz square wave *)
+
+      (* B: input conditioning *)
+      tDbBotPres, tDbSyrPres, tDbSyrLock, tDbTipPres : TON;
+      tDbModeB, tDbModeS, tDbPotLow, tDbSpill        : TON;
+      dbBottlePresent, dbSyrPresent, dbSyrLocked, dbTipPresent : BOOL;
+      ModeBottle, ModeSyringe, PotLow                : BOOL;
+
+      (* C: two-hand control *)
+      tDiscL, tDiscR : TON;
+      ftTwoHand      : F_TRIG;
+      THC_Lockout    : BOOL;
+      TwoHandOK      : BOOL;
+      trigStart      : R_TRIG;
+      StartPulse     : BOOL;
+      ResetArmed     : BOOL;
+      tResetHold     : TON;
+      trigReset      : R_TRIG;
+      ResetPulse     : BOOL;
+
+      (* D: safety latches *)
+      EStopTrip, SpillTrip : BOOL;
+
+      (* E: plausibility *)
+      tDbBerr, tDbSerr : TON;
+      BottleSensErr, SyrSensErr, SensorErr : BOOL;
+
+      (* F: permissives *)
+      ReadyBottle, ReadySyringe, SafetyOK, PermStart : BOOL;
+
+      (* G: sequence state machine *)
+      StIdle, StLocking, StFilling, StComplete : BOOL;
+      CycBottle, CycSyringe, CycTopOff         : BOOL;
+      MDoneEvent                               : BOOL;
+      tLockTO, tFillB, tFillS                  : TON;
+
+      (* H: faults *)
+      FaultLatched : BOOL;
+
+      (* I: lamps *)
+      AttnReq : BOOL;
+
+      (* J: counters *)
+      ctrBottle, ctrSyringe : CTU;
+  END_VAR
+  =====================================================================*)
+
+
+(*********************************************************************
+ SECTION A - SYSTEM UTILITIES
+ *********************************************************************)
+
+(* NETWORK 01 - Flasher, half period A ------------------------------
+   Two cross-coupled TONs make a free-running oscillator.
+   tBlinkA times while tBlinkB.Q is FALSE.                           *)
+|    tBlinkB.Q      +----------------------+
+|------|/|----------|IN  TON tBlinkA     Q |
+|                   |PT:=GVL_IO.cfgBlinkHalfPeriod
+|                   +----------------------+
+
+(* NETWORK 02 - Flasher, half period B + Blink bit ------------------
+   When tBlinkA finishes, tBlinkB starts; when tBlinkB finishes it
+   resets tBlinkA (via N01) and the cycle repeats -> ~1 Hz.          *)
+|    tBlinkA.Q      +----------------------+
+|------| |------+---|IN  TON tBlinkB     Q |
+|               |   |PT:=GVL_IO.cfgBlinkHalfPeriod
+|               |   +----------------------+
+|               |                                          Blink
+|               +------------------------------------------(  )------|
+
+
+(*********************************************************************
+ SECTION B - INPUT CONDITIONING (debounce / signal qualification)
+ NOTE the asymmetry: TON debounces only the OFF->ON edge. A sensor
+ must be steadily TRUE for the debounce time before the logic trusts
+ it, but it is DIS-trusted instantly when it drops. For permissive
+ signals that is the fail-safe direction.
+ *********************************************************************)
+
+(* NETWORK 03 - Bottle present, debounced ---------------------------*)
+|  GVL_IO.I_BottlePresent   +----------------------+   dbBottlePresent
+|------| |------------------|IN  TON tDbBotPres  Q |------(  )--------|
+|                           |PT:=GVL_IO.cfgDebPresence
+|                           +----------------------+
+
+(* NETWORK 04 - Syringe present, debounced --------------------------*)
+|  GVL_IO.I_SyrPresent      +----------------------+   dbSyrPresent
+|------| |------------------|IN  TON tDbSyrPres  Q |------(  )--------|
+|                           |PT:=GVL_IO.cfgDebPresence
+|                           +----------------------+
+
+(* NETWORK 05 - Syringe locked, debounced ---------------------------*)
+|  GVL_IO.I_SyrLocked       +----------------------+   dbSyrLocked
+|------| |------------------|IN  TON tDbSyrLock  Q |------(  )--------|
+|                           |PT:=GVL_IO.cfgDebPresence
+|                           +----------------------+
+
+(* NETWORK 06 - Syringe tip present, debounced ----------------------*)
+|  GVL_IO.I_TipPresent      +----------------------+   dbTipPresent
+|------| |------------------|IN  TON tDbTipPres  Q |------(  )--------|
+|                           |PT:=GVL_IO.cfgDebPresence
+|                           +----------------------+
+
+(* NETWORK 07 - Bottle mode, debounced ------------------------------
+   ModeBottle and ModeSyringe are BOTH FALSE while the fixture signal
+   is changing - during a changeover the station is simply "no mode"
+   and cannot start. That is deliberate.                             *)
+|  GVL_IO.I_BottleMode      +----------------------+   ModeBottle
+|------| |------------------|IN  TON tDbModeB    Q |------(  )--------|
+|                           |PT:=GVL_IO.cfgDebMode |
+|                           +----------------------+
+
+(* NETWORK 08 - Syringe mode, debounced -----------------------------*)
+|  GVL_IO.I_BottleMode      +----------------------+   ModeSyringe
+|------|/|------------------|IN  TON tDbModeS    Q |------(  )--------|
+|                           |PT:=GVL_IO.cfgDebMode |
+|                           +----------------------+
+
+(* NETWORK 09 - Pressure pot low level, anti-slosh ------------------
+   GVL_IO.I_PotLevelOK is fail-safe TRUE=healthy. The 2 s delay stops
+   the warning from chattering while the glue surface sloshes.       *)
+|  GVL_IO.I_PotLevelOK      +----------------------+   PotLow
+|------|/|------------------|IN  TON tDbPotLow   Q |------(  )--------|
+|                           |PT:=GVL_IO.cfgDebPotLow
+|                           +----------------------+
+
+
+(*********************************************************************
+ SECTION C - TWO-HAND START GESTURE + RESET GESTURE
+ A two-hand START gesture with synchronism window, tie-down lockout
+ and full-release re-initiation, modelled on ISO 13851 CONCEPTS.
+ It is NOT a two-hand protective function: the fill deliberately
+ continues after release, because the locked guard door - not the
+ buttons - protects the operator during the fill. The hardware
+ two-hand relay in the safety layer provides the actual protection.
+ Properties enforced here:
+   * synchronism: both buttons within cfgSyncWindow (0.5 s);
+   * anti-tie-down: one button held alone latches a lockout that only
+     full release of BOTH buttons clears;
+   * full-release re-initiation: if the two-hand condition drops while
+     either button is still pressed, the lockout latches too;
+   * anti-repeat: the start signal is a one-scan rising edge.
+ *********************************************************************)
+
+(* NETWORK 10 - Discordance timer, left alone -----------------------*)
+|  GVL_IO.I_BtnLeft   GVL_IO.I_BtnRight  +--------------------+
+|------| |----------------|/|------------|IN  TON tDiscL    Q |
+|                                        |PT:=GVL_IO.cfgSyncWindow
+|                                        +--------------------+
+
+(* NETWORK 11 - Discordance timer, right alone ----------------------*)
+|  GVL_IO.I_BtnRight  GVL_IO.I_BtnLeft   +--------------------+
+|------| |----------------|/|------------|IN  TON tDiscR    Q |
+|                                        |PT:=GVL_IO.cfgSyncWindow
+|                                        +--------------------+
+
+(* NETWORK 12 - Lockout latch (anti-tie-down + full-release re-init) -
+   Set by: either discordance timer, OR the two-hand condition
+   dropping while a button is still pressed (falling edge via F_TRIG;
+   reads last scan's TwoHandOK since N13 executes after this rung).
+   Seal clears only when BOTH buttons are released.                  *)
+|    tDiscL.Q
+|------| |---------------------------+
+|    tDiscR.Q                        |      GVL_IO.I_BtnLeft
+|------| |---------------------------+   +--------| |--------+
+|   TwoHandOK   +------------------+ |   |                   |  THC_Lockout
+|-----| |-------|CLK F_TRIG      Q |-+---+                   +-----(  )-----|
+|               |    ftTwoHand     | |   | GVL_IO.I_BtnRight |
+|               +------------------+ |   +--------| |--------+
+|   THC_Lockout                      |
+|------| |---------------------------+
+
+(* NETWORK 13 - Two-hand valid ---------------------------------------*)
+|  GVL_IO.I_BtnLeft  GVL_IO.I_BtnRight  THC_Lockout      TwoHandOK
+|------| |----------------| |---------------|/|-----------(  )--------|
+
+(* NETWORK 14 - Start pulse (rising edge) ----------------------------
+   One scan pulse. Anti-repeat: a new fill always needs a fresh
+   actuation of the two-hand station (with N12 guaranteeing the fresh
+   actuation involves BOTH buttons from fully released).             *)
+|    TwoHandOK      +--------------------+                StartPulse
+|------| |----------|CLK R_TRIG trigStart Q|---------------(  )-------|
+|                   +--------------------+
+
+(* NETWORK 15 - Fault-reset gesture: release, then hold both 3 s -----
+   ResetArmed latches only once both buttons have been RELEASED while
+   a trip is latched - so hands resting on the buttons when a fault
+   occurs can never auto-acknowledge it. With ResetArmed set, holding
+   both buttons for cfgResetHold fires the one-scan ResetPulse.
+   (There is no dedicated reset pushbutton in the I/O list; the
+   two-hand station doubles as the reset input.)                     *)
+|  GVL_IO.I_BtnLeft  GVL_IO.I_BtnRight    FaultLatched
+|------|/|----------------|/|--------+------| |------+---+--(  )------|
+|   ResetArmed                       |   EStopTrip   |   | ResetArmed
+|------| |---------------------------+------| |------+   |
+|                                    |   SpillTrip   |   |
+|                                    +------| |------+   |
+|                                                        |
+|   (continuation from the ResetArmed node:)             |
+|    TwoHandOK   +---------------------+                 |
+|------| |------|IN  TON tResetHold  Q |-----------------+
+|  (in series   |PT:=GVL_IO.cfgResetHold
+|   with the    +---------------------+
+|   ResetArmed  +---------------------+                   ResetPulse
+|   rail)       |CLK R_TRIG trigReset Q|--------------------(  )------|
+|               +---------------------+
+|
+|  Boolean form (exactly what the ST mirror computes):
+|    ResetArmed := ((NOT I_BtnLeft AND NOT I_BtnRight) OR ResetArmed)
+|                  AND (FaultLatched OR EStopTrip OR SpillTrip);
+|    tResetHold(IN := ResetArmed AND TwoHandOK, PT := cfgResetHold);
+|    ResetPulse := R_TRIG(tResetHold.Q);
+
+
+(*********************************************************************
+ SECTION D - SAFETY-EVENT LATCHES
+ Faults must be REMEMBERED, not just mirrored: a fleeting event
+ (momentary E-stop tap, one spill droplet bridging the probe) must
+ still force a deliberate operator reset.
+ *********************************************************************)
+
+(* NETWORK 16 - E-stop trip latch (seal-in) ---------------------------
+   EStopTrip := (NOT I_EStopOK OR EStopTrip)
+                AND NOT (ResetPulse AND I_EStopOK);
+   The seal-break term NOT(ResetPulse AND I_EStopOK) is drawn by
+   De Morgan as two parallel NC contacts: the latch survives unless a
+   reset gesture arrives WHILE the E-stop circuit is healthy.        *)
+|  GVL_IO.I_EStopOK              ResetPulse             EStopTrip
+|------|/|---------+---------+------|/|--------+----------(  )--------|
+|   EStopTrip      |         | GVL_IO.I_EStopOK|
+|------| |---------+         +------|/|--------+
+
+(* NETWORK 17 - Spill debounce ---------------------------------------*)
+|  GVL_IO.I_SpillDetect     +----------------------+
+|------| |------------------|IN  TON tDbSpill    Q |
+|                           |PT:=GVL_IO.cfgDebSpill|
+|                           +----------------------+
+
+(* NETWORK 18 - Spill trip latch (seal-in) ----------------------------
+   SpillTrip := (tDbSpill.Q OR SpillTrip)
+                AND NOT (ResetPulse AND NOT I_SpillDetect);
+   Same idiom as N16; here the seal-break requires the tray to be DRY
+   (NOT I_SpillDetect), so reset is refused while it still reads wet. *)
+|    tDbSpill.Q                  ResetPulse             SpillTrip
+|------| |---------+---------+------|/|--------+----------(  )--------|
+|   SpillTrip      |         | GVL_IO.I_SpillDetect
+|------| |---------+         +------| |--------+
+
+
+(*********************************************************************
+ SECTION E - SENSOR PLAUSIBILITY (false-positive defence)
+ A single sensor can lie (CA residue on an opto lens is sticky and
+ opaque). Physically-impossible COMBINATIONS cannot. Each check below
+ is a combination that can never occur on a healthy machine.
+ A 0.5 s confirmation delay ignores transients during load/unload.
+ *********************************************************************)
+
+(* NETWORK 19 - Bottle sensor plausibility ---------------------------
+   impossible: HIGH level without LOW level (glue rises bottom-up)
+   impossible: any level signal with no bottle in the nest           *)
+|  GVL_IO.I_BottleHigh  GVL_IO.I_BottleLow
+|--------| |------------------|/|----------+
+|  GVL_IO.I_BottleLow   dbBottlePresent    |  +---------------------+   BottleSensErr
+|--------| |------------------|/|----------+--|IN  TON tDbBerr    Q |------(  )-------|
+|  GVL_IO.I_BottleHigh  dbBottlePresent    |  |PT:=GVL_IO.cfgDebSensorErr
+|--------| |------------------|/|----------+  +---------------------+
+
+(* NETWORK 20 - Syringe sensor plausibility --------------------------
+   impossible: plunger at BOTTOM and TOP simultaneously
+   impossible: either plunger signal with no syringe present
+   impossible: clamp locked with no syringe present
+   impossible: fill tip detected with no syringe present             *)
+|  GVL_IO.I_PlungerLow  GVL_IO.I_PlungerHigh
+|--------| |------------------| |----------+
+|  GVL_IO.I_PlungerLow   dbSyrPresent      |
+|--------| |------------------|/|----------+
+|  GVL_IO.I_PlungerHigh  dbSyrPresent      |  +---------------------+   SyrSensErr
+|--------| |------------------|/|----------+--|IN  TON tDbSerr    Q |------(  )-------|
+|   dbSyrLocked          dbSyrPresent      |  |PT:=GVL_IO.cfgDebSensorErr
+|--------| |------------------|/|----------+  +---------------------+
+|   dbTipPresent         dbSyrPresent      |
+|--------| |------------------|/|----------+
+
+(* NETWORK 21 - Any sensor plausibility error ------------------------
+   Live (non-latched) while idle: blocks starting and flashes the
+   attention lamp; clears itself when the cause clears. If it occurs
+   DURING a cycle it is latched as FaultCode 5 (Section H).          *)
+|   BottleSensErr                                        SensorErr
+|------| |---------+--------------------------------------(  )-------|
+|   SyrSensErr     |
+|------| |---------+
+
+
+(*********************************************************************
+ SECTION F - READY CONDITIONS & START PERMISSIVE
+ A classic permissive ("interlock") chain: every contact in series is
+ one reason the machine may refuse to start, and in CODESYS online
+ view you can SEE which contact breaks the chain.
+ *********************************************************************)
+
+(* NETWORK 22 - Bottle package ready ----------------------------------
+   NOT I_BottleHigh means an already-full bottle cannot be started; a
+   partially full one (I_BottleLow TRUE, HIGH false) is a legal
+   top-off - N27 records it in CycTopOff.                            *)
+|  ModeBottle  dbBottlePresent  GVL_IO.I_BottleHigh  SensorErr   ReadyBottle
+|-----| |-----------| |---------------|/|---------------|/|--------(  )------|
+
+(* NETWORK 23 - Syringe package ready ---------------------------------*)
+|  ModeSyringe  dbSyrPresent  dbSyrLocked  dbTipPresent  GVL_IO.I_PlungerHigh  SensorErr   ReadySyringe
+|-----| |-----------| |-----------| |-----------| |------------|/|---------------|/|---------(  )------|
+
+(* NETWORK 24 - Safety chain healthy -----------------------------------*)
+|  GVL_IO.I_EStopOK  EStopTrip  SpillTrip  FaultLatched   SafetyOK
+|--------| |------------|/|--------|/|---------|/|----------(  )-----|
+
+(* NETWORK 25 - Start permissive ---------------------------------------
+   PotLow blocks NEW fills only; a fill already running is allowed to
+   finish (Section G ignores PotLow).                                *)
+|  SafetyOK  GVL_IO.I_DoorClosed  PotLow  StIdle    ReadyBottle      PermStart
+|-----| |-----------| |------------|/|-----| |---+------| |------+-----(  )----|
+|                                                |   ReadySyringe |
+|                                                +------| |------+
+
+
+(*********************************************************************
+ SECTION G - SEQUENCE STATE MACHINE
+ States: StIdle -> StLocking -> StFilling -> StComplete -> StIdle
+ Implemented with SET/RESET coils; exactly one transition rung sets
+ the next state and resets the current one.
+ *********************************************************************)
+
+(* NETWORK 26 - Start: Idle -> Locking --------------------------------*)
+|   StartPulse    PermStart                             StLocking
+|------| |-----------| |---------------------------------(S)---------|
+
+(* NETWORK 27 - Register package type + top-off for this cycle --------
+   The mode is CAPTURED at start into CycBottle/CycSyringe so a
+   glitching fixture sensor cannot swap valves mid-fill. CycTopOff
+   records whether the package already held glue at start (bottle low
+   level already made / syringe plunger already off its empty stop) -
+   a diagnostic that explains a shorter-than-usual fill.             *)
+|   StartPulse    PermStart    ReadyBottle                    CycBottle
+|------| |-----------| |----+-----| |---------------------+----(S)---------|
+|                           |  ReadyBottle  GVL_IO.I_BottleLow CycTopOff
+|                           +-----| |------------| |------+----(S)---------|
+|                           |  ReadySyringe                   CycSyringe
+|                           +-----| |---------------------+----(S)---------|
+|                           |  ReadySyringe GVL_IO.I_PlungerLow CycTopOff
+|                           +-----| |------------|/|------+----(S)---------|
+
+(* NETWORK 28 - Door lock supervision timer ---------------------------*)
+|    StLocking              +----------------------+
+|------| |------------------|IN  TON tLockTO     Q |
+|                           |PT:=GVL_IO.cfgLockTimeout
+|                           +----------------------+
+
+(* NETWORK 29 - Lock engaged: Locking -> Filling ----------------------*)
+|  StLocking  GVL_IO.I_DoorClosed  GVL_IO.I_DoorLocked   StFilling
+|-----| |------------| |------------------| |-------+-----(S)--------|
+|                                                   |    StLocking
+|                                                   +-----(R)--------|
+
+(* NETWORK 30 - Fill watchdog, bottle ---------------------------------*)
+|  StFilling   CycBottle    +----------------------+
+|-----| |---------| |-------|IN  TON tFillB      Q |
+|                           |PT:=GVL_IO.cfgFillTimeoutBottle
+|                           +----------------------+
+
+(* NETWORK 31 - Fill watchdog, syringe --------------------------------*)
+|  StFilling   CycSyringe   +----------------------+
+|-----| |---------| |-------|IN  TON tFillS      Q |
+|                           |PT:=GVL_IO.cfgFillTimeoutSyr
+|                           +----------------------+
+
+(* NETWORK 32 - Fill complete: Filling -> Complete ---------------------
+   Uses the RAW high-level inputs (no debounce) so the state follows
+   the very scan the sensor trips - and the valve rungs (N45/N46) cut
+   off on the same raw signal. The debounced PRESENCE bits are in
+   series so a sensor glint while the package is being pulled out
+   cannot masquerade as a successful fill (the presence bit drops
+   instantly on removal; fault 7 wins instead). MDoneEvent hands the
+   completion to the counters even if a same-scan trip immediately
+   clears StComplete again (Section J).                              *)
+|  StFilling   CycBottle  dbBottlePresent GVL_IO.I_BottleHigh      StComplete
+|-----| |--------+--| |--------| |--------------| |------+-----+-----(S)--------|
+|                |  CycSyringe dbSyrPresent GVL_IO.I_PlungerHigh    StFilling
+|                +--| |--------| |--------------| |------+     +-----(R)--------|
+|                                                              |    MDoneEvent
+|                                                              +-----(S)--------|
+
+(* NETWORK 33 - Package removed: Complete -> Idle ----------------------
+   Requires both buttons released (anti-repeat) and the filled
+   package taken out of the nest.                                    *)
+|  StComplete GVL_IO.I_BtnLeft GVL_IO.I_BtnRight CycBottle dbBottlePresent  StComplete
+|-----| |----------|/|--------------|/|--------+---| |---------|/|-----+-----(R)------|
+|                                              | CycSyringe dbSyrPresent|  CycBottle
+|                                              +---| |---------|/|-----+-----(R)------|
+|                                                                      |  CycSyringe
+|                                                                      +-----(R)------|
+|                                                                      |  CycTopOff
+|                                                                      +-----(R)------|
+
+(* NETWORK 34 - Idle state (derived) -----------------------------------*)
+|  StLocking  StFilling  StComplete  FaultLatched  EStopTrip  SpillTrip   StIdle
+|-----|/|--------|/|---------|/|----------|/|----------|/|--------|/|------(  )---|
+
+
+(*********************************************************************
+ SECTION H - FAULT CAPTURE (first-out) & CYCLE ABORT
+ Each rung: IF its condition is true AND no fault code is stored yet
+ (EQ FaultCode,0) THEN store this rung's code - so FaultCode always
+ holds the FIRST cause, not the last symptom. Every rung also sets
+ the common FaultLatched flag.
+ *********************************************************************)
+
+(* NETWORK 35 - Fault 1: E-stop ----------------------------------------*)
+|   EStopTrip     +--[EQ GVL_IO.FaultCode,0]--[MOVE 1 -> GVL_IO.FaultCode]
+|------| |-----+--+
+|              |                                        FaultLatched
+|              +------------------------------------------(S)--------|
+
+(* NETWORK 36 - Fault 3: spill -----------------------------------------*)
+|   SpillTrip     +--[EQ GVL_IO.FaultCode,0]--[MOVE 3 -> GVL_IO.FaultCode]
+|------| |-----+--+
+|              |                                        FaultLatched
+|              +------------------------------------------(S)--------|
+
+(* NETWORK 37 - Fault 2: door opened/unlocked during cycle -------------*)
+|  StLocking      GVL_IO.I_DoorClosed
+|-----| |------+--------|/|-----------+
+|  StFilling   |                      |
+|-----| |------+                      |
+|  StFilling      GVL_IO.I_DoorLocked |
+|-----| |---------------|/|-----------+--[EQ GVL_IO.FaultCode,0]--[MOVE 2 -> GVL_IO.FaultCode]
+|                                     |                 FaultLatched
+|                                     +-------------------(S)--------|
+
+(* NETWORK 38 - Fault 8: door lock failed to engage --------------------*)
+|    tLockTO.Q    +--[EQ GVL_IO.FaultCode,0]--[MOVE 8 -> GVL_IO.FaultCode]
+|------| |-----+--+                                     FaultLatched
+|              +------------------------------------------(S)--------|
+
+(* NETWORK 39 - Fault 4: fill watchdog timeout -------------------------
+   Causes: pot empty/low pressure, clogged line, leaking nest, or a
+   high-level sensor that cannot see the glue.                       *)
+|    tFillB.Q     +--[EQ GVL_IO.FaultCode,0]--[MOVE 4 -> GVL_IO.FaultCode]
+|------| |-----+--+
+|    tFillS.Q  |                                        FaultLatched
+|------| |-----+------------------------------------------(S)--------|
+
+(* NETWORK 40 - Fault 5: sensor plausibility error during cycle --------*)
+|   SensorErr     StLocking
+|-----| |------+-----| |-----+--[EQ GVL_IO.FaultCode,0]--[MOVE 5 -> GVL_IO.FaultCode]
+|              |  StFilling  |                          FaultLatched
+|              +-----| |-----+----------------------------(S)--------|
+
+(* NETWORK 41 - Fault 6: fixture/mode signal lost during cycle ---------*)
+|  CycBottle    ModeBottle
+|-----| |----------|/|-------+
+|  CycSyringe   ModeSyringe  |   StLocking
+|-----| |----------|/|-------+------| |-----+--[EQ GVL_IO.FaultCode,0]--[MOVE 6 -> GVL_IO.FaultCode]
+|                            |   StFilling  |           FaultLatched
+|                            +------| |-----+-------------(S)--------|
+
+(* NETWORK 42 - Fault 7: packaging lost/unclamped during cycle ---------*)
+|  CycBottle   dbBottlePresent
+|-----| |------------|/|---------------+
+|  CycSyringe   dbSyrPresent           |
+|-----| |----+-------|/|-------+-------+
+|            |   dbSyrLocked   |       |    StLocking
+|            +-------|/|-------+       +-------| |-----+--[EQ GVL_IO.FaultCode,0]--[MOVE 7 -> GVL_IO.FaultCode]
+|            |   dbTipPresent  |       |    StFilling  |        FaultLatched
+|            +-------|/|-------+       +-------| |-----+----------(S)--------|
+
+(* NETWORK 43 - Any trip aborts the cycle immediately ------------------
+   Placed AFTER every transition rung of Section G so its R coils win
+   the scan when an S and an R fire together.                        *)
+|  FaultLatched                                          StLocking
+|------| |--------+----------------------------------+----(R)--------|
+|   EStopTrip     |                                   |  StFilling
+|------| |--------+                                   +----(R)--------|
+|   SpillTrip     |                                   |  StComplete
+|------| |--------+                                   +----(R)--------|
+
+(* NETWORK 44 - Fault reset ---------------------------------------------
+   ResetPulse (release, then 3 s two-hand hold - see N15) clears the
+   common fault flag, the cycle registration and the stored code. The
+   E-stop and spill latches (N16/N18) additionally demand their own
+   cause is gone. Other causes may be acknowledged before the cause
+   is fixed (e.g. door still open) - starting again is blocked by the
+   PermStart chain anyway.                                           *)
+|  ResetPulse  GVL_IO.I_EStopOK  GVL_IO.I_SpillDetect   FaultLatched
+|-----| |------------| |----------------|/|--------+------(R)--------|
+|                                                  |     CycBottle
+|                                                  +------(R)--------|
+|                                                  |     CycSyringe
+|                                                  +------(R)--------|
+|                                                  |     CycTopOff
+|                                                  +------(R)--------|
+|                                                  +--[MOVE 0 -> GVL_IO.FaultCode]
+
+
+(*********************************************************************
+ SECTION I - OUTPUTS
+ The valve rungs repeat the safety chain and the hard interlocks IN
+ SERIES even though the state machine already checks them ("defence
+ in depth"): SafetyOK re-checks the raw E-stop input AND every
+ latched trip (spill, fault), and the door/level sensors are re-read
+ raw. If any rung above ever misbehaves, the output rung still cannot
+ energise a valve with the door open, a trip latched, or the package
+ already full.
+ *********************************************************************)
+
+(* NETWORK 45 - Bottle fill valve ---------------------------------------*)
+|  StFilling  CycBottle  SafetyOK  GVL_IO.I_DoorClosed  GVL_IO.I_DoorLocked  GVL_IO.I_BottleHigh   GVL_IO.Q_ValveBottle
+|-----| |--------| |--------| |------------| |------------------| |----------------|/|------------------(  )-------|
+
+(* NETWORK 46 - Syringe fill valve --------------------------------------*)
+|  StFilling  CycSyringe  SafetyOK  GVL_IO.I_DoorClosed  GVL_IO.I_DoorLocked  GVL_IO.I_PlungerHigh  GVL_IO.Q_ValveSyringe
+|-----| |--------| |---------| |-----------| |------------------| |----------------|/|------------------(  )-------|
+
+(* NETWORK 47 - Door lock solenoid --------------------------------------
+   Locked from the moment a cycle starts until filling ends. Idle,
+   Complete and Fault states leave the door free to open. The coil is
+   energise-to-lock (see GVL note): a power loss unlocks the guard,
+   which is acceptable only because both valves are spring-return
+   closed.                                                           *)
+|   StLocking                                        GVL_IO.Q_DoorLock
+|------| |--------+---------------------------------------(  )-------|
+|   StFilling     |
+|------| |--------+
+
+(* NETWORK 48 - Mode lamp: bottle ---------------------------------------*)
+|   ModeBottle                                       GVL_IO.Q_LampBottle
+|------| |------------------------------------------------(  )-------|
+
+(* NETWORK 49 - Mode lamp: syringe --------------------------------------*)
+|   ModeSyringe                                      GVL_IO.Q_LampSyringe
+|------| |------------------------------------------------(  )-------|
+
+(* NETWORK 50 - Filling lamp (mirrors the actual valve commands) --------*)
+|  GVL_IO.Q_ValveBottle                              GVL_IO.Q_LampFilling
+|------| |--------+---------------------------------------(  )-------|
+|  GVL_IO.Q_ValveSyringe
+|------| |--------+
+
+(* NETWORK 51 - Done lamp ------------------------------------------------*)
+|   StComplete                                       GVL_IO.Q_LampDone
+|------| |------------------------------------------------(  )-------|
+
+(* NETWORK 52 - E-stop lamp (steady) --------------------------------------
+   ON while the E-stop is pressed OR while the trip latch awaits reset. *)
+|  GVL_IO.I_EStopOK                                  GVL_IO.Q_LampEStop
+|------|/|--------+---------------------------------------(  )-------|
+|   EStopTrip     |
+|------| |--------+
+
+(* NETWORK 53 - "Operator interaction required" conditions ----------------
+   - any latched fault awaiting the reset gesture
+   - pot level low (refill glue)
+   - sensor plausibility error (check/clean sensors)
+   - two-hand lockout (release both buttons)
+   - E-stop released but trip not yet reset                              *)
+|  FaultLatched                                          AttnReq
+|------| |--------+---------------------------------------(  )-------|
+|   SpillTrip     |
+|------| |--------+
+|    PotLow       |
+|------| |--------+
+|   SensorErr     |
+|------| |--------+
+|  THC_Lockout    |
+|------| |--------+
+|   EStopTrip  GVL_IO.I_EStopOK
+|-----| |-----------| |--------+
+
+(* NETWORK 54 - Attention lamp = condition AND flasher ---------------------*)
+|    AttnReq        Blink                          GVL_IO.Q_LampAttention
+|------| |-----------| |----------------------------------(  )-------|
+
+
+(*********************************************************************
+ SECTION J - PRODUCTION COUNTERS (diagnostics bonus)
+ MDoneEvent is a one-scan completion event latched by N32 itself and
+ consumed here (producer/consumer handshake, like N58): a completion
+ that a same-scan trip knocks straight out of StComplete is still
+ counted. CODESYS Standard-lib CTU: reset pin is named RESET, and
+ counting STOPS when CV reaches PV - hence PV:=65535 for free-run.
+ *********************************************************************)
+
+(* NETWORK 55 - Bottle counter -------------------------------------------*)
+|  MDoneEvent   CycBottle   +---------------------------+
+|-----| |----------| |------|CU  CTU ctrBottle          |
+|  GVL_IO.cmdCounterReset   |RESET                      |
+|-----| |-------------------|PV:=65535                  |
+|                           |CV -> GVL_IO.CntBottlesFilled (WORD_TO_UINT)
+|                           +---------------------------+
+
+(* NETWORK 56 - Syringe counter ------------------------------------------*)
+|  MDoneEvent   CycSyringe  +---------------------------+
+|-----| |----------| |------|CU  CTU ctrSyringe         |
+|  GVL_IO.cmdCounterReset   |RESET                      |
+|-----| |-------------------|PV:=65535                  |
+|                           |CV -> GVL_IO.CntSyringesFilled (WORD_TO_UINT)
+|                           +---------------------------+
+
+(* NETWORK 57 - Consume the completion event -------------------------------*)
+|   MDoneEvent                                           MDoneEvent
+|------| |------------------------------------------------(R)--------|
+
+(* NETWORK 58 - Consume the HMI counter-reset command -----------------------*)
+|  GVL_IO.cmdCounterReset                        GVL_IO.cmdCounterReset
+|------| |------------------------------------------------(R)--------|
+
+(* ======================= END OF PROGRAM ============================ *)

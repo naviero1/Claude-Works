@@ -1,0 +1,123 @@
+(*=====================================================================
+  CA GLUE FILLING STATION - GLOBAL VARIABLE LIST (GVL_IO)
+  Target: CODESYS 3.5 (IEC 61131-3)
+  ---------------------------------------------------------------------
+  How to use in CODESYS:
+    1. In the device tree, right-click Application > Add Object >
+       Global Variable List, name it "GVL_IO".
+    2. Paste the contents of this file into it.
+    3. Map the AT %IX / %QX addresses to your real hardware in the
+       device I/O mapping editor (addresses below are placeholders --
+       adjust byte/bit to match your coupler/terminals).
+
+  WIRING CONVENTION (fail-safe):
+    * Safety-relevant inputs (E-stop, door closed, door locked,
+      pressure pot level) are wired NORMALLY CLOSED, so the PLC input
+      is TRUE when the condition is HEALTHY. A broken wire then reads
+      as "not healthy" and the machine stops instead of running blind.
+    * Event/detection inputs (spill, presence, levels) are TRUE when
+      the thing is DETECTED.
+
+  IMPORTANT SAFETY NOTE:
+    The E-stop and the two-hand control implemented here are for
+    SEQUENCE CONTROL AND ANNUNCIATION ONLY. The actual safety functions
+    (killing valve power on E-stop, ISO 13851 two-hand device, guard
+    lock monitoring) must be implemented in safety-rated hardware
+    (safety relay or safety PLC) per your ISO 13849-1 risk assessment.
+    The standard PLC merely observes those circuits.
+  =====================================================================*)
+
+VAR_GLOBAL
+    (* Tip: variables here can be referenced either as GVL_IO.Name or
+       simply Name inside POUs. The listings use the qualified form. *)
+    (*----------------- PHYSICAL INPUTS -----------------*)
+
+    (* Two-hand start station (opto-touch buttons) *)
+    I_BtnLeft        AT %IX0.0 : BOOL;  (* TRUE = left opto button actuated *)
+    I_BtnRight       AT %IX0.1 : BOOL;  (* TRUE = right opto button actuated *)
+
+    (* Guard door with solenoid lock (guard-lock switch, e.g. 2 channels of info) *)
+    I_DoorClosed     AT %IX0.2 : BOOL;  (* NC wiring: TRUE = door is closed *)
+    I_DoorLocked     AT %IX0.3 : BOOL;  (* NC wiring: TRUE = lock bolt engaged *)
+
+    (* Supply side *)
+    I_PotLevelOK     AT %IX0.4 : BOOL;  (* NC wiring: TRUE = pressure pot level above minimum *)
+
+    (* Fixture / packaging identification *)
+    I_BottleMode     AT %IX0.5 : BOOL;  (* TRUE = bottle-fill fixture installed, FALSE = syringe fixture *)
+
+    (* Squeeze-bottle sensors *)
+    I_BottleLow      AT %IX0.6 : BOOL;  (* TRUE = glue at/above LOW level. Used for
+                                           plausibility checks (N19) and to flag a
+                                           top-off cycle (CycTopOff, N27) *)
+    I_BottleHigh     AT %IX0.7 : BOOL;  (* TRUE = glue at HIGH level (bottle full) *)
+    I_BottlePresent  AT %IX1.0 : BOOL;  (* TRUE = bottle detected in nest *)
+
+    (* Syringe sensors *)
+    I_TipPresent     AT %IX1.1 : BOOL;  (* TRUE = syringe fill tip/adapter detected *)
+    I_PlungerLow     AT %IX1.2 : BOOL;  (* TRUE = plunger at BOTTOM position (syringe
+                                           empty). Used for plausibility checks (N20)
+                                           and to flag a top-off cycle (N27) *)
+    I_PlungerHigh    AT %IX1.3 : BOOL;  (* TRUE = plunger at TOP position (syringe full) *)
+    I_SyrPresent     AT %IX1.4 : BOOL;  (* TRUE = syringe body detected in nest *)
+    I_SyrLocked      AT %IX1.5 : BOOL;  (* TRUE = syringe clamp/lock engaged *)
+
+    (* Safety / environment *)
+    I_EStopOK        AT %IX1.6 : BOOL;  (* NC wiring: TRUE = E-stop NOT pressed (circuit healthy) *)
+    I_SpillDetect    AT %IX1.7 : BOOL;  (* TRUE = liquid detected in drip tray.
+                                           CAUTION - fail-to-danger direction: a broken
+                                           wire or dead probe reads permanently 'dry'.
+                                           Prefer an NC/line-monitored spill circuit if
+                                           your sensor offers one (then invert N17/N18),
+                                           or proof-test the probe at every shift start.
+                                           This input is an annunciation aid, not a
+                                           protective device. *)
+
+    (*----------------- PHYSICAL OUTPUTS -----------------*)
+
+    Q_ValveSyringe   AT %QX0.0 : BOOL;  (* Syringe fill valve (spring-return, closed when de-energised) *)
+    Q_ValveBottle    AT %QX0.1 : BOOL;  (* Bottle fill valve (spring-return, closed when de-energised) *)
+
+    Q_LampBottle     AT %QX0.2 : BOOL;  (* Lamp: bottle packaging selected *)
+    Q_LampSyringe    AT %QX0.3 : BOOL;  (* Lamp: syringe packaging selected *)
+    Q_LampFilling    AT %QX0.4 : BOOL;  (* Lamp: a fill valve is operating *)
+    Q_LampDone       AT %QX0.5 : BOOL;  (* Lamp: packaging has been filled *)
+    Q_LampEStop      AT %QX0.6 : BOOL;  (* Lamp: E-stop condition *)
+    Q_LampAttention  AT %QX0.7 : BOOL;  (* FLASHING lamp: operator interaction required *)
+
+    Q_DoorLock       AT %QX1.0 : BOOL;  (* Guard lock solenoid, ENERGISE-TO-LOCK: TRUE =
+                                           bolt driven in; power loss unlocks the guard.
+                                           That sense is acceptable here only because
+                                           both fill valves are spring-return closed -
+                                           verify the fitted guard-lock switch matches
+                                           it at commissioning. NOTE: not in the original
+                                           output list, but required to actuate the door
+                                           lock named in the input list. *)
+
+    (*----------------- CONFIGURATION (tunable, survive download with 'retain' if desired) -----------------*)
+
+    cfgSyncWindow        : TIME := T#500MS; (* Two-hand synchronism window (ISO 13851) *)
+    cfgResetHold         : TIME := T#3S;    (* Hold both buttons this long to reset a fault *)
+    cfgDebPresence       : TIME := T#100MS; (* Debounce: presence/lock/tip sensors *)
+    cfgDebMode           : TIME := T#200MS; (* Debounce: fixture-mode sensor *)
+    cfgDebSpill          : TIME := T#50MS;  (* Debounce: spill sensor *)
+    cfgDebPotLow         : TIME := T#2S;    (* Anti-slosh delay: pot low level *)
+    cfgDebSensorErr      : TIME := T#500MS; (* Confirmation delay: sensor plausibility errors *)
+    cfgLockTimeout       : TIME := T#2S;    (* Max time for door lock to engage *)
+    cfgFillTimeoutBottle : TIME := T#30S;   (* Watchdog: max bottle fill time *)
+    cfgFillTimeoutSyr    : TIME := T#20S;   (* Watchdog: max syringe fill time *)
+    cfgBlinkHalfPeriod   : TIME := T#500MS; (* Flasher half period -> 1 Hz *)
+
+    (*----------------- DIAGNOSTICS (read from HMI / CODESYS online view) -----------------*)
+
+    FaultCode        : INT := 0;
+    (* 0 = no fault                     5 = sensor plausibility error mid-cycle
+       1 = E-stop                       6 = fixture/mode signal lost mid-cycle
+       2 = door opened/unlocked in cycle 7 = packaging lost/unclamped mid-cycle
+       3 = spill detected               8 = door lock failed to engage
+       4 = fill timeout (watchdog)                                            *)
+
+    CntBottlesFilled : UINT := 0;  (* completed bottle fills since reset *)
+    CntSyringesFilled: UINT := 0;  (* completed syringe fills since reset *)
+    cmdCounterReset  : BOOL := FALSE; (* HMI command: reset the two counters *)
+END_VAR
