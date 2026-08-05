@@ -12,9 +12,19 @@ Business-development prospect list for **mock FDA audits, PAI readiness, GxP aud
 
 | File | What it is |
 |---|---|
-| **`FDA_Mock_Audit_Prospects.xlsx`** | The working list. Tabs: **Read Me** (legend + signal key + summary counts), **Master List** (all 39, color-coded by signal strength, sortable via filters, with clickable source links), **Services Menu** (the nine offerings and who buys each). |
-| **`FDA_Mock_Audit_Prospecting_Report.pdf`** | The report (15 pages): the opportunity, the 11 hottest targets, service-matching logic, per-region overviews with a profile card for every prospect, and a methodology/disclaimer. |
+| **`FDA_Mock_Audit_Prospects.xlsx`** | The working list. Tabs: **Read Me** (legend + signal key + summary counts), **Master List** (all 39, color-coded by signal strength, sortable via filters, with clickable source links), **Contacts** (named quality/RA/CMC leaders per company with confidence flags and sources), **Services Menu** (the nine offerings and who buys each). |
+| **`FDA_Mock_Audit_Prospecting_Report.pdf`** | The report (16 pages): the opportunity, the 11 hottest targets, service-matching logic, per-region overviews with a profile card for every prospect (now including named contacts), and a methodology/disclaimer. |
 | **`FDA_Mock_Audit_Prospecting_Report.html`** | The same report in browser form (identical content; live source hyperlinks). |
+
+## Contacts
+
+Every company carries **named quality / regulatory / CMC leaders** (or the deciding executive at smaller firms) — **80 named people** across the 39 companies, each tagged by confidence:
+
+- **Confirmed** — from a company leadership page, SEC filing, or dated press release.
+- **Likely** — from LinkedIn or a secondary aggregator; verify before use.
+- **Dated** — real but the source is 2+ years old and the person may have moved.
+
+Where no individual is public, the Contacts tab gives the exact **target title plus a LinkedIn/Google search string** (24 such role targets). No names were invented, and no personal emails or phone numbers were collected. People change roles — re-verify Likely/Dated names on LinkedIn immediately before reaching out.
 
 ## Signal-strength bands
 
