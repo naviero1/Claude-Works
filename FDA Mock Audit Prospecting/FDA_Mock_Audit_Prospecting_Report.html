@@ -1,0 +1,925 @@
+<!doctype html><html><head><meta charset="utf-8"><title>FDA Mock-Audit &amp; GxP Readiness — Prospect List</title><style>
+* { margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+html { font-family:'Helvetica Neue',Arial,sans-serif; color:#1d2a33; font-size:11px; line-height:1.5; }
+@page { size:Letter; margin:14mm 13mm 16mm 13mm; }
+@page { @bottom-center { content:"FDA Mock-Audit & GxP Readiness — Prospect List  ·  confidential sales research"; font-family:Arial; font-size:8px; color:#9aa7b0; }
+         @bottom-right { content:"Page " counter(page); font-family:Arial; font-size:8px; color:#9aa7b0; } }
+a { color:#1155CC; text-decoration:none; }
+.page { page-break-before:always; padding-top:2mm; }
+.sec { font-size:15px; color:#2F4B5C; border-bottom:2px solid #2F4B5C; padding-bottom:3px; margin:16px 0 9px; letter-spacing:.2px; }
+.sec:first-child { margin-top:0; }
+p { margin:0 0 8px; }
+.lede { font-size:12px; color:#33434f; }
+
+/* cover */
+.cover { height:247mm; display:flex; flex-direction:column; justify-content:center; padding:0 6mm; }
+.cover-kicker { text-transform:uppercase; letter-spacing:3px; font-size:11px; color:#5b7686; font-weight:700; margin-bottom:14px; }
+.cover-title { font-size:38px; line-height:1.12; color:#2F4B5C; font-weight:800; margin-bottom:16px; }
+.cover-sub { font-size:14px; color:#48606e; max-width:150mm; margin-bottom:30px; }
+.cover-hubs { display:flex; gap:10px; margin-bottom:14px; }
+.hub { flex:1; background:#2F4B5C; color:#fff; border-radius:8px; padding:14px 16px; }
+.hub-name { font-size:12px; opacity:.9; }
+.hub-n { font-size:30px; font-weight:800; line-height:1.1; }
+.hub-l { font-size:10px; text-transform:uppercase; letter-spacing:1px; opacity:.75; }
+.cover-stats { display:flex; gap:10px; margin-bottom:26px; }
+.stat { flex:1; border:1px solid #dbe3e8; border-radius:8px; padding:12px 14px; background:#f7f9fa; }
+.stat-n { font-size:26px; font-weight:800; color:#2F4B5C; line-height:1; }
+.stat-l { font-size:10px; color:#5b7686; margin-top:5px; }
+.cover-foot { font-size:10.5px; color:#7c8a93; border-top:1px solid #e3e9ec; padding-top:12px; line-height:1.7; }
+
+/* bars */
+.bar { display:flex; height:16px; border-radius:4px; overflow:hidden; margin:6px 0 12px; background:#eef2f4; }
+.seg { color:#fff; font-size:9px; font-weight:700; text-align:center; line-height:16px; }
+.mixgrid { border:1px solid #e3e9ec; border-radius:8px; padding:12px 14px; margin:6px 0 14px; background:#fafbfc; }
+.mixrow { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+.mixlab { width:64px; font-size:10.5px; font-weight:700; color:#48606e; }
+.mixrow .bar { flex:1; margin:0; }
+.mixkey { display:flex; gap:16px; margin-top:6px; }
+.mixkey .k { font-size:10px; color:#5b7686; display:flex; align-items:center; gap:5px; }
+.mixkey i { width:10px; height:10px; border-radius:2px; display:inline-block; }
+
+/* hot table */
+table { border-collapse:collapse; width:100%; margin:4px 0 10px; }
+.hot th, .hot td { text-align:left; vertical-align:top; padding:6px 8px; font-size:10px; border-bottom:1px solid #e6ecef; }
+.hot th { background:#2F4B5C; color:#fff; font-size:9.5px; text-transform:uppercase; letter-spacing:.5px; }
+.hot .c-co { font-weight:700; width:24%; color:#26333c; }
+.hot .c-why { color:#3c4a54; }
+.tag { display:inline-block; background:#eef2f4; color:#48606e; border-radius:4px; padding:1px 6px; font-size:9px; white-space:nowrap; }
+.note-p { font-size:10.5px; color:#5b7686; }
+.svc li { margin:0 0 6px 16px; font-size:11px; }
+
+/* region */
+.region-head { display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #2F4B5C; padding-bottom:4px; margin-bottom:2px; }
+.region-title { font-size:17px; color:#2F4B5C; font-weight:800; }
+.region-count { font-size:10px; color:#7c8a93; }
+.region-over { font-size:10.5px; color:#3c4a54; margin-bottom:12px; }
+
+/* cards */
+.card { border:1px solid #e3e9ec; border-left-width:5px; border-radius:7px; padding:9px 12px; margin-bottom:9px; page-break-inside:avoid; background:#fff; }
+.card-head { display:flex; align-items:flex-start; gap:10px; margin-bottom:6px; }
+.card-rank { width:20px; height:20px; flex:0 0 20px; background:#2F4B5C; color:#fff; border-radius:50%; font-size:11px; font-weight:700; text-align:center; line-height:20px; }
+.card-title { flex:1; }
+.card-co { font-size:13px; font-weight:800; color:#22303a; }
+.card-meta { font-size:9.5px; color:#7c8a93; margin-top:1px; }
+.badge { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.5px; padding:3px 9px; border-radius:20px; align-self:flex-start; }
+.card-body .row { display:flex; gap:8px; margin-bottom:3px; }
+.lab { flex:0 0 52px; font-size:8.5px; text-transform:uppercase; letter-spacing:.5px; color:#9aa7b0; font-weight:700; padding-top:2px; }
+.val { flex:1; font-size:10px; color:#33434f; }
+.sigtag { display:inline-block; background:#2F4B5C; color:#fff; border-radius:3px; padding:0 5px; font-size:8.5px; font-weight:700; margin-right:3px; }
+.flag { background:#fff7e6; border:1px solid #f3e0bd; color:#8a5a00; font-size:9px; border-radius:4px; padding:3px 7px; margin:4px 0 2px; }
+.cnote { font-size:9px; color:#7c8a93; font-style:italic; margin:3px 0 2px; }
+.src { font-size:9px; margin-top:3px; }
+.src a::before { content:"↗ "; color:#9aa7b0; }
+
+/* services + tail */
+.svc-tbl th, .svc-tbl td { text-align:left; vertical-align:top; padding:6px 8px; font-size:10px; border-bottom:1px solid #e6ecef; }
+.svc-tbl th { background:#2F4B5C; color:#fff; font-size:9.5px; text-transform:uppercase; }
+.svc-tbl .s-code { font-weight:800; color:#2F4B5C; white-space:nowrap; width:14%; }
+.svc-tbl .s-name { font-weight:600; width:26%; }
+.disc { font-size:9.5px; color:#6b7a83; background:#f7f9fa; border:1px solid #e3e9ec; border-radius:6px; padding:9px 11px; }
+.companion { font-size:10px; color:#48606e; margin-top:8px; }
+</style></head>
+<body>
+<section class="cover">
+  <div class="cover-kicker">Business-Development Intelligence</div>
+  <h1 class="cover-title">FDA Mock-Audit &amp; GxP Readiness<br>Prospect List</h1>
+  <div class="cover-sub">Manufacturers, CDMOs &amp; medical-device / diagnostics makers across three U.S. life-science hubs — each qualified with a dated 2024–2026 &ldquo;why-now&rdquo; signal.</div>
+  <div class="cover-hubs">
+    <div class="hub"><div class="hub-name">Raleigh–Durham / RTP</div><div class="hub-n">12</div><div class="hub-l">prospects</div></div>
+    <div class="hub"><div class="hub-name">Greater Boston</div><div class="hub-n">13</div><div class="hub-l">prospects</div></div>
+    <div class="hub"><div class="hub-name">San Diego</div><div class="hub-n">14</div><div class="hub-l">prospects</div></div>
+  </div>
+  <div class="cover-stats">
+    <div class="stat"><div class="stat-n" style="color:#C0392B">11</div><div class="stat-l">Hot — active enforcement / crisis</div></div>
+    <div class="stat"><div class="stat-n" style="color:#B9770E">15</div><div class="stat-l">Warm — approaching PAI / milestone</div></div>
+    <div class="stat"><div class="stat-n" style="color:#2E7D5B">13</div><div class="stat-l">Developing — build-out / hiring</div></div>
+    <div class="stat"><div class="stat-n">39</div><div class="stat-l">total qualified prospects</div></div>
+  </div>
+  <div class="cover-foot">Services in scope: GMP · GCP · GVP · GLP · GCMP · GDP · CSV · QMSR/ISO 13485 · QA resourcing &amp; consulting<br>Compiled August 2026 · sales-research use · verify status before outreach</div>
+</section>
+
+<section class="page">
+  <h2 class="sec">The opportunity</h2>
+  <p class="lede">Thirty-nine FDA-regulated companies across Raleigh–Durham, Greater Boston, and San Diego are, right now, in a moment that creates demand for mock inspections, pre-approval-inspection (PAI) readiness, GxP audits, computer-system validation, or QA resourcing. Every prospect below is tied to a specific, dated event from the 2024–2026 window — not a generic profile.</p>
+  <p>We sorted them into three bands by how urgent the trigger is. <b style="color:#C0392B">Hot</b> means active FDA enforcement or a public quality/safety crisis — a Warning Letter, a Form 483, a Class I recall, or a Complete Response Letter citing CMC. These carry the sharpest, fastest demand: the company needs remediation and a mock re-inspection now, and usually a QA-resourcing surge alongside it. <b style="color:#B9770E">Warm</b> means a company is approaching or has just passed a regulatory milestone — a first approval, a first BLA, a PDUFA date, or a new device clearance — which opens a PAI-readiness window. <b style="color:#2E7D5B">Developing</b> means new facilities, expansions, tech transfers, QA hiring surges, or M&amp;A integration — QMS build-out work on a longer sales cycle.</p>
+
+  <div class="mixgrid">
+    <div class="mixrow"><div class="mixlab">RTP</div><div class="bar"><span class="seg" style="width:25.0%;background:#C0392B">3</span><span class="seg" style="width:41.7%;background:#B9770E">5</span><span class="seg" style="width:33.3%;background:#2E7D5B">4</span></div></div>
+    <div class="mixrow"><div class="mixlab">Boston</div><div class="bar"><span class="seg" style="width:38.5%;background:#C0392B">5</span><span class="seg" style="width:23.1%;background:#B9770E">3</span><span class="seg" style="width:38.5%;background:#2E7D5B">5</span></div></div>
+    <div class="mixrow"><div class="mixlab">San Diego</div><div class="bar"><span class="seg" style="width:21.4%;background:#C0392B">3</span><span class="seg" style="width:50.0%;background:#B9770E">7</span><span class="seg" style="width:28.6%;background:#2E7D5B">4</span></div></div>
+    <div class="mixkey"><span class="k"><i style="background:#C0392B"></i>Hot</span><span class="k"><i style="background:#B9770E"></i>Warm</span><span class="k"><i style="background:#2E7D5B"></i>Developing</span></div>
+  </div>
+
+  <h2 class="sec">Start here — the 11 hottest targets</h2>
+  <p class="note-p">These carry active enforcement or a live quality crisis. They are the fastest path to a signed remediation / mock re-inspection engagement, and each typically pulls a QA-resourcing need with it.</p>
+  <table class="hot">
+    <thead><tr><th>Company</th><th>Hub</th><th>Signal</th><th>Why now</th></tr></thead>
+    <tbody><tr>
+      <td class="c-co">Humacyte</td>
+      <td>RTP</td>
+      <td><span class="tag">Form 483 + first launch</span></td>
+      <td class="c-why">FDA Form 483 (Oct 17, 2024) at Durham citing no microbial QA/testing and inadequate quality oversight — even as its first product, Symvess, was approved (Dec 19, 2024) and launched (Feb 26, 2025). Undisclosed 483 triggered securities suits.</td>
+    </tr><tr>
+      <td class="c-co">CARsgen Therapeutics</td>
+      <td>RTP</td>
+      <td><span class="tag">Warning Letter</span></td>
+      <td class="c-why">FDA Warning Letter (Jul 26, 2024, CBER 24-686504) from a Nov-Dec 2023 inspection citing CGMP violations in CAR-T manufacturing at Durham; CAPA responses submitted (Apr 2024) and a related clinical hold later lifted. Active remediation; satri-cel advancing.</td>
+    </tr><tr>
+      <td class="c-co">Apothecary Pharma</td>
+      <td>RTP</td>
+      <td><span class="tag">Warning Letter</span></td>
+      <td class="c-why">FDA Warning Letter (Dec 1, 2025, from a May 2025 483) citing serious sterile-CGMP deficiencies; the firm ceased sterile production (May 12, 2025) and notified FDA of intent to resume Aug 1, 2025 — must demonstrate sterile-CGMP fixes to restart revenue. Very high intent.</td>
+    </tr><tr>
+      <td class="c-co">Sanofi / Genzyme</td>
+      <td>Boston</td>
+      <td><span class="tag">Warning Letter</span></td>
+      <td class="c-why">FDA Warning Letter (Jan 15, 2025) after a Jun-Jul 2024 inspection/483 at the New York Ave site: ~20% of bioreactor runs rejected (2022-2024), ~84 open/past-due deviations (some 187 days late), contamination events, unsuitable sterile equipment. Active remediation.</td>
+    </tr><tr>
+      <td class="c-co">Hologic</td>
+      <td>Boston</td>
+      <td><span class="tag">Warning Letter</span></td>
+      <td class="c-why">FDA Warning Letter (Dec 18, 2024) over BioZorb: design-control failures (no verification the PLA spacer fully resorbs), inadequate design inputs, and a delayed investigation of a Sept 2023 complaint spike. Company has since pulled BioZorb.</td>
+    </tr><tr>
+      <td class="c-co">Sarepta Therapeutics</td>
+      <td>Boston</td>
+      <td><span class="tag">Safety crisis / Boxed Warning</span></td>
+      <td class="c-why">After two fatal acute-liver-failure cases, Sarepta suspended ELEVIDYS shipments for non-ambulatory patients (Jun 2025); FDA added a Boxed Warning (Jul 2025), restricted the indication, and required a 200-patient safety study. Intense CMC/quality/PV scrutiny.</td>
+    </tr><tr>
+      <td class="c-co">Insulet</td>
+      <td>Boston</td>
+      <td><span class="tag">Class I recall</span></td>
+      <td class="c-why">FDA classified an Omnipod correction as a Class I recall (classified Jul 2026; customer notice May 26, 2026) over a cannula-tear defect causing insulin under-delivery — ~7M pods (~8.5% of 2025 production), linked to 24 serious injuries.</td>
+    </tr><tr>
+      <td class="c-co">Scholar Rock</td>
+      <td>Boston</td>
+      <td><span class="tag">CRL (CDMO 483) + PDUFA</span></td>
+      <td class="c-why">Apitegromab BLA resubmitted after a 2025 CRL that was solely due to Form 483 observations at its CDMO&#x27;s (Catalent Indiana) fill-finish facility — not the drug. A second US fill-finish site was added; PDUFA is Sep 30, 2026.</td>
+    </tr><tr>
+      <td class="c-co">Dexcom, Inc.</td>
+      <td>San Diego</td>
+      <td><span class="tag">Warning Letter</span></td>
+      <td class="c-why">FDA Warning Letter (Mar 4, 2025) covering the San Diego HQ/mfg site (from the Oct-Nov 2024 483) citing inadequate design-change tracking, design validation, and risk analysis. Active remediation.</td>
+    </tr><tr>
+      <td class="c-co">BD / CareFusion 303, Inc.</td>
+      <td>San Diego</td>
+      <td><span class="tag">Warning Letter</span></td>
+      <td class="c-why">FDA Warning Letter (Nov 22, 2024) over quality-system, MDR, and corrections/removals violations; software defects flagged catastrophic/severe; 92,000+ complaints. BD booked a $124M remediation liability (Mar 2025).</td>
+    </tr><tr>
+      <td class="c-co">Capricor Therapeutics</td>
+      <td>San Diego</td>
+      <td><span class="tag">CRL (CMC) + PDUFA</span></td>
+      <td class="c-why">July 2025 CRL cited CMC/manufacturing among other items; FDA resumed BLA review with a new PDUFA of Aug 22, 2026 (announced Mar 10, 2026). In-house cell-therapy plant heading into PAI.</td>
+    </tr></tbody>
+  </table>
+
+  <h2 class="sec">How to match services to the prospect</h2>
+  <ul class="svc">
+    <li><b>Any 483 / Warning-Letter / recall target</b> → remediation gap audit + <b>mock re-inspection</b> (GMP for drug/biologics, QMSR/ISO 13485 for devices), plus <b>QA staff augmentation</b> to clear the CAPA/deviation backlog.</li>
+    <li><b>Drug / biologics / CDMO</b> → <b>GMP mock audit + PAI readiness + CSV</b>; add GDP for distribution, GLP if they run labs, and GCP/GVP if they run clinical or pharmacovigilance.</li>
+    <li><b>Medical device / diagnostics</b> → lead with <b>QMSR / ISO 13485</b> (the QSR→QMSR transition, effective 2&nbsp;Feb&nbsp;2026, is a live urgency hook) + design-control review + CSV for SaMD/algorithm scope.</li>
+    <li><b>New facility / expansion / greenfield</b> → QMS build-out + validation + PAI readiness; these are longer cycles but larger, multi-year engagements.</li>
+  </ul>
+</section>
+
+<section class="page region">
+  <div class="region-head">
+    <h2 class="region-title">Raleigh–Durham / Research Triangle Park</h2>
+    <div class="region-count">12 prospects &nbsp;·&nbsp; 3 hot / 5 warm / 4 developing</div>
+  </div>
+  <div class="bar"><span class="seg" style="width:25.0%;background:#C0392B">3</span><span class="seg" style="width:41.7%;background:#B9770E">5</span><span class="seg" style="width:33.3%;background:#2E7D5B">4</span></div>
+  <p class="region-over">The Research Triangle — RTP plus Durham, Raleigh, Morrisville, Cary, Holly Springs, Clayton and Sanford — is one of the largest U.S. biomanufacturing clusters: big biologics/vaccine/injectable plants (Novo Nordisk, Amgen, Biogen, CSL Seqirus), a dense CDMO base (Fujifilm, KBI), a cell-and-gene-therapy layer (CARsgen, Novartis TriCenter), and a growing device and bioanalytical-lab tier. A 2024–2026 wave of mega-investments (Fujifilm $3.2B, Novo $4.1B, Amgen ~$1.5B, Biogen $2B, Novartis $771M) is pushing many new facilities into PAI/licensure and QMS build-out at the same time — while three sites (Humacyte, CARsgen, Apothecary) are in active FDA remediation. That mix makes it an unusually target-rich territory for mock-audit and QA-resourcing work.</p>
+  
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">1</div>
+      <div class="card-title">
+        <div class="card-co">Humacyte</div>
+        <div class="card-meta">Durham, NC &nbsp;·&nbsp; Combination / biologics (CBER) &nbsp;·&nbsp; Public (HUMA); small-cap; ~150-200 emp; early-commercial</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Symvess (ATEV) acellular tissue-engineered blood vessel</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Form 483 + first launch</span> FDA Form 483 (Oct 17, 2024) at Durham citing no microbial QA/testing and inadequate quality oversight — even as its first product, Symvess, was approved (Dec 19, 2024) and launched (Feb 26, 2025). Undisclosed 483 triggered securities suits.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock audit / re-inspection readiness; QA staff augmentation; CSV</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Chief Technical/Quality Officer; VP Quality; Director QA/Microbiology</span></div>
+      <div class="cnote">Strongest RTP target — post-approval remediation + commercial ramp.</div>
+      <div class="src"><a href="https://www.tipranks.com/news/the-fly/fda-discloses-summary-of-violations-at-humacytes-durham-nc-facility">TipRanks; Humacyte PR</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">2</div>
+      <div class="card-title">
+        <div class="card-co">CARsgen Therapeutics</div>
+        <div class="card-meta">Durham (RTP), NC &nbsp;·&nbsp; Biologics — autologous CAR-T mfr &nbsp;·&nbsp; US sub of CARsgen Holdings (HK); ~200-job / $157M site</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">CT053 (anti-BCMA); CT041/satri-cel (anti-Claudin18.2)</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Warning Letter</span> FDA Warning Letter (Jul 26, 2024, CBER 24-686504) from a Nov-Dec 2023 inspection citing CGMP violations in CAR-T manufacturing at Durham; CAPA responses submitted (Apr 2024) and a related clinical hold later lifted. Active remediation; satri-cel advancing.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock audit / re-inspection readiness; CSV; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Head of Quality / Site Quality Head; Director QA; VP Manufacturing</span></div>
+      <div class="flag">⚑ Caveat: HK parent under cost pressure — confirm current Durham staffing before heavy investment.</div>
+      <div class="src"><a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/carsgen-therapeutics-corporation-686504-07262024">FDA Warning Letter 686504; CARsgen PR</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">3</div>
+      <div class="card-title">
+        <div class="card-co">Apothecary Pharma</div>
+        <div class="card-meta">Cary, NC &nbsp;·&nbsp; Drug mfr — 503B sterile compounder &nbsp;·&nbsp; Private; small</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Compounded sterile &amp; non-sterile drugs incl. GLP-1 (tirzepatide, semaglutide)</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Warning Letter</span> FDA Warning Letter (Dec 1, 2025, from a May 2025 483) citing serious sterile-CGMP deficiencies; the firm ceased sterile production (May 12, 2025) and notified FDA of intent to resume Aug 1, 2025 — must demonstrate sterile-CGMP fixes to restart revenue. Very high intent.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock audit (sterile/aseptic); re-inspection readiness; interim QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Owner / Pharmacist-in-Charge; QA Director / Head of Quality</span></div>
+      <div class="flag">⚑ Note: smallest company — hot signal but limited consulting budget likely.</div>
+      <div class="src"><a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/apothecary-pharma-llc-717972-12012025">FDA Warning Letter 717972</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">4</div>
+      <div class="card-title">
+        <div class="card-co">Amgen</div>
+        <div class="card-meta">Holly Springs, NC &nbsp;·&nbsp; Biologics drug-substance mfr &nbsp;·&nbsp; Public (AMGN); Fortune 500</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Biologics drug substance (mAbs); FleXBatch hybrid plant</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New DS plant → licensure</span> $550M FleXBatch DS facility ribbon-cut (Jan 24, 2025) with operations starting 2025 and licensure anticipated in 2026 — active PAI-readiness window. Also announced a ~$1B second DS facility (early 2025).</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness; QMS build-out / GMP mock audit; CSV; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head; Director QA; VP Site Operations</span></div>
+      <div class="cnote">New plant heading into licensure = PAI window.</div>
+      <div class="src"><a href="https://www.amgen.com/stories/2025/01/north-carolina-ribbon-cutting-marks-important-milestone-in-expansion-to-meet-growing-demand-for-amgen-medicines">Amgen; Wake County</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">5</div>
+      <div class="card-title">
+        <div class="card-co">Fujifilm Biotechnologies (FDB)</div>
+        <div class="card-meta">Holly Springs, NC &nbsp;·&nbsp; CDMO — large-molecule biomanufacturing &nbsp;·&nbsp; Fujifilm subsidiary; ~1,400 jobs by 2031; $3.2B site</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Contract mAb/biologics drug substance &amp; drug product</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New commercial site</span> Commercial-scale site grand opening (Sep 24, 2025; 8×20,000L bioreactors), with finished-goods (drug product) capability added in 2026; a $1.2B phase-2 doubling was announced in 2024. New-site qualification drives client PAIs and supplier-audit demand.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness; supplier/GMP mock audit; CSV; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Head of Quality; Director QA/QC; VP Manufacturing</span></div>
+      <div class="cnote">Client-facing CDMO PAI driver.</div>
+      <div class="src"><a href="https://fujifilmbiotechnologies.fujifilm.com/about/news/opening-of-commercial-scale-cell-culture-manufacturing-site-in-north-carolina/">FDB; FiercePharma</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">6</div>
+      <div class="card-title">
+        <div class="card-co">CSL Seqirus</div>
+        <div class="card-meta">Holly Springs, NC &nbsp;·&nbsp; Vaccine biologics mfr &nbsp;·&nbsp; Subsidiary of CSL (ASX: CSL)</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Cell-based &amp; adjuvanted flu vaccines; H5N1 pandemic vaccine; sa-mRNA in dev</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Pandemic scale-up + federal awards</span> 2024-25: received ~$155.4M in federal grants to scale H5N1 avian-influenza vaccine production (on top of a ~$140M formulation/fill-finish expansion). World&#x27;s largest cell-based flu plant and US pandemic-preparedness cornerstone. Rapid scale-up = inspection-readiness pressure.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock audit; PAI / pandemic-readiness inspection prep; CSV; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head; Director QA; VP Manufacturing</span></div>
+      <div class="cnote">Federal-award scale-up under scrutiny.</div>
+      <div class="src"><a href="https://www.ncbiotech.org/news/csl-seqirus-gets-1554m-pandemic-vaccine-production">NCBiotech; Business Facilities</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">7</div>
+      <div class="card-title">
+        <div class="card-co">Bioventus</div>
+        <div class="card-meta">Durham, NC &nbsp;·&nbsp; Medical device &nbsp;·&nbsp; Public (BVS); ~$573M 2024 rev; ~930 emp</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Peripheral nerve stim (TalisMann, StimTrial); HA joint injections; Exogen; bone grafts</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Two 510(k) clearances + launch</span> FDA 510(k) clearances for two next-gen PNS devices (TalisMann, StimTrial) on Jul 30, 2025, with limited launch Q3 2025 and broad rollout early 2026 — new-product design-control and QMSR scrutiny.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMSR / ISO 13485 mock audit; design-control review; CSV</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality/RA; Director QA/RA; Head of Regulatory Affairs</span></div>
+      <div class="cnote">Priority device target; new-product QMSR scope.</div>
+      <div class="src"><a href="https://ir.bioventus.com/news-releases/news-release-details/bioventus-receives-fda-510k-clearances-two-next-generation/">Bioventus IR</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">8</div>
+      <div class="card-title">
+        <div class="card-co">KBI Biopharma</div>
+        <div class="card-meta">Durham / RTP, NC &nbsp;·&nbsp; CDMO — biologics (mammalian &amp; microbial) &nbsp;·&nbsp; JSR Life Sciences subsidiary; private</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Contract biologics drug substance &amp; drug product (therapeutic proteins)</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Commercial launch + QA hiring</span> Jul 23, 2024: announced a successful FDA inspection (late June 2024) enabling first commercial mammalian drug-substance supply to a key client (contract extended to 2029, +$250M). Separately building a new $150M RTP plant adding 200+ operations/QA jobs.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP / supplier mock audit; CSV; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Director QA/QC; Head of QA</span></div>
+      <div class="cnote">Strong QA-resourcing signal (200+ new jobs).</div>
+      <div class="src"><a href="https://www.kbibiopharma.com/news/following-a-successful-fda-inspection-kbi-biopharma-extends-and-expands-commercial-contract-with-leading-global-pharmaceutical-company">KBI; NCBiotech</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">9</div>
+      <div class="card-title">
+        <div class="card-co">Biogen</div>
+        <div class="card-meta">RTP (Durham County), NC &nbsp;·&nbsp; Biologics mfr &nbsp;·&nbsp; Public (BIIB); large-cap</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Biologics drug substance; antisense oligonucleotides (ASO); fill-finish</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Expansion + new fill-finish</span> ~July 2025 (30th RTP anniversary) Biogen announced an additional $2B RTP investment and began construction on its 8th RTP facility (~$195M, 197,000 sq ft) for new multi-platform fill-finish and expanded ASO capacity; actively hiring QA (parenteral filling).</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness; CSV; GMP mock audit; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head; Director QA — Fill-Finish/Parenteral; VP Quality</span></div>
+      <div class="cnote">New fill-finish lines → PAI/QMS work + QA hiring.</div>
+      <div class="src"><a href="https://investors.biogen.com/news-releases/news-release-details/biogen-announces-2-billion-manufacturing-investment-north">Biogen IR; GEN</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">10</div>
+      <div class="card-title">
+        <div class="card-co">Novartis</div>
+        <div class="card-meta">Durham &amp; Morrisville, NC &nbsp;·&nbsp; Multi-modality drug mfr &nbsp;·&nbsp; Public (NVS); large-cap</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">TriCenter gene-therapy production + new radioligand/multi-platform hub</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New greenfield hub</span> Broke ground (Dec 11, 2025) on a $771M, 700,000 sq ft hub (new Morrisville facility + two Durham facilities + expansion), part of Novartis&#x27;s $23B US plan; 700 jobs by 2030. Greenfield facilities = ground-up QMS build-out and future PAIs.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMS build-out / GMP mock audit; PAI readiness; CSV</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head; Director QA; Head of RA/QA</span></div>
+      <div class="cnote">Greenfield — longer horizon, ground-up QMS.</div>
+      <div class="src"><a href="https://www.novartis.com/us-en/news/media-releases/novartis-breaks-ground-flagship-manufacturing-hub-north-carolina">Novartis; NC Governor</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">11</div>
+      <div class="card-title">
+        <div class="card-co">Novo Nordisk</div>
+        <div class="card-meta">Clayton (Johnston County), NC &nbsp;·&nbsp; Drug mfr — injectables/combination + API &nbsp;·&nbsp; Public (NVO); large-cap</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Injectable GLP-1 diabetes/obesity therapies; API (Rybelsus); fill-finish</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Mega fill-finish build</span> Announced (Jun 24, 2024) a $4.1B second fill-finish facility (1,000 jobs, 1.4M sq ft) — largest life-sciences investment in NC history; construction 2027-2029. Existing Clayton API site passed an Aug 2024 inspection with zero 483s — so the play is proactive QMS/PAI build-out + CSV, not remediation.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMS/PAI build-out for new facility; CSV; supplier audits; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head; Director QA; VP Manufacturing / Project Quality Lead</span></div>
+      <div class="flag">⚑ Note: multi-year build — longer sales cycle; less urgent than remediation targets.</div>
+      <div class="src"><a href="https://researchtriangle.org/news/press-release-novo-nordisk-to-invest-4-1-billion-at-its-clayton-campus-create-1000-jobs/">Research Triangle RP; BioProcess Intl</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">12</div>
+      <div class="card-title">
+        <div class="card-co">BioAgilytix</div>
+        <div class="card-meta">Durham, NC &nbsp;·&nbsp; Bioanalytical lab / CRO (GLP, GCP, GMP-QC) &nbsp;·&nbsp; Private (PE-backed); global HQ in Durham</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">PK, immunogenicity, biomarker and CMC/QC analytical testing under GxP</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">GMP-lab + LC/MS expansion</span> Oct 2025 multi-site LC/MS expansion, plus a completed 76,000 sq ft Durham campus including a 26,000 sq ft GMP-compliant lab (~$20M) — new GMP scope and data-integrity/CSV exposure on top of its GLP/GCP work.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GLP/GCP mock audit; GMP QC-lab data-integrity / CSV; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Director QA (GLP/GCP); Lab Quality/Compliance Head</span></div>
+      <div class="flag">⚑ Softer signal (expansion, not enforcement); strong for the GLP/GCP secondary angle.</div>
+      <div class="src"><a href="https://www.bioagilytix.com/about/newsroom/press-releases/bioagilytix-accelerates-global-growth-with-lc-ms-investments-across-three-continents/">BioAgilytix</a></div>
+    </div>
+  </div>
+</section>
+<section class="page region">
+  <div class="region-head">
+    <h2 class="region-title">Greater Boston / Massachusetts</h2>
+    <div class="region-count">13 prospects &nbsp;·&nbsp; 5 hot / 3 warm / 5 developing</div>
+  </div>
+  <div class="bar"><span class="seg" style="width:38.5%;background:#C0392B">5</span><span class="seg" style="width:23.1%;background:#B9770E">3</span><span class="seg" style="width:38.5%;background:#2E7D5B">5</span></div>
+  <p class="region-over">Greater Boston is the densest FDA-regulated life-science cluster in the U.S., and 2024–2026 produced an unusually rich set of triggers: two active Warning Letters (Sanofi-Genzyme in Framingham; Hologic in Marlborough), a gene-therapy safety/quality crisis (Sarepta, Andover), a Class I device recall (Insulet, Acton), and a wave of new commercial-manufacturing build-outs (Moderna, Alnylam, AbbVie, WuXi) plus companies approaching their first BLA/PAI (Scholar Rock, Dyne). The list favors companies building or running their own Massachusetts manufacturing, late-stage/approaching first approval, true CDMOs, and device firms — the places where GMP, PAI, and QMSR demand actually sits.</p>
+  
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">1</div>
+      <div class="card-title">
+        <div class="card-co">Sanofi / Genzyme</div>
+        <div class="card-meta">Framingham, MA &nbsp;·&nbsp; Biologics mfr (drug substance) &nbsp;·&nbsp; Public (SNY); ~90,000 emp; major biologics site</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Recombinant enzyme-replacement biologics (rare disease)</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Warning Letter</span> FDA Warning Letter (Jan 15, 2025) after a Jun-Jul 2024 inspection/483 at the New York Ave site: ~20% of bioreactor runs rejected (2022-2024), ~84 open/past-due deviations (some 187 days late), contamination events, unsuitable sterile equipment. Active remediation.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock re-inspection / 483-WL remediation audit; QA staff augmentation (deviation/investigation backlog); CSV &amp; data-integrity review</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head (Framingham); VP/Head of Quality; Director QA Compliance; Head of Mfg Sciences/CMC</span></div>
+      <div class="cnote">Hottest MA target — large deviation/investigation backlog.</div>
+      <div class="src"><a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/sanofi-690604-01152025">FDA Warning Letter 690604; FiercePharma</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">2</div>
+      <div class="card-title">
+        <div class="card-co">Hologic</div>
+        <div class="card-meta">Marlborough, MA &nbsp;·&nbsp; Device (implantable markers; dx) &nbsp;·&nbsp; Public (HOLX); ~$4B rev; 6,000+ emp</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">BioZorb implantable tissue markers; women&#x27;s-health devices</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Warning Letter</span> FDA Warning Letter (Dec 18, 2024) over BioZorb: design-control failures (no verification the PLA spacer fully resorbs), inadequate design inputs, and a delayed investigation of a Sept 2023 complaint spike. Company has since pulled BioZorb.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMSR / ISO 13485 mock audit; design-control &amp; CAPA remediation; RA/QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP RA/QA; Director Quality Systems; Head of Design Assurance; VP Regulatory Affairs</span></div>
+      <div class="cnote">Classic QMSR/design-control remediation.</div>
+      <div class="src"><a href="https://www.medtechdive.com/news/hologic-warning-letter-biozorb-implant/737578/">MedTech Dive; FDA WL 698214</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">3</div>
+      <div class="card-title">
+        <div class="card-co">Sarepta Therapeutics</div>
+        <div class="card-meta">Andover, MA (mfg); Cambridge &nbsp;·&nbsp; Gene therapy / RNA mfr &nbsp;·&nbsp; Public (SRPT); ~$1.5-2B rev; commercial</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">ELEVIDYS (AAV gene therapy, DMD); exon-skipping RNA</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Safety crisis / Boxed Warning</span> After two fatal acute-liver-failure cases, Sarepta suspended ELEVIDYS shipments for non-ambulatory patients (Jun 2025); FDA added a Boxed Warning (Jul 2025), restricted the indication, and required a 200-patient safety study. Intense CMC/quality/PV scrutiny.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock re-inspection &amp; gene-therapy CMC/quality consulting; GVP/pharmacovigilance-system audit; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Head of Quality; VP Technical Operations/CMC; VP Pharmacovigilance/Drug Safety; Site Quality Head (Andover)</span></div>
+      <div class="cnote">Rare GVP + GMP combined driver.</div>
+      <div class="src"><a href="https://www.fda.gov/news-events/press-announcements/fda-approves-new-safety-warning-and-revised-indication-limits-use-elevidys-following-reports-fatal">FDA safety action; Sarepta IR</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">4</div>
+      <div class="card-title">
+        <div class="card-co">Insulet</div>
+        <div class="card-meta">Acton, MA &nbsp;·&nbsp; Device / drug-delivery (combo-adjacent) &nbsp;·&nbsp; Public (PODD); ~$2B rev; 4,000+ emp; US mfg in Acton</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Omnipod 5 / DASH / Eros tubeless insulin pods</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Class I recall</span> FDA classified an Omnipod correction as a Class I recall (classified Jul 2026; customer notice May 26, 2026) over a cannula-tear defect causing insulin under-delivery — ~7M pods (~8.5% of 2025 production), linked to 24 serious injuries.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMSR / ISO 13485 mock audit; CAPA &amp; recall-remediation / complaint-handling review; CSV &amp; process-validation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Director Quality Systems/CAPA; VP RA; Head of Manufacturing Quality (Acton)</span></div>
+      <div class="cnote">Most recent Class I recall in the set.</div>
+      <div class="src"><a href="https://www.fda.gov/medical-devices/medical-device-recalls-and-early-alerts/insulin-pump-recall-insulet-removes-omnipod-pods">FDA recall notice; Citeline</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">5</div>
+      <div class="card-title">
+        <div class="card-co">Scholar Rock</div>
+        <div class="card-meta">Cambridge, MA &nbsp;·&nbsp; Biologics — approaching first approval &nbsp;·&nbsp; Public (SRRK); pre-commercial/late-stage</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Apitegromab (anti-myostatin mAb) for SMA</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">CRL (CDMO 483) + PDUFA</span> Apitegromab BLA resubmitted after a 2025 CRL that was solely due to Form 483 observations at its CDMO&#x27;s (Catalent Indiana) fill-finish facility — not the drug. A second US fill-finish site was added; PDUFA is Sep 30, 2026.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness; CDMO/supplier (fill-finish) audit &amp; oversight program; CMC/QA consulting &amp; QA staff augmentation for launch</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Head of Quality; VP CMC/Technical Ops; Director QA (GMP); Head of Regulatory/CMC</span></div>
+      <div class="cnote">Textbook CDMO/supplier-audit + PAI case.</div>
+      <div class="src"><a href="https://investors.scholarrock.com/news-releases/news-release-details/fda-issues-complete-response-letter-crl-apitegromab-treatment">Scholar Rock IR</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">6</div>
+      <div class="card-title">
+        <div class="card-co">Dyne Therapeutics</div>
+        <div class="card-meta">Waltham, MA &nbsp;·&nbsp; Biologics/oligonucleotide — first approval &nbsp;·&nbsp; Public (DYN); clinical/pre-commercial</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">z-rostudirsen (DYNE-251, DMD); DYNE-101 (DM1)</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">First BLA accepted / PAI</span> FDA accepted Dyne&#x27;s first BLA for z-rostudirsen (accelerated approval) on Jul 20, 2026. First-ever commercial approval → building commercial QMS, PAI readiness and CDMO oversight from scratch.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness &amp; commercial QMS build-out; CDMO/supplier audits; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Head of Quality; VP Technical Operations/CMC; Director QA; Head of Regulatory Affairs</span></div>
+      <div class="cnote">First-time filer building QMS ground-up.</div>
+      <div class="src"><a href="https://www.globenewswire.com/news-release/2026/07/20/3329635/0/en/dyne-therapeutics-announces-u-s-fda-acceptance-of-biologics-license-application-bla-for-z-rostudirsen-in-exon-51-duchenne-muscular-dystrophy-dmd.html">GlobeNewswire</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">7</div>
+      <div class="card-title">
+        <div class="card-co">Vertex Pharmaceuticals</div>
+        <div class="card-meta">Boston, MA (HQ / QA org) &nbsp;·&nbsp; Drug + cell therapy (mfg outsourced) &nbsp;·&nbsp; Public (VRTX); ~$11B rev; 5,000+ emp</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">JOURNAVX (suzetrigine); CASGEVY (CRISPR cell therapy)</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New launches (CDMO oversight)</span> JOURNAVX NDA approved Jan 30, 2025 (first new pain-drug class in 20+ yrs); CASGEVY commercial scale-up/label expansion ongoing. Pitch the Boston quality org&#x27;s CDMO-oversight and launch-readiness needs.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness; CDMO oversight / supplier-audit program; CSV &amp; QA staff augmentation for dual launches</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Head of External Quality/CDMO Oversight; VP CMC/Mfg &amp; Supply; Director QA</span></div>
+      <div class="flag">⚑ Flag: primary drug-product mfg sits with partners (Lonza NL + Portsmouth NH; RoslinCT Boston). Pitch oversight, not on-site GMP.</div>
+      <div class="src"><a href="https://news.vrtx.com/news-releases/news-release-details/vertex-announces-fda-approval-journavxtm-suzetrigine-first-class">Vertex PR; BioPharm Intl</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">8</div>
+      <div class="card-title">
+        <div class="card-co">WuXi Biologics (MFG11)</div>
+        <div class="card-meta">Worcester, MA &nbsp;·&nbsp; CDMO (commercial biologics DS) &nbsp;·&nbsp; Public (HKEX 2269); +200 jobs at site</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Contract mAb/biologics drug substance; six 6,000L bioreactors</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Commercial GMP start-up</span> MFG11 capacity being raised to 36,000L with commercial drug-substance capacity added; operational 2025, GMP release targeted 2026 after construction resumed. First commercial GMP release + 200 hires = PAI/client-audit readiness.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock inspection / PAI readiness (client-facing); client/supplier audit support; QA staff augmentation for start-up</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Head / Site Quality Head (Worcester); Head of QA; VP Quality &amp; Compliance; Head of Regulatory Affairs</span></div>
+      <div class="flag">⚑ Flag: watch BIOSECURE-related commercial uncertainty.</div>
+      <div class="src"><a href="https://www.wuxibiologics.com/wuxi-biologics-to-increase-manufacturing-capacity-in-massachusetts/">WuXi Biologics; Worcester BJ</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">9</div>
+      <div class="card-title">
+        <div class="card-co">Moderna</div>
+        <div class="card-meta">Norwood, MA (Moderna Technology Center) &nbsp;·&nbsp; Biologics mfr (mRNA) &nbsp;·&nbsp; Public (MRNA); commercial (Spikevax, mRESVIA)</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">mRNA vaccines &amp; therapeutics; DS + onshoring fill-finish</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New fill-finish line</span> Announced (Nov 19, 2025) a $140M investment to add drug-product / fill-finish at Norwood (&#x27;full manufacturing loop under one roof&#x27;), completing mid-2027 and creating hundreds of biomanufacturing jobs.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP/PAI readiness for the new fill-finish line; CSV &amp; data integrity; QA staff augmentation (hundreds of new hires)</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head (Norwood); VP Quality; Head of QA/QC; VP Technical Development/CMC</span></div>
+      <div class="cnote">New line = validation + QA hiring surge.</div>
+      <div class="src"><a href="https://www.pharmexec.com/view/moderna-investing-140-million-massachusetts-manufacturing-facility">PharmExec</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">10</div>
+      <div class="card-title">
+        <div class="card-co">Alnylam Pharmaceuticals</div>
+        <div class="card-meta">Norton, MA (mfg); Cambridge HQ &nbsp;·&nbsp; Drug/biologics mfr (RNAi/siRNA) &nbsp;·&nbsp; Public (ALNY); ~$2B+ product rev; commercial</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">siRNA therapeutics (Amvuttra, Onpattro, Givlaari, Oxlumo)</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New commercial platform</span> Announced (Dec 17, 2025) a $250M expansion of the Norton site to add the industry-first dedicated siRELIS enzymatic-ligation siRNA platform, operational late 2027, to scale for the cardiometabolic pipeline.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP/PAI readiness for the new siRNA line; CSV; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head (Norton); VP Quality; Head of Manufacturing/Technical Ops; CMC lead</span></div>
+      <div class="cnote">New GMP platform qualification.</div>
+      <div class="src"><a href="https://investors.alnylam.com/press-release?id=29466">Alnylam press release</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">11</div>
+      <div class="card-title">
+        <div class="card-co">AbbVie Bioresearch Center (ABC)</div>
+        <div class="card-meta">Worcester, MA &nbsp;·&nbsp; Biologics mfr / internal CDMO-scale &nbsp;·&nbsp; Public (ABBV); &gt;2,000 MA emp</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Oncology &amp; immunology biologics</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New capacity / tech transfer</span> Began construction (Sep 30, 2025) on a $70M expansion — additional biologics manufacturing areas + a three-story lab/warehouse/office building — to enable expedited transfer of select oncology products from Europe to the US.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP readiness / QMS build-out for new suites; tech-transfer &amp; CSV support; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head (ABC/Worcester); Director QA; Head of Tech Transfer/MSAT; VP Operations</span></div>
+      <div class="cnote">Tech transfer + new capacity = inspection-prep demand.</div>
+      <div class="src"><a href="https://news.abbvie.com/2025-09-30-AbbVie-Begins-Construction-on-70-Million-Expansion-to-Further-Increase-Biologics-Manufacturing-and-R-D-Presence-in-the-U-S">AbbVie news; Pharma Mfg</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">12</div>
+      <div class="card-title">
+        <div class="card-co">Abiomed (J&amp;J MedTech)</div>
+        <div class="card-meta">Danvers, MA &nbsp;·&nbsp; Device (Class III circulatory support) &nbsp;·&nbsp; J&amp;J subsidiary; Danvers is the Impella site</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Impella heart pumps; Automated Impella Controller; Impella Connect software</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">WL close-out + corrections</span> FDA Warning Letter (issued Sep 2023, from a Mar-Apr 2023 Danvers inspection) cited MDR-reporting, unauthorized software marketing, and CAPA failures; remediation runs into 2024-2026 with a Dec 12, 2024 Urgent Correction and an Oct 2025 controller cybersecurity correction.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMSR / ISO 13485 mock audit + 483/WL close-out remediation; CAPA &amp; MDR/complaint-handling review; RA/QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Director Quality Systems/CAPA; Head of Regulatory Affairs; Site Quality Head (Danvers)</span></div>
+      <div class="flag">⚑ Flag: originating WL predates window; in-window hooks are 2024-25 corrections + WL close-out.</div>
+      <div class="src"><a href="https://www.fiercebiotech.com/medtech/jjs-abiomed-lands-fda-warning-letter-over-impella-heart-pumps-software">FierceBiotech; FDA Impella alert</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">13</div>
+      <div class="card-title">
+        <div class="card-co">CRISPR Therapeutics</div>
+        <div class="card-meta">Framingham, MA (mfg); Boston HQ &nbsp;·&nbsp; Cell therapy mfr (owns MA GMP site) &nbsp;·&nbsp; Public (CRSP); commercial via CASGEVY + clinical</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Wholly-owned GMP cell-therapy site; CAR-T (CTX112); IO/autoimmune</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Cell-therapy scale-up</span> Runs a wholly-owned Framingham GMP cell-therapy plant now scaling clinical → commercial as its allogeneic CAR-T pipeline advances and CASGEVY&#x27;s label expands (ages 2+, 2026). Steady-state scale-up rather than one dated trigger.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP/PAI readiness for cell-therapy commercial scale-up; CSV; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Quality Head (Framingham); VP Quality; Head of Manufacturing/MSAT; Director QA</span></div>
+      <div class="flag">⚑ Flag: softer, relationship/development account.</div>
+      <div class="src"><a href="https://ir.crisprtx.com/news-releases/news-release-details/crispr-therapeutics-provides-business-update-and-reports-14/">CRISPR Tx Q4/FY2025 update</a></div>
+    </div>
+  </div>
+</section>
+<section class="page region">
+  <div class="region-head">
+    <h2 class="region-title">San Diego — Sorrento Valley / Torrey Pines</h2>
+    <div class="region-count">14 prospects &nbsp;·&nbsp; 3 hot / 7 warm / 4 developing</div>
+  </div>
+  <div class="bar"><span class="seg" style="width:21.4%;background:#C0392B">3</span><span class="seg" style="width:50.0%;background:#B9770E">7</span><span class="seg" style="width:28.6%;background:#2E7D5B">4</span></div>
+  <p class="region-over">San Diego&#x27;s core — Sorrento Valley, Sorrento Mesa, Torrey Pines and UTC, plus Carlsbad — is one of the densest FDA-regulated clusters in the country, spanning drug/biologics (Ionis, Neurocrine, Crinetics, Avidity, Capricor), sterile and cell-and-gene-therapy CDMOs (Ajinomoto Althea/PCI, Thermo Fisher, Maravai/TriLink), and a heavy device/diagnostics bench (Dexcom, BD, Tandem, Illumina, ResMed). The 2024–2026 window is rich in buying triggers: two large device makers are under active FDA Warning Letters (Dexcom, BD/CareFusion), a wave of first-ever commercial launches and BLAs is driving PAI-readiness demand, and more than 3.2M sq ft of new life-science space — including several new GMP plants — is coming online and needs QMS build-out.</p>
+  
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">1</div>
+      <div class="card-title">
+        <div class="card-co">Dexcom, Inc.</div>
+        <div class="card-meta">Sorrento Valley, San Diego &nbsp;·&nbsp; Device (Class II CGM) &nbsp;·&nbsp; Public (DXCM); ~$4B+ rev; 10,000+ emp</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Continuous glucose monitors (G7, Stelo)</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Warning Letter</span> FDA Warning Letter (Mar 4, 2025) covering the San Diego HQ/mfg site (from the Oct-Nov 2024 483) citing inadequate design-change tracking, design validation, and risk analysis. Active remediation.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMSR/ISO 13485 mock audit + mock re-inspection; CSV / design-control remediation; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP/SVP Quality; Head of Quality Systems; VP Regulatory Affairs; Site Quality Head</span></div>
+      <div class="cnote">Sharpest wedge in the cluster — active WL remediation → mock re-inspection.</div>
+      <div class="src"><a href="https://www.fiercebiotech.com/medtech/dexcom-receives-fda-warning-letter-over-cgm-manufacturing-issues">FierceBiotech; FDA WL; SEC 8-K</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">2</div>
+      <div class="card-title">
+        <div class="card-co">BD / CareFusion 303, Inc.</div>
+        <div class="card-meta">Sorrento Mesa, San Diego &nbsp;·&nbsp; Device (infusion / medication mgmt) &nbsp;·&nbsp; Public parent (BDX); hundreds of staff at site</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Alaris infusion pumps; Pyxis dispensing; software</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Warning Letter</span> FDA Warning Letter (Nov 22, 2024) over quality-system, MDR, and corrections/removals violations; software defects flagged catastrophic/severe; 92,000+ complaints. BD booked a $124M remediation liability (Mar 2025).</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMSR/ISO 13485 mock audit + mock re-inspection; CSV / software-quality &amp; complaint-handling remediation; QA resourcing for CAPA backlog</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality (Med Mgmt Solutions); Head of QA/RA; Director Quality Systems; Site Quality Head</span></div>
+      <div class="cnote">Large multi-year remediation; big QA-resourcing surface.</div>
+      <div class="src"><a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/becton-dickinson-and-companycarefusion-303-inc-691601-11222024">FDA Warning Letter 691601</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#C0392B">
+    <div class="card-head">
+      <div class="card-rank">3</div>
+      <div class="card-title">
+        <div class="card-co">Capricor Therapeutics</div>
+        <div class="card-meta">Torrey Pines, San Diego &nbsp;·&nbsp; Biologics / cell therapy &nbsp;·&nbsp; Public (CAPR); pre-commercial; in-house GMP cell therapy</div>
+      </div>
+      <div class="badge" style="background:#FCE0E0;color:#C0392B">Hot</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Deramiocel (CAP-1002) for DMD cardiomyopathy</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">CRL (CMC) + PDUFA</span> July 2025 CRL cited CMC/manufacturing among other items; FDA resumed BLA review with a new PDUFA of Aug 22, 2026 (announced Mar 10, 2026). In-house cell-therapy plant heading into PAI.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness + GMP mock audit (cell therapy); mock re-inspection (CRL/CMC history); CSV; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Head of CMC/Manufacturing; VP Regulatory Affairs; Site Quality Head</span></div>
+      <div class="cnote">CRL with CMC exposure = remediation + re-inspection scenario.</div>
+      <div class="src"><a href="https://www.capricor.com/investors/news-events/press-releases/detail/338/capricor-therapeutics-announces-establishment-of-new-pdufa">Capricor PR; Drugs.com</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">4</div>
+      <div class="card-title">
+        <div class="card-co">Crinetics Pharmaceuticals</div>
+        <div class="card-meta">Sorrento Mesa, San Diego &nbsp;·&nbsp; Drug mfr (small molecule) &nbsp;·&nbsp; Public (CRNX); ~700+ emp; newly commercial</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">PALSONIFY (paltusotine), oral acromegaly</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">First approval / PAI</span> FDA approved PALSONIFY (Sep 25, 2025) — Crinetics&#x27; first commercial product — flipping clinical→commercial and triggering commercial-QMS, PAI-readiness and supplier/CMO-audit needs (atumelnant behind it).</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness + GMP mock audit; supplier/CMO GMP audits; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Head of QA; Head of CMC/Technical Ops; VP Regulatory Affairs</span></div>
+      <div class="cnote">First-commercial inflection; commercial QMS scale-up.</div>
+      <div class="src"><a href="https://ir.crinetics.com/news/news-details/2025/Crinetics-Announces-FDA-Approval-of-PALSONIFYpaltusotine-for-the-Treatment-of-Adults-with-Acromegaly/default.aspx">Crinetics IR; GlobeNewswire</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">5</div>
+      <div class="card-title">
+        <div class="card-co">Avidity Biosciences</div>
+        <div class="card-meta">Torrey Pines, San Diego &nbsp;·&nbsp; Biologics mfr (AOC) &nbsp;·&nbsp; Public (RNA); pre-commercial; $500M+ cash</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">del-zota (DMD44) + 2 rare-muscle AOC programs</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">First BLA / PAI</span> Filing its first-ever BLA (del-zota) in Q1 2026 — first of three planned BLAs in a 12-month window; timeline set to Q1 2026 to strengthen the CMC package after an Oct 2025 pre-BLA meeting.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness (CMC/facility); GMP mock audit + supplier audits; CSV; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">SVP/VP Quality; Head of CMC; VP Regulatory Affairs; Head of Technical Operations</span></div>
+      <div class="cnote">First-time filer + novel modality = textbook PAI engagement.</div>
+      <div class="src"><a href="https://www.biospace.com/press-releases/avidity-biosciences-announces-positive-pre-bla-meeting-with-u-s-fda-for-del-zota-in-dmd44-with-a-submission-planned-for-q1-2026">BioSpace; PR Newswire</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">6</div>
+      <div class="card-title">
+        <div class="card-co">Ionis Pharmaceuticals</div>
+        <div class="card-meta">Carlsbad &nbsp;·&nbsp; Drug/biologics mfr (antisense) &nbsp;·&nbsp; Public (IONS); ~$1B+ rev; 1,000+ emp; own campus</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">TRYNGOLZA (olezarsen) + antisense pipeline</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Approval + PDUFA</span> FDA approved TRYNGOLZA (Dec 2024), first self-commercialized product ($105M 2025 sales); olezarsen sHTG sNDA has a PDUFA of June 30, 2026. Back-to-back label expansions keep QMS/PAI demand hot.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">PAI readiness (sHTG expansion); GMP mock audit + supplier/CMO audits; CSV; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Site Quality Head (Carlsbad); Head of CMC; VP Regulatory Affairs</span></div>
+      <div class="cnote">Owns Carlsbad campus; recurring filings.</div>
+      <div class="src"><a href="https://www.fiercepharma.com/pharma/fda-nod-tryngolza-ionis-enters-new-era-commercial-stage-company">FiercePharma; Ionis IR</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">7</div>
+      <div class="card-title">
+        <div class="card-co">Neurocrine Biosciences</div>
+        <div class="card-meta">Torrey Pines, San Diego &nbsp;·&nbsp; Drug mfr (small molecule) &nbsp;·&nbsp; Public (NBIX); ~$2B+ rev; 1,500+ emp</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">CRENESSITY (crinecerfont); INGREZZA franchise</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Approval + QA hiring surge</span> FDA approved CRENESSITY (Dec 13, 2024), first-in-class CAH therapy — new-launch QMS/supplier-audit load; concurrent QA hiring surge (~14 open San Diego QA roles, ~87 US) makes it a dual mock-audit + QA-resourcing lead.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock audit + supplier/CMO audits; PAI readiness for pipeline; QA staff augmentation (hiring surge)</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Head of QA; Director QA/CMC; VP Regulatory Affairs</span></div>
+      <div class="cnote">Active QA hiring surge = standalone resourcing opening.</div>
+      <div class="src"><a href="https://www.fda.gov/news-events/press-announcements/fda-approves-new-treatment-congenital-adrenal-hyperplasia">FDA press; Neurocrine PR; Indeed</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">8</div>
+      <div class="card-title">
+        <div class="card-co">Tandem Diabetes Care</div>
+        <div class="card-meta">Del Mar Heights / UTC, San Diego &nbsp;·&nbsp; Device (Class II AID) &nbsp;·&nbsp; Public (TNDM); ~$900M+ rev; 2,000+ emp; in-house SD mfg</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">t:slim X2, Tandem Mobi; Control-IQ+ (SaMD)</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New clearance / expansion</span> FDA cleared Control-IQ+ for Type 2 diabetes (Feb 25, 2025), a major indication/market expansion (US availability Mar 2025) that expands regulated user base and software/design-control scope under QMSR.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMSR/ISO 13485 mock audit; design-control review + CSV (SaMD/algorithm); QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Head of QA/RA; Director Quality Systems; VP Regulatory Affairs</span></div>
+      <div class="cnote">SaMD/algorithm scope expansion.</div>
+      <div class="src"><a href="https://www.businesswire.com/news/home/20250225281388/en/Tandem-Diabetes-Care-Announces-FDA-Clearance-of-Control-IQ-Automated-Insulin-Delivery-Technology-for-People-with-Type-2-Diabetes">Businesswire; Drug Delivery Business</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">9</div>
+      <div class="card-title">
+        <div class="card-co">Illumina</div>
+        <div class="card-meta">University City / UTC, San Diego &nbsp;·&nbsp; IVD / genomics &nbsp;·&nbsp; Public (ILMN); ~$4B+ rev; global HQ; thousands of staff</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">NGS systems/reagents; TruSight Oncology Comprehensive IVD</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">IVD CDx approval</span> FDA approved TruSight Oncology Comprehensive (Aug 27, 2024) — first distributable pan-cancer CGP IVD kit with companion-Dx claims — deepening regulated IVD/design-control and post-market obligations.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMSR/ISO 13485 mock audit; design-control / CSV; CLIA/CAP-context support for CDx workflows</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Head of QA/RA (Clinical/Dx); Director Regulatory Affairs</span></div>
+      <div class="flag">⚑ Flag: signal is Aug 2024 (edge of window).</div>
+      <div class="src"><a href="https://www.illumina.com/company/news-center/press-releases/press-release-details.html?newsid=cca694db-8cc7-4b6a-9449-38ccd9329816">Illumina PR; SDBJ</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#B9770E">
+    <div class="card-head">
+      <div class="card-rank">10</div>
+      <div class="card-title">
+        <div class="card-co">ResMed</div>
+        <div class="card-meta">Kearny Mesa, San Diego &nbsp;·&nbsp; Device (respiratory / sleep) &nbsp;·&nbsp; Public (RMD); ~$5B rev; ~10,000 emp; SD HQ</div>
+      </div>
+      <div class="badge" style="background:#FFF2CC;color:#B9770E">Warm</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">CPAP masks/machines; Astral ventilators</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">Class I recall</span> FDA classified ResMed&#x27;s CPAP/BiPAP magnet-mask recall as Class I (Jan 2024, ~20M devices) and an Astral ventilator recall followed (Jun 2024). Class I recalls drive CAPA/QMS remediation.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">QMSR/ISO 13485 mock audit + CAPA/recall-remediation review; design-control; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Head of QA/RA; Director Quality Systems; Head of Post-Market Surveillance</span></div>
+      <div class="flag">⚑ Flag: recall-based, 2024 — softer than a 483/WL.</div>
+      <div class="src"><a href="https://www.fda.gov/medical-devices/medical-device-recalls-and-early-alerts/resmed-ltd-recalls-continuous-positive-airway-pressure-cpap-masks-magnets-due-possible-magnetic">FDA recall notice; MD+DI</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">11</div>
+      <div class="card-title">
+        <div class="card-co">Ajinomoto Althea / PCI Pharma Services</div>
+        <div class="card-meta">Sorrento Valley, San Diego &nbsp;·&nbsp; CDMO (sterile fill-finish, ADC) &nbsp;·&nbsp; Part of PCI Pharma (PE-backed); large commercial site</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Prefilled syringes, cartridges, vials; ADC/high-potent fill-finish</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">CDMO M&amp;A + new line</span> PCI Pharma completed acquisition of Ajinomoto Althea (May 2025) — its first North American PFS/cartridge site — plus a new high-speed multi-purpose fill-finish line. Ownership change + new capacity = QMS harmonization and client inspection-readiness demand.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock audit (client/regulatory readiness); PAI readiness for client filings; CSV; QA staff aug for integration</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site VP/Head of Quality; Director QA Compliance; Head of Regulatory Compliance</span></div>
+      <div class="cnote">Serves many sponsors — client-facing readiness driver.</div>
+      <div class="src"><a href="https://pci.com/news/pci-to-acquire-aseptic-fill-finish-cdmo-ajinomoto-althea">PCI news; FiercePharma; Cleanroom Tech</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">12</div>
+      <div class="card-title">
+        <div class="card-co">Thermo Fisher Scientific (Carlsbad)</div>
+        <div class="card-meta">Carlsbad &nbsp;·&nbsp; CDMO / cell &amp; gene + plasmid DNA &nbsp;·&nbsp; Public parent (TMO); major West-Coast GMP hub</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">cGMP plasmid DNA; cell-therapy manufacturing</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New GMP facility</span> Opened a 67,000 sq ft cGMP plasmid DNA plant and a new Advanced Therapies Collaboration Center in Carlsbad; announced $1.5B US manufacturing capex in 2025. New GMP lines need QMS build-out and client PAI support.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock audit + new-facility QMS build-out; CSV; PAI readiness for client programs; QA resourcing</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Director of Quality; VP Quality (Pharma Services/CGT); Head of Regulatory Compliance</span></div>
+      <div class="cnote">Client-facing CDMO PAI support.</div>
+      <div class="src"><a href="https://www.biospace.com/thermo-fisher-scientific-opens-cgmp-plasmid-dna-manufacturing-facility-in-carlsbad-california">BioSpace; PharmExec; SDBJ</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">13</div>
+      <div class="card-title">
+        <div class="card-co">Maravai LifeSciences / TriLink</div>
+        <div class="card-meta">Sorrento Valley, San Diego &nbsp;·&nbsp; CDMO (mRNA drug substance) &nbsp;·&nbsp; Public parent (MRVI); ~191,000 sq ft campus</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Late-phase/commercial cGMP mRNA drug substance</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">New GMP plant</span> TriLink built and opened a new 32,000 sq ft cGMP mRNA facility (~$130M) on Flanders Court, purpose-built to take clients Phase 2 → commercial (announced Apr 2024, grand opening 2025). Brand-new GMP plant = QMS build-out, CSV, inspection readiness.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock audit + QMS build-out; CSV; PAI readiness for late-phase/commercial mRNA client programs</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">VP Quality; Site Quality Head; Director QA/QC; Head of Regulatory Compliance</span></div>
+      <div class="cnote">New plant qualification cycle.</div>
+      <div class="src"><a href="https://www.businesswire.com/news/home/20240418722567/en/TriLink-BioTechnologies-Announces-New-San-Diego-Facility-for-Late-Phase-mRNA-Drug-Substance-Production">BioSpace; Businesswire; SDBJ</a></div>
+    </div>
+  </div>
+  <div class="card" style="border-left-color:#2E7D5B">
+    <div class="card-head">
+      <div class="card-rank">14</div>
+      <div class="card-title">
+        <div class="card-co">Poseida Therapeutics (Roche)</div>
+        <div class="card-meta">UTC / Torrey Pines, San Diego &nbsp;·&nbsp; Biologics / allogeneic CAR-T &nbsp;·&nbsp; Roche subsidiary; in-house GMP cell-therapy plant</div>
+      </div>
+      <div class="badge" style="background:#E2EFDA;color:#2E7D5B">Developing</div>
+    </div>
+    <div class="card-body">
+      <div class="row"><span class="lab">Products</span><span class="val">Off-the-shelf allogeneic CAR-T; genetic-medicine platforms</span></div>
+      <div class="row"><span class="lab">Why now</span><span class="val"><span class="sigtag">M&amp;A integration</span> Roche completed its ~$1.5B acquisition of Poseida (tender offer expired Jan 7, 2025), absorbing the San Diego GMP cell-therapy plant. Integrating a small-biotech QMS into Roche&#x27;s global system + advancing programs = QMS-harmonization / PAI-readiness opportunity.</span></div>
+      <div class="row"><span class="lab">Pitch</span><span class="val">GMP mock audit (cell therapy); QMS harmonization + PAI readiness; CSV; QA staff augmentation</span></div>
+      <div class="row"><span class="lab">Buyers</span><span class="val">Site Head of Quality; Head of CGT Manufacturing; VP Quality (Roche PT/CGT); Head of Regulatory Compliance</span></div>
+      <div class="flag">⚑ Flag: integration-driven; longer relationship cycle.</div>
+      <div class="src"><a href="https://www.biopharmadive.com/news/roche-poseida-acquisition-deal-cell-therapy-cancer/734021/">Roche; BioPharma Dive</a></div>
+    </div>
+  </div>
+</section>
+<section class="page">
+  <h2 class="sec">Service menu</h2>
+  <table class="svc-tbl">
+    <thead><tr><th>Code</th><th>Service</th><th>What we sell</th></tr></thead>
+    <tbody><tr><td class="s-code">GMP</td><td class="s-name">Good Manufacturing Practice mock audit / PAI readiness</td><td>Pre-approval &amp; routine inspection readiness for drug/biologics sites; gap assessment vs 21 CFR 210/211 &amp; ICH Q7; 483 / Warning-Letter remediation &amp; mock re-inspection.</td></tr><tr><td class="s-code">GCP</td><td class="s-name">Good Clinical Practice mock audit</td><td>BIMO / inspection readiness; sponsor-oversight, investigator-site &amp; TMF audits; ICH E6(R3).</td></tr><tr><td class="s-code">GVP</td><td class="s-name">Good Pharmacovigilance Practice mock audit</td><td>PV system &amp; PSMF audit; safety-database / case-processing and signal-management readiness.</td></tr><tr><td class="s-code">GLP</td><td class="s-name">Good Laboratory Practice mock audit</td><td>Nonclinical / tox lab inspection readiness; 21 CFR Part 58.</td></tr><tr><td class="s-code">GCMP</td><td class="s-name">Good Clinical Manufacturing Practice audit</td><td>IMP / clinical-supply manufacturing &amp; phase-appropriate GMP audits.</td></tr><tr><td class="s-code">GDP</td><td class="s-name">Good Distribution / Documentation Practice audit</td><td>Cold-chain, wholesale / 3PL distribution audits; documentation-practice &amp; data-integrity review.</td></tr><tr><td class="s-code">CSV</td><td class="s-name">Computer System Validation</td><td>21 CFR Part 11 / data integrity / CSA; validation of QMS, LIMS, MES, eTMF and safety databases.</td></tr><tr><td class="s-code">QMSR / ISO 13485</td><td class="s-name">Device QMS mock audit</td><td>ISO 13485 &amp; FDA QMSR readiness (QMSR replaces QSR, eff. 2 Feb 2026); design control, CAPA, complaint handling; combination products (21 CFR 4).</td></tr><tr><td class="s-code">QA-RES</td><td class="s-name">QA / Quality resourcing &amp; consulting</td><td>Interim / embedded QA staff augmentation, batch release, remediation project teams, fractional Head of Quality.</td></tr></tbody>
+  </table>
+
+  <h2 class="sec">Methodology &amp; sources</h2>
+  <p>Signals were sourced from FDA enforcement pages (Warning Letters, recalls, safety actions), company press releases and investor-relations disclosures, trade press (FiercePharma/FierceBiotech, Endpoints, BioSpace, MedTech Dive) and regional outlets (Triangle / Boston / San Diego business journals, NCBiotech). Every &ldquo;why-now&rdquo; is tied to a dated primary or trade-press source, linked on each card and in the accompanying spreadsheet. Companies whose signals could not be verified — or whose sites had de-registered or closed (e.g. Central Admixture Pharmacy, National Resilience's Massachusetts sites) — were dropped.</p>
+  <p class="disc"><b>Disclaimer.</b> This is sales-research intelligence compiled from public sources as of August 2026, for prospecting only. It is not legal, regulatory, or investment advice, and implies no relationship with the companies named. Regulatory status changes quickly — re-verify any 483 / Warning-Letter, PDUFA, or facility item before citing it to a prospect, and confirm current ownership, site status, and contacts before outreach.</p>
+  <p class="companion">Companion file: <b>FDA_Mock_Audit_Prospects.xlsx</b> — the full sortable master list (filter by region, signal strength, segment, or signal type), a services-menu tab, and a read-me with the signal legend.</p>
+</section>
+</body></html>
