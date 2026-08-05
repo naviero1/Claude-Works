@@ -1,102 +1,67 @@
-# Conservative 3-Year Portfolio Recommendation (Stocks & ETFs on Robinhood)
+# Conservative 3-Year Portfolio Recommendation (Stocks & ETFs on Robinhood) — v2
 
-**Prepared:** July 29, 2026
+**Prepared:** August 5, 2026 (revises the July 29, 2026 version)
 **Goal:** Preserve capital and build money safely over a ~3-year horizon (mid-2026 → mid-2029)
-**Platform:** All tickers below are US-listed ETFs/stocks available on Robinhood
+**Platform:** All tickers are US-listed and available on Robinhood
+**Companion:** `stock-volatility-lists.md` — 30 individually evaluated stocks in three volatility tiers, with blending guidance
 
-> **Disclaimer:** This is educational research, not personalized financial advice. I'm not a licensed financial advisor, and a 3-year horizon is short enough that any stock exposure can lose money over the period. Only Treasury-backed holdings carry a government guarantee. Consider consulting a fiduciary advisor for decisions involving significant sums.
+> **Disclaimer:** This is educational research, not personalized financial advice. I'm not a licensed financial advisor, and a 3-year horizon is short enough that any stock exposure can lose money over the period. Only Treasury-backed holdings carry a government guarantee.
 
 ---
 
-## 1. Market snapshot — July 2026
+## 1. What changed since the July 29 version
 
-| Indicator | Current reading |
+| Development (verified Aug 5, 2026) | Portfolio consequence |
 |---|---|
-| S&P 500 | Record highs, up ~9% YTD; earnings growth ~23–25% expected for 2026, driven heavily by AI infrastructure and energy |
-| Wall Street year-end targets | Average ~7,716 (~+3% from current levels); range from 7,000 (Stifel) to 8,100 (Oppenheimer, Citi) |
-| Fed funds rate | 3.50%–3.75%, held steady in July; markets price ~76% odds of a **September hike** (not a cut) |
-| Inflation (CPI) | 3.5% in June — eased for the first time in five months, but still well above the Fed's 2% target |
-| 10-year Treasury yield | ~4.64% |
-| 2-year Treasury yield | ~4.32% |
-| 30-year Treasury yield | ~5.12% |
-| Key risks | Elevated equity valuations, sticky inflation, higher energy prices, renewed Iran tensions, trade frictions |
+| **Iran de-escalation:** Trump called off planned strikes; US-Iran-Oman near a 60-day interim deal to reopen the Strait of Hormuz; oil down to ~$75.7/bbl | Disinflationary tailwind; the gold/oil war premium is deflating — gold is ~$4,166, ~25% below its January peak of $5,597. Keep gold small (5%) as insurance, not a bet |
+| **September Fed hike still live (~60% per swaps)** even after the July hold; June CPI 3.5%, down from May's 4.2% | Shift 5 points from intermediate bonds (BND) to T-bills (SGOV): hikes hurt bond prices but *raise* T-bill yields immediately |
+| **Markets at records:** S&P ~7,737 (+~10% YTD), Dow 54,086; two-day surge on the Iran news | Don't lump-sum at records — dollar-cost average in over 4–8 weeks |
+| **AI capex divide:** MSFT +8%, AMZN +10% rewarded; GOOGL −15% (capex to $205B, first negative-FCF quarter since IPO), META −10% (FCF −91%) punished | The equity sleeve stays quality/dividend-tilted; cracks in the AI-spending story justify keeping stocks at minority weight |
+| **International momentum continues:** non-US stocks beat the US by ~14 points in 2025 and led again in early 2026 (softer dollar, cheaper valuations) | Bump VXUS from 10% → 12% |
+| **Midterms Nov 3, 2026** | Historically elevated volatility into the vote, then relief; another reason to average in and hold the defensive core |
 
-The unusual feature of this moment: the Fed's next move may be a **hike**, not a cut. That argues for keeping bond duration short-to-intermediate and holding a real inflation hedge.
+## 2. Revised allocation — "Conservative Builder v2" (58% defensive / 37% stocks / 5% gold)
 
-## 2. What the experts are saying
-
-- **Schwab (Mid-Year Outlook):** Stay selective in bonds; favor **short- and intermediate-term maturities** over long duration.
-- **Vanguard:** High-quality bonds offer "compelling real returns" — projected ~4%/yr over the coming decade, comfortably above expected inflation.
-- **Fidelity (Strategic Advisers):** Modest risk-on positioning, with healthy **non-US stock exposure** (softer dollar, overseas defense/infrastructure spending, rising commodity prices). Cautious on richly priced corporate/AI-related credit.
-- **Equity strategists:** More upside expected, but modest (~3% consensus to year-end) with warnings that inflation, elevated valuations, and trade tensions could trigger pullbacks.
-- **Gold:** Forecasts range widely ($4,000–$6,300/oz for year-end 2026); it has already run hard, but banks and the World Gold Council still see it as the geopolitical hedge of choice.
-
-**Takeaway for a 3-year "safe growth" mandate:** yields on cash and high-quality bonds are the best they've been in years relative to inflation — you get paid ~3.5–4.5% to take very little risk. Stocks are expensive, so equity exposure should be meaningful but minority-weight, tilted toward quality/dividends and diversified internationally. A small gold sleeve hedges the geopolitical tail risks.
-
-## 3. Recommended portfolio — "Conservative Builder" (60% defensive / 35% stocks / 5% gold)
-
-| Ticker | Fund | Allocation | Role | Approx. yield | Expense ratio |
+| Ticker | Fund | v1 → v2 | Role | Approx. yield | Expense ratio |
 |---|---|---|---|---|---|
-| **SGOV** | iShares 0–3 Month Treasury Bond ETF | **25%** | Cash anchor — T-bill yield (~3.5%) with essentially zero price risk; benefits if the Fed hikes | ~3.5% | 0.09% |
-| **BND** | Vanguard Total Bond Market ETF | **25%** | Core investment-grade bonds; locks in ~4.5% yield across the US bond market | ~4.5% | 0.03% |
-| **VTIP** | Vanguard Short-Term TIPS ETF | **10%** | Inflation insurance — principal adjusts with CPI; short duration per Schwab's guidance | ~CPI + real yield | 0.03% |
-| **VOO** | Vanguard S&P 500 ETF | **15%** | Core US equity growth engine | ~1.2% | 0.03% |
-| **SCHD** | Schwab US Dividend Equity ETF | **10%** | Quality dividend payers — screens for balance-sheet health and dividend history; lower volatility than the broad market | ~3.4% | 0.06% |
-| **VXUS** | Vanguard Total International Stock ETF | **10%** | Non-US diversification the experts favor (softer dollar, overseas fiscal spending); cheaper valuations than US | ~3.0% | 0.05% |
-| **GLDM** | SPDR Gold MiniShares | **5%** | Geopolitical/inflation hedge; low-cost gold exposure | — | 0.10% |
+| **SGOV** | iShares 0–3 Month Treasury Bond ETF | 25% → **28%** | Cash anchor at ~3.5%; the one asset a September hike *helps* immediately | ~3.5% | 0.09% |
+| **BND** | Vanguard Total Bond Market ETF | 25% → **20%** | Core bonds ~4.5% yield; trimmed for hike risk, still the ballast | ~4.5% | 0.03% |
+| **VTIP** | Vanguard Short-Term TIPS ETF | 10% → **10%** | Inflation insurance while CPI sits at 3.5%; short duration per Schwab guidance | CPI + real yield | 0.03% |
+| **VOO** | Vanguard S&P 500 ETF | 15% → **15%** | Core US growth engine | ~1.2% | 0.03% |
+| **SCHD** | Schwab US Dividend Equity ETF | 10% → **10%** | Quality dividends, lower volatility; the style Q2 earnings season rewarded | ~3.4% | 0.06% |
+| **VXUS** | Vanguard Total International Stock ETF | 10% → **12%** | International momentum, softer dollar, cheaper valuations | ~3.0% | 0.05% |
+| **GLDM** | SPDR Gold MiniShares | 5% → **5%** | Insurance if the interim Iran deal breaks; NOT a return driver — already 25% off its January peak | — | 0.10% |
 
-**Why this mix works for the mandate:**
+Expected behavior: the 58% defensive sleeve alone compounds ~11–14% over three years at current yields; realistic overall outcome remains ~4–7%/year, with a bad-year drawdown in the high single digits — recoverable within the window.
 
-- **60% of the portfolio (SGOV + BND + VTIP) yields roughly 3.5–4.5%** with low-to-moderate risk — that alone compounds to ~12–14% over three years before the equity side contributes anything.
-- **The 35% equity sleeve** captures market growth but is diversified across US large-cap, quality dividend payers, and international stocks, so a US-valuation correction doesn't hit everything at once.
-- **The 5% gold sleeve** tends to rise exactly when the risk list above (Iran, energy, inflation) bites.
-- In a rough historical worst case (e.g., a 2022-style year of stocks −18% and bonds −13%), this mix would have lost roughly 8–9% — painful but recoverable within the 3-year window; in normal markets it should compound at roughly **4–7%/year**.
+### Optional stock satellites
 
-### Optional variant — "Moderate Builder" (if you can tolerate deeper dips for more growth)
+If you want individual stocks alongside the core (you asked for them — see `stock-volatility-lists.md` for the full evaluated lists), the safety-first blend is:
 
-SGOV 15% / BND 20% / VTIP 10% / VOO 25% / SCHD 10% / VXUS 15% / GLDM 5% — 45% defensive, 50% stocks. Expect higher long-run growth but ~1.5× the drawdown in a bad year.
+- **85% ETF core (above) / 8% Tier-3 low-vol stocks / 5% Tier-2 medium / 2% Tier-1 high-vol**
+- Cap any single stock at ~3–5% of the total; buy in tranches; hold through the volatility or don't buy the volatile ones at all.
 
-### Optional individual-stock sleeve (max 5–10%, carved out of the VOO/SCHD weight)
+## 3. Implementation on Robinhood (unchanged from v1, still the plan)
 
-You asked about stocks as well as ETFs. For a *safety-first* mandate, ETFs should do the heavy lifting — single stocks add company-specific risk that diversified funds don't. If you want some direct holdings, keep them to blue-chip, wide-moat dividend payers of the type SCHD itself holds, for example: **Berkshire Hathaway (BRK.B)**, **Johnson & Johnson (JNJ)**, **Procter & Gamble (PG)**, **Coca-Cola (KO)**, **Microsoft (MSFT)**, **JPMorgan (JPM)**. Cap any single name at ~2–3% of the total portfolio.
+1. Fractional shares → hit targets exactly. 2. Turn on dividend reinvestment for every holding. 3. Recurring weekly/monthly buys — do NOT lump-sum at record highs with a possible September hike and midterms ahead. 4. Rebalance each January and July at ±5-point drift. 5. No margin, no options. 6. Bond-sleeve interest is ordinary income — prefer an IRA for it if available (SGOV/VTIP largely state-tax-exempt). 7. Emergency fund stays separate in SGOV or cash.
 
-## 4. How to implement on Robinhood
-
-1. **Buy in one pass using fractional shares** — Robinhood supports fractional ETF shares, so you can hit the target percentages exactly regardless of account size.
-2. **Turn on dividend reinvestment (DRIP)** for every holding (Account → Investing → Dividend Reinvestment). Compounding the ~3–4% income stream is a large share of the expected return.
-3. **Set up recurring investments** (weekly or monthly) into the same allocation. Dollar-cost averaging matters especially now, with the S&P at record highs — it removes the "am I buying the top?" problem.
-4. **Rebalance twice a year** (e.g., each January and July): if any sleeve drifts more than ~5 percentage points from target, trim the winner and top up the laggard. This systematically sells high and buys low.
-5. **Avoid margin and options** — they are the opposite of the mandate.
-6. **Taxes:** in a taxable account, SGOV/BND/VTIP interest is taxed as ordinary income (SGOV/VTIP are largely state-tax-exempt as Treasuries). If any of this money can live in a Robinhood IRA instead, put the bond sleeve there first.
-7. **Keep your emergency fund separate** — money you might need within ~6 months belongs in SGOV or a high-yield cash account, not in the equity sleeve.
-
-## 5. What could go wrong (and why the portfolio survives it)
+## 4. Scenario check (updated)
 
 | Scenario | Effect | Built-in defense |
 |---|---|---|
-| Fed hikes further, yields rise | Bond prices dip modestly | 25% is in 0–3 month T-bills that *benefit* from hikes; duration is deliberately short-to-intermediate |
-| Inflation re-accelerates | Erodes real returns | VTIP principal adjusts with CPI; gold historically responds; equities pass through pricing over time |
-| AI-driven valuation correction | Stocks fall 15–25% | Only 35% equity exposure, tilted to dividends/quality; bonds and gold cushion; rebalancing buys the dip |
-| Geopolitical shock (Iran, energy, trade) | Risk assets sell off | Gold and Treasuries are the classic beneficiaries of flight-to-safety |
-| Everything is fine and stocks rally | Portfolio "only" captures part of it | That's the accepted cost of safety — the mandate is to build money *safely*, not maximally |
+| Fed hikes in September | Bond prices dip modestly | 28% in T-bills that immediately yield more; short overall duration |
+| Iran interim deal collapses | Oil and inflation spike, stocks drop | Gold sleeve, TIPS, and T-bills all catch the bid; equity sleeve is only 37% |
+| AI capex disappointment spreads (more GOOGL/META-style quarters) | Growth stocks correct hard | Equity sleeve is dividend/quality-tilted and diversified internationally; rebalancing buys the dip |
+| Midterm-season volatility | Choppy Aug–Nov | Historically resolves after the vote; recurring buys turn chop into cheaper entries |
+| Melt-up continues | Portfolio lags a 100% stock portfolio | Accepted cost of the safety mandate |
 
-## 6. Sources
+## 5. Sources
 
-- [Yahoo Finance — The S&P 500 Is Up 9% in 2026. Wall Street Says the Stock Market Will Do This Next](https://finance.yahoo.com/markets/stocks/articles/p-500-9-2026-wall-093200956.html)
-- [Charles Schwab — 2026 Mid-Year Outlook: U.S. Stocks and Economy](https://www.schwab.com/learn/story/us-stock-market-outlook)
-- [Fidelity — Stock market outlook midyear 2026](https://www.fidelity.com/learning-center/trading-investing/stock-market-outlook)
-- [Fidelity — Bond market outlook, midyear 2026](https://www.fidelity.com/learning-center/trading-investing/bond-market-outlook)
-- [Fidelity — 2026 midyear investing outlook](https://www.fidelity.com/learning-center/trading-investing/investing-outlook)
-- [Vanguard — 2026 economic and market outlook](https://advisors.vanguard.com/insights/article/2026-economic-and-market-outlook)
-- [Schwab Center for Financial Research — 2026 Mid-Year Market Outlook press release](https://pressroom.aboutschwab.com/press-releases/press-release/2026/Schwab-Center-for-Financial-Research-Releases-2026-Mid-Year-Market-Outlook/default.aspx)
-- [CNBC — Fed expected to hold interest rates steady (July 2026)](https://www.cnbc.com/2026/07/27/fed-interest-rates-july.html)
-- [CNBC — Treasury yields rise as Wall Street awaits Fed decision (July 29, 2026)](https://www.cnbc.com/2026/07/29/treasury-yields-fed-interest-rates.html)
-- [Forbes — Stock Market Outlook For 2026: The Last 6 Months](https://www.forbes.com/sites/investor-hub/article/what-to-expect-for-the-stock-markets-last-6-months-of-2026/)
-- [Goldman Sachs — S&P 500 Forecast to Climb as Earnings Growth Powers Stocks Higher](https://www.goldmansachs.com/insights/articles/s-and-p-500-forecast-to-climb-as-earnings-growth-powers-stocks-higher)
-- [The Motley Fool — Dividend ETFs or Bond ETFs: Which Belongs in Your Portfolio in 2026?](https://www.fool.com/investing/2026/07/20/dividend-etfs-or-bond-etfs-which-belongs-in-your-p/)
-- [U.S. News — 9 of the Best Bond ETFs to Buy for 2026](https://money.usnews.com/investing/articles/best-bond-etfs-to-buy-now)
-- [GuruFocus — SGOV Declares Dividend with 30-Day Yield of 3.55%](https://www.gurufocus.com/news/8940481/ishares-03-month-treasury-bond-etf-sgov-declares-dividend-with-30day-yield-of-355)
-- [World Gold Council — Gold Outlook 2026](https://www.gold.org/goldhub/research/gold-outlook-2026)
-- [J.P. Morgan Global Research — Gold Price Predictions for 2026 and 2027](https://www.jpmorgan.com/insights/global-research/commodities/gold-prices)
-- [Yahoo Finance — Gold price outlook: Could prices hit $6,000 in 2026?](https://finance.yahoo.com/personal-finance/investing/article/gold-price-outlook-are-we-on-track-to-hit-6000-in-2026-150000766.html)
-- [Morningstar — Experts Forecast Stock and Bond Returns: 2026 Edition](https://www.morningstar.com/markets/experts-forecast-stock-bond-returns-2026-edition)
+Market/macro: [TheStreet — record closes Aug 4](https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-4-2026) · [CNBC — market news Aug 3-4](https://www.cnbc.com/2026/08/03/stock-market-today-live-updates.html) · [Bloomberg — Fed hold & September hike bets](https://www.bloomberg.com/news/articles/2026-07-29/treasuries-jolted-as-fed-hold-trims-september-hike-bets) · [Forbes — September hike most likely](https://www.forbes.com/sites/simonmoore/2026/07/29/september-rate-hike-becomes-most-likely-outcome-according-to-markets/) · [Polymarket — Fed September odds](https://polymarket.com/event/fed-decision-in-september-762)
+Geopolitics/commodities: [Al Jazeera — US-Iran framework](https://www.aljazeera.com/economy/2026/6/18/oil-prices-fall-stocks-rally-as-us-iran-sign-framework-to-end-war) · [TradingEconomics — crude ~$75.7](https://tradingeconomics.com/commodity/crude-oil) · [Forbes Advisor — gold ~$4,166 vs $5,597 Jan peak](https://www.forbes.com/advisor/investing/gold-price/)
+Earnings/AI capex: [TradingKey — Big Tech scorecard](https://www.tradingkey.com/analysis/stocks/us-stocks/262067315-big-tech-earnings-scorecard-microsoft-amazon-apple-july-31-2026-tradingkey) · [Fortune — market in revolt over AI spending](https://fortune.com/2026/07/26/big-tech-earnings-meta-microsoft-apple-amazon-market-revolt-ai-spending/) · [BingX — AI capex vs cash flow](https://bingx.com/en/blog/article/microsoft-meta-amazon-apple-q2-2026-earnings-can-ai-spending-be-covered-by-cash-flow)
+Allocation inputs: [Schwab mid-year outlook](https://www.schwab.com/learn/story/us-stock-market-outlook) · [Vanguard 2026 outlook](https://advisors.vanguard.com/insights/article/2026-economic-and-market-outlook) · [Fidelity midyear outlooks](https://www.fidelity.com/learning-center/trading-investing/investing-outlook) · [Schwab — international stocks set to shine](https://www.schwab.com/learn/story/2026-international-stocks-seem-set-to-shine) · [Morgan Stanley — midterms & markets](https://www.morganstanley.com/insights/articles/2026-us-midterm-elections-stock-market-impact) · [GuruFocus — SGOV yield](https://www.gurufocus.com/news/8940481/ishares-03-month-treasury-bond-etf-sgov-declares-dividend-with-30day-yield-of-355)
+
+---
+
+*v1 (July 29, 2026) recommended: SGOV 25 / BND 25 / VTIP 10 / VOO 15 / SCHD 10 / VXUS 10 / GLDM 5. See git history for the full prior version.*
