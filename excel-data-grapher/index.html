@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Excel Grapher</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page:       #f9f9f7;
+    --surface:    #fcfcfb;
+    --ink:        #0b0b0b;
+    --ink-2:      #52514e;
+    --muted:      #898781;
+    --grid:       #e1e0d9;
+    --axis:       #c3c2b7;
+    --border:     rgba(11,11,11,0.10);
+    --accent:     #2a78d6;
+    --critical:   #d03b3b;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+    --s5: #e87ba4; --s6: #008300; --s7: #4a3aa7; --s8: #e34948;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page:       #0d0d0d;
+      --surface:    #1a1a19;
+      --ink:        #ffffff;
+      --ink-2:      #c3c2b7;
+      --muted:      #898781;
+      --grid:       #2c2c2a;
+      --axis:       #383835;
+      --border:     rgba(255,255,255,0.10);
+      --accent:     #3987e5;
+      --critical:   #d03b3b;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+      --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page:       #0d0d0d;
+    --surface:    #1a1a19;
+    --ink:        #ffffff;
+    --ink-2:      #c3c2b7;
+    --muted:      #898781;
+    --grid:       #2c2c2a;
+    --axis:       #383835;
+    --border:     rgba(255,255,255,0.10);
+    --accent:     #3987e5;
+    --critical:   #d03b3b;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 24px 20px 64px; }
+
+  header.app { display: flex; align-items: baseline; gap: 12px; margin: 8px 0 20px; flex-wrap: wrap; }
+  header.app h1 { font-size: 20px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+  header.app p  { margin: 0; color: var(--ink-2); }
+  header.app .spacer { flex: 1; }
+  #themeBtn {
+    border: 1px solid var(--border); background: var(--surface); color: var(--ink-2);
+    border-radius: 8px; padding: 5px 12px; font: inherit; font-size: 13px; cursor: pointer;
+  }
+  #themeBtn:hover { color: var(--ink); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    font-size: 13px; font-weight: 650; margin: 0 0 12px;
+    color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .card h2 .stepnum { color: var(--muted); font-weight: 600; margin-right: 6px; }
+
+  /* ---- Step 1: file loading ---- */
+  #dropzone {
+    border: 1.5px dashed var(--axis);
+    border-radius: 10px;
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: border-color .12s, background .12s;
+  }
+  #dropzone:hover, #dropzone.dragging { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 5%, transparent); }
+  #dropzone strong { color: var(--ink); font-weight: 600; }
+  #dropzone .hint { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  #fileInput { display: none; }
+  #fileStatus { margin-top: 10px; font-size: 13px; color: var(--ink-2); }
+  #fileStatus .err { color: var(--critical); font-weight: 550; }
+  #fileStatus .ok  { color: var(--ink); }
+
+  /* ---- Step 2: choose what to graph ---- */
+  .controls { display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start; }
+  .control { display: flex; flex-direction: column; gap: 6px; min-width: 150px; }
+  .control > label, .control > .label { font-size: 12px; color: var(--muted); font-weight: 550; }
+  select, input[type="text"] {
+    font: inherit; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--axis); border-radius: 8px; padding: 6px 10px;
+  }
+  .check { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-2); cursor: pointer; }
+  .check input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; cursor: pointer; }
+
+  #seriesList { display: flex; flex-direction: column; gap: 7px; max-height: 210px; overflow-y: auto; padding-right: 8px; }
+  #seriesList .check .dot {
+    width: 10px; height: 10px; border-radius: 3px; flex: none;
+    background: var(--axis);
+  }
+  #seriesList .check.on { color: var(--ink); }
+  #seriesList .check input:disabled + .dot { opacity: .4; }
+  #seriesNote { font-size: 12px; color: var(--muted); margin-top: 4px; max-width: 230px; }
+
+  .typerow { display: flex; flex-wrap: wrap; gap: 6px; }
+  .typerow button {
+    font: inherit; font-size: 13px; cursor: pointer;
+    color: var(--ink-2); background: transparent;
+    border: 1px solid var(--border); border-radius: 8px; padding: 5px 12px;
+  }
+  .typerow button:hover { color: var(--ink); border-color: var(--axis); }
+  .typerow button[aria-pressed="true"] {
+    color: var(--ink); border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    font-weight: 550;
+  }
+
+  /* ---- Chart card ---- */
+  #chartCard .chart-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  #chartTitle { font-size: 15px; font-weight: 600; margin: 0; color: var(--ink); }
+  .chart-head .spacer { flex: 1; }
+  .chart-head button {
+    font: inherit; font-size: 12.5px; cursor: pointer; color: var(--ink-2);
+    background: transparent; border: 1px solid var(--border); border-radius: 7px; padding: 4px 10px;
+  }
+  .chart-head button:hover { color: var(--ink); border-color: var(--axis); }
+  .chart-head button[aria-pressed="true"] { color: var(--ink); border-color: var(--accent); }
+
+  #legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 6px 0 4px; }
+  #legend .item { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--ink-2); }
+  #legend .swatch-rect { width: 11px; height: 11px; border-radius: 3px; }
+  #legend .swatch-line { width: 16px; height: 3px; border-radius: 2px; }
+  #legend .swatch-dot  { width: 9px;  height: 9px;  border-radius: 50%; }
+
+  #chartHost { position: relative; outline: none; }
+  #chartHost:focus-visible { box-shadow: 0 0 0 2px var(--accent); border-radius: 8px; }
+  #chartHost svg { display: block; width: 100%; height: auto; }
+  #chartHost svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .mark { transition: filter .08s; }
+  .mark.hover { filter: brightness(1.15); }
+  #chartMsg { color: var(--ink-2); padding: 26px 8px; }
+
+  /* tooltip */
+  #tip {
+    position: absolute; pointer-events: none; z-index: 5; display: none;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 9px;
+    padding: 8px 11px; min-width: 130px; max-width: 260px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.14);
+  }
+  #tip .tip-x { font-size: 12px; color: var(--muted); margin-bottom: 5px; }
+  #tip .row { display: flex; align-items: center; gap: 8px; padding: 1.5px 0; }
+  #tip .key { width: 12px; height: 3px; border-radius: 2px; flex: none; }
+  #tip .val { font-weight: 620; color: var(--ink); font-variant-numeric: tabular-nums; }
+  #tip .name { color: var(--ink-2); font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #tip .total { border-top: 1px solid var(--grid); margin-top: 4px; padding-top: 4px; }
+
+  /* table view + preview */
+  .tablewrap { overflow: auto; max-height: 340px; border: 1px solid var(--border); border-radius: 8px; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  table.data th, table.data td { padding: 6px 12px; text-align: left; white-space: nowrap; }
+  table.data th {
+    position: sticky; top: 0; background: var(--surface); color: var(--muted);
+    font-weight: 600; font-size: 11.5px; border-bottom: 1px solid var(--axis);
+  }
+  table.data td { color: var(--ink-2); border-bottom: 1px solid var(--grid); }
+  table.data td.num { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+  table.data th.num { text-align: right; }
+  .rowcount { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+  .hidden { display: none !important; }
+  footer { color: var(--muted); font-size: 12px; margin-top: 26px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="app">
+    <h1>Excel Grapher</h1>
+    <p>Drop in a spreadsheet, pick the data sets, get a chart. Everything runs in your browser.</p>
+    <span class="spacer"></span>
+    <button id="themeBtn" type="button" title="Switch color theme">Theme: Auto</button>
+  </header>
+
+  <section class="card" id="loadCard">
+    <h2><span class="stepnum">1</span>Load a spreadsheet</h2>
+    <div id="dropzone" role="button" tabindex="0" aria-label="Load a spreadsheet file">
+      <div><strong>Drop an Excel file here</strong> or click to browse</div>
+      <div class="hint">.xlsx&ensp;·&ensp;.xlsm&ensp;·&ensp;.xls&ensp;·&ensp;.csv&ensp;·&ensp;.tsv — the file never leaves your computer</div>
+    </div>
+    <input type="file" id="fileInput" accept=".xlsx,.xlsm,.xls,.csv,.tsv">
+    <div id="fileStatus" aria-live="polite"></div>
+  </section>
+
+  <section class="card hidden" id="pickCard">
+    <h2><span class="stepnum">2</span>What should be graphed?</h2>
+    <div class="controls">
+      <div class="control hidden" id="sheetControl">
+        <label for="sheetSelect">Sheet</label>
+        <select id="sheetSelect"></select>
+      </div>
+      <div class="control">
+        <label for="xSelect">X axis</label>
+        <select id="xSelect"></select>
+        <label class="check" style="margin-top:2px"><input type="checkbox" id="headerToggle" checked> First row is headers</label>
+      </div>
+      <div class="control">
+        <span class="label">Data sets (Y)</span>
+        <div id="seriesList"></div>
+        <div id="seriesNote"></div>
+      </div>
+      <div class="control">
+        <span class="label">Chart type</span>
+        <div class="typerow" id="typeRow" role="group" aria-label="Chart type"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card hidden" id="chartCard">
+    <div class="chart-head">
+      <h3 id="chartTitle"></h3>
+      <span class="spacer"></span>
+      <button id="tableBtn" type="button" aria-pressed="false">Table view</button>
+      <button id="svgBtn" type="button">Download SVG</button>
+    </div>
+    <div id="legend"></div>
+    <div id="chartHost" tabindex="0" aria-label="Chart. Use left and right arrow keys to step through values.">
+      <div id="tip"></div>
+    </div>
+    <div id="chartMsg" class="hidden"></div>
+    <div id="tableView" class="hidden"></div>
+  </section>
+
+  <section class="card hidden" id="previewCard">
+    <h2>Data preview</h2>
+    <div class="tablewrap"><table class="data" id="previewTable"></table></div>
+    <div class="rowcount" id="previewCount"></div>
+  </section>
+
+  <footer>Charts follow a colorblind-validated palette. Values are always available in the table view — hover or focus the chart for details.</footer>
+</div>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" onerror="window.__xlsxFailed=true"></script>
+<script>
+"use strict";
+(() => {
+
+const $ = (id) => document.getElementById(id);
+const SVGNS = "http://www.w3.org/2000/svg";
+const SERIES_MAX = 8;
+const SCATTER_MAX = 3;   // beyond 3 slots the palette can't keep every pair distinct on a scatter
+const CHART_TYPES = [
+  { id: "line",    label: "Line" },
+  { id: "area",    label: "Area" },
+  { id: "bar",     label: "Bar" },
+  { id: "stacked", label: "Stacked bar" },
+  { id: "hbar",    label: "Horizontal bar" },
+  { id: "scatter", label: "Scatter" },
+];
+
+const state = {
+  workbook: null,
+  fileName: "",
+  sheetName: "",
+  rawRows: [],          // array of arrays straight from the sheet
+  headers: true,
+  cols: [],             // { index, name, type: number|date|text, values: [] }
+  xIndex: -1,           // -1 = row number
+  selected: new Map(),  // col index -> palette slot (1-based), sticky while selected
+  selectionOrder: [],   // col indexes in the order the user picked them
+  chartType: "line",
+  tableView: false,
+  focusIndex: null,     // crosshair position for keyboard users
+};
+
+/* ---------- helpers ---------- */
+
+function el(name, attrs, parent) {
+  const node = document.createElementNS(SVGNS, name);
+  for (const k in attrs) node.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(node);
+  return node;
+}
+function div(cls, parent) {
+  const d = document.createElement("div");
+  if (cls) d.className = cls;
+  if (parent) parent.appendChild(d);
+  return d;
+}
+function setText(node, text) { node.textContent = text; return node; }
+
+function isNum(v) { return typeof v === "number" && isFinite(v); }
+function isDate(v) { return v instanceof Date && !isNaN(v); }
+
+const fmtFull = new Intl.NumberFormat(undefined, { maximumFractionDigits: 4 });
+const fmtCompact = new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 });
+function fmtVal(v) {
+  if (!isNum(v)) return "—";
+  const a = Math.abs(v);
+  if (a >= 100) return new Intl.NumberFormat(undefined, { maximumFractionDigits: 1 }).format(v);
+  return fmtFull.format(v);
+}
+function fmtTick(v, absMax) {
+  return absMax >= 10000 ? fmtCompact.format(v) : new Intl.NumberFormat().format(v);
+}
+function fmtDate(d, spanDays) {
+  if (!isDate(d)) return String(d);
+  const opts = spanDays > 500 ? { month: "short", year: "numeric" }
+             : spanDays > 1   ? { month: "short", day: "numeric" }
+             : { hour: "numeric", minute: "2-digit" };
+  return new Intl.DateTimeFormat(undefined, opts).format(d);
+}
+function truncate(s, n) { s = String(s); return s.length > n ? s.slice(0, n - 1) + "…" : s; }
+
+// 1-2-5 nice ticks covering [min, max]
+function niceTicks(min, max, count = 5) {
+  if (min === max) { min -= 1; max += 1; }
+  const span = max - min;
+  const step0 = span / count;
+  const mag = Math.pow(10, Math.floor(Math.log10(step0)));
+  let step = mag;
+  for (const m of [1, 2, 5, 10]) { if (mag * m >= step0) { step = mag * m; break; } }
+  const lo = Math.floor(min / step) * step;
+  const hi = Math.ceil(max / step) * step;
+  const ticks = [];
+  for (let v = lo; v <= hi + step / 2; v += step) ticks.push(Math.abs(v) < step * 1e-9 ? 0 : v);
+  return { lo, hi, ticks };
+}
+
+/* ---------- file loading ---------- */
+
+const dropzone = $("dropzone"), fileInput = $("fileInput"), fileStatus = $("fileStatus");
+
+dropzone.addEventListener("click", () => fileInput.click());
+dropzone.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); } });
+dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.classList.add("dragging"); });
+dropzone.addEventListener("dragleave", () => dropzone.classList.remove("dragging"));
+dropzone.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dropzone.classList.remove("dragging");
+  if (e.dataTransfer.files.length) loadFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener("change", () => { if (fileInput.files.length) loadFile(fileInput.files[0]); });
+
+function statusMsg(text, isError) {
+  fileStatus.replaceChildren();
+  const span = document.createElement("span");
+  span.className = isError ? "err" : "ok";
+  span.textContent = text;
+  fileStatus.appendChild(span);
+}
+
+async function loadFile(file) {
+  if (typeof XLSX === "undefined") {
+    statusMsg("⚠ The spreadsheet engine (SheetJS) could not load. Connect to the internet once and reload the page.", true);
+    return;
+  }
+  try {
+    const buf = await file.arrayBuffer();
+    const wb = XLSX.read(buf, { type: "array", cellDates: true });
+    if (!wb.SheetNames.length) throw new Error("no sheets");
+    state.workbook = wb;
+    state.fileName = file.name;
+    statusMsg(`Loaded ${file.name} — ${wb.SheetNames.length} sheet${wb.SheetNames.length > 1 ? "s" : ""}.`, false);
+
+    const sheetControl = $("sheetControl"), sheetSelect = $("sheetSelect");
+    sheetSelect.replaceChildren();
+    for (const name of wb.SheetNames) {
+      const opt = document.createElement("option");
+      opt.value = name; opt.textContent = name;
+      sheetSelect.appendChild(opt);
+    }
+    sheetControl.classList.toggle("hidden", wb.SheetNames.length < 2);
+    pickSheet(wb.SheetNames[0]);
+  } catch (err) {
+    statusMsg(`⚠ Couldn't read "${file.name}" — is it a valid spreadsheet? (${err.message})`, true);
+  }
+}
+
+$("sheetSelect").addEventListener("change", (e) => pickSheet(e.target.value));
+
+function pickSheet(name) {
+  state.sheetName = name;
+  const ws = state.workbook.Sheets[name];
+  state.rawRows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: null, raw: true });
+  // trim fully-empty trailing rows
+  while (state.rawRows.length && state.rawRows[state.rawRows.length - 1].every((v) => v === null || v === "")) {
+    state.rawRows.pop();
+  }
+  state.headers = guessHeaders(state.rawRows);
+  $("headerToggle").checked = state.headers;
+  rebuildColumns({ fresh: true });
+}
+
+function guessHeaders(rows) {
+  if (rows.length < 2) return false;
+  const first = rows[0].filter((v) => v !== null && v !== "");
+  if (!first.length) return false;
+  const textish = first.filter((v) => typeof v === "string").length / first.length;
+  return textish >= 0.6;
+}
+
+$("headerToggle").addEventListener("change", (e) => {
+  state.headers = e.target.checked;
+  rebuildColumns({ fresh: false });
+});
+
+/* ---------- columns & the "what to graph" panel ---------- */
+
+function colLetter(i) {
+  let s = "";
+  for (i++; i > 0; i = Math.floor((i - 1) / 26)) s = String.fromCharCode(65 + ((i - 1) % 26)) + s;
+  return s;
+}
+
+function detectType(values) {
+  const filled = values.filter((v) => v !== null && v !== "");
+  if (!filled.length) return "text";
+  const nums = filled.filter(isNum).length;
+  const dates = filled.filter(isDate).length;
+  if (dates / filled.length >= 0.8) return "date";
+  if (nums / filled.length >= 0.8) return "number";
+  return "text";
+}
+
+function rebuildColumns({ fresh }) {
+  const rows = state.rawRows;
+  const nCols = rows.reduce((m, r) => Math.max(m, r.length), 0);
+  const dataRows = state.headers ? rows.slice(1) : rows;
+  const headerRow = state.headers ? rows[0] : null;
+
+  state.cols = [];
+  for (let c = 0; c < nCols; c++) {
+    const values = dataRows.map((r) => (r[c] === undefined ? null : r[c]));
+    const rawName = headerRow && headerRow[c] !== null && headerRow[c] !== "" ? String(headerRow[c]) : `Column ${colLetter(c)}`;
+    state.cols.push({ index: c, name: rawName, type: detectType(values), values });
+  }
+
+  if (fresh) {
+    state.selected = new Map();
+    state.selectionOrder = [];
+    // default X: first date column, else first text column, else row number
+    const dateCol = state.cols.find((c) => c.type === "date");
+    const textCol = state.cols.find((c) => c.type === "text");
+    state.xIndex = dateCol ? dateCol.index : textCol ? textCol.index : -1;
+    // default Y: first numeric column that isn't the X
+    const firstNum = state.cols.find((c) => c.type === "number" && c.index !== state.xIndex);
+    if (firstNum) selectSeries(firstNum.index, true);
+  } else {
+    // keep selections that still make sense
+    for (const c of [...state.selected.keys()]) {
+      const col = state.cols[c];
+      if (!col || col.type !== "number") deselectSeries(c);
+    }
+  }
+
+  renderXOptions();
+  renderSeriesList();
+  renderTypeRow();
+  renderPreview();
+  $("pickCard").classList.remove("hidden");
+  $("previewCard").classList.remove("hidden");
+  renderChart();
+}
+
+function renderXOptions() {
+  const xSelect = $("xSelect");
+  xSelect.replaceChildren();
+  const optRow = document.createElement("option");
+  optRow.value = "-1"; optRow.textContent = "(Row number)";
+  xSelect.appendChild(optRow);
+  for (const c of state.cols) {
+    const opt = document.createElement("option");
+    opt.value = String(c.index);
+    opt.textContent = `${c.name} (${c.type})`;
+    xSelect.appendChild(opt);
+  }
+  xSelect.value = String(state.xIndex);
+}
+$("xSelect").addEventListener("change", (e) => {
+  state.xIndex = parseInt(e.target.value, 10);
+  const col = state.cols[state.xIndex];
+  if (col && state.selected.has(col.index)) deselectSeries(col.index);
+  renderSeriesList();
+  renderChart();
+});
+
+function selectSeries(colIndex, silent) {
+  if (state.selected.has(colIndex) || state.selected.size >= SERIES_MAX) return;
+  const used = new Set(state.selected.values());
+  let slot = 1;
+  while (used.has(slot)) slot++;
+  state.selected.set(colIndex, slot);
+  state.selectionOrder.push(colIndex);
+  if (!silent) { renderSeriesList(); renderChart(); }
+}
+function deselectSeries(colIndex) {
+  state.selected.delete(colIndex);
+  state.selectionOrder = state.selectionOrder.filter((c) => c !== colIndex);
+}
+
+function renderSeriesList() {
+  const list = $("seriesList"), note = $("seriesNote");
+  list.replaceChildren();
+  const numeric = state.cols.filter((c) => c.type === "number" && c.index !== state.xIndex);
+  if (!numeric.length) {
+    setText(note, "No numeric columns found on this sheet — nothing to graph. Try another sheet, or toggle the header row.");
+    return;
+  }
+  const atCap = state.selected.size >= SERIES_MAX;
+  for (const c of numeric) {
+    const on = state.selected.has(c.index);
+    const label = document.createElement("label");
+    label.className = "check" + (on ? " on" : "");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = on;
+    input.disabled = !on && atCap;
+    input.addEventListener("change", () => {
+      if (input.checked) selectSeries(c.index);
+      else { deselectSeries(c.index); renderSeriesList(); renderChart(); }
+    });
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    if (on) dot.style.background = `var(--s${state.selected.get(c.index)})`;
+    label.append(input, dot, document.createTextNode(" "));
+    const name = document.createElement("span");
+    name.textContent = c.name;
+    label.appendChild(name);
+    list.appendChild(label);
+  }
+  setText(note, atCap ? `Up to ${SERIES_MAX} data sets at once — uncheck one to add another.` : "");
+}
+
+function renderTypeRow() {
+  const row = $("typeRow");
+  row.replaceChildren();
+  for (const t of CHART_TYPES) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = t.label;
+    b.setAttribute("aria-pressed", String(state.chartType === t.id));
+    b.addEventListener("click", () => { state.chartType = t.id; renderTypeRow(); renderChart(); });
+    row.appendChild(b);
+  }
+}
+
+/* ---------- assembling plot data ---------- */
+
+function activeSeries() {
+  const cap = state.chartType === "scatter" ? SCATTER_MAX : SERIES_MAX;
+  return state.selectionOrder.slice(0, cap).map((c) => ({
+    col: state.cols[c],
+    slot: state.selected.get(c),
+    color: `var(--s${state.selected.get(c)})`,
+  }));
+}
+
+function xLabels() {
+  const n = state.cols.length ? state.cols[0].values.length : 0;
+  if (state.xIndex === -1) return Array.from({ length: n }, (_, i) => String(i + 1));
+  const col = state.cols[state.xIndex];
+  if (col.type === "date") {
+    const dates = col.values.filter(isDate);
+    const span = dates.length > 1 ? (Math.max(...dates.map(d => +d)) - Math.min(...dates.map(d => +d))) / 864e5 : 2;
+    return col.values.map((v) => (isDate(v) ? fmtDate(v, span) : v === null ? "" : String(v)));
+  }
+  return col.values.map((v) => (v === null ? "" : String(v)));
+}
+
+/* ---------- chart rendering ---------- */
+
+const host = $("chartHost"), tip = $("tip");
+const hideTip = () => { tip.style.display = "none"; };
+
+function chartMessage(text) {
+  const msg = $("chartMsg");
+  if (text) { setText(msg, text); msg.classList.remove("hidden"); }
+  else msg.classList.add("hidden");
+}
+
+function renderChart() {
+  const card = $("chartCard");
+  for (const node of [...host.children]) if (node.id !== "tip") node.remove();
+  hideTip();
+  chartMessage("");
+  state.focusIndex = null;
+
+  const series = activeSeries();
+  if (!series.length) {
+    card.classList.toggle("hidden", state.cols.every((c) => c.type !== "number"));
+    $("legend").replaceChildren();
+    setText($("chartTitle"), "");
+    chartMessage("Pick at least one data set above to draw a chart.");
+    $("tableView").replaceChildren();
+    return;
+  }
+  card.classList.remove("hidden");
+
+  // title: series names by X
+  const names = series.map((s) => s.col.name);
+  const nameStr = names.length <= 3 ? names.join(", ") : `${names.length} data sets`;
+  const xName = state.xIndex === -1 ? "row" : state.cols[state.xIndex].name;
+  setText($("chartTitle"), `${nameStr} by ${xName}`);
+
+  renderLegend(series);
+  renderTableView(series);
+  $("tableView").classList.toggle("hidden", !state.tableView);
+  host.classList.toggle("hidden", state.tableView);
+  if (state.tableView) return;
+
+  const width = Math.max(320, host.clientWidth || 720);
+  state.lastWidth = width;
+  const type = state.chartType;
+  if (type === "scatter") {
+    const xCol = state.xIndex === -1 ? null : state.cols[state.xIndex];
+    if (!xCol || (xCol.type !== "number" && xCol.type !== "date")) {
+      chartMessage("Scatter needs a numeric (or date) X axis — pick one under “X axis”.");
+      return;
+    }
+    if (state.selectionOrder.length > SCATTER_MAX)
+      chartMessage(`Scatter shows the first ${SCATTER_MAX} selected data sets — beyond that the colors stop being reliably distinguishable.`);
+    drawScatter(series, xCol, width);
+  }
+  else if (type === "hbar") drawHBar(series, width);
+  else if (type === "bar" || type === "stacked") drawBars(series, width, type === "stacked");
+  else drawLine(series, width, type === "area");
+}
+
+function renderLegend(series) {
+  const legend = $("legend");
+  legend.replaceChildren();
+  if (series.length < 2) return; // single series: the title names it
+  const shape = state.chartType === "line" ? "line" : state.chartType === "scatter" ? "dot" : "rect";
+  for (const s of series) {
+    const item = div("item", legend);
+    const sw = div(`swatch-${shape}`, item);
+    sw.style.background = s.color;
+    const name = document.createElement("span");
+    name.textContent = s.col.name;
+    item.appendChild(name);
+  }
+}
+
+function makeSvg(width, height) {
+  const svg = el("svg", { viewBox: `0 0 ${width} ${height}`, width, height, role: "img" });
+  host.appendChild(svg);
+  return svg;
+}
+
+function yAxis(svg, lo, hi, ticks, L, plotW, plotTop, plotH) {
+  const y = (v) => plotTop + plotH - ((v - lo) / (hi - lo)) * plotH;
+  const absMax = Math.max(Math.abs(lo), Math.abs(hi));
+  for (const t of ticks) {
+    el("line", { x1: L, x2: L + plotW, y1: y(t), y2: y(t), stroke: t === 0 ? "var(--axis)" : "var(--grid)", "stroke-width": 1 }, svg);
+    const label = el("text", {
+      x: L - 8, y: y(t) + 3.5, "text-anchor": "end", "font-size": 11,
+      fill: "var(--muted)", style: "font-variant-numeric: tabular-nums",
+    }, svg);
+    label.textContent = fmtTick(t, absMax);
+  }
+  return y;
+}
+
+function xTickStep(n, plotW, labelPx = 72) {
+  return Math.max(1, Math.ceil(n / Math.max(1, Math.floor(plotW / labelPx))));
+}
+
+function measure(text, fontSize) { return String(text).length * fontSize * 0.6; }
+
+function leftMargin(ticks, absMax) {
+  let w = 0;
+  for (const t of ticks) w = Math.max(w, measure(fmtTick(t, absMax), 11));
+  return Math.ceil(w) + 16;
+}
+
+/* ----- line & area ----- */
+
+function drawLine(series, width, isArea) {
+  const labels = xLabels();
+  const n = labels.length;
+  if (!n) { chartMessage("This sheet has no data rows."); return; }
+
+  let min = Infinity, max = -Infinity;
+  for (const s of series) for (const v of s.col.values) if (isNum(v)) { min = Math.min(min, v); max = Math.max(max, v); }
+  if (min === Infinity) { chartMessage("The selected data sets have no numeric values."); return; }
+  if (isArea) { min = Math.min(0, min); max = Math.max(0, max); }
+  const { lo, hi, ticks } = niceTicks(min, max);
+
+  // direct end labels when few series and they don't collide
+  const endLabelW = series.length <= 4 ? Math.min(90, Math.max(...series.map((s) => measure(truncate(s.col.name, 12), 12)))) + 14 : 0;
+
+  const T = 14, B = 30, H = 340;
+  const absMax = Math.max(Math.abs(lo), Math.abs(hi));
+  const L = leftMargin(ticks, absMax);
+  let R = 14 + endLabelW;
+  const plotW = width - L - R, plotH = H - T - B;
+  if (plotW < 60) { chartMessage("Not enough room to draw — widen the window."); return; }
+  const svg = makeSvg(width, H);
+  const y = yAxis(svg, lo, hi, ticks, L, plotW, T, plotH);
+  const x = (i) => (n === 1 ? L + plotW / 2 : L + (i / (n - 1)) * plotW);
+
+  // x labels
+  const step = xTickStep(n, plotW);
+  for (let i = 0; i < n; i += step) {
+    const t = el("text", { x: x(i), y: H - 10, "text-anchor": "middle", "font-size": 11, fill: "var(--muted)" }, svg);
+    t.textContent = truncate(labels[i], 14);
+  }
+
+  const ends = [];
+  for (const s of series) {
+    const vals = s.col.values;
+    let d = "", started = false, lastIdx = null;
+    for (let i = 0; i < n; i++) {
+      const v = vals[i];
+      if (!isNum(v)) { started = false; continue; }
+      d += (started ? "L" : "M") + x(i).toFixed(1) + " " + y(v).toFixed(1);
+      started = true;
+      lastIdx = i;
+    }
+    if (!d) continue;
+    if (isArea) {
+      // wash under each segment run
+      let area = "", run = [];
+      const flush = () => {
+        if (run.length < 1) return;
+        area += "M" + x(run[0]).toFixed(1) + " " + y(0).toFixed(1);
+        for (const i of run) area += "L" + x(i).toFixed(1) + " " + y(vals[i]).toFixed(1);
+        area += "L" + x(run[run.length - 1]).toFixed(1) + " " + y(0).toFixed(1) + "Z";
+        run = [];
+      };
+      for (let i = 0; i < n; i++) { if (isNum(vals[i])) run.push(i); else flush(); }
+      flush();
+      el("path", { d: area, fill: s.color, "fill-opacity": 0.1, stroke: "none" }, svg);
+    }
+    el("path", { d, fill: "none", stroke: s.color, "stroke-width": 2, "stroke-linecap": "round", "stroke-linejoin": "round" }, svg);
+    if (lastIdx !== null) {
+      el("circle", { cx: x(lastIdx), cy: y(vals[lastIdx]), r: 4.5, fill: s.color, stroke: "var(--surface)", "stroke-width": 2 }, svg);
+      ends.push({ s, yPos: y(vals[lastIdx]), xPos: x(lastIdx) });
+    }
+  }
+
+  // end labels — only if they don't collide (else the legend carries identity)
+  if (endLabelW && ends.length) {
+    const sorted = [...ends].sort((a, b) => a.yPos - b.yPos);
+    let collide = false;
+    for (let i = 1; i < sorted.length; i++) if (sorted[i].yPos - sorted[i - 1].yPos < 14) collide = true;
+    if (!collide) for (const e of ends) {
+      const t = el("text", { x: e.xPos + 10, y: e.yPos + 4, "font-size": 12, fill: "var(--ink-2)" }, svg);
+      t.textContent = truncate(e.s.col.name, 12);
+    }
+  }
+
+  attachCrosshair(svg, series, labels, x, y, L, T, plotW, plotH, n);
+}
+
+/* crosshair + all-series tooltip, shared by line/area; keyboard accessible */
+function attachCrosshair(svg, series, labels, x, y, L, T, plotW, plotH, n) {
+  const cross = el("line", { y1: T, y2: T + plotH, stroke: "var(--axis)", "stroke-width": 1, visibility: "hidden" }, svg);
+  const dots = series.map((s) => el("circle", { r: 4.5, fill: s.color, stroke: "var(--surface)", "stroke-width": 2, visibility: "hidden" }, svg));
+  const hit = el("rect", { x: L, y: T, width: plotW, height: plotH, fill: "transparent" }, svg);
+
+  const show = (i, clientX) => {
+    state.focusIndex = i;
+    const px = x(i);
+    cross.setAttribute("x1", px); cross.setAttribute("x2", px);
+    cross.setAttribute("visibility", "visible");
+    series.forEach((s, k) => {
+      const v = s.col.values[i];
+      if (isNum(v)) {
+        dots[k].setAttribute("cx", px); dots[k].setAttribute("cy", y(v));
+        dots[k].setAttribute("visibility", "visible");
+      } else dots[k].setAttribute("visibility", "hidden");
+    });
+    const rows = series.map((s) => ({ color: s.color, name: s.col.name, value: s.col.values[i] }));
+    showTip(labels[i], rows, clientX ?? hostXFor(px), null);
+  };
+  const hide = () => {
+    cross.setAttribute("visibility", "hidden");
+    dots.forEach((d) => d.setAttribute("visibility", "hidden"));
+    hideTip();
+  };
+  const hostXFor = (px) => px / svg.viewBox.baseVal.width * host.clientWidth;
+
+  hit.addEventListener("pointermove", (e) => {
+    const r = svg.getBoundingClientRect();
+    const mx = ((e.clientX - r.left) / r.width) * svg.viewBox.baseVal.width;
+    const i = Math.max(0, Math.min(n - 1, Math.round(n === 1 ? 0 : ((mx - L) / plotW) * (n - 1))));
+    show(i, e.clientX - r.left);
+  });
+  hit.addEventListener("pointerleave", hide);
+  host.onkeydown = (e) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      const cur = state.focusIndex === null ? (e.key === "ArrowRight" ? -1 : n) : state.focusIndex;
+      show(Math.max(0, Math.min(n - 1, cur + (e.key === "ArrowRight" ? 1 : -1))));
+    } else if (e.key === "Escape") hide();
+  };
+  host.onblur = hide;
+}
+
+/* ----- vertical bars, grouped & stacked ----- */
+
+function roundedTopBar(xp, yp, w, h, r) {
+  r = Math.min(r, w / 2, h);
+  if (h <= 0.5 || r <= 0) return `M${xp} ${yp + h}L${xp} ${yp}L${xp + w} ${yp}L${xp + w} ${yp + h}Z`;
+  return `M${xp} ${yp + h}L${xp} ${yp + r}Q${xp} ${yp} ${xp + r} ${yp}L${xp + w - r} ${yp}Q${xp + w} ${yp} ${xp + w} ${yp + r}L${xp + w} ${yp + h}Z`;
+}
+function roundedBottomBar(xp, yp, w, h, r) {
+  r = Math.min(r, w / 2, h);
+  if (h <= 0.5 || r <= 0) return `M${xp} ${yp}L${xp + w} ${yp}L${xp + w} ${yp + h}L${xp} ${yp + h}Z`;
+  return `M${xp} ${yp}L${xp + w} ${yp}L${xp + w} ${yp + h - r}Q${xp + w} ${yp + h} ${xp + w - r} ${yp + h}L${xp + r} ${yp + h}Q${xp} ${yp + h} ${xp} ${yp + h - r}L${xp} ${yp}Z`;
+}
+
+function drawBars(series, width, stacked) {
+  const labels = xLabels();
+  const n = labels.length;
+  if (!n) { chartMessage("This sheet has no data rows."); return; }
+
+  let min = 0, max = 0;
+  if (stacked) {
+    for (let i = 0; i < n; i++) {
+      let pos = 0, neg = 0;
+      for (const s of series) { const v = s.col.values[i]; if (isNum(v)) { if (v >= 0) pos += v; else neg += v; } }
+      max = Math.max(max, pos); min = Math.min(min, neg);
+    }
+  } else {
+    for (const s of series) for (const v of s.col.values) if (isNum(v)) { min = Math.min(min, v); max = Math.max(max, v); }
+  }
+  if (min === 0 && max === 0) { chartMessage("The selected data sets have no numeric values."); return; }
+  const { lo, hi, ticks } = niceTicks(min, max);
+
+  const T = 14, B = 30, H = 340;
+  const absMax = Math.max(Math.abs(lo), Math.abs(hi));
+  const L = leftMargin(ticks, absMax);
+  const R = 14;
+  const plotW = width - L - R, plotH = H - T - B;
+  if (plotW < 60) { chartMessage("Not enough room to draw — widen the window."); return; }
+  const svg = makeSvg(width, H);
+  const y = yAxis(svg, lo, hi, ticks, L, plotW, T, plotH);
+  const y0 = y(Math.max(lo, Math.min(hi, 0)));
+
+  const band = plotW / n;
+  const k = stacked ? 1 : series.length;
+  const GAP = 2;
+  let barW = Math.min(24, (band * 0.72 - GAP * (k - 1)) / k);
+  barW = Math.max(2, barW);
+  const groupW = k * barW + GAP * (k - 1);
+
+  const step = xTickStep(n, plotW);
+  for (let i = 0; i < n; i += step) {
+    const t = el("text", { x: L + band * (i + 0.5), y: H - 10, "text-anchor": "middle", "font-size": 11, fill: "var(--muted)" }, svg);
+    t.textContent = truncate(labels[i], Math.max(6, Math.floor(band * step / 7)));
+  }
+
+  for (let i = 0; i < n; i++) {
+    const gx = L + band * i + (band - groupW) / 2;
+    if (stacked) {
+      let cumPos = 0, cumNeg = 0;
+      const segs = [];
+      for (const s of series) {
+        const v = s.col.values[i];
+        if (!isNum(v) || v === 0) continue;
+        segs.push({ s, v });
+      }
+      const lastPos = segs.filter((g) => g.v > 0).length - 1;
+      const lastNeg = segs.filter((g) => g.v < 0).length - 1;
+      let iPos = 0, iNeg = 0;
+      for (const g of segs) {
+        if (g.v > 0) {
+          const yTop = y(cumPos + g.v), h = y(cumPos) - yTop;
+          // topmost segment gets the rounded data-end; inner segments shave a
+          // 2px surface gap off their top so neighbors read distinct
+          g.node = iPos === lastPos
+            ? el("path", { d: roundedTopBar(gx, yTop, barW, Math.max(0.5, h), 4), fill: g.s.color, class: "mark" }, svg)
+            : el("path", { d: `M${gx} ${yTop + GAP}h${barW}v${Math.max(0.5, h - GAP)}h${-barW}Z`, fill: g.s.color, class: "mark" }, svg);
+          cumPos += g.v; iPos++;
+        } else {
+          const yTop = y(cumNeg), h = y(cumNeg + g.v) - yTop;
+          g.node = iNeg === lastNeg
+            ? el("path", { d: roundedBottomBar(gx, yTop, barW, Math.max(0.5, h), 4), fill: g.s.color, class: "mark" }, svg)
+            : el("path", { d: `M${gx} ${yTop}h${barW}v${Math.max(0.5, h - GAP)}h${-barW}Z`, fill: g.s.color, class: "mark" }, svg);
+          cumNeg += g.v; iNeg++;
+        }
+      }
+      if (!segs.length) continue;
+      // the whole category band is the hit target — per-series rows plus the total
+      const total = segs.reduce((a, g) => a + g.v, 0);
+      const hitRows = segs.map((g) => ({ color: g.s.color, name: g.s.col.name, value: g.v }));
+      if (segs.length > 1) hitRows.push({ color: null, name: "Total", value: total, total: true });
+      addBarHit(svg, L + band * i, T, band, plotH, labels[i], hitRows, segs.map((g) => g.node));
+    } else {
+      series.forEach((s, j) => {
+        const v = s.col.values[i];
+        if (!isNum(v)) return;
+        const bx = gx + j * (barW + GAP);
+        const node = v >= 0
+          ? el("path", { d: roundedTopBar(bx, y(v), barW, Math.max(0.5, y0 - y(v)), 4), fill: s.color, class: "mark" }, svg)
+          : el("path", { d: roundedBottomBar(bx, y0, barW, Math.max(0.5, y(v) - y0), 4), fill: s.color, class: "mark" }, svg);
+        addBarHit(svg, bx - 1, T, barW + GAP, plotH, labels[i], [{ color: s.color, name: s.col.name, value: v }], [node]);
+      });
+    }
+  }
+  attachBarKeyboard(series, labels, n);
+}
+
+function addBarHit(svg, x, yTop, w, h, label, rows, liftNodes) {
+  const hit = el("rect", { x, y: yTop, width: w, height: h, fill: "transparent" }, svg);
+  hit.addEventListener("pointermove", (e) => {
+    const r = svg.getBoundingClientRect();
+    liftNodes.forEach((nd) => nd && nd.classList.add("hover"));
+    showTip(label, rows, e.clientX - r.left, e.clientY - r.top);
+  });
+  hit.addEventListener("pointerleave", () => {
+    liftNodes.forEach((nd) => nd && nd.classList.remove("hover"));
+    hideTip();
+  });
+}
+
+function attachBarKeyboard(series, labels, n) {
+  host.onkeydown = (e) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      const cur = state.focusIndex === null ? (e.key === "ArrowRight" ? -1 : n) : state.focusIndex;
+      const i = Math.max(0, Math.min(n - 1, cur + (e.key === "ArrowRight" ? 1 : -1)));
+      state.focusIndex = i;
+      const rows = series.map((s) => ({ color: s.color, name: s.col.name, value: s.col.values[i] }));
+      showTip(labels[i], rows, host.clientWidth * ((i + 0.5) / n), null);
+    } else if (e.key === "Escape") hideTip();
+  };
+  host.onblur = hideTip;
+}
+
+/* ----- horizontal bars ----- */
+
+function roundedRightBar(xp, yp, w, h, r) {
+  r = Math.min(r, h / 2, w);
+  if (w <= 0.5 || r <= 0) return `M${xp} ${yp}h${w}v${h}h${-w}Z`;
+  return `M${xp} ${yp}L${xp + w - r} ${yp}Q${xp + w} ${yp} ${xp + w} ${yp + r}L${xp + w} ${yp + h - r}Q${xp + w} ${yp + h} ${xp + w - r} ${yp + h}L${xp} ${yp + h}Z`;
+}
+function roundedLeftBar(xp, yp, w, h, r) {
+  r = Math.min(r, h / 2, w);
+  if (w <= 0.5 || r <= 0) return `M${xp} ${yp}h${w}v${h}h${-w}Z`;
+  return `M${xp + w} ${yp}L${xp + r} ${yp}Q${xp} ${yp} ${xp} ${yp + r}L${xp} ${yp + h - r}Q${xp} ${yp + h} ${xp + r} ${yp + h}L${xp + w} ${yp + h}Z`;
+}
+
+function drawHBar(series, width) {
+  const labels = xLabels();
+  const n = labels.length;
+  if (!n) { chartMessage("This sheet has no data rows."); return; }
+
+  let min = 0, max = 0;
+  for (const s of series) for (const v of s.col.values) if (isNum(v)) { min = Math.min(min, v); max = Math.max(max, v); }
+  if (min === 0 && max === 0) { chartMessage("The selected data sets have no numeric values."); return; }
+  const { lo, hi, ticks } = niceTicks(min, max);
+  const absMax = Math.max(Math.abs(lo), Math.abs(hi));
+
+  const catW = Math.min(150, Math.max(...labels.map((l) => measure(truncate(l, 20), 11)))) + 14;
+  const L = Math.ceil(catW), R = 50, T = 8, B = 26;
+  const k = series.length, GAP = 2;
+  const barH = Math.min(24, Math.max(4, 22 / k));
+  const groupH = k * barH + GAP * (k - 1);
+  const rowH = Math.max(groupH + 10, 26);
+  const plotH = n * rowH;
+  const H = T + plotH + B;
+  const plotW = width - L - R;
+  if (plotW < 60) { chartMessage("Not enough room to draw — widen the window."); return; }
+  const svg = makeSvg(width, H);
+
+  const x = (v) => L + ((v - lo) / (hi - lo)) * plotW;
+  const x0 = x(Math.max(lo, Math.min(hi, 0)));
+  for (const t of ticks) {
+    el("line", { x1: x(t), x2: x(t), y1: T, y2: T + plotH, stroke: t === 0 ? "var(--axis)" : "var(--grid)", "stroke-width": 1 }, svg);
+    const lb = el("text", { x: x(t), y: H - 8, "text-anchor": "middle", "font-size": 11, fill: "var(--muted)", style: "font-variant-numeric: tabular-nums" }, svg);
+    lb.textContent = fmtTick(t, absMax);
+  }
+
+  for (let i = 0; i < n; i++) {
+    const rowTop = T + i * rowH;
+    const lb = el("text", { x: L - 8, y: rowTop + rowH / 2 + 4, "text-anchor": "end", "font-size": 11, fill: "var(--ink-2)" }, svg);
+    lb.textContent = truncate(labels[i], 20);
+    const gy = rowTop + (rowH - groupH) / 2;
+    series.forEach((s, j) => {
+      const v = s.col.values[i];
+      if (!isNum(v)) return;
+      const by = gy + j * (barH + GAP);
+      const node = v >= 0
+        ? el("path", { d: roundedRightBar(x0, by, Math.max(0.5, x(v) - x0), barH, 4), fill: s.color, class: "mark" }, svg)
+        : el("path", { d: roundedLeftBar(x(v), by, Math.max(0.5, x0 - x(v)), barH, 4), fill: s.color, class: "mark" }, svg);
+      // single-series: value at the tip when it fits
+      if (k === 1) {
+        const tw = measure(fmtVal(v), 11);
+        if (v >= 0 && x(v) + 6 + tw < width - 4) {
+          const t = el("text", { x: x(v) + 6, y: by + barH / 2 + 4, "font-size": 11, fill: "var(--ink-2)", style: "font-variant-numeric: tabular-nums" }, svg);
+          t.textContent = fmtVal(v);
+        }
+      }
+      const hit = el("rect", { x: L, y: by - 1, width: plotW, height: barH + GAP, fill: "transparent" }, svg);
+      hit.addEventListener("pointermove", (e) => {
+        const r = svg.getBoundingClientRect();
+        node.classList.add("hover");
+        showTip(labels[i], [{ color: s.color, name: s.col.name, value: v }], e.clientX - r.left, e.clientY - r.top);
+      });
+      hit.addEventListener("pointerleave", () => { node.classList.remove("hover"); hideTip(); });
+    });
+  }
+  attachBarKeyboard(series, labels, n);
+}
+
+/* ----- scatter ----- */
+
+function drawScatter(series, xCol, width) {
+  const asNum = (v) => (isDate(v) ? +v : v);
+  const xVals = xCol.values.map(asNum);
+  const pts = [];
+  for (const s of series) {
+    s.col.values.forEach((v, i) => {
+      if (isNum(v) && isNum(xVals[i])) pts.push({ s, xv: xVals[i], yv: v, i });
+    });
+  }
+  if (!pts.length) { chartMessage("No rows have numeric values for both the X axis and the selected data sets."); return; }
+
+  let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
+  for (const p of pts) {
+    xMin = Math.min(xMin, p.xv); xMax = Math.max(xMax, p.xv);
+    yMin = Math.min(yMin, p.yv); yMax = Math.max(yMax, p.yv);
+  }
+  const yT = niceTicks(yMin, yMax);
+  const xT = niceTicks(xMin, xMax, 6);
+
+  const T = 14, B = 30, H = 360;
+  const absMaxY = Math.max(Math.abs(yT.lo), Math.abs(yT.hi));
+  const L = leftMargin(yT.ticks, absMaxY);
+  const R = 18;
+  const plotW = width - L - R, plotH = H - T - B;
+  if (plotW < 60) { chartMessage("Not enough room to draw — widen the window."); return; }
+  const svg = makeSvg(width, H);
+  const y = yAxis(svg, yT.lo, yT.hi, yT.ticks, L, plotW, T, plotH);
+  const x = (v) => L + ((v - xT.lo) / (xT.hi - xT.lo)) * plotW;
+  const absMaxX = Math.max(Math.abs(xT.lo), Math.abs(xT.hi));
+
+  const isDateX = xCol.type === "date";
+  const spanDays = isDateX ? (xMax - xMin) / 864e5 : 0;
+  for (const t of xT.ticks) {
+    el("line", { x1: x(t), x2: x(t), y1: T, y2: T + plotH, stroke: "var(--grid)", "stroke-width": 1 }, svg);
+    const lb = el("text", { x: x(t), y: H - 10, "text-anchor": "middle", "font-size": 11, fill: "var(--muted)", style: "font-variant-numeric: tabular-nums" }, svg);
+    lb.textContent = isDateX ? fmtDate(new Date(t), spanDays) : fmtTick(t, absMaxX);
+  }
+
+  for (const p of pts) {
+    p.px = x(p.xv); p.py = y(p.yv);
+    el("circle", { cx: p.px, cy: p.py, r: 5, fill: p.s.color, stroke: "var(--surface)", "stroke-width": 2, class: "mark" }, svg);
+  }
+
+  // nearest-point hover: the pointer only has to be closest, not dead-center
+  const halo = el("circle", { r: 7, fill: "none", stroke: "var(--ink)", "stroke-width": 1.5, visibility: "hidden" }, svg);
+  const hit = el("rect", { x: L, y: T, width: plotW, height: plotH, fill: "transparent" }, svg);
+  hit.addEventListener("pointermove", (e) => {
+    const r = svg.getBoundingClientRect();
+    const mx = ((e.clientX - r.left) / r.width) * width;
+    const my = ((e.clientY - r.top) / r.height) * H;
+    let best = null, bestD = 40 * 40;
+    for (const p of pts) {
+      const d = (p.px - mx) ** 2 + (p.py - my) ** 2;
+      if (d < bestD) { bestD = d; best = p; }
+    }
+    if (best) {
+      halo.setAttribute("cx", best.px); halo.setAttribute("cy", best.py);
+      halo.setAttribute("visibility", "visible");
+      const xLabel = isDateX ? fmtDate(new Date(best.xv), spanDays) : fmtVal(best.xv);
+      showTip(`${xCol.name}: ${xLabel}`,
+        [{ color: best.s.color, name: best.s.col.name, value: best.yv }],
+        e.clientX - r.left, e.clientY - r.top);
+    } else { halo.setAttribute("visibility", "hidden"); hideTip(); }
+  });
+  hit.addEventListener("pointerleave", () => { halo.setAttribute("visibility", "hidden"); hideTip(); });
+  host.onkeydown = null;
+}
+
+/* ---------- tooltip ---------- */
+
+function showTip(xLabel, rows, px, py) {
+  tip.replaceChildren();
+  const head = div("tip-x", tip);
+  head.textContent = String(xLabel);
+  for (const r of rows) {
+    const row = div("row" + (r.total ? " total" : ""), tip);
+    const key = div("key", row);
+    if (r.color) key.style.background = r.color;
+    const val = document.createElement("span");
+    val.className = "val";
+    val.textContent = fmtVal(r.value);
+    const name = document.createElement("span");
+    name.className = "name";
+    name.textContent = r.name;
+    row.append(val, name);
+  }
+  tip.style.display = "block";
+  const hw = host.clientWidth, tw = tip.offsetWidth, th = tip.offsetHeight;
+  let left = px + 16;
+  if (left + tw > hw - 4) left = Math.max(4, px - tw - 16);
+  let top;
+  if (py === null) top = 24;
+  else {
+    top = py - th - 12;               // prefer above the pointer
+    if (top < 4) top = py + 14;       // flip below when there's no room
+    top = Math.max(4, Math.min(top, host.clientHeight - th - 4));
+  }
+  tip.style.left = left + "px";
+  tip.style.top = top + "px";
+}
+/* ---------- table view (the chart's accessibility twin) ---------- */
+
+function renderTableView(series) {
+  const wrap = $("tableView");
+  wrap.replaceChildren();
+  const scroller = div("tablewrap", wrap);
+  const table = document.createElement("table");
+  table.className = "data";
+  scroller.appendChild(table);
+
+  const labels = xLabels();
+  const thead = table.createTHead().insertRow();
+  const xName = state.xIndex === -1 ? "Row" : state.cols[state.xIndex].name;
+  const thX = document.createElement("th");
+  thX.textContent = xName;
+  thead.appendChild(thX);
+  for (const s of series) {
+    const th = document.createElement("th");
+    th.className = "num";
+    th.textContent = s.col.name;
+    thead.appendChild(th);
+  }
+  const tbody = table.createTBody();
+  for (let i = 0; i < labels.length; i++) {
+    const tr = tbody.insertRow();
+    const tdX = tr.insertCell();
+    tdX.textContent = labels[i];
+    for (const s of series) {
+      const td = tr.insertCell();
+      td.className = "num";
+      const v = s.col.values[i];
+      td.textContent = isNum(v) ? fmtFull.format(v) : v === null || v === "" ? "—" : String(v);
+    }
+  }
+}
+
+$("tableBtn").addEventListener("click", () => {
+  state.tableView = !state.tableView;
+  $("tableBtn").setAttribute("aria-pressed", String(state.tableView));
+  $("tableBtn").textContent = state.tableView ? "Chart view" : "Table view";
+  renderChart();
+});
+
+/* ---------- SVG download ---------- */
+
+const EXPORT_PROPS = ["fill", "fill-opacity", "stroke", "stroke-width", "stroke-linecap", "stroke-linejoin", "font-family", "font-size", "font-weight", "opacity"];
+$("svgBtn").addEventListener("click", () => {
+  const svg = host.querySelector("svg");
+  if (!svg) return;
+  const clone = svg.cloneNode(true);
+  // resolve CSS custom properties into literal attributes so the file stands alone
+  const walk = (orig, copy) => {
+    if (orig.nodeType === 1 && orig.namespaceURI === SVGNS) {
+      const cs = getComputedStyle(orig);
+      for (const p of EXPORT_PROPS) {
+        const v = cs.getPropertyValue(p);
+        if (v && v !== "none" || p === "fill") copy.setAttribute(p, v);
+      }
+      copy.removeAttribute("style");
+      copy.removeAttribute("class");
+    }
+    for (let i = 0; i < orig.childNodes.length; i++) walk(orig.childNodes[i], copy.childNodes[i]);
+  };
+  walk(svg, clone);
+  const bg = document.createElementNS(SVGNS, "rect");
+  const vb = svg.viewBox.baseVal;
+  bg.setAttribute("x", 0); bg.setAttribute("y", 0);
+  bg.setAttribute("width", vb.width); bg.setAttribute("height", vb.height);
+  bg.setAttribute("fill", getComputedStyle(document.body).getPropertyValue("--surface").trim() || "#fcfcfb");
+  clone.insertBefore(bg, clone.firstChild);
+  clone.setAttribute("xmlns", SVGNS);
+  const blob = new Blob([new XMLSerializer().serializeToString(clone)], { type: "image/svg+xml" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = ($("chartTitle").textContent || "chart").replace(/[^\w\- ]+/g, "").trim().replace(/ +/g, "-") + ".svg";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+/* ---------- data preview ---------- */
+
+function renderPreview() {
+  const table = $("previewTable");
+  table.replaceChildren();
+  const labelsRow = state.headers ? state.rawRows[0] : null;
+  const dataRows = state.headers ? state.rawRows.slice(1) : state.rawRows;
+  const nCols = state.cols.length;
+  const shown = Math.min(nCols, 14);
+
+  const thead = table.createTHead().insertRow();
+  for (let c = 0; c < shown; c++) {
+    const th = document.createElement("th");
+    th.textContent = state.cols[c] ? state.cols[c].name : colLetter(c);
+    if (state.cols[c] && state.cols[c].type === "number") th.className = "num";
+    thead.appendChild(th);
+  }
+  const tbody = table.createTBody();
+  for (const row of dataRows.slice(0, 8)) {
+    const tr = tbody.insertRow();
+    for (let c = 0; c < shown; c++) {
+      const v = row[c] === undefined ? null : row[c];
+      const td = tr.insertCell();
+      if (isNum(v)) { td.className = "num"; td.textContent = fmtFull.format(v); }
+      else if (isDate(v)) td.textContent = fmtDate(v, 2);
+      else td.textContent = v === null || v === "" ? "" : String(v);
+    }
+  }
+  const extraCols = nCols > shown ? ` (first ${shown} of ${nCols} columns)` : "";
+  setText($("previewCount"), `${dataRows.length} data row${dataRows.length === 1 ? "" : "s"} on “${state.sheetName}”${extraCols} — showing the first ${Math.min(8, dataRows.length)}.`);
+}
+
+/* ---------- theme toggle & resize ---------- */
+
+const themeBtn = $("themeBtn");
+const THEMES = ["auto", "light", "dark"];
+let themeIdx = 0;
+themeBtn.addEventListener("click", () => {
+  themeIdx = (themeIdx + 1) % THEMES.length;
+  const t = THEMES[themeIdx];
+  if (t === "auto") document.documentElement.removeAttribute("data-theme");
+  else document.documentElement.setAttribute("data-theme", t);
+  themeBtn.textContent = "Theme: " + t[0].toUpperCase() + t.slice(1);
+});
+
+let resizeTimer = null;
+new ResizeObserver(() => {
+  if (!state.cols.length || state.tableView) return;
+  // height changes are our own renders — only a real width change needs a redraw
+  if (Math.max(320, host.clientWidth || 720) === state.lastWidth) return;
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(renderChart, 120);
+}).observe(host);
+
+})();
+</script>
+</body>
+</html>
