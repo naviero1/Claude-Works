@@ -38,7 +38,11 @@ Core positioning: MS-trained immunologist and biotech co-founder with a rare ble
 - **Dates:** Jul 2026 – Present · **Location:** Cary/Raleigh, NC
 - **Company:** Quality & regulatory-compliance (GxP) consultancy serving pharma, biotech, medical device, dietary supplement (and per LinkedIn, cell & gene therapy / CDMO) clients. ✅ (NC/Research Triangle presence confirmed)
 - **What she does (from LinkedIn):** B2B business development for GMP/Quality consulting services — CAPA effectiveness, root cause analysis, change control, Good Documentation Practices (GDP), data integrity (ALCOA+), SOP development, QMS improvement; generating opportunities for mock audits, inspection readiness, GMP training, deviation management, ICH Q9 risk management; account research; pipeline via LinkedIn prospecting, networking, conferences, referrals; represents company at industry events.
-- **Metrics:** ⏳ intake pending
+- **Metrics (✅ from candidate, monthly run-rate):**
+  - Reaches **~100 target accounts/month** at a **~12% acceptance/conversion rate**.
+  - Generates **~25 meetings/deals/month**.
+  - Converts to **~12 new customers/month**.
+  - ❓ still needed: full-time vs. contract; client-type focus; CRM/tools.
 
 ### 3.2 GliaBeauty — Co-Founder & CEO
 - **Dates:** Co-Founder & **CEO Sep 2023 – Dec 2025** (successor took over as CEO Dec 2025; remains co-owner? ❓) · **Location:** Raleigh, NC (laboratories in **Mexico** ✅)
@@ -59,7 +63,9 @@ Core positioning: MS-trained immunologist and biotech co-founder with a rare ble
 - **Dates:** Jan 2019 – Feb 2026 ✅ · **Location:** listed Rio de Janeiro Area, Brazil (arrangement — remote/part-time? ❓)
 - **Company:** Global animal-health / veterinary pharmaceutical company (HQ Libourne, France; ~top-6 globally). ✅
 - **What she did (from LinkedIn):** Coordinated international veterinary R&D projects; liaised between global teams for project delivery and regulatory alignment.
-- **Metrics:** ⏳ intake pending
+- **Metrics (✅ from candidate):**
+  - Served as the **liaison across European and Latin American countries/teams**.
+  - ❓ still needed: remote/part-time arrangement; # projects coordinated; species/therapeutic areas.
 
 ### 3.4 North Carolina State University — College of Veterinary Medicine — Lab Manager
 - **Dates:** Jan 2019 – Mar 2026 · **Location:** Raleigh, NC
@@ -75,7 +81,8 @@ Core positioning: MS-trained immunologist and biotech co-founder with a rare ble
 ### 3.5 Duke University Health System — Animal Care Technician
 - **Dates:** 2018 – Dec 2018 · **Location:** Durham, NC
 - **What she did (from LinkedIn):** Supported preclinical studies — animal care, welfare monitoring, lab maintenance.
-- **Metrics:** ⏳ intake pending
+- **Metrics (✅ from candidate):**
+  - Worked to **IACUC compliance** for **animal husbandry supporting clinical/preclinical trials**. _(IACUC compliance = valuable regulatory/quality keyword — surface on both resumes.)_
 
 ### 3.6 Duke University — Lab Technician (Bohórquez Lab)
 - **Dates:** Apr 2016 – Apr 2017 · **Location:** Durham, NC
