@@ -1,3 +1,51 @@
+<!-- ADDENDUM 2 supersedes ADDENDUM 1 and the synthesis wherever they conflict. -->
+
+# ADDENDUM 2 — Full re-verification against USDA primary data (2026-08-06)
+
+*Every supplier row in the workbook was matched to the **FSIS Establishment Demographic Data** and the **MPI Directory by Establishment Number**, with each match validated on **city and state** so name collisions could not slip through. **43 roster rows changed.** Where this addendum conflicts with ADDENDUM 1 or the synthesis below, **this addendum wins.***
+
+## The pattern in the errors — weekly volumes were systematically overstated
+
+Figures inferred from head-per-day quotes, distribution footprint or trade press repeatedly ran **above the plant's own USDA volume category ceiling**. The categories are banded head per 360 days and convert to hard weekly ceilings:
+
+| FSIS `slaughter_volume_category` | Head / 360 days | Hard weekly ceiling |
+|---|---|---|
+| 1 | fewer than 1,000 | under ~19 / wk |
+| 2 | 1,000 – 9,999 | ~19 – 192 / wk |
+| 3 | 10,000 – 99,999 | ~192 – 1,917 / wk |
+| 4 | 100,000 or more | ~1,917 / wk and up |
+
+A category is a **ceiling and a floor, not an estimate** — a category-3 plant might be killing 200/wk or 1,900/wk. Use it to *falsify* a claimed figure, never to replace one. On that test the following failed: **Larry's Sausage** (claimed 200–800/wk, capped at ~192), **Acre Station** (claimed ~400/wk, capped at ~192), **Midwest Research Swine** (claimed ~385/wk, capped at ~192), **Fayette Packing** (called "the largest of the TN group", actually under ~19/wk), **Bass Farms** (described as a pure kill floor, actually under ~19/wk).
+
+## Corrections that change the contact order
+
+- **Parks Family Meats (M18296A, Warsaw NC) is now #2.** FSIS records it `slaughter_or_processing_only = Slaughter` — a pure kill floor with no processing attached, the only NC plant on the roster verified to be built that way. It holds the structural claim this synthesis assigned to Bass Farms. **`market_swine_slaughter = Yes` AND `roaster_swine_slaughter = Yes`**, so it is *not* roaster-exclusive and market-weight anatomy is available. Category 3, 20 staff, one 15,000 sq ft floor, one decision-maker, 45 road miles from the anchor.
+- **Custom Quality Packers (M20129, Sims NC) is now #4.** All three "unknown" fields closed: active **federal** grant — not "TA-20129" — market + roaster flagged, category 3, which brackets the ~500/wk company figure. With **Flowers Slaughter House (M21747)** in the same town it makes a Wilson County cluster one crew can serve.
+- **Larry's Sausage drops from #3 to #11.** Federal **M8305**, not "TA-8305"; category 2, so ~192/wk not 200–800/wk; and **sow-only**, so no market-weight anatomy.
+- **Bass Farms is removed.** Federal **M3521**, and the grant *is* live (re-issued 17 Feb 2026) — which answers this study's open question in the affirmative. But it is **not** "slaughter only": FSIS records slaughter **and** processing, processing category 4, DBA "Bass Farm Sausage". Category 1 volume, sow-only. Its value, if any, is as a processor.
+- **Gunnoe Sausage is removed**, confirming ADDENDUM 1 by a second route: no establishment named "Gunnoe" exists anywhere in the MPI directory, nationally. **EcoFriendly Foods (M21938)** replaces it as the Virginia entry — all four swine classes flagged, category 3, and the "ceased operations ~2020" report is refuted by an active federal grant.
+
+## Two ADDENDUM 1 findings that are themselves now overturned
+
+- **Kansas City Sausage / Coastal Protein (Godwin NC) is back in the pipeline.** The plant was purpose-built as a sow *harvest* plant — described at announcement as harvesting 700–1,000 sows/day — and is still operating as of 2024. The claim that it merely *consumes* sows is not established. What remains genuinely unknown is its **establishment number**, and that is the first question on the call.
+- **Nahunta is exportable.** APHIS accepts **NC state inspection** as equivalent to federal for this purpose and permits Nahunta-harvested material to form part of an exported model once the model is assembled at ATM. Finding #2 of the synthesis below — "Nahunta can never supply Europe" — is **wrong**. Note the limit: **only North Carolina's** state programme carries this equivalence.
+
+## Claims withdrawn for lack of any source
+
+Five "USDA-inspected" labels had nothing behind them and are withdrawn: **Caughman's Meat Plant** (Lexington SC), **Sessoms Packing** (Ahoskie NC), **Assured Community Processing** (claimed M2123 — no such establishment), **Country Slaughter and Meats** (claimed M32012 — no such establishment), and Gunnoe. **Triad Meat Custom Processing** is excluded on species: the only FSIS slaughter establishment at Madison NC is a halal plant with no swine flags. Two pairs of rows turned out to be **the same plant listed twice** — George Flowers / Flowers Slaughter House (both M21747) and Smithfield / KC Sausage / Kansas City Sausage (both the Godwin sow plant).
+
+Corrections in the suppliers' favour: **Riverside Meats** and **Acre Station** both had "custom-exempt" labels refuted — each holds an active federal grant, so product is inspected and saleable.
+
+## What the enforcement check does and does not cover
+
+All ten FSIS **Quarterly Enforcement Reports** covering FY2024 Q1 – FY2026 Q2 were retrieved and full-text searched. Nothing was returned for the eastern-NC shortlist. **Treat that as a narrow negative, not a clean bill:** the QERs list suspensions, Notices of Intended Enforcement and withholding actions only — not ordinary noncompliance records, which is what a humane-handling problem looks like *before* it escalates. The FSIS FOIA in the Action Items tab is what closes that gap. The separate Humane Handling Quarterly Reports are district-level roll-ups and cannot clear an individual plant at all. **T&E Meats** is now confirmed as **M7420 + V7420**, listed by FSIS as "Honest Meats, LLC" — the same establishment number on the 2024 Notice of Suspension documents, so that exclusion attaches to a verified establishment rather than a name guess.
+
+## Distances
+
+The "within 120 miles" column is now **real road mileage** — OSRM driving routes from the Pikeville NC anchor (35.4971, −77.9819) to each plant's FSIS-listed coordinates — replacing a classifier that assigned distances by county name and mis-sorted at least three NC plants. **Confirm the anchor:** if the radius should be measured from ATM or another operating base, the column can be recomputed.
+
+---
+
 <!-- Regenerated after the open-capacity re-investigation. The CORRECTIONS section
      below supersedes the original synthesis wherever they conflict. -->
 
