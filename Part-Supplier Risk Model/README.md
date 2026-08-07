@@ -13,16 +13,23 @@ It replaces two earlier attempts:
 
 ## How it works
 
-- **MODELS** — one row per model/project (with or without tissue parts). Rolls up counts and band automatically.
-- **SUPPLIERS** — each supplier scored **once** on two 1–5 criteria (Supplier Stability, External & Location). Every part row inherits them.
-- **PART_RISK** — one row per part–supplier combo. Enter: model, part, type (Tissue APHIS / Tissue Non-APHIS / Non-Tissue Custom / Non-Tissue COTS), supplier, three part-level 1–5 scores (Sourcing & Backup, Quality & Compliance, Capacity & Delivery), Impact (1–5), and an optional Red Flag.
+- **MODELS** — one row per model/project (with or without tissue parts) plus its
+  production volume per quarter. Rolls up counts and band automatically.
+- **SUPPLIERS** — each supplier scored **once** on two 1–5 criteria (Supplier Stability, External Factors). Every part row inherits them.
+- **PART_RISK** — one row per part–supplier combo. Enter: model, part, type (Tissue APHIS / Tissue Non-APHIS / Non-Tissue Custom / Non-Tissue COTS), quantity per model, supplier, three part-level 1–5 scores (Sourcing & Backup, Quality & Compliance, Capacity), Impact (1–5), and optional Red / Yellow flags. Quarterly consumption (qty × model volume) computes automatically.
 - **DASHBOARD** — portfolio KPIs, risk by model, a model selector that lists the selected model's parts ranked by risk (red flags always on top), and the Top 10 risks across all models.
-- **SCORING_GUIDE** — plain-language 1/3/5 anchors for every criterion, editable weights and thresholds, red-flag definitions, method sources, and design notes.
+- **SCORING_GUIDE** — plain-language 1/3/5 anchors for every criterion, editable weights and thresholds, red- and yellow-flag definitions, method sources, and design notes.
 
-**Score:** Likelihood (weighted average of the five 1–5 criteria: 25/25/20/20/10)
-× Impact (1–5) = Risk 1–25. Bands: ≥15 CRITICAL, 7–14.9 MONITOR, <7 LOW.
-Any red flag (permit lapse, EOL, stop-ship, supplier exiting, stock-out before
-recovery, capacity exceeded) forces CRITICAL regardless of the numbers.
+**Score:** Likelihood (weighted average of the five 1–5 criteria: 25/25/20/20/10,
++1 if a Yellow Flag is set, capped at 5) × Impact (1–5) = Risk 1–25.
+Bands: ≥15 CRITICAL, 7–14.9 MONITOR, <7 LOW.
+Any **red flag** (permitting issues, stop-ship, recall, cert lapse, supplier
+exiting, insolvency, EOL, stock-out before recovery, capacity exceeded,
+import block) forces CRITICAL regardless of the numbers. **Yellow flags** are
+early warnings (welfare violations, poor communication, lack of transparency,
+late deliveries, declining quality, key-person risk, financial warning signs…)
+that nudge the score up in proportion to the part's impact. Both flag lists are
+editable on the LISTS sheet — dropdowns update automatically.
 
 ## Why this design (sources)
 
