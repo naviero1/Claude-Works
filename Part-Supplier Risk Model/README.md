@@ -15,22 +15,21 @@ It replaces two earlier attempts:
 
 - **MODELS** — one row per model/project (with or without tissue parts) plus its
   production volume per quarter. Rolls up counts and band automatically.
-- **SUPPLIERS** — each supplier scored **once** on two 1–5 criteria (Supplier Stability, External Factors) plus **supplier-level flags** (2 red + 3 yellow slots): bankruptcy, permitting issues, welfare violations, communication problems, ownership changes… A supplier flag automatically affects **every part row of that supplier** — a red makes them all CRITICAL, each yellow adds +1 likelihood to all of them.
-- **PART_RISK** — one row per part–supplier combo. Enter: model, part, type (Tissue APHIS / Tissue Non-APHIS / Non-Tissue Custom / Non-Tissue COTS), quantity per model, supplier, three part-level 1–5 scores (Sourcing & Backup, Quality & Compliance, Capacity), Impact (1–5), and **part-level flags** (2 red + 3 yellow slots): EOL, stop-ship, this part's stock-out or capacity — affecting only that row. Inherited supplier flags display in an auto column. Quarterly consumption (qty × model volume) computes automatically.
+- **SUPPLIERS** — each supplier scored **once**: two **base** 1–5 scores (Stability, External Factors) plus flags (2 red + 3 yellow slots). Flags are supplier-level only. Each yellow flag automatically bumps the score it affects — routed by an editable "Affects" tag on LISTS — into **adjusted** Stability/External columns (+1 per flag, capped at 5), which is what part rows inherit through the normal 20%/10% weights. Any red flag (bankruptcy, permitting issues, recall, stop-ship, site loss…) makes **every part row of that supplier** CRITICAL.
+- **PART_RISK** — one row per part–supplier combo. Enter: model, part, type (Tissue APHIS / Tissue Non-APHIS / Non-Tissue Custom / Non-Tissue COTS), quantity per model, supplier, three part-level 1–5 scores (Sourcing & Backup, Quality & Compliance, Capacity), and Impact (1–5). Part-specific emergencies are scored, not flagged: EOL → Sourcing 5, stop-ship on one part → Quality 5, noted in Mitigation/Notes. Inherited supplier flags display in an auto column. Quarterly consumption (qty × model volume) computes automatically.
 - **DASHBOARD** — portfolio KPIs, risk by model, a model selector that lists the selected model's parts ranked by risk (red flags always on top), and the Top 10 risks across all models.
 - **SCORING_GUIDE** — plain-language 1/3/5 anchors for every criterion, editable weights and thresholds, red- and yellow-flag definitions, method sources, and design notes.
 
 **Score:** Likelihood (weighted average of the five 1–5 criteria: 25/25/20/20/10,
-+1 per Yellow Flag set, capped at 5) × Impact (1–5) = Risk 1–25.
-Bands: ≥15 CRITICAL, 7–14.9 MONITOR, <7 LOW.
-Any **red flag** — part-level (stop-ship, EOL, stock-out before recovery,
-capacity exceeded) or supplier-level (permitting issues, recall, cert lapse,
-exiting, insolvency, import block, site loss) — forces CRITICAL regardless of
-the numbers. **Yellow flags** are early warnings at either level (welfare
-violations, poor communication, lack of transparency, declining quality on a
-part, key-person risk, financial warning signs…) that nudge the score up in
-proportion to the part's impact. All four flag lists are editable on the LISTS
-sheet — dropdowns update automatically.
+using each supplier's adjusted Stability/External scores) × Impact (1–5) =
+Risk 1–25. Bands: ≥15 CRITICAL, 7–14.9 MONITOR, <7 LOW.
+Any **red flag** on a supplier (permitting issues, stop-ship, recall, cert
+lapse, exiting, insolvency, import block, site loss) forces all its rows
+CRITICAL regardless of the numbers. **Yellow flags** are early warnings
+(welfare violations, poor communication, financial warning signs, weather
+exposure, logistics disruption…) that raise the supplier score they're
+evidence for. Base = steady state, flags = current events — never both for the
+same thing. Flag lists and their routing are editable on the LISTS sheet.
 
 ## Why this design (sources)
 
