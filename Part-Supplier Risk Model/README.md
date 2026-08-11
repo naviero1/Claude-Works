@@ -41,3 +41,15 @@ same thing. Flag lists and their routing are editable on the LISTS sheet.
 
 Example data (2 models, 6 suppliers, 6 part rows, all marked EXAMPLE) shows the
 format — replace it with real data.
+
+## Companion: Supplier_Scorecard.xlsx
+
+`Supplier_Scorecard.xlsx` logs per-project supplier performance (Cost, Quality,
+Lead time, Responsiveness → weighted Overall). Its **PART_RISK tab** outputs
+part-risk rows in the **same A–T column format** as the master model's
+PART_RISK sheet, so scored rows copy straight across (paste as values) — the
+two tools aren't islands. Supplier_Stability, External_Factors, Qty_per_Quarter
+and Supplier_Flags are hard entries there (the master computes them), and
+columns U–W link each row to the scorecard's own data: average Overall for the
+supplier, a Suggested_Risk starting point (6 − Overall), and the number of
+projects logged.
