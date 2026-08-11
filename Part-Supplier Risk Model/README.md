@@ -47,13 +47,16 @@ format — replace it with real data.
 `Supplier_Scorecard.xlsx` logs per-project supplier performance (Cost, Quality,
 Lead time, Responsiveness → weighted Overall). Its **Risk Suggestions tab**
 translates those averages into suggested 1–5 entries for the master model's
-PART_RISK columns, one automatic row per supplier — so the two tools aren't
-islands:
+PART_RISK columns, one row per **part–supplier combo**: label the part, pick
+the Supplier and the Process/part type that makes it, and the averages filter
+to that supplier's projects of that process (Process blank = all their
+projects) — so the two tools aren't islands:
 
-- **Quality_Compliance** ← 6 − avg Quality
-- **Capacity** ← 6 − avg Lead time
-- **Supplier_Stability** ← 6 − average(Responsiveness, Cost) — cost has no
-  part-level column in the register, but erratic pricing is stability evidence
+- **Quality_Compliance** ← 6 − avg Quality *of the combo*
+- **Capacity** ← 6 − avg Lead time *of the combo*
+- **Supplier_Stability** ← 6 − average(Responsiveness, Cost) across **all**
+  the supplier's projects — stability is about the supplier as a business, and
+  cost (no part-level column in the register) feeds it as evidence
 - Sourcing_Backup, External_Factors and Impact have no scorecard equivalent —
   scored by judgment in the master model.
 
