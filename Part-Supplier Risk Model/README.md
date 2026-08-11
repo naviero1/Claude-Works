@@ -47,10 +47,10 @@ format — replace it with real data.
 `Supplier_Scorecard.xlsx` logs per-project supplier performance (Cost, Quality,
 Lead time, Responsiveness → weighted Overall). Its **Risk Suggestions tab**
 translates those averages into suggested 1–5 entries for the master model's
-PART_RISK columns, one row per **part–supplier combo**: label the part, pick
-the Supplier and the Process/part type that makes it, and the averages filter
-to that supplier's projects of that process (Process blank = all their
-projects) — so the two tools aren't islands:
+PART_RISK columns, **fully automatically**: every distinct Part + Supplier pair
+in the Score Log gets exactly one line (log projects one row per part and
+combos appear by themselves), with averages filtered to that combo — so the
+two tools aren't islands:
 
 - **Quality_Compliance** ← 6 − avg Quality *of the combo*
 - **Capacity** ← 6 − avg Lead time *of the combo*
