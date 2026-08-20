@@ -13,6 +13,7 @@ Incoming-quality-control (IQC) data for tissue harvested at the slaughterhouse (
 | `Slaughterhouse IQC` | The core: one product-agnostic **Inspection Log** — one row per part per harvest date, all tissue types (Pelvic 666541/506/518, Thoracic 666521, …). Then **Totals by Tissue Type** + a grand total, an **ATM Receipt Comparison** placeholder (for future ATM data), and data notes. |
 | `Quality Dashboard` | Live first-pass-yield views by **Tissue Type**, by **Part**, and by **Slaughterhouse**, with FPY/scrap heatmaps and a tissue/part read. All figures pull live from the Inspection Log. |
 | `Monthly Breakdown` | Month-by-month (Apr–Aug) view per tissue × slaughterhouse × part combo: FPY + fails overview matrices, then a detail block per combo with volumes and **issues found**, normalized into standard defect categories (urethra/bladder, membrane, bowel, short/mesentery, critical-area, ureter, lung, heart, other). Volume rows live; defect tags analyst-coded from scrap notes. |
+| `Apr 2026` … `Aug 2026` | One tab per month: month summary by tissue × slaughterhouse (with top defect), the month's most recurring defects ranked per combo (count, % of fails, data bars), and the full list of that month's inspections. Static snapshots — extend with a new month tab as data arrives. |
 | `SmartAssessment` | Working analyst notes: stage/yield model, root-cause findings, spec corrections, caveats, next steps. Verify with Quality before external use. (May lag the latest data.) |
 | `Defect Atlas` | Visual reference per defect category (photos). |
 
