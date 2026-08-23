@@ -67,7 +67,7 @@ process-only (read by humans during the engagement, never computed on).
 | `goal_id` | 1 | Immutable key (G1…), assigned at creation; the only way anything refers to this goal, so renames never break links. | The busiest key in the model: topic→goal attribution, GoalLens picker, claims matching, alignment matrix, involvement flags. | **Core.** |
 | `name` | 1 | The outcome statement — a result with a number ("Reduce supplier defect rate 30%"), never an activity — confirmed by the goal owner at sign-off. | No formula (display label). ⚠ In the **lite** workbook names ARE the join keys — a rename there breaks references. v2: one key (`goal_id`), one label, both editions. | **Keep.** |
 | `owner_actor_id` | 1 | The single person accountable for the outcome, who signs off the goal's required-flow set in conversation (catchball) and receives its findings first. | Nothing computes on it — consumption is procedural (sign-off, findings routing). Cheap v2 win: check "owner absent from the goal's own stakeholder set." | **Keep.** |
-| `priority` | 3 | The sponsor's ranking of goals for scoping order. **Not** part of defect ranking. | **Nothing.** No formula, no view sorts by it. | **Demote + rename** to `rank` — it name-collides with the computed Flow `priority`, the model's worst vocabulary trap. |
+| `goal_class` | 1 | **DECIDED (Oscar, 2026-08-23), replaces the old 1–n `priority` rank:** two-value classification with a membership test — `core` (structural, cost, business-critical: affects the company's sustainability in the short/medium term) vs. `aspirational` (important but not sustainability-critical: career growth, development, culture). Binary and definition-anchored like CR1–CR6, so a sponsor can actually make and defend the call. Ancestry: OKR committed vs. aspirational; Hoshin breakthrough vs. daily management; run-vs-grow the business. | **Wiring (decided): grouping + scoping.** Findings BY GOAL and GoalLens band `core` goals first; each goal wears its class badge; capture waves sequence core → aspirational. The class never gates verdicts (an aspirational goal's theater is still theater, its SPOF still a SPOF) and does not multiply into the defect score for now — revisit a multiplier after pilot data. | **Core.** Resolves R5: the word "priority" now belongs exclusively to the computed Flow defect score. |
 
 ### 2.2 Topic — the controlled vocabulary
 
@@ -264,9 +264,9 @@ columns around them that are pure engine plumbing (§4.2).
 - **R4 — Externality is encoded twice on Actor** (`kind='external'` and
   `group='External'`), and `kind`'s value "group" collides with the *field*
   `group`. Fix: `function` (swim-lane, incl. External) + `kind {person|team}`.
-- **R5 — Two unrelated "priorities."** Goal's inert input vs. Flow's computed
-  defect score. Verified resolution: rename the **Goal** side (`rank`) — the
-  published method vocabulary already owns "priority" for the defect score.
+- **R5 — Two unrelated "priorities." RESOLVED (Oscar, 2026-08-23):** the Goal
+  side becomes `goal_class {core | aspirational}` (see §2.1) — the word
+  "priority" now belongs exclusively to the computed Flow defect score.
 - **R6 — `state` is informally duplicated by the FR/FA id prefix.** Keep IDs
   opaque; `state` is authoritative.
 - **R7 — Engine plumbing masquerading as model.** The MAX+1 rank idiom exists
@@ -300,7 +300,7 @@ columns around them that are pure engine plumbing (§4.2).
 
 ### 4.3 Fields no formula and no view reads (process-only by fact)
 
-`Goal.priority` · `Actor.role` · `Actor.kind` · `Actor.power` ·
+`Goal.priority` (now resolved → `goal_class`, §2.1) · `Actor.role` · `Actor.kind` · `Actor.power` ·
 `Actor.interest` · `Channel.type` · `Ritual.inputs` · `Ritual.outputs` ·
 `Decision.topic_id`* · `Decision.responsible` · `Decision.consulted` ·
 `Decision.informed` — (*promoted to the anchor in v2, §2.9.)
@@ -376,7 +376,7 @@ and the analyst discovers Tiers 2–3 when they need them.
 Six stored entities — everything else computed:
 
 ```
-Goal(id, name, owner→Actor, rank°)                       ° = process-only tier
+Goal(id, name, owner→Actor, class{core|aspirational})    ° = process-only tier
 Actor(id, name, function, kind{person|team}, role°, power°, interest°)
 Topic(id, name, goal→Goal, operation°, description°)
 Venue = Meeting(id, name, owner→Actor, attendees[→Actor], cadence,
