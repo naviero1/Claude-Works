@@ -136,7 +136,7 @@
           "pick": "text",
           "emit_label": "Audience & deadline",
           "guidance": "Who sees it, how long they'll give it, and when it's due.",
-          "placeholder": "e.g., 'QDR attendees, ~3 minutes on this; due 2 business days before the review'",
+          "placeholder": "e.g., 'review-meeting attendees, ~3 minutes on this; due 2 business days before the review'",
           "options": []
         },
         {

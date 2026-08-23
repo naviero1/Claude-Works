@@ -224,7 +224,7 @@ Same element as generative Context; the agentic difference is *coverage pressure
 answer touches your domain once; an agent touches it at every step, so every unstated quirk
 gets stepped on. The glossary becomes a **controlled vocabulary** (the agent will otherwise
 happily compute three subtly different "yields"), and each known quirk carries its rule
-("Parks records PN 668518; it means 666518 — map it"). Failure prevented: silent invented
+("Site B records this part under a legacy code — map it to the canonical part number"). Failure prevented: silent invented
 fixes — the most expensive class of agent error because they look like diligence.
 
 ## `<environment>` — the workspace contract

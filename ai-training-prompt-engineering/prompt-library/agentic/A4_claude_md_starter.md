@@ -42,7 +42,7 @@ Owner: {{name}} · Started: {{date}} · Status log: CHANGES.md
   or adding a new dependency/tool.
 
 ## Known quirks (read before touching data)
-- {{quirk → rule, e.g., "Site B sheets record PN 668518; it means 666518 — map it"}}
+- {{quirk → rule, e.g., "Site B sheets record part {{PN-X}} under a legacy code — map it to {{PN-Y}}"}}
 - {{quirk → rule}}
 
 ## Common commands / recurring jobs

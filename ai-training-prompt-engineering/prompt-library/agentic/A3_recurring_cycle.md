@@ -16,7 +16,7 @@ Run the {{job name}} cycle per the standing brief in {{path/to/brief.md — or "
 instructions"}}. Everything in the brief holds unless changed below.
 
 <this_cycle>
-Cycle: {{e.g., "QDR August 2026" | "week of 2026-08-17"}}
+Cycle: {{e.g., "monthly quality review — August 2026" | "week of 2026-08-17"}}
 New/changed inputs only:
 - {{S1: new files at path/..., covering {{dates}}}}
 - {{S2: unchanged}}
