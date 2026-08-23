@@ -23,9 +23,27 @@ make *after* the pilot proves the method, not before. The v2 stored model
 (six entities) is deliberately the schema such an app would use, so nothing
 done now is throwaway.
 
-**The bridge ritual:** finish capture → the Start tab's Data Health panel is
-green → run one command (`python3 analysis/run_analysis.py`) → send
-`dashboard.html`. For Excel-only users, the Results tabs *are* the dashboard.
+**The bridge — how the spreadsheet connects to the dashboard.** Two modes:
+
+- *Developer mode (personal machine):* the Python pipeline regenerates
+  everything from the data (`run_analysis.py`) — ground truth, verifiers,
+  SVG maps. This is how the tool is built and tested; it is not required to
+  use the tool.
+- *Field mode (any locked-down work laptop):* `dashboard.html` **reads the
+  workbook directly in the browser**. The page embeds a small xlsx parser
+  (SheetJS, inlined — the file stays self-contained); the user opens
+  `dashboard.html`, clicks **Load workbook** (or drags the .xlsx onto it),
+  and the dashboard renders. No Python, no install, no macros, no IT ticket.
+
+  The key architectural rule: the dashboard reads the workbook's **cached
+  computed values** — the verdicts the workbook's own formulas already
+  produced (Excel saves them with the file) — it never re-implements the
+  model in JavaScript. The workbook stays the single engine; the dashboard
+  stays a view; there is no fourth implementation to keep in agreement.
+
+  An **Export snapshot** button produces `dashboard_<date>.html` with the
+  data baked in — a frozen, read-only copy to email or drop on SharePoint
+  for B. (Browser-side downloads work fine in a locally opened file.)
 
 ## 2 · The structural principle: organize by journey, not by schema
 
@@ -98,7 +116,39 @@ ground truth with the three verifier suites, and the single-file dashboard.
 This blueprint rearranges the furniture; the engine and the method are the
 dictionary's job and they carry over intact.
 
-## 5 · Build order
+## 5 · Running it from a work computer
+
+The whole tool deploys as **two files** — `comms_assessment.xlsx` +
+`dashboard.html` — moved once to the work laptop by whatever the policy
+allows (OneDrive, email-to-self, USB). Then:
+
+1. Capture in Excel as designed; save. The Data Health panel gates readiness.
+2. Double-click `dashboard.html` (opens in Edge/Chrome). **Load workbook** →
+   pick the saved .xlsx. The dashboard renders from the workbook's own
+   computed verdicts. A **Reload** button re-reads the file after each save.
+3. **Export snapshot** → dated, read-only HTML with data baked in → send to B.
+
+Options ladder if more tooling is allowed at work:
+
+| Option | Needs | Verdict |
+|---|---|---|
+| Browser-reader dashboard (above) | Nothing but Excel + a browser | **Default. Works everywhere.** |
+| Per-user Python (python.org installer installs to AppData without admin; or the embeddable zip) | IT policy that tolerates it | Unlocks the full pipeline (SVG maps, verifiers) at work. Nice-to-have, never required. |
+| VBA / Office Scripts export button | Macro policy / M365 permissions | Not recommended — macros are commonly blocked and it adds moving parts the browser reader makes unnecessary. |
+
+Two practical caveats: an *emailed* HTML file may trigger a one-time
+SmartScreen/Mark-of-the-Web warning (it still runs — it's static HTML+JS);
+and some SharePoint configurations download .html instead of rendering it —
+B may need to open the downloaded file.
+
+**Data governance (matters once the pilot is real):** today everything is
+synthetic, so developing on the personal machine is fine. The moment real
+company data enters the workbook, the entire loop must live on the work
+machine — which is exactly what the two-file, zero-install design makes
+possible. Develop on personal with Star Wars data; deploy the two files to
+work; real data never leaves the corporate environment.
+
+## 6 · Build order
 
 1. Generator restructure (`make_workbook.py`): journey tabs, hidden Engine
    sheet, name-keyed dropdowns, Data Health panel, goal_class banding.
