@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comms Assessment Dashboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#FAF8F3; --card:#FFFFFF; --ink:#23282E; --ink-2:#5C636B; --ink-3:#8A9099;
+  --line:#E4E0D6; --line-soft:#EEEBE2;
+  --accent:#1C5CAB; --accent-ink:#FFFFFF; --accent-soft:#EAF1FA;
+  --input-bg:#FFF7DE; --input-bd:#D9C58A; --input-ink:#6B5717;
+  --st-missing:#D03B3B; --st-missing-ink:#FFFFFF;
+  --st-warn:#EC835A; --st-warn-ink:#3A1A0C;
+  --st-mild:#F5C6A5; --st-mild-ink:#4A2E1A;
+  --st-ok:#DDF0DD; --st-ok-ink:#2E6B2E;
+  --red-ink:#9E2626; --bar-track:#EDEAE1;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --slab:'Bitter',Georgia,serif;
+  --body:'Source Sans 3','Segoe UI',system-ui,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#15181C; --card:#1C2026; --ink:#E6E4DF; --ink-2:#A7ADB5; --ink-3:#767D86;
+    --line:#2E333A; --line-soft:#262B31;
+    --accent:#7FB0E8; --accent-ink:#0F1725; --accent-soft:#1E2C3E;
+    --input-bg:#37301C; --input-bd:#6B5D33; --input-ink:#E8D48E;
+    --st-missing:#B84848; --st-missing-ink:#FFF2F2;
+    --st-warn:#C97A55; --st-warn-ink:#2A1207;
+    --st-mild:#8A6A4E; --st-mild-ink:#F5E4D4;
+    --st-ok:#2C4A2C; --st-ok-ink:#B9E2B9;
+    --red-ink:#EDA1A1; --bar-track:#262B31;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+main{max-width:1180px;margin:0 auto;padding:0 20px 80px}
+h1{font-family:var(--slab);font-size:1.35rem;font-weight:700;margin:0;line-height:1.2}
+h2{font-family:var(--slab);font-size:1.05rem;font-weight:700;margin:34px 0 10px}
+a{color:var(--accent)}
+button{font-family:var(--body);font-size:.86rem;font-weight:600;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button:hover{filter:brightness(.97)}
+button:disabled{opacity:.45;cursor:default}
+select{font-family:var(--body);font-size:.86rem;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 10px}
+button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* top bar */
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:16px 0 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:10}
+.bar .file{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);margin-left:2px;flex:1 1 200px;min-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .grow{flex:1 1 auto}
+#snapshotBanner{display:none;background:var(--input-bg);border:1px solid var(--input-bd);color:var(--input-ink);border-radius:6px;padding:8px 14px;font-size:.85rem;margin:14px 0 0}
+/* dropzone */
+#dropzone{margin:36px auto;max-width:640px;border:2px dashed var(--line);border-radius:12px;background:var(--card);padding:48px 32px;text-align:center}
+#dropzone.drag{border-color:var(--accent);background:var(--accent-soft)}
+#dropzone .big{font-family:var(--slab);font-size:1.2rem;font-weight:700;margin-bottom:8px}
+#dropzone p{color:var(--ink-2);margin:.4em auto;max-width:46ch}
+#dropzone .hint{font-size:.8rem;color:var(--ink-3)}
+/* kpis */
+.kpis{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.kpi{flex:1 1 130px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.kpi .n{font-family:var(--slab);font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi .l{font-size:.76rem;color:var(--ink-2);margin-top:3px}
+.kpi.bad .n{color:var(--red-ink)}
+#health{display:none;margin-top:12px;background:var(--card);border:1px solid var(--input-bd);border-left:4px solid var(--input-bd);border-radius:6px;padding:10px 16px;font-size:.85rem;color:var(--ink-2)}
+#health strong{color:var(--input-ink)}
+/* tables */
+.tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th{font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+td.mono{font-family:var(--mono);font-size:.76rem;white-space:nowrap}
+td.dim{color:var(--ink-2)}
+.chip{display:inline-block;font-family:var(--mono);font-size:.66rem;border-radius:4px;padding:1px 7px;white-space:nowrap}
+.chip.missing{background:var(--st-missing);color:var(--st-missing-ink)}
+.chip.warn{background:var(--st-warn);color:var(--st-warn-ink)}
+.chip.mild{background:var(--st-mild);color:var(--st-mild-ink)}
+.chip.ok{background:var(--st-ok);color:var(--st-ok-ink)}
+.chip.neutral{background:var(--bar-track);color:var(--ink-2)}
+.chip.claim{background:var(--input-bg);border:1px solid var(--input-bd);color:var(--input-ink)}
+.chip.coreclass{background:var(--accent);color:var(--accent-ink)}
+/* bars */
+.barcell{display:flex;align-items:center;gap:8px;min-width:130px}
+.track{flex:1;height:8px;background:var(--bar-track);border-radius:4px;overflow:hidden}
+.fill{height:100%;border-radius:4px;background:var(--accent)}
+.fill.low{background:var(--st-warn)}
+.pct{font-variant-numeric:tabular-nums;font-size:.8rem;color:var(--ink-2);min-width:38px;text-align:right}
+.empty-note{color:var(--ink-3);font-size:.85rem;padding:14px 16px}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;font-size:.74rem;color:var(--ink-3);font-family:var(--mono)}
+#app{display:none}
+.arrow{color:var(--ink-3)}
+@media (max-width:640px){ .kpi .n{font-size:1.35rem} }
+</style>
+</head>
+<body>
+<main>
+<div class="bar">
+  <h1>Comms Assessment</h1>
+  <span class="file" id="fileLabel">no workbook loaded</span>
+  <span class="grow"></span>
+  <label for="goalFilter" style="font-size:.8rem;color:var(--ink-2)">Goal</label>
+  <select id="goalFilter" disabled><option value="">All goals</option></select>
+  <button id="loadBtn" class="primary">Load workbook</button>
+  <button id="reloadBtn" disabled>Reload</button>
+  <button id="exportBtn" disabled>Export snapshot</button>
+  <input type="file" id="fileInput" accept=".xlsx" style="display:none">
+</div>
+<div id="snapshotBanner"></div>
+
+<div id="dropzone">
+  <div class="big">Drop your workbook here</div>
+  <p>Load <code>comms_assessment_workbook.xlsx</code> — the dashboard reads the verdicts your workbook's formulas already computed. Nothing is uploaded anywhere; everything stays in this browser.</p>
+  <p class="hint">Tip: after editing in Excel, save the file, then press <strong>Reload</strong> here.<br>Use <strong>Export snapshot</strong> to produce a frozen, read-only copy to share.</p>
+</div>
+
+<div id="app">
+  <div class="kpis" id="kpis"></div>
+  <div id="health"></div>
+
+  <h2>By goal</h2>
+  <div class="tablewrap"><table id="goalsTable"></table></div>
+
+  <h2>Top defects — fix-first order</h2>
+  <div class="tablewrap"><table id="defectsTable"></table></div>
+
+  <h2>Meetings</h2>
+  <div class="tablewrap"><table id="meetingsTable"></table></div>
+
+  <h2>Decisions</h2>
+  <div class="tablewrap"><table id="decisionsTable"></table></div>
+
+  <h2>Disputed flows — follow-up interviews</h2>
+  <div class="tablewrap"><table id="disputedTable"></table></div>
+
+  <footer id="foot"></footer>
+</div>
+</main>
+
+<script id="embedded-data" type="application/json">null</script>
+<script>/*__SHEETJS__*/</script>
+<script>
+'use strict';
+/* ============ workbook → model ============ */
+function sheetRows(wb, name){
+  const ws = wb.Sheets[name];
+  if(!ws) return [];
+  const aoa = XLSX.utils.sheet_to_json(ws, {header:1, defval:''});
+  if(!aoa.length) return [];
+  const headers = aoa[0].map(h => String(h).trim());
+  return aoa.slice(1).map(r => {
+    const o = {};
+    headers.forEach((h,i) => { if(h) o[h] = r[i] === undefined ? '' : r[i]; });
+    return o;
+  }).filter(o => Object.values(o).some(v => v !== '' && v !== null));
+}
+const S = v => String(v == null ? '' : v).trim();
+const N = v => (typeof v === 'number' && isFinite(v)) ? v : (v === '' || v == null ? null : (isFinite(+v) ? +v : null));
+const B = v => v === true || S(v).toLowerCase() === 'true';
+
+function buildModel(wb, fileName){
+  const goals    = sheetRows(wb,'Goals');
+  const topics   = sheetRows(wb,'Topics');
+  const actors   = sheetRows(wb,'Stakeholders');
+  const rituals  = sheetRows(wb,'Rituals');
+  const flows    = sheetRows(wb,'Flows');
+  const carriers = sheetRows(wb,'Carriers');
+  const decisions= sheetRows(wb,'Decisions');
+  const align    = sheetRows(wb,'Alignment');
+  if(!flows.length || !goals.length) throw new Error('This file does not look like the assessment workbook (missing Goals/Flows sheets).');
+
+  const topicById = {}; topics.forEach(t => topicById[S(t.topic_id)] = t);
+  const actorById = {}; actors.forEach(a => actorById[S(a.actor_id)] = a);
+  const ritualById= {}; rituals.forEach(r => ritualById[S(r.ritual_id)] = r);
+  const tn = id => (topicById[S(id)] || {}).name || S(id);
+  const an = id => (actorById[S(id)] || {}).name || S(id);
+
+  const required = flows.filter(f => S(f.state) === 'required');
+  const actual   = flows.filter(f => S(f.state) === 'actual');
+  const scored   = required.filter(f => S(f.status) !== '');
+  const covered  = scored.filter(f => S(f.status) === 'covered');
+  const defects  = scored.filter(f => S(f.status) !== 'covered')
+    .map(f => ({ goal:S(f.goal), topic:tn(f.topic_id), from:an(f.from_actor), to:an(f.to_actor),
+                 crit:N(f.criticality), status:S(f.status), priority:N(f.priority),
+                 carriers: carriers.filter(c => S(c.flow_id) && actual.some(a2 => S(a2.flow_id)===S(c.flow_id) && S(a2.topic_id)===S(f.topic_id) && S(a2.to_actor)===S(f.to_actor))).length }))
+    .sort((a,b) => (b.priority||0) - (a.priority||0));
+  const disputed = actual.filter(f => S(f.confidence) === 'disputed')
+    .map(f => ({ topic:tn(f.topic_id), from:an(f.from_actor), to:an(f.to_actor), evidence:S(f.evidence), goal:S(f.goal) }));
+
+  const alignRows = align.filter(r => S(r.verdict) && S(r.verdict) !== '—' && S(r.verdict) !== '-')
+    .map(r => ({ goal:S(r.goal_id), ritual:S(r.ritual_id), ritualName:S(r.ritual) || (ritualById[S(r.ritual_id)]||{}).name || S(r.ritual_id),
+                 claimed:B(r.claimed), carried:(N(r.flows_carried)||0) + (N(r.decisions_decided)||0), verdict:S(r.verdict) }));
+
+  const goalRows = goals.map(g => {
+    const gid = S(g.goal_id);
+    const mine = scored.filter(f => S(f.goal) === gid);
+    const cov  = mine.filter(f => S(f.status) === 'covered').length;
+    return { id:gid, name:S(g.name), owner:an(g.owner_actor_id),
+             cls: S(g.goal_class || ''),
+             required: mine.length, covered: cov,
+             defects: mine.length - cov,
+             theater: alignRows.filter(a => a.goal===gid && a.verdict==='claims_no_contribution').length,
+             unclaimed: alignRows.filter(a => a.goal===gid && a.verdict==='unclaimed_contributor').length };
+  }).sort((a,b) => (a.cls==='aspirational') - (b.cls==='aspirational'));
+
+  const meetingRows = rituals.map(r => {
+    const rid = S(r.ritual_id);
+    return { id:rid, name:S(r.name), cadence:S(r.cadence), dur:N(r.duration_min),
+             attendees: S(r.attendee_ids) ? S(r.attendee_ids).split(';').filter(Boolean).length : 0,
+             pct: N(r.criteria_pct), failed:S(r.failed_criteria),
+             cls: S(r.classification), cost: N(r.person_min_per_wk),
+             align: alignRows.filter(a => a.ritual === rid) };
+  });
+
+  const decisionRows = decisions.map(d => ({
+    name:S(d.name), goal:S(d.goal_id), accountable:S(d.accountable) ? an(d.accountable) : '—',
+    venue: S(d.actual_venue_type)==='ritual' ? ((ritualById[S(d.actual_venue_id)]||{}).name || S(d.actual_venue_id)) : S(d.actual_venue_type),
+    defect:S(d.defect) }));
+
+  // data-health notes (capture completeness, not model logic)
+  const incompleteReq = required.length - scored.length;
+  const actualNoCarrier = actual.filter(f => S(f.confidence)!=='disputed' && !carriers.some(c => S(c.flow_id) === S(f.flow_id))).length;
+  const unscoredMeetings = rituals.filter(r => N(r.criteria_pct) === null).length;
+
+  return {
+    meta: { file:fileName, generated:new Date().toISOString().slice(0,10) },
+    kpis: {
+      coverage: scored.length ? covered.length/scored.length : null,
+      defects: defects.length,
+      theater: alignRows.filter(a => a.verdict==='claims_no_contribution').length,
+      unclaimed: alignRows.filter(a => a.verdict==='unclaimed_contributor').length,
+      decisionDefects: decisionRows.filter(d => d.defect && d.defect!=='aligned').length,
+      disputed: disputed.length
+    },
+    health: { incompleteReq, actualNoCarrier, unscoredMeetings },
+    goals: goalRows, defects, meetings: meetingRows, decisions: decisionRows, disputed
+  };
+}
+
+/* ============ render ============ */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const pctStr = v => v==null ? '—' : Math.round(v*100) + '%';
+function statusChip(st){
+  const cls = st==='missing' ? 'missing' : (st==='wrong_producer'||st==='latency_gap') ? 'warn' : st==='channel_mismatch' ? 'mild' : 'ok';
+  return `<span class="chip ${cls}">${esc(st)}</span>`;
+}
+function verdictChip(v){
+  if(v==='claims_no_contribution') return '<span class="chip missing">theater</span>';
+  if(v==='unclaimed_contributor')  return '<span class="chip warn">unclaimed</span>';
+  return '<span class="chip ok">aligned</span>';
+}
+function clsChip(c){
+  if(c==='VA') return '<span class="chip ok">VA</span>';
+  if(c==='necessary_NVA') return '<span class="chip mild">necessary NVA</span>';
+  if(c==='NVA') return '<span class="chip missing">NVA</span>';
+  return '<span class="chip neutral">—</span>';
+}
+function bar(v){
+  if(v==null) return '<span class="pct">—</span>';
+  const p = Math.round(v*100);
+  return `<div class="barcell"><div class="track"><div class="fill${p<50?' low':''}" style="width:${p}%"></div></div><span class="pct">${p}%</span></div>`;
+}
+
+let MODEL = null, FILTER = '';
+function render(){
+  const m = MODEL; if(!m) return;
+  $('dropzone').style.display = 'none';
+  $('app').style.display = 'block';
+  $('goalFilter').disabled = false;
+  $('exportBtn').disabled = false;
+  $('fileLabel').textContent = m.meta.file + ' · read ' + m.meta.generated;
+
+  const k = m.kpis;
+  $('kpis').innerHTML = [
+    ['Coverage', pctStr(k.coverage), k.coverage!=null && k.coverage < .8],
+    ['Open defects', k.defects, k.defects>0],
+    ['Theater claims', k.theater, k.theater>0],
+    ['Unclaimed', k.unclaimed, false],
+    ['Decision defects', k.decisionDefects, k.decisionDefects>0],
+    ['Disputed', k.disputed, false],
+  ].map(([l,n,bad]) => `<div class="kpi${bad?' bad':''}"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+
+  const h = m.health, notes = [];
+  if(h.incompleteReq) notes.push(`<strong>${h.incompleteReq}</strong> required flow${h.incompleteReq>1?'s':''} incomplete (no status — missing topic, latency, or channel class)`);
+  if(h.actualNoCarrier) notes.push(`<strong>${h.actualNoCarrier}</strong> actual flow${h.actualNoCarrier>1?'s':''} with no carrier (reads as latency gap — add where it travels)`);
+  if(h.unscoredMeetings) notes.push(`<strong>${h.unscoredMeetings}</strong> meeting${h.unscoredMeetings>1?'s':''} not yet scored on the six criteria`);
+  $('health').style.display = notes.length ? 'block' : 'none';
+  $('health').innerHTML = notes.length ? 'Data health: ' + notes.join(' · ') : '';
+
+  const gsel = $('goalFilter');
+  if(gsel.options.length <= 1){
+    m.goals.forEach(g => { const o = document.createElement('option'); o.value=g.id; o.textContent = g.id + ' — ' + g.name; gsel.appendChild(o); });
+  }
+
+  const hasCls = m.goals.some(g => g.cls);
+  $('goalsTable').innerHTML =
+    `<tr><th>goal</th>${hasCls?'<th>class</th>':''}<th>name</th><th>owner</th><th style="text-align:right">required</th><th style="text-align:right">covered</th><th>coverage</th><th style="text-align:right">defects</th><th style="text-align:right">theater</th><th style="text-align:right">unclaimed</th></tr>` +
+    m.goals.map(g => {
+      const dimmed = FILTER && g.id !== FILTER ? ' style="opacity:.4"' : '';
+      const cls = hasCls ? `<td>${g.cls ? (g.cls==='core' ? '<span class="chip coreclass">core</span>' : '<span class="chip claim">aspirational</span>') : ''}</td>` : '';
+      return `<tr${dimmed}><td class="mono">${esc(g.id)}</td>${cls}<td>${esc(g.name)}</td><td class="dim">${esc(g.owner)}</td><td class="num">${g.required}</td><td class="num">${g.covered}</td><td>${bar(g.required?g.covered/g.required:null)}</td><td class="num">${g.defects||''}</td><td class="num">${g.theater||''}</td><td class="num">${g.unclaimed||''}</td></tr>`;
+    }).join('');
+
+  const defs = m.defects.filter(d => !FILTER || d.goal === FILTER);
+  $('defectsTable').innerHTML = defs.length ?
+    `<tr><th>#</th><th>goal</th><th>topic</th><th>required from</th><th></th><th>to</th><th style="text-align:right">crit</th><th>status</th><th style="text-align:right">priority</th></tr>` +
+    defs.map((d,i) => `<tr><td class="num dim">${i+1}</td><td class="mono">${esc(d.goal)}</td><td class="mono">${esc(d.topic)}</td><td>${esc(d.from)}</td><td class="arrow">→</td><td>${esc(d.to)}</td><td class="num">${d.crit??''}</td><td>${statusChip(d.status)}</td><td class="num"><strong>${d.priority??''}</strong></td></tr>`).join('')
+    : '<tr><td class="empty-note">No open defects for this selection — every required flow is covered.</td></tr>';
+
+  const mts = m.meetings.filter(r => !FILTER || r.align.some(a => a.goal === FILTER));
+  $('meetingsTable').innerHTML = mts.length ?
+    `<tr><th>meeting</th><th>cadence</th><th style="text-align:right">min</th><th style="text-align:right">people</th><th>criteria</th><th>class</th><th style="text-align:right">cost /wk</th><th>goal alignment</th></tr>` +
+    mts.map(r => {
+      const av = r.align.filter(a => !FILTER || a.goal === FILTER)
+        .map(a => `<span class="chip claim">${esc(a.goal)}</span> ${verdictChip(a.verdict)}`).join(' &nbsp; ');
+      return `<tr><td>${esc(r.name)}</td><td class="dim">${esc(r.cadence)}</td><td class="num">${r.dur??''}</td><td class="num">${r.attendees||''}</td><td>${bar(r.pct)}</td><td>${clsChip(r.cls)}</td><td class="num">${r.cost!=null?r.cost.toLocaleString():''}</td><td>${av || '<span class="dim">—</span>'}</td></tr>`;
+    }).join('')
+    : '<tr><td class="empty-note">No meetings touch this goal.</td></tr>';
+
+  const dcs = m.decisions.filter(d => !FILTER || d.goal === FILTER);
+  $('decisionsTable').innerHTML = dcs.length ?
+    `<tr><th>decision</th><th>goal</th><th>accountable</th><th>actually decided in</th><th>verdict</th></tr>` +
+    dcs.map(d => {
+      const chip = !d.defect || d.defect==='aligned' ? '<span class="chip ok">aligned</span>' : `<span class="chip missing">${esc(d.defect)}</span>`;
+      return `<tr><td>${esc(d.name)}</td><td class="mono">${esc(d.goal)}</td><td>${esc(d.accountable)}</td><td class="dim">${esc(d.venue)}</td><td>${chip}</td></tr>`;
+    }).join('')
+    : '<tr><td class="empty-note">No decisions recorded for this selection.</td></tr>';
+
+  const dsp = m.disputed.filter(d => !FILTER || d.goal === FILTER);
+  $('disputedTable').innerHTML = dsp.length ?
+    `<tr><th>topic</th><th>producer says</th><th></th><th>consumer says</th><th>evidence noted</th></tr>` +
+    dsp.map(d => `<tr><td class="mono">${esc(d.topic)}</td><td>${esc(d.from)}</td><td class="arrow">→</td><td>${esc(d.to)}</td><td class="dim">${esc(d.evidence)}</td></tr>`).join('')
+    : '<tr><td class="empty-note">No disputed flows — producers and consumers agree.</td></tr>';
+
+  $('foot').textContent = 'Rendered from the workbook’s own computed verdicts · ' + m.meta.file + ' · ' + m.meta.generated + ' · nothing left this browser';
+}
+
+/* ============ load & reload ============ */
+let fileHandle = null;
+async function parseArrayBuffer(buf, name){
+  const wb = XLSX.read(buf, {type:'array'});
+  MODEL = buildModel(wb, name);
+  FILTER = ''; $('goalFilter').value = '';
+  render();
+}
+async function loadViaPicker(){
+  if(window.showOpenFilePicker){
+    try{
+      const [h] = await window.showOpenFilePicker({types:[{description:'Excel workbook',accept:{'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':['.xlsx']}}]});
+      fileHandle = h; $('reloadBtn').disabled = false;
+      const f = await h.getFile();
+      await parseArrayBuffer(await f.arrayBuffer(), f.name);
+      return;
+    }catch(e){ if(e && e.name === 'AbortError') return; /* fall through to input */ }
+  }
+  $('fileInput').click();
+}
+async function reload(){
+  if(fileHandle){
+    const f = await fileHandle.getFile();
+    await parseArrayBuffer(await f.arrayBuffer(), f.name);
+  } else loadViaPicker();
+}
+function wireError(fn){ return (...a) => Promise.resolve(fn(...a)).catch(err => alert('Could not read that file: ' + err.message)); }
+
+$('loadBtn').addEventListener('click', wireError(loadViaPicker));
+$('reloadBtn').addEventListener('click', wireError(reload));
+$('fileInput').addEventListener('change', wireError(async e => {
+  const f = e.target.files[0]; if(!f) return;
+  $('reloadBtn').disabled = true;
+  await parseArrayBuffer(await f.arrayBuffer(), f.name);
+  e.target.value = '';
+}));
+$('goalFilter').addEventListener('change', e => { FILTER = e.target.value; render(); });
+
+const dz = $('dropzone');
+['dragover','dragenter'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.add('drag'); }));
+['dragleave','drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove('drag'); }));
+dz.addEventListener('drop', wireError(async e => {
+  const f = e.dataTransfer.files[0]; if(!f) return;
+  await parseArrayBuffer(await f.arrayBuffer(), f.name);
+}));
+
+/* ============ snapshot ============ */
+$('exportBtn').addEventListener('click', () => {
+  if(!MODEL) return;
+  const json = JSON.stringify(MODEL).replace(/</g,'\\u003c');
+  const html = document.documentElement.outerHTML.replace(
+    /<script id="embedded-data" type="application\/json">[\s\S]*?<\/script>/,
+    '<script id="embedded-data" type="application/json">' + json + '<\/script>');
+  const blob = new Blob(['<!doctype html>\n' + html], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'comms_dashboard_' + MODEL.meta.generated + '.html';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+});
+
+/* snapshot boot */
+(function(){
+  let data = null;
+  try{ data = JSON.parse($('embedded-data').textContent); }catch(e){}
+  if(data){
+    MODEL = data;
+    ['loadBtn','reloadBtn','exportBtn'].forEach(id => $(id).style.display = 'none');
+    const b = $('snapshotBanner');
+    b.style.display = 'block';
+    b.textContent = 'Read-only snapshot · generated ' + data.meta.generated + ' from ' + data.meta.file;
+    render();
+  }
+})();
+</script>
+</body>
+</html>
