@@ -1,0 +1,330 @@
+{
+  "presets": [
+    {
+      "id": "g1_draft",
+      "name": "G1 · Writing — draft from raw material",
+      "mode": "generative",
+      "elements": ["role", "task", "context", "format", "the_out"],
+      "select": {
+        "role.identity": ["Business writer"],
+        "role.behaviors.style_behaviors": ["Headline-first", "No padding"],
+        "task.action": ["Draft"],
+        "task.audience": ["Cross-functional partner"],
+        "task.success": ["Reader knows next step"],
+        "context.material": ["Pasted below"],
+        "context.constraints": ["No new facts"],
+        "format.output_type": ["Email"],
+        "format.length": ["≤ 120 words"],
+        "format.tone.formality": ["Professional"],
+        "format.tone.directness": ["Plain and direct"],
+        "format.musts": ["No preamble"],
+        "the_out.triggers": ["Material silent"],
+        "the_out.behavior": ["Say so plainly"]
+      },
+      "custom": {
+        "task.statement": "The message must accomplish: {{what the reader should know / decide / do}}.",
+        "context.material": "\"\"\"\n{{paste the raw material: notes, thread, facts — everything relevant}}\n\"\"\""
+      }
+    },
+    {
+      "id": "g2_analysis",
+      "name": "G2 · Data analysis — trustworthy numbers",
+      "mode": "generative",
+      "elements": ["role", "task", "context", "format", "the_out", "the_stop"],
+      "select": {
+        "role.identity": ["Careful analyst"],
+        "role.behaviors.accuracy": ["Never invent", "Compute via code", "State n", "Admit limits"],
+        "role.behaviors.transparency": ["State assumptions"],
+        "task.action": ["Analyze"],
+        "task.success": ["Every question answered"],
+        "context.material": ["Attached document"],
+        "context.quirks": ["Totals row", "Manual entry"],
+        "format.output_type": ["Table"],
+        "format.structure": ["Headline first", "Facts with numbers", "Assumptions at end", "Source footer"],
+        "the_out.triggers": ["Data can't answer"],
+        "the_stop.stop_rule": ["Answer, then stop"]
+      },
+      "custom": {
+        "context.glossary": "{{METRIC}} = {{numerator}} ÷ {{denominator}} at {{grain}}; include {{…}}; exclude {{…}}.",
+        "context.rationale": "Profile the data first (rows, columns, date range, nulls, duplicate keys) and show me the profile BEFORE analyzing. Reconcile to the known total: {{anchor number and its source}}.",
+        "the_stop.boundaries": "1. {{primary question, with metric and period}}\n2. {{trend or comparison question}}\n3. {{driver question — e.g., which categories dominate (Pareto)?}}"
+      }
+    },
+    {
+      "id": "g3_evaluation",
+      "name": "G3 · Evaluation — rubric grading",
+      "mode": "generative",
+      "elements": ["role", "task", "context", "format", "the_out"],
+      "select": {
+        "role.identity": ["Demanding reviewer"],
+        "role.stance": ["Neutral arbiter"],
+        "role.behaviors.accuracy": ["Quote verbatim"],
+        "task.action": ["Evaluate"],
+        "context.material": ["Attached document"],
+        "format.output_type": ["Table"],
+        "format.musts": ["Cite everything"],
+        "format.tone.directness": ["Blunt"],
+        "the_out.triggers": ["Material silent"]
+      },
+      "custom": {
+        "task.statement": "Rubric — score each criterion 1–5 (anchors: 1 = absent/wrong · 3 = adequate with gaps · 5 = complete, specific, evidence-backed):\n1. {{criterion}}\n2. {{criterion}}\n3. {{criterion}}\nWhere the document is silent on a criterion, score it 1 and write \"not addressed\" — no credit for what you assume the author meant.",
+        "format.structure": "Table: criterion | score | 1–2 verbatim quotes as evidence | what a 5 would have contained. Then: the 3 biggest gaps, and the 3 questions I should ask the author."
+      }
+    },
+    {
+      "id": "g3_critique",
+      "name": "G3b · Blind critique — anti-sycophancy",
+      "mode": "generative",
+      "elements": ["role", "task", "context", "the_stop"],
+      "select": {
+        "role.identity": ["Devil's advocate"],
+        "role.stance": ["Adversary"],
+        "task.sense_check": ["Restate + proceed"],
+        "context.material": ["Pasted below"],
+        "the_stop.stop_rule": ["Answer, then stop"]
+      },
+      "custom": {
+        "task.statement": "A colleague's draft/plan is below. Do not say whether you agree, and do not compliment it.\n1. Steelman the OPPOSITE position — the strongest honest case against.\n2. The 3 weakest points, each with why it fails and how a critic would attack it.\n3. What evidence, if it existed, would prove this wrong? What should be checked first?\n4. Only after all that: your overall read, hedges included.",
+        "context.material": "\"\"\"\n{{the work — do NOT reveal which option you prefer or that it is yours}}\n\"\"\""
+      }
+    },
+    {
+      "id": "g4_spreadsheet",
+      "name": "G4 · Spreadsheet — build a workbook",
+      "mode": "generative",
+      "elements": ["role", "task", "context", "format", "the_out"],
+      "select": {
+        "role.identity": ["Data organizer"],
+        "role.behaviors.accuracy": ["Never invent", "Compute via code"],
+        "task.sense_check": ["Restate + proceed"],
+        "context.material": ["Attached document"],
+        "context.quirks": ["Leading zeros", "Totals row"],
+        "format.musts": ["Working before result"],
+        "the_out.triggers": ["Material silent"]
+      },
+      "custom": {
+        "task.statement": "Build an .xlsx workbook: {{one line — what it is for and who reads it}}.\nTabs: README (purpose, sources with as-of date, every metric defined, assumptions, change log) · Data (clean rows, one row = {{grain}}, one header row, no merged cells, codes as text) · Summary ({{the pivot/aggregate view}}).\nFormulas, not pasted values, wherever a number derives from the data.",
+        "format.structure": "Before finishing: verify totals on Summary reconcile to Data row counts, and show me the check."
+      }
+    },
+    {
+      "id": "g5_deck",
+      "name": "G5 · Presentation — outline first",
+      "mode": "generative",
+      "elements": ["role", "task", "context", "format", "the_stop"],
+      "select": {
+        "role.identity": ["Executive presentation writer"],
+        "role.behaviors.style_behaviors": ["Headline-first"],
+        "task.audience": ["Executive"],
+        "task.audience.time_budget": ["3 minutes"],
+        "context.material": ["Pasted below"],
+        "context.constraints": ["No new facts", "Consistency with prior work"],
+        "format.output_type": ["Slide outline"],
+        "format.structure": ["Facts with numbers", "Source footer"],
+        "the_stop.stop_rule": ["Outline, then wait"]
+      },
+      "custom": {
+        "task.statement": "Turn the material below into {{n}} slides max. Every slide title states the takeaway in ≤ 12 words WITH the number (\"Scrap fell 40% after the fixture change\", never \"Scrap update\").",
+        "context.material": "\"\"\"\n{{the analysis / report / notes the deck is built from — use nothing beyond it}}\n\"\"\""
+      }
+    },
+    {
+      "id": "g6_html",
+      "name": "G6 · Interactive HTML — dashboard / calculator",
+      "mode": "generative",
+      "elements": ["role", "task", "context", "format", "the_out"],
+      "select": {
+        "role.identity": ["Careful analyst"],
+        "role.behaviors.accuracy": ["Never invent"],
+        "context.material": ["Attached document"],
+        "the_out.triggers": ["Data can't answer"]
+      },
+      "custom": {
+        "task.statement": "Build a SINGLE-FILE interactive HTML {{dashboard | calculator | tracker}} for {{audience}}: {{one line — the question it answers}}.\nViews: {{KPI tiles: metric, value, vs target}} · {{main chart: type, x, y, filterable by …}} · {{sortable/searchable table}}.",
+        "format.output_type": "Format: one self-contained .html file — data embedded, works offline from disk, no external calls, no login.",
+        "format.structure": "Every number computed from the embedded data — nothing hard-coded I can't trace. Formulas shown on screen where users would want to audit them. Footer: as-of date + owner. Handle blank/zero inputs gracefully.",
+        "context.rationale": "This will be shared on locked-down laptops — self-containment is a hard requirement, not styling."
+      }
+    },
+    {
+      "id": "g7_research",
+      "name": "G7 · Research brief — cited",
+      "mode": "generative",
+      "elements": ["role", "task", "format", "the_out", "the_stop"],
+      "select": {
+        "role.identity": ["Cited researcher"],
+        "role.behaviors.transparency": ["Label confidence"],
+        "format.output_type": ["Bullet brief"],
+        "format.musts": ["Cite everything", "No speculation"],
+        "the_out.triggers": ["Sources conflict", "Beyond cutoff"],
+        "the_out.behavior": ["Say so plainly"],
+        "the_stop.stop_rule": ["Answer, then stop"]
+      },
+      "custom": {
+        "task.statement": "Research question (one sentence, not a topic): {{precise question}}\nDecision it feeds: {{what I'll do differently based on the answer}}\nScope: {{time range}} · {{geography}} · out of scope: {{…}}",
+        "format.structure": "1. Answer in 3 sentences (say what's known vs contested). 2. Key findings — every bullet ends with its source link AND publication date; no link → label \"unsourced — verify\". 3. What the sources do NOT establish. 4. Confidence: high/med/low and what would raise it.",
+        "the_stop.boundaries": "1. {{the research question}}\n2. {{one follow-up if the answer is contested}}"
+      }
+    },
+    {
+      "id": "g8_compare",
+      "name": "G8 · Documents — summarize / compare",
+      "mode": "generative",
+      "elements": ["role", "task", "context", "format", "the_out"],
+      "select": {
+        "role.identity": ["Meticulous document processor"],
+        "role.behaviors.accuracy": ["Quote verbatim"],
+        "task.action": ["Compare"],
+        "task.audience": ["Peer specialist"],
+        "context.material": ["Attached document"],
+        "format.length": ["≤ 250 words"],
+        "format.structure": ["Headline first"],
+        "the_out.triggers": ["Material silent"]
+      },
+      "custom": {
+        "format.musts": "End with: \"What these documents do NOT cover that the reader will assume they do.\" For contractual/regulatory/numeric text: verbatim quotes with location, both versions — no paraphrase.",
+        "task.statement": "If comparing versions: substantive differences only (section | A says | B says | why it matters); do not assume newer = correct; flag regressions too."
+      }
+    },
+    {
+      "id": "a1_brief",
+      "name": "A1 · Mission brief — full skeleton",
+      "mode": "agentic",
+      "elements": ["a_role", "a_mission", "a_context", "a_environment", "a_inputs", "a_plan", "a_checks", "a_outputs", "a_process", "a_rules", "a_quality", "a_reporting"],
+      "select": {
+        "a_role.standing_behaviors": ["Never invent", "Scripts over hands", "Inputs are sacred", "Evidence over assertion"],
+        "a_mission.cadence": ["One-off"],
+        "a_mission.verification": ["Checklist satisfied"],
+        "a_environment.boundaries": ["Inputs read-only", "Versioned outputs", "Scratch zone"],
+        "a_environment.tools_allowed": ["File system", "Python + data stack"],
+        "a_environment.tools_forbidden": ["No sending", "No outside writes", "No deletions"],
+        "a_inputs.unknown_rule": ["UNKNOWN, never guessed"],
+        "a_checks.hard": ["Row accounting", "Files open clean"],
+        "a_checks.soft": ["Small-n tags"],
+        "a_outputs.logs": ["CHANGES.md", "FINDINGS.md", "OPEN_ITEMS.md"],
+        "a_process.gates": ["Gate 1 — Definitions", "Gate 2 — Reconciliation", "Gate 3 — Headlines"],
+        "a_process.autonomy": ["Proceed between gates", "Stop: HARD fail", "Stop: input mismatch", "Stop: ambiguity", "Stop: irreversible"],
+        "a_rules.invariants": ["Never invent", "Immutable sources", "Logged transformations", "Assumptions declared", "Boring methods"],
+        "a_quality.checklist": ["Placeholders resolved", "Checks pass", "Deliverables verified", "Logs written"],
+        "a_reporting.shape": ["1 · Status", "2 · Headline", "3 · Deliverables", "4 · Checks", "5 · Open items", "6 · Risks"],
+        "a_reporting.discipline": ["25-line cap", "Evidence required"]
+      },
+      "custom": {
+        "a_mission.goal": "{{the question to answer, or the thing to produce — one sentence}}",
+        "a_mission.decision": "{{what someone will do differently depending on the answer}}",
+        "a_mission.audience_deadline": "{{who sees it, minutes they'll give it}} · due {{date}}",
+        "a_mission.done": "{{the deliverables in one line}}",
+        "a_environment.workspace": "{{repo/folder}} · branch {{name}}",
+        "a_inputs.register": "S1 — {{name}} · {{path}} · {{format}} · one row = {{grain}} · owner {{who}} · known issues: {{…}}",
+        "a_plan.steps": "1. {{step}} → {{produces}}\n2. {{step}} → {{produces}}",
+        "a_checks.anchor": "{{a number you already trust, from outside this run}}",
+        "a_outputs.deliverables": "1. deliverables/{{NAME}}_MMDDYY.{{ext}} — {{contents}}",
+        "a_process.phases": "Phase 0 intake (restate + assumptions) → Phase 1 {{…}} → Phase 2 {{…}} → final QA"
+      }
+    },
+    {
+      "id": "a2_etl",
+      "name": "A2 · ETL → Presentation — data to defensible slide",
+      "mode": "agentic",
+      "elements": ["a_role", "a_mission", "a_context", "a_environment", "a_inputs", "a_plan", "a_checks", "a_outputs", "a_process", "a_rules", "a_quality", "a_reporting"],
+      "select": {
+        "a_role.posture": ["Engineer + analyst + writer"],
+        "a_role.standing_behaviors": ["Never invent", "Log transformations", "Scripts over hands", "Headline-first reporting", "Inputs are sacred"],
+        "a_mission.cadence": ["Recurring"],
+        "a_mission.verification": ["Totals reconcile", "Files re-open clean", "Rendered and inspected"],
+        "a_environment.boundaries": ["Inputs read-only", "Versioned outputs", "Scratch zone"],
+        "a_environment.tools_allowed": ["File system", "Shell", "Python + data stack"],
+        "a_environment.tools_forbidden": ["No network", "No sending", "No outside writes"],
+        "a_inputs.trust": ["Manual entry"],
+        "a_inputs.unknown_rule": ["UNKNOWN, never guessed"],
+        "a_plan.methods_allowed": ["Descriptive stats", "Pareto", "Run charts", "Rolling averages", "Proportions with n"],
+        "a_plan.methods_forbidden": ["No causal claims", "No models/forecasts", "No data dropping", "No scope additions"],
+        "a_checks.hard": ["Row accounting", "Reconciliation", "Identities", "Key integrity", "Domains", "Files open clean"],
+        "a_checks.soft": ["Null-rate threshold", "Outliers listed", "Small-n tags", "Delta vs prior"],
+        "a_outputs.logs": ["CHANGES.md", "FINDINGS.md", "OPEN_ITEMS.md"],
+        "a_outputs.repro": ["One-command rebuild", "Numbered scripts", "Numbers trace"],
+        "a_process.gates": ["Gate 1 — Definitions", "Gate 2 — Reconciliation", "Gate 3 — Headlines"],
+        "a_process.autonomy": ["Proceed between gates", "Stop: HARD fail", "Stop: input mismatch", "Stop: ambiguity", "Stop: irreversible", "Stop: published number"],
+        "a_rules.invariants": ["Never invent", "Immutable sources", "Logged transformations", "Assumptions declared", "Boring methods", "House conventions"],
+        "a_quality.checklist": ["Placeholders resolved", "Checks pass", "Deliverables verified", "Logs written", "Traceability", "Charts honest"],
+        "a_reporting.shape": ["1 · Status", "2 · Headline", "3 · Deliverables", "4 · Checks", "5 · Open items", "6 · Risks"],
+        "a_reporting.discipline": ["25-line cap", "Evidence required"]
+      },
+      "custom": {
+        "a_mission.goal": "{{e.g., \"What is first-pass yield by site and part for {{period}}, and which site/defect mode is the gap?\"}}",
+        "a_mission.decision": "{{where to focus resources next {{quarter}}, and whether {{target}} is credible}}",
+        "a_mission.done": "{{n}} slides in {{template}} + updated master workbook + CSV snapshot",
+        "a_context.glossary": "{{METRIC}} = {{numerator}} ÷ {{denominator}} at {{grain}}; zero denominator → NULL, excluded from averages.",
+        "a_inputs.register": "S1 — {{visit sheets}}: {{path pattern}} · xlsx sheet \"{{name}}\", header row {{n}} · one row = {{one inspected unit | one lot with counts — CONFIRM at Gate 1}} · manual entry\nS2 — {{current master}}: reconciliation anchor\nR1 — {{mapping table}}: authority {{who}}",
+        "a_checks.anchor": "{{Σ inspected = {{n}} per the current master / prior cycle headline}}",
+        "a_plan.steps": "1. Extract: read-only, hash + profile every input, parse with explicit types, fix nothing\n2. Transform: one schema, ordered rules each logged with row counts, layers L1 (rows) → L2 (grouped) → L3 (summary)\n3. Validate: run every check, write the reconciliation table → GATE 2\n4. Analyze: the numbered questions, in order, then stop\n5. Present: headline titles with the number; n on every proportion → GATE 3 before rendering",
+        "a_outputs.deliverables": "1. deliverables/{{DECK}}_MMDDYY.pptx ({{n}} slides + notes)\n2. deliverables/{{MASTER}}_MMDDYY.xlsx (README, L1, L2, L3, Validation tabs)\n3. deliverables/{{SNAPSHOT}}_MMDDYY.csv (L2 for BI)"
+      }
+    },
+    {
+      "id": "a3_cycle",
+      "name": "A3 · Recurring cycle — reuse by diff",
+      "mode": "agentic",
+      "elements": ["a_mission", "a_inputs", "a_checks", "a_process", "a_reporting"],
+      "select": {
+        "a_mission.cadence": ["Recurring"],
+        "a_inputs.unknown_rule": ["UNKNOWN, never guessed"],
+        "a_checks.soft": ["Delta vs prior"],
+        "a_process.autonomy": ["Proceed between gates", "Stop: HARD fail", "Stop: published number"],
+        "a_reporting.shape": ["1 · Status", "2 · Headline", "4 · Checks", "5 · Open items"],
+        "a_reporting.discipline": ["25-line cap"]
+      },
+      "custom": {
+        "a_mission.goal": "Run the {{job name}} cycle per the standing brief at {{path/to/brief.md}}. Everything in the brief holds unless changed below.",
+        "a_inputs.register": "This cycle only: {{new files at path, covering dates}} · unchanged: {{S2, R1}} · as-of date for outputs: {{MMDDYY}}",
+        "a_checks.anchor": "{{last cycle's headline numbers, from path/to/last deliverable}}",
+        "a_process.phases": "Start with Phase 0: restate what changed vs. last cycle as you understand it — so drift gets caught before data is touched."
+      }
+    },
+    {
+      "id": "a4_workspace",
+      "name": "A4 · Workspace standing rules (CLAUDE.md)",
+      "mode": "agentic",
+      "elements": ["a_context", "a_environment", "a_rules"],
+      "select": {
+        "a_environment.boundaries": ["Inputs read-only", "Versioned outputs", "Scratch zone"],
+        "a_environment.tools_forbidden": ["No outside writes", "No deletions", "No new dependencies"],
+        "a_rules.invariants": ["Never invent", "Immutable sources", "Assumptions declared", "Boring methods", "House conventions"]
+      },
+      "custom": {
+        "a_context.domain": "{{Two sentences: the initiative, who runs it, what \"good\" means.}} Owner: {{name}} · Status log: CHANGES.md",
+        "a_context.quirks": "{{quirk → rule — the tribal knowledge that bites}}",
+        "a_environment.workspace": "{{repo}} · one folder per initiative · branch {{convention}}",
+        "a_environment.confidentiality": "{{what may leave this workspace, and in what form}}"
+      },
+      "note": "Paste the assembled block into the workspace's CLAUDE.md — it becomes standing memory every session inherits. Keep it ≤ 60 lines."
+    },
+    {
+      "id": "a5_pipeline",
+      "name": "A5 · Document pipeline — folder → tracker",
+      "mode": "agentic",
+      "elements": ["a_role", "a_mission", "a_environment", "a_inputs", "a_checks", "a_outputs", "a_process", "a_reporting"],
+      "select": {
+        "a_role.posture": ["Meticulous processor"],
+        "a_role.standing_behaviors": ["Never invent", "Inputs are sacred", "Evidence over assertion"],
+        "a_mission.verification": ["Files re-open clean"],
+        "a_environment.boundaries": ["Inputs read-only", "Versioned outputs"],
+        "a_inputs.unknown_rule": ["UNKNOWN, never guessed"],
+        "a_checks.hard": ["Key integrity", "Files open clean"],
+        "a_outputs.logs": ["OPEN_ITEMS.md"],
+        "a_process.gates": ["Gate — Sample first"],
+        "a_process.autonomy": ["Proceed between gates", "Stop: input mismatch", "Stop: irreversible"],
+        "a_reporting.shape": ["1 · Status", "2 · Headline", "3 · Deliverables", "5 · Open items"],
+        "a_reporting.discipline": ["Evidence required"]
+      },
+      "custom": {
+        "a_mission.goal": "Turn the {{~N}} documents in {{folder}} into {{tracker}}.xlsx — one row per document, so {{audience}} can {{see status at a glance}}.",
+        "a_inputs.register": "Documents look like: {{one line}}. Known variants: {{older layout B without field X}}. Extraction schema — column | from where in the doc | format | if missing:\n{{field}} | {{location}} | {{type}} | MISSING",
+        "a_checks.anchor": "row count = file count — every document produces exactly one row, even unreadable ones (flag UNREADABLE)",
+        "a_checks.hard": "a value not stated verbatim = MISSING; uncertain reading = best reading + VERIFY flag — never a silent guess",
+        "a_checks.soft": "any field > {{20}}% MISSING — probably a layout variant; show me 2 example files",
+        "a_process.phases": "Phase 0: extract {{3}} representative files, show me those rows only → GATE (sample). Phase 1: batch. Phase 2: QA — re-open {{5}} random files, verify their rows side-by-side against the originals."
+      }
+    }
+  ]
+}

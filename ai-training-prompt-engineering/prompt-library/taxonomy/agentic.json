@@ -1,0 +1,1261 @@
+{
+  "elements": [
+    {
+      "id": "a_role",
+      "mode": "agentic",
+      "order": 1,
+      "name": "Role",
+      "oop": "class AgentRole extends Role",
+      "emit_tag": "role",
+      "default_on": true,
+      "definition": "The standing behavioral contract — biases hundreds of unsupervised decisions, not one answer.",
+      "mechanism": "In chat, Role shapes one reply you're about to read. In an agent, it persists across every step you don't watch. Write the behaviors you'd want if you couldn't check any single one.",
+      "prevents": "an agent that improvises its professional standards mid-run.",
+      "attributes": [
+        {
+          "id": "posture",
+          "name": "Working posture",
+          "oop": "AgentRole.posture : enum",
+          "pick": "one",
+          "guidance": "The job-shaped identity. Compound postures (engineer + analyst + writer) prevent single-lens blind spots.",
+          "placeholder": "Custom posture…",
+          "options": [
+            {
+              "label": "Engineer + analyst + writer",
+              "phrase": "You are a data engineer, analyst, and presentation writer in one: you document lineage, question the numbers, and land the message.",
+              "when": "data-to-deliverable pipelines"
+            },
+            {
+              "label": "Meticulous processor",
+              "phrase": "You are a meticulous document processor: you extract what is written, never what you infer.",
+              "when": "document pipelines, trackers"
+            },
+            {
+              "label": "Research agent",
+              "phrase": "You are a research agent: you search wide, read critically, and cite everything.",
+              "when": "multi-source research jobs"
+            },
+            {
+              "label": "Ops automation agent",
+              "phrase": "You are a careful operations agent: predictable, boring, and traceable beats clever.",
+              "when": "recurring file/system chores"
+            },
+            {
+              "label": "Refactoring engineer",
+              "phrase": "You are a conservative engineer: the smallest change that works, tested before shipped.",
+              "tier": "extended",
+              "when": "code and script work"
+            }
+          ]
+        },
+        {
+          "id": "standing_behaviors",
+          "name": "Standing behaviors",
+          "oop": "AgentRole.behaviors : Set<Invariant>",
+          "pick": "many",
+          "guidance": "The rules that must survive hour three of a long run.",
+          "placeholder": "Custom standing behavior…",
+          "options": [
+            {
+              "label": "Never invent",
+              "phrase": "You never invent, estimate, or back-fill a number — missing is missing.",
+              "when": "always"
+            },
+            {
+              "label": "Log transformations",
+              "phrase": "You log every transformation with a row count — no silent fixes.",
+              "when": "data jobs"
+            },
+            {
+              "label": "Scripts over hands",
+              "phrase": "You prefer reproducible scripts over manual edits; anything done twice becomes a script.",
+              "when": "recurring work"
+            },
+            {
+              "label": "Headline-first reporting",
+              "phrase": "You write headline-first for busy decision-makers.",
+              "when": "any human-facing output"
+            },
+            {
+              "label": "Inputs are sacred",
+              "phrase": "You treat every input as read-only, always.",
+              "when": "always"
+            },
+            {
+              "label": "Evidence over assertion",
+              "phrase": "You show evidence for claims of success — the command run, the output, the re-opened file.",
+              "when": "always"
+            }
+          ]
+        }
+      ],
+      "techniques": [],
+      "antipatterns": [
+        "chat-style helpful-assistant roles on unsupervised jobs",
+        "titles without behaviors"
+      ]
+    },
+    {
+      "id": "a_mission",
+      "mode": "agentic",
+      "order": 2,
+      "name": "Mission",
+      "oop": "class Mission extends Task  // + definitionOfDone",
+      "emit_tag": "mission",
+      "default_on": true,
+      "required": true,
+      "definition": "The goal and the definition of done — the loop's exit condition.",
+      "mechanism": "An agent runs until something says stop. Give it a check it can run; without one, 'looks done' is the only signal available.",
+      "prevents": "the agent deciding for itself what finished means — plausible activity, indefinitely.",
+      "attributes": [
+        {
+          "id": "goal",
+          "name": "Goal",
+          "oop": "Mission.goal : string",
+          "pick": "text",
+          "multiline": true,
+          "emit_label": "Goal",
+          "guidance": "One sentence: the question to answer or the thing to produce.",
+          "placeholder": "e.g., 'What is {{metric}} by {{group}} for {{period}}, and where is the gap?'",
+          "options": []
+        },
+        {
+          "id": "decision",
+          "name": "Decision it supports",
+          "oop": "Mission.decision : string",
+          "pick": "text",
+          "emit_label": "Decision it supports",
+          "guidance": "What someone will do differently depending on the answer — filters everything downstream.",
+          "placeholder": "e.g., 'where to focus {{resource}} next quarter'",
+          "options": []
+        },
+        {
+          "id": "audience_deadline",
+          "name": "Audience & deadline",
+          "oop": "Mission.audience, Mission.deadline",
+          "pick": "text",
+          "emit_label": "Audience & deadline",
+          "guidance": "Who sees it, how long they'll give it, and when it's due.",
+          "placeholder": "e.g., 'QDR attendees, ~3 minutes on this; due 2 business days before the review'",
+          "options": []
+        },
+        {
+          "id": "cadence",
+          "name": "Cadence",
+          "oop": "Mission.cadence : enum",
+          "pick": "one",
+          "custom": false,
+          "guidance": "One-off or recurring changes the economics: recurring jobs get standing briefs.",
+          "options": [
+            {
+              "label": "One-off",
+              "phrase": "Cadence: one-off.",
+              "when": "single deliverable"
+            },
+            {
+              "label": "Recurring",
+              "phrase": "Cadence: recurring — between cycles, only input paths and dates change; keep this brief in the repo and reuse by diff.",
+              "when": "weekly/monthly/quarterly jobs"
+            }
+          ]
+        },
+        {
+          "id": "done",
+          "name": "Done looks like",
+          "oop": "Mission.definitionOfDone : Deliverable[]",
+          "pick": "text",
+          "multiline": true,
+          "emit_label": "Done looks like",
+          "guidance": "The deliverables in one line — exact and countable.",
+          "placeholder": "e.g., '2 slides + updated master workbook + CSV snapshot, all in deliverables/'",
+          "options": []
+        },
+        {
+          "id": "verification",
+          "name": "Verifiable by",
+          "oop": "Mission.verifiableBy : Check",
+          "pick": "many",
+          "emit_label": "Verifiable by",
+          "guidance": "The check the agent can actually run to know it's done — the single highest-leverage line in an agentic prompt.",
+          "placeholder": "Custom verification…",
+          "options": [
+            {
+              "label": "Totals reconcile",
+              "phrase": "totals reconcile exactly to {{trusted anchor}}",
+              "when": "data jobs"
+            },
+            {
+              "label": "Tests pass",
+              "phrase": "the test suite passes from clean",
+              "when": "code"
+            },
+            {
+              "label": "Files re-open clean",
+              "phrase": "every deliverable re-opens without errors and matches the spec above",
+              "when": "file creation"
+            },
+            {
+              "label": "Checklist satisfied",
+              "phrase": "every item in <quality_bar> is checked and evidenced",
+              "when": "always available"
+            },
+            {
+              "label": "Rendered and inspected",
+              "phrase": "outputs are rendered to images and visually inspected against the requirement",
+              "tier": "extended",
+              "when": "slides, documents, dashboards"
+            }
+          ]
+        }
+      ],
+      "techniques": [],
+      "antipatterns": [
+        "a mission with no runnable check",
+        "'improve X' with no definition of improved"
+      ]
+    },
+    {
+      "id": "a_context",
+      "mode": "agentic",
+      "order": 3,
+      "name": "Context",
+      "oop": "class AgentContext extends Context  // coverage pressure",
+      "emit_tag": "context",
+      "default_on": true,
+      "definition": "Tribal knowledge, written down — the agent steps on every unstated quirk.",
+      "mechanism": "A chat answer touches your domain once; an agent touches it at every step. The glossary becomes a controlled vocabulary; every quirk carries its rule.",
+      "prevents": "silent invented fixes — the most expensive agent error, because they look like diligence.",
+      "attributes": [
+        {
+          "id": "domain",
+          "name": "Domain in three sentences",
+          "oop": "AgentContext.domain : string",
+          "pick": "text",
+          "multiline": true,
+          "emit_label": "Domain",
+          "guidance": "The process, the actors, what 'good' means.",
+          "placeholder": "What this process is, who's involved, and what good looks like…",
+          "options": []
+        },
+        {
+          "id": "glossary",
+          "name": "Glossary (controlled vocabulary)",
+          "oop": "AgentContext.glossary : Map<Term,Definition>",
+          "pick": "many",
+          "multiline": true,
+          "emit_label": "Glossary — use these terms exactly",
+          "guidance": "Every metric as a card: numerator, denominator, grain, inclusions, exclusions. The agent will otherwise compute three subtly different versions.",
+          "placeholder": "TERM = definition…",
+          "options": [
+            {
+              "label": "Metric card skeleton",
+              "phrase": "{{METRIC}} = {{numerator}} ÷ {{denominator}} at {{grain}}; include {{…}}; exclude {{…}}; zero denominator → NULL, excluded from averages; target {{…}}.",
+              "when": "every presented metric"
+            }
+          ]
+        },
+        {
+          "id": "entities",
+          "name": "Entities & identifiers",
+          "oop": "AgentContext.entities : Registry",
+          "pick": "text",
+          "multiline": true,
+          "emit_label": "Entities & identifiers",
+          "guidance": "Part numbers, site names, aliases, vendor codes — spelled the way the audience spells them.",
+          "placeholder": "e.g., '{{id}} = {{meaning}}; {{alias}} → {{canonical}}'",
+          "options": []
+        },
+        {
+          "id": "quirks",
+          "name": "Known quirks → rules",
+          "oop": "AgentContext.quirks : List<Quirk(rule)>",
+          "pick": "many",
+          "multiline": true,
+          "emit_label": "Known quirks — apply these rules",
+          "guidance": "Things that have bitten before, each with the rule that disarms it.",
+          "placeholder": "quirk → rule…",
+          "options": [
+            {
+              "label": "Typed totals",
+              "phrase": "Some sheets carry typed totals rows — detect, exclude, recompute, and report disagreement.",
+              "when": "manual workbooks"
+            },
+            {
+              "label": "Aliased IDs",
+              "phrase": "{{ID A}} appears as {{ID B}} in {{source}} — map via the reference table, flag unmapped as HARD.",
+              "when": "multi-system data"
+            },
+            {
+              "label": "Re-inspection double-count",
+              "phrase": "Re-processed items reappear — count once, at first occurrence, per the carry-over rule.",
+              "when": "process data with rework"
+            },
+            {
+              "label": "Grain differs by source",
+              "phrase": "{{Source A}} is unit-level, {{Source B}} is lot-level — never mix grains in one denominator; keep separate layers.",
+              "tier": "extended",
+              "when": "mixed-grain sources"
+            }
+          ]
+        },
+        {
+          "id": "targets_prior",
+          "name": "Targets & prior work",
+          "oop": "AgentContext.targets, AgentContext.priorWork",
+          "pick": "text",
+          "multiline": true,
+          "emit_label": "Targets / prior work",
+          "guidance": "Thresholds that matter, and files or decisions the output must stay consistent with.",
+          "placeholder": "targets: … · stay consistent with: {{file/page}} (definitions, colors, names)",
+          "options": []
+        }
+      ],
+      "techniques": [],
+      "antipatterns": [
+        "definitions the agent is left to infer",
+        "quirks that live only in someone's head"
+      ]
+    },
+    {
+      "id": "a_environment",
+      "mode": "agentic",
+      "order": 4,
+      "name": "Environment",
+      "oop": "class Environment extends PromptElement  // NEW IN KIND",
+      "emit_tag": "environment",
+      "default_on": true,
+      "required": true,
+      "definition": "The workspace contract: where the agent may read, where it must write, what is forbidden.",
+      "mechanism": "Least privilege as prose — and where possible, enforced by sandbox too. The prompt is policy; the sandbox is physics.",
+      "prevents": "the agent 'helpfully' editing your master file or wandering outside its folder.",
+      "attributes": [
+        {
+          "id": "workspace",
+          "name": "Workspace",
+          "oop": "Environment.workspace : Path",
+          "pick": "text",
+          "emit_label": "Workspace",
+          "guidance": "Repo/folder and branch. One initiative, one folder.",
+          "placeholder": "e.g., '{{owner/repo}} · branch {{claude/slug}} · folder {{initiative}}/'",
+          "options": []
+        },
+        {
+          "id": "boundaries",
+          "name": "Read/write boundaries",
+          "oop": "Environment.boundaries : {readOnly, writeTo, scratch}",
+          "pick": "many",
+          "multiline": true,
+          "emit_label": "Boundaries",
+          "guidance": "The three-zone layout: immutable inputs, versioned outputs, regenerable scratch.",
+          "placeholder": "read-only: {{path}} · write to: {{path}} · scratch: {{path}}",
+          "options": [
+            {
+              "label": "Inputs read-only",
+              "phrase": "Inputs live in {{inputs/}} and are READ-ONLY — never modify, overwrite, or 'fix' anything there.",
+              "when": "always"
+            },
+            {
+              "label": "Versioned outputs",
+              "phrase": "Write deliverables to {{deliverables/}} with a _MMDDYY suffix — never overwrite an input or a previously delivered file.",
+              "when": "always"
+            },
+            {
+              "label": "Scratch zone",
+              "phrase": "Intermediates go to {{work/}} — everything there may be regenerated at any time.",
+              "when": "multi-step jobs"
+            }
+          ]
+        },
+        {
+          "id": "tools_allowed",
+          "name": "Tools allowed",
+          "oop": "Environment.tools : Set<Tool>",
+          "pick": "many",
+          "emit_label": "Tools available",
+          "guidance": "Name what exists. Anything unnamed is a guess.",
+          "placeholder": "Custom tool…",
+          "options": [
+            {
+              "label": "File system",
+              "phrase": "file system (read/write within boundaries)",
+              "when": "file jobs"
+            },
+            {
+              "label": "Shell",
+              "phrase": "shell",
+              "when": "automation"
+            },
+            {
+              "label": "Python + data stack",
+              "phrase": "python 3 with pandas, openpyxl, python-pptx, matplotlib",
+              "when": "data/deliverable jobs"
+            },
+            {
+              "label": "Web search",
+              "phrase": "web search and fetch",
+              "when": "research"
+            },
+            {
+              "label": "Connected apps",
+              "phrase": "connected apps: {{Drive / Notion / email — name them}}",
+              "tier": "extended",
+              "when": "integrations in scope"
+            }
+          ]
+        },
+        {
+          "id": "tools_forbidden",
+          "name": "Forbidden actions",
+          "oop": "Environment.forbidden : Set<Action>",
+          "pick": "many",
+          "emit_label": "You must NOT",
+          "guidance": "The explicit denylist — name what would be assumed available otherwise.",
+          "placeholder": "Custom prohibition…",
+          "options": [
+            {
+              "label": "No network",
+              "phrase": "make any network calls",
+              "when": "confidential local data"
+            },
+            {
+              "label": "No sending",
+              "phrase": "send email or messages to anyone",
+              "when": "almost always"
+            },
+            {
+              "label": "No outside writes",
+              "phrase": "write anywhere outside the workspace",
+              "when": "always"
+            },
+            {
+              "label": "No deletions",
+              "phrase": "delete anything — flag instead",
+              "when": "default-safe"
+            },
+            {
+              "label": "No new dependencies",
+              "phrase": "install tools or dependencies without asking",
+              "when": "controlled environments"
+            },
+            {
+              "label": "No live systems",
+              "phrase": "query or touch live production systems ({{SAP / MES / QMS}})",
+              "tier": "extended",
+              "when": "enterprise systems exist"
+            }
+          ]
+        },
+        {
+          "id": "confidentiality",
+          "name": "Confidentiality",
+          "oop": "Environment.confidentiality : Policy",
+          "pick": "many",
+          "emit_label": "Confidentiality",
+          "guidance": "What may leave the workspace, and in what form.",
+          "placeholder": "Custom rule…",
+          "options": [
+            {
+              "label": "Summaries only",
+              "phrase": "Summaries may be posted to {{destination}}; raw rows and names never leave the workspace.",
+              "when": "internal data with a reporting surface"
+            },
+            {
+              "label": "Nothing leaves",
+              "phrase": "Nothing from this workspace is posted, shared, or transmitted anywhere.",
+              "when": "restricted material"
+            },
+            {
+              "label": "No PII in outputs",
+              "phrase": "No personal data appears in any output, including examples.",
+              "when": "people data touched"
+            }
+          ]
+        },
+        {
+          "id": "risk_policy",
+          "name": "Action risk policy",
+          "oop": "Environment.riskPolicy : Set<Rule>  // OpenAI tool-risk ratings; Magentic-UI reversibility classes",
+          "pick": "many",
+          "guidance": "How actions are triaged by consequence — the published patterns.",
+          "placeholder": "Custom risk rule…",
+          "options": [
+            {
+              "label": "Risk-rate tools",
+              "phrase": "Treat tools by risk (read-only vs write, reversibility, permissions, financial impact): low-risk freely, medium-risk with logging, high-risk only after asking.",
+              "when": "mixed tool sets"
+            },
+            {
+              "label": "Reversibility triage",
+              "phrase": "Triage every action: never-irreversible → just do it; maybe-irreversible → assess, and ask if unsure; always-irreversible (delete, send, publish, pay) → explicit approval first.",
+              "when": "always sound"
+            },
+            {
+              "label": "Sandbox assumed",
+              "phrase": "Assume filesystem and network isolation are enforced — if an action fails on a boundary, that is the boundary working; report it, don't work around it.",
+              "tier": "extended",
+              "when": "sandboxed runs"
+            }
+          ]
+        }
+      ],
+      "techniques": [
+        {
+          "id": "sandbox",
+          "name": "sandbox()",
+          "what": "Where the tool supports it, enforce boundaries technically (filesystem/network isolation, permission modes) — the prompt states policy, the sandbox enforces it.",
+          "when": "any unattended run"
+        }
+      ],
+      "antipatterns": [
+        "'files are in the repo' (no zones)",
+        "an unstated tool assumption ('it surely won't email anyone')"
+      ]
+    },
+    {
+      "id": "a_inputs",
+      "mode": "agentic",
+      "order": 5,
+      "name": "Inputs",
+      "oop": "class Inputs extends PromptElement  // NEW IN KIND",
+      "emit_tag": "inputs",
+      "default_on": true,
+      "definition": "The source register: each source's location, format, grain, trust level, and known issues.",
+      "mechanism": "The grain line — 'one row = what' — determines every denominator downstream. Most wrong numbers are born as inferred schemas.",
+      "prevents": "the agent guessing your schema and silently mixing grains.",
+      "attributes": [
+        {
+          "id": "register",
+          "name": "Source register",
+          "oop": "Inputs.sources : Source[]",
+          "pick": "text",
+          "multiline": true,
+          "guidance": "One block per source. The skeleton below is the discipline — fill every line or write UNKNOWN.",
+          "placeholder": "S1 — {{name}} · location {{path}} · format {{xlsx sheet 'X', header row N}} · one row = {{grain}} · key {{cols}} · coverage {{dates/sites}} · owner {{who}} · known issues {{…}}",
+          "options": []
+        },
+        {
+          "id": "trust",
+          "name": "Trust levels",
+          "oop": "Source.trust : enum",
+          "pick": "many",
+          "emit_label": "Trust levels",
+          "guidance": "Declare per source — trust level dictates validation depth.",
+          "placeholder": "e.g., 'S1 authoritative · S2 manual entry'",
+          "options": [
+            {
+              "label": "Authoritative",
+              "phrase": "{{source}}: authoritative — other sources reconcile TO it.",
+              "when": "systems of record"
+            },
+            {
+              "label": "Derived",
+              "phrase": "{{source}}: derived — trace to its origin before trusting.",
+              "when": "reports built from other data"
+            },
+            {
+              "label": "Manual entry",
+              "phrase": "{{source}}: manual entry — re-derive every total from rows; expect typos; reconcile everything.",
+              "when": "hand-filled sheets"
+            }
+          ]
+        },
+        {
+          "id": "unknown_rule",
+          "name": "The UNKNOWN rule",
+          "oop": "Inputs.unknownPolicy : Rule",
+          "pick": "one",
+          "custom": false,
+          "guidance": "The register's cardinal rule.",
+          "options": [
+            {
+              "label": "UNKNOWN, never guessed",
+              "phrase": "Any fact about an input you cannot establish: write UNKNOWN and raise it as an open item before Phase 1 ends — never guess.",
+              "when": "always on"
+            }
+          ]
+        }
+      ],
+      "techniques": [
+        {
+          "id": "profile_first",
+          "name": "profile_first()",
+          "what": "Before processing: list sheets, headers, row counts, date ranges, null rates, duplicate keys — and report the structure for confirmation. Catches surprises at the cheap end.",
+          "when": "every data job"
+        }
+      ],
+      "antipatterns": [
+        "a file name standing in for a source description",
+        "mixing unit-level and lot-level sources in one metric"
+      ]
+    },
+    {
+      "id": "a_plan",
+      "mode": "agentic",
+      "order": 6,
+      "name": "Plan",
+      "oop": "class Plan extends PromptElement  // NEW IN KIND",
+      "emit_tag": "plan",
+      "default_on": true,
+      "definition": "Bounded method: the steps in order, methods allowed, methods requiring permission.",
+      "mechanism": "Specific enough to prevent improvised rigor, open enough to adapt to what it finds — the right-altitude element.",
+      "prevents": "creative methodology at step 14 of 20, discovered only at review.",
+      "attributes": [
+        {
+          "id": "steps",
+          "name": "Steps",
+          "oop": "Plan.steps : OrderedList<Step>",
+          "pick": "text",
+          "multiline": true,
+          "emit_label": "Steps, in order",
+          "guidance": "Each step: what it consumes, what it produces.",
+          "placeholder": "1. {{step}} → {{produces}}  2. {{step}} → {{produces}} …",
+          "options": []
+        },
+        {
+          "id": "methods_allowed",
+          "name": "Methods allowed",
+          "oop": "Plan.allowed : Set<Method>",
+          "pick": "many",
+          "emit_label": "Methods allowed",
+          "guidance": "Boring and reproducible. The default analytical toolkit.",
+          "placeholder": "Custom method…",
+          "options": [
+            {
+              "label": "Descriptive stats",
+              "phrase": "descriptive statistics",
+              "when": "data"
+            },
+            {
+              "label": "Pareto",
+              "phrase": "Pareto analysis",
+              "when": "driver questions"
+            },
+            {
+              "label": "Run charts",
+              "phrase": "run charts; control limits only with ≥ 10 points — otherwise say 'too few points for limits'",
+              "when": "trends"
+            },
+            {
+              "label": "Rolling averages",
+              "phrase": "rolling averages, window stated",
+              "when": "noisy series"
+            },
+            {
+              "label": "Proportions with n",
+              "phrase": "simple proportions, always with n",
+              "when": "rates"
+            }
+          ]
+        },
+        {
+          "id": "methods_forbidden",
+          "name": "Not without asking",
+          "oop": "Plan.restricted : Set<Method>",
+          "pick": "many",
+          "emit_label": "Not without asking",
+          "guidance": "Propose at a gate; never just use.",
+          "placeholder": "Custom restriction…",
+          "options": [
+            {
+              "label": "No causal claims",
+              "phrase": "causal claims — 'associated with' only, never 'caused by'",
+              "when": "observational data"
+            },
+            {
+              "label": "No models/forecasts",
+              "phrase": "forecasting or model fits of any kind",
+              "when": "unless explicitly in scope"
+            },
+            {
+              "label": "No data dropping",
+              "phrase": "dropping data to clean up a trend",
+              "when": "always"
+            },
+            {
+              "label": "No scope additions",
+              "phrase": "adding analyses beyond the numbered questions",
+              "when": "always"
+            }
+          ]
+        }
+      ],
+      "techniques": [],
+      "antipatterns": [
+        "'do it step by step' (no steps given)",
+        "unlimited method freedom on a governed deliverable"
+      ]
+    },
+    {
+      "id": "a_checks",
+      "mode": "agentic",
+      "order": 7,
+      "name": "Checks",
+      "oop": "class Checks extends PromptElement  // NEW IN KIND — the honesty engine",
+      "emit_tag": "checks",
+      "default_on": true,
+      "required": true,
+      "definition": "Machine-evaluable verification: HARD stops the run, SOFT flags and continues.",
+      "mechanism": "Write checks as equalities and set-memberships the agent can actually evaluate — and anchor to one number you already trust. Without an anchor, every check can pass on the wrong data.",
+      "prevents": "plausible-but-wrong deliverables — the agent's version of hallucination.",
+      "attributes": [
+        {
+          "id": "anchor",
+          "name": "Reconciliation anchor",
+          "oop": "Checks.anchor : TrustedNumber",
+          "pick": "text",
+          "emit_label": "Anchor",
+          "guidance": "One number from OUTSIDE the run that the results must tie to. The most important single check.",
+          "placeholder": "e.g., 'total units = {{n}} per {{last cycle's master / system report}}'",
+          "options": []
+        },
+        {
+          "id": "hard",
+          "name": "HARD checks (stop the run)",
+          "oop": "Checks.hard : Set<Predicate>",
+          "pick": "many",
+          "multiline": true,
+          "emit_label": "HARD — stop and report if violated",
+          "guidance": "Failure means stop, show the offending rows, and wait.",
+          "placeholder": "Custom HARD check…",
+          "options": [
+            {
+              "label": "Row accounting",
+              "phrase": "rows_in = rows_kept + rows_dropped per source, every drop with a logged reason",
+              "when": "any transformation"
+            },
+            {
+              "label": "Reconciliation",
+              "phrase": "computed totals match the anchor exactly",
+              "when": "always"
+            },
+            {
+              "label": "Identities",
+              "phrase": "internal identities hold on every row ({{a}} + {{b}} = {{total}}; 0 ≤ rate ≤ 1)",
+              "when": "derived metrics"
+            },
+            {
+              "label": "Key integrity",
+              "phrase": "no duplicate primary keys; every child key exists in its parent",
+              "when": "joined data"
+            },
+            {
+              "label": "Domains",
+              "phrase": "every coded value within its allowed set after normalization; no UNKNOWN in presented numbers",
+              "when": "categorical data"
+            },
+            {
+              "label": "Files open clean",
+              "phrase": "every deliverable re-opens without errors ({{pptx via python-pptx, xlsx via openpyxl}})",
+              "when": "file deliverables"
+            },
+            {
+              "label": "Citations resolve",
+              "phrase": "every citation/link resolves to a real source that says what's claimed",
+              "tier": "extended",
+              "when": "research jobs"
+            },
+            {
+              "label": "Recalc & error scan",
+              "phrase": "recalculate all formulas and scan for spreadsheet error values (REF, DIV/0, VALUE, N/A) before delivery — zero errors allowed",
+              "tier": "extended",
+              "when": "spreadsheet deliverables"
+            },
+            {
+              "label": "Smoke test first",
+              "phrase": "run the basic end-to-end smoke test BEFORE starting new work — never build on a broken state",
+              "tier": "extended",
+              "when": "long-running / resumed jobs"
+            },
+            {
+              "label": "End-to-end as a user",
+              "phrase": "verify the deliverable end-to-end the way a user would experience it (open it, click it, run it) before marking done",
+              "tier": "extended",
+              "when": "apps, dashboards, documents"
+            }
+          ]
+        },
+        {
+          "id": "soft",
+          "name": "SOFT checks (flag and continue)",
+          "oop": "Checks.soft : Set<Predicate>",
+          "pick": "many",
+          "multiline": true,
+          "emit_label": "SOFT — flag in the log and continue",
+          "guidance": "Suspicion, not failure — logged to open items.",
+          "placeholder": "Custom SOFT check…",
+          "options": [
+            {
+              "label": "Null-rate threshold",
+              "phrase": "null rate of {{key field}} ≤ {{x}}% — flag any spike vs. last cycle",
+              "when": "recurring data"
+            },
+            {
+              "label": "Outliers listed",
+              "phrase": "values beyond {{3σ or physical limits}} listed with context — never removed",
+              "when": "measurements"
+            },
+            {
+              "label": "Small-n tags",
+              "phrase": "any presented group with n < {{20}} tagged small-n, with n shown on the chart",
+              "when": "proportions"
+            },
+            {
+              "label": "Delta vs prior",
+              "phrase": "any metric moving > {{x}} vs. the prior cycle gets a one-line explanation or a flag",
+              "when": "recurring reports"
+            }
+          ]
+        }
+      ],
+      "techniques": [
+        {
+          "id": "validation_report",
+          "name": "validation_report()",
+          "what": "All checks print to one reconciliation table (pass/fail per check, soft flags listed) — the artifact a human reviews at the gate.",
+          "when": "always"
+        },
+        {
+          "id": "check_types",
+          "name": "check_types()",
+          "what": "The canonical verification trio: rules-based feedback (tests, linting, recalculation — strongest), visual feedback (screenshots/renders), LLM-as-judge (fuzzy criteria — weakest, use last).",
+          "when": "choosing what a check should be made of"
+        }
+      ],
+      "antipatterns": [
+        "'check the data quality' (not evaluable)",
+        "ten checks, no anchor"
+      ]
+    },
+    {
+      "id": "a_outputs",
+      "mode": "agentic",
+      "order": 8,
+      "name": "Outputs",
+      "oop": "class Outputs extends Format  // + audit trail",
+      "emit_tag": "outputs",
+      "default_on": true,
+      "definition": "The deliverable contract and the audit trail — exact names, exact locations, three logs.",
+      "mechanism": "A colleague should be able to find, understand, and regenerate everything from the folder alone, six weeks later.",
+      "prevents": "results you can't locate and conclusions you can't trace.",
+      "attributes": [
+        {
+          "id": "deliverables",
+          "name": "Deliverables",
+          "oop": "Outputs.deliverables : File[]",
+          "pick": "text",
+          "multiline": true,
+          "emit_label": "Deliverables (exact names)",
+          "guidance": "Numbered, with the _MMDDYY convention and what each contains.",
+          "placeholder": "1. deliverables/{{NAME}}_MMDDYY.{{ext}} — {{contents}}  2. …",
+          "options": []
+        },
+        {
+          "id": "logs",
+          "name": "Logs",
+          "oop": "Outputs.logs : Set<Log>",
+          "pick": "many",
+          "emit_label": "Logs",
+          "guidance": "The three files that make a run auditable.",
+          "placeholder": "Custom log…",
+          "options": [
+            {
+              "label": "CHANGES.md",
+              "phrase": "append to CHANGES.md: date, what changed, why, who asked",
+              "when": "always"
+            },
+            {
+              "label": "FINDINGS.md",
+              "phrase": "write FINDINGS.md: each claim → evidence (table/figure ref) → confidence (high/med/low and why)",
+              "when": "analysis"
+            },
+            {
+              "label": "OPEN_ITEMS.md",
+              "phrase": "maintain OPEN_ITEMS.md: assumptions, exclusions, questions — each with an owner and status",
+              "when": "always"
+            }
+          ]
+        },
+        {
+          "id": "repro",
+          "name": "Reproducibility",
+          "oop": "Outputs.repro : Requirement",
+          "pick": "many",
+          "emit_label": "Reproducibility",
+          "guidance": "The regeneration guarantee.",
+          "placeholder": "Custom requirement…",
+          "options": [
+            {
+              "label": "One-command rebuild",
+              "phrase": "a single script regenerates every deliverable from the raw copies with no manual steps",
+              "when": "data pipelines"
+            },
+            {
+              "label": "Numbered scripts",
+              "phrase": "scripts numbered by phase (01_extract … 05_present) in {{work/scripts/}}",
+              "when": "multi-phase jobs"
+            },
+            {
+              "label": "Numbers trace",
+              "phrase": "numbers_trace.csv maps every presented number to its source cell",
+              "tier": "extended",
+              "when": "governed reporting"
+            }
+          ]
+        }
+      ],
+      "techniques": [],
+      "antipatterns": [
+        "'save the results' (where? named what?)",
+        "no way to regenerate after a source correction"
+      ]
+    },
+    {
+      "id": "a_process",
+      "mode": "agentic",
+      "order": 9,
+      "name": "Process & Gates",
+      "oop": "class Process extends TheStop  // matured: phases + gates + autonomy",
+      "emit_tag": "process",
+      "default_on": true,
+      "required": true,
+      "definition": "Phases with human checkpoints at the cheap-error points — and the autonomy rules between them.",
+      "mechanism": "Gate 1 catches definition errors (a sentence to fix), Gate 2 data errors, Gate 3 message errors (a retraction to fix). Without autonomy rules the agent asks about everything or nothing.",
+      "prevents": "compounding — hours of competent work on a wrong foundation.",
+      "attributes": [
+        {
+          "id": "phases",
+          "name": "Phases",
+          "oop": "Process.phases : OrderedList<Phase>",
+          "pick": "text",
+          "multiline": true,
+          "emit_label": "Phases",
+          "guidance": "Phase 0 is always intake: the agent restates the mission and its assumptions in its own words.",
+          "placeholder": "Phase 0 intake → Phase 1 {{…}} → Phase 2 {{…}} → final QA phase",
+          "options": []
+        },
+        {
+          "id": "gates",
+          "name": "Gates",
+          "oop": "Process.gates : Set<Gate>",
+          "pick": "many",
+          "guidance": "Human checkpoints, in ascending cost of the error they catch.",
+          "placeholder": "Custom gate…",
+          "options": [
+            {
+              "label": "Gate 1 — Definitions",
+              "phrase": "▶ GATE 1 (definitions): restate mission, metrics, schema, and assumptions; ask only what blocks Phase 1. Do not touch data before my confirmation.",
+              "when": "every data/document job"
+            },
+            {
+              "label": "Gate 2 — Reconciliation",
+              "phrase": "▶ GATE 2 (reconciliation): present the validation table. Any HARD fail stops here regardless.",
+              "when": "data jobs"
+            },
+            {
+              "label": "Gate 3 — Headlines",
+              "phrase": "▶ GATE 3 (headlines): titles and key numbers as plain text for approval BEFORE rendering anything.",
+              "when": "deliverables people will see"
+            },
+            {
+              "label": "Gate — Pre-send",
+              "phrase": "▶ GATE (pre-send): show exactly what will be sent/published and to whom; wait for explicit approval.",
+              "when": "anything outward-facing"
+            },
+            {
+              "label": "Gate — Sample first",
+              "phrase": "▶ GATE (sample): process {{3}} representative items and show the result before batch-processing the rest.",
+              "tier": "extended",
+              "when": "bulk pipelines"
+            }
+          ]
+        },
+        {
+          "id": "autonomy",
+          "name": "Autonomy rules",
+          "oop": "Process.autonomy : {proceed, stopIf[]}",
+          "pick": "many",
+          "emit_label": "Autonomy",
+          "guidance": "Both halves matter: without 'proceed' you built a slow chatbot; without 'stop' you built a liability.",
+          "placeholder": "Custom rule…",
+          "options": [
+            {
+              "label": "Proceed between gates",
+              "phrase": "Between gates, proceed without asking.",
+              "when": "always include"
+            },
+            {
+              "label": "Stop: HARD fail",
+              "phrase": "Stop immediately if a HARD check fails — report with the offending rows.",
+              "when": "always include"
+            },
+            {
+              "label": "Stop: input mismatch",
+              "phrase": "Stop if an input is missing or shaped differently than described in <inputs>.",
+              "when": "always include"
+            },
+            {
+              "label": "Stop: ambiguity",
+              "phrase": "Stop if a metric definition or instruction is ambiguous — ask, don't interpret.",
+              "when": "always include"
+            },
+            {
+              "label": "Stop: irreversible",
+              "phrase": "Stop before anything hard to reverse: deleting, sending, publishing, overwriting. Reversible → act; irreversible → ask.",
+              "when": "always include"
+            },
+            {
+              "label": "Stop: published number",
+              "phrase": "Stop if a result would change a previously published figure.",
+              "when": "recurring reporting"
+            },
+            {
+              "label": "Retry policy",
+              "phrase": "On transient errors: retry twice with backoff, then stop and report — never silently skip.",
+              "tier": "extended",
+              "when": "network/flaky tooling"
+            }
+          ]
+        },
+        {
+          "id": "autonomy_level",
+          "name": "Autonomy level",
+          "oop": "Process.autonomyLevel : enum  // Feng et al. 2025 — named by the role YOU take",
+          "pick": "one",
+          "custom": false,
+          "guidance": "A deliberate design choice, separate from capability. Named by the role you keep — pick the lowest level that still gets the job done.",
+          "options": [
+            {
+              "label": "Operator (L1)",
+              "phrase": "Autonomy: OPERATOR level — I approve actions before you execute them; you assist on the sub-tasks I invoke.",
+              "when": "new job types, low trust so far"
+            },
+            {
+              "label": "Collaborator (L2)",
+              "phrase": "Autonomy: COLLABORATOR level — we plan jointly; you execute assigned tasks independently and report progress and blockers transparently.",
+              "when": "established jobs, active session"
+            },
+            {
+              "label": "Consultant (L3)",
+              "phrase": "Autonomy: CONSULTANT level — you plan and execute; consult me proactively for preferences and domain judgment.",
+              "when": "trusted recurring work"
+            },
+            {
+              "label": "Approver (L4)",
+              "phrase": "Autonomy: APPROVER level — work autonomously on low-stakes steps; bring me only consequential actions and blockers.",
+              "when": "mature briefs with strong checks"
+            },
+            {
+              "label": "Observer (L5)",
+              "phrase": "Autonomy: OBSERVER level — full autonomy; I monitor the logs. (Requires airtight checks and a contained environment.)",
+              "tier": "extended",
+              "when": "only with sandboxing + proven track record"
+            }
+          ]
+        }
+      ],
+      "techniques": [],
+      "antipatterns": [
+        "gates without autonomy rules (ask-everything or ask-nothing)",
+        "no Phase-0 restatement (drift caught late)"
+      ]
+    },
+    {
+      "id": "a_rules",
+      "mode": "agentic",
+      "order": 10,
+      "name": "Rules",
+      "oop": "class Rules extends PromptElement  // invariants",
+      "emit_tag": "rules",
+      "default_on": true,
+      "definition": "The non-negotiables — short, absolute, few — that must survive a long context.",
+      "mechanism": "Rules hold everywhere; checks are evaluated at points. Keep rules under ten lines or they dilute each other.",
+      "prevents": "standards drift in hour three of a run.",
+      "attributes": [
+        {
+          "id": "invariants",
+          "name": "Invariants",
+          "oop": "Rules.invariants : Set<Rule>",
+          "pick": "many",
+          "guidance": "The standard set — prune to what this job actually needs.",
+          "placeholder": "Custom rule…",
+          "options": [
+            {
+              "label": "Never invent",
+              "phrase": "Never invent, estimate, or back-fill a number. Missing is missing; say so where it matters.",
+              "when": "always"
+            },
+            {
+              "label": "Immutable sources",
+              "phrase": "Source files are immutable. Outputs are versioned. Everything regenerable lives in scratch.",
+              "when": "always"
+            },
+            {
+              "label": "Logged transformations",
+              "phrase": "Every transformation is a logged rule with a row count. No silent fixes, no manual cell edits.",
+              "when": "data"
+            },
+            {
+              "label": "Assumptions declared",
+              "phrase": "State assumptions as assumptions, in OPEN_ITEMS.md — and in the output where they affect a conclusion.",
+              "when": "always"
+            },
+            {
+              "label": "Boring methods",
+              "phrase": "Prefer boring, reproducible methods. Propose fancier ones at a gate; don't just use them.",
+              "when": "always"
+            },
+            {
+              "label": "House conventions",
+              "phrase": "Conventions: dates {{ISO in files, MM/DD/YY in prose}}; units {{…}}; language {{…}}.",
+              "when": "org standards exist"
+            }
+          ]
+        }
+      ],
+      "techniques": [],
+      "antipatterns": [
+        "twenty rules (they dilute)",
+        "rules that duplicate checks (keep them distinct)"
+      ]
+    },
+    {
+      "id": "a_quality",
+      "mode": "agentic",
+      "order": 11,
+      "name": "Quality Bar",
+      "oop": "class QualityBar extends PromptElement  // done, auditable",
+      "emit_tag": "quality_bar",
+      "default_on": true,
+      "definition": "The definition of done as a checklist the agent must satisfy — and you can audit in sixty seconds.",
+      "mechanism": "Checks verify the work mid-run; the quality bar verifies completeness at the end. Distinct jobs.",
+      "prevents": "'done' meaning 'I stopped.'",
+      "attributes": [
+        {
+          "id": "checklist",
+          "name": "Definition of done",
+          "oop": "QualityBar.items : Checklist",
+          "pick": "many",
+          "multiline": true,
+          "emit_label": "All must be true before reporting done",
+          "guidance": "Tick-able, evidence-able items.",
+          "placeholder": "Custom item…",
+          "options": [
+            {
+              "label": "Placeholders resolved",
+              "phrase": "[ ] Every {{placeholder}} in this brief was resolved or logged as an open item.",
+              "when": "always"
+            },
+            {
+              "label": "Checks pass",
+              "phrase": "[ ] All HARD checks pass; every SOFT flag has a note.",
+              "when": "always"
+            },
+            {
+              "label": "Deliverables verified",
+              "phrase": "[ ] Every deliverable re-opened and verified after creation — not assumed.",
+              "when": "file outputs"
+            },
+            {
+              "label": "Logs written",
+              "phrase": "[ ] CHANGES / FINDINGS / OPEN_ITEMS written; every open item has an owner and status.",
+              "when": "always"
+            },
+            {
+              "label": "Traceability",
+              "phrase": "[ ] Every presented number traces to a source cell (numbers_trace).",
+              "when": "governed reporting"
+            },
+            {
+              "label": "Charts honest",
+              "phrase": "[ ] Every chart: title states the finding, axes have units, n shown on proportions, target line where a target exists, source footer.",
+              "tier": "extended",
+              "when": "chart deliverables"
+            }
+          ]
+        }
+      ],
+      "techniques": [],
+      "antipatterns": [
+        "a quality bar the agent can satisfy without evidence"
+      ]
+    },
+    {
+      "id": "a_reporting",
+      "mode": "agentic",
+      "order": 12,
+      "name": "Reporting",
+      "oop": "class Reporting extends Format  // the interface back to you",
+      "emit_tag": "reporting",
+      "default_on": true,
+      "definition": "The fixed shape of the final message: status, headline, evidence, open items — under 25 lines.",
+      "mechanism": "Evidence, not assertions: the test it ran and what it returned, not 'everything went well.' Details live in the files, not the message.",
+      "prevents": "a narrative essay where a status should be.",
+      "attributes": [
+        {
+          "id": "shape",
+          "name": "Report shape",
+          "oop": "Reporting.shape : OrderedList<Section>",
+          "pick": "many",
+          "guidance": "The standard six lines — deselect only what genuinely doesn't apply.",
+          "placeholder": "Custom section…",
+          "options": [
+            {
+              "label": "1 · Status",
+              "phrase": "1. Status: DONE | STOPPED AT GATE n | BLOCKED — one line why.",
+              "when": "always"
+            },
+            {
+              "label": "2 · Headline",
+              "phrase": "2. Headline answer with the number(s) — one sentence.",
+              "when": "always"
+            },
+            {
+              "label": "3 · Deliverables",
+              "phrase": "3. Deliverables — paths.",
+              "when": "always"
+            },
+            {
+              "label": "4 · Checks",
+              "phrase": "4. Checks summary — what passed, what was flagged.",
+              "when": "always"
+            },
+            {
+              "label": "5 · Open items",
+              "phrase": "5. Open items needing a human — who, what, by when.",
+              "when": "always"
+            },
+            {
+              "label": "6 · Risks",
+              "phrase": "6. What I'd check next / risks to the conclusion — at most 3 bullets.",
+              "when": "always"
+            }
+          ]
+        },
+        {
+          "id": "discipline",
+          "name": "Report discipline",
+          "oop": "Reporting.rules : Set<Rule>",
+          "pick": "many",
+          "custom": false,
+          "guidance": "The rules that keep reports readable and honest.",
+          "options": [
+            {
+              "label": "25-line cap",
+              "phrase": "Keep the report under 25 lines. Details live in the files, not the message.",
+              "when": "always"
+            },
+            {
+              "label": "Evidence required",
+              "phrase": "Claims of success carry evidence: the command run and its output, or the re-opened file.",
+              "when": "always"
+            }
+          ]
+        }
+      ],
+      "techniques": [],
+      "antipatterns": [
+        "a report that narrates the work instead of answering the question"
+      ]
+    }
+  ]
+}

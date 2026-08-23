@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Template Creator</title>
+<style>
+  :root{
+    --ink:#232A31; --slate:#46545F; --mute:#7A8790; --bg:#FFFFFF; --panel:#F2F5F6; --line:#DCE3E6;
+    --teal:#0E7C7B; --teal-d:#0A5B5A; --teal-t:#E4F0EF; --amber:#B96A1B; --amber-t:#FBF0E0;
+    --red:#AF3230; --red-t:#F9E9E8; --green:#3B8560; --green-t:#E7F2EC; --dark:#1C272E; --dark-card:#2A3842;
+    --on-dark:#ECF2F4; --on-dark-mute:#A9BBC4; --teal-l:#5FB8B0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Segoe UI', Calibri, Arial, sans-serif; background:var(--panel); color:var(--slate); font-size:14px;}
+  header{background:var(--dark); color:var(--on-dark); padding:14px 22px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  header .kicker{font-size:10px; letter-spacing:2px; font-weight:700; color:var(--teal-l);}
+  header h1{font-family:Cambria, Georgia, serif; font-size:22px; color:var(--on-dark);}
+  header .sub{font-size:11.5px; color:var(--on-dark-mute); flex-basis:100%;}
+  .modes{margin-left:auto; display:flex; gap:6px;}
+  .modes button{padding:7px 16px; border:1px solid var(--teal-l); background:transparent; color:var(--teal-l); border-radius:18px; cursor:pointer; font-weight:700; font-size:12.5px;}
+  .modes button.active{background:var(--teal); border-color:var(--teal); color:#fff;}
+  .toolbar{background:#fff; border-bottom:1px solid var(--line); padding:8px 22px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+  .toolbar label{font-size:12px; font-weight:700; color:var(--teal-d);}
+  .toolbar select{padding:6px 10px; border:1px solid var(--line); border-radius:6px; color:var(--ink); font-size:12.5px; max-width:340px;}
+  .toolbar .spacer{flex:1;}
+  .toolbar .hint{font-size:11px; color:var(--mute); font-style:italic;}
+  .layout{display:grid; grid-template-columns:250px 1fr 420px; gap:14px; padding:14px 22px; align-items:start;}
+  @media (max-width:1100px){ .layout{grid-template-columns:1fr;} .out{position:static !important;} }
+
+  /* sidebar */
+  .side{background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px; position:sticky; top:12px;}
+  .side h3{font-size:11px; letter-spacing:1.5px; color:var(--teal-d); margin-bottom:8px;}
+  .elem-toggle{display:flex; align-items:center; gap:8px; padding:6px 6px; border-radius:6px; cursor:pointer; font-size:13px; color:var(--ink);}
+  .elem-toggle:hover{background:var(--teal-t);}
+  .elem-toggle input{accent-color:var(--teal);}
+  .elem-toggle .req{font-size:9px; color:var(--amber); font-weight:700; margin-left:auto;}
+  .side .legend{margin-top:14px; border-top:1px solid var(--line); padding-top:10px; font-size:11px; color:var(--mute); line-height:1.5;}
+  .side .legend b{color:var(--teal-d);}
+
+  /* main */
+  .main{display:flex; flex-direction:column; gap:14px; min-width:0;}
+  .ecard{background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  .ecard > .ehead{padding:12px 16px; background:var(--teal-t); display:flex; align-items:baseline; gap:10px; cursor:pointer; flex-wrap:wrap;}
+  .ecard > .ehead h2{font-family:Cambria, Georgia, serif; font-size:17px; color:var(--ink);}
+  .ecard > .ehead .oop{font-family:Consolas, monospace; font-size:10.5px; color:var(--teal-d); background:#fff; border:1px solid var(--line); padding:1px 7px; border-radius:10px;}
+  .ecard > .ehead .chev{margin-left:auto; color:var(--teal-d); font-size:12px;}
+  .ecard .edef{padding:10px 16px 0; font-size:12.5px; color:var(--slate);}
+  .ecard .edef .prev{color:var(--red); font-size:11.5px;}
+  .ebody{padding:6px 16px 14px;}
+  .attr{border-top:1px dashed var(--line); padding:10px 0 6px; }
+  .attr.child{margin-left:22px; border-top:1px dotted var(--line);}
+  .attr h4{font-size:13px; color:var(--ink); display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
+  .attr h4 .path{font-family:Consolas, monospace; font-size:10px; color:var(--mute); font-weight:400;}
+  .attr .guide{font-size:11.5px; color:var(--mute); margin:2px 0 7px; font-style:italic;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:6px;}
+  .chip{border:1px solid var(--line); background:var(--panel); color:var(--ink); border-radius:14px; padding:4px 11px; font-size:12px; cursor:pointer; user-select:none;}
+  .chip:hover{border-color:var(--teal);}
+  .chip.on{background:var(--teal); border-color:var(--teal); color:#fff;}
+  .chip.ext{border-style:dashed;}
+  .chip .q{color:var(--mute); font-size:10px;} .chip.on .q{color:#D6ECEA;}
+  .morebtn{border:none; background:none; color:var(--teal-d); font-size:11.5px; cursor:pointer; text-decoration:underline; margin-bottom:6px;}
+  .custom{width:100%; border:1px solid var(--line); border-radius:6px; padding:6px 9px; font-size:12.5px; color:var(--ink); font-family:inherit;}
+  .custom::placeholder{color:#AEB9BF;}
+  textarea.custom{min-height:52px; resize:vertical;}
+  .whenline{font-size:10.5px; color:var(--teal-d); margin:-2px 0 6px;}
+  .tech{margin-top:8px; background:var(--amber-t); border-radius:8px; padding:8px 12px; font-size:11.5px;}
+  .tech b{color:var(--amber); font-family:Consolas, monospace; font-size:11px;}
+  .anti{margin-top:6px; font-size:11px; color:var(--red); }
+
+  /* output */
+  .out{background:var(--dark); border-radius:10px; padding:14px; position:sticky; top:12px; display:flex; flex-direction:column; gap:10px; max-height:calc(100vh - 40px);}
+  .out h3{color:var(--teal-l); font-size:11px; letter-spacing:1.5px;}
+  .out .stats{color:var(--on-dark-mute); font-size:11px;}
+  .out textarea{flex:1; min-height:380px; background:var(--dark-card); color:var(--on-dark); border:1px solid #3A4A55; border-radius:8px; padding:12px; font-family:Consolas, 'Courier New', monospace; font-size:11.8px; line-height:1.5; white-space:pre; overflow:auto;}
+  .out .btns{display:flex; gap:8px;}
+  .out button{flex:1; padding:9px 0; border:none; border-radius:7px; font-weight:700; font-size:12.5px; cursor:pointer;}
+  .out .copy{background:var(--teal); color:#fff;}
+  .out .clear{background:transparent; color:var(--on-dark-mute); border:1px solid #3A4A55;}
+  .out .note{font-size:10.5px; color:var(--on-dark-mute); font-style:italic;}
+  footer{padding:10px 22px 26px; font-size:11px; color:var(--mute);}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="kicker">FROM PROMPTS TO AGENTS · PROMPT LIBRARY</div>
+    <h1>Prompt Template Creator</h1>
+  </div>
+  <div class="modes" id="modeBtns"></div>
+  <div class="sub">Assemble a prompt from the element taxonomy: switch on elements, pick options (solid = core picks with guidance, dashed = extended menu), add custom text — the prompt builds itself on the right. Nothing leaves this file: it works offline.</div>
+</header>
+<div class="toolbar">
+  <label>Start from a template (instance):</label>
+  <select id="presetSel"><option value="">— blank —</option></select>
+  <span class="spacer"></span>
+  <span class="hint" id="oopHint"></span>
+</div>
+<div class="layout">
+  <nav class="side">
+    <h3 id="sideTitle">ELEMENTS</h3>
+    <div id="elemList"></div>
+    <div class="legend" id="legend"></div>
+  </nav>
+  <main class="main" id="main"></main>
+  <aside class="out">
+    <h3>ASSEMBLED PROMPT</h3>
+    <div class="stats" id="stats"></div>
+    <textarea id="output" spellcheck="false"></textarea>
+    <div class="btns">
+      <button class="copy" id="copyBtn">Copy prompt</button>
+      <button class="clear" id="clearBtn">Reset</button>
+    </div>
+    <div class="note">Search for {{ before you run — placeholders left unfilled mean you're not done. Review before use; your judgment signs the work.</div>
+  </aside>
+</div>
+<footer id="footer"></footer>
+<script>
+const TAX = /*__TAXONOMY_JSON__*/;
+
+const S = { mode:null, enabled:{}, sel:{}, custom:{}, open:{}, ext:{} };
+
+function el(tag, cls, html){ const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+function attrPath(elem, attr, child){ return elem.id + '.' + attr.id + (child?'.'+child.id:''); }
+function elemsFor(mode){ return TAX.elements.filter(e=>e.mode===mode).sort((a,b)=>a.order-b.order); }
+
+function setMode(m){
+  S.mode=m;
+  elemsFor(m).forEach(e=>{ if(S.enabled[e.id]===undefined) S.enabled[e.id]=e.default_on!==false; });
+  renderAll();
+}
+
+function toggleOpt(path, opt, pick){
+  if(!S.sel[path]) S.sel[path]=[];
+  const i=S.sel[path].indexOf(opt.label);
+  if(pick==='one'){ S.sel[path] = (i>=0)?[]:[opt.label]; }
+  else { if(i>=0) S.sel[path].splice(i,1); else S.sel[path].push(opt.label); }
+  renderMain(); renderOut();
+}
+
+function renderModes(){
+  const box=document.getElementById('modeBtns'); box.innerHTML='';
+  TAX.modes.forEach(m=>{
+    const b=el('button',S.mode===m.id?'active':'',m.name);
+    b.onclick=()=>setMode(m.id);
+    box.appendChild(b);
+  });
+}
+
+function renderSide(){
+  const list=document.getElementById('elemList'); list.innerHTML='';
+  elemsFor(S.mode).forEach(e=>{
+    const row=el('label','elem-toggle');
+    const cb=el('input'); cb.type='checkbox'; cb.checked=!!S.enabled[e.id];
+    cb.onchange=()=>{ S.enabled[e.id]=cb.checked; renderMain(); renderOut(); };
+    row.appendChild(cb);
+    row.appendChild(el('span','',e.name));
+    if(e.required) row.appendChild(el('span','req','KEEP'));
+    list.appendChild(row);
+  });
+  const mode = TAX.modes.find(m=>m.id===S.mode);
+  document.getElementById('legend').innerHTML =
+    '<b>'+mode.name+':</b> '+mode.tagline+'<br><br><b>OOP legend:</b> element = class · attribute = property · option = allowed value · technique = method · this build = an instance.';
+}
+
+function optionChip(path, opt, pick, tier){
+  const on = (S.sel[path]||[]).includes(opt.label);
+  const c=el('span','chip'+(on?' on':'')+(tier==='extended'?' ext':''));
+  c.innerHTML = opt.label + (opt.when?' <span class="q" title="'+opt.when.replace(/"/g,'&quot;')+'">ⓘ</span>':'');
+  c.title = (opt.when?opt.when+'\n':'') + (opt.phrase||'');
+  c.onclick=()=>toggleOpt(path, opt, pick);
+  return c;
+}
+
+function renderAttr(container, elem, attr, parent){
+  const path=attrPath(elem, parent||attr, parent?attr:null);
+  const box=el('div','attr'+(parent?' child':''));
+  box.appendChild(el('h4','',attr.name+' <span class="path">'+(attr.oop||'')+'</span>'));
+  if(attr.guidance) box.appendChild(el('div','guide',attr.guidance));
+  const opts=attr.options||[];
+  const core=opts.filter(o=>o.tier!=='extended');
+  const ext=opts.filter(o=>o.tier==='extended');
+  if(core.length){
+    const chips=el('div','chips');
+    core.forEach(o=>chips.appendChild(optionChip(path,o,attr.pick||'many','core')));
+    box.appendChild(chips);
+  }
+  if(ext.length){
+    const more=el('button','morebtn', S.ext[path]?('hide extended menu ('+ext.length+')'):('show extended menu · '+ext.length+' more'));
+    more.onclick=()=>{ S.ext[path]=!S.ext[path]; renderMain(); };
+    box.appendChild(more);
+    if(S.ext[path]){
+      const chips=el('div','chips');
+      ext.forEach(o=>chips.appendChild(optionChip(path,o,attr.pick||'many','extended')));
+      box.appendChild(chips);
+    }
+  }
+  const selNow=(S.sel[path]||[]);
+  if(selNow.length){
+    const flat=(attr.options||[]);
+    const whens=selNow.map(l=>{const o=flat.find(x=>x.label===l); return o&&o.when?('<b>'+l+':</b> '+o.when):null;}).filter(Boolean);
+    if(whens.length) box.appendChild(el('div','whenline',whens.join(' · ')));
+  }
+  if(attr.custom!==false){
+    const t=el(attr.multiline?'textarea':'input','custom');
+    t.placeholder=attr.placeholder||('Custom '+attr.name.toLowerCase()+'…');
+    t.value=S.custom[path]||'';
+    t.oninput=()=>{ S.custom[path]=t.value; renderOut(); };
+    box.appendChild(t);
+  }
+  (attr.children||[]).forEach(ch=>renderAttr(box, elem, ch, attr));
+  container.appendChild(box);
+}
+
+function renderMain(){
+  const main=document.getElementById('main'); main.innerHTML='';
+  elemsFor(S.mode).filter(e=>S.enabled[e.id]).forEach(elem=>{
+    const card=el('section','ecard');
+    const head=el('div','ehead');
+    head.appendChild(el('h2','',elem.name));
+    if(elem.oop) head.appendChild(el('span','oop',elem.oop));
+    head.appendChild(el('span','chev', S.open[elem.id]===false?'▸ open':'▾'));
+    head.onclick=()=>{ S.open[elem.id]=S.open[elem.id]===false; renderMain(); };
+    card.appendChild(head);
+    if(S.open[elem.id]!==false){
+      card.appendChild(el('div','edef','<b>'+ (elem.definition||'') +'</b> ' + (elem.mechanism||'') + (elem.prevents?' <span class="prev">Prevents: '+elem.prevents+'</span>':'')));
+      const body=el('div','ebody');
+      (elem.attributes||[]).forEach(a=>renderAttr(body, elem, a));
+      (elem.techniques||[]).forEach(t=>{
+        body.appendChild(el('div','tech','<b>'+t.name+'</b> — '+t.what+(t.when?' <i>Use when: '+t.when+'</i>':'')));
+      });
+      if(elem.antipatterns&&elem.antipatterns.length){
+        body.appendChild(el('div','anti','⚠ Anti-patterns: '+elem.antipatterns.join(' · ')));
+      }
+      card.appendChild(body);
+    }
+    main.appendChild(card);
+  });
+}
+
+function collectAttr(elem, attr, parent, lines){
+  const path=attrPath(elem, parent||attr, parent?attr:null);
+  const chosen=(S.sel[path]||[]).map(l=>{
+    const o=(attr.options||[]).find(x=>x.label===l); return o?(o.phrase||o.label):l;
+  }).filter(Boolean);
+  const custom=(S.custom[path]||'').trim();
+  const many = attr.pick==='many';
+  const parts=[];
+  chosen.forEach(p=>parts.push(many?('- '+p):p));
+  if(custom) parts.push((many && !attr.multiline && custom.indexOf('\n')<0)?('- '+custom):custom);
+  if(parts.length){
+    if(attr.emit_label){ lines.push(attr.emit_label+':'); }
+    parts.forEach(p=>lines.push(p));
+  }
+  (attr.children||[]).forEach(ch=>collectAttr(elem, ch, attr, lines));
+}
+
+function assemble(){
+  const mode=TAX.modes.find(m=>m.id===S.mode);
+  const parts=[];
+  elemsFor(S.mode).filter(e=>S.enabled[e.id]).forEach(elem=>{
+    const lines=[];
+    (elem.attributes||[]).forEach(a=>collectAttr(elem,a,null,lines));
+    if(!lines.length) return;
+    const tag=elem.emit_tag||elem.id;
+    parts.push('<'+tag+'>\n'+lines.join('\n')+'\n</'+tag+'>');
+  });
+  return parts.join('\n\n');
+}
+
+function renderOut(){
+  const txt=assemble();
+  document.getElementById('output').value=txt;
+  const toks=Math.round(txt.length/4);
+  const ph=(txt.match(/{{/g)||[]).length;
+  document.getElementById('stats').innerHTML =
+    txt? ('~'+toks+' tokens · '+(ph? '<span style="color:#F0C27A">'+ph+' placeholder(s) {{ }} to fill</span>':'no placeholders left')) : 'Pick options or type custom text to begin.';
+  try{ localStorage.setItem('ptc-state', JSON.stringify(S)); }catch(e){}
+}
+
+function applyPreset(pid){
+  const p=TAX.presets.find(x=>x.id===pid);
+  if(!p){ return; }
+  S.mode=p.mode; S.sel={}; S.custom={}; S.enabled={}; S.ext={};
+  elemsFor(p.mode).forEach(e=>S.enabled[e.id]= (p.elements? p.elements.includes(e.id) : e.default_on!==false));
+  Object.entries(p.select||{}).forEach(([path,labels])=>{ S.sel[path]=Array.isArray(labels)?labels.slice():[labels]; });
+  Object.entries(p.custom||{}).forEach(([path,txt])=>{ S.custom[path]=txt; });
+  renderAll();
+}
+
+function renderPresets(){
+  const sel=document.getElementById('presetSel');
+  sel.innerHTML='<option value="">— blank —</option>';
+  TAX.presets.forEach(p=>{
+    const o=el('option','',p.name); o.value=p.id; sel.appendChild(o);
+  });
+  sel.onchange=()=>applyPreset(sel.value);
+}
+
+function renderAll(){ renderModes(); renderSide(); renderMain(); renderOut(); }
+
+document.getElementById('copyBtn').onclick=async()=>{
+  const t=document.getElementById('output');
+  try{ await navigator.clipboard.writeText(t.value); }catch(e){ t.select(); document.execCommand('copy'); }
+  const b=document.getElementById('copyBtn'); b.textContent='Copied ✓'; setTimeout(()=>b.textContent='Copy prompt',1200);
+};
+document.getElementById('clearBtn').onclick=()=>{ S.sel={}; S.custom={}; S.ext={}; document.getElementById('presetSel').value=''; renderAll(); };
+document.getElementById('footer').innerHTML = TAX.meta.name+' · v'+TAX.meta.version+' · '+TAX.meta.date+' · single-file, offline — treat any confidential text you type here like the document it came from. Source of truth: prompt-library/taxonomy/taxonomy.json';
+document.getElementById('oopHint').textContent='Templates are instances of the element classes — load one and inspect its choices.';
+
+renderPresets();
+try{ const saved=localStorage.getItem('ptc-state'); if(saved){ const p=JSON.parse(saved); Object.assign(S,p);} }catch(e){}
+setMode(S.mode||TAX.modes[0].id);
+</script>
+</body>
+</html>

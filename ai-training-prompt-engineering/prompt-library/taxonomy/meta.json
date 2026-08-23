@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "name": "Prompt Element Taxonomy",
+    "version": "1.0",
+    "date": "August 2026",
+    "owner": "Oscar Penny",
+    "source_note": "Single source of truth for the Prompt Template Creator (HTML), the taxonomy reference (PDF), and the configurator (XLSX). Edit here; regenerate with src/build_builder.py, src/build_taxonomy_pdf.py, src/build_configurator_xlsx.py."
+  },
+  "oop_legend": {
+    "element": "class — a major building block of a prompt (Role, Task, … Mission, Checks)",
+    "attribute": "property — a configurable slot inside an element (Role.identity, Checks.hard)",
+    "option": "allowed value — a vetted choice for an attribute, with guidance on when to pick it",
+    "technique": "method — an operation you can run on/with an element (few_shot(), critique_loop())",
+    "template": "instance — a saved configuration of elements and choices (the G/A library)",
+    "inheritance": "agentic elements extend their generative ancestors (Mission extends Task, adding a definition of done)"
+  },
+  "modes": [
+    {
+      "id": "generative",
+      "name": "Generative",
+      "tagline": "A prompt that writes: you ask, it produces text, you read it and act. Five elements + two safety valves.",
+      "emit_style": "xml"
+    },
+    {
+      "id": "agentic",
+      "name": "Agentic",
+      "tagline": "A prompt that works: you brief a job; it plans, uses tools, checks itself, and reports with evidence. Twelve blocks — the mission brief.",
+      "emit_style": "xml"
+    }
+  ]
+}
