@@ -33,7 +33,8 @@ structure, habits, and generic patterns. Redact anything specific before droppin
 
 ## Tier 4 — the books' missing chapters (notes/photos of frameworks are enough)
 
-- [x] Phoenix & Taylor — full book received as DOCX (Aug 2026 upload).
+- [ ] Phoenix & Taylor — the copies checked so far (Drive doc, uploaded DOCX) are the SAME partial
+      file: front matter + Chapter 1 only. Chapters 2+ need a different copy of the book.
 - [ ] Berryman & Ziegler — **Ch. 4–11** (assembling the prompt, few-shot, RAG, agents, evals).
       The Drive PDF (12.6MB) exceeds the 10MB API download limit — upload an EPUB or split the
       PDF into <9MB parts.
