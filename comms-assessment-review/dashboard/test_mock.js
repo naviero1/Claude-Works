@@ -33,6 +33,24 @@ const path = require('path');
   await page.selectOption('#goalFilter', '');
   await page.screenshot({ path: path.join(__dirname, 'mock_screenshot.png'), fullPage: false });
 
+  // ---- information tree view ----
+  await page.click('#tabTree');
+  check('tree: view switches', await page.locator('#viewTree').isVisible() && !(await page.locator('#viewOverview').isVisible()));
+  const treeHtml = await page.$eval('#treeRoot', e => e.textContent.replace(/\s+/g,' '));
+  check('tree: G1 change-control gap visible', /change control/.test(treeHtml) && /design_change_notice/.test(treeHtml) && /missing/.test(treeHtml));
+  check('tree: G5 training topic under capability building', /capability building/.test(treeHtml) && /supplier_auditor_training_status/.test(treeHtml));
+  check('tree: G5 topic summary 1\/2 covered', /1\/2 covered/.test(treeHtml));
+  const goalNodes = await page.$$eval('.goalnode', ns => ns.length);
+  check('tree: 5 goal nodes', goalNodes === 5, String(goalNodes));
+  await page.selectOption('#goalFilter', 'G5');
+  const g5nodes = await page.$$eval('.goalnode', ns => ns.length);
+  check('tree: filter narrows to 1 node', g5nodes === 1, String(g5nodes));
+  await page.screenshot({ path: path.join(__dirname, 'tree_screenshot.png'), fullPage: false });
+  await page.selectOption('#goalFilter', '');
+  await page.click('#tabOverview');
+  check('tree: switch back to overview', await page.locator('#viewOverview').isVisible());
+
+
   await browser.close();
   console.log(results.join('\n'));
   process.exit(results.some(r => r.startsWith('FAIL')) ? 1 : 0);

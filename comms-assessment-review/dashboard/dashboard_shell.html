@@ -89,6 +89,30 @@ td.dim{color:var(--ink-2)}
 .pct{font-variant-numeric:tabular-nums;font-size:.8rem;color:var(--ink-2);min-width:38px;text-align:right}
 .empty-note{color:var(--ink-3);font-size:.85rem;padding:14px 16px}
 footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;font-size:.74rem;color:var(--ink-3);font-family:var(--mono)}
+/* view tabs */
+.views{display:flex;gap:2px;margin-top:20px;border-bottom:1px solid var(--line)}
+.views button{border:none;background:none;font-family:var(--mono);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);padding:8px 14px;border-bottom:2px solid transparent;border-radius:0}
+.views button.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.views button:hover{color:var(--accent)}
+/* information tree */
+.treelegend{font-size:.82rem;color:var(--ink-2);margin:14px 2px 0;max-width:78ch}
+.goalnode{background:var(--card);border:1px solid var(--line);border-radius:8px;margin-top:14px;padding:16px 20px}
+.goalnode>.ghead{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.ghead .gid{font-family:var(--mono);font-size:.78rem;color:var(--ink-3)}
+.ghead .gname{font-family:var(--slab);font-weight:700;font-size:1.02rem}
+.ghead .gowner{color:var(--ink-2);font-size:.82rem}
+.ghead .gstats{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--ink-2)}
+.opgroup{margin:14px 0 0 6px;padding-left:16px;border-left:2px solid var(--line-soft)}
+.oplabel{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.topicnode{margin:10px 0 0 6px;padding-left:16px;border-left:2px solid var(--line)}
+.topicnode.gappy{border-left-color:var(--st-warn)}
+.thead{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+.thead .tname{font-family:var(--mono);font-size:.82rem;font-weight:500}
+.thead .tdesc{color:var(--ink-3);font-size:.78rem;font-style:italic}
+.needrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 0 16px;font-size:.85rem}
+.needrow .crit{font-family:var(--mono);font-size:.7rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.treenote{margin:6px 0 0 16px;font-size:.8rem;color:var(--ink-3);font-style:italic}
+.treenote.warn{color:var(--red-ink);font-style:normal}
 #app{display:none}
 .arrow{color:var(--ink-3)}
 @media (max-width:640px){ .kpi .n{font-size:1.35rem} }
@@ -119,6 +143,12 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;font-si
   <div class="kpis" id="kpis"></div>
   <div id="health"></div>
 
+  <div class="views">
+    <button id="tabOverview" class="active">Overview</button>
+    <button id="tabTree">Information tree</button>
+  </div>
+
+  <div id="viewOverview">
   <h2>By goal</h2>
   <div class="tablewrap"><table id="goalsTable"></table></div>
 
@@ -133,6 +163,12 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;font-si
 
   <h2>Disputed flows — follow-up interviews</h2>
   <div class="tablewrap"><table id="disputedTable"></table></div>
+  </div>
+
+  <div id="viewTree" style="display:none">
+    <p class="treelegend">The decomposition the whole method runs on: each <strong>goal</strong> breaks into the <strong>operations</strong> it performs, each operation names the <strong>topics</strong> people must hear about, and each topic demands specific <strong>flows</strong> — this information must reach this person, this fast. Where a flow's verdict is not <span class="chip ok">covered</span>, the tree shows the gap exactly where it hangs.</p>
+    <div id="treeRoot"></div>
+  </div>
 
   <footer id="foot"></footer>
 </div>
@@ -218,6 +254,21 @@ function buildModel(wb, fileName){
     venue: S(d.actual_venue_type)==='ritual' ? ((ritualById[S(d.actual_venue_id)]||{}).name || S(d.actual_venue_id)) : S(d.actual_venue_type),
     defect:S(d.defect) }));
 
+  // information tree: goal → operation → topic → required flows, gaps in place
+  const tree = goals.map(g => {
+    const gid = S(g.goal_id);
+    const gTopics = topics.filter(t => S(t.goal_id) === gid).map(t => {
+      const tid = S(t.topic_id);
+      const needs = required.filter(fl => S(fl.topic_id) === tid).map(fl => ({
+        from: an(fl.from_actor), to: an(fl.to_actor), crit: N(fl.criticality),
+        status: S(fl.status), priority: N(fl.priority) }));
+      const extra = actual.filter(a2 => S(a2.topic_id) === tid && S(a2.confidence) !== 'disputed' &&
+        !required.some(rq => S(rq.topic_id) === tid && S(rq.to_actor) === S(a2.to_actor))).length;
+      return { id: tid, name: S(t.name), operation: S(t.operation) || 'other', desc: S(t.description), needs, extra };
+    });
+    return { id: gid, name: S(g.name), cls: S(g.goal_class || ''), owner: an(g.owner_actor_id), topics: gTopics };
+  });
+
   // data-health notes (capture completeness, not model logic)
   const incompleteReq = required.length - scored.length;
   const actualNoCarrier = actual.filter(f => S(f.confidence)!=='disputed' && !carriers.some(c => S(c.flow_id) === S(f.flow_id))).length;
@@ -234,7 +285,7 @@ function buildModel(wb, fileName){
       disputed: disputed.length
     },
     health: { incompleteReq, actualNoCarrier, unscoredMeetings },
-    goals: goalRows, defects, meetings: meetingRows, decisions: decisionRows, disputed
+    goals: goalRows, defects, meetings: meetingRows, decisions: decisionRows, disputed, tree
   };
 }
 
@@ -334,8 +385,52 @@ function render(){
     dsp.map(d => `<tr><td class="mono">${esc(d.topic)}</td><td>${esc(d.from)}</td><td class="arrow">→</td><td>${esc(d.to)}</td><td class="dim">${esc(d.evidence)}</td></tr>`).join('')
     : '<tr><td class="empty-note">No disputed flows — producers and consumers agree.</td></tr>';
 
+  renderTree();
   $('foot').textContent = 'Rendered from the workbook’s own computed verdicts · ' + m.meta.file + ' · ' + m.meta.generated + ' · nothing left this browser';
 }
+
+function renderTree(){
+  const m = MODEL;
+  if(!m || !m.tree){ $('tabTree').style.display = m && !m.tree ? 'none' : ''; return; }
+  const goals = m.tree.filter(g => !FILTER || g.id === FILTER);
+  $('treeRoot').innerHTML = goals.map(g => {
+    const allNeeds = g.topics.flatMap(t => t.needs);
+    const scored = allNeeds.filter(n => n.status);
+    const cov = scored.filter(n => n.status === 'covered').length;
+    const clsChipHtml = g.cls ? (g.cls === 'core' ? '<span class="chip coreclass">core</span>' : '<span class="chip claim">aspirational</span>') : '';
+    const stats = `<div class="gstats"><span>${g.topics.length} topic${g.topics.length===1?'':'s'} · ${scored.length} need${scored.length===1?'':'s'}</span>${bar(scored.length ? cov/scored.length : null)}</div>`;
+    let body;
+    if(!g.topics.length){
+      body = '<div class="treenote warn">No topics decomposed — this goal has no nervous system yet.</div>';
+    } else {
+      const ops = [...new Set(g.topics.map(t => t.operation))];
+      body = ops.map(op => {
+        const opTopics = g.topics.filter(t => t.operation === op);
+        return `<div class="opgroup"><div class="oplabel">${esc(op)}</div>` + opTopics.map(t => {
+          const tScored = t.needs.filter(n => n.status);
+          const tCov = tScored.filter(n => n.status === 'covered').length;
+          const gappy = tScored.some(n => n.status && n.status !== 'covered');
+          const sum = tScored.length ? `<span class="chip ${gappy ? 'warn' : 'ok'}">${tCov}/${tScored.length} covered</span>` : '';
+          const rows = t.needs.map(n => `<div class="needrow"><span>${esc(n.from)}</span><span class="arrow">→</span><span>${esc(n.to)}</span><span class="crit">crit ${n.crit ?? '?'}</span>${n.status ? statusChip(n.status) : '<span class="chip neutral">incomplete</span>'}${n.status && n.status !== 'covered' ? `<span class="crit">priority ${n.priority ?? ''}</span>` : ''}</div>`).join('');
+          const notes = [];
+          if(!t.needs.length) notes.push('<div class="treenote">no required flows modeled for this topic yet</div>');
+          if(t.extra) notes.push(`<div class="treenote">+${t.extra} observed flow${t.extra>1?'s':''} on this topic that no requirement asks for</div>`);
+          return `<div class="topicnode${gappy ? ' gappy' : ''}"><div class="thead"><span class="tname">${esc(t.name)}</span>${sum}${t.desc ? `<span class="tdesc">${esc(t.desc)}</span>` : ''}</div>${rows}${notes.join('')}</div>`;
+        }).join('') + '</div>';
+      }).join('');
+    }
+    return `<div class="goalnode"><div class="ghead"><span class="gid">${esc(g.id)}</span>${clsChipHtml}<span class="gname">${esc(g.name)}</span><span class="gowner">${esc(g.owner)}</span>${stats}</div>${body}</div>`;
+  }).join('') || '<div class="treenote">No goals to show.</div>';
+}
+
+function setView(tree){
+  $('viewOverview').style.display = tree ? 'none' : 'block';
+  $('viewTree').style.display = tree ? 'block' : 'none';
+  $('tabOverview').classList.toggle('active', !tree);
+  $('tabTree').classList.toggle('active', tree);
+}
+$('tabOverview').addEventListener('click', () => setView(false));
+$('tabTree').addEventListener('click', () => setView(true));
 
 /* ============ load & reload ============ */
 let fileHandle = null;
