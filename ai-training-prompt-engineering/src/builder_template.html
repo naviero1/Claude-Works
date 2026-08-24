@@ -613,12 +613,25 @@ document.getElementById('copyBtn').onclick=async()=>{
   const b=document.getElementById('copyBtn'); b.textContent='Copied ✓'; setTimeout(()=>b.textContent='Copy prompt',1400);
   toast(n? 'Copied — but '+n+' {{placeholder'+(n>1?'s':'')+'}} still need your specifics.' : 'Copied. Paste it into your AI tool.');
 };
-document.getElementById('dlBtn').onclick=()=>{
+document.getElementById('dlBtn').onclick=async()=>{
   const txt=document.getElementById('output').value;
   if(!txt){ toast('Nothing to download yet.'); return; }
+  const fname='prompt-'+(S.mode||'draft')+'.txt';
+  // Inside the claude.ai artifact viewer, saves go through the downloads capability;
+  // opened as a local file, the plain download link works.
+  if(window.claude && typeof window.claude.use==='function'){
+    try{
+      const dl=await window.claude.use('downloads');
+      if(dl){
+        try{ await dl.save({filename:fname, data:txt}); toast('Saved.'); }
+        catch(err){ if(err&&err.code==='declined'){ toast('Save cancelled.'); } else { toast('Could not save here — use Copy prompt instead.'); } }
+        return;
+      }
+    }catch(e){}
+  }
   const a=document.createElement('a');
   a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(txt);
-  a.download='prompt-'+(S.mode||'draft')+'.txt';
+  a.download=fname;
   document.body.appendChild(a); a.click(); a.remove();
 };
 document.getElementById('clearBtn').onclick=()=>{
