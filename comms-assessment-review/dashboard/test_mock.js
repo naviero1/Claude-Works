@@ -92,7 +92,7 @@ const path = require('path');
   const kpiSub = await page.$eval('#kpis .kpi .s', e => e.textContent);
   check('kpi: n-of-m subline present', /of .* required flows covered/.test(kpiSub), kpiSub);
   const kpiCount = await page.$$eval('#kpis .kpi', els => els.length);
-  check('kpi: 7 tiles incl. VA ratio', kpiCount === 7, String(kpiCount));
+  check('kpi: 8 tiles incl. manhours', kpiCount === 8, String(kpiCount));
 
   // ---- decompose view ----
   await page.click('#tabDecompose');
@@ -118,6 +118,42 @@ const path = require('path');
   await page.click('#decomposeBack');
   const cardsBack = await page.$$eval('.pickcard', cs => cs.length);
   check('decompose: back returns to picker', cardsBack === 5, String(cardsBack));
+
+  // ---- manhours + rate + RACI + matrix + robustness ----
+  await page.click('#tabOverview');
+  const kpiAll = await page.$eval('#kpis', e => e.textContent.replace(/\s+/g,' '));
+  check('money: manhours KPI with $ at 80/h', /Meeting manhours/.test(kpiAll) && /\$/.test(kpiAll) && /at \$80\/h/.test(kpiAll), kpiAll.slice(-160));
+  const mtot = await page.$eval('#meetingsTable tr.totalrow', r => r.textContent.replace(/\s+/g,' '));
+  check('money: meetings total row with $/year', /all recurring meetings/.test(mtot) && /\/year/.test(mtot), mtot);
+  await page.fill('#rateInput', '100');
+  await page.dispatchEvent('#rateInput', 'change');
+  const kpiAfter = await page.$eval('#kpis', e => e.textContent);
+  check('money: rate change re-prices', /at \$100\/h/.test(kpiAfter));
+  await page.fill('#rateInput', '80'); await page.dispatchEvent('#rateInput', 'change');
+
+  const chead = await page.$eval('#channelsTable tr', r => r.textContent);
+  check('channels: table renders with persistence', /persistence/.test(chead));
+  const cbody = await page.$eval('#channelsTable', e => e.textContent);
+  check('channels: system of record badge', /system of record/.test(cbody));
+
+  const ppl = await page.$eval('#peopleTable', e => e.textContent.replace(/\s+/g,' '));
+  check('raci: people roles column populated', /meeting roles/i.test(ppl) && /×/.test(ppl), ppl.slice(0,120));
+  await page.$$eval('.mtg-link', ls => ls.find(l => /Weekly Supplier Quality Review/.test(l.textContent)).click());
+  const md2 = await page.$eval('#detailCard', e => e.textContent.replace(/\s+/g,' '));
+  check('raci: meeting detail grouped roster', /Who sits here/.test(md2) && /Accountable/.test(md2) && /Consulted/.test(md2), md2.slice(0,200));
+  check('money: meeting detail manhours line', /manhours\/week/.test(md2));
+  await page.keyboard.press('Escape');
+
+  await page.click('#tabMap');
+  const matrix = await page.$eval('#matrixWrap', e => e.textContent.replace(/\s+/g,' '));
+  check('matrix: whitespace grid with DEF cells', /req/.test(matrix) && /DEF/.test(matrix) && /Quality/.test(matrix), matrix.slice(0,160));
+  await page.click('#tabOverview');
+
+  const flabel = await page.$eval('#fileLabel', e => e.textContent);
+  check('provenance: saved date shown', /saved 20/.test(flabel), flabel);
+  const foot = await page.$eval('#foot', e => e.textContent);
+  check('honesty: footer distinguishes cached vs aggregated', /cached computations/.test(foot));
+
 
 
 

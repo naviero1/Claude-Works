@@ -189,6 +189,24 @@ details.topicfold>summary:focus-visible{outline:2px solid var(--accent);outline-
 .realrow{font-size:.85rem;margin-top:4px}
 .realrow .ev{color:var(--ink-3);font-size:.78rem;font-style:italic}
 .carrierchip{display:inline-block;font-size:.74rem;border:1px solid var(--line);border-radius:4px;padding:1px 8px;margin-left:6px;color:var(--ink-2);background:var(--paper)}
+#sheetWarn{display:none;background:var(--red-bg,#F9E3E3);border:1px solid var(--st-missing);color:var(--red-ink);border-radius:6px;padding:10px 16px;font-size:.86rem;margin:14px 0 0;font-weight:600}
+.ratebox{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.83rem;color:var(--ink-2);margin:0 0 10px}
+.ratebox input{width:70px;font-family:var(--mono);font-size:.85rem;border:1px solid var(--input-bd);background:var(--input-bg);color:var(--ink);border-radius:5px;padding:4px 8px;font-variant-numeric:tabular-nums}
+.ratebox input:focus-visible{outline:2px solid var(--accent)}
+tr.totalrow td{border-top:2px solid var(--line);font-weight:600;background:var(--comp-bg)}
+/* whitespace matrix */
+#matrixWrap table td{text-align:center;font-variant-numeric:tabular-nums;font-size:.8rem;white-space:nowrap}
+#matrixWrap td.rowhead{font-family:var(--mono);font-size:.7rem;text-align:left;color:var(--ink-2);white-space:nowrap}
+#matrixWrap td.hasdef{background:var(--red-bg,#F9E3E3);color:var(--red-ink);font-weight:600}
+#matrixWrap td.clean{color:var(--ink-2)}
+#matrixWrap td.diag{background:var(--comp-bg)}
+@media print{
+  .bar,.views,#mapControls,.ratebox,button,select,#tip,.backlink{display:none !important}
+  .tablewrap,#mapWrap{overflow:visible !important;border:none}
+  #mapWrap svg{max-width:100%;height:auto}
+  body{background:#fff;color:#000}
+  details.topicfold{page-break-inside:avoid}
+}
 #app{display:none}
 .arrow{color:var(--ink-3)}
 @media (max-width:640px){ .kpi .n{font-size:1.35rem} }
@@ -209,6 +227,7 @@ details.topicfold>summary:focus-visible{outline:2px solid var(--accent);outline-
   <input type="file" id="fileInput" accept=".xlsx" style="display:none">
 </div>
 <div id="snapshotBanner"></div>
+<div id="sheetWarn"></div>
 
 <div id="dropzone">
   <div class="big">Drop your workbook here</div>
@@ -239,7 +258,12 @@ details.topicfold>summary:focus-visible{outline:2px solid var(--accent);outline-
 
   <h2>Meetings</h2>
   <p class="sub-h">Every recurring meeting: its hygiene score on <span data-tip="Six binary, evidence-anchored criteria: written purpose · action items logged · decisions findable by a non-attendee · output traces to a goal · right attendees · pre-read not live retelling. Scored only after seeing the artifact, over the last three occurrences.">six criteria</span>, its <span data-tip="VA = written purpose + real output + serves a goal. Necessary NVA = no goal but compliance-required. NVA = cost with no cargo — a consolidation candidate (cut as an experiment: skip two occurrences, observe).">value class</span>, its weekly price in person-minutes, and whether the goals it claims are goals it actually feeds.</p>
+  <div class="ratebox"><label for="rateInput">Average loaded rate</label> $<input id="rateInput" type="number" min="1" step="5" value="80"> /hour <span data-tip="Used for every money figure on this page. A 'loaded' rate includes salary plus overhead — adjust to your organization's number. Stored in this browser and baked into exported snapshots.">— what is this?</span></div>
   <div class="tablewrap"><table id="meetingsTable"></table></div>
+
+  <h2>Channels</h2>
+  <p class="sub-h">The other half of the venue inventory. Channels are the only carriers that can be <span data-tip="Store-and-forward: no need for both parties to be present.">asynchronous</span> or a <span data-tip="An authoritative store that survives any individual and is readable by non-participants — the only thing that neutralizes a SPOF.">system of record</span> — which makes them the usual fix for latency gaps and single points of failure.</p>
+  <div class="tablewrap"><table id="channelsTable"></table></div>
 
   <h2>Decisions</h2>
   <p class="sub-h">Rights on paper vs. where deciding actually happens — the <span data-tip="Each decision names ONE accountable owner on paper. The audit then records where the last instance was actually decided, and flags: owner absent from that room (a_absent), decided nowhere (none_observed), or no owner at all (no_accountable).">RACI-vs-reality probe</span>.</p>
@@ -264,10 +288,13 @@ details.topicfold>summary:focus-visible{outline:2px solid var(--accent);outline-
     </div>
     <div id="mapWrap"></div>
     <div class="maplegend" id="mapLegend"></div>
+    <h2>White space — hand-offs between functions</h2>
+    <p class="sub-h">The Rummler view: rows produce, columns consume. Each cell counts this selection's required flows crossing that boundary — <span data-tip="Requirements whose producing and consuming actors sit in different functions. Organizations fail between functions, not within them; a red cell is a boundary where hand-offs break.">the white space on the org chart</span>. The diagonal is traffic inside one function.</p>
+    <div class="tablewrap" id="matrixWrap"></div>
   </div>
 
   <div id="viewPeople" style="display:none">
-    <p class="treelegend">Who is key: everyone ranked by how many required flows run through them. A person high on this list with defects or a <span data-tip="Single point of failure: a critical delivered flow with one path and no system-of-record backup — it survives only as long as one person shows up.">SPOF</span> flag is where the network is fragile. Click a row for that person's full picture.</p>
+    <p class="treelegend">Who is key: everyone ranked by how many required flows name them as producer or consumer — how much the goals depend on this person. (This is dependency counting, not a network-science centrality measure; the pipeline's network analysis only ever corroborates it.) A person high on this list with defects or a <span data-tip="Single point of failure as the workbook computes it: a critical delivered flow with a single path and no durable backup.">SPOF</span> flag is where the network is fragile. Click a row for the full picture, including their RACI role in every meeting.</p>
     <div class="tablewrap"><table id="peopleTable"></table></div>
   </div>
 
@@ -298,6 +325,8 @@ details.topicfold>summary:focus-visible{outline:2px solid var(--accent);outline-
     <div class="el"><strong>Carrier</strong><p>Where an actual flow physically travels: a meeting or a channel, push (delivered) or pull (you must remember to check). A flow with no carrier is hearsay.</p></div>
     <div class="el"><strong>Meeting &amp; Channel</strong><p>The two kinds of venue. Meetings are audited on six evidence-anchored criteria, priced in person-minutes per week, and judged on whether the goals they <em>claim</em> match the goals they actually <em>carry</em>. Channels bring the properties meetings can't: asynchrony and durable records.</p></div>
     <div class="el"><strong>Decision</strong><p>A recurring decision with one accountable owner on paper — compared against the room where it actually gets decided.</p></div>
+    <div class="el"><strong>Meeting roles (RACI)</strong><p>Optional: add a sheet named <code>MeetingRoles</code> to the workbook with columns <code>ritual_id · actor_id · role</code> (A/R/C/I) and every view here types each person's relationship to each meeting: <em>Accountable</em> owns it, <em>Responsible</em> runs it, <em>Consulted</em> contributes, <em>Informed</em> only receives. A person who is only ever Informed may not need the seat. This sheet is deliberately separate from <code>attendee_ids</code> so no workbook formula is disturbed.</p></div>
+    <div class="el"><strong>Money</strong><p>Meeting manhours = occurrences/week × duration × headcount (the workbook's own cost figure, in hours). Dollars = manhours × the average loaded rate, editable above the Meetings table (default $80/hour). Verdict chips are the workbook's cached computations; sums, badges, and money figures are display-side aggregations of them.</p></div>
     <h3>The verdicts the workbook computes</h3>
     <div class="el computed"><strong>Flow status</strong><p>Checked in strict order — <em>missing</em> → <em>wrong producer</em> → <em>latency gap</em> → <em>channel mismatch</em> → <em>covered</em>. The first failed check names the defect and its fix. Priority = criticality × severity, max 15.</p></div>
     <div class="el computed"><strong>Alignment</strong><p><em>Theater</em> = claims a goal, carries nothing of it. <em>Unclaimed</em> = carries a goal it never claims — real dependency, missing paperwork. The claim and the carry are measured independently on purpose: their disagreement is the signal.</p></div>
@@ -329,7 +358,7 @@ const S = v => String(v == null ? '' : v).trim();
 const N = v => (typeof v === 'number' && isFinite(v)) ? v : (v === '' || v == null ? null : (isFinite(+v) ? +v : null));
 const B = v => v === true || S(v).toLowerCase() === 'true';
 
-function buildModel(wb, fileName){
+function buildModel(wb, fileName, savedDate){
   const goals    = sheetRows(wb,'Goals');
   const topics   = sheetRows(wb,'Topics');
   const actors   = sheetRows(wb,'Stakeholders');
@@ -338,7 +367,21 @@ function buildModel(wb, fileName){
   const carriers = sheetRows(wb,'Carriers');
   const decisions= sheetRows(wb,'Decisions');
   const align    = sheetRows(wb,'Alignment');
+  const channels = sheetRows(wb,'Channels');
   if(!flows.length || !goals.length) throw new Error('This file does not look like the assessment workbook (missing Goals/Flows sheets).');
+  const EXPECTED = ['Goals','Topics','Stakeholders','Channels','Rituals','Flows','Carriers','Decisions','Alignment'];
+  const missingSheets = EXPECTED.filter(n2 => !wb.Sheets[n2]);
+
+  // optional MeetingRoles sheet (ritual_id, actor_id, role A/R/C/I) — read-only extension,
+  // deliberately a separate sheet so no workbook formula (roster matching, counts) is disturbed
+  const rolesRows = sheetRows(wb,'MeetingRoles');
+  const roleOf = {};
+  rolesRows.forEach(rr => {
+    const v = S(rr.role || rr.raci).toUpperCase().charAt(0);
+    if('ARCI'.indexOf(v) !== -1) roleOf[S(rr.ritual_id) + '|' + S(rr.actor_id)] = v;
+  });
+  const hasRoles = rolesRows.length > 0;
+  const RACI_WORD = { A:'Accountable', R:'Responsible', C:'Consulted', I:'Informed' };
 
   const topicById = {}; topics.forEach(t => topicById[S(t.topic_id)] = t);
   const actorById = {}; actors.forEach(a => actorById[S(a.actor_id)] = a);
@@ -382,17 +425,32 @@ function buildModel(wb, fileName){
     const topicsCarried = [...new Set(carried.map(c2 => c2.topic))];
     const decided = decisions.filter(d => S(d.actual_venue_type)==='ritual' && S(d.actual_venue_id)===rid).map(d => S(d.name));
     const dur = N(r.duration_min);
+    const attIds = S(r.attendee_ids) ? S(r.attendee_ids).split(';').filter(Boolean) : [];
+    const ownerId = S(r.owner_actor_id);
+    const rosterIds = [...new Set([ownerId, ...attIds].filter(Boolean))];
+    const roster = rosterIds.map(id => ({ name: an(id),
+      role: roleOf[rid + '|' + id] || (id === ownerId && hasRoles ? 'A' : ''), owner: id === ownerId }));
+    const cost = N(r.person_min_per_wk);
     return { id:rid, name:S(r.name), cadence:S(r.cadence), dur,
-             attendees: S(r.attendee_ids) ? S(r.attendee_ids).split(';').filter(Boolean).length : 0,
+             attendees: attIds.length,
              pct: N(r.criteria_pct), failed:S(r.failed_criteria),
-             cls: S(r.classification), cost: N(r.person_min_per_wk),
+             cls: S(r.classification), cost, hours: cost != null ? cost/60 : null,
+             roster,
              carried, topicsCarried, decided,
              minPerTopic: topicsCarried.length && dur ? Math.round(dur / topicsCarried.length) : null,
              align: alignRows.filter(a => a.ritual === rid) };
+  }).sort((a,b) => (b.cost||0) - (a.cost||0));
+
+  const channelRows = channels.map(c => {
+    const cid = S(c.channel_id);
+    return { id: cid, name: S(c.name), type: S(c.type), synchrony: S(c.synchrony),
+      persistence: S(c.persistence), cadence: S(c.effective_cadence),
+      flows: carriers.filter(l => S(l.carrier_type)==='channel' && S(l.carrier_id)===cid && N(l.usable)===1 && N(l.req_exists)===1).length };
   });
 
   const decisionRows = decisions.map(d => ({
-    name:S(d.name), goal:S(d.goal_id), topic:S(d.topic_id), accountable:S(d.accountable) ? an(d.accountable) : '—',
+    name:S(d.name), goal:S(d.goal_id), topic:S(d.topic_id), venueType:S(d.actual_venue_type),
+    accountable:S(d.accountable) ? an(d.accountable) : '—',
     venue: S(d.actual_venue_type)==='ritual' ? ((ritualById[S(d.actual_venue_id)]||{}).name || S(d.actual_venue_id)) : S(d.actual_venue_type),
     defect:S(d.defect) }));
 
@@ -439,8 +497,11 @@ function buildModel(wb, fileName){
     const needsOut = scored.filter(fl => S(fl.from_actor) === a.id).map(fl => ({ topic: tn(fl.topic_id), other: an(fl.to_actor), status: S(fl.status), goal: S(fl.goal) }));
     const needsIn  = scored.filter(fl => S(fl.to_actor) === a.id).map(fl => ({ topic: tn(fl.topic_id), other: an(fl.from_actor), status: S(fl.status), goal: S(fl.goal) }));
     const meetings = rituals.filter(r => (';'+S(r.attendee_ids)+';'+S(r.owner_actor_id)+';').indexOf(';'+a.id+';') !== -1)
-      .map(r => ({ name: S(r.name), minWk: Math.round((N(r.per_week)||0)*(N(r.duration_min)||0)) }));
-    return { ...a, needsOut, needsIn,
+      .map(r => ({ name: S(r.name), minWk: Math.round((N(r.per_week)||0)*(N(r.duration_min)||0)),
+        role: roleOf[S(r.ritual_id) + '|' + a.id] || (S(r.owner_actor_id) === a.id && hasRoles ? 'A' : '') }));
+    const raci = { A:0, R:0, C:0, I:0 };
+    meetings.forEach(mt => { if(raci[mt.role] !== undefined) raci[mt.role]++; });
+    return { ...a, needsOut, needsIn, raci,
              produces: needsOut.length, consumes: needsIn.length,
              defective: needsOut.filter(n2 => n2.status !== 'covered').length + needsIn.filter(n2 => n2.status !== 'covered').length,
              meetings };
@@ -450,9 +511,12 @@ function buildModel(wb, fileName){
   const incompleteReq = required.length - scored.length;
   const actualNoCarrier = actual.filter(f => S(f.confidence)!=='disputed' && !carriers.some(c => S(c.flow_id) === S(f.flow_id))).length;
   const unscoredMeetings = rituals.filter(r => N(r.criteria_pct) === null).length;
+  const unassignedSeats = hasRoles ? meetingRows.reduce((s2, r) => s2 + r.roster.filter(x => !x.role).length, 0) : 0;
 
   return {
-    meta: { file:fileName, generated:new Date().toISOString().slice(0,10) },
+    meta: { file:fileName, generated:new Date().toISOString().slice(0,10),
+            saved: savedDate ? new Date(savedDate).toISOString().slice(0,10) : null,
+            missingSheets, hasRoles },
     kpis: {
       coverage: scored.length ? covered.length/scored.length : null,
       coveredN: covered.length, scoredN: scored.length,
@@ -464,8 +528,8 @@ function buildModel(wb, fileName){
       vaN: meetingRows.filter(r => r.cls === 'VA').length, meetN: meetingRows.length
     },
     map: { actors: mapActors, edges: mapEdges },
-    people,
-    health: { incompleteReq, actualNoCarrier, unscoredMeetings },
+    people, channels: channelRows,
+    health: { incompleteReq, actualNoCarrier, unscoredMeetings, unassignedSeats },
     goals: goalRows, defects, meetings: meetingRows, decisions: decisionRows, disputed, tree
   };
 }
@@ -480,12 +544,12 @@ const TIPS = {
   wrong_producer: 'It arrives — but not from the source the goal requires. Second-hand relays degrade information. Fix: connect the consumer to the source.',
   latency_gap: 'It arrives, but every carrier is slower than the goal tolerates. Fix: a faster carrier.',
   channel_mismatch: 'It arrives in time but wrongly: a conversation was required and it rides messages, or a criticality-5 flow is pull-only. Fix: change the channel class.',
-  covered: 'This need is fully served: right source, fast enough, right kind of channel.',
+  covered: 'This need is served: right source, fast enough, right kind of channel. Note: where only one side confirmed the flow, the workbook does not yet flag it separately — corroboration strength lives on the observed flow.',
   incomplete: 'This required flow is missing a topic, latency, or channel class — the workbook cannot compute its status yet.',
   theater: 'Alignment theater: the meeting claims this goal in its own charter but carries none of its flows and decides none of its decisions. Worth a conversation, not an accusation.',
   unclaimed: 'This meeting actually feeds the goal without claiming it — real dependency, missing paperwork. Fix: update the meeting’s charter.',
   aligned_meeting: 'Claims the goal and actually carries its flows and/or decides its decisions.',
-  VA: 'Value-adding: written purpose, real output, serves a goal.',
+  VA: 'Value-adding as the workbook computes it today: written purpose + real output + CLAIMS a goal. Note: claims, not carries — a meeting can score VA and still be alignment theater; check the goal-alignment column beside it.',
   necNVA: 'Produces real output but feeds no goal — kept only because an external obligation requires it.',
   NVA: 'Cost with no cargo: no goal, no compliance requirement. Consolidation candidate — cut as an experiment (skip two occurrences, observe).',
   core: 'Core goal: structural, cost, business-critical — affects the company’s sustainability in the short/medium term.',
@@ -494,10 +558,26 @@ const TIPS = {
   none_observed: 'No venue observed — the decision drifts, decided nowhere in particular.',
   no_accountable: 'Nobody owns this decision on paper. The blank is the finding.',
   aligned_decision: 'The accountable owner is present where the decision is actually made.',
-  spof: 'Single point of failure: a critical delivered flow with one path and no system-of-record backup — it survives only as long as one person shows up. Fix: publish to a durable channel.',
-  isolated: 'No usable observed flow in or out — this actor is cut off from all modeled traffic.'
+  spof: 'Single point of failure, as the workbook computes it: a critical delivered flow with a SINGLE delivery path and no system-of-record backup — it survives only as long as one person shows up. (The docs’ sole-producer definition is pending unification.) Fix: publish to a durable channel.',
+  isolated: 'No usable observed flow in or out — this actor is cut off from all modeled traffic. (Computed by this dashboard from the flow rows, not a workbook verdict.)',
+  raciA: 'Accountable — owns the meeting’s outcome; the one who answers for it.',
+  raciR: 'Responsible — runs the meeting / does the work it exists for.',
+  raciC: 'Consulted — contributes input before or during; two-way.',
+  raciI: 'Informed — receives the outcome; one-way. A person who is only ever Informed across many meetings may not need the seat — an async carrier might serve them better.',
+  manhours: 'Person-hours per week: occurrences/week × duration × headcount, from the workbook’s cached per-meeting cost. Money = manhours × the average loaded rate (editable above the meetings table).'
 };
+function raciChip(letter){
+  if(!letter) return '<span class="chip neutral" data-tip="No role recorded in the MeetingRoles sheet for this seat.">—</span>';
+  const tips = { A: TIPS.raciA, R: TIPS.raciR, C: TIPS.raciC, I: TIPS.raciI };
+  const cls = letter === 'A' ? 'coreclass' : letter === 'R' ? 'ok' : letter === 'C' ? 'claim' : 'neutral';
+  return `<span class="chip ${cls}" data-tip="${esc(tips[letter]||'')}">${letter}</span>`;
+}
+let RATE = 80;
+try { const s2 = localStorage.getItem('comms_rate'); if(s2 && isFinite(+s2) && +s2 > 0) RATE = +s2; } catch(e){}
+const money = h => '$' + Math.round(h * RATE).toLocaleString();
 function statusChip(st){
+  const KNOWN = ['missing','wrong_producer','latency_gap','channel_mismatch','covered'];
+  if(KNOWN.indexOf(st) === -1) return `<span class="chip neutral" data-tip="Unrecognized status value — check the workbook.">${esc(st || '?')}</span>`;
   const cls = st==='missing' ? 'missing' : (st==='wrong_producer'||st==='latency_gap') ? 'warn' : st==='channel_mismatch' ? 'mild' : 'ok';
   return `<span class="chip ${cls}" data-tip="${esc(TIPS[st]||'')}">${esc(st)}</span>`;
 }
@@ -510,17 +590,21 @@ function clsChip(c){
   if(c==='VA') return `<span class="chip ok" data-tip="${esc(TIPS.VA)}">VA</span>`;
   if(c==='necessary_NVA') return `<span class="chip mild" data-tip="${esc(TIPS.necNVA)}">necessary NVA</span>`;
   if(c==='NVA') return `<span class="chip missing" data-tip="${esc(TIPS.NVA)}">NVA</span>`;
+  if(c) return `<span class="chip neutral" data-tip="Unrecognized class value — check the workbook.">${esc(c)}</span>`;
   return '<span class="chip neutral">—</span>';
 }
 function goalClassChip(cls){
   if(!cls) return '';
-  return cls === 'core'
-    ? `<span class="chip coreclass" data-tip="${esc(TIPS.core)}">core</span>`
-    : `<span class="chip claim" data-tip="${esc(TIPS.aspirational)}">aspirational</span>`;
+  if(cls === 'core') return `<span class="chip coreclass" data-tip="${esc(TIPS.core)}">core</span>`;
+  if(cls === 'aspirational') return `<span class="chip claim" data-tip="${esc(TIPS.aspirational)}">aspirational</span>`;
+  return `<span class="chip neutral" data-tip="Unrecognized goal class — expected core or aspirational.">${esc(cls)}</span>`;
 }
-function decisionChip(d){
+function decisionChip(d, venueType){
+  if((!d || d === 'aligned') && (venueType === 'channel' || venueType === 'ad_hoc'))
+    return `<span class="chip neutral" data-tip="Decided in a ${venueType === 'channel' ? 'standing channel' : 'ad-hoc conversation'} — the owner-presence check only runs for meeting venues, so this decision passed unchecked. A recurring rights-bearing decision with no stable venue is worth a look.">not checked</span>`;
   if(!d || d === 'aligned') return `<span class="chip ok" data-tip="${esc(TIPS.aligned_decision)}">aligned</span>`;
-  return `<span class="chip missing" data-tip="${esc(TIPS[d]||'')}">${esc(d)}</span>`;
+  if(TIPS[d]) return `<span class="chip missing" data-tip="${esc(TIPS[d])}">${esc(d)}</span>`;
+  return `<span class="chip neutral" data-tip="Unrecognized decision verdict — check the workbook.">${esc(d)}</span>`;
 }
 function bar(v){
   if(v==null) return '<span class="pct">—</span>';
@@ -535,8 +619,15 @@ function render(){
   $('app').style.display = 'block';
   $('goalFilter').disabled = false;
   $('exportBtn').disabled = false;
-  $('fileLabel').textContent = m.meta.file + ' · read ' + m.meta.generated;
+  $('fileLabel').textContent = m.meta.file + (m.meta.saved ? ' · saved ' + m.meta.saved : '') + ' · read ' + m.meta.generated;
+  const sw = $('sheetWarn');
+  if(m.meta.missingSheets && m.meta.missingSheets.length){
+    sw.style.display = 'block';
+    sw.textContent = '⚠ Sheets missing from this workbook: ' + m.meta.missingSheets.join(', ') + ' — the related sections below are blank, not healthy.';
+  } else sw.style.display = 'none';
 
+  const totalHours = m.meetings.reduce((s2, r) => s2 + (r.hours || 0), 0);
+  const nvaHours = m.meetings.filter(r => r.cls === 'NVA').reduce((s2, r) => s2 + (r.hours || 0), 0);
   const k = m.kpis;
   $('kpis').innerHTML = [
     ['Coverage', pctStr(k.coverage), k.coverage!=null && k.coverage < .8,
@@ -554,6 +645,9 @@ function render(){
     ['Meeting VA ratio', k.meetN ? pctStr(k.vaN/k.meetN) : '—', k.meetN && k.vaN/k.meetN < .7,
       `${k.vaN} of ${k.meetN} meetings classify VA`,
       TIPS.VA],
+    ['Meeting manhours', totalHours ? totalHours.toFixed(1) + ' h/wk' : '—', nvaHours > 0,
+      `${money(totalHours)}/wk at $${RATE}/h · ${money(nvaHours)} in NVA meetings`,
+      TIPS.manhours],
     ['Decision defects', k.decisionDefects, k.decisionDefects>0,
       'owner absent · never decided · no owner',
       'Decisions whose paper rights and observed reality diverge.'],
@@ -566,6 +660,7 @@ function render(){
   if(h.incompleteReq) notes.push(`<strong>${h.incompleteReq}</strong> required flow${h.incompleteReq>1?'s':''} incomplete (no status — missing topic, latency, or channel class)`);
   if(h.actualNoCarrier) notes.push(`<strong>${h.actualNoCarrier}</strong> actual flow${h.actualNoCarrier>1?'s':''} with no carrier (reads as latency gap — add where it travels)`);
   if(h.unscoredMeetings) notes.push(`<strong>${h.unscoredMeetings}</strong> meeting${h.unscoredMeetings>1?'s':''} not yet scored on the six criteria`);
+  if(h.unassignedSeats) notes.push(`<strong>${h.unassignedSeats}</strong> meeting seat${h.unassignedSeats>1?'s':''} without a RACI role in MeetingRoles`);
   $('health').style.display = notes.length ? 'block' : 'none';
   $('health').innerHTML = notes.length ? 'Data health: ' + notes.join(' · ') : '';
 
@@ -590,19 +685,26 @@ function render(){
     : '<tr><td class="empty-note">No open defects for this selection — every required flow is covered.</td></tr>';
 
   const mts = m.meetings.filter(r => !FILTER || r.align.some(a => a.goal === FILTER));
+  const mtsHours = mts.reduce((s2, r) => s2 + (r.hours || 0), 0);
   $('meetingsTable').innerHTML = mts.length ?
-    `<tr><th>meeting</th><th>cadence</th><th style="text-align:right">min</th><th style="text-align:right">people</th><th style="text-align:right" data-tip="Distinct topics whose usable, requirement-matched flows land in this meeting — its real cargo.">topics</th><th style="text-align:right" data-tip="Duration divided by topics carried: how many minutes each topic gets per occurrence. A crowded short meeting (low number) is a congestion candidate; a long meeting with no cargo has a different problem.">min/topic</th><th>criteria</th><th>class</th><th style="text-align:right" data-tip="Person-minutes per week: occurrences per week × duration × headcount. The meeting's weekly price.">cost /wk</th><th>goal alignment</th></tr>` +
+    `<tr><th>meeting</th><th>cadence</th><th style="text-align:right">min</th><th style="text-align:right">people</th><th style="text-align:right" data-tip="Distinct topics whose usable, requirement-matched flows land in this meeting — its real cargo.">topics</th><th style="text-align:right" data-tip="Duration divided by topics carried: how many minutes each topic gets per occurrence. A crowded short meeting (low number) is a congestion candidate; a long meeting with no cargo has a different problem.">min/topic</th><th>criteria</th><th>class</th><th style="text-align:right" data-tip="${esc(TIPS.manhours)}">manhours /wk</th><th style="text-align:right" data-tip="manhours × the loaded rate ($${RATE}/h — editable above).">$ /wk</th><th>goal alignment</th></tr>` +
     mts.map((r) => {
       const av = r.align.filter(a => !FILTER || a.goal === FILTER)
         .map(a => `<span class="chip claim">${esc(a.goal)}</span> ${verdictChip(a.verdict)}`).join(' &nbsp; ');
-      return `<tr><td><a href="#" class="mtg-link" data-mid="${esc(r.id)}">${esc(r.name)}</a></td><td class="dim">${esc(r.cadence)}</td><td class="num">${r.dur??''}</td><td class="num">${r.attendees||''}</td><td class="num">${r.topicsCarried ? r.topicsCarried.length || '—' : '—'}</td><td class="num">${r.minPerTopic ?? '—'}</td><td>${bar(r.pct)}</td><td>${clsChip(r.cls)}</td><td class="num">${r.cost!=null?r.cost.toLocaleString():''}</td><td>${av || '<span class="dim">—</span>'}</td></tr>`;
-    }).join('')
+      return `<tr><td><a href="#" class="mtg-link" data-mid="${esc(r.id)}">${esc(r.name)}</a></td><td class="dim">${esc(r.cadence)}</td><td class="num">${r.dur??''}</td><td class="num">${r.attendees||''}</td><td class="num">${r.topicsCarried ? r.topicsCarried.length || '—' : '—'}</td><td class="num">${r.minPerTopic ?? '—'}</td><td>${bar(r.pct)}</td><td>${clsChip(r.cls)}</td><td class="num">${r.hours!=null?r.hours.toFixed(1):''}</td><td class="num">${r.hours!=null?money(r.hours):''}</td><td>${av || '<span class="dim">—</span>'}</td></tr>`;
+    }).join('') +
+    `<tr class="totalrow"><td>all recurring meetings${FILTER ? ' touching ' + esc(FILTER) : ''}</td><td colspan="7"></td><td class="num">${mtsHours.toFixed(1)}</td><td class="num">${money(mtsHours)}</td><td class="dim" style="font-weight:400">≈ ${money(mtsHours*52)} /year</td></tr>`
     : '<tr><td class="empty-note">No meetings touch this goal.</td></tr>';
+
+  $('channelsTable').innerHTML = m.channels && m.channels.length ?
+    `<tr><th>channel</th><th>type</th><th>synchrony</th><th data-tip="ephemeral = gone after the moment · searchable = participants can retrieve it · system_of_record = survives any individual, readable by non-participants — the only SPOF-neutralizer.">persistence</th><th data-tip="How often it ACTUALLY moves fresh information, from observed usage.">real cadence</th><th style="text-align:right" data-tip="Usable, requirement-matched flows riding this channel.">flows carried</th></tr>` +
+    m.channels.map(c => `<tr><td>${esc(c.name)}</td><td class="dim">${esc(c.type)}</td><td class="dim">${esc(c.synchrony)}</td><td>${c.persistence === 'system_of_record' ? '<span class="chip ok" data-tip="Survives any individual — adding a carrier here is the standard SPOF mitigation.">system of record</span>' : `<span class="dim">${esc(c.persistence)}</span>`}</td><td class="dim">${esc(c.cadence)}</td><td class="num">${c.flows || ''}</td></tr>`).join('')
+    : '<tr><td class="empty-note">No Channels sheet in this workbook — the venue inventory is meetings-only, which means no durable-record backing exists for any flow.</td></tr>';
 
   const dcs = m.decisions.filter(d => !FILTER || d.goal === FILTER);
   $('decisionsTable').innerHTML = dcs.length ?
     `<tr><th>decision</th><th>goal</th><th>accountable</th><th>actually decided in</th><th>verdict</th></tr>` +
-    dcs.map(d => `<tr><td>${esc(d.name)}</td><td class="mono">${esc(d.goal)}</td><td>${esc(d.accountable)}</td><td class="dim">${esc(d.venue)}</td><td>${decisionChip(d.defect)}</td></tr>`).join('')
+    dcs.map(d => `<tr><td>${esc(d.name)}</td><td class="mono">${esc(d.goal)}</td><td>${esc(d.accountable)}</td><td class="dim">${esc(d.venue)}</td><td>${decisionChip(d.defect, d.venueType)}</td></tr>`).join('')
     : '<tr><td class="empty-note">No decisions recorded for this selection.</td></tr>';
 
   const dsp = m.disputed.filter(d => !FILTER || d.goal === FILTER);
@@ -615,7 +717,7 @@ function render(){
   renderMap();
   renderPeople();
   renderDecompose();
-  $('foot').textContent = 'Rendered from the workbook’s own computed verdicts · ' + m.meta.file + ' · ' + m.meta.generated + ' · nothing left this browser';
+  $('foot').textContent = 'Verdict chips are the workbook’s own cached computations; sums, badges and money figures are display-side aggregations · ' + m.meta.file + (m.meta.saved ? ' · saved ' + m.meta.saved : '') + ' · read ' + m.meta.generated + ' · nothing left this browser';
 }
 
 /* ============ decompose-a-goal walkthrough ============ */
@@ -675,7 +777,7 @@ function renderDecompose(){
       }).join('');
       const decisionsHtml = topicDecisions.length ?
         `<div class="halflabel" style="margin-top:14px">decisions made on this topic</div>` +
-        topicDecisions.map(d => `<div class="needrow" style="margin-left:0"><span>${esc(d.name)}</span><span class="crit">${esc(d.accountable)}</span><span class="dim" style="font-size:.8rem">${esc(d.venue)}</span>${decisionChip(d.defect)}</div>`).join('') : '';
+        topicDecisions.map(d => `<div class="needrow" style="margin-left:0"><span>${esc(d.name)}</span><span class="crit">${esc(d.accountable)}</span><span class="dim" style="font-size:.8rem">${esc(d.venue)}</span>${decisionChip(d.defect, d.venueType)}</div>`).join('') : '';
       const footerHtml = (venueSet.length || peopleSet.length) ?
         `<div class="halflabel" style="margin-top:14px">where it travels · who is involved</div>
          <div class="needrow" style="margin-left:0;row-gap:6px">${venueSet.map(c => `<span class="carrierchip" data-tip="${esc(c.kind === 'ritual' ? 'A recurring meeting — synchronous, never a durable record.' : 'A standing channel.')}">${esc(c.name)}</span>`).join('')}${venueSet.length ? '' : '<span class="carrierchip">no venue yet</span>'}<span class="dim" style="font-size:.8rem;margin-left:6px">${peopleSet.map(esc).join(' · ')}</span></div>` : '';
@@ -701,7 +803,7 @@ function renderDecompose(){
     <div class="stage"><div class="stagecap"><span class="n">4</span><h2>Follow-ups</h2></div>
       <p class="stagelede">Disputed claims to re-interview, and any of this goal's decisions not yet anchored to one of its topics.</p>
       ${disputed.length ? disputed.map(d => `<div class="needrow" style="margin-left:0;color:var(--red-ink)">⚠ disputed: ${esc(d.topic)} — ${esc(d.from)} → ${esc(d.to)}</div>`).join('') : ''}
-      ${decisions.filter(d => !goalTopicIds.has(d.topic)).map(d => `<div class="needrow" style="margin-left:0"><span>${esc(d.name)}</span><span class="crit">${esc(d.accountable)}</span><span class="dim" style="font-size:.8rem">${esc(d.venue)}</span>${decisionChip(d.defect)}<span class="dim" style="font-size:.78rem">— topic not under this goal; check its coding</span></div>`).join('')}
+      ${decisions.filter(d => !goalTopicIds.has(d.topic)).map(d => `<div class="needrow" style="margin-left:0"><span>${esc(d.name)}</span><span class="crit">${esc(d.accountable)}</span><span class="dim" style="font-size:.8rem">${esc(d.venue)}</span>${decisionChip(d.defect, d.venueType)}<span class="dim" style="font-size:.78rem">— topic not under this goal; check its coding</span></div>`).join('')}
       ${!disputed.length && !decisions.some(d => !goalTopicIds.has(d.topic)) ? '<p class="treenote">Nothing pending — no disputed claims, and every decision is anchored to a topic above.</p>' : ''}</div>`;
 }
 function clsStrip(c){ return c === 'necessary_NVA' ? 'necessary NVA' : (c || '—'); }
@@ -838,6 +940,22 @@ function renderMap(){
     const node = ev.target.closest('g.mapnode');
     if(node){ ACTOR = ACTOR === node.dataset.aid ? '' : node.dataset.aid; $('actorFilter').value = ACTOR; renderMap(); }
   });
+
+  // WhiteSpace matrix — required flows grouped by producing × consuming function (goal filter only)
+  const fnOf = {}; actors.forEach(a => fnOf[a.id] = a.fn);
+  const cells = {};
+  edges.filter(e => !FILTER || e.goal === FILTER).forEach(e => {
+    const key = (fnOf[e.from]||'?') + '|' + (fnOf[e.to]||'?');
+    const c = cells[key] || (cells[key] = { req:0, ok:0, def:0 });
+    c.req++; if(e.status === 'covered') c.ok++; else c.def++;
+  });
+  $('matrixWrap').innerHTML = `<table><tr><th data-tip="Rows produce, columns consume.">produces ↓ · consumes →</th>${fns.map(f => `<th>${esc(f)}</th>`).join('')}</tr>` +
+    fns.map(rf => `<tr><td class="rowhead">${esc(rf)}</td>` + fns.map(cf => {
+      const c = cells[rf + '|' + cf];
+      if(!c) return `<td class="${rf===cf?'diag':''}"></td>`;
+      const cls = c.def ? 'hasdef' : 'clean';
+      return `<td class="${cls}${rf===cf?' diag':''}" data-tip="${esc(rf + ' → ' + cf + ': ' + c.req + ' required flow' + (c.req>1?'s':'') + ', ' + c.ok + ' covered' + (c.def ? ', ' + c.def + ' defective — a hand-off boundary worth redesigning' : ''))}">${c.req} req · ${c.ok} ok${c.def ? ' · ' + c.def + ' DEF' : ''}</td>`;
+    }).join('') + '</tr>').join('') + '</table>';
 }
 
 /* ============ people ============ */
@@ -846,11 +964,11 @@ function renderPeople(){
   if(!m || !m.people){ if(m) $('tabPeople').style.display = 'none'; return; }
   const rows = m.people.filter(p => !FILTER || p.needsOut.some(n => n.goal === FILTER) || p.needsIn.some(n => n.goal === FILTER));
   $('peopleTable').innerHTML =
-    `<tr><th>person / team</th><th>function</th><th style="text-align:right" data-tip="Required flows this actor must produce — how much the goals depend on what they send.">produces</th><th style="text-align:right" data-tip="Required flows this actor must receive — how much their work depends on others.">consumes</th><th style="text-align:right" data-tip="Of the flows through this actor, how many are not covered — where they are hurt by or causing gaps.">defective</th><th style="text-align:right" data-tip="Minutes per week this actor spends in the modeled recurring meetings.">meeting min/wk</th><th>flags</th></tr>` +
+    `<tr><th>person / team</th><th>function</th><th style="text-align:right" data-tip="Required flows this actor must produce — how much the goals depend on what they send.">produces</th><th style="text-align:right" data-tip="Required flows this actor must receive — how much their work depends on others.">consumes</th><th style="text-align:right" data-tip="Of the flows through this actor, how many are not covered — where they are hurt by or causing gaps.">defective</th><th style="text-align:right" data-tip="Minutes per week this actor spends in the modeled recurring meetings.">meeting min/wk</th><th data-tip="This person's RACI role across meetings, from the MeetingRoles sheet: Accountable / Responsible / Consulted / Informed. Someone who is only ever Informed may not need those seats.">meeting roles</th><th>flags</th></tr>` +
     rows.map(p => {
       const flags = (p.spof ? `<span class="chip missing" data-tip="${esc(TIPS.spof)}">SPOF</span> ` : '') +
                     (p.isolated ? `<span class="chip neutral" data-tip="${esc(TIPS.isolated)}">isolated</span>` : '');
-      return `<tr><td><a href="#" class="person-link" data-pid="${esc(p.id)}">${esc(p.name)}</a>${p.role ? `<span class="dim" style="font-size:.78rem"> · ${esc(p.role)}</span>` : ''}</td><td class="dim">${esc(p.fn)}</td><td class="num">${p.produces||''}</td><td class="num">${p.consumes||''}</td><td class="num">${p.defective ? `<strong style="color:var(--red-ink)">${p.defective}</strong>` : ''}</td><td class="num">${p.meetMin||''}</td><td>${flags}</td></tr>`;
+      return `<tr><td><a href="#" class="person-link" data-pid="${esc(p.id)}">${esc(p.name)}</a>${p.role ? `<span class="dim" style="font-size:.78rem"> · ${esc(p.role)}</span>` : ''}</td><td class="dim">${esc(p.fn)}</td><td class="num">${p.produces||''}</td><td class="num">${p.consumes||''}</td><td class="num">${p.defective ? `<strong style="color:var(--red-ink)">${p.defective}</strong>` : ''}</td><td class="num">${p.meetMin||''}</td><td>${MODEL.meta.hasRoles ? ['A','R','C','I'].filter(l => p.raci && p.raci[l]).map(l => `${raciChip(l)}<span class="dim" style="font-size:.75rem">×${p.raci[l]}</span>`).join(' ') || '<span class="dim">—</span>' : '<span class="dim">—</span>'}</td><td>${flags}</td></tr>`;
     }).join('');
 }
 
@@ -864,14 +982,21 @@ function personDetail(pid){
     <h3>Must produce (${p.produces})</h3>${flowList(p.needsOut,'out')}
     <h3>Must receive (${p.consumes})</h3>${flowList(p.needsIn,'in')}
     <h3>Meetings (${p.meetings.length} · ${p.meetMin} min/week)</h3>
-    ${p.meetings.length ? p.meetings.map(mt => `<div class="needrow"><span>${esc(mt.name)}</span><span class="crit">${mt.minWk} min/wk</span></div>`).join('') : '<p class="dim">none</p>'}`);
+    ${p.meetings.length ? p.meetings.map(mt => `<div class="needrow"><span>${esc(mt.name)}</span>${mt.role ? raciChip(mt.role) : ''}<span class="crit">${mt.minWk} min/wk</span></div>`).join('') : '<p class="dim">none</p>'}`);
 }
 function meetingDetail(mid){
   const r = MODEL.meetings.find(x => x.id === mid); if(!r) return;
   const cap = r.topicsCarried.length
     ? `${r.topicsCarried.length} topic${r.topicsCarried.length>1?'s':''} in ${r.dur ?? '?'} minutes — <strong>${r.minPerTopic ?? '?'} min per topic</strong> per occurrence.`
     : 'Carries no requirement-matched flows — its cost currently buys no modeled cargo.';
-  openDetail(`<h2>${esc(r.name)}</h2><p>${esc(r.cadence)} · ${r.dur ?? '?'} min · ${r.attendees} people · ${clsChip(r.cls)} · costs ${r.cost != null ? r.cost.toLocaleString() : '?'} person-min/week</p>
+  const rosterHtml = r.roster && r.roster.length && MODEL.meta.hasRoles ?
+    '<h3>Who sits here — and as what</h3>' + ['A','R','C','I',''].map(l => {
+      const grp = r.roster.filter(x => x.role === l);
+      if(!grp.length) return '';
+      const label = l ? {A:'Accountable',R:'Responsible',C:'Consulted',I:'Informed'}[l] : 'No role recorded';
+      return `<div class="needrow" style="margin-left:0">${l ? raciChip(l) : '<span class="chip neutral">?</span>'}<span class="crit" style="font-family:var(--mono);font-size:.7rem">${label}</span><span>${grp.map(x => esc(x.name) + (x.owner ? ' (owner)' : '')).join(' · ')}</span></div>`;
+    }).join('') : '';
+  openDetail(`<h2>${esc(r.name)}</h2><p>${esc(r.cadence)} · ${r.dur ?? '?'} min · ${r.attendees} people · ${clsChip(r.cls)} · ${r.hours != null ? r.hours.toFixed(1) + ' manhours/week (' + money(r.hours) + '/wk at $' + RATE + '/h)' : ''}</p>${rosterHtml}
     <h3>Capacity</h3><p>${cap}</p>
     <h3>Goal alignment</h3>
     ${r.align.length ? r.align.map(a => `<div class="needrow"><span class="chip claim">${esc(a.goal)}</span>${verdictChip(a.verdict)}<span class="crit">carries ${a.carried}</span></div>`).join('') : '<p class="dim">no goal relationship — claims nothing, carries nothing</p>'}
@@ -929,19 +1054,25 @@ $('defectsOnly').addEventListener('change', () => renderMap());
 
 /* ============ load & reload ============ */
 let fileHandle = null;
-async function parseArrayBuffer(buf, name){
+async function parseArrayBuffer(buf, name, savedDate, keepHandle){
   const wb = XLSX.read(buf, {type:'array'});
-  MODEL = buildModel(wb, name);
-  FILTER = ''; $('goalFilter').value = '';
+  MODEL = buildModel(wb, name, savedDate);
+  // single reset point: a new file invalidates every piece of selection state
+  if(!keepHandle){ fileHandle = null; $('reloadBtn').disabled = true; }
+  FILTER = ''; ACTOR = '';
+  [['goalFilter','All goals'],['actorFilter','All actors']].forEach(([id]) => {
+    const sel = $(id); while(sel.options.length > 1) sel.remove(1); sel.value = '';
+  });
   render();
 }
 async function loadViaPicker(){
   if(window.showOpenFilePicker){
     try{
       const [h] = await window.showOpenFilePicker({types:[{description:'Excel workbook',accept:{'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':['.xlsx']}}]});
-      fileHandle = h; $('reloadBtn').disabled = false;
+      fileHandle = h;
       const f = await h.getFile();
-      await parseArrayBuffer(await f.arrayBuffer(), f.name);
+      await parseArrayBuffer(await f.arrayBuffer(), f.name, f.lastModified, true);
+      $('reloadBtn').disabled = false;
       return;
     }catch(e){ if(e && e.name === 'AbortError') return; /* fall through to input */ }
   }
@@ -950,7 +1081,7 @@ async function loadViaPicker(){
 async function reload(){
   if(fileHandle){
     const f = await fileHandle.getFile();
-    await parseArrayBuffer(await f.arrayBuffer(), f.name);
+    await parseArrayBuffer(await f.arrayBuffer(), f.name, f.lastModified, true);
   } else loadViaPicker();
 }
 function wireError(fn){ return (...a) => Promise.resolve(fn(...a)).catch(err => alert('Could not read that file: ' + err.message)); }
@@ -959,10 +1090,13 @@ $('loadBtn').addEventListener('click', wireError(loadViaPicker));
 $('reloadBtn').addEventListener('click', wireError(reload));
 $('fileInput').addEventListener('change', wireError(async e => {
   const f = e.target.files[0]; if(!f) return;
-  $('reloadBtn').disabled = true;
-  await parseArrayBuffer(await f.arrayBuffer(), f.name);
+  await parseArrayBuffer(await f.arrayBuffer(), f.name, f.lastModified, false);
   e.target.value = '';
 }));
+$('rateInput').addEventListener('change', e => {
+  const v = +e.target.value;
+  if(isFinite(v) && v > 0){ RATE = v; try{ localStorage.setItem('comms_rate', String(v)); }catch(err){} render(); }
+});
 $('goalFilter').addEventListener('change', e => { FILTER = e.target.value; render(); });
 
 const dz = $('dropzone');
@@ -970,12 +1104,13 @@ const dz = $('dropzone');
 ['dragleave','drop'].forEach(ev => dz.addEventListener(ev, e => { e.preventDefault(); dz.classList.remove('drag'); }));
 dz.addEventListener('drop', wireError(async e => {
   const f = e.dataTransfer.files[0]; if(!f) return;
-  await parseArrayBuffer(await f.arrayBuffer(), f.name);
+  await parseArrayBuffer(await f.arrayBuffer(), f.name, f.lastModified, false);
 }));
 
 /* ============ snapshot ============ */
 $('exportBtn').addEventListener('click', () => {
   if(!MODEL) return;
+  MODEL.meta.rate = RATE;
   const json = JSON.stringify(MODEL).replace(/</g,'\\u003c');
   const html = document.documentElement.outerHTML.replace(
     /<script id="embedded-data" type="application\/json">[\s\S]*?<\/script>/,
@@ -990,10 +1125,12 @@ $('exportBtn').addEventListener('click', () => {
 
 /* snapshot boot */
 (function(){
+  $('rateInput').value = RATE;
   let data = null;
   try{ data = JSON.parse($('embedded-data').textContent); }catch(e){}
   if(data){
     MODEL = data;
+    if(data.meta && data.meta.rate){ RATE = data.meta.rate; $('rateInput').value = RATE; }
     ['loadBtn','reloadBtn','exportBtn'].forEach(id => $(id).style.display = 'none');
     const b = $('snapshotBanner');
     b.style.display = 'block';

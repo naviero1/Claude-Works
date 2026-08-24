@@ -44,7 +44,7 @@ const DASH = 'file://' + path.join(DIR, 'dashboard.html');
     const goalRows = await page.$$eval('#goalsTable tr', rs => rs.length - 1);
     check(`${tag}: 4 goal rows`, goalRows === 4);
 
-    const meetings = await page.$$eval('#meetingsTable tr', rs => rs.length - 1);
+    const meetings = await page.$$eval('#meetingsTable tr', rs => rs.filter(r => !r.classList.contains('totalrow')).length - 1);
     check(`${tag}: 9 meetings`, meetings === 9, String(meetings));
     const r9row = await page.$$eval('#meetingsTable tr', rs => {
       const row = rs.find(r => /Monthly Ops Status/.test(r.textContent));
