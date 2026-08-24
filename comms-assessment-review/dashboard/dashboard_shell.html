@@ -113,6 +113,45 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;font-si
 .needrow .crit{font-family:var(--mono);font-size:.7rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .treenote{margin:6px 0 0 16px;font-size:.8rem;color:var(--ink-3);font-style:italic}
 .treenote.warn{color:var(--red-ink);font-style:normal}
+/* KPI sublines */
+.kpi .s{font-size:.7rem;color:var(--ink-3);margin-top:4px;line-height:1.3}
+/* section sublines */
+.sub-h{font-size:.82rem;color:var(--ink-2);margin:-4px 0 10px;max-width:80ch}
+/* tooltip */
+#tip{position:absolute;display:none;z-index:50;max-width:320px;background:var(--ink);color:var(--paper);font-size:.78rem;line-height:1.45;padding:8px 12px;border-radius:6px;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+[data-tip]{cursor:help}
+/* help modal */
+#helpBtn{border-radius:50%;width:32px;height:32px;padding:0;font-weight:700;font-family:var(--mono)}
+.modal{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.45);display:flex;align-items:flex-start;justify-content:center;padding:5vh 16px}
+.modal[hidden]{display:none}
+.modal-card{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;max-width:760px;width:100%;max-height:88vh;overflow-y:auto;padding:26px 30px}
+.modal-card h2{margin-top:0}
+.modal-card h3{font-family:var(--slab);font-size:.95rem;margin:18px 0 4px}
+.modal-card p{font-size:.88rem;color:var(--ink-2);margin:.3em 0;max-width:none}
+.modal-card .el{border-left:3px solid var(--input-bd);padding-left:12px;margin:12px 0}
+.modal-card .el.computed{border-left-color:var(--comp-bd)}
+.modal-close{float:right;margin-left:12px}
+/* flow map */
+#mapControls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0 0 12px;font-size:.83rem;color:var(--ink-2)}
+#mapWrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px}
+.maplegend{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;font-size:.76rem;color:var(--ink-2);align-items:center}
+.maplegend svg{vertical-align:middle}
+svg .mapnode rect.box{fill:var(--paper);stroke:var(--line);stroke-width:1;rx:7}
+svg .mapnode.dim{opacity:.3}
+svg .mapnode text.nm{font:600 12px var(--body);fill:var(--ink)}
+svg .mapnode text.rl{font:10px var(--body);fill:var(--ink-3)}
+svg .badge rect{rx:7}
+svg .badge text{font:600 8.5px var(--mono)}
+svg .badge.spof rect{fill:var(--st-missing)} svg .badge.spof text{fill:var(--st-missing-ink)}
+svg .badge.iso rect{fill:none;stroke:var(--ink-3);stroke-width:1} svg .badge.iso text{fill:var(--ink-3)}
+svg path.edge{fill:none;stroke-width:1.6}
+svg path.edge.hit{stroke:transparent;stroke-width:12}
+svg path.edge.covered{stroke:var(--accent);opacity:.45}
+svg path.edge.missing{stroke:var(--st-missing);stroke-dasharray:6 4}
+svg path.edge.wrong_producer{stroke:var(--st-warn);stroke-dasharray:8 3 2 3}
+svg path.edge.latency_gap{stroke:var(--st-warn);stroke-dasharray:2 4}
+svg path.edge.channel_mismatch{stroke:var(--st-mild)}
+svg path.edge.hl{stroke-width:3;opacity:1}
 #app{display:none}
 .arrow{color:var(--ink-3)}
 @media (max-width:640px){ .kpi .n{font-size:1.35rem} }
@@ -129,6 +168,7 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;font-si
   <button id="loadBtn" class="primary">Load workbook</button>
   <button id="reloadBtn" disabled>Reload</button>
   <button id="exportBtn" disabled>Export snapshot</button>
+  <button id="helpBtn" aria-label="What am I looking at?" data-tip="What am I looking at? — the model, its elements, and how to read every verdict">?</button>
   <input type="file" id="fileInput" accept=".xlsx" style="display:none">
 </div>
 <div id="snapshotBanner"></div>
@@ -146,22 +186,29 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;font-si
   <div class="views">
     <button id="tabOverview" class="active">Overview</button>
     <button id="tabTree">Information tree</button>
+    <button id="tabMap">Flow map</button>
+    <button id="tabPeople">People</button>
   </div>
 
   <div id="viewOverview">
   <h2>By goal</h2>
+  <p class="sub-h">Where each goal stands — a <span data-tip="A goal is the measurable business outcome everything traces back to. Every topic, flow, meeting claim and decision must serve exactly one goal.">goal</span> is the outcome everything below rolls up to. Coverage alone is never the headline: a goal can be 100% covered and still have a theater meeting claiming it.</p>
   <div class="tablewrap"><table id="goalsTable"></table></div>
 
   <h2>Top defects — fix-first order</h2>
+  <p class="sub-h">Every <span data-tip="A required flow is one unit of 'this person must hear this topic from this source, this fast' — derived from a goal and signed off by its owner before any interviews.">required flow</span> the diff engine could not fully satisfy, ranked by <span data-tip="priority = criticality × status weight (missing 3 · wrong producer 2 · latency 2 · channel 1.5). Max 15 — a missing criticality-5 flow. This ordering IS the fix-first list.">priority</span>. Each status names the defect and its fix family.</p>
   <div class="tablewrap"><table id="defectsTable"></table></div>
 
   <h2>Meetings</h2>
+  <p class="sub-h">Every recurring meeting: its hygiene score on <span data-tip="Six binary, evidence-anchored criteria: written purpose · action items logged · decisions findable by a non-attendee · output traces to a goal · right attendees · pre-read not live retelling. Scored only after seeing the artifact, over the last three occurrences.">six criteria</span>, its <span data-tip="VA = written purpose + real output + serves a goal. Necessary NVA = no goal but compliance-required. NVA = cost with no cargo — a consolidation candidate (cut as an experiment: skip two occurrences, observe).">value class</span>, its weekly price in person-minutes, and whether the goals it claims are goals it actually feeds.</p>
   <div class="tablewrap"><table id="meetingsTable"></table></div>
 
   <h2>Decisions</h2>
+  <p class="sub-h">Rights on paper vs. where deciding actually happens — the <span data-tip="Each decision names ONE accountable owner on paper. The audit then records where the last instance was actually decided, and flags: owner absent from that room (a_absent), decided nowhere (none_observed), or no owner at all (no_accountable).">RACI-vs-reality probe</span>.</p>
   <div class="tablewrap"><table id="decisionsTable"></table></div>
 
   <h2>Disputed flows — follow-up interviews</h2>
+  <p class="sub-h">Producer and consumer contradict each other about this flow's existence. <span data-tip="Disputed flows are quarantined automatically — excluded from every status, verdict and count — because scoring a contested fact would corrupt the diff. The disagreement itself is one of the most informative findings.">Quarantined, never scored</span> — the disagreement is the finding.</p>
   <div class="tablewrap"><table id="disputedTable"></table></div>
   </div>
 
@@ -170,9 +217,54 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding-top:14px;font-si
     <div id="treeRoot"></div>
   </div>
 
+  <div id="viewMap" style="display:none">
+    <p class="treelegend">The required network, drawn against reality: every box is a <span data-tip="A person, a team modeled as one actor, or an external party — anyone who produces or consumes information. Columns are organizational functions; hand-offs that cross columns are where Rummler's 'white space' failures live.">person or team</span>, every line a required flow styled by its verdict. Solid blue lines are working; anything dashed or orange is a gap. Hover a line for its story; hover a box for that actor's load.</p>
+    <div id="mapControls">
+      <label for="actorFilter">Actor</label>
+      <select id="actorFilter"><option value="">All actors</option></select>
+      <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="defectsOnly"> defects only</label>
+    </div>
+    <div id="mapWrap"></div>
+    <div class="maplegend" id="mapLegend"></div>
+  </div>
+
+  <div id="viewPeople" style="display:none">
+    <p class="treelegend">Who is key: everyone ranked by how many required flows run through them. A person high on this list with defects or a <span data-tip="Single point of failure: a critical delivered flow with one path and no system-of-record backup — it survives only as long as one person shows up.">SPOF</span> flag is where the network is fragile. Click a row for that person's full picture.</p>
+    <div class="tablewrap"><table id="peopleTable"></table></div>
+  </div>
+
   <footer id="foot"></footer>
 </div>
 </main>
+
+<div id="tip"></div>
+
+<div id="detailModal" class="modal" hidden>
+  <div class="modal-card" id="detailCard"></div>
+</div>
+
+<div id="helpModal" class="modal" hidden>
+  <div class="modal-card">
+    <button class="modal-close" id="helpClose">Close</button>
+    <h2>What am I looking at?</h2>
+    <p>This dashboard reads your assessment workbook and shows, per goal, whether the information that outcome needs actually reaches the people who need it. Everything here was computed by the workbook itself — the dashboard only displays it.</p>
+    <h3>The elements you type into the workbook</h3>
+    <div class="el"><strong>Goal</strong><p>The measurable outcome that anchors everything. Classed <em>core</em> (affects the company's short/medium-term sustainability) or <em>aspirational</em> (important — growth, development — but not sustainability-critical).</p></div>
+    <div class="el"><strong>Topic</strong><p>One named subject people must hear about, decomposed from exactly one goal. The controlled vocabulary that makes “what should happen” comparable with “what does happen.”</p></div>
+    <div class="el"><strong>Required flow (a need)</strong><p>“This person must hear this topic from this source, this fast.” Derived from the goal, signed off by the goal's owner <em>before</em> interviews.</p></div>
+    <div class="el"><strong>Actual flow (an observation)</strong><p>What interviews found really happens — recorded with evidence, from both ends. When the two ends contradict each other, the flow is <em>disputed</em> and quarantined from every score.</p></div>
+    <div class="el"><strong>Carrier</strong><p>Where an actual flow physically travels: a meeting or a channel, push (delivered) or pull (you must remember to check). A flow with no carrier is hearsay.</p></div>
+    <div class="el"><strong>Meeting &amp; Channel</strong><p>The two kinds of venue. Meetings are audited on six evidence-anchored criteria, priced in person-minutes per week, and judged on whether the goals they <em>claim</em> match the goals they actually <em>carry</em>. Channels bring the properties meetings can't: asynchrony and durable records.</p></div>
+    <div class="el"><strong>Decision</strong><p>A recurring decision with one accountable owner on paper — compared against the room where it actually gets decided.</p></div>
+    <h3>The verdicts the workbook computes</h3>
+    <div class="el computed"><strong>Flow status</strong><p>Checked in strict order — <em>missing</em> → <em>wrong producer</em> → <em>latency gap</em> → <em>channel mismatch</em> → <em>covered</em>. The first failed check names the defect and its fix. Priority = criticality × severity, max 15.</p></div>
+    <div class="el computed"><strong>Alignment</strong><p><em>Theater</em> = claims a goal, carries nothing of it. <em>Unclaimed</em> = carries a goal it never claims — real dependency, missing paperwork. The claim and the carry are measured independently on purpose: their disagreement is the signal.</p></div>
+    <div class="el computed"><strong>Meeting class</strong><p><em>VA</em> (value-adding) · <em>necessary NVA</em> (feeds no goal but externally required) · <em>NVA</em> (cost with no cargo — consolidation candidate; cut only as an experiment).</p></div>
+    <div class="el computed"><strong>Decision defect</strong><p><em>a_absent</em> — the owner isn't in the room where it's decided · <em>none_observed</em> — it drifts, decided nowhere · <em>no_accountable</em> — nobody owns it.</p></div>
+    <div class="el computed"><strong>SPOF</strong><p>A critical delivered flow with a single path and no system-of-record backup — it survives only as long as one person shows up. The fix ships with it: publish to a durable channel.</p></div>
+    <p style="margin-top:18px">Hover anything with a dotted meaning — chips, headers, map lines — for its definition in place.</p>
+  </div>
+</div>
 
 <script id="embedded-data" type="application/json">null</script>
 <script>/*__SHEETJS__*/</script>
@@ -242,10 +334,18 @@ function buildModel(wb, fileName){
 
   const meetingRows = rituals.map(r => {
     const rid = S(r.ritual_id);
-    return { id:rid, name:S(r.name), cadence:S(r.cadence), dur:N(r.duration_min),
+    // cargo: usable, requirement-matched carrier links landing in this meeting (cached flags)
+    const links = carriers.filter(c => S(c.carrier_type)==='ritual' && S(c.carrier_id)===rid && N(c.usable)===1 && N(c.req_exists)===1);
+    const carried = links.map(l => ({ topic: tn(l.topic), to: an(l.to), goal: S(l.goal) }));
+    const topicsCarried = [...new Set(carried.map(c2 => c2.topic))];
+    const decided = decisions.filter(d => S(d.actual_venue_type)==='ritual' && S(d.actual_venue_id)===rid).map(d => S(d.name));
+    const dur = N(r.duration_min);
+    return { id:rid, name:S(r.name), cadence:S(r.cadence), dur,
              attendees: S(r.attendee_ids) ? S(r.attendee_ids).split(';').filter(Boolean).length : 0,
              pct: N(r.criteria_pct), failed:S(r.failed_criteria),
              cls: S(r.classification), cost: N(r.person_min_per_wk),
+             carried, topicsCarried, decided,
+             minPerTopic: topicsCarried.length && dur ? Math.round(dur / topicsCarried.length) : null,
              align: alignRows.filter(a => a.ritual === rid) };
   });
 
@@ -269,6 +369,34 @@ function buildModel(wb, fileName){
     return { id: gid, name: S(g.name), cls: S(g.goal_class || ''), owner: an(g.owner_actor_id), topics: gTopics };
   });
 
+  // flow map: actors as nodes (function columns), scored required flows as edges
+  const spofProducers = new Set(required.filter(fl => N(fl.risk_rank) !== null).map(fl => S(fl.from_actor)));
+  const mapActors = actors.map(a => {
+    const aid = S(a.actor_id);
+    const usable = actual.filter(fl => S(fl.confidence) !== 'disputed' && (S(fl.from_actor) === aid || S(fl.to_actor) === aid)).length;
+    const meetMin = rituals.reduce((sum, r) => {
+      const members = ';' + S(r.attendee_ids) + ';' + S(r.owner_actor_id) + ';';
+      if(members.indexOf(';' + aid + ';') === -1) return sum;
+      return sum + (N(r.per_week) || 0) * (N(r.duration_min) || 0);
+    }, 0);
+    return { id: aid, name: S(a.name), role: S(a.role), fn: S(a.group) || 'Other',
+             spof: spofProducers.has(aid), isolated: usable === 0, meetMin: Math.round(meetMin) };
+  });
+  const mapEdges = scored.map(fl => ({ from: S(fl.from_actor), to: S(fl.to_actor), topic: tn(fl.topic_id),
+    crit: N(fl.criticality), status: S(fl.status), priority: N(fl.priority), goal: S(fl.goal) }));
+
+  // people view: who is key — required flows touched, defects touched, meeting load
+  const people = mapActors.map(a => {
+    const needsOut = scored.filter(fl => S(fl.from_actor) === a.id).map(fl => ({ topic: tn(fl.topic_id), other: an(fl.to_actor), status: S(fl.status), goal: S(fl.goal) }));
+    const needsIn  = scored.filter(fl => S(fl.to_actor) === a.id).map(fl => ({ topic: tn(fl.topic_id), other: an(fl.from_actor), status: S(fl.status), goal: S(fl.goal) }));
+    const meetings = rituals.filter(r => (';'+S(r.attendee_ids)+';'+S(r.owner_actor_id)+';').indexOf(';'+a.id+';') !== -1)
+      .map(r => ({ name: S(r.name), minWk: Math.round((N(r.per_week)||0)*(N(r.duration_min)||0)) }));
+    return { ...a, needsOut, needsIn,
+             produces: needsOut.length, consumes: needsIn.length,
+             defective: needsOut.filter(n2 => n2.status !== 'covered').length + needsIn.filter(n2 => n2.status !== 'covered').length,
+             meetings };
+  }).sort((x,y) => (y.produces + y.consumes) - (x.produces + x.consumes));
+
   // data-health notes (capture completeness, not model logic)
   const incompleteReq = required.length - scored.length;
   const actualNoCarrier = actual.filter(f => S(f.confidence)!=='disputed' && !carriers.some(c => S(c.flow_id) === S(f.flow_id))).length;
@@ -278,12 +406,16 @@ function buildModel(wb, fileName){
     meta: { file:fileName, generated:new Date().toISOString().slice(0,10) },
     kpis: {
       coverage: scored.length ? covered.length/scored.length : null,
+      coveredN: covered.length, scoredN: scored.length,
       defects: defects.length,
       theater: alignRows.filter(a => a.verdict==='claims_no_contribution').length,
       unclaimed: alignRows.filter(a => a.verdict==='unclaimed_contributor').length,
       decisionDefects: decisionRows.filter(d => d.defect && d.defect!=='aligned').length,
-      disputed: disputed.length
+      disputed: disputed.length,
+      vaN: meetingRows.filter(r => r.cls === 'VA').length, meetN: meetingRows.length
     },
+    map: { actors: mapActors, edges: mapEdges },
+    people,
     health: { incompleteReq, actualNoCarrier, unscoredMeetings },
     goals: goalRows, defects, meetings: meetingRows, decisions: decisionRows, disputed, tree
   };
@@ -291,22 +423,55 @@ function buildModel(wb, fileName){
 
 /* ============ render ============ */
 const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const pctStr = v => v==null ? '—' : Math.round(v*100) + '%';
+
+const TIPS = {
+  missing: 'No usable actual flow delivers this topic to this consumer. Fix: attach the need to an existing carrier before inventing a meeting.',
+  wrong_producer: 'It arrives — but not from the source the goal requires. Second-hand relays degrade information. Fix: connect the consumer to the source.',
+  latency_gap: 'It arrives, but every carrier is slower than the goal tolerates. Fix: a faster carrier.',
+  channel_mismatch: 'It arrives in time but wrongly: a conversation was required and it rides messages, or a criticality-5 flow is pull-only. Fix: change the channel class.',
+  covered: 'This need is fully served: right source, fast enough, right kind of channel.',
+  incomplete: 'This required flow is missing a topic, latency, or channel class — the workbook cannot compute its status yet.',
+  theater: 'Alignment theater: the meeting claims this goal in its own charter but carries none of its flows and decides none of its decisions. Worth a conversation, not an accusation.',
+  unclaimed: 'This meeting actually feeds the goal without claiming it — real dependency, missing paperwork. Fix: update the meeting’s charter.',
+  aligned_meeting: 'Claims the goal and actually carries its flows and/or decides its decisions.',
+  VA: 'Value-adding: written purpose, real output, serves a goal.',
+  necNVA: 'Produces real output but feeds no goal — kept only because an external obligation requires it.',
+  NVA: 'Cost with no cargo: no goal, no compliance requirement. Consolidation candidate — cut as an experiment (skip two occurrences, observe).',
+  core: 'Core goal: structural, cost, business-critical — affects the company’s sustainability in the short/medium term.',
+  aspirational: 'Aspirational goal: important — growth, development, culture — but not sustainability-critical. Never competes head-to-head with core defects.',
+  a_absent: 'The accountable owner is not in the room where this decision actually gets made.',
+  none_observed: 'No venue observed — the decision drifts, decided nowhere in particular.',
+  no_accountable: 'Nobody owns this decision on paper. The blank is the finding.',
+  aligned_decision: 'The accountable owner is present where the decision is actually made.',
+  spof: 'Single point of failure: a critical delivered flow with one path and no system-of-record backup — it survives only as long as one person shows up. Fix: publish to a durable channel.',
+  isolated: 'No usable observed flow in or out — this actor is cut off from all modeled traffic.'
+};
 function statusChip(st){
   const cls = st==='missing' ? 'missing' : (st==='wrong_producer'||st==='latency_gap') ? 'warn' : st==='channel_mismatch' ? 'mild' : 'ok';
-  return `<span class="chip ${cls}">${esc(st)}</span>`;
+  return `<span class="chip ${cls}" data-tip="${esc(TIPS[st]||'')}">${esc(st)}</span>`;
 }
 function verdictChip(v){
-  if(v==='claims_no_contribution') return '<span class="chip missing">theater</span>';
-  if(v==='unclaimed_contributor')  return '<span class="chip warn">unclaimed</span>';
-  return '<span class="chip ok">aligned</span>';
+  if(v==='claims_no_contribution') return `<span class="chip missing" data-tip="${esc(TIPS.theater)}">theater</span>`;
+  if(v==='unclaimed_contributor')  return `<span class="chip warn" data-tip="${esc(TIPS.unclaimed)}">unclaimed</span>`;
+  return `<span class="chip ok" data-tip="${esc(TIPS.aligned_meeting)}">aligned</span>`;
 }
 function clsChip(c){
-  if(c==='VA') return '<span class="chip ok">VA</span>';
-  if(c==='necessary_NVA') return '<span class="chip mild">necessary NVA</span>';
-  if(c==='NVA') return '<span class="chip missing">NVA</span>';
+  if(c==='VA') return `<span class="chip ok" data-tip="${esc(TIPS.VA)}">VA</span>`;
+  if(c==='necessary_NVA') return `<span class="chip mild" data-tip="${esc(TIPS.necNVA)}">necessary NVA</span>`;
+  if(c==='NVA') return `<span class="chip missing" data-tip="${esc(TIPS.NVA)}">NVA</span>`;
   return '<span class="chip neutral">—</span>';
+}
+function goalClassChip(cls){
+  if(!cls) return '';
+  return cls === 'core'
+    ? `<span class="chip coreclass" data-tip="${esc(TIPS.core)}">core</span>`
+    : `<span class="chip claim" data-tip="${esc(TIPS.aspirational)}">aspirational</span>`;
+}
+function decisionChip(d){
+  if(!d || d === 'aligned') return `<span class="chip ok" data-tip="${esc(TIPS.aligned_decision)}">aligned</span>`;
+  return `<span class="chip missing" data-tip="${esc(TIPS[d]||'')}">${esc(d)}</span>`;
 }
 function bar(v){
   if(v==null) return '<span class="pct">—</span>';
@@ -325,13 +490,28 @@ function render(){
 
   const k = m.kpis;
   $('kpis').innerHTML = [
-    ['Coverage', pctStr(k.coverage), k.coverage!=null && k.coverage < .8],
-    ['Open defects', k.defects, k.defects>0],
-    ['Theater claims', k.theater, k.theater>0],
-    ['Unclaimed', k.unclaimed, false],
-    ['Decision defects', k.decisionDefects, k.decisionDefects>0],
-    ['Disputed', k.disputed, false],
-  ].map(([l,n,bad]) => `<div class="kpi${bad?' bad':''}"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+    ['Coverage', pctStr(k.coverage), k.coverage!=null && k.coverage < .8,
+      `${k.coveredN} of ${k.scoredN} required flows covered`,
+      'Share of required flows fully served: right source, fast enough, right kind of channel.'],
+    ['Open defects', k.defects, k.defects>0,
+      'missing · wrong producer · latency · channel',
+      'Required flows the diff engine could not fully satisfy, each with a named defect and fix family.'],
+    ['Theater claims', k.theater, k.theater>0,
+      'meetings claiming a goal they don’t feed',
+      TIPS.theater],
+    ['Unclaimed', k.unclaimed, false,
+      'feeding a goal they never claim',
+      TIPS.unclaimed],
+    ['Meeting VA ratio', k.meetN ? pctStr(k.vaN/k.meetN) : '—', k.meetN && k.vaN/k.meetN < .7,
+      `${k.vaN} of ${k.meetN} meetings classify VA`,
+      TIPS.VA],
+    ['Decision defects', k.decisionDefects, k.decisionDefects>0,
+      'owner absent · never decided · no owner',
+      'Decisions whose paper rights and observed reality diverge.'],
+    ['Disputed', k.disputed, false,
+      'both ends disagree — quarantined',
+      TIPS.incomplete ? 'An actual flow whose producer and consumer contradict each other. Quarantined from every score; surfaced for follow-up interviews.' : ''],
+  ].map(([l,n,bad,s,tip]) => `<div class="kpi${bad?' bad':''}" data-tip="${esc(tip)}"><div class="n">${n}</div><div class="l">${l}</div><div class="s">${esc(s)}</div></div>`).join('');
 
   const h = m.health, notes = [];
   if(h.incompleteReq) notes.push(`<strong>${h.incompleteReq}</strong> required flow${h.incompleteReq>1?'s':''} incomplete (no status — missing topic, latency, or channel class)`);
@@ -350,7 +530,7 @@ function render(){
     `<tr><th>goal</th>${hasCls?'<th>class</th>':''}<th>name</th><th>owner</th><th style="text-align:right">required</th><th style="text-align:right">covered</th><th>coverage</th><th style="text-align:right">defects</th><th style="text-align:right">theater</th><th style="text-align:right">unclaimed</th></tr>` +
     m.goals.map(g => {
       const dimmed = FILTER && g.id !== FILTER ? ' style="opacity:.4"' : '';
-      const cls = hasCls ? `<td>${g.cls ? (g.cls==='core' ? '<span class="chip coreclass">core</span>' : '<span class="chip claim">aspirational</span>') : ''}</td>` : '';
+      const cls = hasCls ? `<td>${goalClassChip(g.cls)}</td>` : '';
       return `<tr${dimmed}><td class="mono">${esc(g.id)}</td>${cls}<td>${esc(g.name)}</td><td class="dim">${esc(g.owner)}</td><td class="num">${g.required}</td><td class="num">${g.covered}</td><td>${bar(g.required?g.covered/g.required:null)}</td><td class="num">${g.defects||''}</td><td class="num">${g.theater||''}</td><td class="num">${g.unclaimed||''}</td></tr>`;
     }).join('');
 
@@ -362,21 +542,18 @@ function render(){
 
   const mts = m.meetings.filter(r => !FILTER || r.align.some(a => a.goal === FILTER));
   $('meetingsTable').innerHTML = mts.length ?
-    `<tr><th>meeting</th><th>cadence</th><th style="text-align:right">min</th><th style="text-align:right">people</th><th>criteria</th><th>class</th><th style="text-align:right">cost /wk</th><th>goal alignment</th></tr>` +
-    mts.map(r => {
+    `<tr><th>meeting</th><th>cadence</th><th style="text-align:right">min</th><th style="text-align:right">people</th><th style="text-align:right" data-tip="Distinct topics whose usable, requirement-matched flows land in this meeting — its real cargo.">topics</th><th style="text-align:right" data-tip="Duration divided by topics carried: how many minutes each topic gets per occurrence. A crowded short meeting (low number) is a congestion candidate; a long meeting with no cargo has a different problem.">min/topic</th><th>criteria</th><th>class</th><th style="text-align:right" data-tip="Person-minutes per week: occurrences per week × duration × headcount. The meeting's weekly price.">cost /wk</th><th>goal alignment</th></tr>` +
+    mts.map((r) => {
       const av = r.align.filter(a => !FILTER || a.goal === FILTER)
         .map(a => `<span class="chip claim">${esc(a.goal)}</span> ${verdictChip(a.verdict)}`).join(' &nbsp; ');
-      return `<tr><td>${esc(r.name)}</td><td class="dim">${esc(r.cadence)}</td><td class="num">${r.dur??''}</td><td class="num">${r.attendees||''}</td><td>${bar(r.pct)}</td><td>${clsChip(r.cls)}</td><td class="num">${r.cost!=null?r.cost.toLocaleString():''}</td><td>${av || '<span class="dim">—</span>'}</td></tr>`;
+      return `<tr><td><a href="#" class="mtg-link" data-mid="${esc(r.id)}">${esc(r.name)}</a></td><td class="dim">${esc(r.cadence)}</td><td class="num">${r.dur??''}</td><td class="num">${r.attendees||''}</td><td class="num">${r.topicsCarried ? r.topicsCarried.length || '—' : '—'}</td><td class="num">${r.minPerTopic ?? '—'}</td><td>${bar(r.pct)}</td><td>${clsChip(r.cls)}</td><td class="num">${r.cost!=null?r.cost.toLocaleString():''}</td><td>${av || '<span class="dim">—</span>'}</td></tr>`;
     }).join('')
     : '<tr><td class="empty-note">No meetings touch this goal.</td></tr>';
 
   const dcs = m.decisions.filter(d => !FILTER || d.goal === FILTER);
   $('decisionsTable').innerHTML = dcs.length ?
     `<tr><th>decision</th><th>goal</th><th>accountable</th><th>actually decided in</th><th>verdict</th></tr>` +
-    dcs.map(d => {
-      const chip = !d.defect || d.defect==='aligned' ? '<span class="chip ok">aligned</span>' : `<span class="chip missing">${esc(d.defect)}</span>`;
-      return `<tr><td>${esc(d.name)}</td><td class="mono">${esc(d.goal)}</td><td>${esc(d.accountable)}</td><td class="dim">${esc(d.venue)}</td><td>${chip}</td></tr>`;
-    }).join('')
+    dcs.map(d => `<tr><td>${esc(d.name)}</td><td class="mono">${esc(d.goal)}</td><td>${esc(d.accountable)}</td><td class="dim">${esc(d.venue)}</td><td>${decisionChip(d.defect)}</td></tr>`).join('')
     : '<tr><td class="empty-note">No decisions recorded for this selection.</td></tr>';
 
   const dsp = m.disputed.filter(d => !FILTER || d.goal === FILTER);
@@ -386,6 +563,8 @@ function render(){
     : '<tr><td class="empty-note">No disputed flows — producers and consumers agree.</td></tr>';
 
   renderTree();
+  renderMap();
+  renderPeople();
   $('foot').textContent = 'Rendered from the workbook’s own computed verdicts · ' + m.meta.file + ' · ' + m.meta.generated + ' · nothing left this browser';
 }
 
@@ -397,7 +576,7 @@ function renderTree(){
     const allNeeds = g.topics.flatMap(t => t.needs);
     const scored = allNeeds.filter(n => n.status);
     const cov = scored.filter(n => n.status === 'covered').length;
-    const clsChipHtml = g.cls ? (g.cls === 'core' ? '<span class="chip coreclass">core</span>' : '<span class="chip claim">aspirational</span>') : '';
+    const clsChipHtml = goalClassChip(g.cls);
     const stats = `<div class="gstats"><span>${g.topics.length} topic${g.topics.length===1?'':'s'} · ${scored.length} need${scored.length===1?'':'s'}</span>${bar(scored.length ? cov/scored.length : null)}</div>`;
     let body;
     if(!g.topics.length){
@@ -423,14 +602,186 @@ function renderTree(){
   }).join('') || '<div class="treenote">No goals to show.</div>';
 }
 
-function setView(tree){
-  $('viewOverview').style.display = tree ? 'none' : 'block';
-  $('viewTree').style.display = tree ? 'block' : 'none';
-  $('tabOverview').classList.toggle('active', !tree);
-  $('tabTree').classList.toggle('active', tree);
+/* ============ flow map ============ */
+let ACTOR = '';
+const FN_ORDER = ['External','Engineering','Quality','Operations','Supply Chain'];
+function renderMap(){
+  const m = MODEL;
+  if(!m || !m.map){ if(m) $('tabMap').style.display = 'none'; return; }
+  const { actors, edges } = m.map;
+  const asel = $('actorFilter');
+  if(asel.options.length <= 1){
+    actors.forEach(a => { const o = document.createElement('option'); o.value = a.id; o.textContent = a.name; asel.appendChild(o); });
+  }
+  const fns = [...new Set(actors.map(a => a.fn))].sort((x,y) => {
+    const ix = FN_ORDER.indexOf(x), iy = FN_ORDER.indexOf(y);
+    return (ix===-1?99:ix) - (iy===-1?99:iy) || x.localeCompare(y);
+  });
+  const NW = 188, NH = 52, GX = 78, GY = 26, PAD = 20;
+  const pos = {};
+  fns.forEach((fn, ci) => {
+    actors.filter(a => a.fn === fn).forEach((a, ri) => {
+      pos[a.id] = { x: PAD + ci*(NW+GX), y: PAD + 22 + ri*(NH+GY), a };
+    });
+  });
+  const W = PAD*2 + fns.length*NW + (fns.length-1)*GX;
+  const H = PAD*2 + 30 + Math.max(...fns.map(fn => actors.filter(a => a.fn === fn).length))*(NH+GY);
+
+  const visEdges = edges.map((e, i) => ({...e, i}))
+    .filter(e => (!FILTER || e.goal === FILTER) && (!ACTOR || e.from === ACTOR || e.to === ACTOR) && (!$('defectsOnly').checked || e.status !== 'covered'));
+  const activeActors = new Set(visEdges.flatMap(e => [e.from, e.to]));
+
+  const edgePaths = visEdges.map(e => {
+    const p1 = pos[e.from], p2 = pos[e.to];
+    if(!p1 || !p2) return '';
+    let x1, y1 = p1.y + NH/2, x2, y2 = p2.y + NH/2, d;
+    if(p2.x > p1.x){ x1 = p1.x + NW; x2 = p2.x; }
+    else if(p2.x < p1.x){ x1 = p1.x; x2 = p2.x + NW; }
+    else { // same column: bow out left
+      x1 = p1.x; x2 = p2.x;
+      d = `M ${x1} ${y1} C ${x1-70} ${y1}, ${x2-70} ${y2}, ${x2} ${y2}`;
+    }
+    if(!d){ const c = (x2-x1)*0.45; d = `M ${x1} ${y1} C ${x1+c} ${y1}, ${x2-c} ${y2}, ${x2} ${y2}`; }
+    return `<path class="edge ${e.status}" d="${d}"/><path class="edge hit" d="${d}" data-ei="${e.i}"/>`;
+  }).join('');
+
+  const fnLabels = fns.map((fn, ci) =>
+    `<text x="${PAD + ci*(NW+GX) + NW/2}" y="${PAD+4}" text-anchor="middle" style="font:600 10px var(--mono);fill:var(--ink-3);letter-spacing:.08em">${esc(fn.toUpperCase())}</text>`).join('');
+
+  const nodes = actors.map(a => {
+    const p = pos[a.id];
+    const dim = (ACTOR && a.id !== ACTOR && !activeActors.has(a.id)) || (FILTER && !activeActors.has(a.id));
+    let badges = '';
+    let bx = Math.min(p.x + NW - 4, W - 8);
+    if(a.spof){ bx -= 40; badges += `<g class="badge spof" data-tip="${esc(TIPS.spof)}"><rect x="${bx}" y="${p.y-8}" width="38" height="14"/><text x="${bx+19}" y="${p.y+2}" text-anchor="middle">SPOF</text></g>`; }
+    if(a.isolated){ bx -= 56; badges += `<g class="badge iso" data-tip="${esc(TIPS.isolated)}"><rect x="${bx}" y="${p.y-8}" width="52" height="14"/><text x="${bx+26}" y="${p.y+2}" text-anchor="middle">isolated</text></g>`; }
+    return `<g class="mapnode${dim ? ' dim' : ''}" data-aid="${esc(a.id)}">
+      <rect class="box" x="${p.x}" y="${p.y}" width="${NW}" height="${NH}" rx="7"/>
+      <text class="nm" x="${p.x+12}" y="${p.y+21}">${esc(a.name)}</text>
+      <text class="rl" x="${p.x+12}" y="${p.y+38}">${esc((a.role ? a.role + ' · ' : '') + a.fn)}</text>
+      ${badges}</g>`;
+  }).join('');
+
+  $('mapWrap').innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Required flow network">${fnLabels}${edgePaths}${nodes}</svg>`;
+  $('mapLegend').innerHTML = [
+    ['covered','required flow, served'], ['missing','missing'], ['wrong_producer','wrong producer'],
+    ['latency_gap','latency gap'], ['channel_mismatch','channel mismatch']
+  ].map(([cls,label]) => `<span><svg width="34" height="10"><path class="edge ${cls}" d="M2 5 L32 5"/></svg> ${esc(label)}</span>`).join('') +
+  '<span style="margin-left:auto">hover a line or box for its story · click a box to focus that person</span>';
+
+  const svg = $('mapWrap').querySelector('svg');
+  svg.addEventListener('mouseover', ev => {
+    const hit = ev.target.closest('path.hit');
+    if(hit){
+      const e = MODEL.map.edges[+hit.dataset.ei];
+      const an2 = id => (MODEL.map.actors.find(a => a.id === id) || {name:id}).name;
+      showTip(hit, `${e.topic}: ${an2(e.from)} → ${an2(e.to)} · criticality ${e.crit} · ${e.status}${e.status !== 'covered' ? ' · priority ' + e.priority : ''} · ${e.goal}`);
+      hit.previousElementSibling.classList.add('hl');
+      return;
+    }
+    const node = ev.target.closest('g.mapnode');
+    if(node){
+      const a = MODEL.map.actors.find(x => x.id === node.dataset.aid);
+      const p = MODEL.people.find(x => x.id === a.id);
+      showTip(node, `${a.name} — ${a.role || a.fn}. Produces ${p ? p.produces : '?'} required flows, consumes ${p ? p.consumes : '?'}, ${p ? p.defective : '?'} defective. Meeting load ${a.meetMin} min/week.${a.spof ? ' SPOF.' : ''}${a.isolated ? ' Isolated.' : ''}`);
+    }
+  });
+  svg.addEventListener('mouseout', ev => {
+    const hit = ev.target.closest('path.hit');
+    if(hit) hit.previousElementSibling.classList.remove('hl');
+    hideTip();
+  });
+  svg.addEventListener('click', ev => {
+    const node = ev.target.closest('g.mapnode');
+    if(node){ ACTOR = ACTOR === node.dataset.aid ? '' : node.dataset.aid; $('actorFilter').value = ACTOR; renderMap(); }
+  });
 }
-$('tabOverview').addEventListener('click', () => setView(false));
-$('tabTree').addEventListener('click', () => setView(true));
+
+/* ============ people ============ */
+function renderPeople(){
+  const m = MODEL;
+  if(!m || !m.people){ if(m) $('tabPeople').style.display = 'none'; return; }
+  const rows = m.people.filter(p => !FILTER || p.needsOut.some(n => n.goal === FILTER) || p.needsIn.some(n => n.goal === FILTER));
+  $('peopleTable').innerHTML =
+    `<tr><th>person / team</th><th>function</th><th style="text-align:right" data-tip="Required flows this actor must produce — how much the goals depend on what they send.">produces</th><th style="text-align:right" data-tip="Required flows this actor must receive — how much their work depends on others.">consumes</th><th style="text-align:right" data-tip="Of the flows through this actor, how many are not covered — where they are hurt by or causing gaps.">defective</th><th style="text-align:right" data-tip="Minutes per week this actor spends in the modeled recurring meetings.">meeting min/wk</th><th>flags</th></tr>` +
+    rows.map(p => {
+      const flags = (p.spof ? `<span class="chip missing" data-tip="${esc(TIPS.spof)}">SPOF</span> ` : '') +
+                    (p.isolated ? `<span class="chip neutral" data-tip="${esc(TIPS.isolated)}">isolated</span>` : '');
+      return `<tr><td><a href="#" class="person-link" data-pid="${esc(p.id)}">${esc(p.name)}</a>${p.role ? `<span class="dim" style="font-size:.78rem"> · ${esc(p.role)}</span>` : ''}</td><td class="dim">${esc(p.fn)}</td><td class="num">${p.produces||''}</td><td class="num">${p.consumes||''}</td><td class="num">${p.defective ? `<strong style="color:var(--red-ink)">${p.defective}</strong>` : ''}</td><td class="num">${p.meetMin||''}</td><td>${flags}</td></tr>`;
+    }).join('');
+}
+
+/* ============ detail panels ============ */
+function openDetail(html){ $('detailCard').innerHTML = '<button class="modal-close" id="detailClose">Close</button>' + html; $('detailModal').hidden = false; }
+function personDetail(pid){
+  const p = MODEL.people.find(x => x.id === pid); if(!p) return;
+  const flowList = (list, dir) => list.length ? list.map(n =>
+    `<div class="needrow"><span>${dir==='out' ? 'to' : 'from'} ${esc(n.other)}</span><span class="crit">${esc(n.topic)}</span>${statusChip(n.status)}<span class="crit">${esc(n.goal)}</span></div>`).join('') : '<p class="dim">none modeled</p>';
+  openDetail(`<h2>${esc(p.name)}</h2><p>${esc((p.role ? p.role + ' · ' : '') + p.fn)}${p.spof ? ' · <strong>SPOF</strong>' : ''}${p.isolated ? ' · isolated' : ''}</p>
+    <h3>Must produce (${p.produces})</h3>${flowList(p.needsOut,'out')}
+    <h3>Must receive (${p.consumes})</h3>${flowList(p.needsIn,'in')}
+    <h3>Meetings (${p.meetings.length} · ${p.meetMin} min/week)</h3>
+    ${p.meetings.length ? p.meetings.map(mt => `<div class="needrow"><span>${esc(mt.name)}</span><span class="crit">${mt.minWk} min/wk</span></div>`).join('') : '<p class="dim">none</p>'}`);
+}
+function meetingDetail(mid){
+  const r = MODEL.meetings.find(x => x.id === mid); if(!r) return;
+  const cap = r.topicsCarried.length
+    ? `${r.topicsCarried.length} topic${r.topicsCarried.length>1?'s':''} in ${r.dur ?? '?'} minutes — <strong>${r.minPerTopic ?? '?'} min per topic</strong> per occurrence.`
+    : 'Carries no requirement-matched flows — its cost currently buys no modeled cargo.';
+  openDetail(`<h2>${esc(r.name)}</h2><p>${esc(r.cadence)} · ${r.dur ?? '?'} min · ${r.attendees} people · ${clsChip(r.cls)} · costs ${r.cost != null ? r.cost.toLocaleString() : '?'} person-min/week</p>
+    <h3>Capacity</h3><p>${cap}</p>
+    <h3>Goal alignment</h3>
+    ${r.align.length ? r.align.map(a => `<div class="needrow"><span class="chip claim">${esc(a.goal)}</span>${verdictChip(a.verdict)}<span class="crit">carries ${a.carried}</span></div>`).join('') : '<p class="dim">no goal relationship — claims nothing, carries nothing</p>'}
+    <h3>Cargo — flows that land here (${r.carried.length})</h3>
+    ${r.carried.length ? r.carried.map(c => `<div class="needrow"><span class="crit">${esc(c.topic)}</span><span>→ ${esc(c.to)}</span><span class="crit">${esc(c.goal)}</span></div>`).join('') : '<p class="dim">none</p>'}
+    <h3>Decisions actually decided here (${r.decided.length})</h3>
+    ${r.decided.length ? r.decided.map(d => `<div class="needrow"><span>${esc(d)}</span></div>`).join('') : '<p class="dim">none</p>'}
+    ${r.failed ? `<h3>Criteria failed</h3><p>${esc(r.failed)}</p>` : ''}`);
+}
+document.addEventListener('click', ev => {
+  const pl = ev.target.closest('.person-link');
+  if(pl){ ev.preventDefault(); personDetail(pl.dataset.pid); return; }
+  const ml = ev.target.closest('.mtg-link');
+  if(ml){ ev.preventDefault(); meetingDetail(ml.dataset.mid); return; }
+  if(ev.target.id === 'detailClose' || ev.target.id === 'detailModal') $('detailModal').hidden = true;
+  if(ev.target.id === 'helpClose' || ev.target.id === 'helpModal') $('helpModal').hidden = true;
+});
+document.addEventListener('keydown', ev => { if(ev.key === 'Escape'){ $('detailModal').hidden = true; $('helpModal').hidden = true; } });
+$('helpBtn').addEventListener('click', () => { $('helpModal').hidden = false; });
+
+/* ============ tooltip engine ============ */
+function showTip(el, text){
+  const tip = $('tip');
+  tip.textContent = text;
+  tip.style.display = 'block';
+  const r = el.getBoundingClientRect();
+  const tw = tip.offsetWidth;
+  let x = window.scrollX + r.left + r.width/2 - tw/2;
+  x = Math.max(8, Math.min(x, window.scrollX + document.documentElement.clientWidth - tw - 8));
+  tip.style.left = x + 'px';
+  tip.style.top = (window.scrollY + r.bottom + 8) + 'px';
+}
+function hideTip(){ $('tip').style.display = 'none'; }
+document.addEventListener('mouseover', ev => {
+  const t = ev.target.closest('[data-tip]');
+  if(t && !ev.target.closest('svg')) showTip(t, t.dataset.tip);
+  else if(!ev.target.closest('svg')) hideTip();
+});
+
+/* ============ view switching ============ */
+const VIEWS = { Overview: 'viewOverview', Tree: 'viewTree', Map: 'viewMap', People: 'viewPeople' };
+function setView(name){
+  Object.entries(VIEWS).forEach(([k, id]) => {
+    $(id).style.display = k === name ? 'block' : 'none';
+    $('tab' + k).classList.toggle('active', k === name);
+  });
+}
+$('tabOverview').addEventListener('click', () => setView('Overview'));
+$('tabTree').addEventListener('click', () => setView('Tree'));
+$('tabMap').addEventListener('click', () => setView('Map'));
+$('tabPeople').addEventListener('click', () => setView('People'));
+$('actorFilter').addEventListener('change', e => { ACTOR = e.target.value; renderMap(); });
+$('defectsOnly').addEventListener('change', () => renderMap());
 
 /* ============ load & reload ============ */
 let fileHandle = null;

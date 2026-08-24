@@ -50,6 +50,51 @@ const path = require('path');
   await page.click('#tabOverview');
   check('tree: switch back to overview', await page.locator('#viewOverview').isVisible());
 
+  // ---- flow map view ----
+  await page.click('#tabMap');
+  check('map: view visible', await page.locator('#viewMap').isVisible());
+  const nodeCount = await page.$$eval('g.mapnode', ns => ns.length);
+  check('map: 11 actor nodes', nodeCount === 11, String(nodeCount));
+  const missEdges = await page.$$eval('#mapWrap path.edge.missing', ps => ps.length);
+  check('map: >=3 missing edges drawn', missEdges >= 3, String(missEdges));
+  const svgText = await page.$eval('#mapWrap svg', s => s.textContent);
+  check('map: isolated badge present', /isolated/.test(svgText));
+  check('map: function column labels', /QUALITY/.test(svgText) && /OPERATIONS/.test(svgText));
+  await page.check('#defectsOnly');
+  const covAfter = await page.$$eval('#mapWrap path.edge.covered', ps => ps.length);
+  check('map: defects-only hides covered', covAfter === 0, String(covAfter));
+  await page.uncheck('#defectsOnly');
+
+  // ---- people view ----
+  await page.click('#tabPeople');
+  check('people: view visible', await page.locator('#viewPeople').isVisible());
+  const firstPerson = await page.$eval('#peopleTable tr:nth-child(2)', r => r.textContent.replace(/\s+/g,' '));
+  check('people: Frodo ranked first with SPOF', /Frodo/.test(firstPerson) && /SPOF/.test(firstPerson), firstPerson.slice(0,120));
+  await page.click('#peopleTable .person-link');
+  check('people: person detail opens', await page.locator('#detailModal').isVisible());
+  const detail = await page.$eval('#detailCard', e => e.textContent.replace(/\s+/g,' '));
+  check('people: detail shows produce/receive/meetings', /Must produce/.test(detail) && /Must receive/.test(detail) && /Meetings/.test(detail));
+  await page.keyboard.press('Escape');
+
+  // ---- meeting detail + capacity columns ----
+  await page.click('#tabOverview');
+  const mhead = await page.$eval('#meetingsTable tr', r => r.textContent);
+  check('meetings: capacity columns present', /topics/.test(mhead) && /min\/topic/.test(mhead));
+  await page.$$eval('.mtg-link', ls => ls.find(l => /Monthly Ops Status/.test(l.textContent)).click());
+  const mdetail = await page.$eval('#detailCard', e => e.textContent.replace(/\s+/g,' '));
+  check('meetings: R9 detail shows no-cargo capacity note', /no modeled cargo/.test(mdetail), mdetail.slice(0,180));
+  await page.keyboard.press('Escape');
+
+  // ---- help modal + KPI sublines ----
+  await page.click('#helpBtn');
+  check('help: modal opens with element dictionary', /What am I looking at/.test(await page.$eval('#helpModal', e => e.textContent)) && await page.locator('#helpModal').isVisible());
+  await page.keyboard.press('Escape');
+  const kpiSub = await page.$eval('#kpis .kpi .s', e => e.textContent);
+  check('kpi: n-of-m subline present', /of .* required flows covered/.test(kpiSub), kpiSub);
+  const kpiCount = await page.$$eval('#kpis .kpi', els => els.length);
+  check('kpi: 7 tiles incl. VA ratio', kpiCount === 7, String(kpiCount));
+
+
 
   await browser.close();
   console.log(results.join('\n'));
