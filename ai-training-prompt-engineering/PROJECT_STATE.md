@@ -110,6 +110,28 @@ Deck is now **57 slides**:
   0:39 taxonomy segment (compressible to 30 s, never skipped outright), handout-pack prep
   item, updated contingency cuts.
 
+## v1.3 (2026-08-24) — owner re-evaluation of slides 20–24; Run of Show retired
+
+Owner feedback: slides 20/21/23 unclear value, 24 not explanatory enough; Run of Show PDF
+not needed; the Taxonomy Reference stays as the output PDF. Deck stays **57 slides**;
+slide numbers from the valves slide (25) onward are unchanged.
+
+- **Slide 20 (new):** "Three of your real tasks beat every leaderboard" — merges the old
+  rankings-caution slide and Rep 2 into one action slide with a built-in 60-second
+  write-down. Part 2 no longer has a separate rep.
+- **Slide 22 (new, replaces the vendor table):** the anatomy SHOWN — a real ~70-word
+  prompt as five tagged blocks (ROLE/TASK/CONTEXT/FORMAT/EXAMPLES) with a compact
+  "same recipe, every vendor" side panel; the vendor-quote detail moved to notes.
+- **Slides 23–24 (split from old 24):** "The elements, defined" 1 of 2 (Role·Task·Context)
+  and 2 of 2 (Format·Examples) — each element now carries its job, WHY IT WORKS, the
+  failure it PREVENTS, and the weak→strong pair at readable size; slide 24 closes with
+  the "pattern behind all five" band bridging to the diagnosis grid.
+- **Run_of_Show.pdf and src/build_runofshow.py deleted** — presenting direction lives in
+  the speaker notes (and the owner's presenter-guide artifact). Prep/contingency content
+  preserved there.
+- **Prompt_Element_Taxonomy_Reference.pdf regenerated** from the taxonomy JSON (25 pp) —
+  it remains the side-handout PDF, per owner.
+
 ## Open intake (waiting on owner; see INTAKE.md)
 
 Curated prompt doc (first) · Berryman & Huyen books as EPUB/split-PDF (<10MB parts; Drive

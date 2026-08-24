@@ -161,49 +161,38 @@ module.exports = function buildPartTwo(pres, H) {
   ], { iconName: 'shield', iconFill: C.AMBER, size: 10.5 });
   s.addNotes(
     '[REFRESH QUARTERLY — owner: Oscar]\n' +
-    'HOW TO PRESENT — 1) Announce it: “screenshot slide — this map is yours to keep.” Give them five seconds to actually take the photo. 2) Walk only TWO rows in full — data analysis and presentations (the rooms’ daily work); gesture over the rest as reference. 3) Finish on the amber band and say it VERBATIM: “your organization’s AI policy and approved-tool list outrank every cell of this table.” 4) Bridge: “one caution before we leave tools — how to read the rankings these names ride on.”\n' +
+    'HOW TO PRESENT — 1) Announce it: “screenshot slide — this map is yours to keep.” Give them five seconds to actually take the photo. 2) Walk only TWO rows in full — data analysis and presentations (the rooms’ daily work); gesture over the rest as reference. 3) Finish on the amber band and say it VERBATIM: “your organization’s AI policy and approved-tool list outrank every cell of this table.” 4) Bridge: “so how do you pick from this table when the rankings churn every month? With your own three tasks — next slide.”\n' +
     'ACRONYMS — 1M-class = roughly one-million-token context window. SWE-bench = the standard coding-agent benchmark.\n' +
     'CONTENT — This is the screenshot-and-keep slide. Walk two rows the audience cares most about (data analysis, presentations) and let the rest be reference. Reinforce the policy caveat verbally every time.');
 
-  // ---------- 20. FORTES NOT ABSOLUTES ----------
-  s = H.slide('PART 2 · READING THE LEADERBOARDS', 20);
-  H.title(s, 'A caution on rankings', 'Fortes, not absolutes: how to read AI leaderboards');
-  H.bullets(s, 0.55, 1.7, 6.2, 3.4, [
-    { t: 'Top models now cluster within ~1 point on major indexes; leaderboards re-rank monthly (one arena re-baselined its entire scale in July 2026).' },
-    { t: 'Benchmarks saturate and leak: the standard coding benchmark is “nearing saturation,” with audits finding flawed test cases.' },
-    { t: 'Vendor-reported numbers are marketing until independently reproduced — label them as claims.', b: true },
-    { t: 'So: use rankings to build a shortlist; use YOUR task — your documents, your data, your formats — to pick the winner.' },
-  ], { size: 12.5, gap: 9 });
-  H.card(s, 7.0, 1.7, 5.75, 3.4, C.TEAL_TINT);
-  s.addText('Power tools from four good brands', { x: 7.3, y: 1.95, w: 5.2, h: 0.4, fontFace: F.head, fontSize: 14.5, bold: true, color: C.INK, margin: 0 });
-  s.addText('Any of them can drive a screw. You pick by fit for the job, what’s already in your shop (your IT stack, your data governance), and how it feels in your hand — not by last month’s magazine review.\n\nThe skills in Parts 3–5 transfer across all of them. That’s why this training teaches prompting, not products.', { x: 7.3, y: 2.45, w: 5.2, h: 2.5, fontFace: F.body, fontSize: 12, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.15 });
-  H.callout(s, 0.55, 5.45, 12.2, 1.15, C.PANEL, [
-    { text: 'A 60-second benchmark of your own: ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
-    { text: 'keep three of your real tasks (one analysis, one document, one deck) as a private test set. When a new model ships, run them. Your test set beats every leaderboard for deciding what YOU should use.', options: { color: C.SLATE, fontSize: 12.5 } },
-  ], { iconName: 'target', iconFill: C.SLATE, size: 12.5, line: C.LINE });
+  // ---------- 20. YOUR PRIVATE TEST SET (v1.3 — replaces the rankings-caution slide + rep 2) ----------
+  s = H.slide('PART 2 · YOUR PRIVATE TEST SET', 20);
+  H.title(s, 'Picking tools when rankings churn', 'Three of your real tasks beat every leaderboard');
+  H.card(s, 0.55, 1.7, 5.9, 3.3, C.PANEL);
+  s.addText('Why you can ignore the rankings', { x: 0.85, y: 1.94, w: 5.3, h: 0.4, fontFace: F.head, fontSize: 14.5, bold: true, color: C.INK, margin: 0 });
+  H.bullets(s, 0.9, 2.45, 5.3, 2.4, [
+    { t: 'Top models cluster within ~1 point and re-rank monthly; benchmarks saturate and leak.' },
+    { t: 'Vendor-reported numbers are marketing until independently reproduced — read them as claims.' },
+    { t: 'And none of them measure the only thing that matters: fit for YOUR documents, YOUR data, YOUR formats.', b: true },
+  ], { size: 11.8, gap: 8 });
+  H.card(s, 6.75, 1.7, 6.0, 3.3, C.TEAL_TINT);
+  s.addText('The 60-second habit that replaces them', { x: 7.05, y: 1.94, w: 5.5, h: 0.4, fontFace: F.head, fontSize: 14.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+  const tsteps = [
+    ['1', 'Write down three of your real tasks — one analysis, one document, one deck or tracker.'],
+    ['2', 'When a new model or tool ships, run the three and judge for yourself.'],
+    ['3', 'Keep the list where you will find it — it outlives every leaderboard.'],
+  ];
+  tsteps.forEach((t, i) => {
+    const y = 2.45 + i * 0.82;
+    s.addText(t[0], { x: 7.05, y, w: 0.45, h: 0.5, fontFace: F.head, fontSize: 19, bold: true, color: C.TEAL, margin: 0 });
+    s.addText(t[1], { x: 7.6, y: y + 0.02, w: 4.9, h: 0.75, fontFace: F.body, fontSize: 11.8, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.06 });
+  });
+  H.callout(s, 0.55, 5.35, 12.2, 1.1, C.AMBER_TINT, [
+    { text: 'Do it now — 60 seconds: ', options: { bold: true, color: C.AMBER, fontSize: 13 } },
+    { text: 'write your three tasks before the next slide. That list is your private benchmark from here on — and the skills in Parts 3–5 transfer across every tool it ever ranks.', options: { color: C.SLATE, fontSize: 13 } },
+  ], { iconName: 'target', iconFill: C.AMBER, size: 13 });
   s.addNotes(
-    'HOW TO PRESENT — 1) LEFT bullets top to bottom: models cluster within a point; benchmarks saturate and leak; vendor numbers are claims until reproduced (bold); therefore — shortlist by rankings, DECIDE by your task. 2) RIGHT card: the power-tools analogy — you pick by fit for the job, what’s in your shop, and feel in the hand, not last month’s magazine review. Land the last line: this training teaches prompting, not products. 3) Bottom band: the 60-second benchmark — three of your real tasks as a private test set. 4) Bridge: “let’s make that test set real — rep.”\n' +
-    'ACRONYMS — none needing expansion on the slide (IT stack = your approved technology environment).\n' +
-    'CONTENT — The private-test-set habit is the practical takeaway — it converts leaderboard anxiety into a 60-second routine. Sources for the caution: LMArena July 2026 re-baseline; SWE-bench Verified saturation reporting; Artificial Analysis clustering.');
-
-  // ---------- P2 REP (v1.1, skippable) ----------
-  s = H.slide('THREE-MINUTE REP · PART 2', 21);
-  H.title(s, 'Three-minute rep', 'Write down your private test set');
-  H.repTimer(s);
-  H.card(s, 0.55, 1.75, 7.4, 3.4, C.TEAL_TINT);
-  H.bullets(s, 0.9, 2.05, 6.6, 2.9, [
-    { t: 'Write down three of YOUR real tasks — one analysis, one document, one deck or tracker.', b: true },
-    { t: 'That list is your private benchmark: when a new model or tool ships, run the three tasks and judge for yourself.' },
-    { t: 'Keep it somewhere you will find it — it outlives every leaderboard on the previous slides.' },
-  ], { size: 13, gap: 10 });
-  H.card(s, 8.25, 1.75, 4.5, 3.4, C.PANEL);
-  s.addText([
-    { text: 'Why this matters', options: { bold: true, color: C.INK, fontSize: 12, breakLine: true, paraSpaceAfter: 5 } },
-    { text: 'Rankings re-shuffle monthly and top models cluster within a point. Your three tasks measure the only thing that matters: fit for YOUR work.', options: { color: C.SLATE, fontSize: 11 } },
-  ], { x: 8.52, y: 1.95, w: 3.95, h: 3.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
-  s.addText('Skippable if running long — the habit is on the previous slide either way.', { x: 0.55, y: 5.45, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
-  s.addNotes(
-    'HOW TO PRESENT — 1) This rep is SKIP-BY-DEFAULT if you are behind — the habit is already on the previous slide; the run of show assumes you skip it. 2) If running it: point at the 3:00 badge, then everyone writes three real tasks — one analysis, one document, one deck or tracker. No sharing; the artifact is personal. 3) Close with the right card’s point: “that list outlives every leaderboard.”\n' +
-    'ACRONYMS — none on this slide.\n' +
-    'CONTENT — Three minutes: everyone writes three tasks. No sharing needed — the artifact is personal. Skip freely if behind.');
+    'HOW TO PRESENT — 1) Frame in one line: “before we leave tools — how do you PICK, when the rankings reshuffle monthly?” 2) LEFT card fast: models cluster within a point; benchmarks saturate and leak; vendor numbers are claims; and none of it measures fit for YOUR work (bold). 3) RIGHT card: the habit, steps 1→3 — three real tasks, run them on anything new, keep the list findable. 4) Amber band: actually give the room 60 SECONDS of silence to write their three tasks — this replaces a full rep; don’t skip the writing moment. 5) Close: “this training teaches prompting, not products — the skills transfer across every tool on your list.” 6) Bridge: “Part 3 — the craft itself.”\n' +
+    'ACRONYMS — none needing expansion on this slide.\n' +
+    'CONTENT — v1.3: merges the former rankings-caution slide and the Part 2 rep into one action slide (owner feedback: two slides + a rep was one idea stretched thin). Sources for the caution, if challenged: LMArena July 2026 re-baseline; SWE-bench Verified saturation reporting; Artificial Analysis clustering. The power-tools analogy survives in your pocket if someone pushes back: four good brands, any drives a screw — you pick by fit, shop, and feel, not last month’s magazine review.');
 };

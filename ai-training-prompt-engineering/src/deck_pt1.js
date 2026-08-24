@@ -54,7 +54,7 @@ module.exports = function buildPartOne(pres, H) {
   s.addNotes(
     'HOW TO PRESENT — 1) Say the bold line first: “Prompting is the one AI skill that transfers everywhere — every assistant, every vendor, every year.” 2) Walk the three left bullets top to bottom; land on “two modes” as the backbone of the whole training. 3) Move to the map card: read the six part names quickly and show the split — parts 1–4 today, 5–6 in session two. 4) Teal card: read the 10-second version VERBATIM — it is the thesis. 5) Amber card: the take-homes; physically hold up the handout pack here (cheat sheet, ELEMENTS guide, Taxonomy Reference) so people know things are coming home with them. 6) Bridge: “Part 1 — how this thing actually works.”\n' +
     'ACRONYMS — LLM = Large Language Model — the text engine behind every assistant in this course.\n' +
-    'CONTENT — Merged welcome+map (v1.1). Two-session delivery: split after Part 4. Each part ends with a skippable three-minute rep. Set the thesis early: two modes, one craft; the library, Creator, and taxonomy are the take-home.');
+    'CONTENT — Merged welcome+map (v1.1). Two-session delivery: split after Part 4. Parts 1, 3, 5, and 6 end with a skippable three-minute rep; Part 2’s rep is folded into its test-set slide, Part 4’s rep is the blind-critique homework. Set the thesis early: two modes, one craft; the library, Creator, and taxonomy are the take-home.');
 
   // ---------- 4. PART I DIVIDER ----------
   s = H.slide(null, 4, { dark: true });

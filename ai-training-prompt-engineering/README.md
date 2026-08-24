@@ -10,7 +10,6 @@ write) and **agentic AI** (prompts that work). Built August 2026 as the companio
 |---|---|
 | `deliverables/From_Prompts_to_Agents_Training.pptx` | The training deck (57 slides). Every slide's speaker notes carry three sections: HOW TO PRESENT (the numbered reading/pointing sequence), ACRONYMS (every acronym on the slide, expanded), and CONTENT (facts, sources, refresh markers). Runs as one 2-hour session or two 1-hour halves (split after Part 4). |
 | `deliverables/Prompt_Anatomy_Cheat_Sheet.pdf` | One-page printable: generative anatomy + agentic mission brief side by side. |
-| `deliverables/Run_of_Show.pdf` | Presenter plan: two 60-min sessions, demo scripts, contingency cuts, prep checklist. |
 | `prompt-library/` | 13 copy-ready templates — 8 generative (G1–G8), 5 agentic (A1–A5) — plus `ELEMENTS.md` (the element field guide) and the library's management conventions in its README. |
 | `prompt-library/taxonomy/` | The machine-readable element ontology (19 elements · 70 attributes · ~250 options · 18 presets — counts computed from the JSON) — source of truth for the three tools below. Introduced in the deck as the Part 3 "field map" handout slide. |
 | `deliverables/Prompt_Template_Creator.html` | Interactive template builder: toggle elements, pick options, watch the prompt assemble; loads any library template as a starting instance. Single file, works offline. |
@@ -45,8 +44,10 @@ python3 build_cheatsheet.py # -> deliverables/Prompt_Anatomy_Cheat_Sheet.pdf
 **Owner: Oscar Penny — all content and cadence.** The dated material (assistant landscape,
 agent gallery, task matrix, storage map — marked `[REFRESH QUARTERLY]` in speaker notes)
 gets a quarterly pass: re-verify names/features, edit sources, rebuild. Delivery: two
-one-hour sessions (split after Part 4) per `deliverables/Run_of_Show.pdf`. Project state
-and continuation instructions: `PROJECT_STATE.md`.
+one-hour sessions (split after Part 4); the per-slide presenting direction lives in each
+slide's speaker notes (HOW TO PRESENT / ACRONYMS / CONTENT — the Run of Show PDF was
+retired in v1.3 in favor of the notes). Project state and continuation instructions:
+`PROJECT_STATE.md`.
 
 ## House rules baked into the material
 

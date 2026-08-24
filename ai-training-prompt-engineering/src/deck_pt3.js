@@ -12,65 +12,115 @@ module.exports = function buildPartThree(pres, H) {
     'HOW TO PRESENT — 1) Progress bar: part 3 — the core craft part; if the room remembers one part, make it this one. 2) One framing sentence: “Every vendor publishes prompting guidance, and it converges — we teach the convergence, with the evidence.” 3) Under 30 seconds, advance.\n' +
     'ACRONYMS — none on this slide.');
 
-  // ---------- 22. UNIVERSAL ANATOMY ----------
+  // ---------- 22. THE ANATOMY, SHOWN (v1.3 — replaces the vendor-comparison table) ----------
   s = H.slide('PART 3 · THE ANATOMY', 22);
-  H.title(s, 'The universal anatomy', 'Four vendors, one recipe: Role · Task · Context · Format · Examples');
-  const rows = [
-    [{ text: '', options: {} }, 'Anthropic (Claude)', 'OpenAI (ChatGPT)', 'Google (Gemini)', 'Microsoft (Copilot)'],
+  H.title(s, 'The universal anatomy', 'One prompt, five parts — this is what good looks like');
+  const anatEx = [
+    ['ROLE', '“You are a precise editor. You add no facts that are not in the source.”'],
+    ['TASK', '“Summarize the attached Q2 returns report for the operations lead.”'],
+    ['CONTEXT', '“Return rate = returns ÷ units shipped. The export has a totals row — exclude it.”'],
+    ['FORMAT', '“≤ 150 words: the headline number first, then three bullets; caveats last.”'],
+    ['EXAMPLES', '<example> March’s summary — the one the team liked </example> + one edge case.'],
   ];
-  const anat = [
-    ['Role', '“Give Claude a role” (system prompt)', 'role / developer message', 'Persona', '(part of Context)'],
-    ['Task', '“Be clear and direct”', '“simple and direct” instructions', 'Task — “the most important component”', 'Goal — the only required part'],
-    ['Context', '“Add context — explain why”', 'context sections, delimiters', 'Context', 'Context + Source'],
-    ['Format', 'format control, XML tags', 'format specs, verbosity', 'Format', 'Expectations'],
-    ['Examples', '3–5 diverse, tagged examples', '“few-shot if needed”', '(use your documents)', '(iterate with follow-ups)'],
+  anatEx.forEach((r, i) => {
+    const y = 1.62 + i * 0.98;
+    H.card(s, 0.55, y, 7.85, 0.88, i % 2 ? 'FFFFFF' : C.PANEL, i % 2 ? C.LINE : null);
+    s.addShape('roundRect', { x: 0.78, y: y + 0.22, w: 1.35, h: 0.44, rectRadius: 0.07, fill: { color: C.TEAL }, line: { type: 'none' } });
+    s.addText(r[0], { x: 0.78, y: y + 0.23, w: 1.35, h: 0.42, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 10.5, bold: true, charSpacing: 1, color: 'FFFFFF', margin: 0 });
+    s.addText(r[1], { x: 2.32, y: y + 0.08, w: 5.85, h: 0.72, fontFace: 'Consolas', fontSize: 10.5, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.05 });
+  });
+  H.card(s, 8.65, 1.62, 4.1, 4.86, C.PANEL);
+  s.addText('Same recipe, every vendor', { x: 8.9, y: 1.84, w: 3.6, h: 0.4, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
+  const vend = [
+    ['Anthropic', 'role · clear, direct task · context · format · examples'],
+    ['OpenAI', 'role & instructions · context · format · few-shot if needed'],
+    ['Google', 'Persona · Task · Context · Format'],
+    ['Microsoft', 'Goal · Context · Source · Expectations'],
   ];
-  // table via cards
-  const colX = [0.55, 2.35, 5.0, 7.65, 10.3];
-  const colW = [1.7, 2.55, 2.55, 2.55, 2.45];
-  ['', 'Anthropic', 'OpenAI', 'Google', 'Microsoft'].forEach((h, i) => {
-    if (i > 0) s.addText(h, { x: colX[i], y: 1.62, w: colW[i], h: 0.32, fontFace: F.body, fontSize: 11.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+  vend.forEach((v, i) => {
+    const y = 2.35 + i * 0.82;
+    s.addText(v[0], { x: 8.9, y, w: 3.6, h: 0.3, fontFace: F.body, fontSize: 11, bold: true, color: C.TEAL_DARK, margin: 0 });
+    s.addText(v[1], { x: 8.9, y: y + 0.28, w: 3.6, h: 0.45, fontFace: F.body, fontSize: 9.3, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
   });
-  anat.forEach((r, ri) => {
-    const y = 2.0 + ri * 0.78;
-    H.card(s, 0.55, y, 12.2, 0.68, ri % 2 ? 'FFFFFF' : C.PANEL, ri % 2 ? C.LINE : null);
-    s.addText(r[0], { x: 0.75, y: y + 0.08, w: 1.5, h: 0.5, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0, valign: 'middle' });
-    for (let i = 1; i <= 4; i++) {
-      s.addText(r[i], { x: colX[i], y: y + 0.06, w: colW[i] - 0.15, h: 0.58, fontFace: F.body, fontSize: 9.3, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
-    }
-  });
-  H.callout(s, 0.55, 6.05, 12.2, 0.95, C.TEAL_TINT, [
-    { text: 'Google’s data point: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12 } },
-    { text: 'the most fruitful prompts averaged ~21 words with context — most people type fewer than nine. A good prompt is a short briefing, not a search query.', options: { color: C.SLATE, fontSize: 12 } },
-  ], { iconName: 'edit', iconFill: C.TEAL, size: 12 });
+  s.addText('Four official prompting guides, one anatomy — the names differ; the recipe doesn’t.', { x: 8.9, y: 5.72, w: 3.6, h: 0.65, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.08 });
+  H.callout(s, 0.55, 6.62, 12.2, 0.5, C.TEAL_TINT, [
+    { text: 'Google’s data point: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.5 } },
+    { text: 'the most fruitful prompts averaged ~21 words with context — most people type fewer than nine. A good prompt is a short briefing, not a search query.', options: { color: C.SLATE, fontSize: 10.5 } },
+  ], { iconName: 'edit', iconFill: C.TEAL, size: 10.5 });
   s.addNotes(
-    'HOW TO PRESENT — 1) The claim first: “four vendors, one recipe — this is not our opinion, it’s convergence.” 2) Walk the table BY ROW, not by column: Role → Task → Context → Format → Examples; for each row, sweep one finger across the four vendor cells — same idea, different alias. 3) Land on the teal band: the most fruitful prompts averaged ~21 words with context; most people type fewer than nine. Say the sentence: “a good prompt is a short briefing, not a search query.” 4) Bridge: “let’s define the five slots properly.”\n' +
-    'ACRONYMS — XML = eXtensible Markup Language — here just the angle-bracket tag style (<context>…</context>) Anthropic recommends for structure.\n' +
-    'CONTENT — The frameworks are near-identical: Google calls it Persona-Task-Context-Format; Microsoft Goal-Context-Source-Expectations; Anthropic and OpenAI teach the same elements. The 21-words stat is from Google’s Oct 2024 Workspace guide (dropped in the newer edition — teach as directional, not gospel). Anthropic’s golden rule belongs in the room: show your prompt to a colleague with minimal context — if they’d be confused, the model will be too. Continuity hook: our own library teaches the same skeleton — the internal crash course’s “5 building blocks” (Role, Context, Task, Format, Tone) and CRISP checklist, and Phoenix & Taylor’s Five Principles (Give Direction, Specify Format, Provide Examples, Evaluate Quality, Divide Labor). One anatomy, many aliases.');
+    'HOW TO PRESENT — 1) Frame: “this is the whole anatomy — one prompt, five labeled parts. Everything in Part 3 is refinements of this picture.” 2) Read the example TOP TO BOTTOM as one continuous prompt, pausing at each tag: role sets the behavior, task names the job and the audience, context supplies what it can’t know, format is the contract, examples show the standard. 3) Point out it’s ~70 words — “this is what ‘a short briefing’ means; it took under a minute to write.” 4) Right card, fast: four official vendor guides teach this same recipe under different names — “this is not our opinion; it’s convergence.” 5) Teal band: ~21 words vs the nine people type. 6) Bridge: “now each part properly — starting with the three that carry the meaning.”\n' +
+    'ACRONYMS — Q2 = second quarter. XML-style tags = the angle-bracket fences around examples.\n' +
+    'CONTENT — v1.3: replaces the vendor-comparison table (owner feedback: the table proved convergence but taught nothing — the example teaches). Vendor detail if asked: Anthropic “give Claude a role” + “be clear and direct” + XML tags; OpenAI role/developer message + “simple and direct” instructions; Google Persona-Task-Context-Format; Microsoft Goal-Context-Source-Expectations (Goal is the only required part). The 21-words stat: Google’s Oct 2024 Workspace guide (dropped in the newer edition — directional, not gospel). Anthropic’s golden rule belongs in the room: show the prompt to a colleague with minimal context — if they’d be confused, the model will be too. Continuity hook: the internal crash course’s “5 building blocks” and CRISP checklist, and Phoenix & Taylor’s Five Principles — one anatomy, many aliases.');
 
-  // ---------- E1. THE FIVE ELEMENTS, DEFINED (v1.1) ----------
+  // ---------- E1a. THE ELEMENTS, DEFINED — 1 of 2 (v1.3 split) ----------
   s = H.slide('PART 3 · THE ELEMENTS', 23);
-  H.title(s, 'The elements, defined', 'Five slots — each with a job, a mechanism, and a failure it prevents');
-  const edefs = [
-    ['Role', 'who is answering — behaviors, not titles', '“You are a senior analyst.”', '“You never invent numbers; you state n; you say what the data can’t answer.”'],
-    ['Task', 'verb + object + audience + success criterion', '“Analyze the returns data.”', '“What is the return rate by site for Q2 vs the 2% target?”'],
-    ['Context', 'what the model cannot know — material, glossary, quirks, the why', '“Use our standard definitions.”', '“Return rate = returns ÷ shipped. Quirk: the export has a totals row — exclude it and say so.”'],
-    ['Format', 'the output contract — shape, numeric cap, tone', '“Keep it short and professional.”', '“≤ 120 words: the ask in sentence one, two facts with numbers, the deadline.”'],
-    ['Examples', '3–5 diverse demonstrations, edge case included', 'three clones of the happy case', 'one typical + one edge + one reject case, fenced in tags'],
+  H.title(s, 'The elements, defined · 1 of 2', 'Role · Task · Context — the parts that carry the meaning');
+  const edefsA = [
+    ['Role', 'who is answering — behaviors, not titles',
+      'Behavioral commitments are auditable in the output; a title is a vibe the model can fake.',
+      'wrong altitude or posture; confident authority with nothing behind it',
+      '“You are a senior analyst.”',
+      '“You never invent numbers; you state n; you say what the data can’t answer.”'],
+    ['Task', 'verb + object + audience + success criterion',
+      'A precise question carries its own completion test — the model knows when it is done.',
+      'a fluent answer to a vaguer question than the one you had',
+      '“Analyze the returns data.”',
+      '“What is the return rate by site for Q2, vs the 2% target?”'],
+    ['Context', 'what the model cannot know on its own',
+      'The model fills every gap with the most plausible guess — context replaces guessing with your facts.',
+      'generically right, specifically wrong for us',
+      '“Use our standard definitions.”',
+      '“Return rate = returns ÷ shipped. Quirk: the export has a totals row — exclude it and say so.”'],
   ];
-  edefs.forEach((r, i) => {
-    const y = 1.62 + i * 1.0;
-    H.card(s, 0.55, y, 12.2, 0.9, i % 2 ? 'FFFFFF' : C.PANEL, i % 2 ? C.LINE : null);
-    s.addText(r[0], { x: 0.78, y: y + 0.08, w: 1.35, h: 0.74, fontFace: F.head, fontSize: 14, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
-    s.addText(r[1], { x: 2.2, y: y + 0.07, w: 3.6, h: 0.76, fontFace: F.body, fontSize: 10, color: C.INK, margin: 0, valign: 'middle', lineSpacingMultiple: 1.02 });
-    s.addText([{ text: 'weak  ', options: { bold: true, color: C.RED, fontSize: 8.5 } }, { text: r[2], options: { color: C.SLATE, fontSize: 9 } }], { x: 5.95, y: y + 0.07, w: 3.1, h: 0.76, fontFace: F.body, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
-    s.addText([{ text: 'strong  ', options: { bold: true, color: C.GREEN, fontSize: 8.5 } }, { text: r[3], options: { color: C.SLATE, fontSize: 9 } }], { x: 9.15, y: y + 0.07, w: 3.4, h: 0.76, fontFace: F.body, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
-  });
-  s.addText('The full field guide — mechanism, evidence, and pitfalls per element — is in your handout (ELEMENTS guide).', { x: 0.55, y: 6.68, w: 12.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
+  const drawElement = (r, y, h) => {
+    H.card(s, 0.55, y, 12.2, h, C.PANEL);
+    s.addText(r[0], { x: 0.82, y: y + 0.12, w: 1.85, h: 0.42, fontFace: F.head, fontSize: 17, bold: true, color: C.TEAL_DARK, margin: 0 });
+    s.addText(r[1], { x: 0.82, y: y + 0.55, w: 1.85, h: h - 0.7, fontFace: F.body, fontSize: 9.6, color: C.INK, margin: 0, lineSpacingMultiple: 1.05 });
+    s.addText([
+      { text: 'Why it works — ', options: { bold: true, color: C.INK, fontSize: 10.2 } },
+      { text: r[2], options: { color: C.SLATE, fontSize: 10.2, breakLine: true, paraSpaceAfter: 5 } },
+      { text: 'Prevents — ', options: { bold: true, color: C.RED, fontSize: 10.2 } },
+      { text: r[3], options: { color: C.SLATE, fontSize: 10.2 } },
+    ], { x: 2.85, y: y + 0.12, w: 4.35, h: h - 0.24, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.08 });
+    s.addText([
+      { text: 'weak   ', options: { bold: true, color: C.RED, fontSize: 9.5 } },
+      { text: r[4], options: { color: C.SLATE, fontSize: 10, italic: true, breakLine: true, paraSpaceAfter: 5 } },
+      { text: 'strong ', options: { bold: true, color: C.GREEN, fontSize: 9.5 } },
+      { text: r[5], options: { color: C.INK, fontSize: 10, italic: true } },
+    ], { x: 7.45, y: y + 0.12, w: 5.05, h: h - 0.24, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.08 });
+  };
+  edefsA.forEach((r, i) => drawElement(r, 1.62 + i * 1.72, 1.58));
+  s.addText('Read each pair aloud — the weak→strong contrast is the lesson. Format and Examples are next.', { x: 0.55, y: 6.85, w: 12.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
-    'HOW TO PRESENT — 1) Frame: “five slots — each with a job, and a failure it prevents.” 2) One ROW at a time: say the element name, then read the weak and strong fills ALOUD, verbatim — the contrast is the teaching; don’t paraphrase. 3) After Examples, point at the footer: the full field guide (mechanism, evidence, pitfalls per element) is the ELEMENTS handout. 4) Bridge: “two one-sentence safety valves complete the kit.”\n' +
+    'HOW TO PRESENT — 1) Frame: “now each element properly — its job, why it works, and the failure it prevents. First the three that carry the meaning.” 2) One CARD at a time, same rhythm each: say the element name and its job (left) → read the weak fill aloud, flat → read the strong fill aloud — let the contrast land → then the “why it works” line. 3) Role: land “behaviors are auditable; a title is a vibe the model can fake.” 4) Task: land “a precise question knows when it’s done.” 5) Context: land “context replaces guessing with your facts.” 6) Bridge: “two to go — the contract, and the standard.”\n' +
     'ACRONYMS — n = sample size (“you state n”). Q2 = second quarter.\n' +
-    'CONTENT — v1.1 addition. Row logic to have ready: Role — behaviors are auditable, titles aren’t. Task — a question carries its own completion test. Context — unstated quirks become invented fixes. Format — numeric caps are enforceable, adjectives aren’t. Examples — the model handles edge cases exactly as yours do.');
+    'CONTENT — v1.3: the single dense five-row table split into two explanatory slides (owner feedback). Each card now carries the mechanism and the failure on-slide — previously notes-only. The full field guide per element (evidence, pitfalls) remains the ELEMENTS handout; the option menus per element are the Taxonomy Reference.');
+
+  // ---------- E1b. THE ELEMENTS, DEFINED — 2 of 2 (v1.3 split) ----------
+  s = H.slide('PART 3 · THE ELEMENTS', 24);
+  H.title(s, 'The elements, defined · 2 of 2', 'Format · Examples — the contract, and the standard');
+  const edefsB = [
+    ['Format', 'the output contract — shape, cap, tone',
+      'A numeric cap is enforceable; “short and professional” is a mood the model interprets freely.',
+      'the right content in an unusable shape or length',
+      '“Keep it short and professional.”',
+      '“≤ 120 words: the ask in sentence one, two facts with numbers, the deadline.”'],
+    ['Examples', '3–5 diverse demonstrations, edge case included',
+      'The model imitates what it sees — including exactly how your examples handle the hard cases.',
+      'output that misses the standard in your head — the one you never wrote down',
+      'three clones of the happy case',
+      'one typical + one edge + one reject case, fenced in tags'],
+  ];
+  edefsB.forEach((r, i) => drawElement(r, 1.62 + i * 1.86, 1.7));
+  H.callout(s, 0.55, 5.5, 12.2, 1.0, C.TEAL_TINT, [
+    { text: 'The pattern behind all five: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5 } },
+    { text: 'each element moves something out of your head onto the page. When output disappoints, one of the five was left in your head — the diagnosis grid on the next slide names which.', options: { color: C.SLATE, fontSize: 12.5 } },
+  ], { iconName: 'compass', iconFill: C.TEAL, size: 12.5 });
+  s.addText('The full field guide — mechanism, evidence, and pitfalls per element — is in your handout (ELEMENTS guide).', { x: 0.55, y: 6.72, w: 12.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addNotes(
+    'HOW TO PRESENT — 1) Same rhythm as the previous slide, two cards: name and job → weak aloud → strong aloud → the why. 2) Format: land “a numeric cap is enforceable; an adjective is a mood.” 3) Examples: land “the model handles edge cases exactly the way your examples do — so include one.” 4) Teal band — the unifying idea, read it in full: every element moves something out of your head onto the page; when output disappoints, one of the five stayed in your head. 5) Footer: full field guide = ELEMENTS handout. 6) Bridge: “two one-sentence safety valves complete the kit.”\n' +
+    'ACRONYMS — none new on this slide.\n' +
+    'CONTENT — v1.3 split, second half. The “pattern” line is the bridge into the diagnosis grid and, later, the taxonomy slide (the catalog of what can fill each slot). If short on time: read only the weak→strong pairs and the teal band.');
 
   // ---------- E2. SAFETY VALVES + DIAGNOSIS GRID (v1.1) ----------
   s = H.slide('PART 3 · THE ELEMENTS', 24);
