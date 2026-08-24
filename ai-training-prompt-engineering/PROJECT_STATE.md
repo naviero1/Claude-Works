@@ -9,7 +9,7 @@
 
 A focused training (deck + one-page cheat sheet), a 13-template prompt library with a deep
 element field guide (ELEMENTS.md), and a machine-readable **element taxonomy**
-(`prompt-library/taxonomy/*.json` — 19 elements · 70 attributes · ~250 options · 18 presets)
+(`prompt-library/taxonomy/*.json` — 19 elements · 78 attributes · 286 options · 18 presets, counting nested sub-attributes as build_builder.py does)
 that generates three tools: an interactive HTML **Template Creator**, a taxonomy **reference
 PDF**, and an **XLSX configurator**. All research behind it is in `notes/research/` (16
 sourced files). Everything regenerates from source:
@@ -131,6 +131,28 @@ slide numbers from the valves slide (25) onward are unchanged.
   preserved there.
 - **Prompt_Element_Taxonomy_Reference.pdf regenerated** from the taxonomy JSON (25 pp) —
   it remains the side-handout PDF, per owner.
+
+## v1.3 addendum (2026-08-24) — Template Creator UX v2
+
+Owner asked for the Creator polished and made very user friendly. `src/builder_template.html`
+rewritten (same data pipeline, byte-identical assembly logic):
+
+- **Template gallery on first visit** — "What do you want the AI to do?", 18 template cards
+  with one-line blurbs grouped into "prompts that write" / "briefs that run a job", plus
+  start-blank cards. Reachable anytime via 📋 Templates; a 1-2-3 step strip sits under the header.
+- **Guided editor** — element cards collapse to a picks summary (count pill + chips);
+  sidebar shows green content dots and jump-to-card; PICK ONE / PICK ANY labels; option
+  chips are real buttons with hover/focus popovers showing when-to-use + the exact text
+  inserted; extended options behind a "+N more" pill; techniques/antipatterns tucked into
+  a "Tips & pitfalls" disclosure. OOP jargon hidden behind a "Show technical labels" toggle.
+- **Finishing flow** — placeholder bar counts {{ }} with a Find-next jump; token/word
+  stats; Copy with honest toasts; Download .txt; Start over with confirm; restored-session
+  notice with Start fresh; mobile bottom bar; "How it works" help overlay.
+- Fixed a real bug: `[hidden]` was overridden by `display:flex` panels (global
+  `[hidden]{display:none!important}`).
+- **Counts corrected to canonical** (as build_builder.py counts, incl. nested sub-attributes):
+  19 elements · 78 attributes · 286 options · 18 presets — deck slide 26, README, and this
+  file updated (the v1.2/v1.3 "70/~250" figures were top-level-only undercounts).
 
 ## Open intake (waiting on owner; see INTAKE.md)
 
