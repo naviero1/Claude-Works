@@ -152,6 +152,43 @@ svg path.edge.wrong_producer{stroke:var(--st-warn);stroke-dasharray:8 3 2 3}
 svg path.edge.latency_gap{stroke:var(--st-warn);stroke-dasharray:2 4}
 svg path.edge.channel_mismatch{stroke:var(--st-mild)}
 svg path.edge.hl{stroke-width:3;opacity:1}
+/* decompose view */
+.pickgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px}
+.pickcard{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px 18px;cursor:pointer;text-align:left;font-family:var(--body);display:block;width:100%}
+.pickcard:hover{border-color:var(--accent)}
+.pickcard .gname{font-family:var(--slab);font-weight:700;font-size:1rem;margin:6px 0 8px;color:var(--ink)}
+.pickcard .meta{font-size:.78rem;color:var(--ink-2)}
+.stage{margin-top:30px}
+.stagecap{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.stagecap .n{font-family:var(--slab);font-weight:700;font-size:1.15rem;color:var(--accent)}
+.stagecap h2{margin:0}
+.stagelede{font-size:.85rem;color:var(--ink-2);margin:0 0 12px;max-width:80ch}
+.goalhero{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:18px 22px}
+.goalhero .gname{font-family:var(--slab);font-weight:700;font-size:1.25rem;margin:4px 0 6px}
+.backlink{font-size:.82rem}
+details.topicfold{background:var(--card);border:1px solid var(--line);border-radius:8px;margin-top:10px}
+details.topicfold[open]{border-color:var(--input-bd)}
+details.topicfold>summary{cursor:pointer;padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;list-style:none}
+details.topicfold>summary::before{content:'▸';color:var(--ink-3);margin-right:2px}
+details.topicfold[open]>summary::before{content:'▾'}
+details.topicfold>summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.foldbody{padding:0 16px 14px}
+.needcard{border:1px solid var(--line-soft);border-radius:8px;margin-top:10px;overflow:hidden}
+.needcard.gap{border-color:var(--st-warn)}
+.needhalf{padding:12px 16px}
+.needhalf.req{background:var(--input-bg)}
+.needhalf.req .who{font-weight:600}
+.needhalf.rea{border-top:1px dashed var(--line)}
+.halflabel{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.needhalf.req .halflabel{color:var(--input-ink)}
+.spec{font-size:.88rem}
+.spec .attr{font-family:var(--mono);font-size:.72rem;color:var(--ink-2);background:var(--paper);border:1px solid var(--line-soft);border-radius:4px;padding:1px 6px;margin-left:6px;white-space:nowrap}
+.rationale{font-size:.8rem;color:var(--ink-2);font-style:italic;margin-top:4px}
+.gapline{padding:9px 16px;font-size:.84rem;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line-soft)}
+.gapline.bad{background:color-mix(in srgb, var(--st-missing) 7%, var(--card))}
+.realrow{font-size:.85rem;margin-top:4px}
+.realrow .ev{color:var(--ink-3);font-size:.78rem;font-style:italic}
+.carrierchip{display:inline-block;font-size:.74rem;border:1px solid var(--line);border-radius:4px;padding:1px 8px;margin-left:6px;color:var(--ink-2);background:var(--paper)}
 #app{display:none}
 .arrow{color:var(--ink-3)}
 @media (max-width:640px){ .kpi .n{font-size:1.35rem} }
@@ -188,6 +225,7 @@ svg path.edge.hl{stroke-width:3;opacity:1}
     <button id="tabTree">Information tree</button>
     <button id="tabMap">Flow map</button>
     <button id="tabPeople">People</button>
+    <button id="tabDecompose">Decompose a goal</button>
   </div>
 
   <div id="viewOverview">
@@ -231,6 +269,10 @@ svg path.edge.hl{stroke-width:3;opacity:1}
   <div id="viewPeople" style="display:none">
     <p class="treelegend">Who is key: everyone ranked by how many required flows run through them. A person high on this list with defects or a <span data-tip="Single point of failure: a critical delivered flow with one path and no system-of-record backup — it survives only as long as one person shows up.">SPOF</span> flag is where the network is fragile. Click a row for that person's full picture.</p>
     <div class="tablewrap"><table id="peopleTable"></table></div>
+  </div>
+
+  <div id="viewDecompose" style="display:none">
+    <div id="decomposeRoot"></div>
   </div>
 
   <footer id="foot"></footer>
@@ -383,9 +425,16 @@ function buildModel(wb, fileName){
     const gid = S(g.goal_id);
     const gTopics = topics.filter(t => S(t.goal_id) === gid).map(t => {
       const tid = S(t.topic_id);
-      const needs = required.filter(fl => S(fl.topic_id) === tid).map(fl => ({
-        from: an(fl.from_actor), to: an(fl.to_actor), crit: N(fl.criticality),
-        status: S(fl.status), priority: N(fl.priority) }));
+      const needs = required.filter(fl => S(fl.topic_id) === tid).map(fl => {
+        const reality = actual.filter(a2 => S(a2.topic_id) === tid && S(a2.to_actor) === S(fl.to_actor) && S(a2.confidence) !== 'disputed')
+          .map(a2 => ({ from: an(a2.from_actor), confidence: S(a2.confidence), evidence: S(a2.evidence),
+            carriers: carriers.filter(c => S(c.flow_id) === S(a2.flow_id))
+              .map(c => ({ name: S(c.carrier_name), kind: S(c.carrier_type), mode: S(c.mode), cadence: S(c.cadence) })) }));
+        const disputedHere = actual.some(a2 => S(a2.topic_id) === tid && S(a2.to_actor) === S(fl.to_actor) && S(a2.confidence) === 'disputed');
+        return { from: an(fl.from_actor), to: an(fl.to_actor), crit: N(fl.criticality),
+          latency: S(fl.required_max_latency), channel: S(fl.channel_class_required), rationale: S(fl.rationale),
+          status: S(fl.status), priority: N(fl.priority), reality, disputedHere };
+      });
       const extra = actual.filter(a2 => S(a2.topic_id) === tid && S(a2.confidence) !== 'disputed' &&
         !required.some(rq => S(rq.topic_id) === tid && S(rq.to_actor) === S(a2.to_actor))).length;
       return { id: tid, name: S(t.name), operation: S(t.operation) || 'other', desc: S(t.description), needs, extra };
@@ -589,8 +638,91 @@ function render(){
   renderTree();
   renderMap();
   renderPeople();
+  renderDecompose();
   $('foot').textContent = 'Rendered from the workbook’s own computed verdicts · ' + m.meta.file + ' · ' + m.meta.generated + ' · nothing left this browser';
 }
+
+/* ============ decompose-a-goal walkthrough ============ */
+function gapSentence(n){
+  if(n.status === 'covered') return 'Served — a usable flow reaches ' + n.to + ' from the right source, fast enough, on the right kind of channel.';
+  if(n.status === 'missing') return 'Gap — nothing usable delivers this to ' + n.to + '. Fix: attach this need to an existing carrier before inventing a new meeting.';
+  if(n.status === 'wrong_producer') return 'Gap — it reaches ' + n.to + ', but not from ' + n.from + '. A second-hand relay degrades information. Fix: connect consumer to source.';
+  if(n.status === 'latency_gap') return 'Gap — it arrives, but every carrier is slower than the required “' + (n.latency||'?') + '”. Fix: a faster carrier.';
+  if(n.status === 'channel_mismatch') return 'Gap — it arrives in time but wrongly (' + (n.channel === 'sync' ? 'a conversation was required' : 'a critical flow rides pull-only') + '). Fix: change the channel class.';
+  return 'This need is incomplete in the workbook — status cannot compute yet.';
+}
+function renderDecompose(){
+  const m = MODEL;
+  if(!m || !m.tree){ if(m) $('tabDecompose').style.display = 'none'; return; }
+  const root = $('decomposeRoot');
+  const g = FILTER ? m.tree.find(x => x.id === FILTER) : null;
+  if(!g){
+    root.innerHTML = `<p class="treelegend">Pick a goal and watch the method decompose it: the goal names its <strong>operations</strong>, the operations name the <strong>topics</strong> people must hear about, each topic demands specific <strong>flows</strong> — and each flow is then checked against what really happens. That diff is the assessment.</p>
+      <div class="pickgrid">` + m.tree.map(gg => {
+        const needs = gg.topics.flatMap(t => t.needs).filter(n => n.status);
+        const cov = needs.filter(n => n.status === 'covered').length;
+        return `<button class="pickcard" data-goal="${esc(gg.id)}">
+          <span class="mono" style="font-size:.72rem;color:var(--ink-3)">${esc(gg.id)}</span> ${goalClassChip(gg.cls)}
+          <div class="gname">${esc(gg.name)}</div>
+          <div class="meta">${esc(gg.owner)} · ${gg.topics.length} topic${gg.topics.length===1?'':'s'} · ${needs.length} need${needs.length===1?'':'s'} · ${needs.length ? Math.round(cov/needs.length*100) + '% covered' : 'not yet decomposed'}</div>
+        </button>`; }).join('') + '</div>';
+    return;
+  }
+  const needsAll = g.topics.flatMap(t => t.needs).filter(n => n.status);
+  const covN = needsAll.filter(n => n.status === 'covered').length;
+  const meetings = m.meetings.filter(r => r.align.some(a => a.goal === g.id));
+  const decisions = m.decisions.filter(d => d.goal === g.id);
+  const disputed = m.disputed.filter(d => d.goal === g.id);
+
+  const topicsHtml = g.topics.length ? [...new Set(g.topics.map(t => t.operation))].map(op =>
+    `<div class="opgroup"><div class="oplabel">${esc(op)}</div>` +
+    g.topics.filter(t => t.operation === op).map(t => {
+      const scoredN = t.needs.filter(n => n.status);
+      const gappy = scoredN.some(n => n.status !== 'covered');
+      const covT = scoredN.filter(n => n.status === 'covered').length;
+      const needCards = t.needs.map(n => {
+        const isGap = n.status && n.status !== 'covered';
+        const reality = n.reality.length ? n.reality.map(r =>
+          `<div class="realrow">${esc(r.from)} does send it <span class="mono" style="font-size:.72rem">(${esc(r.confidence)})</span>${r.carriers.length ? r.carriers.map(c => `<span class="carrierchip" data-tip="${esc(c.kind === 'ritual' ? 'Rides a recurring meeting — always synchronous, never a durable record.' : 'Rides a standing channel.')}">${esc(c.name)} · ${esc(c.mode)}${c.cadence ? ' · ' + esc(c.cadence) : ''}</span>`).join('') : ' <span class="carrierchip">no carrier — hearsay</span>'}${r.evidence ? `<div class="ev">evidence: ${esc(r.evidence)}</div>` : ''}</div>`).join('')
+          : '<div class="realrow dim" style="color:var(--ink-3)">No usable observed flow reaches this consumer.</div>';
+        return `<div class="needcard${isGap ? ' gap' : ''}">
+          <div class="needhalf req"><div class="halflabel">required — what the goal demands</div>
+            <div class="spec"><span class="who">${esc(n.to)}</span> must hear <span class="mono" style="font-size:.78rem">${esc(t.name)}</span> from <span class="who">${esc(n.from)}</span><span class="attr" data-tip="How much goal damage failure causes. 5 arms the conversation-only rule, ≥4 arms the SPOF screen, and the number weights the defect priority.">crit ${n.crit ?? '?'}</span><span class="attr" data-tip="The slowest delivery rhythm the goal tolerates.">≤ ${esc(n.latency || '?')}</span>${n.channel === 'sync' ? '<span class="attr" data-tip="Must be a conversation, not a message.">conversation</span>' : ''}</div>
+            ${n.rationale ? `<div class="rationale">why: ${esc(n.rationale)}</div>` : ''}</div>
+          <div class="needhalf rea"><div class="halflabel">observed — what actually happens</div>${reality}
+            ${n.disputedHere ? '<div class="realrow" style="color:var(--red-ink)">⚠ a disputed claim exists on this need — see follow-up interviews</div>' : ''}</div>
+          <div class="gapline${isGap ? ' bad' : ''}">${n.status ? statusChip(n.status) : '<span class="chip neutral">incomplete</span>'}<span>${esc(gapSentence(n))}</span>${isGap ? `<span class="crit" style="font-family:var(--mono);font-size:.72rem;color:var(--ink-3)">priority ${n.priority ?? ''}</span>` : ''}</div>
+        </div>`;
+      }).join('');
+      return `<details class="topicfold"${gappy ? ' open' : ''}><summary><span class="tname mono" style="font-weight:500">${esc(t.name)}</span>${scoredN.length ? `<span class="chip ${gappy ? 'warn' : 'ok'}">${covT}/${scoredN.length} covered</span>` : '<span class="chip neutral">no needs yet</span>'}${t.desc ? `<span class="tdesc" style="font-style:italic;color:var(--ink-3);font-size:.78rem">${esc(t.desc)}</span>` : ''}</summary>
+        <div class="foldbody">${needCards || '<p class="treenote">No required flows modeled for this topic yet — derive them with the goal owner.</p>'}${t.extra ? `<p class="treenote">+${t.extra} observed flow${t.extra>1?'s':''} on this topic that no requirement asks for — candidate waste, or an undocumented need.</p>` : ''}</div>
+      </details>`;
+    }).join('') + '</div>').join('')
+    : '<p class="treenote warn">No topics decomposed — this goal has no nervous system yet. Start by walking each of its operations and asking: what must people hear about, to do this?</p>';
+
+  root.innerHTML = `
+    <p class="backlink"><a href="#" id="decomposeBack">‹ all goals</a></p>
+    <div class="stage"><div class="stagecap"><span class="n">1</span><h2>The goal</h2></div>
+      <p class="stagelede">Everything below is derived from this outcome. If a piece of information doesn't ultimately serve a goal, the method doesn't model it.</p>
+      <div class="goalhero"><span class="mono" style="font-size:.74rem;color:var(--ink-3)">${esc(g.id)}</span> ${goalClassChip(g.cls)}
+        <div class="gname">${esc(g.name)}</div>
+        <div class="meta" style="font-size:.84rem;color:var(--ink-2)">owned by ${esc(g.owner)} · ${g.topics.length} topics · ${needsAll.length} needs · ${needsAll.length ? Math.round(covN/needsAll.length*100) + '% covered' : '—'}</div></div></div>
+    <div class="stage"><div class="stagecap"><span class="n">2</span><h2>What it needs — and what really happens</h2></div>
+      <p class="stagelede">The goal breaks into <strong>operations</strong> (the activities it performs); each names <strong>topics</strong> — subjects people must hear about; each topic demands <strong>flows</strong> with a source, a speed, and a channel class. Every need is then checked against observed reality: the first failed check names the defect. Click a topic to fold it open — topics with gaps start open.</p>
+      ${topicsHtml}</div>
+    <div class="stage"><div class="stagecap"><span class="n">3</span><h2>The venues that claim it</h2></div>
+      <p class="stagelede">Meetings <em>claim</em> goals in their charters; carriers show what they actually <em>carry</em>. The two are measured independently on purpose — a claim without cargo is <span data-tip="${esc(TIPS.theater)}">alignment theater</span>.</p>
+      ${meetings.length ? meetings.map(r => `<div class="needrow" style="margin-left:0">${r.align.filter(a => a.goal === g.id).map(a => verdictChip(a.verdict)).join('')} <a href="#" class="mtg-link" data-mid="${esc(r.id)}">${esc(r.name)}</a><span class="crit" style="font-family:var(--mono);font-size:.72rem;color:var(--ink-3)">${esc(r.cadence)} · ${r.dur ?? '?'} min · ${clsStrip(r.cls)}</span></div>`).join('') : '<p class="treenote">No meeting claims or carries this goal — its flows ride channels, or nothing at all.</p>'}</div>
+    <div class="stage"><div class="stagecap"><span class="n">4</span><h2>Decisions & follow-ups</h2></div>
+      ${decisions.length ? decisions.map(d => `<div class="needrow" style="margin-left:0"><span>${esc(d.name)}</span><span class="crit">${esc(d.accountable)}</span><span class="dim" style="font-size:.8rem">${esc(d.venue)}</span>${decisionChip(d.defect)}</div>`).join('') : '<p class="treenote">No recurring decisions recorded under this goal.</p>'}
+      ${disputed.length ? disputed.map(d => `<div class="needrow" style="margin-left:0;color:var(--red-ink)">⚠ disputed: ${esc(d.topic)} — ${esc(d.from)} → ${esc(d.to)}</div>`).join('') : ''}</div>`;
+}
+function clsStrip(c){ return c === 'necessary_NVA' ? 'necessary NVA' : (c || '—'); }
+document.addEventListener('click', ev => {
+  const pc = ev.target.closest('.pickcard');
+  if(pc){ FILTER = pc.dataset.goal; $('goalFilter').value = FILTER; render(); setView('Decompose'); return; }
+  if(ev.target.id === 'decomposeBack'){ ev.preventDefault(); FILTER = ''; $('goalFilter').value = ''; render(); setView('Decompose'); }
+});
 
 function renderTree(){
   const m = MODEL;
@@ -793,7 +925,7 @@ document.addEventListener('mouseover', ev => {
 });
 
 /* ============ view switching ============ */
-const VIEWS = { Overview: 'viewOverview', Tree: 'viewTree', Map: 'viewMap', People: 'viewPeople' };
+const VIEWS = { Overview: 'viewOverview', Tree: 'viewTree', Map: 'viewMap', People: 'viewPeople', Decompose: 'viewDecompose' };
 function setView(name){
   Object.entries(VIEWS).forEach(([k, id]) => {
     $(id).style.display = k === name ? 'block' : 'none';
@@ -804,6 +936,7 @@ $('tabOverview').addEventListener('click', () => setView('Overview'));
 $('tabTree').addEventListener('click', () => setView('Tree'));
 $('tabMap').addEventListener('click', () => setView('Map'));
 $('tabPeople').addEventListener('click', () => setView('People'));
+$('tabDecompose').addEventListener('click', () => setView('Decompose'));
 $('actorFilter').addEventListener('change', e => { ACTOR = e.target.value; renderMap(); });
 $('defectsOnly').addEventListener('change', () => renderMap());
 

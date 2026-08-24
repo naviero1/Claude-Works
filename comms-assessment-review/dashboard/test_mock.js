@@ -94,6 +94,28 @@ const path = require('path');
   const kpiCount = await page.$$eval('#kpis .kpi', els => els.length);
   check('kpi: 7 tiles incl. VA ratio', kpiCount === 7, String(kpiCount));
 
+  // ---- decompose view ----
+  await page.click('#tabDecompose');
+  check('decompose: view visible', await page.locator('#viewDecompose').isVisible());
+  const cards = await page.$$eval('.pickcard', cs => cs.length);
+  check('decompose: 5 goal cards', cards === 5, String(cards));
+  await page.$$eval('.pickcard', cs => cs.find(c => /G1/.test(c.textContent)).click());
+  const hero = await page.$eval('.goalhero', e => e.textContent.replace(/\s+/g,' '));
+  check('decompose: G1 hero renders', /Reduce supplier defect rate/.test(hero) && /core/.test(hero), hero.slice(0,120));
+  const dec = await page.$eval('#decomposeRoot', e => e.textContent.replace(/\s+/g,' '));
+  check('decompose: required spec with rationale', /must hear/.test(dec) && /why:/.test(dec));
+  check('decompose: missing gap sentence', /nothing usable delivers this to Frodo Baggins/i.test(dec) || /Gap — nothing usable/.test(dec));
+  check('decompose: reality shows carrier chips', /does send it/.test(dec));
+  check('decompose: theater meeting listed', /theater/.test(dec) && /Monthly Ops Status/.test(dec));
+  check('decompose: decisions stage present', /Decisions & follow-ups/.test(dec));
+  const openFolds = await page.$$eval('details.topicfold[open]', ds => ds.length);
+  check('decompose: gap topics start open', openFolds >= 1, String(openFolds));
+  await page.screenshot({ path: path.join(__dirname, 'decompose_view.png'), fullPage: true });
+  await page.click('#decomposeBack');
+  const cardsBack = await page.$$eval('.pickcard', cs => cs.length);
+  check('decompose: back returns to picker', cardsBack === 5, String(cardsBack));
+
+
 
 
   await browser.close();
