@@ -2,14 +2,14 @@
 
 **Project:** "From Prompts to Agents" — prompt-engineering training + template system
 **Owner:** Oscar Penny (owns all content and the quarterly refresh)
-**Branch:** `claude/ai-training-prompting-agentic-kzcsps` → being merged to `main` after v1.1
-**Last updated:** 2026-08 — v1.1 COMPLETE, merged to main; iterate on main
+**Branch:** v1.1 merged to `main`; v1.2 developed on `claude/training-course-polish-oxohwj`
+**Last updated:** 2026-08-24 — v1.2 (presenter polish + taxonomy handout slide)
 
 ## What this project is
 
 A focused training (deck + one-page cheat sheet), a 13-template prompt library with a deep
 element field guide (ELEMENTS.md), and a machine-readable **element taxonomy**
-(`prompt-library/taxonomy/*.json` — 19 elements · 78 attributes · ~290 options · presets)
+(`prompt-library/taxonomy/*.json` — 19 elements · 70 attributes · ~250 options · 18 presets)
 that generates three tools: an interactive HTML **Template Creator**, a taxonomy **reference
 PDF**, and an **XLSX configurator**. All research behind it is in `notes/research/` (16
 sourced files). Everything regenerates from source:
@@ -81,6 +81,34 @@ python3 <xlsx-skill>/scripts/recalc.py ../deliverables/Prompt_Template_Configura
 - [x] GAP_ANALYSIS.md (v1.0 → v1.1, mapped to decisions)
 - [x] Commit branch → merge into main → push main (owner authorized D11)
 - [x] Send updated deck + run-of-show to owner
+
+## v1.2 (2026-08-24) — presenter polish + taxonomy handout
+
+Owner asked for: (1) the taxonomy introduced in the course as a side handout with an
+explanation, (2) a per-slide review for gaps/engagement/format/pictures, (3) speaker notes
+that expand every acronym and give the reading sequence per slide, (4) presenting direction.
+Deck is now **57 slides**:
+
+- **New slide 26** (Part 3, after the safety-valves slide): "Your field map — the Prompt
+  Element Taxonomy" — what the handout is, the element→attribute→option tree (drawn from
+  the real Role element), the counts band (19 · 70 · ~250 · 18), and the handout pack.
+- **Every slide's notes rewritten** to three sections: `HOW TO PRESENT` (numbered
+  say/point/walk sequence + bridge line to the next slide), `ACRONYMS` (each acronym on
+  that slide, expanded with a one-line meaning), `CONTENT` (the prior notes: facts,
+  sources; `[REFRESH QUARTERLY]` markers preserved, and added to the storage-map slide
+  which was missing its marker).
+- **Engagement/format adds:** course-progress pill bar on all six dark dividers (current
+  part highlighted — `H.partMarker`); a 3:00 clock badge on all five rep slides
+  (`H.repTimer`); tokens slide now draws the sentence as real token chips + a "try a
+  tokenizer" callout; who's-who slide gains the "one question decides" rule card; demo 2
+  gains the backup-plan band; rep 6 gains the five-rung pill picker; glossary adds
+  "Taxonomy" (17 terms); welcome + playbook-pointer slides now name the full handout pack.
+- **Fixes:** stale absolute cross-ref on the 2026-update slide ("slide 22" → relative);
+  README's stale counts (deck 49→57; taxonomy 78 attrs/286 opts/14 presets → 70/~250/18,
+  computed from the JSON).
+- **Run_of_Show.pdf regenerated (V1.2):** new slide numbers (S1 = 1–36, S2 = 37–57), a
+  0:39 taxonomy segment (compressible to 30 s, never skipped outright), handout-pack prep
+  item, updated contingency cuts.
 
 ## Open intake (waiting on owner; see INTAKE.md)
 

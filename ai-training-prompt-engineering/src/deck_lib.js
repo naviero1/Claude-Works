@@ -107,6 +107,24 @@ function makeHelpers(pres) {
     s.addShape('line', { x, y, w: len, h: 0, line: { color: color || C.MUTE, width: 2.25, endArrowType: 'triangle' } });
   };
 
+  // Course-progress marker for dark divider slides: six part pills, current highlighted
+  H.partMarker = (s, current) => {
+    const parts = ['1 · PRIMER', '2 · TOOLS', '3 · CRAFT', '4 · PLAYBOOK', '5 · AGENTS', '6 · ASSETS'];
+    const w = 1.62, gap = 0.14, y = 0.52, h = 0.36;
+    parts.forEach((label, i) => {
+      const x = 0.55 + i * (w + gap);
+      const active = i + 1 === current;
+      s.addShape('roundRect', { x, y, w, h, rectRadius: 0.18, fill: { color: active ? C.TEAL : C.DARK_CARD }, line: active ? { type: 'none' } : { color: '3A4A55', width: 0.75 } });
+      s.addText(label, { x, y: y + 0.015, w, h: h - 0.03, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 8.5, bold: active, charSpacing: 1, color: active ? 'FFFFFF' : C.ON_DARK_MUTE, margin: 0 });
+    });
+  };
+
+  // "3:00" timer badge for rep slides (top right, white slides)
+  H.repTimer = (s) => {
+    H.iconCircle(s, 11.28, 0.4, 0.42, 'clock', C.TEAL);
+    s.addText('3:00', { x: 11.78, y: 0.44, w: 0.95, h: 0.36, fontFace: F.head, fontSize: 16, bold: true, color: C.TEAL, margin: 0, valign: 'middle' });
+  };
+
   // Callout band (tinted, with optional icon)
   H.callout = (s, x, y, w, h, fill, textRuns, opts = {}) => {
     H.card(s, x, y, w, h, fill, opts.line);

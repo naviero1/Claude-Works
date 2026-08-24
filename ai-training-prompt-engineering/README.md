@@ -8,11 +8,11 @@ write) and **agentic AI** (prompts that work). Built August 2026 as the companio
 
 | Path | What it is |
 |---|---|
-| `deliverables/From_Prompts_to_Agents_Training.pptx` | The training deck (49 slides, speaker notes on every content slide). Runs as one 2-hour session or two 1-hour halves (split after Part 4). |
+| `deliverables/From_Prompts_to_Agents_Training.pptx` | The training deck (57 slides). Every slide's speaker notes carry three sections: HOW TO PRESENT (the numbered reading/pointing sequence), ACRONYMS (every acronym on the slide, expanded), and CONTENT (facts, sources, refresh markers). Runs as one 2-hour session or two 1-hour halves (split after Part 4). |
 | `deliverables/Prompt_Anatomy_Cheat_Sheet.pdf` | One-page printable: generative anatomy + agentic mission brief side by side. |
 | `deliverables/Run_of_Show.pdf` | Presenter plan: two 60-min sessions, demo scripts, contingency cuts, prep checklist. |
 | `prompt-library/` | 13 copy-ready templates — 8 generative (G1–G8), 5 agentic (A1–A5) — plus `ELEMENTS.md` (the element field guide) and the library's management conventions in its README. |
-| `prompt-library/taxonomy/` | The machine-readable element ontology (19 elements · 78 attributes · 286 options · 14 presets) — source of truth for the three tools below. |
+| `prompt-library/taxonomy/` | The machine-readable element ontology (19 elements · 70 attributes · ~250 options · 18 presets — counts computed from the JSON) — source of truth for the three tools below. Introduced in the deck as the Part 3 "field map" handout slide. |
 | `deliverables/Prompt_Template_Creator.html` | Interactive template builder: toggle elements, pick options, watch the prompt assemble; loads any library template as a starting instance. Single file, works offline. |
 | `deliverables/Prompt_Element_Taxonomy_Reference.pdf` | The full ontology in print: every element, attribute, and option with guidance (25 pp). |
 | `deliverables/Prompt_Template_Configurator.xlsx` | Spreadsheet version: dropdown pickers per attribute, prompt assembles by formula. |
@@ -25,7 +25,7 @@ write) and **agentic AI** (prompts that work). Built August 2026 as the companio
 
 1. **The primer** — four eras of AI; tokens, context windows, RAG, reasoning models, hallucination.
 2. **Models & tools** — the Aug-2026 landscape; what the Chinese open-weight wave changed; the agentic tool gallery; right-tool-for-the-task matrix.
-3. **Prompt engineering** — the universal anatomy (Role · Task · Context · Format · Examples); seven techniques; evidence vs. myth; prompting thinking models.
+3. **Prompt engineering** — the universal anatomy (Role · Task · Context · Format · Examples); the elements defined + two safety valves; the taxonomy field-map handout; seven techniques; evidence vs. myth; prompting thinking models.
 4. **The playbook** — templates applied: data analysis, writing, evaluations, spreadsheets, decks, interactive HTML, research.
 5. **Agentic prompting** — the mission brief (12 blocks); the ETL→Presentation worked example; gates, autonomy rules, guardrails; standing memory (CLAUDE.md, reuse by diff).
 6. **Prompt management** — the promotion ladder; where prompts live per tool; conventions and governance.

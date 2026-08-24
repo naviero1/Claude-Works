@@ -41,16 +41,16 @@ def hf(cv, doc):
     if doc.page == 1:
         cv.setFillColor(DARK); cv.rect(0, H - 0.95 * inch, W, 0.95 * inch, stroke=0, fill=1)
         cv.setFillColor(colors.HexColor('#5FB8B0')); cv.setFont('DV-B', 7.2)
-        cv.drawString(M, H - 0.34 * inch, 'FROM PROMPTS TO AGENTS  ·  PRESENTER MATERIALS  ·  V1.1')
+        cv.drawString(M, H - 0.34 * inch, 'FROM PROMPTS TO AGENTS  ·  PRESENTER MATERIALS  ·  V1.2')
         cv.setFillColor(colors.white); cv.setFont('DVSer-B', 19)
         cv.drawString(M, H - 0.63 * inch, 'Run of Show — two one-hour sessions')
         cv.setFillColor(colors.HexColor('#A9BBC4')); cv.setFont('DV', 8.2)
         cv.drawString(M, H - 0.83 * inch, 'Minute-by-minute plan, demo scripts, contingency cuts, and the prep checklist.')
     else:
         cv.setFillColor(MUTE); cv.setFont('DV', 6.8)
-        cv.drawString(M, H - 0.4 * inch, 'RUN OF SHOW · FROM PROMPTS TO AGENTS · V1.1')
+        cv.drawString(M, H - 0.4 * inch, 'RUN OF SHOW · FROM PROMPTS TO AGENTS · V1.2')
     cv.setFillColor(MUTE); cv.setFont('DV', 6.8)
-    cv.drawString(M, 0.3 * inch, 'Owner: Oscar Penny · deck: From_Prompts_to_Agents_Training.pptx (56 slides)')
+    cv.drawString(M, 0.3 * inch, 'Owner: Oscar Penny · deck: From_Prompts_to_Agents_Training.pptx (57 slides — every slide carries HOW TO PRESENT + ACRONYMS notes)')
     cv.drawRightString(W - M, 0.3 * inch, str(cv.getPageNumber()))
     cv.restoreState()
 
@@ -75,30 +75,31 @@ def timetable(title, rows):
     E.append(t)
 
 
-timetable('Session 1 — Prompts (60 min · slides 1–35)', [
-    ('0:00', '1–2', 'Welcome + the map', 'The thesis in one breath: two modes, one craft. Point at the take-home card — everything shown today is theirs to keep.'),
+timetable('Session 1 — Prompts (60 min · slides 1–36)', [
+    ('0:00', '1–2', 'Welcome + the map', 'The thesis in one breath: two modes, one craft. Hold up the handout pack at the take-home card — everything shown today is theirs to keep.'),
     ('0:03', '3–6', 'Part 1 · history', 'Four eras fast (winters = earned skepticism); linger on the adoption tension stat: everyone chats, few industrialize.'),
     ('0:10', '7–12', 'Part 1 · concepts', 'Anchor three analogies hard: tokens = bricks, context = desk, RAG = open-book exam. The rest supports them.'),
     ('0:19', '13', 'Rep 1 · spot the missing elements', '3 min hard cap. Every gap the room names is an element they’ll meet in Part 3.'),
-    ('0:22', '14–20', 'Part 2 · landscape', 'One line per vendor card, two rows of the matrix, then the evergreen habit: the private test set.'),
-    ('0:31', '21', 'Rep 2 · private test set', 'SKIP BY DEFAULT — run only if ahead of schedule; the habit is already on slide 20.'),
-    ('0:32', '22–25', 'Part 3 · anatomy + elements', 'The convergence table proves it’s not our opinion. Read two weak→strong pairs aloud — contrast teaches.'),
-    ('0:40', '26–28', 'Part 3 · techniques + evidence', 'Slow down on sycophancy: “never reveal your preference” changes behavior today.'),
-    ('0:46', '29–30', 'Rep 3 + Part 4 divider', 'Rebuild-one-line rep (3 min), then frame Part 4: two demos, the rest is handout.'),
-    ('0:50', '31–33', 'G2 anatomy + Demo 1 · blind critique', 'The side-by-side silence moment is the punchline — let them read both answers.'),
-    ('0:56', '34–35', 'Demo 2 · dashboard + handout pointer', 'If generation is slow, open the pre-built file and narrate the prompt. Close: “the other six templates work the same way.”'),
+    ('0:22', '14–20', 'Part 2 · landscape', 'One line per vendor card, two rows of the matrix, then the evergreen habit: the private test set. Eight minutes — keep moving.'),
+    ('0:30', '21', 'Rep 2 · private test set', 'SKIP BY DEFAULT — run only if ahead of schedule; the habit is already on slide 20.'),
+    ('0:31', '22–25', 'Part 3 · anatomy + elements', 'The convergence table proves it’s not our opinion. Read two weak→strong pairs aloud — contrast teaches.'),
+    ('0:39', '26', 'The taxonomy handout · your field map', 'Hold the printed reference up; walk the element→attribute→option tree once; land the numbers band. “You don’t study it — you look things up in it.” Compressible to 30 seconds if behind.'),
+    ('0:41', '27–29', 'Part 3 · techniques + evidence + 2026 update', 'Slow down on sycophancy: “never reveal your preference” changes behavior today.'),
+    ('0:47', '30–31', 'Iteration habit + Rep 3', 'Draft→inspect→refine→standardize, then the rebuild-one-line rep (3 min).'),
+    ('0:51', '32–34', 'Part 4 · G2 anatomy + Demo 1 · blind critique', 'The side-by-side silence moment is the punchline — let them read both answers.'),
+    ('0:56', '35–36', 'Demo 2 · dashboard + handout pack', 'If generation is slow, open the pre-built file and narrate the prompt (the backup band is on the slide). Close: “the other six templates work the same way.”'),
 ])
 E.append(Spacer(1, 8))
-timetable('Session 2 — Agents (60 min · slides 36–56)', [
-    ('0:00', '36', 'Recap + homework check', 'Ask who ran the blind critique — one volunteer story beats any recap. 2 min, no more.'),
-    ('0:03', '37–38', 'Part 5 · what an agent is', 'The loop + building blocks; agents adapt where scripts break.'),
-    ('0:09', '39–40', 'The distinction + inheritance map', 'THE core content. Read two inheritance rows aloud (Task→mission, Stop→gates); the twelve blocks become inevitable.'),
-    ('0:18', '41–42', 'Mission brief + worked example', 'Pick three blocks only: checks, gates, reporting. The gates story: errors caught at ascending cost.'),
-    ('0:28', '43–44', 'Guardrails + standing memory', 'Reversible→act, irreversible→ask. Reuse-by-diff is the economics slide — briefs are investments.'),
-    ('0:36', '45', 'Rep 5 · write one gate', 'Where the gate feels hard to write, the process was fuzzy — say it out loud.'),
-    ('0:40', '46–49', 'Part 6 · managing prompts', 'The ladder + the promotion trigger (“explained it twice? package it”), storage map fast, governance card slowly.'),
-    ('0:49', '50', 'Rep 6 · pick your rung', 'PROTECTED — never cut. A named prompt with a home and a version is the behavior change.'),
-    ('0:53', '51–56', 'Close', 'Ten things (let them photograph it), exercises as homework, glossary/sources by pointer, the closing line.'),
+timetable('Session 2 — Agents (60 min · slides 37–57)', [
+    ('0:00', '37', 'Recap + homework check', 'Ask who ran the blind critique — one volunteer story beats any recap. 2 min, no more.'),
+    ('0:03', '38–39', 'Part 5 · what an agent is', 'The loop + building blocks; agents adapt where scripts break.'),
+    ('0:09', '40–41', 'The distinction + inheritance map', 'THE core content. Read two inheritance rows aloud (Task→mission, Stop→gates); the twelve blocks become inevitable.'),
+    ('0:18', '42–43', 'Mission brief + worked example', 'Pick three blocks only: checks, gates, reporting. The gates story: errors caught at ascending cost.'),
+    ('0:28', '44–45', 'Guardrails + standing memory', 'Reversible→act, irreversible→ask. Reuse-by-diff is the economics slide — briefs are investments.'),
+    ('0:36', '46', 'Rep 5 · write one gate', 'Where the gate feels hard to write, the process was fuzzy — say it out loud.'),
+    ('0:40', '47–50', 'Part 6 · managing prompts', 'The ladder + the promotion trigger (“explained it twice? package it”), storage map fast, governance card slowly.'),
+    ('0:49', '51', 'Rep 6 · pick your rung', 'PROTECTED — never cut. A named prompt with a home and a version is the behavior change.'),
+    ('0:53', '52–57', 'Close', 'Ten things (let them photograph it), exercises as homework, glossary/sources by pointer, the closing line.'),
 ])
 E.append(Spacer(1, 8))
 
@@ -117,8 +118,8 @@ E.append(Paragraph('Prep: a generic 25-row table (period, category, count) AND a
 
 E.append(Paragraph('Contingency cuts — in order', S['h1']))
 cuts = [('Running 3 min behind', 'Skip Rep 2 (already default-skip); walk the era slide in 30 seconds.'),
-        ('Running 6 min behind', 'Matrix slide becomes “screenshot this” (15 seconds); cut the leaderboards slide to its callout.'),
-        ('Running 10 min behind', 'Demo 2 → open the pre-built file only (2 min); handout pointer becomes one sentence.'),
+        ('Running 6 min behind', 'Matrix slide becomes “screenshot this” (15 seconds); cut the leaderboards slide to its callout; taxonomy slide becomes one sentence + hold up the handout (30 seconds) — never skip it outright, it introduces the pack.'),
+        ('Running 10 min behind', 'Demo 2 → open the pre-built file only (2 min); handout-pack pointer becomes one sentence.'),
         ('Session 2 behind', 'Compress guardrails to the reversibility rule + injection sentence; NEVER cut Rep 6 or the governance card.')]
 data = [[Paragraph(a, S['cellb']), Paragraph(b, S['cell'])] for a, b in cuts]
 t = Table(data, colWidths=[CW * 0.22, CW * 0.78])
@@ -133,7 +134,7 @@ for item in [
     'Demo draft (fictional plan) and demo data table staged in a text file; G3 and G6 presets tested end-to-end in the room’s actual AI tool.',
     'Pre-built dashboard file on the desktop as Demo 2 backup.',
     'Template Creator HTML opens offline on the presentation machine.',
-    'Handouts ready: cheat sheet, ELEMENTS guide, taxonomy reference (print or link).',
+    'Handout pack ready: cheat sheet, ELEMENTS guide, Taxonomy Reference (printed for the room or linked — it gets its own slide in Part 3 now, so have it in hand), Template Creator + Configurator files.',
     'Timer visible to presenter; reps are 3 minutes by the clock, not by feel.',
     'Session 2 booked within a week of Session 1 — homework (blind critique) decays fast.',
 ]:

@@ -22,7 +22,10 @@ module.exports = function buildPartOne(pres, H) {
     ], { x: x + 0.28, y: 4.02, w: 3.45, h: 1.45, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
   });
   s.addText('Companion to “Working Smart with AI.” All examples are generic — no internal document names or confidential data appear anywhere.', { x: 0.55, y: 6.3, w: 12.2, h: 0.4, fontFace: F.body, fontSize: 10.5, italic: true, color: C.ON_DARK_MUTE, margin: 0 });
-  s.addNotes('This training goes deeper than the general AI onboarding: it is specifically about prompting — the skill — across two modes: generative (AI that talks) and agentic (AI that works). Everything is dated August 2026 because this field moves monthly.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Have this up as people arrive; don’t read it to them. 2) Open with the name and the one-liner: “This is a course about one skill — prompting — in two modes: generative AI you talk to, and agentic AI you delegate to.” 3) Sweep the three cards left to right as the journey: the primer, the craft, the leap. 4) Point at the footer line: every example is generic — no company data anywhere in the material. 5) Bridge: “Before the map — why this one skill is worth two hours.”\n' +
+    'ACRONYMS — AI = Artificial Intelligence (defined once here; it recurs on nearly every slide). RAG = Retrieval-Augmented Generation — the model fetches passages from your documents before answering; taught properly in Part 1.\n' +
+    'CONTENT — This training goes deeper than the general AI onboarding: it is specifically about prompting — the skill — across two modes: generative (AI that talks) and agentic (AI that works). Everything is dated August 2026 because this field moves monthly.');
 
   // ---------- 2. WELCOME + MAP (merged, v1.1) ----------
   s = H.slide('WELCOME', 2);
@@ -46,15 +49,22 @@ module.exports = function buildPartOne(pres, H) {
   ], { x: 7.3, y: 2.22, w: 5.2, h: 2.2, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
   H.callout(s, 7.0, 4.7, 5.75, 1.9, C.AMBER_TINT, [
     { text: 'You leave with: ', options: { bold: true, color: C.INK, fontSize: 12, breakLine: true } },
-    { text: 'a working AI vocabulary · a tool map · the universal prompt anatomy + seven techniques · a 13-template library with an interactive Template Creator · team conventions for storing and versioning prompts.', options: { color: C.SLATE, fontSize: 11.5 } },
+    { text: 'a working AI vocabulary · a tool map · the universal prompt anatomy + seven techniques · a 13-template library with an interactive Template Creator · the Prompt Element Taxonomy reference (your parts catalog) · team conventions for storing and versioning prompts.', options: { color: C.SLATE, fontSize: 11.5 } },
   ], { iconName: 'download', iconFill: C.AMBER, size: 11.5 });
-  s.addNotes('Merged welcome+map (v1.1). Two-session delivery: split after Part 4. Each part ends with a skippable three-minute rep. Set the thesis early: two modes, one craft; the library and Creator are the take-home.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Say the bold line first: “Prompting is the one AI skill that transfers everywhere — every assistant, every vendor, every year.” 2) Walk the three left bullets top to bottom; land on “two modes” as the backbone of the whole training. 3) Move to the map card: read the six part names quickly and show the split — parts 1–4 today, 5–6 in session two. 4) Teal card: read the 10-second version VERBATIM — it is the thesis. 5) Amber card: the take-homes; physically hold up the handout pack here (cheat sheet, ELEMENTS guide, Taxonomy Reference) so people know things are coming home with them. 6) Bridge: “Part 1 — how this thing actually works.”\n' +
+    'ACRONYMS — LLM = Large Language Model — the text engine behind every assistant in this course.\n' +
+    'CONTENT — Merged welcome+map (v1.1). Two-session delivery: split after Part 4. Each part ends with a skippable three-minute rep. Set the thesis early: two modes, one craft; the library, Creator, and taxonomy are the take-home.');
 
   // ---------- 4. PART I DIVIDER ----------
   s = H.slide(null, 4, { dark: true });
+  H.partMarker(s, 1);
   s.addText('PART 1 · THE PRIMER', { x: 0.55, y: 2.3, w: 12, h: 0.5, fontFace: F.body, fontSize: 16, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
   s.addText('Where this came from,\nand how it actually works', { x: 0.55, y: 2.8, w: 11.5, h: 1.9, fontFace: F.head, fontSize: 44, bold: true, color: C.ON_DARK, margin: 0, lineSpacingMultiple: 1.05 });
   s.addText('Seventy years in two slides, then the six concepts that make you fluent: tokens, context, RAG, reasoning, hallucination — and why prompting exists at all.', { x: 0.55, y: 4.85, w: 11, h: 0.8, fontFace: F.body, fontSize: 15, color: C.ON_DARK_MUTE, margin: 0, lineSpacingMultiple: 1.15 });
+  s.addNotes(
+    'HOW TO PRESENT — 1) Dividers are pacing: breathe. Read the two-line title, nothing more. 2) Point at the progress bar top-left: “six parts — this is where we are” (the bar returns on every divider). 3) Set expectations in one sentence: “Two history slides, then six concepts — the concepts are the vocabulary for everything after.” 4) Under 30 seconds, then advance.\n' +
+    'ACRONYMS — RAG = Retrieval-Augmented Generation (in the subtitle; it gets its own slide shortly).');
 
   // ---------- 5. FOUR ERAS ----------
   s = H.slide('PART 1 · A SHORT HISTORY', 5);
@@ -78,7 +88,10 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'Why the last decade exploded — scaling laws (2020): ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
     { text: 'bigger model + more data + more compute = predictably better results. Progress stopped being a research gamble and became an investment roadmap.', options: { color: C.SLATE, fontSize: 12.5 } },
   ], { iconName: 'trend', iconFill: C.AMBER });
-  s.addNotes('The eras framing is a teaching synthesis — each transition is well documented, but present it as “a useful way to see 70 years,” not official taxonomy. The rules era = writing the SOP yourself; the learning era = deriving the SOP from a thousand examples — that lands with quality engineers. Winters lesson: over-promising causes funding collapse; healthy skepticism is historically earned.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Frame it: “Seventy years in one slide — as four eras.” 2) Walk the four cards LEFT TO RIGHT, one sentence each; use the arrows as the story: rules cracked on messy reality → learn from examples instead → generative scale → models get arms. 3) Pause once, on “AI winters” in card 1: over-promising collapsed funding twice — skepticism about AI is historically earned. 4) Close on the amber band: scaling laws turned progress from a research gamble into an investment roadmap. 5) Bridge: “zoom into the decade that changed work.”\n' +
+    'ACRONYMS — GPU = Graphics Processing Unit — the graphics chip class that turned out to be perfect for training neural networks (AlexNet, 2012).\n' +
+    'CONTENT — The eras framing is a teaching synthesis — each transition is well documented, but present it as “a useful way to see 70 years,” not official taxonomy. The rules era = writing the SOP yourself; the learning era = deriving the SOP from a thousand examples — that lands with quality engineers. Winters lesson: over-promising causes funding collapse; healthy skepticism is historically earned. (SOP = Standard Operating Procedure.)');
 
   // ---------- 6. THE GENERATIVE DECADE ----------
   s = H.slide('PART 1 · A SHORT HISTORY', 6);
@@ -108,7 +121,10 @@ module.exports = function buildPartOne(pres, H) {
     { t: '88% of organizations now use AI somewhere; generative AI ~70% (Stanford AI Index 2026)' },
     { t: 'But agent deployment is still single-digit % across most business functions — the gap is the opportunity', b: true },
   ], { size: 11.5, gap: 9 });
-  s.addNotes('Two beats: (1) everything since 2017 is one architecture, scaled; (2) adoption stats end on the tension — everyone chats with AI, almost nobody has industrialized delegation to agents yet. Learning to brief agents well now is a genuine head start. Sources: Reuters/UBS 2023, TechCrunch Feb 2026, Google Aug 2026, Stanford HAI AI Index 2026.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Walk the timeline TOP TO BOTTOM, year by year, metronome pace — one line each. 2) Slow down only twice: 2022 (RLHF turned a predictor into an assistant people could use) and 2024 (models that think before answering). 3) Then the right card: read the adoption numbers and END on the bold line — “everyone chats with AI; almost nobody has industrialized delegation to agents. That gap is why you’re in this room.” 4) Bridge: “so what IS the thing under the hood?”\n' +
+    'ACRONYMS — GPT = Generative Pre-trained Transformer (OpenAI’s model family name). RLHF = Reinforcement Learning from Human Feedback — people rank the model’s answers and it is tuned toward the preferred ones. o1 = OpenAI’s first reasoning model. R1 = DeepSeek’s open reasoning model.\n' +
+    'CONTENT — Two beats: (1) everything since 2017 is one architecture, scaled; (2) adoption stats end on the tension — everyone chats with AI, almost nobody has industrialized delegation to agents yet. Learning to brief agents well now is a genuine head start. Sources: Reuters/UBS 2023, TechCrunch Feb 2026, Google Aug 2026, Stanford HAI AI Index 2026.');
 
   // ---------- 7. HOW AN LLM WORKS ----------
   s = H.slide('PART 1 · HOW LLMS WORK', 7);
@@ -134,7 +150,10 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'Why prompting exists: ', options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true } },
     { text: 'the model completes your text. The prompt is the only steering wheel you have — everything it knows about your task, audience, and standards must be in it.', options: { color: C.SLATE, fontSize: 11.5 } },
   ], { iconName: 'compass', iconFill: C.AMBER, size: 12 });
-  s.addNotes('“Autocomplete trained on the internet; RLHF is the finishing school.” The right-hand callout is the thesis of the whole course: prompting matters because the prompt is the entire interface. InstructGPT fact worth telling: raters preferred a well-tuned 1.3B model over raw 175B GPT-3 — tuning beat 100x scale.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Open with the title metaphor: “a prediction engine, sent to finishing school.” 2) Walk the three cards LEFT TO RIGHT — pretraining, instruction tuning, human feedback; the arrows are the assembly line. One plain sentence each. 3) Then the two bottom callouts, LEFT first: knowledge freezes at the cutoff — anything newer must be brought to it. 4) RIGHT callout last, read slowly: “Why prompting exists” — this is the thesis sentence of the entire course; let it sit for a beat. 5) Bridge: “six concepts, quick — starting with what the model actually reads.”\n' +
+    'ACRONYMS — RLHF = Reinforcement Learning from Human Feedback — card 3 on this slide.\n' +
+    'CONTENT — “Autocomplete trained on the internet; RLHF is the finishing school.” The right-hand callout is the thesis of the whole course: prompting matters because the prompt is the entire interface. InstructGPT fact worth telling: raters preferred a well-tuned 1.3B model over raw 175B GPT-3 — tuning beat 100x scale.');
 
   // ---------- 8. TOKENS ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 8);
@@ -148,12 +167,27 @@ module.exports = function buildPartOne(pres, H) {
   H.card(s, 7.0, 1.7, 5.75, 2.6, C.PANEL);
   s.addText('LEGO bricks of text', { x: 7.3, y: 1.92, w: 5.2, h: 0.4, fontFace: F.head, fontSize: 15, bold: true, color: C.INK, margin: 0 });
   s.addText('Common words are pre-molded bricks; unusual words get assembled from smaller pieces. You pay by the brick, not by the sentence — and the builder has never seen inside a brick.', { x: 7.3, y: 2.38, w: 5.2, h: 1.0, fontFace: F.body, fontSize: 11.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.1 });
-  s.addText('“ Analyzing | the | supplier | ’s | first | - | pass | yield ”', { x: 7.3, y: 3.5, w: 5.2, h: 0.5, fontFace: 'Consolas', fontSize: 11, color: C.TEAL_DARK, margin: 0 });
+  // one chip per token — the sentence as the model receives it
+  const chips = [['Analyzing', 0.95], ['the', 0.45], ['supplier', 0.85], ['’s', 0.3], ['first', 0.55], ['-', 0.22], ['pass', 0.55], ['yield', 0.6]];
+  let cx = 7.3;
+  chips.forEach((ch, i) => {
+    s.addShape('roundRect', { x: cx, y: 3.44, w: ch[1], h: 0.36, rectRadius: 0.06, fill: { color: i % 2 ? 'FFFFFF' : C.TEAL_TINT }, line: { color: C.TEAL, width: 0.75 } });
+    s.addText(ch[0], { x: cx, y: 3.45, w: ch[1], h: 0.34, align: 'center', valign: 'middle', fontFace: 'Consolas', fontSize: 9.5, color: C.TEAL_DARK, margin: 0 });
+    cx += ch[1] + 0.06;
+  });
+  s.addText('eight bricks — the model receives eight numbered IDs, not forty letters', { x: 7.3, y: 3.9, w: 5.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
   H.callout(s, 7.0, 4.55, 5.75, 2.0, C.TEAL_TINT, [
     { text: 'So what, for daily work: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true } },
     { text: 'paste-heavy prompts burn budget and context fast · non-English and dense technical text cost more tokens · use AI for language, software for characters (counts, checksums, exact IDs).', options: { color: C.SLATE, fontSize: 11.5 } },
   ], { iconName: 'layers', iconFill: C.TEAL, size: 12 });
-  s.addNotes('The strawberry-letter-counting failure is famous — explain the mechanism (it never sees letters) so the audience can predict this class of failure, not just memorize one example. Token math preview: it also explains context windows (next slide) and pricing.');
+  H.callout(s, 0.55, 5.3, 6.2, 1.25, C.PANEL, [
+    { text: 'Try it once: ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
+    { text: 'paste a paragraph of your own text into any online tokenizer (search “OpenAI tokenizer”) and watch it break into bricks. Thirty seconds — you’ll never forget it.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { iconName: 'zap', iconFill: C.SLATE, size: 11.5, line: C.LINE });
+  s.addNotes(
+    'HOW TO PRESENT — 1) Title first: “the model reads bricks, not letters.” 2) Left bullets top to bottom; STOP on the bold third bullet and tell the strawberry story there — it cannot count the r’s because it never sees letters, only brick IDs. 3) Right card: point at the brick strip — “this is exactly how your sentence arrives: eight bricks, eight numbers.” 4) Bottom-right teal card: the three daily-work consequences. 5) Bottom-left card: the 30-second homework (tokenizer). 6) Bridge: “if text is bricks — how many bricks fit on the desk?”\n' +
+    'ACRONYMS — ID = identifier — to the model each token is just a number. K = thousand (25–35K tokens).\n' +
+    'CONTENT — The strawberry-letter-counting failure is famous — explain the mechanism (it never sees letters) so the audience can predict this class of failure, not just memorize one example. Token math preview: it also explains context windows (next slide) and pricing.');
 
   // ---------- 9. CONTEXT WINDOW ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 9);
@@ -176,7 +210,10 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'Habits that exploit the desk: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true } },
     { text: '① long documents at the TOP, question at the END — Anthropic measured up to ~30% better answers · ② label multiple documents clearly · ③ new topic → new chat: stale history pollutes attention · ④ very long thread → ask for a summary, carry it into a fresh chat.', options: { color: C.SLATE, fontSize: 11.5 } },
   ], { iconName: 'check', iconFill: C.TEAL, size: 12 });
-  s.addNotes('The desk analogy carries the course. “Lost in the middle” is Liu et al. 2023 (TACL) — U-shaped accuracy by position; still true in modern long-context models for non-literal tasks. The 30% figure is Anthropic’s own long-context guidance. 1M-token standard verified Aug 2026 across Claude Fable/Sonnet 5, GPT-5.6, Gemini 3.1 Pro, DeepSeek V4, Qwen3.8, Kimi K3.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) The analogy first: “the context window is a desk, not a filing cabinet.” 2) Left bullets top to bottom: everything must fit; the desk is swept when the chat closes; ~1M tokens is the 2026 standard; then the bold one — “fits on the desk” is not “gets read carefully” — draw the U-shape in the air (attention high at the start, sags in the middle, high at the end). 3) Right card: the four things sitting on the desk right now. 4) Teal card: read all four numbered habits — this is the practical payoff of the slide. 5) Bridge: “and what if what you need was never on the desk? RAG.”\n' +
+    'ACRONYMS — 1M = one million (tokens ≈ 1,500 pages). GPT-5.x = OpenAI’s current model family.\n' +
+    'CONTENT — The desk analogy carries the course. “Lost in the middle” is Liu et al. 2023 (TACL) — U-shaped accuracy by position; still true in modern long-context models for non-literal tasks. The 30% figure is Anthropic’s own long-context guidance. 1M-token standard verified Aug 2026 across Claude Fable/Sonnet 5, GPT-5.6, Gemini 3.1 Pro, DeepSeek V4, Qwen3.8, Kimi K3.');
 
   // ---------- 10. RAG ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 10);
@@ -206,7 +243,10 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'The failure mode to respect: ', options: { bold: true, color: C.RED, fontSize: 12, breakLine: true, paraSpaceAfter: 3 } },
     { text: 'if retrieval fetches the wrong page — an outdated revision, a near-miss document — the model still writes a fluent, confident, cited answer from it. Bad retrieval = confident wrong answer. So: check the citation, not just the prose.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 7.05, y: 4.95, w: 5.5, h: 1.6, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.08 });
-  s.addNotes('Open-book exam analogy: the student still writes the answer, from pages a librarian fetched — if the librarian pulls rev B instead of rev D, the student confidently cites the wrong page. This is the engine behind internal assistants and Copilot-over-SharePoint. Retrieval ≠ training is the privacy point to repeat.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Expand the acronym ONCE — Retrieval-Augmented Generation — then switch to the analogy: an open-book exam. 2) Walk the four step cards LEFT TO RIGHT: ask → retrieve → augment → generate; the librarian fetches pages, the student writes the answer. 3) Green card: why enterprises build on it — current, checkable, private, access-aware. 4) Red card, slowly: the failure mode — if the librarian pulls the wrong page, the student still writes a fluent, confident, CITED answer. Say the rule: “check the citation, not the prose.” 5) Bridge: “when do you prompt, when do you retrieve, when do you fine-tune? The ladder.”\n' +
+    'ACRONYMS — RAG = Retrieval-Augmented Generation.\n' +
+    'CONTENT — Open-book exam analogy: the student still writes the answer, from pages a librarian fetched — if the librarian pulls rev B instead of rev D, the student confidently cites the wrong page. This is the engine behind internal assistants and Copilot-over-SharePoint. Retrieval ≠ training is the privacy point to repeat.');
 
   // ---------- 11. ESCALATION LADDER ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 11);
@@ -226,7 +266,10 @@ module.exports = function buildPartOne(pres, H) {
       { text: l[3], options: { color: C.SLATE, fontSize: 11 } },
     ], { x: 1.55, y: y + 0.12, w: 11.0, h: 1.25, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
   });
-  s.addNotes('v1.1: embeddings sidebar cut — if asked how retrieval finds things: every text gets a coordinate in meaning-space; nearby = similar, even with no shared words. Escalation rule: cheapest and most reversible first. When someone proposes “let’s fine-tune on our procedures,” the first question is: knowledge problem (→RAG) or behavior problem (→maybe fine-tune)? Most enterprise cases are knowledge problems. Frontier flagships mostly aren’t fine-tunable anyway (as of Aug 2026); open-weight models are.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) The rule IS the title — say it: “prompt first, retrieve second, fine-tune last.” 2) Walk the three rungs TOP TO BOTTOM; let the temp analogies carry it: instructions to a skilled temp → hand them your binder → send them to a training course. 3) Point at rung 1’s highlight: “90% of the value lives here — that is this course.” 4) Bridge: “two concepts left: models that think, and models that make things up.”\n' +
+    'ACRONYMS — RAG = Retrieval-Augmented Generation (rung 2).\n' +
+    'CONTENT — v1.1: embeddings sidebar cut — if asked how retrieval finds things: every text gets a coordinate in meaning-space; nearby = similar, even with no shared words. Escalation rule: cheapest and most reversible first. When someone proposes “let’s fine-tune on our procedures,” the first question is: knowledge problem (→RAG) or behavior problem (→maybe fine-tune)? Most enterprise cases are knowledge problems. Frontier flagships mostly aren’t fine-tunable anyway (as of Aug 2026); open-weight models are.');
 
   // ---------- 12. REASONING MODELS ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 12);
@@ -247,7 +290,10 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'Skip it for: ', options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 4 } },
     { text: 'lookups · reformatting · summaries · routine drafting. You pay in time and tokens for deliberation you don’t need — and (Part 3 preview) “think step by step” prompts are now often redundant: the model already does.', options: { color: C.SLATE, fontSize: 11.5 } },
   ], { x: 7.3, y: 4.45, w: 5.2, h: 1.95, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.1 });
-  s.addNotes('Reasoning models are what make reliable agents feasible — planning quality is the bottleneck for multi-step work. Note the honest caveat: the model isn’t literally “thinking”; it generates intermediate tokens that improve the final answer. The cost asymmetry surprises people: budget reasoning like you budget an engineer’s deep-work time.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Frame: “since 2024 you can buy the model time to think — the question is when it’s worth it.” 2) Left bullets top to bottom: o1 started it; by 2026 it’s adaptive with an effort dial; then the BILL (bold) — thinking tokens are the expensive kind, a hard question quietly costs 5–20× a simple one; System 1 vs System 2 as the human parallel. 3) Right cards: green = turn it ON for this list; amber = skip it for that list. Read both lists briskly. 4) Bridge: “last concept — the one everyone asks about first.”\n' +
+    'ACRONYMS — o1 = OpenAI’s first reasoning model (2024). System 1 / System 2 = Kahneman’s fast-intuition vs slow-deliberation framing (not an acronym, but say the source if asked).\n' +
+    'CONTENT — Reasoning models are what make reliable agents feasible — planning quality is the bottleneck for multi-step work. Note the honest caveat: the model isn’t literally “thinking”; it generates intermediate tokens that improve the final answer. The cost asymmetry surprises people: budget reasoning like you budget an engineer’s deep-work time.');
 
   // ---------- 13. HALLUCINATION ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 13);
@@ -275,11 +321,15 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'House rule: ', options: { bold: true, color: C.RED, fontSize: 12.5 } },
     { text: 'every uncited standard clause, date, number, or quote is a draft until verified.', options: { color: C.SLATE, fontSize: 12.5 } },
   ], { iconName: 'alert', iconFill: C.RED, size: 12 });
-  s.addNotes('The OpenAI 2025 paper (“Why language models hallucinate”) is a gift for this slide: the vendor itself explains that eval incentives reward guessing. None of the three cures eliminates hallucination — they convert unverifiable claims into verifiable ones. This closes Part 1; Part 2 is the tool landscape.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) The title is the sermon: “fluency is not evidence.” 2) Left bullets top to bottom: the mechanism (most PLAUSIBLE next token, not most true); the bold OpenAI 2025 finding — the vendor itself says benchmarks reward confident guessing; the improv-actor analogy (never breaks character, fills gaps with the most plausible line). 3) Right cards top to bottom: Ground it → Cite it → Verify it — one line each. 4) Red band: read the house rule VERBATIM — it is policy, not advice. 5) Bridge: “that closes the concepts — a three-minute rep, then the tool landscape.”\n' +
+    'ACRONYMS — RAG = Retrieval-Augmented Generation (Ground-it card).\n' +
+    'CONTENT — The OpenAI 2025 paper (“Why language models hallucinate”) is a gift for this slide: the vendor itself explains that eval incentives reward guessing. None of the three cures eliminates hallucination — they convert unverifiable claims into verifiable ones. This closes Part 1; Part 2 is the tool landscape.');
 
   // ---------- P1 REP (v1.1, skippable) ----------
   s = H.slide('THREE-MINUTE REP · PART 1', 14);
   H.title(s, 'Three-minute rep', 'Spot the missing elements');
+  H.repTimer(s);
   H.card(s, 0.55, 1.75, 7.4, 3.4, C.PANEL);
   s.addText('The prompt on the screen:', { x: 0.85, y: 2.0, w: 6.6, h: 0.35, fontFace: F.body, fontSize: 12, bold: true, color: C.SLATE, margin: 0 });
   s.addText('“Analyze the returns data and make it look good for leadership.”', { x: 0.85, y: 2.45, w: 6.7, h: 0.7, fontFace: 'Consolas', fontSize: 15, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.15 });
@@ -293,5 +343,8 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'Missing: the actual question (which metric, which period, vs what?) · the audience and their time · a length/format contract · permission to say what the data can’t answer · “compute, don’t estimate.”', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 8.52, y: 1.95, w: 3.95, h: 3.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
   s.addText('Skippable if running long — the same diagnosis returns in Part 3.', { x: 0.55, y: 5.45, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
-  s.addNotes('Three minutes, hard cap. The point is the felt experience of a vague prompt — every gap they name is an element from Part 3. Skip freely if behind schedule.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Point at the 3:00 badge: “three minutes, by the clock.” 2) Read the on-screen prompt aloud, deadpan — let its vagueness land. 3) One minute of silence: what would YOU need to add before trusting the answer? 4) Two minutes collecting answers out loud; the amber card is your debrief key — don’t show your hand early. 5) Do NOT teach the elements yet — say exactly this: “every gap you just named is an element with a name in Part 3,” and move on.\n' +
+    'ACRONYMS — none on this slide.\n' +
+    'CONTENT — Three minutes, hard cap. The point is the felt experience of a vague prompt — every gap they name is an element from Part 3. Skip freely if behind schedule.');
 };

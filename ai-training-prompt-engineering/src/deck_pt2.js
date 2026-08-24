@@ -4,9 +4,13 @@ const { C, F } = require('./deck_lib');
 module.exports = function buildPartTwo(pres, H) {
   // ---------- 14. PART 2 DIVIDER ----------
   let s = H.slide(null, 14, { dark: true });
+  H.partMarker(s, 2);
   s.addText('PART 2 · MODELS & TOOLS', { x: 0.55, y: 2.3, w: 12, h: 0.5, fontFace: F.body, fontSize: 16, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
   s.addText('The landscape,\nAugust 2026', { x: 0.55, y: 2.8, w: 11.5, h: 1.9, fontFace: F.head, fontSize: 44, bold: true, color: C.ON_DARK, margin: 0, lineSpacingMultiple: 1.05 });
   s.addText('Who makes what, what each is genuinely good at, what the Chinese open-weight wave changed — and which agentic tools are worth knowing by name. Everything on these slides is dated: this field re-ranks monthly.', { x: 0.55, y: 4.85, w: 11, h: 0.8, fontFace: F.body, fontSize: 15, color: C.ON_DARK_MUTE, margin: 0, lineSpacingMultiple: 1.15 });
+  s.addNotes(
+    'HOW TO PRESENT — 1) Progress bar: part 2 of 6. 2) One framing sentence: “Names and fortes, all dated August 2026 — the names churn monthly; the habits you leave with don’t.” 3) Under 30 seconds, advance.\n' +
+    'ACRONYMS — none on this slide.');
 
   // ---------- 15. ASSISTANT LANDSCAPE ----------
   s = H.slide('PART 2 · THE ASSISTANTS', 15);
@@ -29,7 +33,11 @@ module.exports = function buildPartTwo(pres, H) {
     s.addText(v[3], { x: x + 0.24, y: y + 1.72, w: 3.5, h: 0.55, fontFace: F.body, fontSize: 8.8, italic: true, color: C.AMBER, margin: 0, lineSpacingMultiple: 1.0 });
   });
   s.addText('Model names verified Aug 21, 2026 — they will have moved by the time you read this. The fortes move slower; the habits in Parts 3–5 don’t move at all.', { x: 0.55, y: 6.68, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0 });
-  s.addNotes('[REFRESH QUARTERLY — owner: Oscar] One line each, then move — the matrix on slide 19 does the practical work. Names to say: Claude Fable 5 (Jun 2026, current flagship), GPT-5.6 Sol/Terra/Luna (Jul 2026), Gemini 3 family, Copilot now lets you pick Claude inside Office (Researcher, Excel Agent Mode). Grok note: xAI was acquired by SpaceX (Feb 2026).');
+  s.addNotes(
+    '[REFRESH QUARTERLY — owner: Oscar]\n' +
+    'HOW TO PRESENT — 1) Frame: “six names cover the chat landscape.” 2) Walk the cards in reading order — Claude → ChatGPT → Gemini (top row), Copilot → Perplexity → Grok (bottom row) — saying ONE forte line each; let the amber caveats be read, not spoken. 3) Point at the italic footer: names verified Aug 21, 2026 — they WILL have moved; the matrix a few slides ahead does the practical work. 4) Bridge: “one force reshaped this list in 2025 — the Chinese open-weight wave.”\n' +
+    'ACRONYMS — SWE-bench = Software Engineering benchmark — the standard test of coding-agent ability. ctx = context window. GPT-5.6 Sol / Terra / Luna = OpenAI’s current tier names. X = the social platform (Grok’s data source).\n' +
+    'CONTENT — One line each, then move — the matrix (four slides ahead) does the practical work. Names to say: Claude Fable 5 (Jun 2026, current flagship), GPT-5.6 Sol/Terra/Luna (Jul 2026), Gemini 3 family, Copilot now lets you pick Claude inside Office (Researcher, Excel Agent Mode). Grok note: xAI was acquired by SpaceX (Feb 2026).');
 
   // ---------- 16. THE CHINESE WAVE ----------
   s = H.slide('PART 2 · THE CHINESE WAVE', 16);
@@ -56,7 +64,10 @@ module.exports = function buildPartTwo(pres, H) {
     ['globe', 'Global adoption', 'Alibaba’s Qwen: the most-downloaded open family on Hugging Face, ~150K derivative models; US firms (famously Airbnb) self-host it'],
   ];
   gifts.forEach((g, i) => H.iconRow(s, 6.35, 2.12 + i * 0.92, 6.4, g[0], C.TEAL, g[1], g[2], { d: 0.46, headSize: 12, descSize: 9.8, h: 0.88 }));
-  s.addNotes('The fuel-bill analogy keeps the cost claim honest (SemiAnalysis: total hardware spend >$500M). The Airbnb story teaches both sides: CEO praised Qwen as “fast and cheap” for customer service — then Congress asked questions, and the defense was exactly “self-hosted open weights: we send no data to China.” Which sets up the next slide.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Anchor the moment with the LEFT top card — January 2025 in three facts: R1 rivals o1 at ~96% cheaper; Nvidia’s $589B day; and keep the cost claim honest — the famous $5.6M is the final-run fuel bill, not the racing team. 2) RIGHT column: the five things they brought, top to bottom, one line each. 3) LEFT bottom card: the gap, measured — ~3% on ~23× less visible investment. 4) Bridge: “so who’s who — and what’s the one rule that keeps you safe?”\n' +
+    'ACRONYMS — MoE = Mixture-of-Experts — only a fraction of the model computes per token (671B built, ~37B working). MIT / Apache = permissive open-source licenses. R1 = DeepSeek’s open reasoning model; o1 = OpenAI’s. B = billion. gpt-oss = OpenAI’s first open-weight models since GPT-2 (Aug 2025). K2 = Kimi’s trillion-parameter agentic model line.\n' +
+    'CONTENT — The fuel-bill analogy keeps the cost claim honest (SemiAnalysis: total hardware spend >$500M). The Airbnb story teaches both sides: CEO praised Qwen as “fast and cheap” for customer service — then Congress asked questions, and the defense was exactly “self-hosted open weights: we send no data to China.” Which sets up the next slide.');
 
   // ---------- 17. CHINESE LLMS — WHO'S WHO + SAFE USE ----------
   s = H.slide('PART 2 · THE CHINESE WAVE', 17);
@@ -86,7 +97,14 @@ module.exports = function buildPartTwo(pres, H) {
     { t: 'Restaurant vs cookbook: the app sees your order; the downloaded weights cook at home — nothing is sent anywhere' },
     { t: 'Still IT/governance territory: licenses, Entity-List vendors, and alignment quirks travel with the weights (a local R1 still won’t discuss Tiananmen) — evaluate like any software of unknown provenance' },
   ], { size: 10.5, gap: 6 });
-  s.addNotes('The one distinction to hammer: hosted app/API (data to China; what regulators banned) vs self-hosted weights (a file on your GPUs; the Airbnb defense). Both sentences are simultaneously true: “never company data in Chinese consumer apps” AND “IT may evaluate self-hosted weights through governance review.” For this audience: treat open-weight models like SOUP — software of unknown provenance with documented evaluation.');
+  H.callout(s, 0.55, 5.7, 5.9, 0.9, C.TEAL_TINT, [
+    { text: 'One question decides: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
+    { text: 'does company data leave your network? Hosted app → yes: never. Self-hosted weights → no: an IT governance decision.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { iconName: 'key', iconFill: C.TEAL, size: 11 });
+  s.addNotes(
+    'HOW TO PRESENT — 1) Read the title sentence — it IS the rule: “the app sends data to China; the weights are just a file.” 2) LEFT column: five vendor rows, fast — names to recognize, not memorize. 3) RED card: consumer apps, never for work — the bans list, then the shadow-AI stat: 1 in 25 enterprise prompts went to a China-based app, mostly without IT knowing. 4) GREEN card: self-hosted weights are a different question — restaurant vs cookbook; still governed (licenses, Entity List, alignment quirks travel with the file). 5) Land on the bottom-left teal card: one question decides everything — does company data leave your network? 6) Bridge: “from models to agents — the gallery.”\n' +
+    'ACRONYMS — MoE = Mixture-of-Experts. R1 / V4 = DeepSeek model lines. GLM = Zhipu’s model family. US Entity List = the federal trade-restriction list — a procurement red flag. IT = Information Technology (your technology organization). API = Application Programming Interface — the hosted service route.\n' +
+    'CONTENT — The one distinction to hammer: hosted app/API (data to China; what regulators banned) vs self-hosted weights (a file on your GPUs; the Airbnb defense). Both sentences are simultaneously true: “never company data in Chinese consumer apps” AND “IT may evaluate self-hosted weights through governance review.” For this audience: treat open-weight models like SOUP — software of unknown provenance — with documented evaluation.');
 
   // ---------- 18. AGENTIC TOOL GALLERY ----------
   s = H.slide('PART 2 · AGENTIC TOOLS', 18);
@@ -112,7 +130,11 @@ module.exports = function buildPartTwo(pres, H) {
       { text: g[3], options: { color: C.SLATE, fontSize: 9.3 } },
     ], { x: x + 0.8, y: y + 0.06, w: 5.0, h: 1.05, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.0 });
   });
-  s.addNotes('[REFRESH QUARTERLY — owner: Oscar] Claude Code appears twice in this training on purpose: it is the tool this deck’s own materials were built with, and the natural home of the agentic templates in Part 5. OpenClaw: created by Peter Steinberger; renamed Clawdbot → Moltbot → OpenClaw after trademark issues; the maintainer’s own warning — “if you can’t run a command line, this is far too dangerous to use safely” — plus CVEs, 135K exposed instances, and a malicious #1-ranked community skill (Cisco).');
+  s.addNotes(
+    '[REFRESH QUARTERLY — owner: Oscar]\n' +
+    'HOW TO PRESENT — 1) Frame: “eight names you’ll hear — and what each is actually FOR.” 2) Walk the cards left to right, top to bottom, one line each. Slow slightly on two: Claude Code (“this very training’s materials were built with it”) and Copilot agents (“the path of least resistance inside your tenant”). 3) End on the amber OpenClaw card: 2026’s security cautionary tale — don’t tell the whole story now; its lessons return in Part 5’s guardrails. 4) Bridge: “so which one for which job? The matrix.”\n' +
+    'ACRONYMS — IDE = Integrated Development Environment — a programmer’s editor. PR = Pull Request — a proposed code change on GitHub. DIY = do-it-yourself. n8n / Zapier = automation-platform product names (not acronyms).\n' +
+    'CONTENT — Claude Code appears twice in this training on purpose: it is the tool this deck’s own materials were built with, and the natural home of the agentic templates in Part 5. OpenClaw: created by Peter Steinberger; renamed Clawdbot → Moltbot → OpenClaw after trademark issues; the maintainer’s own warning — “if you can’t run a command line, this is far too dangerous to use safely” — plus CVEs (Common Vulnerabilities and Exposures — publicly registered security flaws), 135K exposed instances, and a malicious #1-ranked community skill (Cisco).');
 
   // ---------- 19. RIGHT TOOL FOR THE TASK ----------
   s = H.slide('PART 2 · RIGHT TOOL FOR THE TASK', 19);
@@ -137,7 +159,11 @@ module.exports = function buildPartTwo(pres, H) {
     { text: 'Standing rule: ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
     { text: 'your organization’s AI policy and approved-tool list outrank every cell of this table.', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { iconName: 'shield', iconFill: C.AMBER, size: 10.5 });
-  s.addNotes('[REFRESH QUARTERLY — owner: Oscar] This is the screenshot-and-keep slide. Walk two rows the audience cares most about (data analysis, presentations) and let the rest be reference. Reinforce the policy caveat verbally every time.');
+  s.addNotes(
+    '[REFRESH QUARTERLY — owner: Oscar]\n' +
+    'HOW TO PRESENT — 1) Announce it: “screenshot slide — this map is yours to keep.” Give them five seconds to actually take the photo. 2) Walk only TWO rows in full — data analysis and presentations (the rooms’ daily work); gesture over the rest as reference. 3) Finish on the amber band and say it VERBATIM: “your organization’s AI policy and approved-tool list outrank every cell of this table.” 4) Bridge: “one caution before we leave tools — how to read the rankings these names ride on.”\n' +
+    'ACRONYMS — 1M-class = roughly one-million-token context window. SWE-bench = the standard coding-agent benchmark.\n' +
+    'CONTENT — This is the screenshot-and-keep slide. Walk two rows the audience cares most about (data analysis, presentations) and let the rest be reference. Reinforce the policy caveat verbally every time.');
 
   // ---------- 20. FORTES NOT ABSOLUTES ----------
   s = H.slide('PART 2 · READING THE LEADERBOARDS', 20);
@@ -155,11 +181,15 @@ module.exports = function buildPartTwo(pres, H) {
     { text: 'A 60-second benchmark of your own: ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
     { text: 'keep three of your real tasks (one analysis, one document, one deck) as a private test set. When a new model ships, run them. Your test set beats every leaderboard for deciding what YOU should use.', options: { color: C.SLATE, fontSize: 12.5 } },
   ], { iconName: 'target', iconFill: C.SLATE, size: 12.5, line: C.LINE });
-  s.addNotes('The private-test-set habit is the practical takeaway — it converts leaderboard anxiety into a 60-second routine. Sources for the caution: LMArena July 2026 re-baseline; SWE-bench Verified saturation reporting; Artificial Analysis clustering.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) LEFT bullets top to bottom: models cluster within a point; benchmarks saturate and leak; vendor numbers are claims until reproduced (bold); therefore — shortlist by rankings, DECIDE by your task. 2) RIGHT card: the power-tools analogy — you pick by fit for the job, what’s in your shop, and feel in the hand, not last month’s magazine review. Land the last line: this training teaches prompting, not products. 3) Bottom band: the 60-second benchmark — three of your real tasks as a private test set. 4) Bridge: “let’s make that test set real — rep.”\n' +
+    'ACRONYMS — none needing expansion on the slide (IT stack = your approved technology environment).\n' +
+    'CONTENT — The private-test-set habit is the practical takeaway — it converts leaderboard anxiety into a 60-second routine. Sources for the caution: LMArena July 2026 re-baseline; SWE-bench Verified saturation reporting; Artificial Analysis clustering.');
 
   // ---------- P2 REP (v1.1, skippable) ----------
   s = H.slide('THREE-MINUTE REP · PART 2', 21);
   H.title(s, 'Three-minute rep', 'Write down your private test set');
+  H.repTimer(s);
   H.card(s, 0.55, 1.75, 7.4, 3.4, C.TEAL_TINT);
   H.bullets(s, 0.9, 2.05, 6.6, 2.9, [
     { t: 'Write down three of YOUR real tasks — one analysis, one document, one deck or tracker.', b: true },
@@ -172,5 +202,8 @@ module.exports = function buildPartTwo(pres, H) {
     { text: 'Rankings re-shuffle monthly and top models cluster within a point. Your three tasks measure the only thing that matters: fit for YOUR work.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 8.52, y: 1.95, w: 3.95, h: 3.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
   s.addText('Skippable if running long — the habit is on the previous slide either way.', { x: 0.55, y: 5.45, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
-  s.addNotes('Three minutes: everyone writes three tasks. No sharing needed — the artifact is personal. Skip freely if behind.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) This rep is SKIP-BY-DEFAULT if you are behind — the habit is already on the previous slide; the run of show assumes you skip it. 2) If running it: point at the 3:00 badge, then everyone writes three real tasks — one analysis, one document, one deck or tracker. No sharing; the artifact is personal. 3) Close with the right card’s point: “that list outlives every leaderboard.”\n' +
+    'ACRONYMS — none on this slide.\n' +
+    'CONTENT — Three minutes: everyone writes three tasks. No sharing needed — the artifact is personal. Skip freely if behind.');
 };

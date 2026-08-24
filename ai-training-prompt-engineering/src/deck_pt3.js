@@ -4,9 +4,13 @@ const { C, F } = require('./deck_lib');
 module.exports = function buildPartThree(pres, H) {
   // ---------- 21. PART 3 DIVIDER ----------
   let s = H.slide(null, 21, { dark: true });
+  H.partMarker(s, 3);
   s.addText('PART 3 · PROMPT ENGINEERING', { x: 0.55, y: 2.3, w: 12, h: 0.5, fontFace: F.body, fontSize: 16, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
   s.addText('The craft: getting what\nyou actually meant', { x: 0.55, y: 2.8, w: 11.5, h: 1.9, fontFace: F.head, fontSize: 44, bold: true, color: C.ON_DARK, margin: 0, lineSpacingMultiple: 1.05 });
   s.addText('Every AI vendor publishes prompting guidance. It converges on one anatomy and a handful of techniques — this part teaches them, with the evidence for what works and what’s myth.', { x: 0.55, y: 4.85, w: 11, h: 0.8, fontFace: F.body, fontSize: 15, color: C.ON_DARK_MUTE, margin: 0, lineSpacingMultiple: 1.15 });
+  s.addNotes(
+    'HOW TO PRESENT — 1) Progress bar: part 3 — the core craft part; if the room remembers one part, make it this one. 2) One framing sentence: “Every vendor publishes prompting guidance, and it converges — we teach the convergence, with the evidence.” 3) Under 30 seconds, advance.\n' +
+    'ACRONYMS — none on this slide.');
 
   // ---------- 22. UNIVERSAL ANATOMY ----------
   s = H.slide('PART 3 · THE ANATOMY', 22);
@@ -39,7 +43,10 @@ module.exports = function buildPartThree(pres, H) {
     { text: 'Google’s data point: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12 } },
     { text: 'the most fruitful prompts averaged ~21 words with context — most people type fewer than nine. A good prompt is a short briefing, not a search query.', options: { color: C.SLATE, fontSize: 12 } },
   ], { iconName: 'edit', iconFill: C.TEAL, size: 12 });
-  s.addNotes('The frameworks are near-identical: Google calls it Persona-Task-Context-Format; Microsoft Goal-Context-Source-Expectations; Anthropic and OpenAI teach the same elements. The 21-words stat is from Google’s Oct 2024 Workspace guide (dropped in the newer edition — teach as directional, not gospel). Anthropic’s golden rule belongs in the room: show your prompt to a colleague with minimal context — if they’d be confused, the model will be too. Continuity hook: our own library teaches the same skeleton — the internal crash course’s “5 building blocks” (Role, Context, Task, Format, Tone) and CRISP checklist, and Phoenix & Taylor’s Five Principles (Give Direction, Specify Format, Provide Examples, Evaluate Quality, Divide Labor). One anatomy, many aliases.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) The claim first: “four vendors, one recipe — this is not our opinion, it’s convergence.” 2) Walk the table BY ROW, not by column: Role → Task → Context → Format → Examples; for each row, sweep one finger across the four vendor cells — same idea, different alias. 3) Land on the teal band: the most fruitful prompts averaged ~21 words with context; most people type fewer than nine. Say the sentence: “a good prompt is a short briefing, not a search query.” 4) Bridge: “let’s define the five slots properly.”\n' +
+    'ACRONYMS — XML = eXtensible Markup Language — here just the angle-bracket tag style (<context>…</context>) Anthropic recommends for structure.\n' +
+    'CONTENT — The frameworks are near-identical: Google calls it Persona-Task-Context-Format; Microsoft Goal-Context-Source-Expectations; Anthropic and OpenAI teach the same elements. The 21-words stat is from Google’s Oct 2024 Workspace guide (dropped in the newer edition — teach as directional, not gospel). Anthropic’s golden rule belongs in the room: show your prompt to a colleague with minimal context — if they’d be confused, the model will be too. Continuity hook: our own library teaches the same skeleton — the internal crash course’s “5 building blocks” (Role, Context, Task, Format, Tone) and CRISP checklist, and Phoenix & Taylor’s Five Principles (Give Direction, Specify Format, Provide Examples, Evaluate Quality, Divide Labor). One anatomy, many aliases.');
 
   // ---------- E1. THE FIVE ELEMENTS, DEFINED (v1.1) ----------
   s = H.slide('PART 3 · THE ELEMENTS', 23);
@@ -60,7 +67,10 @@ module.exports = function buildPartThree(pres, H) {
     s.addText([{ text: 'strong  ', options: { bold: true, color: C.GREEN, fontSize: 8.5 } }, { text: r[3], options: { color: C.SLATE, fontSize: 9 } }], { x: 9.15, y: y + 0.07, w: 3.4, h: 0.76, fontFace: F.body, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
   });
   s.addText('The full field guide — mechanism, evidence, and pitfalls per element — is in your handout (ELEMENTS guide).', { x: 0.55, y: 6.68, w: 12.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
-  s.addNotes('v1.1 addition. One row at a time: name the element, read weak vs strong aloud — the contrast teaches faster than the definition. Role: behaviors are auditable, titles aren’t. Task: a question carries its own completion test. Context: unstated quirks become invented fixes. Format: numeric caps are enforceable, adjectives aren’t. Examples: the model handles edge cases exactly as yours do.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Frame: “five slots — each with a job, and a failure it prevents.” 2) One ROW at a time: say the element name, then read the weak and strong fills ALOUD, verbatim — the contrast is the teaching; don’t paraphrase. 3) After Examples, point at the footer: the full field guide (mechanism, evidence, pitfalls per element) is the ELEMENTS handout. 4) Bridge: “two one-sentence safety valves complete the kit.”\n' +
+    'ACRONYMS — n = sample size (“you state n”). Q2 = second quarter.\n' +
+    'CONTENT — v1.1 addition. Row logic to have ready: Role — behaviors are auditable, titles aren’t. Task — a question carries its own completion test. Context — unstated quirks become invented fixes. Format — numeric caps are enforceable, adjectives aren’t. Examples — the model handles edge cases exactly as yours do.');
 
   // ---------- E2. SAFETY VALVES + DIAGNOSIS GRID (v1.1) ----------
   s = H.slide('PART 3 · THE ELEMENTS', 24);
@@ -90,9 +100,54 @@ module.exports = function buildPartThree(pres, H) {
     s.addText(g[1], { x: 10.85, y, w: 1.75, h: 0.5, fontFace: F.body, fontSize: 10.3, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
     if (i < 6) s.addShape('line', { x: 7.05, y: y + 0.53, w: 5.45, h: 0, line: { color: C.LINE, width: 0.5 } });
   });
-  s.addNotes('v1.1 addition. The grid is the practical payoff of the element model: when output disappoints, don’t reword at random — name the failed element and fix that one. This turns iteration from retyping into diagnosis. Same grid opens the ELEMENTS handout.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) LEFT top card: THE OUT — read the quoted sentence, then the why: models are trained on tests that reward guessing; the Out re-opens the abstain option. 2) LEFT bottom: THE STOP — read the quote; it converts open-ended capability into bounded work, and in Part 5 it grows into gates and autonomy rules. 3) RIGHT grid: the diagnosis table — say the habit: “when output disappoints, don’t reword at random — name the failed element, fix that one.” Walk two rows as examples (wrong altitude → Role; confidently invented → the Out was missing). 4) Bridge: “everything you just met — five elements, two valves — has a full catalog behind it. Next slide is your field map.”\n' +
+    'ACRONYMS — none on this slide.\n' +
+    'CONTENT — v1.1 addition. The grid is the practical payoff of the element model — it turns iteration from retyping into diagnosis. Same grid opens the ELEMENTS handout.');
 
-  // ---------- 23. SEVEN TECHNIQUES ----------
+  // ---------- E3. THE TAXONOMY HANDOUT (new in v1.2) ----------
+  s = H.slide('PART 3 · YOUR FIELD MAP', 25);
+  H.title(s, 'Your field map · a handout you keep', 'The Prompt Element Taxonomy — every choice, cataloged');
+  H.bullets(s, 0.55, 1.68, 6.15, 2.9, [
+    { t: 'A parts catalog for prompts: every element you just met, broken into its attributes — the slots you fill — and vetted options — proven ways to fill them.', b: true },
+    { t: 'Two wings: the seven generative elements (Role → Examples, plus the Out and the Stop) and the twelve agentic blocks of Part 5’s mission brief.' },
+    { t: 'One source of truth, three doors: this printed reference, the interactive Template Creator (HTML), and a spreadsheet Configurator.' },
+    { t: 'Use it at the moment of doubt: the diagnosis grid names the failed element — the taxonomy shows the menu of stronger fills.' },
+  ], { size: 12, gap: 8 });
+  // "How to read one entry" — element → attribute → option, drawn
+  H.card(s, 7.0, 1.62, 5.75, 2.95, C.PANEL);
+  s.addText('How to read one entry', { x: 7.3, y: 1.82, w: 5.2, h: 0.35, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  s.addShape('roundRect', { x: 7.3, y: 2.26, w: 2.45, h: 0.42, rectRadius: 0.06, fill: { color: C.TEAL }, line: { type: 'none' } });
+  s.addText('ELEMENT · Role', { x: 7.3, y: 2.27, w: 2.45, h: 0.4, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 10.5, bold: true, color: 'FFFFFF', margin: 0 });
+  s.addText('who is answering', { x: 9.9, y: 2.3, w: 2.6, h: 0.34, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0, valign: 'middle' });
+  s.addShape('line', { x: 7.55, y: 2.68, w: 0, h: 0.28, line: { color: C.TEAL, width: 1.25 } });
+  s.addShape('line', { x: 7.55, y: 2.96, w: 0.15, h: 0, line: { color: C.TEAL, width: 1.25 } });
+  s.addShape('roundRect', { x: 7.7, y: 2.76, w: 3.35, h: 0.4, rectRadius: 0.06, fill: { color: C.TEAL_TINT }, line: { color: C.TEAL, width: 0.75 } });
+  s.addText('ATTRIBUTE · identity — pick one', { x: 7.7, y: 2.77, w: 3.35, h: 0.38, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 10, bold: true, color: C.TEAL_DARK, margin: 0 });
+  s.addShape('line', { x: 7.95, y: 3.16, w: 0, h: 0.28, line: { color: C.MUTE, width: 1 } });
+  s.addShape('line', { x: 7.95, y: 3.44, w: 0.15, h: 0, line: { color: C.MUTE, width: 1 } });
+  [['“Careful analyst”', 8.1, 1.85], ['“Precise editor”', 10.05, 1.7], ['…', 11.85, 0.45]].forEach((o) => {
+    s.addShape('roundRect', { x: o[1], y: 3.25, w: o[2], h: 0.38, rectRadius: 0.06, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
+    s.addText(o[0], { x: o[1], y: 3.26, w: o[2], h: 0.36, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9.5, color: C.SLATE, margin: 0 });
+  });
+  s.addText('OPTIONS — every option ships with when-to-use guidance: you pick from a vetted menu instead of composing from scratch.', { x: 7.3, y: 3.78, w: 5.2, h: 0.65, fontFace: F.body, fontSize: 9.8, italic: true, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.08 });
+  // the numbers + where it lives
+  H.card(s, 0.55, 4.75, 12.2, 1.9, C.TEAL_TINT);
+  const taxStats = [['19', 'elements\n(7 generative · 12 agentic)'], ['70', 'attributes —\nthe slots you fill'], ['~250', 'vetted options,\neach with guidance'], ['18', 'presets — one-click\nstarting templates']];
+  taxStats.forEach((t, i) => {
+    const x = 0.85 + i * 1.95;
+    s.addText(t[0], { x, y: 4.95, w: 1.8, h: 0.6, fontFace: F.head, fontSize: 30, bold: true, color: C.TEAL_DARK, align: 'center', margin: 0 });
+    s.addText(t[1], { x, y: 5.6, w: 1.8, h: 0.85, fontFace: F.body, fontSize: 9, color: C.SLATE, align: 'center', valign: 'top', margin: 0, lineSpacingMultiple: 1.02 });
+  });
+  s.addShape('line', { x: 8.85, y: 5.0, w: 0, h: 1.4, line: { color: C.TEAL, width: 0.75 } });
+  s.addText([
+    { text: 'In your handout pack — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'the printed reference, the Template Creator, and the Configurator. When you fill a template in Part 4, this catalog is the menu you are choosing from.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { x: 9.15, y: 4.95, w: 3.4, h: 1.5, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.1 });
+  s.addNotes(
+    'HOW TO PRESENT — 1) Hold up the physical handout (or show the PDF) and name it: “the Prompt Element Taxonomy — your field map; everyone gets one.” 2) Say what it IS in one breath: “everything we just did — elements, their slots, and proven ways to fill them — cataloged, with when-to-use guidance on every option.” 3) LEFT bullets top to bottom: parts catalog → two wings (generative now, agentic in Part 5) → one source of truth, three doors (reference, Creator, Configurator). 4) RIGHT card: walk the tree ONCE — element Role → attribute identity → options “Careful analyst” / “Precise editor” — “you pick from a vetted menu instead of composing from scratch.” 5) Bottom band: sweep the four numbers, then the pack. 6) Set the expectation: “you don’t study this — you look things up in it, like a catalog.” 7) Bridge: “with the map in hand — seven techniques that cover almost everything.”\n' +
+    'ACRONYMS — HTML = HyperText Markup Language — the Template Creator is a single web-page file that runs offline. XLSX = Excel spreadsheet format (the Configurator). PDF = Portable Document Format (this printed reference).\n' +
+    'CONTENT — New in v1.2 (owner request): the taxonomy formally introduced as a side handout. Source of truth is prompt-library/taxonomy/*.json — 19 elements, 70 attributes, ~250 options, 18 presets, regenerated into all three tools; never hand-edit the deliverables. The structure borrows from object-oriented software: element = class, attribute = property, option = allowed value, template = saved instance, and agentic elements inherit from generative ones (Mission extends Task). Distribution: print the reference for the room or send the PDF link with the deck; the Creator and Configurator go out as files with the handout pack.');
   s = H.slide('PART 3 · TECHNIQUES', 23);
   H.title(s, 'The toolkit', 'Seven techniques cover almost everything');
   const tech = [
@@ -118,7 +173,10 @@ module.exports = function buildPartThree(pres, H) {
     { text: 'Where’s “think step by step”? ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
     { text: 'Retired to the bench — today’s models reason by default. The 2026 version comes two slides ahead.', options: { color: C.SLATE, fontSize: 11.5 } },
   ], { iconName: 'clock', iconFill: C.AMBER, size: 11.5 });
-  s.addNotes('Each technique traces to vendor docs and research: examples = Brown et al. 2020 few-shot; the out = Anthropic hallucination guidance; chaining = Anthropic 2026 (“still useful when you need to inspect intermediate outputs”); self-check needs concrete criteria (self-correction research shows “are you sure?” can make answers worse). Metaprompting is now productized: OpenAI Prompt Optimizer, Anthropic prompt improver, Google “Make this a power prompt.”');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Frame: “seven techniques cover almost everything — and you already met half of them.” 2) Walk the cards IN NUMBER ORDER 1→7, one line each: 1–4 are the anatomy applied (specific+why, examples, tags, the out); 5–7 are process moves (chain, self-check, metaprompting). 3) On 7, note it’s productized — every vendor now ships a prompt improver. 4) End on the amber card: “where’s think-step-by-step? Retired — two slides ahead explains why.” 5) Bridge: “which of these actually survive scrutiny? Evidence corner.”\n' +
+    'ACRONYMS — XML = the angle-bracket tag style for structure (technique 3).\n' +
+    'CONTENT — Each technique traces to vendor docs and research: examples = Brown et al. 2020 few-shot; the out = Anthropic hallucination guidance; chaining = Anthropic 2026 (“still useful when you need to inspect intermediate outputs”); self-check needs concrete criteria (self-correction research shows “are you sure?” can make answers worse). Metaprompting is now productized: OpenAI Prompt Optimizer, Anthropic prompt improver, Google “Make this a power prompt.”');
 
   // ---------- 24. EVIDENCE VS MYTH ----------
   s = H.slide('PART 3 · WHAT THE EVIDENCE SAYS', 24);
@@ -149,7 +207,10 @@ module.exports = function buildPartThree(pres, H) {
     { text: 'The countermeasures: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true } },
     { text: 'never reveal your preferred answer when asking for a review · ask for the case AGAINST (“three weakest points”) · paste your draft as “a colleague’s” · don’t treat “are you sure?” as verification.', options: { color: C.SLATE, fontSize: 11 } },
   ], { iconName: 'shield', iconFill: C.TEAL, size: 11 });
-  s.addNotes('Sources worth naming aloud: format brittleness = Sclar et al. ICLR 2024 (up to 76-point swings from formatting alone — the case for tested, versioned templates; think gauge R&R for prompts). Personas = Zheng et al. EMNLP 2024. Tipping = Salinas & Morstatter, ACL 2024. Sycophancy = Cheng et al., Science 2026 (arXiv 2510.01395). The lesson isn’t “AI lies” — it’s “AI mirrors you”; blind it to your preference before asking for judgment.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Start LEFT with the green card — what holds up: specificity/context/examples everywhere; the 76-point format-brittleness swing (the case for templates); personas shape tone… 2) …and the red card finishes that sentence: “…but ‘you are a genius’ doesn’t improve accuracy” — neither do tips, threats, or politeness games. 3) RIGHT card, slow: sycophancy — the ~49% number, the conviction effect, the root cause (trained on our preferences; we prefer agreement). 4) Teal countermeasures: read all four; the first one — never reveal your preferred answer — changes behavior TODAY. 5) Bridge: “and 2026 retired some old advice — the update.”\n' +
+    'ACRONYMS — CMU = Carnegie Mellon University (co-authors of the sycophancy study).\n' +
+    'CONTENT — Sources worth naming aloud: format brittleness = Sclar et al. ICLR 2024 (up to 76-point swings from formatting alone — the case for tested, versioned templates; think gauge R&R for prompts). Personas = Zheng et al. EMNLP 2024. Tipping = Salinas & Morstatter, ACL 2024. Sycophancy = Cheng et al., Science 2026 (arXiv 2510.01395). The lesson isn’t “AI lies” — it’s “AI mirrors you”; blind it to your preference before asking for judgment.');
 
   // ---------- 25. PROMPTING THINKING MODELS ----------
   s = H.slide('PART 3 · THINKING MODELS', 25);
@@ -172,9 +233,12 @@ module.exports = function buildPartThree(pres, H) {
   });
   H.callout(s, 0.55, 5.15, 12.2, 1.45, C.TEAL_TINT, [
     { text: 'What did NOT change: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 13, breakLine: true } },
-    { text: 'clarity and specificity · relevant context and sources · output format · giving an out · grounding in documents · iteration. The anatomy from slide 22 applies to every model you will ever use — the scaffolding tricks retire, the briefing skills compound.', options: { color: C.SLATE, fontSize: 12.5 } },
+    { text: 'clarity and specificity · relevant context and sources · output format · giving an out · grounding in documents · iteration. The anatomy from the top of this part applies to every model you will ever use — the scaffolding tricks retire, the briefing skills compound.', options: { color: C.SLATE, fontSize: 12.5 } },
   ], { iconName: 'check', iconFill: C.TEAL, size: 12.5 });
-  s.addNotes('This slide inoculates against stale advice from 2023-era blog posts. Sources: OpenAI reasoning best practices (“avoid chain-of-thought prompts”, “try zero shot first”), Anthropic prompting best practices 2026 (“prefer general instructions over prescriptive steps”), GPT-5 guide (contradiction cost), DeepSeek-R1 paper (few-shot degrades). Close on the reassurance: the durable 80% is unchanged.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Frame: “if you learned prompting from 2023 blog posts, this slide un-learns two things.” 2) TOP two cards: retire “think step by step” (reasoning is built in — the vendors say so themselves) and retire piles of examples (zero-shot first; few-shot can even hurt reasoning models). 3) BOTTOM two: the new risk — contradictions burn thinking tokens; and the new control — effort dials: say how HARD to think, not HOW to think. 4) Teal band: what did NOT change — read the list and land on: “the anatomy applies to every model you will ever use.” 5) Bridge: “the craft is stable — here’s the habit that compounds it.”\n' +
+    'ACRONYMS — CoT = Chain-of-Thought — the old “think step by step” prompting style, now built into thinking models.\n' +
+    'CONTENT — This slide inoculates against stale advice from 2023-era blog posts. Sources: OpenAI reasoning best practices (“avoid chain-of-thought prompts”, “try zero shot first”), Anthropic prompting best practices 2026 (“prefer general instructions over prescriptive steps”), GPT-5 guide (contradiction cost), DeepSeek-R1 paper (few-shot degrades). Close on the reassurance: the durable 80% is unchanged.');
 
   // ---------- 26. ITERATION ----------
   s = H.slide('PART 3 · ITERATION', 26);
@@ -201,11 +265,15 @@ module.exports = function buildPartThree(pres, H) {
     { text: 'Why standardize? ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
     { text: 'Outputs swing wildly with tiny phrasing changes. A tested, versioned template is your gauge-R&R answer to prompt variability — which is exactly what Part 4 hands you.', options: { color: C.SLATE, fontSize: 12.5 } },
   ], { iconName: 'target', iconFill: C.AMBER, size: 12.5 });
-  s.addNotes('The diagnose-by-element trick makes iteration systematic instead of random retyping. Metaprompting demo idea (live): paste a mediocre prompt, ask the assistant to critique and rewrite it, run both, compare. Bridge: Part 4 is the library of already-iterated templates.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Walk the four step cards LEFT TO RIGHT: draft → inspect → refine → standardize. At INSPECT, point back at the diagnosis grid from a few slides ago — same move. At STANDARDIZE, note the teal highlight: that’s where Part 6 lives. 2) Golden-rule band: read Anthropic’s quote VERBATIM — the colleague test. 3) Amber band: why standardize — outputs swing with tiny phrasing changes; a tested, versioned template is the gauge-R&R answer, “which is exactly what Part 4 hands you.” 4) Bridge: “rep first — then the playbook.”\n' +
+    'ACRONYMS — gauge R&R = Gauge Repeatability & Reproducibility — the measurement-systems discipline; the analogy: a tested template kills prompt-to-prompt variation the way a calibrated gauge kills measurement variation.\n' +
+    'CONTENT — The diagnose-by-element trick makes iteration systematic instead of random retyping. Metaprompting demo idea (live): paste a mediocre prompt, ask the assistant to critique and rewrite it, run both, compare. Bridge: Part 4 is the library of already-iterated templates.');
 
   // ---------- P3 REP (v1.1, skippable) ----------
   s = H.slide('THREE-MINUTE REP · PART 3', 27);
   H.title(s, 'Three-minute rep', 'Rebuild one line');
+  H.repTimer(s);
   H.card(s, 0.55, 1.75, 7.4, 3.4, C.PANEL);
   s.addText('Everyone starts from the same line:', { x: 0.85, y: 2.0, w: 6.6, h: 0.35, fontFace: F.body, fontSize: 12, bold: true, color: C.SLATE, margin: 0 });
   s.addText('“Summarize this report.”', { x: 0.85, y: 2.42, w: 6.7, h: 0.5, fontFace: 'Consolas', fontSize: 16, color: C.TEAL_DARK, margin: 0 });
@@ -219,10 +287,14 @@ module.exports = function buildPartThree(pres, H) {
     { text: '“You are a precise editor. Summarize the attached report for a cross-functional partner in ≤ 150 words: the three things they must know, what changed, and what it does NOT cover. If the report doesn’t say, say so.”', options: { color: C.SLATE, fontSize: 10.8, italic: true } },
   ], { x: 8.52, y: 1.95, w: 3.95, h: 3.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
   s.addText('Skippable if running long.', { x: 0.55, y: 5.45, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
-  s.addNotes('Three minutes. The neighbor-compare is the learning moment — different fills, same anatomy. Skip freely if behind.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) 3:00 badge; everyone starts from the same weak line on screen: “Summarize this report.” 2) Three minutes: add a Role, an audience, a numeric cap, and an Out. 3) Neighbor compare — the learning moment: different fills, same anatomy; ask one pair whose version wins and why. 4) Only THEN reveal the presenter answer in the amber card. Skip freely if behind.\n' +
+    'ACRONYMS — none on this slide.\n' +
+    'CONTENT — Three minutes. The neighbor-compare is the learning moment — different fills, same anatomy. Skip freely if behind.');
 
   // ---------- 27. PART 4 DIVIDER ----------
   s = H.slide(null, 27, { dark: true });
+  H.partMarker(s, 4);
   s.addText('PART 4 · THE PLAYBOOK', { x: 0.55, y: 2.1, w: 12, h: 0.5, fontFace: F.body, fontSize: 16, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
   s.addText('Thirteen templates,\nready to copy', { x: 0.55, y: 2.6, w: 11.5, h: 1.9, fontFace: F.head, fontSize: 44, bold: true, color: C.ON_DARK, margin: 0, lineSpacingMultiple: 1.05 });
   s.addText('Eight generative + five agentic, shipped with this training in prompt-library/.\nEach: the template · a filled example · why it works · the pitfalls.', { x: 0.55, y: 4.6, w: 11, h: 0.8, fontFace: F.body, fontSize: 15, color: C.ON_DARK_MUTE, margin: 0, lineSpacingMultiple: 1.15 });
@@ -232,7 +304,10 @@ module.exports = function buildPartThree(pres, H) {
     const y = 5.55 + Math.floor(i / 4) * 0.44;
     s.addText('▸ ' + n, { x, y, w: 3.0, h: 0.38, fontFace: F.body, fontSize: 10.5, color: i < 8 ? C.ON_DARK_MUTE : C.TEAL_LIGHT, margin: 0 });
   });
-  s.addNotes('Emphasize: these are starting points to adapt, not scripts. Generative templates (G) run in any chat assistant; agentic templates (A, in teal) are for Claude Code / Cowork-class tools — Part 5 explains them.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Progress bar: part 4. One frame: “thirteen templates ship with this training — we demo two live; the rest is your handout.” 2) Point at the list: G = generative, runs in any chat tool; A (in teal) = agentic, for Claude Code / Cowork-class tools — Part 5’s world. 3) Emphasize once: starting points to adapt, not scripts. 4) Advance within 30 seconds.\n' +
+    'ACRONYMS — ETL = Extract, Transform, Load — A2’s data-pipeline shape. CLAUDE.md = the standing-instructions file agents read at session start (A4). HTML = the single-file web-page format (G6).\n' +
+    'CONTENT — These are starting points to adapt, not scripts. Generative templates (G) run in any chat assistant; agentic templates (A, in teal) are for Claude Code / Cowork-class tools — Part 5 explains them.');
 
   // ---------- 28. G2 DEEP DIVE ----------
   s = H.slide('PART 4 · DATA ANALYSIS', 28);
@@ -252,7 +327,10 @@ module.exports = function buildPartThree(pres, H) {
     s.addText(r[2], { x: 8.25, y: y + 0.07, w: 4.3, h: 0.76, fontFace: F.body, fontSize: 9.3, italic: true, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
   });
   s.addText('block · what goes in it · why it’s there', { x: 0.55, y: 6.68, w: 8, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
-  s.addNotes('Walk one row at a time; the right column is the teaching. Evidence for code-not-vibes: GPT-4 scored ~59% on 3-digit x 3-digit multiplication, falling toward zero as digits grow (Faith and Fate, NeurIPS 2023) — code execution hands the model a calculator. All four major tools now run code for analysis. This anatomy generalizes: every template is blocks + reasons. For recurring or multi-file pipelines, the agentic sibling is A2 (Part 5).');
+    s.addNotes(
+    'HOW TO PRESENT — 1) Frame: “one template, dissected — the other twelve share this shape: blocks, plus the reason each block exists.” 2) Walk the five rows TOP TO BOTTOM; per row: name the block, one line on what goes in (middle column), then read the RIGHT italic column aloud — the why is the teaching. 3) Slow on <method>: “reconcile to a known total — one anchor beats ten checks.” 4) Bridge: “enough anatomy — watch two templates run for real.”\n' +
+    'ACRONYMS — LLM = Large Language Model. n = sample size (flag n < 20). G2 = this template’s library code.\n' +
+    'CONTENT — Evidence for code-not-vibes: GPT-4 scored ~59% on 3-digit × 3-digit multiplication, falling toward zero as digits grow (Faith and Fate, NeurIPS 2023) — code execution hands the model a calculator. All four major tools now run code for analysis. For recurring or multi-file pipelines, the agentic sibling is A2 (Part 5).');
 
   // ---------- DEMO 1 · BLIND CRITIQUE (v1.1) ----------
   s = H.slide('PART 4 · LIVE DEMO 1', 29);
@@ -279,7 +357,10 @@ module.exports = function buildPartThree(pres, H) {
     { text: 'This is the Part 4 rep: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
     { text: 'everyone runs the blind critique on something of their own before session 2.', options: { color: C.SLATE, fontSize: 11.5 } },
   ], { iconName: 'zap', iconFill: C.TEAL, size: 11.5 });
-  s.addNotes('v1.1: replaces the catalog slides. Prepare a safe demo draft in advance (generic plan with 2–3 planted weaknesses). Budget 6–8 minutes. The side-by-side moment is the punchline — let the room read both answers in silence for 20 seconds before speaking.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) One-line setup: “same draft, two chats — the only variable is what I reveal about myself.” 2) Run the three step cards IN ORDER: blind version first (card 1–2), then the naive “I wrote this” ask in a second chat (card 3). 3) At the side-by-side: 20 seconds of SILENCE — let the room read both answers before anyone speaks. 4) Then the amber card: name what they noticed, and land the number — models affirm users ~49% more than humans do; blinding is the fix available today. 5) Teal band: this is the Part 4 rep — homework before session 2.\n' +
+    'ACRONYMS — G3 = the evaluations/rubrics template’s library code.\n' +
+    'CONTENT — v1.1: replaces the catalog slides. Prepare a safe demo draft in advance (generic plan with 2–3 planted weaknesses). Budget 6–8 minutes. The side-by-side moment is the punchline.');
 
   // ---------- DEMO 2 · DASHBOARD FROM A PASTE (v1.1) ----------
   s = H.slide('PART 4 · LIVE DEMO 2', 30);
@@ -302,7 +383,14 @@ module.exports = function buildPartThree(pres, H) {
     { text: 'What the room should notice', options: { bold: true, color: C.AMBER, fontSize: 12, breakLine: true, paraSpaceAfter: 5 } },
     { text: 'The deliverable is a tool, not a text. The spec lines that made it trustworthy: single file · offline · data embedded · nothing hard-coded · formulas on screen.\n\nCaveats to say out loud: it is a snapshot, not a live system — and share the FILE, not a public link.', options: { color: C.SLATE, fontSize: 10.8 } },
   ], { x: 8.7, y: 1.9, w: 3.8, h: 3.6, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.1 });
-  s.addNotes('v1.1: second demo. Pre-stage the data table and the G6 prompt in a text file so the demo is paste-paste-run. If generation runs long, have a pre-built copy of the dashboard ready to open — narrate the prompt while it loads. Budget 6–8 minutes.');
+  H.callout(s, 0.55, 5.85, 12.2, 0.75, C.PANEL, [
+    { text: 'Backup plan: ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
+    { text: 'if generation runs long, open the pre-built copy from your desktop and narrate the prompt — the room still sees prompt → working software.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { iconName: 'refresh', iconFill: C.SLATE, size: 11.5, line: C.LINE });
+  s.addNotes(
+    'HOW TO PRESENT — 1) Frame: “this time the deliverable is a tool, not a text.” 2) Run the three step cards IN ORDER: paste the prepared table → run G6 → download the file, double-click it, filter something, sort something. 3) WHILE it generates, narrate the amber card’s spec lines — single file, offline, data embedded, nothing hard-coded, formulas visible — those lines are what made it trustworthy. 4) Say the two caveats OUT LOUD: it is a snapshot, not a live system; share the FILE, not a public link. 5) Bottom band is your safety net: pre-built copy on the desktop. 6) Bridge: “six more templates work the same way — the pointer.”\n' +
+    'ACRONYMS — HTML = HyperText Markup Language — the single-file web-page format. KPI = Key Performance Indicator (the number tiles). G6 = the interactive-HTML template’s library code.\n' +
+    'CONTENT — v1.1: second demo. Pre-stage the data table and the G6 prompt in a text file so the demo is paste-paste-run. Budget 6–8 minutes.');
 
   // ---------- PLAYBOOK HANDOUT POINTER (v1.1) ----------
   s = H.slide('PART 4 · THE PLAYBOOK', 31);
@@ -327,10 +415,13 @@ module.exports = function buildPartThree(pres, H) {
     ], { x: x + 0.24, y: y + 0.08, w: 5.5, h: 0.86, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.02 });
   });
   H.callout(s, 0.55, 6.35, 12.2, 0.65, C.TEAL_TINT, [
-    { text: 'Where they live: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
-    { text: 'prompt-library/ in the repo — each with a filled example and pitfalls — plus the interactive Template Creator that assembles any of them from menus.', options: { color: C.SLATE, fontSize: 11.5 } },
+    { text: 'Your handout pack: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
+    { text: 'prompt-library/ (all 13 templates, each with a filled example and pitfalls) · the Template Creator + Configurator that assemble them · the cheat sheet, ELEMENTS guide, and Taxonomy Reference.', options: { color: C.SLATE, fontSize: 11.5 } },
   ], { iconName: 'download', iconFill: C.TEAL, size: 11.5 });
-  s.addNotes('v1.1: the catalog is now a handout pointer, not four lecture slides. Walk it in 60 seconds: two templates they just saw demoed, six more that work the same way. Session 1 ends here.');
+  s.addNotes(
+    'HOW TO PRESENT — 1) Sixty seconds: sweep the eight tiles in one pass — “two you just watched; six more work exactly the same way: blocks plus reasons.” 2) Teal band: name the FULL handout pack piece by piece — templates, Creator, Configurator, cheat sheet, ELEMENTS guide, Taxonomy Reference — so nobody leaves without knowing what they own. 3) Close session 1: “homework is the blind critique on something of yours; session 2 is delegation — bring the homework story.”\n' +
+    'ACRONYMS — HTML / XLSX = web-page / Excel file formats (Creator / Configurator). G1–G8 = the generative templates’ library codes.\n' +
+    'CONTENT — v1.1: the catalog is a handout pointer, not four lecture slides. Session 1 ends here.');
 
   // ---------- P3 REP note: runs inside session 1 wrap if time allows ----------
 };
