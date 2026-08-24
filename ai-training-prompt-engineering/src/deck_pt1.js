@@ -24,53 +24,31 @@ module.exports = function buildPartOne(pres, H) {
   s.addText('Companion to “Working Smart with AI.” All examples are generic — no internal document names or confidential data appear anywhere.', { x: 0.55, y: 6.3, w: 12.2, h: 0.4, fontFace: F.body, fontSize: 10.5, italic: true, color: C.ON_DARK_MUTE, margin: 0 });
   s.addNotes('This training goes deeper than the general AI onboarding: it is specifically about prompting — the skill — across two modes: generative (AI that talks) and agentic (AI that works). Everything is dated August 2026 because this field moves monthly.');
 
-  // ---------- 2. WHAT YOU LEAVE WITH ----------
+  // ---------- 2. WELCOME + MAP (merged, v1.1) ----------
   s = H.slide('WELCOME', 2);
   H.title(s, 'Welcome', 'One skill, two modes — and a library you keep');
-  H.bullets(s, 0.55, 1.7, 6.1, 2.6, [
+  H.bullets(s, 0.55, 1.62, 6.1, 2.5, [
     { t: 'Prompting is the one AI skill that transfers everywhere: every assistant, every vendor, every year. Models change monthly; the craft compounds.', b: true },
     { t: 'The same skill has two modes now. Generative: you ask, it writes, you act. Agentic: you brief it, it plans, uses tools, checks itself, and delivers.' },
     { t: 'Each mode needs a different kind of prompt — that distinction is the backbone of this training.' },
-  ], { size: 13, gap: 10 });
-  H.callout(s, 0.55, 4.6, 6.1, 1.95, C.TEAL_TINT, [
-    { text: 'The 10-second version: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 13, breakLine: true } },
-    { text: 'a generative prompt describes what to write.\nAn agentic prompt describes a job to run — goal, inputs, checks, and when to stop and ask you.', options: { color: C.SLATE, fontSize: 12.5 } },
-  ], { iconName: 'zap', iconFill: C.TEAL, size: 12.5 });
-  H.card(s, 7.0, 1.55, 5.75, 5.0, C.PANEL);
-  s.addText('You leave with', { x: 7.3, y: 1.8, w: 5.2, h: 0.4, fontFace: F.head, fontSize: 17, bold: true, color: C.INK, margin: 0 });
-  H.bullets(s, 7.35, 2.3, 5.1, 4.1, [
-    'A working vocabulary: tokens, context windows, RAG, reasoning models — enough to see through vendor noise',
-    'A tool map for August 2026 — including what the Chinese open-weight labs changed',
-    'The universal prompt anatomy + seven techniques that cover almost everything',
-    { t: 'A prompt library: 8 generative + 5 agentic templates, ready to copy and adapt', b: true },
-    'Conventions for storing, versioning, and sharing prompts as a team',
-  ], { size: 12.5, gap: 9 });
-  s.addNotes('Set expectations: this is a craft course, not a product demo. The library ships with the training — everything shown is take-home. Stress the two-mode framing early; it recurs on every slide after.');
-
-  // ---------- 3. MAP ----------
-  s = H.slide('HOW THIS TRAINING WORKS', 3);
-  H.title(s, 'The map', 'Six parts — concepts first, craft second, delegation third');
-  const mapParts = [
-    ['1 · The primer', 'Four eras of AI · how LLMs actually work: tokens, context, RAG, reasoning, hallucination', C.TEAL_TINT, '~25 min'],
-    ['2 · Models & tools', 'The Aug-2026 landscape · each model’s forte · the Chinese wave · agentic tool gallery', C.PANEL, '~20 min'],
-    ['3 · Prompt engineering', 'The universal anatomy · seven techniques · evidence vs. myth · prompting thinking models', C.TEAL_TINT, '~20 min'],
-    ['4 · The playbook', 'Templates applied: data analysis · writing · evaluations · spreadsheets · decks · interactive HTML', C.PANEL, '~20 min'],
-    ['5 · Agentic prompting', 'The mission brief · worked example (data → validated slide) · gates, autonomy & guardrails', C.TEAL_TINT, '~25 min'],
-    ['6 · Prompt management', 'Store, version, share: from a personal doc to a team library that survives staff turnover', C.PANEL, '~10 min'],
-  ];
-  mapParts.forEach((p, i) => {
-    const x = 0.55 + (i % 3) * 4.18;
-    const y = 1.7 + Math.floor(i / 3) * 2.28;
-    H.card(s, x, y, 3.95, 2.08, p[2]);
-    s.addText(p[0], { x: x + 0.25, y: y + 0.16, w: 3.0, h: 0.4, fontFace: F.head, fontSize: 15.5, bold: true, color: C.TEAL_DARK, margin: 0 });
-    s.addText(p[3], { x: x + 2.85, y: y + 0.2, w: 0.95, h: 0.3, fontFace: F.body, fontSize: 9.5, bold: true, color: C.MUTE, align: 'right', margin: 0 });
-    s.addText(p[1], { x: x + 0.25, y: y + 0.62, w: 3.45, h: 1.35, fontFace: F.body, fontSize: 11, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.1 });
-  });
-  H.callout(s, 0.55, 6.25, 12.2, 0.75, C.AMBER_TINT, [
-    { text: 'Take-home set: ', options: { bold: true, color: C.INK, fontSize: 12 } },
-    { text: 'this deck · the prompt library (13 templates) · a one-page prompt-anatomy cheat sheet.', options: { color: C.SLATE, fontSize: 12 } },
-  ], { iconName: 'download', iconFill: C.AMBER, size: 12 });
-  s.addNotes('Runs as one 2-hour session or two 1-hour halves (split after Part 4). Parts 3-5 are the heart; Part 1 earns the vocabulary those parts rely on.');
+  ], { size: 12.5, gap: 8 });
+  H.callout(s, 0.55, 4.4, 6.1, 1.5, C.TEAL_TINT, [
+    { text: 'The 10-second version: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true } },
+    { text: 'a generative prompt describes what to write.\nAn agentic prompt describes a job to run — goal, inputs, checks, and when to stop and ask you.', options: { color: C.SLATE, fontSize: 12 } },
+  ], { iconName: 'zap', iconFill: C.TEAL, size: 12 });
+  H.card(s, 7.0, 1.55, 5.75, 2.95, C.PANEL);
+  s.addText('The map — two one-hour sessions', { x: 7.3, y: 1.78, w: 5.2, h: 0.4, fontFace: F.head, fontSize: 15.5, bold: true, color: C.INK, margin: 0 });
+  s.addText([
+    { text: 'SESSION 1', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: '1 · The primer — how LLMs actually work\n2 · Models & tools, August 2026\n3 · Prompt engineering — anatomy + techniques\n4 · The playbook — two live demos', options: { color: C.SLATE, fontSize: 11, breakLine: true, paraSpaceAfter: 8 } },
+    { text: 'SESSION 2', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: '5 · Agentic prompting — the mission brief\n6 · Managing prompts as assets · wrap-up', options: { color: C.SLATE, fontSize: 11 } },
+  ], { x: 7.3, y: 2.22, w: 5.2, h: 2.2, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
+  H.callout(s, 7.0, 4.7, 5.75, 1.9, C.AMBER_TINT, [
+    { text: 'You leave with: ', options: { bold: true, color: C.INK, fontSize: 12, breakLine: true } },
+    { text: 'a working AI vocabulary · a tool map · the universal prompt anatomy + seven techniques · a 13-template library with an interactive Template Creator · team conventions for storing and versioning prompts.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { iconName: 'download', iconFill: C.AMBER, size: 11.5 });
+  s.addNotes('Merged welcome+map (v1.1). Two-session delivery: split after Part 4. Each part ends with a skippable three-minute rep. Set the thesis early: two modes, one craft; the library and Creator are the take-home.');
 
   // ---------- 4. PART I DIVIDER ----------
   s = H.slide(null, 4, { dark: true });
@@ -240,18 +218,15 @@ module.exports = function buildPartOne(pres, H) {
   ];
   ladder.forEach((l, i) => {
     const y = 1.7 + i * 1.62;
-    H.card(s, 0.55, y, 8.0, 1.45, l[4]);
+    H.card(s, 0.55, y, 12.2, 1.45, l[4]);
     H.iconCircle(s, 0.82, y + 0.42, 0.55, l[0], C.TEAL);
     s.addText([
       { text: l[1] + ' — ', options: { bold: true, color: C.INK, fontSize: 14 } },
       { text: l[2], options: { italic: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
       { text: l[3], options: { color: C.SLATE, fontSize: 11 } },
-    ], { x: 1.55, y: y + 0.12, w: 6.8, h: 1.25, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
+    ], { x: 1.55, y: y + 0.12, w: 11.0, h: 1.25, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
   });
-  H.card(s, 8.85, 1.7, 3.9, 4.85, C.PANEL);
-  s.addText('One line on embeddings', { x: 9.12, y: 1.92, w: 3.4, h: 0.4, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
-  s.addText('Behind retrieval: every text gets a GPS coordinate for meaning — a vector — and “nearby” means “similar,” even with zero shared words. It’s why semantic search finds “vendor inspection nonconformance” when you asked about “supplier audit findings”…\n\n…and why it sometimes returns something conceptually close but factually wrong. The librarian works by meaning, not by truth.', { x: 9.12, y: 2.4, w: 3.45, h: 3.9, fontFace: F.body, fontSize: 11, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.12 });
-  s.addNotes('Escalation rule: cheapest and most reversible first. When someone proposes “let’s fine-tune on our procedures,” the first question is: knowledge problem (→RAG) or behavior problem (→maybe fine-tune)? Most enterprise cases are knowledge problems. Frontier flagships mostly aren’t fine-tunable anyway (as of Aug 2026); open-weight models are.');
+  s.addNotes('v1.1: embeddings sidebar cut — if asked how retrieval finds things: every text gets a coordinate in meaning-space; nearby = similar, even with no shared words. Escalation rule: cheapest and most reversible first. When someone proposes “let’s fine-tune on our procedures,” the first question is: knowledge problem (→RAG) or behavior problem (→maybe fine-tune)? Most enterprise cases are knowledge problems. Frontier flagships mostly aren’t fine-tunable anyway (as of Aug 2026); open-weight models are.');
 
   // ---------- 12. REASONING MODELS ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 12);
@@ -301,4 +276,22 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'every uncited standard clause, date, number, or quote is a draft until verified.', options: { color: C.SLATE, fontSize: 12.5 } },
   ], { iconName: 'alert', iconFill: C.RED, size: 12 });
   s.addNotes('The OpenAI 2025 paper (“Why language models hallucinate”) is a gift for this slide: the vendor itself explains that eval incentives reward guessing. None of the three cures eliminates hallucination — they convert unverifiable claims into verifiable ones. This closes Part 1; Part 2 is the tool landscape.');
+
+  // ---------- P1 REP (v1.1, skippable) ----------
+  s = H.slide('THREE-MINUTE REP · PART 1', 14);
+  H.title(s, 'Three-minute rep', 'Spot the missing elements');
+  H.card(s, 0.55, 1.75, 7.4, 3.4, C.PANEL);
+  s.addText('The prompt on the screen:', { x: 0.85, y: 2.0, w: 6.6, h: 0.35, fontFace: F.body, fontSize: 12, bold: true, color: C.SLATE, margin: 0 });
+  s.addText('“Analyze the returns data and make it look good for leadership.”', { x: 0.85, y: 2.45, w: 6.7, h: 0.7, fontFace: 'Consolas', fontSize: 15, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.15 });
+  H.bullets(s, 0.9, 3.35, 6.6, 1.7, [
+    'One minute, on your own: what would you need to add before trusting the answer?',
+    'Two minutes, together: name the missing pieces out loud.',
+  ], { size: 12.5, gap: 8 });
+  H.card(s, 8.25, 1.75, 4.5, 3.4, C.AMBER_TINT);
+  s.addText([
+    { text: 'For the debrief (presenter only)', options: { bold: true, color: C.AMBER, fontSize: 11.5, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'Missing: the actual question (which metric, which period, vs what?) · the audience and their time · a length/format contract · permission to say what the data can’t answer · “compute, don’t estimate.”', options: { color: C.SLATE, fontSize: 11 } },
+  ], { x: 8.52, y: 1.95, w: 3.95, h: 3.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
+  s.addText('Skippable if running long — the same diagnosis returns in Part 3.', { x: 0.55, y: 5.45, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addNotes('Three minutes, hard cap. The point is the felt experience of a vague prompt — every gap they name is an element from Part 3. Skip freely if behind schedule.');
 };

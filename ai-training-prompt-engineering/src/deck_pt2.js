@@ -29,7 +29,7 @@ module.exports = function buildPartTwo(pres, H) {
     s.addText(v[3], { x: x + 0.24, y: y + 1.72, w: 3.5, h: 0.55, fontFace: F.body, fontSize: 8.8, italic: true, color: C.AMBER, margin: 0, lineSpacingMultiple: 1.0 });
   });
   s.addText('Model names verified Aug 21, 2026 — they will have moved by the time you read this. The fortes move slower; the habits in Parts 3–5 don’t move at all.', { x: 0.55, y: 6.68, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0 });
-  s.addNotes('One line each, then move — the matrix on slide 19 does the practical work. Names to say: Claude Fable 5 (Jun 2026, current flagship), GPT-5.6 Sol/Terra/Luna (Jul 2026), Gemini 3 family, Copilot now lets you pick Claude inside Office (Researcher, Excel Agent Mode). Grok note: xAI was acquired by SpaceX (Feb 2026).');
+  s.addNotes('[REFRESH QUARTERLY — owner: Oscar] One line each, then move — the matrix on slide 19 does the practical work. Names to say: Claude Fable 5 (Jun 2026, current flagship), GPT-5.6 Sol/Terra/Luna (Jul 2026), Gemini 3 family, Copilot now lets you pick Claude inside Office (Researcher, Excel Agent Mode). Grok note: xAI was acquired by SpaceX (Feb 2026).');
 
   // ---------- 16. THE CHINESE WAVE ----------
   s = H.slide('PART 2 · THE CHINESE WAVE', 16);
@@ -99,7 +99,7 @@ module.exports = function buildPartTwo(pres, H) {
     ['code', 'Coding IDEs', 'Cursor · Devin · GitHub Copilot', 'Developer-grade agents: multi-file refactors, assign-an-issue-get-a-PR. Engineering tools, not business-user tools.'],
     ['globe', 'Browser agents', 'Comet · Claude in Chrome', 'The assistant rides in your browser, sees pages, acts on them. Powerful; injection-prone — treat every page as untrusted input.'],
     ['branch', 'Automation platforms', 'n8n · Zapier', 'Wire apps together with agent steps in the flow: n8n for technical/self-hosted, Zapier for business users, 8,000+ connectors.'],
-    ['alert', 'OpenClaw', 'open source', 'DIY personal agent run from WhatsApp/Telegram; ~250K GitHub stars — and 2026’s security cautionary tale. Not for corporate use; its lessons are slide 38.'],
+    ['alert', 'OpenClaw', 'open source', 'DIY personal agent run from WhatsApp/Telegram; ~250K GitHub stars — and 2026’s security cautionary tale. Not for corporate use; its lessons come in Part 5.'],
   ];
   gallery.forEach((g, i) => {
     const x = 0.55 + (i % 2) * 6.2;
@@ -112,7 +112,7 @@ module.exports = function buildPartTwo(pres, H) {
       { text: g[3], options: { color: C.SLATE, fontSize: 9.3 } },
     ], { x: x + 0.8, y: y + 0.06, w: 5.0, h: 1.05, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.0 });
   });
-  s.addNotes('Claude Code appears twice in this training on purpose: it is the tool this deck’s own materials were built with, and the natural home of the agentic templates in Part 5. OpenClaw: created by Peter Steinberger; renamed Clawdbot → Moltbot → OpenClaw after trademark issues; the maintainer’s own warning — “if you can’t run a command line, this is far too dangerous to use safely” — plus CVEs, 135K exposed instances, and a malicious #1-ranked community skill (Cisco).');
+  s.addNotes('[REFRESH QUARTERLY — owner: Oscar] Claude Code appears twice in this training on purpose: it is the tool this deck’s own materials were built with, and the natural home of the agentic templates in Part 5. OpenClaw: created by Peter Steinberger; renamed Clawdbot → Moltbot → OpenClaw after trademark issues; the maintainer’s own warning — “if you can’t run a command line, this is far too dangerous to use safely” — plus CVEs, 135K exposed instances, and a malicious #1-ranked community skill (Cisco).');
 
   // ---------- 19. RIGHT TOOL FOR THE TASK ----------
   s = H.slide('PART 2 · RIGHT TOOL FOR THE TASK', 19);
@@ -137,7 +137,7 @@ module.exports = function buildPartTwo(pres, H) {
     { text: 'Standing rule: ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
     { text: 'your organization’s AI policy and approved-tool list outrank every cell of this table.', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { iconName: 'shield', iconFill: C.AMBER, size: 10.5 });
-  s.addNotes('This is the screenshot-and-keep slide. Walk two rows the audience cares most about (data analysis, presentations) and let the rest be reference. Reinforce the policy caveat verbally every time.');
+  s.addNotes('[REFRESH QUARTERLY — owner: Oscar] This is the screenshot-and-keep slide. Walk two rows the audience cares most about (data analysis, presentations) and let the rest be reference. Reinforce the policy caveat verbally every time.');
 
   // ---------- 20. FORTES NOT ABSOLUTES ----------
   s = H.slide('PART 2 · READING THE LEADERBOARDS', 20);
@@ -156,4 +156,21 @@ module.exports = function buildPartTwo(pres, H) {
     { text: 'keep three of your real tasks (one analysis, one document, one deck) as a private test set. When a new model ships, run them. Your test set beats every leaderboard for deciding what YOU should use.', options: { color: C.SLATE, fontSize: 12.5 } },
   ], { iconName: 'target', iconFill: C.SLATE, size: 12.5, line: C.LINE });
   s.addNotes('The private-test-set habit is the practical takeaway — it converts leaderboard anxiety into a 60-second routine. Sources for the caution: LMArena July 2026 re-baseline; SWE-bench Verified saturation reporting; Artificial Analysis clustering.');
+
+  // ---------- P2 REP (v1.1, skippable) ----------
+  s = H.slide('THREE-MINUTE REP · PART 2', 21);
+  H.title(s, 'Three-minute rep', 'Write down your private test set');
+  H.card(s, 0.55, 1.75, 7.4, 3.4, C.TEAL_TINT);
+  H.bullets(s, 0.9, 2.05, 6.6, 2.9, [
+    { t: 'Write down three of YOUR real tasks — one analysis, one document, one deck or tracker.', b: true },
+    { t: 'That list is your private benchmark: when a new model or tool ships, run the three tasks and judge for yourself.' },
+    { t: 'Keep it somewhere you will find it — it outlives every leaderboard on the previous slides.' },
+  ], { size: 13, gap: 10 });
+  H.card(s, 8.25, 1.75, 4.5, 3.4, C.PANEL);
+  s.addText([
+    { text: 'Why this matters', options: { bold: true, color: C.INK, fontSize: 12, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'Rankings re-shuffle monthly and top models cluster within a point. Your three tasks measure the only thing that matters: fit for YOUR work.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { x: 8.52, y: 1.95, w: 3.95, h: 3.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
+  s.addText('Skippable if running long — the habit is on the previous slide either way.', { x: 0.55, y: 5.45, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addNotes('Three minutes: everyone writes three tasks. No sharing needed — the artifact is personal. Skip freely if behind.');
 };

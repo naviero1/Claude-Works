@@ -2,6 +2,31 @@
 const { C, F } = require('./deck_lib');
 
 module.exports = function buildPartFour(pres, H) {
+  // ---------- SESSION 2 OPENER (v1.1) ----------
+  let s0 = H.slide('SESSION 2 · WHERE WE LEFT OFF', 33);
+  H.title(s0, 'Session 2', 'Sixty seconds of where we left off');
+  const rc = [
+    ['layers', 'The anatomy', 'Role · Task · Context · Format · Examples — plus the Out and the Stop. Every vendor teaches the same recipe.'],
+    ['zap', 'Seven techniques', 'specificity-with-why, examples, tags, the out, chaining, self-check, metaprompting.'],
+    ['shield', 'The evidence rules', 'numbers via code · citations or it didn’t happen · never reveal your preference when asking for judgment.'],
+    ['download', 'The take-home', 'eight templates + the Template Creator — the blind critique was homework; who ran it?'],
+  ];
+  rc.forEach((r, i) => {
+    const x = 0.55 + (i % 2) * 6.2;
+    const y = 1.7 + Math.floor(i / 2) * 1.6;
+    H.card(s0, x, y, 5.95, 1.45, C.PANEL);
+    H.iconCircle(s0, x + 0.2, y + 0.42, 0.55, r[0], C.TEAL);
+    s0.addText([
+      { text: r[1], options: { bold: true, color: C.INK, fontSize: 13, breakLine: true, paraSpaceAfter: 2 } },
+      { text: r[2], options: { color: C.SLATE, fontSize: 10.8 } },
+    ], { x: x + 0.9, y: y + 0.1, w: 4.9, h: 1.25, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.06 });
+  });
+  H.callout(s0, 0.55, 5.15, 12.2, 1.0, C.TEAL_TINT, [
+    { text: 'Today: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 13 } },
+    { text: 'the leap from asking to delegating — the mission brief, gates and guardrails — then how a team keeps its prompts as assets.', options: { color: C.SLATE, fontSize: 13 } },
+  ], { iconName: 'robot', iconFill: C.TEAL, size: 13 });
+  s0.addNotes('v1.1: session-2 opener. Ask who ran the blind critique from session 1 — one volunteer story beats any recap. Keep to 2 minutes total.');
+
   // ---------- 33. PART 5 DIVIDER ----------
   let s = H.slide(null, 33, { dark: true });
   s.addText('PART 5 · AGENTIC AI', { x: 0.55, y: 2.3, w: 12, h: 0.5, fontFace: F.body, fontSize: 16, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
@@ -30,7 +55,7 @@ module.exports = function buildPartFour(pres, H) {
     ['tool', 'Tools — the arms', 'files, shell, browsers, spreadsheets, email, code. The model requests; the harness executes.'],
     ['branch', 'MCP — the standard port', '“USB-C of AI”: one open protocol to plug tools into any agent. Linux Foundation-governed since Dec 2025; ~half a billion SDK downloads/month by mid-2026.'],
     ['memory', 'Memory = files', 'Context window is short-term memory; notes, logs, and git are long-term. Nothing survives a session unless written down.'],
-    ['shield', 'Guardrails', 'permissions, sandboxes, approval gates for consequential actions. The subject of slide 38.'],
+    ['shield', 'Guardrails', 'permissions, sandboxes, approval gates for consequential actions — covered later this part.'],
   ];
   blocks.forEach((b, i) => {
     const x = 0.55 + (i % 2) * 6.2;
@@ -65,6 +90,35 @@ module.exports = function buildPartFour(pres, H) {
     s.addText(r[2], { x: 7.35, y: y + 0.05, w: 5.2, h: 0.58, fontFace: F.body, fontSize: 9.6, color: i === 1 ? C.TEAL_DARK : C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
   });
   s.addNotes('This is the slide to slow down on. The agentic column is a superset: everything from Part 3 still applies — the additions exist because actions, unlike text, have consequences. The contractor analogy is our framing, but rests directly on OpenAI’s “on your behalf” definition and Anthropic’s guidance that specs name files, scope, and end-to-end verification.');
+
+  // ---------- INHERITANCE MAP (v1.1) ----------
+  s = H.slide('PART 5 · THE INHERITANCE MAP', 36);
+  H.title(s, 'The inheritance map', 'The agentic brief is the anatomy, grown up to survive autonomy');
+  const inh = [
+    ['Role', '<role>', 'persists across unsupervised decisions → behaviors only'],
+    ['Task', '<mission>', '+ a definition of done — the loop needs an exit condition'],
+    ['Context', '<context> + <inputs>', '+ a per-source register with grain & trust — agents touch every source repeatedly'],
+    ['Format', '<outputs> + <reporting>', '+ audit logs and a fixed status shape — actions must be traceable'],
+    ['Examples', 'the filled brief', 'a worked run is the agentic few-shot'],
+    ['The Out', 'UNKNOWN → open items', 'not-knowing becomes a logged, owned item'],
+    ['The Stop', 'gates + autonomy rules', 'scope control becomes checkpointed process'],
+    ['(new in kind)', '<environment> <plan> <checks> <rules> <quality_bar>', 'conduct, method, verification, invariants, completeness — text-only prompts never needed them'],
+  ];
+  s.addText('Generative element', { x: 0.75, y: 1.6, w: 2.2, h: 0.32, fontFace: F.body, fontSize: 11, bold: true, color: C.SLATE, margin: 0 });
+  s.addText('Agentic descendant', { x: 3.1, y: 1.6, w: 3.4, h: 0.32, fontFace: F.body, fontSize: 11, bold: true, color: C.TEAL_DARK, margin: 0 });
+  s.addText('What was added — and why', { x: 6.7, y: 1.6, w: 5.5, h: 0.32, fontFace: F.body, fontSize: 11, bold: true, color: C.INK, margin: 0 });
+  inh.forEach((r, i) => {
+    const y = 1.98 + i * 0.56;
+    H.card(s, 0.55, y, 12.2, 0.48, i % 2 ? 'FFFFFF' : C.PANEL, i % 2 ? C.LINE : null);
+    s.addText(r[0], { x: 0.75, y: y + 0.03, w: 2.2, h: 0.42, fontFace: F.body, fontSize: 10.5, bold: true, color: C.INK, margin: 0, valign: 'middle' });
+    s.addText(r[1], { x: 3.1, y: y + 0.03, w: 3.45, h: 0.42, fontFace: 'Consolas', fontSize: 9.5, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+    s.addText(r[2], { x: 6.7, y: y + 0.03, w: 5.85, h: 0.42, fontFace: F.body, fontSize: 9.5, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
+  });
+  H.callout(s, 0.55, 6.6, 12.2, 0.52, C.AMBER_TINT, [
+    { text: 'Why the superset exists: ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
+    { text: 'text that fails costs a re-prompt; actions that fail change the world. The new blocks govern conduct.', options: { color: C.SLATE, fontSize: 10.5 } },
+  ], { iconName: 'branch', iconFill: C.AMBER, size: 10.5 });
+  s.addNotes('v1.1 addition — the deepest idea in the training, promoted from the handout. Read two rows aloud (Task→mission, The Stop→gates); the pattern lands. Then the twelve blocks on the next slide are inevitable rather than arbitrary.');
 
   // ---------- 36. MISSION BRIEF ----------
   s = H.slide('PART 5 · THE MISSION BRIEF', 36);
@@ -172,6 +226,23 @@ module.exports = function buildPartFour(pres, H) {
   ], { size: 11.5, gap: 7 });
   s.addNotes('This is where agentic prompting pays compound interest: recurring reports, cycles, reviews become ten-line prompts against a versioned standing brief. AGENTS.md is the cross-vendor equivalent (60k+ open-source projects use it; governed by the Linux Foundation’s Agentic AI Foundation). Bridge to Part 6: the standing brief IS a managed prompt — so let’s talk management.');
 
+  // ---------- P5 REP (v1.1, skippable) ----------
+  s = H.slide('THREE-MINUTE REP · PART 5', 40);
+  H.title(s, 'Three-minute rep', 'Write one gate');
+  H.card(s, 0.55, 1.75, 7.4, 3.4, C.TEAL_TINT);
+  H.bullets(s, 0.9, 2.05, 6.6, 2.9, [
+    { t: 'Think of one job you would delegate to an agent — a recurring report, a folder to process.', b: true },
+    { t: 'Write its GATE 1 line: what must you confirm before it touches anything?' },
+    { t: 'Write one HARD check: an equality the agent can actually evaluate, anchored to a number you already trust.' },
+  ], { size: 13, gap: 10 });
+  H.card(s, 8.25, 1.75, 4.5, 3.4, C.PANEL);
+  s.addText([
+    { text: 'Shape to aim for (presenter)', options: { bold: true, color: C.INK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 5 } },
+    { text: '“GATE 1: restate the metric definitions and the file layout; wait for my OK.”\n\n“HARD: computed totals must equal last cycle’s published total exactly.”', options: { color: C.SLATE, fontSize: 11, italic: true } },
+  ], { x: 8.52, y: 1.95, w: 3.95, h: 3.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
+  s.addText('Skippable if running long — the A1 template carries the full scaffold.', { x: 0.55, y: 5.45, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addNotes('Three minutes. Where the gate or check feels hard to write is where their process was fuzzy all along — say that out loud.');
+
   // ---------- 40. PART 6 DIVIDER ----------
   s = H.slide(null, 40, { dark: true });
   s.addText('PART 6 · PROMPT MANAGEMENT', { x: 0.55, y: 2.3, w: 12, h: 0.5, fontFace: F.body, fontSize: 16, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
@@ -251,4 +322,16 @@ module.exports = function buildPartFour(pres, H) {
     { text: 'Prompt-tooling startups get acquired and shut down yearly. Version it, test it, own it — that discipline outlives every platform.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 7.05, y: 5.13, w: 5.45, h: 1.4, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.1 });
   s.addNotes('The governance card matters most in this room: prompts are documents. The {{placeholder}} rule is doing double duty — reuse AND keeping sensitive values out of stored text. Market-churn example if asked: Humanloop (early leader) shut down Sept 2025 when Anthropic hired the team; the practice survived the product.');
+
+  // ---------- P6 REP (v1.1, skippable) ----------
+  s = H.slide('THREE-MINUTE REP · PART 6', 45);
+  H.title(s, 'Three-minute rep', 'Pick your rung, pick your prompt');
+  H.card(s, 0.55, 1.75, 12.2, 3.2, C.TEAL_TINT);
+  H.bullets(s, 0.9, 2.1, 11.4, 2.6, [
+    { t: 'Which rung of the ladder are you on today — one-off typing, personal doc, team library, packaged, as-code?', b: true },
+    { t: 'Name the ONE prompt you already reuse from memory. That is your first library entry.' },
+    { t: 'Write where it will live and its v1.0 line — you have just started your prompt library.' },
+  ], { size: 13.5, gap: 11 });
+  s.addText('This one is not skippable — it is the whole training cashing out.', { x: 0.55, y: 5.3, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.AMBER, margin: 0 });
+  s.addNotes('Final rep — protect these three minutes even if everything else ran long. A named prompt with a home and a version number is the behavior change the training exists for.');
 };

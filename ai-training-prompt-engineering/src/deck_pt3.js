@@ -41,6 +41,57 @@ module.exports = function buildPartThree(pres, H) {
   ], { iconName: 'edit', iconFill: C.TEAL, size: 12 });
   s.addNotes('The frameworks are near-identical: Google calls it Persona-Task-Context-Format; Microsoft Goal-Context-Source-Expectations; Anthropic and OpenAI teach the same elements. The 21-words stat is from Google’s Oct 2024 Workspace guide (dropped in the newer edition — teach as directional, not gospel). Anthropic’s golden rule belongs in the room: show your prompt to a colleague with minimal context — if they’d be confused, the model will be too. Continuity hook: our own library teaches the same skeleton — the internal crash course’s “5 building blocks” (Role, Context, Task, Format, Tone) and CRISP checklist, and Phoenix & Taylor’s Five Principles (Give Direction, Specify Format, Provide Examples, Evaluate Quality, Divide Labor). One anatomy, many aliases.');
 
+  // ---------- E1. THE FIVE ELEMENTS, DEFINED (v1.1) ----------
+  s = H.slide('PART 3 · THE ELEMENTS', 23);
+  H.title(s, 'The elements, defined', 'Five slots — each with a job, a mechanism, and a failure it prevents');
+  const edefs = [
+    ['Role', 'who is answering — behaviors, not titles', '“You are a senior analyst.”', '“You never invent numbers; you state n; you say what the data can’t answer.”'],
+    ['Task', 'verb + object + audience + success criterion', '“Analyze the returns data.”', '“What is the return rate by site for Q2 vs the 2% target?”'],
+    ['Context', 'what the model cannot know — material, glossary, quirks, the why', '“Use our standard definitions.”', '“Return rate = returns ÷ shipped. Quirk: the export has a totals row — exclude it and say so.”'],
+    ['Format', 'the output contract — shape, numeric cap, tone', '“Keep it short and professional.”', '“≤ 120 words: the ask in sentence one, two facts with numbers, the deadline.”'],
+    ['Examples', '3–5 diverse demonstrations, edge case included', 'three clones of the happy case', 'one typical + one edge + one reject case, fenced in tags'],
+  ];
+  edefs.forEach((r, i) => {
+    const y = 1.62 + i * 1.0;
+    H.card(s, 0.55, y, 12.2, 0.9, i % 2 ? 'FFFFFF' : C.PANEL, i % 2 ? C.LINE : null);
+    s.addText(r[0], { x: 0.78, y: y + 0.08, w: 1.35, h: 0.74, fontFace: F.head, fontSize: 14, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+    s.addText(r[1], { x: 2.2, y: y + 0.07, w: 3.6, h: 0.76, fontFace: F.body, fontSize: 10, color: C.INK, margin: 0, valign: 'middle', lineSpacingMultiple: 1.02 });
+    s.addText([{ text: 'weak  ', options: { bold: true, color: C.RED, fontSize: 8.5 } }, { text: r[2], options: { color: C.SLATE, fontSize: 9 } }], { x: 5.95, y: y + 0.07, w: 3.1, h: 0.76, fontFace: F.body, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
+    s.addText([{ text: 'strong  ', options: { bold: true, color: C.GREEN, fontSize: 8.5 } }, { text: r[3], options: { color: C.SLATE, fontSize: 9 } }], { x: 9.15, y: y + 0.07, w: 3.4, h: 0.76, fontFace: F.body, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
+  });
+  s.addText('The full field guide — mechanism, evidence, and pitfalls per element — is in your handout (ELEMENTS guide).', { x: 0.55, y: 6.68, w: 12.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addNotes('v1.1 addition. One row at a time: name the element, read weak vs strong aloud — the contrast teaches faster than the definition. Role: behaviors are auditable, titles aren’t. Task: a question carries its own completion test. Context: unstated quirks become invented fixes. Format: numeric caps are enforceable, adjectives aren’t. Examples: the model handles edge cases exactly as yours do.');
+
+  // ---------- E2. SAFETY VALVES + DIAGNOSIS GRID (v1.1) ----------
+  s = H.slide('PART 3 · THE ELEMENTS', 24);
+  H.title(s, 'Two safety valves — and the diagnosis grid', 'One sentence each; they shut off the two signature failures');
+  H.card(s, 0.55, 1.65, 5.9, 2.35, C.TEAL_TINT);
+  H.iconCircle(s, 0.85, 1.9, 0.5, 'help', C.TEAL);
+  s.addText('THE OUT — permission to not know', { x: 1.5, y: 1.95, w: 4.8, h: 0.4, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  s.addText('“If the document doesn’t say — say so.” Models are trained on tests that reward guessing over abstaining; the Out re-opens the abstain option and drastically cuts invented answers.', { x: 0.9, y: 2.45, w: 5.3, h: 1.4, fontFace: F.body, fontSize: 11.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.12 });
+  H.card(s, 0.55, 4.25, 5.9, 2.35, C.TEAL_TINT);
+  H.iconCircle(s, 0.85, 4.5, 0.5, 'hand', C.TEAL);
+  s.addText('THE STOP — the scope boundary', { x: 1.5, y: 4.55, w: 4.8, h: 0.4, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  s.addText('“Answer these three questions, then stop — do not go exploring.” Converts open-ended capability into bounded work. In Part 5 it grows up to become gates and autonomy rules.', { x: 0.9, y: 5.05, w: 5.3, h: 1.4, fontFace: F.body, fontSize: 11.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.12 });
+  H.card(s, 6.75, 1.65, 6.0, 4.95, C.PANEL);
+  s.addText('The diagnosis grid — which element failed?', { x: 7.02, y: 1.86, w: 5.5, h: 0.4, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  const grid = [
+    ['wrong altitude, tone, or posture', 'Role'],
+    ['answers a different (or vaguer) question', 'Task'],
+    ['generically right, specifically wrong for us', 'Context'],
+    ['right content, unusable shape or length', 'Format'],
+    ['doesn’t match the standard in your head', 'Examples'],
+    ['confidently invented', 'The Out (missing)'],
+    ['sprawls past what you asked', 'The Stop (missing)'],
+  ];
+  grid.forEach((g, i) => {
+    const y = 2.4 + i * 0.58;
+    s.addText(g[0], { x: 7.05, y, w: 3.7, h: 0.5, fontFace: F.body, fontSize: 10.3, color: C.SLATE, margin: 0, valign: 'middle' });
+    s.addText(g[1], { x: 10.85, y, w: 1.75, h: 0.5, fontFace: F.body, fontSize: 10.3, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+    if (i < 6) s.addShape('line', { x: 7.05, y: y + 0.53, w: 5.45, h: 0, line: { color: C.LINE, width: 0.5 } });
+  });
+  s.addNotes('v1.1 addition. The grid is the practical payoff of the element model: when output disappoints, don’t reword at random — name the failed element and fix that one. This turns iteration from retyping into diagnosis. Same grid opens the ELEMENTS handout.');
+
   // ---------- 23. SEVEN TECHNIQUES ----------
   s = H.slide('PART 3 · TECHNIQUES', 23);
   H.title(s, 'The toolkit', 'Seven techniques cover almost everything');
@@ -65,7 +116,7 @@ module.exports = function buildPartThree(pres, H) {
   });
   H.callout(s, 6.75, 5.5, 6.0, 1.15, C.AMBER_TINT, [
     { text: 'Where’s “think step by step”? ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
-    { text: 'Retired to the bench — today’s models reason by default. The 2026 version is slide 25.', options: { color: C.SLATE, fontSize: 11.5 } },
+    { text: 'Retired to the bench — today’s models reason by default. The 2026 version comes two slides ahead.', options: { color: C.SLATE, fontSize: 11.5 } },
   ], { iconName: 'clock', iconFill: C.AMBER, size: 11.5 });
   s.addNotes('Each technique traces to vendor docs and research: examples = Brown et al. 2020 few-shot; the out = Anthropic hallucination guidance; chaining = Anthropic 2026 (“still useful when you need to inspect intermediate outputs”); self-check needs concrete criteria (self-correction research shows “are you sure?” can make answers worse). Metaprompting is now productized: OpenAI Prompt Optimizer, Anthropic prompt improver, Google “Make this a power prompt.”');
 
@@ -152,6 +203,24 @@ module.exports = function buildPartThree(pres, H) {
   ], { iconName: 'target', iconFill: C.AMBER, size: 12.5 });
   s.addNotes('The diagnose-by-element trick makes iteration systematic instead of random retyping. Metaprompting demo idea (live): paste a mediocre prompt, ask the assistant to critique and rewrite it, run both, compare. Bridge: Part 4 is the library of already-iterated templates.');
 
+  // ---------- P3 REP (v1.1, skippable) ----------
+  s = H.slide('THREE-MINUTE REP · PART 3', 27);
+  H.title(s, 'Three-minute rep', 'Rebuild one line');
+  H.card(s, 0.55, 1.75, 7.4, 3.4, C.PANEL);
+  s.addText('Everyone starts from the same line:', { x: 0.85, y: 2.0, w: 6.6, h: 0.35, fontFace: F.body, fontSize: 12, bold: true, color: C.SLATE, margin: 0 });
+  s.addText('“Summarize this report.”', { x: 0.85, y: 2.42, w: 6.7, h: 0.5, fontFace: 'Consolas', fontSize: 16, color: C.TEAL_DARK, margin: 0 });
+  H.bullets(s, 0.9, 3.1, 6.6, 1.9, [
+    'Three minutes: add a Role, an audience, a numeric cap, and an Out.',
+    'Compare with a neighbor — whose version would produce the more useful summary, and why?',
+  ], { size: 12.5, gap: 8 });
+  H.card(s, 8.25, 1.75, 4.5, 3.4, C.AMBER_TINT);
+  s.addText([
+    { text: 'One strong answer (presenter)', options: { bold: true, color: C.AMBER, fontSize: 11.5, breakLine: true, paraSpaceAfter: 5 } },
+    { text: '“You are a precise editor. Summarize the attached report for a cross-functional partner in ≤ 150 words: the three things they must know, what changed, and what it does NOT cover. If the report doesn’t say, say so.”', options: { color: C.SLATE, fontSize: 10.8, italic: true } },
+  ], { x: 8.52, y: 1.95, w: 3.95, h: 3.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
+  s.addText('Skippable if running long.', { x: 0.55, y: 5.45, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addNotes('Three minutes. The neighbor-compare is the learning moment — different fills, same anatomy. Skip freely if behind.');
+
   // ---------- 27. PART 4 DIVIDER ----------
   s = H.slide(null, 27, { dark: true });
   s.addText('PART 4 · THE PLAYBOOK', { x: 0.55, y: 2.1, w: 12, h: 0.5, fontFace: F.body, fontSize: 16, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
@@ -185,105 +254,83 @@ module.exports = function buildPartThree(pres, H) {
   s.addText('block · what goes in it · why it’s there', { x: 0.55, y: 6.68, w: 8, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes('Walk one row at a time; the right column is the teaching. Evidence for code-not-vibes: GPT-4 scored ~59% on 3-digit x 3-digit multiplication, falling toward zero as digits grow (Faith and Fate, NeurIPS 2023) — code execution hands the model a calculator. All four major tools now run code for analysis. This anatomy generalizes: every template is blocks + reasons. For recurring or multi-file pipelines, the agentic sibling is A2 (Part 5).');
 
-  // ---------- 29. WRITING & DOCUMENTS ----------
-  s = H.slide('PART 4 · WRITING & DOCUMENTS', 29);
-  H.title(s, 'Templates G1 + G8', 'Writing and long documents: edit beats draft');
-  H.card(s, 0.55, 1.65, 6.0, 4.95, C.PANEL);
-  s.addText('G1 · Writing & editing', { x: 0.85, y: 1.88, w: 5.3, h: 0.4, fontFace: F.head, fontSize: 15, bold: true, color: C.TEAL_DARK, margin: 0 });
-  H.bullets(s, 0.9, 2.4, 5.4, 4.0, [
-    { t: 'Most workplace writing requests are edits of text you supply — feed raw material, don’t ask for blank-page magic', b: true },
-    'Frame the job of the message: “the reader should know / decide / do X” — a success criterion, not a topic',
-    'Hard length caps (“≤ 120 words — cut content before quality”): uncapped AI runs 2–3× too long',
-    '“Do not add facts beyond the material” — the highest-value line in the template',
-    'Voice: build a STYLE CARD once from 2–3 writing samples; reuse it forever',
-    'Edit mode returns a change list — you accept or reject each change, so you stay the author',
-  ], { size: 11.5, gap: 7 });
-  H.card(s, 6.75, 1.65, 6.0, 4.95, C.PANEL);
-  s.addText('G8 · Summarize & compare', { x: 7.05, y: 1.88, w: 5.3, h: 0.4, fontFace: F.head, fontSize: 15, bold: true, color: C.TEAL_DARK, margin: 0 });
-  H.bullets(s, 7.1, 2.4, 5.4, 4.0, [
-    'Summaries serve a decision: “for [audience] who must [decide X]” — otherwise the model keeps the wrong 10%',
-    { t: 'Always ask: “what does this document NOT cover that the reader will assume it does?” — kills the completeness illusion', b: true },
-    'Verbatim quotes with location for anything contractual, regulatory, or numeric — paraphrase is where obligations drift',
-    'Version compare: substantive diffs in a table, conflicts flagged, both sides quoted',
-    'Meeting notes → action table with owner, due date, and the source sentence; unassigned stays UNASSIGNED',
-  ], { size: 11.5, gap: 7 });
-  s.addNotes('The edits-beat-drafts point is backed by OpenAI/NBER usage data: writing ≈ 40% of work messages, and about two-thirds of those are edits of user text, not new drafting. Length caps and the no-new-facts rule address the two most common AI-writing complaints.');
-
-  // ---------- 30. EVALUATIONS ----------
-  s = H.slide('PART 4 · EVALUATIONS', 30);
-  H.title(s, 'Template G3', 'AI as reviewer: rubric first, judgment second — yours last');
-  const evals = [
-    ['list', 'Rubric grading', 'Anchored 1–5 scale per criterion · “quotes as evidence” · “not addressed = 1, no credit for what you assume” · then: gaps + the questions to ask the author.'],
-    ['scale', 'Pairwise comparison', 'Score each option independently first, then head-to-head per criterion. Substance over polish, explicitly — and re-check imagining reverse reading order.'],
-    ['shield', 'Critique my work', 'Steelman the opposite position · three weakest points · “what evidence would prove this wrong?” · overall read only at the end. Never say which option you prefer.'],
+  // ---------- DEMO 1 · BLIND CRITIQUE (v1.1) ----------
+  s = H.slide('PART 4 · LIVE DEMO 1', 29);
+  H.title(s, 'Live demo · the blind critique (G3)', 'Watch sycophancy die in real time');
+  const d1 = [
+    ['1 · Set up', 'Open a fresh chat. Paste a real (or prepared) draft — a plan, a memo — introduced as “a colleague’s draft.” Do not hint at your view.'],
+    ['2 · Run G3', 'Ask for: the strongest case AGAINST · the three weakest points and how a critic attacks each · what evidence would prove it wrong · overall read only at the end.'],
+    ['3 · The contrast', 'Now ask the naive way in a second chat: “I wrote this — what do you think?” Compare the two answers side by side.'],
   ];
-  evals.forEach((e, i) => {
-    const y = 1.65 + i * 1.55;
-    H.card(s, 0.55, y, 7.5, 1.4, C.PANEL);
-    H.iconCircle(s, 0.82, y + 0.4, 0.55, e[0], C.TEAL);
+  d1.forEach((d, i) => {
+    const y = 1.7 + i * 1.35;
+    H.card(s, 0.55, y, 7.6, 1.2, C.PANEL);
     s.addText([
-      { text: e[1], options: { bold: true, color: C.INK, fontSize: 13.5, breakLine: true, paraSpaceAfter: 3 } },
-      { text: e[2], options: { color: C.SLATE, fontSize: 10.8 } },
-    ], { x: 1.6, y: y + 0.1, w: 6.25, h: 1.2, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.06 });
+      { text: d[0] + '  ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 2 } },
+      { text: d[1], options: { color: C.SLATE, fontSize: 10.8 } },
+    ], { x: 0.82, y: y + 0.08, w: 7.05, h: 1.04, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
   });
-  H.card(s, 8.35, 1.65, 4.4, 4.65, C.AMBER_TINT);
-  s.addText('Judge biases to design around', { x: 8.62, y: 1.88, w: 3.9, h: 0.4, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
-  H.bullets(s, 8.65, 2.38, 3.85, 3.8, [
-    { t: 'Position bias — favors the first/last option read' },
-    { t: 'Verbosity bias — longer reads as better' },
-    { t: 'Self-preference — models rate their own style highly' },
-    { t: 'Sycophancy — mirrors any preference you leak' },
-    { t: 'Countered by: rubrics, quotes-as-evidence, independent-then-compare, blind authorship, two runs', b: true },
-  ], { size: 11, gap: 7 });
-  H.callout(s, 0.55, 6.45, 12.2, 0.62, C.RED_TINT, [
-    { text: 'Boundary: ', options: { bold: true, color: C.RED, fontSize: 11.5 } },
-    { text: 'consequential calls — people, money, compliance — get a human owner. AI narrows the field and sharpens questions; it doesn’t sign.', options: { color: C.SLATE, fontSize: 11.5 } },
-  ], { iconName: 'hand', iconFill: C.RED, size: 11.5 });
-  s.addNotes('LLM-as-judge research: GPT-4-class judges reached >80% agreement with human preferences — the same as human-human agreement (Zheng et al., MT-Bench, NeurIPS 2023); biases (position, verbosity, self-preference) are from the same paper. 2026 caution: a judge can be highly repeatable and still biased — a consistent judge is not necessarily a fair judge. G3 mitigates mechanically: rubric anchors, quotes as evidence, independent-then-compare, blinding. Use cases in the room: supplier proposals, SOP drafts, report QC. Screening inspection, not final release.');
+  H.card(s, 8.45, 1.7, 4.3, 3.95, C.AMBER_TINT);
+  s.addText([
+    { text: 'What the room should notice', options: { bold: true, color: C.AMBER, fontSize: 12, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'The blind version finds real weaknesses; the “I wrote this” version compliments first and softens everything. Same model, same draft — the only change is what you revealed.\n\nThe science: models affirm users ~49% more than humans do. Blinding is the fix you can do today.', options: { color: C.SLATE, fontSize: 10.8 } },
+  ], { x: 8.7, y: 1.9, w: 3.8, h: 3.6, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.1 });
+  H.callout(s, 0.55, 5.85, 12.2, 0.75, C.TEAL_TINT, [
+    { text: 'This is the Part 4 rep: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
+    { text: 'everyone runs the blind critique on something of their own before session 2.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { iconName: 'zap', iconFill: C.TEAL, size: 11.5 });
+  s.addNotes('v1.1: replaces the catalog slides. Prepare a safe demo draft in advance (generic plan with 2–3 planted weaknesses). Budget 6–8 minutes. The side-by-side moment is the punchline — let the room read both answers in silence for 20 seconds before speaking.');
 
-  // ---------- 31. SPREADSHEETS & DECKS ----------
-  s = H.slide('PART 4 · FILES THAT DO WORK', 31);
-  H.title(s, 'Templates G4 + G5', 'Spreadsheets and decks: specify like an engineer');
-  H.card(s, 0.55, 1.65, 6.0, 4.95, C.PANEL);
-  s.addText('G4 · Spreadsheets', { x: 0.85, y: 1.88, w: 5.3, h: 0.4, fontFace: F.head, fontSize: 15, bold: true, color: C.TEAL_DARK, margin: 0 });
-  H.bullets(s, 0.9, 2.4, 5.4, 4.0, [
-    { t: 'Name exact columns (“C = Ship Date, F = Qty”) — the single highest-leverage habit; it’s Microsoft’s own #1 tip', b: true },
-    'Every workbook ships a README tab: sources, as-of date, metric definitions, assumptions, change log',
-    'Formulas, not pasted values — the file must survive a data update',
-    'Cleaning: values unchanged, every rule logged with rows affected, oddities listed for review — never silently “fixed”',
-    'Formula help: explained piece by piece before insertion + a 3-row hand check',
-  ], { size: 11.5, gap: 7 });
-  H.card(s, 6.75, 1.65, 6.0, 4.95, C.PANEL);
-  s.addText('G5 · Presentations', { x: 7.05, y: 1.88, w: 5.3, h: 0.4, fontFace: F.head, fontSize: 15, bold: true, color: C.TEAL_DARK, margin: 0 });
-  H.bullets(s, 7.1, 2.4, 5.4, 4.0, [
-    'Flow: content → outline → approval → deck. Never “make me a presentation about X”',
-    { t: 'Titles state findings with the number (“Scrap fell 40% after the fixture change”), never topics (“Scrap update”)', b: true },
-    'Audience + minutes-of-their-time in the prompt sets the altitude',
-    'Gate: titles + bullets as plain text for approval BEFORE rendering — re-rendering is cheap, re-thinking a circulated deck is not',
-    'Speaker notes + source/as-of footer on every data slide',
-  ], { size: 11.5, gap: 7 });
-  s.addNotes('Both templates encode the same philosophy: specification beats hope. Message titles are evidence-backed: assertion-evidence slides (sentence headline + visual evidence) measurably beat topic-title + bullets for comprehension and recall (Penn State, Alley et al., p<.01). Trust calibration for sheets: Microsoft itself reports Excel Agent Mode at 57.2% vs a ~71% human baseline on real spreadsheet tasks — a strong intern, not a signed-off spreadsheet. The text-before-render gate bridges to agentic gates in Part 5.');
+  // ---------- DEMO 2 · DASHBOARD FROM A PASTE (v1.1) ----------
+  s = H.slide('PART 4 · LIVE DEMO 2', 30);
+  H.title(s, 'Live demo · a dashboard from a paste (G6)', 'One prompt, one file, working software');
+  const d2 = [
+    ['1 · The data', 'Paste a small generic table (20–30 rows: period, category, count — prepared in advance, nothing internal).'],
+    ['2 · Run G6', 'Ask for: a SINGLE-FILE interactive HTML dashboard — KPI tiles, one filterable chart, a sortable table; data embedded; works offline from disk; formulas visible.'],
+    ['3 · Open it', 'Download the file, double-click it, filter something, sort something. No install, no server, no login.'],
+  ];
+  d2.forEach((d, i) => {
+    const y = 1.7 + i * 1.35;
+    H.card(s, 0.55, y, 7.6, 1.2, C.PANEL);
+    s.addText([
+      { text: d[0] + '  ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 2 } },
+      { text: d[1], options: { color: C.SLATE, fontSize: 10.8 } },
+    ], { x: 0.82, y: y + 0.08, w: 7.05, h: 1.04, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
+  });
+  H.card(s, 8.45, 1.7, 4.3, 3.95, C.AMBER_TINT);
+  s.addText([
+    { text: 'What the room should notice', options: { bold: true, color: C.AMBER, fontSize: 12, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'The deliverable is a tool, not a text. The spec lines that made it trustworthy: single file · offline · data embedded · nothing hard-coded · formulas on screen.\n\nCaveats to say out loud: it is a snapshot, not a live system — and share the FILE, not a public link.', options: { color: C.SLATE, fontSize: 10.8 } },
+  ], { x: 8.7, y: 1.9, w: 3.8, h: 3.6, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.1 });
+  s.addNotes('v1.1: second demo. Pre-stage the data table and the G6 prompt in a text file so the demo is paste-paste-run. If generation runs long, have a pre-built copy of the dashboard ready to open — narrate the prompt while it loads. Budget 6–8 minutes.');
 
-  // ---------- 32. HTML + RESEARCH ----------
-  s = H.slide('PART 4 · BEYOND OFFICE FILES', 32);
-  H.title(s, 'Templates G6 + G7', 'Interactive HTML — and research that cites its sources');
-  H.card(s, 0.55, 1.65, 6.0, 4.95, C.TEAL_TINT);
-  s.addText('G6 · Interactive HTML', { x: 0.85, y: 1.88, w: 5.3, h: 0.4, fontFace: F.head, fontSize: 15, bold: true, color: C.TEAL_DARK, margin: 0 });
-  H.bullets(s, 0.9, 2.4, 5.4, 4.0, [
-    { t: 'When the audience will explore — filter, sort, what-if — one HTML file beats a deck or spreadsheet', b: true },
-    'Ask for: single file, data embedded, works offline from disk on a locked-down laptop — email it or drop it on SharePoint',
-    'Shapes: KPI dashboard with filters · what-if calculator (formulas shown on screen, auditable) · searchable team tracker / reference',
-    'All numbers computed from embedded data — no hard-coded results you can’t trace',
-    'Treat the file like the data inside it: same confidentiality class · give it an owner + as-of banner, or it goes stale-but-credible',
-  ], { size: 11.5, gap: 7 });
-  H.card(s, 6.75, 1.65, 6.0, 4.95, C.PANEL);
-  s.addText('G7 · Research briefs', { x: 7.05, y: 1.88, w: 5.3, h: 0.4, fontFace: F.head, fontSize: 15, bold: true, color: C.TEAL_DARK, margin: 0 });
-  H.bullets(s, 7.1, 2.4, 5.4, 4.0, [
-    'A research question, not a topic — plus the decision it feeds',
-    'Use tools that actually search and cite; never trust from-memory citations',
-    { t: 'Every bullet ends with a link and a date; no link → labeled “unsourced — verify”', b: true },
-    'Demand the gaps section: “what the sources do NOT establish” — where honesty lives',
-    'Spot-check 2–3 load-bearing links before you forward; for big calls, run the question in a second tool and mind the disagreements',
-  ], { size: 11.5, gap: 7 });
-  s.addNotes('G6 is the sleeper hit for engineers: a self-contained dashboard or calculator colleagues can open anywhere, no install, no server, auditable formulas. The constraint “single file, offline” is what makes it safe and shareable. G7 formalizes the verification habit for research outputs.');
+  // ---------- PLAYBOOK HANDOUT POINTER (v1.1) ----------
+  s = H.slide('PART 4 · THE PLAYBOOK', 31);
+  H.title(s, 'The full playbook travels with you', 'Eight generative templates — copy, fill, run');
+  const pb = [
+    ['G1 · Writing & editing', 'raw material in, hard word cap, “add no facts” — edit beats draft'],
+    ['G2 · Data analysis', 'exact columns, code-not-vibes, reconcile to a known total, then stop'],
+    ['G3 · Evaluations', 'anchored rubric, quotes as evidence, blind critique — you just watched it'],
+    ['G4 · Spreadsheets', 'README tab, formulas not values, cleaning with a logged rule per change'],
+    ['G5 · Presentations', 'titles state findings with numbers; approve text before rendering'],
+    ['G6 · Interactive HTML', 'single file, offline, auditable — you just watched it'],
+    ['G7 · Research briefs', 'a question not a topic; every bullet gets a link + date; demand the gaps'],
+    ['G8 · Documents', 'summaries serve a decision; verbatim quotes for anything load-bearing'],
+  ];
+  pb.forEach((p, i) => {
+    const x = 0.55 + (i % 2) * 6.2;
+    const y = 1.65 + Math.floor(i / 2) * 1.14;
+    H.card(s, x, y, 5.95, 1.0, C.PANEL);
+    s.addText([
+      { text: p[0], options: { bold: true, color: C.TEAL_DARK, fontSize: 12, breakLine: true, paraSpaceAfter: 2 } },
+      { text: p[1], options: { color: C.SLATE, fontSize: 10 } },
+    ], { x: x + 0.24, y: y + 0.08, w: 5.5, h: 0.86, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.02 });
+  });
+  H.callout(s, 0.55, 6.35, 12.2, 0.65, C.TEAL_TINT, [
+    { text: 'Where they live: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
+    { text: 'prompt-library/ in the repo — each with a filled example and pitfalls — plus the interactive Template Creator that assembles any of them from menus.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { iconName: 'download', iconFill: C.TEAL, size: 11.5 });
+  s.addNotes('v1.1: the catalog is now a handout pointer, not four lecture slides. Walk it in 60 seconds: two templates they just saw demoed, six more that work the same way. Session 1 ends here.');
+
+  // ---------- P3 REP note: runs inside session 1 wrap if time allows ----------
 };
