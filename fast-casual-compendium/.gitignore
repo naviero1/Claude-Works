@@ -4,3 +4,6 @@ package-lock.json
 preview.html
 *.png
 shot*.js
+doc.txt
+absent_raw.txt
+widen_notes.json
