@@ -119,7 +119,7 @@ Sorted by health score. The last column is health points per dollar, which is th
 
 #### One place the cheap answer is not the good one
  
-The 8 meat-free dishes here run $0.78 per gram of protein against $0.45 for everything else — 1.7 times as much — on a median 25 g of protein against 42, and they score lower on health too, 5.35 against 6.14. That is a fact about these menus rather than about vegetarian eating: the meat-free options on this list are mostly starch-and-stew formats sold at entrée prices, not protein-forward builds. The one exception is the cheapest dish in the section below, which gets 20 g of its protein from lentils.
+The 8 meat-free dishes here run $0.78 per gram of protein against $0.45 for everything else — 1.7 times as much — on a median 25 g of protein against 42, and they score lower on health too, 5.35 against 6.14. They also cost sodium: of the 17 vegetarian swaps offered across the set, 15 raise sodium per gram of protein against the meat build they replace, by a median of +19.5 mg/g — Chipotle's sofritas goes from 24 to 65. That is a fact about these menus rather than about vegetarian eating: the meat-free options here are mostly starch-and-stew formats sold at entrée prices, not protein-forward builds. The exception is the cheapest dish in the section below, which gets 20 g of its protein from lentils at 4 mg of sodium.
  
 
  
@@ -238,6 +238,20 @@ Single components, each read off the restaurant's own published nutrition docume
 
  
 
+### The same grilled chicken, four chains, one app
+ 
+Same cut, same cooking method, all four figures published by the chains themselves. The spread is 11 ×.
+ 
+| Chain | Protein | Sodium mg | Mg per gram of protein | 
+| Poke Bros. | 29 g | 63 | 2.17 | 
+| DICED | 26 g | 69 | 2.65 | 
+| Chipotle | 32 g | 310 | 9.69 | 
+| CAVA | 28 g | 670 | 23.93 | 
+ 
+Nothing about the chicken differs. Brine, marinade and holding liquid set the number, and none of it appears on a menu.
+
+ 
+
 ### The biggest sodium saving available in one swap
  
 Changing one thing about an order at the same restaurant. The last column is what the swap does to the dish's overall score, so a positive number means the lower-sodium order is also the better one.
@@ -309,6 +323,30 @@ So flavor in this set is bought mainly with salt, not with fat, and the first ed
  
 Salt is what flavor costs. It is not the only way a cuisine loses the health column. Korean, Sichuan and Vietnamese kitchens sit high on flavor and low on health entirely on sodium — their saturated fat is unremarkable. Caribbean and Mexican kitchens lose it a different way, on 11.0 g and 10.7 g of saturated fat against a set median near 5.0, and they do not get leading flavor scores in exchange. Those are the two failure modes, and only one of them buys you anything.
  
+
+ 
+
+### The market rate for a flavor point
+ 
+Regress flavor on sodium across all 60 dishes and the exchange rate is 665 mg per point (r = +0.53). That is the going price of taste on this list. 14 dishes beat it by more than a full point — and 12 of those 14 are grilled. This is the first edition's thesis, stated as a number rather than an assertion: char, acid and aromatics are how a kitchen buys flavor without paying in salt.
+ 
+| Beating the going rate | Flavor | Sodium mg | Points over the rate | Price | 
+| Taste Vietnamese — Sizzling fish with vermicelli and herbs | 9.6 | 1,300 | +2.77 | $17.95 | 
+| Thai 54 — Nam tok beef with spicy papaya salad | 9.6 | 1,450 | +2.55 | $21.90 | 
+| Kathmandu Kitchen — Chicken choila with dal | 8.6 | 1,100 | +2.07 | $21.99 | 
+| El Cuscatleco — Filete de pescado with curtido | 8.2 | 1,000 | +1.82 | $15.95 | 
+| Bosphorus — Chicken shish kebab with cacık | 8.2 | 1,150 | +1.60 | $16.50 | 
+| No 1 Pho — Bun thit heo nuong | 8.6 | 1,450 | +1.55 | $20.50 | 
+| Baba Ghannouj — Chicken kebab plate with fattoush and tzatziki | 8.2 | 1,200 | +1.52 | $15.99 | 
+| Sassool — Chicken kabob with labneh and three cold salads | 8.9 | 1,700 | +1.47 | $16.37 | 
+| Urban Turban — Tandoori fish tikka with raita and vegetable jalfrezi | 8.6 | 1,600 | +1.32 | $27.00 | 
+| Shinmai Shokudo — Salmon bento | 8.2 | 1,350 | +1.30 | $27.00 | 
+| Namu — Bibimbap with banchan ordered separately | 8.2 | 1,500 | +1.07 | $26.00 | 
+| Udupi Cafe — Royal South Indian thali | 8.2 | 1,500 | +1.07 | $24.99 | 
+| Swagat Indian — Tandoori mixed grill | 8.2 | 1,500 | +1.07 | $22.00 | 
+| Guasaca — Grilled chicken bowl | 7.5 | 1,050 | +1.05 | $11.21 | 
+ 
+And the other end of the same regression — dishes paying full price and getting nothing: Bul Box (−3.2), Clean Eatz (−2.8), Jason's Deli (−2.4), Chosun Ok (−2.3), Chipotle (−2.2).
 
  
 

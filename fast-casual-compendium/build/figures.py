@@ -1,5 +1,5 @@
 """Every number printed in the second edition is computed here. Nothing is typed by hand."""
-import json, statistics as st, itertools, math
+import json, statistics as st, itertools, math, re
 from collections import defaultdict
 
 D  = json.load(open('details_corrected.json'))    # 60 entries, corrections applied + cuisine/prep tags
@@ -218,6 +218,41 @@ for name, rs in GROUPS.items():
                            spread_price=rows[-1]['price']-rows[0]['price'],
                            spread_score=best['overall']-min(d['overall'] for d in rows)))
 F['dupe_priciest_wins'] = sum(1 for x in F['dupes'] if x['best_is_priciest'])
+
+# the market price of a flavor point, in sodium
+_b, _a = (lambda x, y: (lambda mx, my: (sum((p-mx)*(q-my) for p, q in zip(x, y))/sum((p-mx)**2 for p in x),
+                                        my - sum((p-mx)*(q-my) for p, q in zip(x, y))/sum((p-mx)**2 for p in x)*mx))
+          (st.mean(x), st.mean(y)))([d['sodium'] for d in D], [d['FLAVOR'] for d in D])
+F['flavor_price'] = dict(mg_per_point=1/_b, r=pear([d['sodium'] for d in D], [d['FLAVOR'] for d in D]),
+                         slope=_b, intercept=_a)
+_resid = [(d['FLAVOR'] - (_a + _b*d['sodium']), d) for d in D]
+F['flavor_bargains'] = [dict(d=d, resid=r) for r, d in sorted(_resid, key=lambda t: -t[0]) if r > 1.0]
+F['flavor_ripoffs'] = [dict(d=d, resid=r) for r, d in sorted(_resid, key=lambda t: t[0]) if r < -1.5]
+F['flavor_bargain_grilled'] = sum(1 for x in F['flavor_bargains'] if x['d']['prep'] == 'grilled')
+
+# the same grilled chicken, four chains, all published
+F['chicken'] = sorted([
+    dict(chain='Poke Bros.',   protein=29, sodium=63),
+    dict(chain='DICED',        protein=26, sodium=69),
+    dict(chain='Chipotle',     protein=32, sodium=310),
+    dict(chain='CAVA',         protein=28, sodium=670),
+], key=lambda c: c['sodium']/c['protein'])
+for _c in F['chicken']: _c['per_g'] = _c['sodium']/_c['protein']
+F['chicken_spread'] = F['chicken'][-1]['per_g']/F['chicken'][0]['per_g']
+
+# do the vegetarian alternatives cost sodium per gram of protein?
+_VPAT = re.compile(r'tofu|vegetarian|vegan|paneer|sofritas|no meat|grape leaves|vegetable momo'
+                   r'|ban chan|root veggie|pitchfork|mushroom', re.I)
+_vrows = []
+for d in D:
+    for _alt in d['alternatives']:
+        if _VPAT.search(_alt['name'] + ' ' + _alt['change']):
+            _vrows.append(dict(restaurant=d['restaurant'], alt=_alt['name'],
+                               base=d['sodium']/d['protein'], new=_alt['sodium']/_alt['protein'],
+                               jump=_alt['sodium']/_alt['protein'] - d['sodium']/d['protein']))
+_vrows.sort(key=lambda r: -r['jump'])
+F['veg_sodium'] = dict(n=len(_vrows), n_up=sum(1 for r in _vrows if r['jump'] > 0),
+                       median_jump=st.median([r['jump'] for r in _vrows]), rows=_vrows[:5])
 
 # coverage: what the first edition's sample over- and under-weights
 _cu = defaultdict(list)

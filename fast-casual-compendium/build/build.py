@@ -259,7 +259,7 @@ def sec_money():
 
   <div class="callout">
     <h4>One place the cheap answer is not the good one</h4>
-    <p style="margin-top:6px">The {F['veg']['meat_free']['n']} meat-free dishes here run <strong class="num">${F['veg']['meat_free']['dpp']:.2f}</strong> per gram of protein against <strong class="num">${F['veg']['rest']['dpp']:.2f}</strong> for everything else &mdash; {F['veg']['meat_free']['dpp']/F['veg']['rest']['dpp']:.1f} times as much &mdash; on a median {F['veg']['meat_free']['protein']:.0f}&#8202;g of protein against {F['veg']['rest']['protein']:.0f}, and they score lower on health too, {F['veg']['meat_free']['health']:.2f} against {F['veg']['rest']['health']:.2f}. That is a fact about these menus rather than about vegetarian eating: the meat-free options on this list are mostly starch-and-stew formats sold at entr&eacute;e prices, not protein-forward builds. The one exception is the cheapest dish in the section below, which gets 20&#8202;g of its protein from lentils.</p>
+    <p style="margin-top:6px">The {F['veg']['meat_free']['n']} meat-free dishes here run <strong class="num">${F['veg']['meat_free']['dpp']:.2f}</strong> per gram of protein against <strong class="num">${F['veg']['rest']['dpp']:.2f}</strong> for everything else &mdash; {F['veg']['meat_free']['dpp']/F['veg']['rest']['dpp']:.1f} times as much &mdash; on a median {F['veg']['meat_free']['protein']:.0f}&#8202;g of protein against {F['veg']['rest']['protein']:.0f}, and they score lower on health too, {F['veg']['meat_free']['health']:.2f} against {F['veg']['rest']['health']:.2f}. They also cost sodium: of the {F['veg_sodium']['n']} vegetarian swaps offered across the set, <strong>{F['veg_sodium']['n_up']}</strong> raise sodium per gram of protein against the meat build they replace, by a median of <strong class="num">{F['veg_sodium']['median_jump']:+.1f}&#8202;mg/g</strong> &mdash; Chipotle's sofritas goes from {F['veg_sodium']['rows'][4]['base']:.0f} to {F['veg_sodium']['rows'][4]['new']:.0f}. That is a fact about these menus rather than about vegetarian eating: the meat-free options here are mostly starch-and-stew formats sold at entr&eacute;e prices, not protein-forward builds. The exception is the cheapest dish in the section below, which gets 20&#8202;g of its protein from lentils at 4&#8202;mg of sodium.</p>
   </div>
 
   <h3 style="margin-top:44px">The cheapest protein on the list</h3>
@@ -282,6 +282,11 @@ def sec_money():
 def sec_sodium():
     best, worst = F['na_best'][:3], F['na_worst'][:3]
     n_up = sum(1 for x in F['na_swaps'] if x['score_delta'] > 0)
+    chick = table(['Chain', '~Protein', '~Sodium mg', '~Mg per gram of protein'],
+                  [[f'<td><span class="rest">{e(c["chain"])}</span></td>',
+                    f'<td class="n num">{c["protein"]}&#8202;g</td>',
+                    f'<td class="n num">{c["sodium"]}</td>',
+                    f'<td class="n num {"hi" if c["per_g"] < 10 else "lo"}">{c["per_g"]:.2f}</td>'] for c in F['chicken']])
     saltrows = [[f'<td><span class="rest">{e(x["item"])}</span><span class="sub">{e(x["note"])}</span></td>',
                  f'<td class="dimtd">{e(x["per"])}</td>',
                  f'<td class="n num {"lo" if x["mg"] >= 400 else "hi"}">{x["mg"]:,}</td>',
@@ -313,6 +318,11 @@ def sec_sodium():
   <p class="small measure" style="margin-top:8px">Single components, each read off the restaurant's own published nutrition document. Almost none of the heavy ones is the part of the meal a customer thinks of as salty &mdash; and the four lightest are all proteins, which is the opposite of what most people would guess.</p>
   {salt}
 
+  <h3 style="margin-top:44px">The same grilled chicken, four chains, one app</h3>
+  <p class="small measure" style="margin-top:8px">Same cut, same cooking method, all four figures published by the chains themselves. The spread is <strong class="num">{F['chicken_spread']:.0f}&times;</strong>.</p>
+  {chick}
+  <p class="caption" style="margin-top:12px">Nothing about the chicken differs. Brine, marinade and holding liquid set the number, and none of it appears on a menu.</p>
+
   <h3 style="margin-top:44px">The biggest sodium saving available in one swap</h3>
   <p class="small measure" style="margin-top:8px">Changing one thing about an order at the same restaurant. The last column is what the swap does to the dish's overall score, so a positive number means the lower-sodium order is also the better one.</p>
   {swaps}
@@ -326,6 +336,14 @@ def sec_sodium():
 
 def sec_flavor():
     fs = F['flavor_split']
+    bargains = table(['Beating the going rate', '~Flavor', '~Sodium mg', '~Points over the rate', '~Price'],
+                     [[f'<td><span class="rest">{e(x["d"]["restaurant"])}</span><span class="sub">{e(x["d"]["dish"])}</span></td>',
+                       f'<td class="n score" style="color:var(--flavor)">{x["d"]["FLAVOR"]:.1f}</td>',
+                       f'<td class="n num">{x["d"]["sodium"]:,}</td>',
+                       f'<td class="n num hi">+{x["resid"]:.2f}</td>',
+                       f'<td class="n money">{money(x["d"]["price"])}</td>'] for x in F['flavor_bargains']])
+    ripoffs = ', '.join(f'{e(x["d"]["restaurant"])} ({x["resid"]:.1f})'.replace('-', '\u2212')
+                        for x in F['flavor_ripoffs'][:5])
     _byF = sorted(F['cuisines'], key=lambda c: -c['flavor'])
     na_floor = min(c['sodium'] for c in _byF[:4])
     na_ceil = max(c['sodium'] for c in _byF[-3:])
@@ -362,6 +380,11 @@ def sec_flavor():
     <h4>Read the last two columns together</h4>
     <p style="margin-top:6px">Salt is what flavor costs. It is not the only way a cuisine loses the health column. Korean, Sichuan and Vietnamese kitchens sit high on flavor and low on health entirely on sodium &mdash; their saturated fat is unremarkable. Caribbean and Mexican kitchens lose it a different way, on <strong class="num">{max(c['satfat'] for c in F['cuisines']):.1f}&#8202;g</strong> and <strong class="num">{sorted((c['satfat'] for c in F['cuisines']), reverse=True)[1]:.1f}&#8202;g</strong> of saturated fat against a set median near <span class="num">{st.median([c['satfat'] for c in F['cuisines']]):.1f}</span>, and they do not get leading flavor scores in exchange. Those are the two failure modes, and only one of them buys you anything.</p>
   </div>
+
+  <h3 style="margin-top:44px">The market rate for a flavor point</h3>
+  <p class="small measure" style="margin-top:8px">Regress flavor on sodium across all {len(D)} dishes and the exchange rate is <strong class="num">{F['flavor_price']['mg_per_point']:,.0f}&#8202;mg</strong> per point (r&nbsp;=&nbsp;{r2(F['flavor_price']['r'])}). That is the going price of taste on this list. {len(F['flavor_bargains'])} dishes beat it by more than a full point &mdash; and <strong>{F['flavor_bargain_grilled']} of those {len(F['flavor_bargains'])} are grilled</strong>. This is the first edition's thesis, stated as a number rather than an assertion: char, acid and aromatics are how a kitchen buys flavor without paying in salt.</p>
+  {bargains}
+  <p class="caption" style="margin-top:12px">And the other end of the same regression &mdash; dishes paying full price and getting nothing: {ripoffs}.</p>
 
   <h3 style="margin-top:44px">The dishes that break the pattern</h3>
   <p class="small measure" style="margin-top:8px">Flavor of 7.5 or better, health of 6.0 or better, on under 1,100&#8202;mg of sodium. There are only {len(br)} in {len(D)}, and they are the most useful entries in this document: food you would order because you wanted it, that also happens to score.</p>
