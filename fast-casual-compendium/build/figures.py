@@ -102,6 +102,17 @@ def welch(a, b):
 _hi = [d for d in D if d['FLAVOR'] >= 7.5]; _lo = [d for d in D if d['FLAVOR'] <= 5.5]
 F['welch_sodium'] = welch([d['sodium'] for d in _hi], [d['sodium'] for d in _lo])
 F['welch_satfat'] = welch([d['satfat'] for d in _hi], [d['satfat'] for d in _lo])
+F['flavor_split']['na_median_gap'] = (st.median([d['sodium'] for d in _hi])
+                                      - st.median([d['sodium'] for d in _lo]))
+# leave-one-out: is the sodium gap the work of a single dish?
+_loo = []
+for _x in D:
+    _S = [d for d in D if d is not _x]
+    _h = [d['sodium'] for d in _S if d['FLAVOR'] >= 7.5]
+    _l = [d['sodium'] for d in _S if d['FLAVOR'] <= 5.5]
+    _loo.append((st.mean(_h) - st.mean(_l), welch(_h, _l)[0]))
+F['na_gap_loo'] = dict(lo=min(g for g, _ in _loo), hi=max(g for g, _ in _loo),
+                       min_t=min(t for _, t in _loo))
 
 # ranking-structure defect
 merged = sorted(D, key=lambda x: -x['overall'])

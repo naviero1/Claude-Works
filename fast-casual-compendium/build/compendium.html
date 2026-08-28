@@ -81,7 +81,7 @@ a{color:var(--health);text-underline-offset:2px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--health);outline-offset:3px}
 
 /* numerals everywhere */
-.num,.stat,td.n,th.n,.score,.bignum,.money{
+.num,.stat,td.n,th.n,.score,.bignum{
   font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   font-variant-numeric:tabular-nums;
 }
@@ -127,10 +127,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--health);outline-off
 .finding-num{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
 .finding-num .bignum{font-size:2.5rem;font-weight:600;line-height:1;color:var(--health);letter-spacing:-.02em}
 .finding-num .label{font-family:Archivo,sans-serif;font-variation-settings:"wdth" 84;
-  font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-3);max-width:15ch;line-height:1.3}
-.finding.money .bignum{color:var(--health)}
-.finding.warn .bignum{color:var(--alarm)}
-.finding.flav .bignum{color:var(--flavor)}
+  font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);
+  max-width:22ch;line-height:1.35;flex:1 1 auto}
+.finding.f-money .bignum{color:var(--health)}
+.finding.f-warn .bignum{color:var(--alarm)}
+.finding.f-flav .bignum{color:var(--flavor)}
 .finding p{font-size:.98rem;line-height:1.55;color:var(--ink-2)}
 .finding .do{font-size:.86rem;color:var(--ink);border-top:1px solid var(--rule);padding-top:10px;margin-top:auto}
 .finding .do b{font-family:Archivo,sans-serif;font-variation-settings:"wdth" 84;font-size:.66rem;
@@ -306,7 +307,13 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
     <ul><li><strong>The numbers were checked, and some were wrong.</strong> Every nutrition figure the first edition attributed to a published document was re-read against that document. 9 entries had to be rescored: Bul Box from 23rd to 57th; Sassool from 3rd to 32nd. Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.</li><li><strong>The front page is new.</strong> The first edition opened with four findings, three of which were trivia about a single restaurant each and the fourth about research method rather than food. They have been replaced with findings drawn from the whole set, led by what the data says about money.</li><li><strong>The two lists are now one.</strong> The first edition printed &ldquo;The Thirty&rdquo; and &ldquo;The Next Thirty&rdquo; as separate ranked lists, but the split tracked research depth rather than score: 27 entries in the second list outscored the weakest in the first. Everything is now ranked in one sequence.</li><li><strong>The scoring model is printed, not described.</strong> Every criterion that can be computed from the macros is given as an actual function, recovered by fitting the first edition's own published scores. Anyone can recompute anything here, including the parts they disagree with.</li><li><strong>The sample was too narrow.</strong> Eighteen of the original sixty entries were build-your-own bowls or poke &mdash; 30% of the set, and four of the top ten &mdash; in a state whose own barbecue did not appear at all. That gap is quantified below.</li></ul>
   </div>
 </section>
-
+<section id="findings">
+  <hr class="rule-heavy">
+  <span class="eyebrow">Six findings that should change your order</span>
+  <h2>What sixty menus actually tell you</h2>
+  <p class="lede measure" style="margin-top:14px">Each of these holds across the whole set rather than at one restaurant, and each is recomputable from the ranking table below. Three of them are about money, because that is where the data turned out to be most surprising.</p>
+  <div class="findings" style="margin-top:34px"><div class="finding f-money"><div class="finding-num"><span class="bignum num">+0.08</span><span class="label">price against health, all 60 dishes</span></div><h3>Paying more buys flavor, not health</h3><p>Across the whole set, price and health correlate at +0.08 &mdash; under one percent of the variation, and it survives dropping any single dish. Price and <em>flavor</em> correlate at +0.39, five times as strong. Chopt at $10.79 outscores Gifted Hand Cuisine at $32.79 on every health criterion that matters.</p><p class="do"><b>What to do</b>Spend money when you want the meal to be good, not when you want it to be good for you.</p></div><div class="finding f-money"><div class="finding-num"><span class="bignum num">$30.21</span><span class="label">saved on a week, for the same coverage</span></div><h3>The cheap week is as good as the expensive one</h3><p>Five dinners chosen as the top-ranked dishes cost $91.10. Five chosen as the cheapest that still cover every criterion cost $60.89 &mdash; and both bottom out at exactly 6.8&#8202;/&#8202;10 on their weakest criterion. The extra $30.21 buys nothing the model can measure.</p><p class="do"><b>What to do</b>Rotate Chopt, DICED, Guasaca and two more instead of chasing the top of the list.</p></div><div class="finding f-money"><div class="finding-num"><span class="bignum num">$0.19</span><span class="label">per gram of protein</span></div><h3>The cheapest protein here is also the cleanest</h3><p>DICED's lentil-base bowl with grilled chicken is $10.95 for 57&#8202;g of protein &mdash; the best value on the list &mdash; and it carries 2.5&#8202;mg of sodium per gram of that protein, also the best on the list. Cheap and clean are usually a trade. Here they are the same dish, and it is the second-cheapest thing in the document.</p><p class="do"><b>What to do</b>If you order one thing off this list, order that.</p></div><div class="finding f-warn"><div class="finding-num"><span class="bignum num">+667&#8202;mg</span><span class="label">what flavor actually costs</span></div><h3>Flavor is bought with salt, not with fat</h3><p>The 22 dishes scoring 7.5 or better on flavor carry +667&#8202;mg more sodium than the 14 scoring 5.5 or worse (t&nbsp;=&nbsp;3.8), and only +1.7&#8202;g more saturated fat (t&nbsp;=&nbsp;2.0, which is nearly nothing). The seasoning is the cost, not the cooking fat.</p><p class="do"><b>What to do</b>Watch the sauce, the base and the cure. Stop watching the olive oil and the avocado.</p></div><div class="finding f-warn"><div class="finding-num"><span class="bignum num">900&#8202;mg</span><span class="label">in a portion of plain quinoa</span></div><h3>The salt is in the base, not in the dressing</h3><p>Farmside Kitchen's seasoned quinoa is 900&#8202;mg of sodium before anything is put on it; CAVA's two rice bases are 770 each. Meanwhile the four lowest-sodium components anywhere in this document are all proteins &mdash; plain tuna at 40&#8202;mg, a salmon add-on at 90, grilled chicken at 69. The first edition blamed the dressing and the cheese. Its own restaurant's numbers say otherwise.</p><p class="do"><b>What to do</b>Change the base before you change the protein. Refusing the grain saves more than refusing the sauce.</p></div><div class="finding f-flav"><div class="finding-num"><span class="bignum num">2 of 7</span><span class="label">times the priciest version wins</span></div><h3>The same dish costs twice as much and scores worse</h3><p>Seven groups of near-identical dishes appear across the set &mdash; kebab plates, build-your-own bowls, raw fish plates, South Indian steamed plates. The most expensive version is the best one in only 2 of them. Among the 10 build-your-own bowls, price and score correlate at -0.43: within that format, paying more is actively worse.</p><p class="do"><b>What to do</b>Once you have chosen the kind of food you want, take the cheapest version of it.</p></div></div>
+</section>
 <section id="money">
   <hr class="rule-heavy">
   <span class="eyebrow">Chapter one</span>
@@ -553,7 +560,8 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
   <h2>What flavor actually costs</h2>
   <div class="measure stack" style="margin-top:16px">
     <p>The first edition argued that cuisines built on char, acid and aromatics keep their flavor when you strip out salt and fat, while cuisines built on sauce, cheese and frying do not. The first half of that is right and the second half is aimed at the wrong nutrient.</p>
-    <p>Take the 22 dishes scoring 7.5 or better on flavor and the 14 scoring 5.5 or worse. The flavorful group carries <strong class="num">+667&#8202;mg</strong> more sodium, at <span class="num">t&nbsp;=&nbsp;3.8</span> &mdash; a separation nothing about this sample can explain away. It also carries <strong class="num">+1.7&#8202;g</strong> more saturated fat, at <span class="num">t&nbsp;=&nbsp;2.0</span>, which is on the edge of meaning nothing at all.</p>
+    <p>Take the 22 dishes scoring 7.5 or better on flavor and the 14 scoring 5.5 or worse. The flavorful group carries <strong class="num">+667&#8202;mg</strong> more sodium, at <span class="num">t&nbsp;=&nbsp;3.8</span>. It also carries <strong class="num">+1.7&#8202;g</strong> more saturated fat, at <span class="num">t&nbsp;=&nbsp;2.0</span>, which is on the edge of meaning nothing at all.</p>
+    <p class="caption">The sodium gap is not one dish doing the work. Leave any single dish out and it stays between <span class="num">550</span> and <span class="num">751&#8202;mg</span>, never falling below <span class="num">t&nbsp;=&nbsp;3.6</span>; on medians rather than means the gap is <span class="num">+650&#8202;mg</span>.</p>
     <p>So flavor in this set is bought mainly with salt, not with fat, and the first edition was policing the wrong nutrient. That is also why there is no health-flavor tradeoff between individual dishes &mdash; the correlation is <span class="num">−0.05</span>, nil. The tradeoff is not a property of a dish. It is a property of a kitchen's whole seasoning strategy, and it shows up only when you group by cuisine.</p>
   </div>
   <figure>

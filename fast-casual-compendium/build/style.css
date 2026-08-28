@@ -76,7 +76,7 @@ a{color:var(--health);text-underline-offset:2px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--health);outline-offset:3px}
 
 /* numerals everywhere */
-.num,.stat,td.n,th.n,.score,.bignum,.money{
+.num,.stat,td.n,th.n,.score,.bignum{
   font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   font-variant-numeric:tabular-nums;
 }
@@ -122,10 +122,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--health);outline-off
 .finding-num{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
 .finding-num .bignum{font-size:2.5rem;font-weight:600;line-height:1;color:var(--health);letter-spacing:-.02em}
 .finding-num .label{font-family:Archivo,sans-serif;font-variation-settings:"wdth" 84;
-  font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-3);max-width:15ch;line-height:1.3}
-.finding.money .bignum{color:var(--health)}
-.finding.warn .bignum{color:var(--alarm)}
-.finding.flav .bignum{color:var(--flavor)}
+  font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);
+  max-width:22ch;line-height:1.35;flex:1 1 auto}
+.finding.f-money .bignum{color:var(--health)}
+.finding.f-warn .bignum{color:var(--alarm)}
+.finding.f-flav .bignum{color:var(--flavor)}
 .finding p{font-size:.98rem;line-height:1.55;color:var(--ink-2)}
 .finding .do{font-size:.86rem;color:var(--ink);border-top:1px solid var(--rule);padding-top:10px;margin-top:auto}
 .finding .do b{font-family:Archivo,sans-serif;font-variation-settings:"wdth" 84;font-size:.66rem;
