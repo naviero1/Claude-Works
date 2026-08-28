@@ -1,0 +1,257 @@
+[
+ {
+  "rank": 1,
+  "restaurant": "Poke Bros.",
+  "action": "rescore",
+  "macros": {
+   "cal": 542,
+   "protein": 51,
+   "sodium": 201,
+   "satfat": 2.2,
+   "fiber": 9,
+   "sugar": 8
+  },
+  "claim": "The Poke Bros. double tuna salad bowl's headline figures",
+  "was": "542 cal / 52 g protein / 210 mg sodium / 10 g fiber / 9 g sugar.",
+  "now": "542 cal / 51 g protein / 201 mg sodium / 9 g fiber / 8 g sugar, by summing Poke Bros.' own component table. The headline calorie and saturated-fat figures reproduce exactly; protein, sodium, fiber and sugar were each rounded up by one unit.",
+  "source": "Poke Bros. Nutritionals PDF, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 6,
+  "restaurant": "Pokeworks",
+  "action": "rescore",
+  "macros": {
+   "cal": 400,
+   "protein": 43,
+   "sodium": 535,
+   "satfat": 3.5,
+   "fiber": 6,
+   "sugar": 3
+  },
+  "claim": "The Pokeworks large chicken bowl's totals",
+  "was": "420 cal / 44 g protein / 550 mg sodium / 8 g fiber.",
+  "now": "400 cal / 43 g protein / 535 mg sodium / about 6 g fiber, summing the printed build from the Pokeworks Nutrition Guide v2.0.",
+  "source": "Pokeworks Nutrition Guide v.2.0 (May 2026), retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 4,
+  "restaurant": "DICED",
+  "action": "rescore",
+  "macros": {
+   "cal": 709,
+   "protein": 57,
+   "sodium": 144,
+   "satfat": 4,
+   "fiber": 14,
+   "sugar": 9
+  },
+  "claim": "The DICED lentil bowl 'lands near 220 mg' of sodium at 680 cal and 60 g protein",
+  "was": "680 cal / 60 g protein / 220 mg sodium / 8 g sugar.",
+  "now": "709 cal / 57 g protein / 144 mg sodium / 9 g sugar, summed from DICED's own per-ingredient nutrition calculator. The sodium claim was pessimistic: the bowl is cleaner than the first edition said, and remains the lowest sodium-per-gram-of-protein dish in the set. Saturated fat and fiber stay estimated because DICED publishes neither.",
+  "source": "eatdiced.com/nutrition per-ingredient values, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 23,
+  "restaurant": "Bul Box",
+  "action": "rescore",
+  "macros": {
+   "cal": 445,
+   "protein": 23,
+   "sodium": 1951,
+   "satfat": 3,
+   "fiber": 10,
+   "sugar": 25
+  },
+  "claim": "Bul Box Malibu Poke with salmon is 440 cal / 25 g protein / 900 mg sodium / 8 g sugar",
+  "was": "440 cal / 25 g protein / 900 mg sodium / 8 g sugar, with sodium inferred from construction because the nutrition page returned a server error.",
+  "now": "445 cal / 23 g protein / about 1,950 mg sodium / 25 g sugar. The nutrition page resolves normally now and publishes the full component table; summing the printed build more than doubles the sodium and triples the sugar. This is the largest single error in the first edition and it moves the entry a long way down.",
+  "source": "Bul Box nutrition PDF (bulboxgrill.com/nutrition-allergens), retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 24,
+  "restaurant": "Farmside Kitchen",
+  "action": "dispute",
+  "claim": "'Sodium at Farmside lives in the dressing and the cheese rather than the produce', so building the bowl manually roughly halves it to 620 mg",
+  "was": "620 mg sodium for the build-your-own bowl, on the theory that the dressing and cheese carry the salt.",
+  "now": "Farmside's own nutrition table puts the sodium in the grains and the seasoned protein: seasoned quinoa is 900 mg per 8 oz, seasoned black beans 700 mg, brown rice 660 mg, and the Signature Grilled Chicken 660 mg against 190 mg for a plain grilled breast. A bowl of greens, quinoa, chicken and black beans cannot land at 620 mg. The entry is held as disputed rather than rescored, because the component portions used in a built bowl could not be established.",
+  "source": "Farmside Kitchen nutrition PDF; their ordering platform returns HTTP 403 to automated retrieval.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Bul Box",
+  "action": "note",
+  "claim": "'Taking one sriracha instead of two creamy sauces is the entire health edit' at Bul Box",
+  "was": "Sriracha at 28 calories was recommended over spicy mayo at 178 and yum yum at 150.",
+  "now": "Sriracha is 30 cal but 454 mg of sodium per ounce; yum yum sauce is 150 cal and 115 mg. The calorie-cheapest sauce on the board is the salt-heaviest by a factor of four. Which one to take depends entirely on which number you are managing, and the first edition only looked at one of them.",
+  "source": "Bul Box nutrition PDF, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Bul Box",
+  "action": "note",
+  "claim": "Bul Box enforces a hard two-sauce cap you cannot exceed",
+  "was": "Described as a hard cap that cannot be exceeded.",
+  "now": "The two-sauce limit appears only on DoorDash's Build Your Own Box. Bul Box's own menu states no sauce cap at all, and signature boxes such as the Kona Poke carry three by default.",
+  "source": "bulboxgrill.com/menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "DICED",
+  "action": "note",
+  "claim": "DICED's creamy dressings add 90-185 mg of sodium",
+  "was": "90-185 mg and about 100 calories.",
+  "now": "90-280 mg. The 185 mg figure is blue cheese; Caesar at 280 mg is the real ceiling. The calorie range, 94-129, was fair.",
+  "source": "eatdiced.com/nutrition, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "DICED",
+  "action": "note",
+  "claim": "The DICED bowl costs $10.95",
+  "was": "Printed as a DoorDash-listed price.",
+  "now": "Could not be verified. DICED publishes no prices in first-party sources at all - the build-your-own carries only a pricing rule, and no delivery platform could be retrieved. The price is carried forward unchanged and flagged.",
+  "source": "eatdiced.com/menu, retrieved 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Farmside Kitchen",
+  "action": "note",
+  "claim": "Farmside's 'No dressing' plus 'Extra Dressing $0.75' is a buildable sauce-on-the-side mechanism, and the only one on the list",
+  "was": "Presented as verified ordering mechanics.",
+  "now": "Not verifiable. Farmside's ordering platform returns HTTP 403 to automated retrieval on every path, their public menu prices nothing, and no snapshot exists. The claim may well be true; nothing in reach establishes it.",
+  "source": "order.farmsidekitchen.com, inaccessible 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Poke Bros.",
+  "action": "note",
+  "claim": "OG Sauce is auto-added to every bowl at 730 mg and must be affirmatively refused",
+  "was": "Stated as a fact about every bowl.",
+  "now": "Confirmed, and it does apply to build-your-own bowls rather than only signature ones. Poke Bros.' own menu carries the line 'OG SAUCE ADDED TO ALL BOWLS UNLESS REQUESTED OTHERWISE' inside the build-your-own block.",
+  "source": "Poke Bros. General Handheld Menu and eatpokebros.com/menu, retrieved 28 August 2026.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "Poke Bros.",
+  "action": "note",
+  "claim": "Without the OG sauce the bowl is 'clean fish, acid and aromatics'",
+  "was": "Described as a sauceless bowl.",
+  "now": "The first edition's own build keeps the wasabi aioli, which is 125 cal and 2 g of sugar per 14 g. The bowl refuses one sauce and keeps another; it is not sauceless, and about 2 g of its sugar comes from the aioli rather than from produce.",
+  "source": "Poke Bros. Nutritionals PDF, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 36,
+  "restaurant": "Sweetgreen",
+  "action": "rescore",
+  "retier": "PUBLISHED",
+  "macros": {
+   "cal": 880,
+   "protein": 34,
+   "sodium": 1092,
+   "satfat": 9,
+   "fiber": 12,
+   "sugar": 9
+  },
+  "claim": "Sweetgreen's Miso Glazed Salmon was estimated at 620 cal / 33 g protein / 1,100 mg sodium / 4 g saturated fat",
+  "was": "Estimated from menu construction, and marked as such.",
+  "now": "Sweetgreen publishes a complete per-item nutrition table, updated August 2026, which the first edition did not consult. The real figures are 880 cal / 34 g protein / 1,092 mg sodium / 9 g saturated fat / 12 g fiber. Calories were understated by 42% and saturated fat by more than half. The entry is re-tiered to published and falls accordingly.",
+  "source": "sweetgreen.com/nutrition, updated August 2026, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 32,
+  "restaurant": "Chopt",
+  "action": "rescore",
+  "retier": "PUBLISHED",
+  "macros": {
+   "cal": 415,
+   "protein": 33,
+   "sodium": 735,
+   "satfat": 2,
+   "fiber": 12,
+   "sugar": 15
+  },
+  "claim": "Chopt's Craft Your Own salad was estimated at 480 cal / 38 g protein / 900 mg sodium / 6 g sugar",
+  "was": "Estimated from menu construction, and marked as such.",
+  "now": "Chopt publishes a Craft Your Own nutrition breakdown, updated Spring 2026. Reconstructed from it, the build is 415 cal / 33 g protein / 735 mg sodium / 12 g fiber - cleaner on sodium and calories than estimated, but 15 g of sugar rather than 6, most of it from the vinaigrette and the corn. Re-tiered to published.",
+  "source": "Chopt Nutrition & Allergen Information, Spring 2026, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 14,
+  "restaurant": "CAVA",
+  "action": "rescore",
+  "macros": {
+   "cal": 775,
+   "protein": 50,
+   "sodium": 1295,
+   "satfat": 8,
+   "fiber": 27,
+   "sugar": 8
+  },
+  "claim": "The CAVA bowl totals 740 cal / 50 g protein / 1,125 mg sodium / 6 g sugar",
+  "was": "740 cal / 1,125 mg sodium / 6 g sugar.",
+  "now": "About 775 cal / 1,295 mg sodium / 8 g sugar, summing CAVA's own catering nutrition guide at retail portions. The 27 g of fiber and the steak-versus-chicken finding both survive; the sodium total was understated by roughly 170 mg.",
+  "source": "CAVA Nutrition and Allergen Guide, last modified July 2026, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "CAVA",
+  "action": "note",
+  "claim": "CAVA's rice bases are 'the single largest sodium item on the menu' at 770 mg",
+  "was": "Stated as the menu's sodium ceiling.",
+  "now": "The 770 mg figure is right, and both rice bases really are identical. The superlative is not: falafel is higher at about 810 mg, and grilled chicken, harissa honey chicken and the lamb meatballs all sit in the same 650-680 mg band. The rices are the largest sodium item among the bases.",
+  "source": "CAVA Nutrition and Allergen Guide, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Chipotle",
+  "action": "note",
+  "claim": "Chipotle's guacamole is 'roughly 230-240 cal and 370-385 mg sodium'",
+  "was": "Given as a range, and the no-guacamole alternative was scored at 240 cal and 385 mg lighter.",
+  "now": "Chipotle publishes one figure, not a range: 230 cal and 370 mg for 4 oz. The no-guacamole alternative should read 345 cal / 42 g protein / 685 mg, not 335 / 41 / 670.",
+  "source": "Chipotle US nutrition facts chart, revision OCT-2024-US-CK, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Chipotle",
+  "action": "note",
+  "claim": "Light / standard / extra portioning is confirmed only in Chipotle's first-party app, not on delivery platforms",
+  "was": "Asserted as verified ordering mechanics.",
+  "now": "Half of that is documented: Chipotle announced Complete Customization - making any ingredient light, standard or extra - as an app feature in May 2020. Whether delivery platforms pass it through is addressed in no Chipotle document that could be found, so the second half of the sentence was an assumption, not a finding.",
+  "source": "Chipotle newsroom, 19 May 2020.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "True Food Kitchen",
+  "action": "note",
+  "claim": "The undressed Tuscan Kale Salad with salmon is 380 cal / 36 g protein / 330 mg sodium, and the dressing it omits is 340 cal and 630 mg",
+  "was": "Presented as assembled from published data.",
+  "now": "Confirmed exactly, component by component, against True Food Kitchen's Summer 2026 guide. The salmon add-on really is 29 g of protein at 90 mg of sodium, the lowest-sodium meaningful protein add-on on their menu.",
+  "source": "True Food Kitchen Summer 2026 Nutritional Guide, retrieved 28 August 2026.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "Chipotle",
+  "action": "note",
+  "claim": "Chipotle chicken is 32 g protein for 310 mg sodium; pinto beats black on fiber; brown rice is lower-sodium than white; the vinaigrette is 850 mg and 12 g sugar",
+  "was": "Four component claims underpinning the Chipotle entry.",
+  "now": "All four confirmed exactly against Chipotle's own chart, and the assembled dish total of 575 cal / 44 g protein / 1,055 mg sodium reproduces component by component. Worth adding: declining the vinaigrette also removes 220 calories and 2.5 g of saturated fat.",
+  "source": "Chipotle US nutrition facts chart, revision OCT-2024-US-CK, retrieved 28 August 2026.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "CAVA",
+  "action": "note",
+  "claim": "Braised lamb at CAVA is 450 mg sodium for 24 g protein",
+  "was": "Printed as an alternative order with figures.",
+  "now": "Could not be verified. Braised lamb does not appear in CAVA's catering nutrition guide at all; the only lamb item there is spicy lamb meatballs at roughly 674 mg per serving, a different preparation with about 50% more sodium.",
+  "source": "CAVA Nutrition and Allergen Guide, retrieved 28 August 2026.",
+  "kind": "open"
+ }
+]
