@@ -27,6 +27,7 @@ F['r_price_flavor'] = pear([d['price'] for d in D], [d['FLAVOR'] for d in D])
 F['r_price_overall']= pear([d['price'] for d in D], [d['overall'] for d in D])
 F['r_health_flavor']= pear([d['health'] for d in D], [d['FLAVOR'] for d in D])
 F['r_fiber_gut']    = pear([d['fiber'] for d in D], [d['GUT'] for d in D])
+F['r_fiber_ene']    = pear([d['fiber'] for d in D], [d['ENE'] for d in D])
 
 # drop-the-outlier robustness for r(price, health)
 def r_without(rank):

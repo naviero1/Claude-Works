@@ -100,7 +100,7 @@ def sec_changes():
       ('The front page is new.', 'The first edition opened with four findings, three of which were trivia about a single restaurant each and the fourth about research method rather than food. They have been replaced with findings drawn from the whole set, led by what the data says about money.'),
       ('The two lists are now one.', f'The first edition printed &ldquo;The Thirty&rdquo; and &ldquo;The Next Thirty&rdquo; as separate ranked lists, but the split tracked research depth rather than score: {F["n_promoted"]} entries in the second list outscored the weakest in the first. Everything is now ranked in one sequence.'),
       ('The scoring model is printed, not described.', 'Every criterion that can be computed from the macros is given as an actual function, recovered by fitting the first edition\'s own published scores. Anyone can recompute anything here, including the parts they disagree with.'),
-      ('The sample was too narrow.', f'Eighteen of the original sixty entries were build-your-own bowls or poke &mdash; 30% of the set, and four of the top ten &mdash; in a state whose own barbecue did not appear at all. {"This edition adds " + str(len(ADDS)) + " dishes from cuisines and formats the first edition skipped." if ADDS else "That gap is quantified below."}'),
+      ('The sample was too narrow.', f'{F["bowl_share"]["n"]} of the original sixty entries were build-your-own bowls or poke &mdash; {F["bowl_share"]["pct"]:.0f}% of the set, and {F["bowl_share"]["in_top10"]} of the top ten &mdash; in a state whose own barbecue did not appear at all. {"This edition adds " + str(len(ADDS)) + " dishes from cuisines and formats the first edition skipped." if ADDS else "That gap is quantified below."}'),
     ]
     lis = ''.join(f'<li><strong>{t}</strong> {b}</li>' for t, b in items)
     return f'''<section id="changes">
@@ -438,7 +438,7 @@ def sec_criteria():
        'GUT = 0.6 × (live-ferment ladder, 0–4)\n    + 0.4 × (plant types, capped at 19)',
        'A judgement, not a calculation. Vinegar pickles score zero. <strong>Fiber carries no weight at all</strong> &mdash; see the audit below.', True),
       ('Energy', '×1.0', 'Refined-carb load, fiber, protein presence.', 'ENE — rubric, 0–10',
-       'A glycemic proxy assembled by hand. It correlates with fiber at +0.44, which is the closest thing to a check available on it.', True),
+       f'A glycemic proxy assembled by hand. It correlates with fiber at {F["r_fiber_ene"]:+.2f}, which is the closest thing to a check available on it.', True),
       ('Inflammation', '×1.0', 'Omega-3 60%, plant and herb diversity 40%.',
        'INF = 0.6 × (omega-3 ladder, 0–3)\n    + 0.4 × (plant and herb diversity, 0–7)',
        'The omega-3 ladder does not distinguish plant ALA from marine EPA and DHA, which overstates flaxseed.', True),
@@ -463,7 +463,7 @@ def sec_criteria():
   <h2>Nine criteria, written out</h2>
   <div class="measure stack" style="margin-top:16px">
     <p>The first edition described its criteria in prose. This one prints them as functions, because a scoring model you cannot recompute is an opinion wearing a number's clothes.</p>
-    <p>Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the published macros back through them returns every one of the {len(D)} printed overall scores to within 0.10. Three &mdash; gut, energy and inflammation &mdash; are human judgements on a rubric, and no formula will recover them. Those three are marked.</p>
+    <p>Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the first edition's own published macros back through them returns every one of its {len(D)} printed overall scores to within 0.10, with a mean deviation of 0.023. Three &mdash; gut, energy and inflammation &mdash; are human judgements on a rubric, and no formula will recover them. Those three are marked.</p>
     <p class="caption">Composite: <span class="num">health = (KID + LIV + MUS + GUT + ENE + INF + 0.7×SUG) / 6.7</span>, then <span class="num">overall = (health×6.7 + FLAVOR×0.5 + COST×0.5) / 7.7</span>. Flavor and cost at half weight cannot rescue an unhealthy dish; they reorder the middle of the list.</p>
   </div>
   <div class="criteria">{cards}</div>
@@ -506,6 +506,8 @@ def sec_audit():
     ceiling = [d for d in D if d['sodium'] >= 2000]
     ck = byname['Chosun Ok']
     fw = byname['First Watch']
+    _ck_before = next(d for d in json.load(open('details_cu.json')) if d['restaurant'] == 'Chosun Ok')
+    ck_delta = abs(_ck_before['overall'] - ck['overall'])
     r_fg = f"{F['r_fiber_gut']:+.2f}"
 
     faults = [
@@ -524,7 +526,7 @@ def sec_audit():
        'That sounds academic until you meet ' + e(ck['restaurant']) + '. This edition corrected its sodium from 2,100&#8202;mg to about '
        '<strong class="num">' + f"{ck['sodium']:,}" + '&#8202;mg</strong>, once the 1&#8202;lb kimchi side was counted at USDA’s figure of 498&#8202;mg '
        'per 100&#8202;g &mdash; roughly 2,300&#8202;mg from the kimchi alone, before the stew. Its overall score moved by '
-       '<strong class="num">0.02</strong>. A dish carrying nearly twice a full day’s recommended sodium is scored as merely equal to '
+       '<strong class="num">' + f"{ck_delta:.2f}" + '</strong>. A dish carrying nearly twice a full day’s recommended sodium is scored as merely equal to '
        'the worst thing the criterion can express.',
        'USDA FoodData Central, FNDDS 2021&ndash;2023, food code 75502520.', ''),
 
@@ -732,7 +734,9 @@ def sec_method():
       <h4>What a score is</h4>
       <p class="small">Each entry is one specific dish, ordered one specific way, and every figure describes that dish as built &mdash; not the restaurant, and not the menu item as it arrives by default. Where the build says to refuse something, the numbers assume you refused it.</p>
       <h4 style="margin-top:20px">Prices</h4>
-      <p class="small">DoorDash-listed, which run roughly 15&ndash;25% above in-store. Distances are straight-line from Research Triangle Park; an active storefront is not the same as delivery to a given address, which is computed per address at checkout.</p>
+      <p class="small">DoorDash-listed. Published measurements put the delivery-app premium at roughly 10&ndash;20% above in-store, averaging about 15% &mdash; the first edition said 15&ndash;25%, which is high at both ends. Every cost score here is computed on the delivery price, so the cost column is systematically harsher than an in-store comparison would be.</p>
+      <h4 style="margin-top:20px">Storefronts</h4>
+      <p class="small">57 of the 60 entries print a DoorDash store id; three print a brand-level business id or the word &ldquo;chain&rdquo;. Thirty-five restaurants were independently spot-checked for this edition and all thirty-five exist and appear to be trading, with 29 of the printed ids matched to the right restaurant and address. Distances are straight-line from Research Triangle Park, and an active storefront is not the same as delivery to a given address &mdash; radius is computed per address at checkout.</p>
     </div>
     <div class="stack-tight">
       <h4>What this is not</h4>

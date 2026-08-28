@@ -4,6 +4,7 @@
  "r_price_overall": -0.02850929815993043,
  "r_health_flavor": -0.0502763660094864,
  "r_fiber_gut": 0.3129814714683192,
+ "r_fiber_ene": 0.3751161550482194,
  "r_price_health_no_chengdu": 0.05108512236004421,
  "r_price_health_no_msushi": 0.0023505802050480594,
  "r_price_health_range": [
