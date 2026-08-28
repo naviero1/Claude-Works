@@ -276,3 +276,14 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
 .fault h3{font-size:1.08rem;margin-bottom:9px}
 .fault .cite{font-size:.78rem;color:var(--ink-3);margin-top:8px;font-style:italic}
 .fault .tablewrap{margin-top:16px}
+/* ---------- contents ---------- */
+.toc{display:grid;grid-template-columns:1fr;gap:0;margin-top:44px;border-top:3px solid var(--ink)}
+@media(min-width:620px){.toc{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.toc{grid-template-columns:1fr 1fr 1fr}}
+.toc a{display:flex;flex-direction:column;gap:2px;padding:11px 22px 12px 0;
+  border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.toc a:hover{background:var(--paper-2)}
+.toc .toc-t{font-family:Archivo,sans-serif;font-variation-settings:"wdth" 86;
+  font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.toc .toc-d{font-size:.85rem;color:var(--ink-3);line-height:1.35}
+section[id]{scroll-margin-top:16px}

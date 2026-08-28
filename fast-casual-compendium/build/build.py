@@ -90,6 +90,28 @@ def sec_masthead():
   </div>
 </header>'''
 
+def sec_contents():
+    items = [
+      ('findings', 'The findings', 'six results that should change your order'),
+      ('money', 'One &middot; Money', 'what price does and does not buy'),
+      ('sodium', 'Two &middot; Sodium', 'the currency everything is priced in'),
+      ('flavor', 'Three &middot; Flavor', 'what taste actually costs'),
+      ('swaps', 'Four &middot; Swaps', 'orders that beat the order'),
+      ('gap', 'The sample', 'what a ranking leaves out'),
+      ('additions', 'New entries', 'the food the first edition missed'),
+      ('criteria', 'The model', 'nine criteria, written out'),
+      ('confidence', 'Confidence', 'how much of this is measured'),
+      ('audit', 'Against interest', 'where the model misfires'),
+      ('ranking', 'The ranking', f'all {len(MERGED)} in one sequence'),
+      ('corrections', 'Verification log', 'what was wrong'),
+    ]
+    if not ADDS:
+        items = [i for i in items if i[0] != 'additions']
+    links = ''.join(f'<a href="#{i}"><span class="toc-t">{t}</span>'
+                    f'<span class="toc-d">{d}</span></a>' for i, t, d in items)
+    return f'<nav class="toc" aria-label="Contents">{links}</nav>'
+
+
 def sec_changes():
     _corr = [d for d in D if d.get('corrected')]
     _fell = sorted((d for d in _corr
@@ -866,6 +888,7 @@ PAGE = f'''<title>The Fast-Casual Compendium</title>
 </style>
 <div class="wrap">
 {sec_masthead()}
+{sec_contents()}
 {sec_changes()}
 {sec_findings()}
 {sec_money()}

@@ -281,6 +281,17 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
 .fault h3{font-size:1.08rem;margin-bottom:9px}
 .fault .cite{font-size:.78rem;color:var(--ink-3);margin-top:8px;font-style:italic}
 .fault .tablewrap{margin-top:16px}
+/* ---------- contents ---------- */
+.toc{display:grid;grid-template-columns:1fr;gap:0;margin-top:44px;border-top:3px solid var(--ink)}
+@media(min-width:620px){.toc{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.toc{grid-template-columns:1fr 1fr 1fr}}
+.toc a{display:flex;flex-direction:column;gap:2px;padding:11px 22px 12px 0;
+  border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.toc a:hover{background:var(--paper-2)}
+.toc .toc-t{font-family:Archivo,sans-serif;font-variation-settings:"wdth" 86;
+  font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.toc .toc-d{font-size:.85rem;color:var(--ink-3);line-height:1.35}
+section[id]{scroll-margin-top:16px}
 
 </style>
 <div class="wrap">
@@ -301,6 +312,7 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
     <div class="tally"><span class="bignum num">7&#8202;/&#8202;60</span><span class="label">From published nutrition data</span></div>
   </div>
 </header>
+<nav class="toc" aria-label="Contents"><a href="#findings"><span class="toc-t">The findings</span><span class="toc-d">six results that should change your order</span></a><a href="#money"><span class="toc-t">One &middot; Money</span><span class="toc-d">what price does and does not buy</span></a><a href="#sodium"><span class="toc-t">Two &middot; Sodium</span><span class="toc-d">the currency everything is priced in</span></a><a href="#flavor"><span class="toc-t">Three &middot; Flavor</span><span class="toc-d">what taste actually costs</span></a><a href="#swaps"><span class="toc-t">Four &middot; Swaps</span><span class="toc-d">orders that beat the order</span></a><a href="#gap"><span class="toc-t">The sample</span><span class="toc-d">what a ranking leaves out</span></a><a href="#criteria"><span class="toc-t">The model</span><span class="toc-d">nine criteria, written out</span></a><a href="#confidence"><span class="toc-t">Confidence</span><span class="toc-d">how much of this is measured</span></a><a href="#audit"><span class="toc-t">Against interest</span><span class="toc-d">where the model misfires</span></a><a href="#ranking"><span class="toc-t">The ranking</span><span class="toc-d">all 60 in one sequence</span></a><a href="#corrections"><span class="toc-t">Verification log</span><span class="toc-d">what was wrong</span></a></nav>
 <section id="changes">
   <div class="changelog measure-wide">
     <span class="eyebrow">What changed in this edition</span>
