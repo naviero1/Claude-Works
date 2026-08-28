@@ -191,6 +191,24 @@
         "swing_2025Q1_to_Q2": -6.02
       },
       "finding": "The 2025 tariff front-run and unwind produced the most violent inventory swing in the US national accounts outside the pandemic itself — a bullwhip, in 2025, among firms that had spent four years saying they had fixed the bullwhip."
+    },
+    "real_inventories_to_gdp": {
+      "name": "Real private inventories as a share of real GDP",
+      "source": "US Bureau of Economic Analysis via FRED — A371RX1Q020SBEA and GDPC1, both chained 2017 dollars",
+      "verified": "Computed and verified independently, 28 Aug 2026",
+      "why_it_matters": "This is the answer to the strongest objection to the headline finding: that inventories-to-sales is a NOMINAL ratio read across the sharpest inflation in forty years. Both terms here are in chained dollars, so no price or margin effect can touch it.",
+      "values": {
+        "2015_19_mean": 13.56,
+        "2019Q1": 13.51,
+        "2021Q3": 12.73,
+        "2023Q1_restock_peak": 13.19,
+        "2026Q2": 12.57
+      },
+      "growth_2019Q1_to_2026Q2": {
+        "real_inventories": "+10.5%",
+        "real_GDP": "+18.8%"
+      },
+      "finding": "The 2022-23 restock never regained the pre-COVID level (13.19% against a 2015-19 mean of 13.56%), and the latest reading of 12.57% is the lowest in the window, below even the pandemic trough. Stripped of every price effect, the US economy carries less inventory per unit of output than before COVID, and the gap is still widening."
     }
   },
   "reported_figures": [
@@ -2646,6 +2664,18 @@
       "verdict": "ADDED — the record contradicts the framing",
       "correction": "2021 semiconductor unit shipments hit an all-time record of 1.15 trillion on record revenue of $555.9bn. There was no aggregate shortage; there was an allocation failure.",
       "action": "New callout in section 2, verified independently against the Semiconductor Industry Association."
+    },
+    {
+      "claim_as_originally_written": "The headline finding rests on a nominal inventories-to-sales ratio.",
+      "verdict": "CHALLENGED — named the biggest analytical hole",
+      "correction": "A nominal ratio read across the largest inflation episode in forty years cannot on its own support the thesis.",
+      "action": "New figure in section 3 answering it with real private inventories as a share of real GDP, both in chained 2017 dollars. The real measure agrees and is stronger: the 2022-23 restock never regained the pre-COVID level and 2026Q2 is the lowest reading in the window."
+    },
+    {
+      "claim_as_originally_written": "Toyota's RESCUE database included instructions to hold buffer stock.",
+      "verdict": "CORRECTED",
+      "correction": "RESCUE is the supplier-mapping system; the chip stockpile rule is a separate business-continuity policy (suppliers 2-6 months; Toyota's CFO put the range actually held at 1-4 months).",
+      "action": "The two are now named and separated, with the figures."
     }
   ],
   "scor_standard": {
