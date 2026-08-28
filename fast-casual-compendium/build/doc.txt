@@ -34,6 +34,39 @@
  
 
  
+ Six findings that should change your order
+ 
+
+## What sixty menus actually tell you
+ 
+Each of these holds across the whole set rather than at one restaurant, each survived an attempt to disprove it, and each is recomputable from the ranking table below. Four are about money, because that is where the data turned out to be most surprising — and where it most contradicts the first edition.
+ $17.00above which nothing is efficient
+
+### Every dish over $17 is beaten by a cheaper one
+Only 4 dishes on this list are efficient — meaning nothing cheaper is also as healthy. They are Chopt at $10.79, DICED at $10.95, El Cuscatleco at $15.95, Poke Bros. at $17.00. All 30 dishes priced above $17.00 are matched or beaten by something cheaper. Chengdu 7 charges $36.95 for a health score of 6.5; Chopt scores 6.5 for $10.79 — $26.16 less for the same or better.
+What to doTreat $17.00 as a ceiling. Above it you are buying something other than nutrition.$30.21saved on a week, for the same coverage
+
+### The cheap week is as good as the expensive one
+Five dinners chosen as the top-ranked dishes cost $91.10. Five chosen as the cheapest that still cover every criterion cost $60.89 — and both bottom out at exactly 6.8 / 10 on their weakest criterion. The extra $30.21 buys nothing the model can measure.
+What to doRotate Chopt, DICED, Guasaca and two more instead of chasing the top of the list.+153 mgbought by every extra $5
+
+### Spending more actively makes the meal worse
+Regressed across all 60 dishes, each additional $5 adds +153 mg of sodium and removes 1.0 g of fiber, while moving health by +0.07 — nothing. By price third the median sodium climbs 1,052 to 1,150 to 1,450 mg, and the median kidney score falls from 5.8 to 3.3.
+What to doMoney is not neutral here. It is mildly harmful.$0.19per gram of protein
+
+### The cheapest protein here is also the cleanest
+DICED’s lentil-base bowl with grilled chicken is $10.95 for 57 g of protein — the best value on the list — and it carries 2.5 mg of sodium per gram of that protein, also the best on the list. Cheap and clean are usually a trade. Here they are the same dish, and it is the second-cheapest thing in the document.
+What to doIf you order one thing off this list, order that.+667 mgwhat flavor actually costs
+
+### Flavor is bought with salt, not with fat
+The 22 dishes scoring 7.5 or better on flavor carry +667 mg more sodium than the 14 scoring 5.5 or worse, and only +1.7 g more saturated fat. It also explains what price is really buying: control for sodium and the price–flavor correlation falls from +0.39 to +0.28. A third of what money appears to buy in flavor is salt.
+What to doWatch the sauce, the base and the cure. Stop watching the olive oil and the avocado.1.41points, the spread inside one restaurant
+
+### Which dish you order beats where you order it
+Across the restaurants with scored alternatives, the median gap between the best and worst order at a single one is 1.41 points. The spread across the middle half of all 60 restaurants is 1.24. True Food Kitchen alone spans 2.77 points, from 7.04 down to 4.27.
+What to doPicking the restaurant is the smaller half of the decision. Pick the order.
+
+ 
  Chapter one
  
 
@@ -48,6 +81,19 @@ Money does buy something. The correlation between price and flavor is +0.39 — 
  [CHART]
  Each dot is one dish. The dashed line is the least-squares fit through all sixty — it is nearly flat. The shaded corner is the useful part of the chart: dishes at or under $16 that still score 6.0 or better on health. There are 11 of them.
  
+
+ 
+
+### What each extra five dollars actually buys
+ 
+Least-squares across all 60 dishes, and the same question asked by splitting the list into price thirds. The two agree.
+ 
+| Price third | Median price | Median sodium | Median kidney | Median flavor | Median health | 
+| Cheapest Third | $14.00 | 1,052 | 5.8 | 5.7 | 5.95 | 
+| Middle Third | $17.45 | 1,150 | 5.2 | 7.1 | 5.80 | 
+| Priciest Third | $24.98 | 1,450 | 3.3 | 7.8 | 6.28 | 
+ 
+Fifteen dishes — a quarter of the list — price between $15.50 and $17.00. That $1.50 band contains Poke Bros. at health 8.2 and Silk Road Uzbek at 3.8 — the entire health range of all 60 dishes, top to bottom, at effectively one price.
 
  
 
@@ -67,6 +113,14 @@ Sorted by health score. The last column is health points per dollar, which is th
 | Neomonde — Build A Bowl | $15.99 | 6.2 | 6.8 | 38 g | 1,050 | 0.39 | 
 | CAVA — SuperGreens and lentil bowl with grilled steak | $15.50 | 6.2 | 7.1 | 50 g | 1,295 | 0.40 | 
 | Chipotle — Chicken salad with pinto beans and guacamole | $12.00 | 6.0 | 4.3 | 44 g | 1,055 | 0.50 | 
+
+ 
+ 
+
+#### One place the cheap answer is not the good one
+ 
+The 8 meat-free dishes here run $0.78 per gram of protein against $0.45 for everything else — 1.7 times as much — on a median 25 g of protein against 42, and they score lower on health too, 5.35 against 6.14. That is a fact about these menus rather than about vegetarian eating: the meat-free options on this list are mostly starch-and-stew formats sold at entrée prices, not protein-forward builds. The one exception is the cheapest dish in the section below, which gets 20 g of its protein from lentils.
+ 
 
  
 
@@ -166,21 +220,21 @@ DICED delivers protein at 2.5 mg of sodium per gram. Chosun Ok charges 100.0�
 
 ### Where the salt actually is
  
-Single components, each read off the restaurant's own published nutrition document. Almost none of these is the part of the meal a customer thinks of as salty.
+Single components, each read off the restaurant's own published nutrition document. Almost none of the heavy ones is the part of the meal a customer thinks of as salty — and the four lightest are all proteins, which is the opposite of what most people would guess.
  
-| Component | Portion | Sodium mg | 
-| Farmside Kitchen seasoned quinoa — The base, before anything is put on it. | 8 oz base portion | 900 | 
-| Chipotle chipotle-honey vinaigrette — Also 220 calories and 12 g of sugar. | 2 fl oz | 850 | 
-| CAVA saffron basmati or brown rice — Identical for both rices; the largest sodium item among CAVA's bases. | one base | 770 | 
-| Poke Bros. OG Sauce — Added to every bowl unless you refuse it. | one bowl | 730 | 
-| Farmside Kitchen Signature grilled chicken — A plain grilled breast is 190 mg for the same protein. | 3.5 oz | 660 | 
-| CAVA grilled chicken — CAVA's grilled steak is 280 mg for 23 g of protein. | one portion | 670 | 
-| Bul Box sriracha — The 30-calorie sauce. Yum yum sauce is 150 calories and 115 mg. | 1 oz | 454 | 
-| Pokeworks ahi tuna — Their chicken is 80 mg for the same scoop. | 2 oz scoop | 350 | 
-| Chipotle chicken — 32 g of protein - the most sodium-efficient protein in the set. | 4 oz | 310 | 
-| True Food Kitchen salmon add-on — 29 g of protein. The cleanest protein anywhere here. | one portion | 90 | 
-| DICED grilled chicken — 26 g of protein, at 2.7 mg of sodium per gram. | one portion | 69 | 
-| Poke Bros. plain tuna — Their own marinated tuna is 820 mg. | 85 g | 40 | 
+| Component | Portion | Sodium mg | Protein | 
+| Farmside Kitchen seasoned quinoa — The base, before anything is put on it. | 8 oz base portion | 900 | — | 
+| Chipotle chipotle-honey vinaigrette — Also 220 calories and 12 g of sugar. | 2 fl oz | 850 | — | 
+| CAVA saffron basmati or brown rice — Identical for both rices, and the largest sodium item among CAVA's bases. | one base | 770 | — | 
+| Poke Bros. OG Sauce — Added to every bowl unless you refuse it. | one bowl | 730 | — | 
+| CAVA grilled chicken — CAVA's grilled steak is 280 mg for 23 g of protein. | one portion | 670 | 28 g | 
+| Farmside Kitchen Signature grilled chicken — A plain grilled breast is 190 mg for the same protein. | 3.5 oz | 660 | — | 
+| Bul Box sriracha — The 30-calorie sauce, and four times the sodium of the 150-calorie one. | 1 oz | 454 | — | 
+| Pokeworks ahi tuna — Their chicken is 80 mg for the same scoop and 12 g of protein. | 2 oz scoop | 350 | 14 g | 
+| Chipotle chicken — 9.7 mg of sodium per gram of protein. | 4 oz | 310 | 32 g | 
+| True Food Kitchen salmon add-on — 3.1 mg per gram, and the cleanest protein on any menu here. | one portion | 90 | 29 g | 
+| DICED grilled chicken — 2.7 mg per gram. | one portion | 69 | 26 g | 
+| Poke Bros. plain tuna — 1.9 mg per gram. Their own marinated tuna is 820 mg. | 85 g | 40 | 21 g | 
 
  
 
@@ -221,13 +275,15 @@ Only 3 of the 12 swaps above raise the dish's score while cutting sodium. Look a
  
 The first edition argued that cuisines built on char, acid and aromatics keep their flavor when you strip out salt and fat, while cuisines built on sauce, cheese and frying do not. The first half of that is right and the second half is aimed at the wrong nutrient.
  
-Take the 22 dishes scoring 7.5 or better on flavor and the 14 scoring 5.5 or worse. The flavorful group carries +667 mg more sodium, at t = 3.8 — a separation nothing about this sample can explain away. It also carries +1.7 g more saturated fat, at t = 2.0, which is on the edge of meaning nothing at all.
+Take the 22 dishes scoring 7.5 or better on flavor and the 14 scoring 5.5 or worse. The flavorful group carries +667 mg more sodium, at t = 3.8. It also carries +1.7 g more saturated fat, at t = 2.0, which is on the edge of meaning nothing at all.
+ 
+The sodium gap is not one dish doing the work. Leave any single dish out and it stays between 550 and 751 mg, never falling below t = 3.6; on medians rather than means the gap is +650 mg.
  
 So flavor in this set is bought mainly with salt, not with fat, and the first edition was policing the wrong nutrient. That is also why there is no health-flavor tradeoff between individual dishes — the correlation is −0.05, nil. The tradeoff is not a property of a dish. It is a property of a kitchen's whole seasoning strategy, and it shows up only when you group by cuisine.
  
  
  [CHART]
- Each bubble is a cuisine with at least two dishes in the set, sized by how many. The kitchens that lead on flavor tend to trail on health and the reverse; across the 13 groups the relationship is −0.29, which is a pattern worth seeing rather than a result worth betting on. What is solid is the mechanism in the sodium column below: every cuisine above 7.0 on flavor sits at or above 1,096 mg.
+ Each bubble is a cuisine with at least two dishes in the set, sized by how many. The kitchens that lead on flavor tend to trail on health and the reverse; across the 13 groups the relationship is −0.29, which is a pattern worth seeing rather than a result worth betting on. What is solid is the mechanism in the sodium column below: the four cuisines leading on flavor all sit at or above 1,438 mg, and the three trailing it all sit under 897.
  
  
  
@@ -246,6 +302,14 @@ So flavor in this set is bought mainly with salt, not with fat, and the first ed
 | US bowl chain — 15 dishes | 5.5 | 6.1 | 897 | 5.7 | $15.21 | 
 | Hawaiian/poke — 3 dishes | 4.5 | 6.5 | 896 | 2.9 | $16.30 | 
  
+ 
+ 
+
+#### Read the last two columns together
+ 
+Salt is what flavor costs. It is not the only way a cuisine loses the health column. Korean, Sichuan and Vietnamese kitchens sit high on flavor and low on health entirely on sodium — their saturated fat is unremarkable. Caribbean and Mexican kitchens lose it a different way, on 11.0 g and 10.7 g of saturated fat against a set median near 5.0, and they do not get leading flavor scores in exchange. Those are the two failure modes, and only one of them buys you anything.
+ 
+
  
 
 ### The dishes that break the pattern

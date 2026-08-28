@@ -1,5 +1,5 @@
 """Every number printed in the second edition is computed here. Nothing is typed by hand."""
-import json, statistics as st, itertools
+import json, statistics as st, itertools, math
 from collections import defaultdict
 
 D  = json.load(open('details_corrected.json'))    # 60 entries, corrections applied + cuisine/prep tags
@@ -236,6 +236,77 @@ F['absent'] = [
   'Seafood and raw bar', 'Pizza', 'Burgers and sandwiches', 'Wings',
   'A dedicated vegan kitchen',
 ]
+
+# price-health efficient frontier
+_S = sorted(D, key=lambda d: (d['price'], -d['health']))
+_front, _best = [], -1
+for _d in _S:
+    if _d['health'] > _best: _front.append(_d); _best = _d['health']
+_cut = _front[-1]['price']
+_over = [d for d in D if d['price'] > _cut]
+_dom = [d for d in _over if any(x['price'] <= d['price'] and x['health'] >= d['health'] and x is not d for x in D)]
+# the dominated dish whose cheaper equal saves the most money
+_pairs = []
+for _d in _over:
+    _b = min([x for x in D if x['health'] >= _d['health'] and x is not _d], key=lambda x: x['price'], default=None)
+    if _b: _pairs.append((_d['price'] - _b['price'], _d, _b))
+_pairs.sort(key=lambda t: -t[0])
+F['frontier'] = dict(dishes=_front, cutoff=_cut, n_over=len(_over), n_dominated=len(_dom),
+                     worst_example=_pairs[0][1], beater=_pairs[0][2], gap=_pairs[0][0])
+
+# what an extra five dollars buys
+def _ols(x, y):
+    mx, my = st.mean(x), st.mean(y)
+    return sum((a-mx)*(c-my) for a, c in zip(x, y))/sum((a-mx)**2 for a in x)
+_P = [d['price'] for d in D]
+F['per5'] = dict(sodium=_ols(_P, [d['sodium'] for d in D])*5,
+                 fiber=_ols(_P, [d['fiber'] for d in D])*5,
+                 health=_ols(_P, [d['health'] for d in D])*5,
+                 flavor=_ols(_P, [d['FLAVOR'] for d in D])*5)
+_t = sorted(D, key=lambda d: d['price']); _n = len(_t)//3
+F['terciles'] = [dict(label=lab,
+                      price=st.median([d['price'] for d in g]),
+                      sodium=st.median([d['sodium'] for d in g]),
+                      KID=st.median([d['KID'] for d in g]),
+                      health=st.median([d['health'] for d in g]),
+                      flavor=st.median([d['FLAVOR'] for d in g]))
+                 for lab, g in [('cheapest third', _t[:_n]), ('middle third', _t[_n:2*_n]),
+                                ('priciest third', _t[2*_n:])]]
+
+# is the price-flavor link really a price-salt link?
+_rpf, _rfn, _rpn = (pear(_P, [d['FLAVOR'] for d in D]),
+                    pear([d['FLAVOR'] for d in D], [d['sodium'] for d in D]),
+                    pear(_P, [d['sodium'] for d in D]))
+F['r_flavor_sodium'] = _rfn
+F['partial_price_flavor'] = (_rpf - _rpn*_rfn)/math.sqrt((1-_rpn**2)*(1-_rfn**2))
+
+# does which dish beat which restaurant?
+_sp = []
+for d in D:
+    if d.get('corrected') or d.get('disputed') or not d['alternatives']: continue
+    _sc = [d['overall']] + [a['score'] for a in d['alternatives']]
+    _sp.append(dict(name=d['restaurant'], spread=max(_sc)-min(_sc), hi=max(_sc), lo=min(_sc)))
+_sp.sort(key=lambda r: -r['spread'])
+_all = sorted(d['overall'] for d in D)
+F['within_between'] = dict(within=st.median([r['spread'] for r in _sp]),
+                           between=_all[3*len(_all)//4] - _all[len(_all)//4],
+                           n=len(_sp), widest=_sp[:3])
+
+# meat-free dishes cost more per gram of protein
+_VEG = {'Abol Ethiopian', "Naga's South Indian", 'Goorsha', 'Southern Spice', 'Udupi Cafe',
+        'Szechuan Mansion Hotpot', 'First Watch', 'Panera Bread'}
+_veg = [d for d in D if d['restaurant'] in _VEG]; _rest = [d for d in D if d['restaurant'] not in _VEG]
+F['veg'] = {k: dict(n=len(g), dpp=st.median([d['price']/d['protein'] for d in g]),
+                    protein=st.median([d['protein'] for d in g]),
+                    health=st.median([d['health'] for d in g]))
+            for k, g in [('meat_free', _veg), ('rest', _rest)]}
+
+# the price band that contains everything
+_band = [d for d in D if 15.50 <= d['price'] <= 17.00]
+F['shelf'] = dict(n=len(_band), lo=15.50, hi=17.00,
+                  health_lo=min(d['health'] for d in _band), health_hi=max(d['health'] for d in _band),
+                  set_lo=min(d['health'] for d in D), set_hi=max(d['health'] for d in D),
+                  best=max(_band, key=lambda d: d['health']), worst=min(_band, key=lambda d: d['health']))
 
 # prep groups
 gp = defaultdict(list)

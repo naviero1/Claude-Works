@@ -1,0 +1,16 @@
+import re, html
+h = open('compendium.html').read()
+h = re.sub(r'<style>.*?</style>', '', h, flags=re.S)
+h = re.sub(r'<svg.*?</svg>', '[CHART]', h, flags=re.S)
+h = re.sub(r'<(script|link|title)[^>]*>.*?</\1>', '', h, flags=re.S)
+for tag, mk in [('h2', '\n\n## '), ('h3', '\n\n### '), ('h4', '\n\n#### ')]:
+    h = re.sub(rf'<{tag}[^>]*>', mk, h)
+h = re.sub(r'<p[^>]*>', '\n', h)
+h = re.sub(r'<li[^>]*>', '\n- ', h)
+h = re.sub(r'<tr[^>]*>', '\n| ', h)
+h = re.sub(r'</td>|</th>', ' | ', h)
+h = re.sub(r'<span class="sub">', ' — ', h)
+h = re.sub(r'<[^>]+>', '', h)
+h = html.unescape(h); h = re.sub(r'\n{3,}', '\n\n', h); h = re.sub(r'[ \t]{2,}', ' ', h)
+open('doc.txt', 'w').write(h)
+print(len(h.split()), 'words')

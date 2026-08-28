@@ -1,67 +1,64 @@
 def sec_findings():
     """The six findings that replace the first edition's front page.
     Every number is computed from the corrected dataset at build time."""
-    B  = F['bowl_share']
     fs = F['flavor_split']
     wn, wc = F['week_naive'], F['week_cheap']
     saving = wn['cost'] - wc['cost']
     best_val = min(D, key=lambda d: d['dpp'])
-    best_na  = min(D, key=lambda d: d['na_p'])
-    quinoa   = next(x for x in F['salt_components'] if 'quinoa' in x['item'])
-    bowls    = next(g for g in F['dupes'] if g['name'] == 'Build-your-own bowl')
-    cheapest_good = min([d for d in D if d['health'] >= 6.0], key=lambda d: d['price'])
-    dearest_bad   = max([d for d in D if d['health'] < 5.5], key=lambda d: d['price'])
+    fr = F['frontier']
+    shelf = F['shelf']
 
     cards = [
-      ('money', f"{F['r_price_health']:+.2f}", 'price against health, all 60 dishes',
-       'Paying more buys flavor, not health',
-       f"Across the whole set, price and health correlate at {F['r_price_health']:+.2f} &mdash; under one percent of the "
-       f"variation, and it survives dropping any single dish. Price and <em>flavor</em> correlate at "
-       f"{F['r_price_flavor']:+.2f}, five times as strong. {e(cheapest_good['restaurant'])} at "
-       f"{money(cheapest_good['price'])} outscores {e(dearest_bad['restaurant'])} at {money(dearest_bad['price'])} on "
-       f"every health criterion that matters.",
-       'Spend money when you want the meal to be good, not when you want it to be good for you.'),
+      ('f-money', money(fr['cutoff']), 'above which nothing is efficient',
+       'Every dish over $17 is beaten by a cheaper one',
+       f"Only {len(fr['dishes'])} dishes on this list are efficient &mdash; meaning nothing cheaper is also as healthy. They are "
+       f"{', '.join(e(d['restaurant']) + ' at ' + money(d['price']) for d in fr['dishes'])}. "
+       f"All {fr['n_dominated']} dishes priced above {money(fr['cutoff'])} are beaten outright by something cheaper: "
+       f"{e(fr['worst_example']['restaurant'])}&rsquo;s {money(fr['worst_example']['price'])} dish scores "
+       f"{fr['worst_example']['health']:.1f} where {money(fr['beater']['price'])} buys {fr['beater']['health']:.1f}.",
+       f"Treat {money(fr['cutoff'])} as a ceiling. Above it you are buying something other than nutrition."),
 
-      ('money', money(saving), 'saved on a week, for the same coverage',
+      ('f-money', money(saving), 'saved on a week, for the same coverage',
        'The cheap week is as good as the expensive one',
-       f"Five dinners chosen as the top-ranked dishes cost {money(wn['cost'])}. Five chosen as the cheapest that still "
-       f"cover every criterion cost {money(wc['cost'])} &mdash; and both bottom out at exactly "
-       f"{wc['floor']:.1f}&#8202;/&#8202;10 on their weakest criterion. The extra {money(saving)} buys nothing the model "
-       f"can measure.",
+       f"Five dinners chosen as the top-ranked dishes cost {money(wn['cost'])}. Five chosen as the cheapest that still cover "
+       f"every criterion cost {money(wc['cost'])} &mdash; and both bottom out at exactly {wc['floor']:.1f}&#8202;/&#8202;10 on their "
+       f"weakest criterion. The extra {money(saving)} buys nothing the model can measure.",
        f"Rotate {', '.join(e(d['restaurant']) for d in sorted(wc['dishes'], key=lambda x: x['price'])[:3])} and two more "
        f"instead of chasing the top of the list."),
 
-      ('money', f"${best_val['dpp']:.2f}", 'per gram of protein',
+      ('f-warn', f"+{F['per5']['sodium']:,.0f}&#8202;mg", 'bought by every extra $5',
+       'Spending more actively makes the meal worse',
+       f"Regressed across all {len(D)} dishes, each additional $5 adds {F['per5']['sodium']:+,.0f}&#8202;mg of sodium and removes "
+       f"{abs(F['per5']['fiber']):.1f}&#8202;g of fiber, while moving health by {F['per5']['health']:+.2f} &mdash; nothing. "
+       f"By price third the median sodium climbs {F['terciles'][0]['sodium']:,.0f} to {F['terciles'][1]['sodium']:,.0f} to "
+       f"{F['terciles'][2]['sodium']:,.0f}&#8202;mg, and the median kidney score falls from "
+       f"{F['terciles'][0]['KID']:.1f} to {F['terciles'][2]['KID']:.1f}.",
+       'Money is not neutral here. It is mildly harmful.'),
+
+      ('f-money', f"${best_val['dpp']:.2f}", 'per gram of protein',
        'The cheapest protein here is also the cleanest',
-       f"{e(best_val['restaurant'])}'s {e(best_val['dish']).lower()} is {money(best_val['price'])} for "
+       f"{e(best_val['restaurant'])}&rsquo;s {e(best_val['dish']).lower()} is {money(best_val['price'])} for "
        f"{best_val['protein']}&#8202;g of protein &mdash; the best value on the list &mdash; and it carries "
-       f"{best_na['na_p']:.1f}&#8202;mg of sodium per gram of that protein, also the best on the list. Cheap and clean are "
-       f"usually a trade. Here they are the same dish, and it is the second-cheapest thing in the document.",
+       f"{best_val['na_p']:.1f}&#8202;mg of sodium per gram of that protein, also the best on the list. Cheap and clean are usually "
+       f"a trade. Here they are the same dish, and it is the second-cheapest thing in the document.",
        'If you order one thing off this list, order that.'),
 
-      ('warn', f"+{fs['na_hi']-fs['na_lo']:,.0f}&#8202;mg", 'what flavor actually costs',
+      ('f-warn', f"+{fs['na_hi']-fs['na_lo']:,.0f}&#8202;mg", 'what flavor actually costs',
        'Flavor is bought with salt, not with fat',
-       f"The {fs['n_hi']} dishes scoring 7.5 or better on flavor carry {fs['na_hi']-fs['na_lo']:+,.0f}&#8202;mg more sodium "
-       f"than the {fs['n_lo']} scoring 5.5 or worse (t&nbsp;=&nbsp;{F['welch_sodium'][0]:.1f}), and only "
-       f"{fs['sf_hi']-fs['sf_lo']:+.1f}&#8202;g more saturated fat (t&nbsp;=&nbsp;{F['welch_satfat'][0]:.1f}, which is "
-       f"nearly nothing). The seasoning is the cost, not the cooking fat.",
+       f"The {fs['n_hi']} dishes scoring 7.5 or better on flavor carry {fs['na_hi']-fs['na_lo']:+,.0f}&#8202;mg more sodium than the "
+       f"{fs['n_lo']} scoring 5.5 or worse, and only {fs['sf_hi']-fs['sf_lo']:+.1f}&#8202;g more saturated fat. It also explains what "
+       f"price is really buying: control for sodium and the price&ndash;flavor correlation falls from "
+       f"{F['r_price_flavor']:+.2f} to {F['partial_price_flavor']:+.2f}. A third of what money appears to buy in flavor is salt.",
        'Watch the sauce, the base and the cure. Stop watching the olive oil and the avocado.'),
 
-      ('warn', f"{quinoa['mg']:,}&#8202;mg", 'in a portion of plain quinoa',
-       'The salt is in the base, not in the dressing',
-       f"Farmside Kitchen's seasoned quinoa is {quinoa['mg']:,}&#8202;mg of sodium before anything is put on it; CAVA's two "
-       f"rice bases are 770 each. Meanwhile the four lowest-sodium components anywhere in this document are all proteins &mdash; "
-       f"plain tuna at 40&#8202;mg, a salmon add-on at 90, grilled chicken at 69. The first edition blamed the dressing and "
-       f"the cheese. Its own restaurant's numbers say otherwise.",
-       'Change the base before you change the protein. Refusing the grain saves more than refusing the sauce.'),
-
-      ('flav', f"{F['dupe_priciest_wins']} of {len(F['dupes'])}", 'times the priciest version wins',
-       'The same dish costs twice as much and scores worse',
-       f"Seven groups of near-identical dishes appear across the set &mdash; kebab plates, build-your-own bowls, raw fish "
-       f"plates, South Indian steamed plates. The most expensive version is the best one in only "
-       f"{F['dupe_priciest_wins']} of them. Among the {bowls['n']} build-your-own bowls, price and score correlate at "
-       f"{bowls['r']:+.2f}: within that format, paying more is actively worse.",
-       'Once you have chosen the kind of food you want, take the cheapest version of it.'),
+      ('f-flav', f"{F['within_between']['within']:.2f}", 'points, the spread inside one restaurant',
+       'Which dish you order beats where you order it',
+       f"Across the restaurants with scored alternatives, the median gap between the best and worst order at a single one is "
+       f"{F['within_between']['within']:.2f} points. The spread across the middle half of all {len(D)} restaurants is "
+       f"{F['within_between']['between']:.2f}. {e(F['within_between']['widest'][0]['name'])} alone spans "
+       f"{F['within_between']['widest'][0]['spread']:.2f} points, from {F['within_between']['widest'][0]['hi']:.2f} down to "
+       f"{F['within_between']['widest'][0]['lo']:.2f}.",
+       'Picking the restaurant is the smaller half of the decision. Pick the order.'),
     ]
 
     out = ''
@@ -78,8 +75,9 @@ def sec_findings():
       '  <span class="eyebrow">Six findings that should change your order</span>\n'
       '  <h2>What sixty menus actually tell you</h2>\n'
       '  <p class="lede measure" style="margin-top:14px">Each of these holds across the whole set rather than at one '
-      'restaurant, and each is recomputable from the ranking table below. Three of them are about money, because that is '
-      'where the data turned out to be most surprising.</p>\n'
+      'restaurant, each survived an attempt to disprove it, and each is recomputable from the ranking table below. Four are '
+      'about money, because that is where the data turned out to be most surprising &mdash; and where it most contradicts the '
+      'first edition.</p>\n'
       f'  <div class="findings" style="margin-top:34px">{out}</div>\n'
       '</section>')
 
