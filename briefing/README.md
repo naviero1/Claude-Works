@@ -24,6 +24,10 @@
 2. **Apple Calendar** — no write connector exists for it, and none is needed: add your Google account on iPhone/Mac (Settings → Apps → Calendar → Accounts) and everything the briefing puts on Google Calendar appears there automatically. That's why the old step 7 is gone.
 3. **Briefing Memory** — a Notion page the prompt reads first and updates last (news log, watchlist, open questions, last run). Created already; the prompt re-creates it if it ever goes missing.
 
+## Visual edition
+
+Where artifacts are supported, the brief also publishes as a single **"Daily Briefing"** HTML page (stable link when the surface allows republishing): 7-day schedule strip, per-lane status counts, significance-tagged world signals, and inline charts only when a number series is the story. The chat message then shrinks to the top line + questions + link; if publishing isn't available, the full brief renders in chat instead — nothing is ever lost to the rendering step.
+
 ## Feeding it
 
 - Reply to the "Needs from you" block in one message: photos + numbered answers ("2: close, 3: Sep 5").
