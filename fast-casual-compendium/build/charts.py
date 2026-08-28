@@ -77,8 +77,10 @@ def sodium_ladder(F, w=760):
     rh, pad_t, pad_l = 26, 26, 190
     h = pad_t + len(rows)*rh + 46
     mx = max(d['sodium']/d['protein'] for d in F['na_worst'])
+    step = 10 if mx <= 80 else 20
+    ticks = list(range(0, int(mx//step)*step + 1, step))
     s = [f'<svg viewBox="0 0 {w} {h}" class="chart" role="img" aria-label="Milligrams of sodium per gram of protein, best ten and worst six">']
-    for gx in [0,10,20,30,40,50,60,70]:
+    for gx in ticks:
         x = pad_l + gx/mx*(w-pad_l-60)
         s.append(f'<line x1="{x:.1f}" y1="{pad_t-8}" x2="{x:.1f}" y2="{h-42}" class="grid"/>')
         s.append(f'<text x="{x:.1f}" y="{h-28}" class="tick tick-x">{gx}</text>')
