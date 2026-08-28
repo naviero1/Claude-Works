@@ -36,12 +36,14 @@ The findingssix results that should change your orderOne · Moneywhat price does
  
 
  
- Six findings that should change your order
+ Seven findings that should change your order
  
 
 ## What sixty menus actually tell you
  
 Each of these holds across the whole set rather than at one restaurant, each survived an attempt to disprove it, and each is recomputable from the ranking table below. Four are about money, because that is where the data turned out to be most surprising — and where it most contradicts the first edition.
+ 
+Computed on the first edition's 60 dishes, not on all 87. The 27 entries added here were chosen to fill named gaps — the best available dish in a category that had none — so pooling them into a correlation would measure the choosing rather than the food. They are scored identically, they appear in the ranking, and they are summarised against these same measures where they are introduced.
  $17.00above which nothing is efficient
 
 ### Every dish over $17 is beaten by a cheaper one
@@ -62,7 +64,11 @@ What to doIf you order one thing off this list, order that.+572 mgwhat flavor 
 
 ### Flavor is bought with salt, not with fat
 The 22 dishes scoring 7.5 or better on flavor carry +572 mg more sodium than the 14 scoring 5.5 or worse, and only +2.0 g more saturated fat. It also explains what price is really buying: control for sodium and the price–flavor correlation falls from +0.41 to +0.30 — 26% of what money appears to buy in flavor is salt.
-What to doWatch the sauce, the base and the cure. Stop watching the olive oil and the avocado.1.44points, the spread inside one restaurant
+What to doWatch the sauce, the base and the cure. Stop watching the olive oil and the avocado.11 of 13checked dishes that got worse
+
+### Checking a dish against its restaurant almost always made it worse
+13 entries were rebuilt from figures their restaurant publishes or from its current menu. 11 of them fell, by an average of 0.55 points — Bul Box -1.68, Sassool -1.52, El Cuscatleco -1.37. The errors do not sit in one macro: some were sodium, some calories, some a gut score resting on an ingredient that was not on the menu. What they share is direction. Estimation flatters a dish; it does not fluster it.
+What to doRead every dish marked ESTIMATED as roughly half a point generous.1.44points, the spread inside one restaurant
 
 ### Which dish you order beats where you order it
 Across the restaurants with scored alternatives, the median gap between the best and worst order at a single one is 1.44 points. The spread across the middle half of all 60 restaurants is 1.25. True Food Kitchen alone spans 2.77 points, from 7.04 down to 4.27.
@@ -540,6 +546,15 @@ Every one of these is estimated from menu construction rather than published nut
 
 #### Categories that really are empty here
 Searched, and not padded to fill a row. Somali, Eritrean and Sudanese kitchens do not exist as standalone restaurants in the Triangle - the searches return only Ethiopian houses, one of which markets itself as Ethiopian and Eritrean but cooks an injera-and-wot menu indistinguishable from the two already scored. The same is true of Ghanaian, Georgian, Armenian and Israeli cooking: no restaurant in the named towns, and the nearest Georgian option sits outside the area entirely. Taiwanese kitchens do exist here, but none of them carries a dish that clears the bar this document sets for a complete meal.
+ 
+ 
+
+#### How the new entries score against the same measures
+ 
+They are worse food, on this model, and predictably so: mean health 5.43 against 5.89 for the original sixty, on +233 mg more sodium at almost exactly the same price ($19.15 against $18.82). That is what filling the gaps costs: 17 of the 27 are grilled, smoked or fried, and the compendium’s whole argument is that those formats buy their flavor with salt. Mean flavor is 5.30 against 6.69 — lower, because the group also contains the steamed and diet-menu orders nobody chooses.
+ 
+The exceptions are the point. Talullas’s balık şiş would rank 3rd of 87, and Alpaca Peruvian Charcoal Chicken clears health 6.0 at $11.29 — cheaper than anything in the original set that does. Within these 27 the price–health correlation is +0.20, which is higher than the +0.05 across the original sixty and still small enough to be worth nothing.
+ 
  
 
 ### Why each one is here
@@ -2035,7 +2050,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
 ## What was wrong
  
  
-Every nutrition figure the first edition attributed to a published document was re-read against that document, and the restaurants were spot-checked for whether they exist and are trading. 36 claims came back wrong, 13 of them badly enough to change a score. 7 could not be settled either way and are printed as open rather than quietly dropped.
+Every nutrition figure the first edition attributed to a published document was re-read against that document, and the restaurants were spot-checked for whether they exist and are trading. 37 claims came back wrong, 13 of them badly enough to change a score. 11 could not be settled either way and are printed as open rather than quietly dropped.
  
 Two of the corrections move an entry a long way. Sassool was ranked third on figures its own published nutrition sheet does not support. Bul Box was scored on sodium inferred from construction because its nutrition page was returning an error; the page works now, and the real number is more than double.
  
@@ -2485,6 +2500,18 @@ On the compendium's own figures the nam tok is 8.9 g of protein per 100 kcal, wh
  
 The compendium's own data.
  
+ CorrectedKrill
+ 
+
+### A Filipino seafood sinigang at $28 in Durham, proposed for this edition's new entries
+ 
+First edition Proposed with a full construction estimate - 372 cal, 37 g protein, 1,850 mg sodium for a no-rice sour seafood broth - read off a live website carrying a complete, dated menu.
+ 
+The restaurant is closed. Its website is still up and still serving that menu; the homepage footer reads 'Thank You for Dining with Krill'. Cut before publication. This is the same failure the first edition identified in DoorDash's deactivated storefronts, arriving through a different door: a restaurant's own site outliving the restaurant, with numbers that look entirely reasonable attached to food nobody can order. It is also why Filipino is one of the four categories this edition still cannot fill.
+ 
+ 
+krillrestaurant.com, retrieved 28 August 2026.
+ 
  UnresolvedDICED
  
 
@@ -2568,6 +2595,54 @@ Could not be sourced at all. Standard references describe shiro as powdered chic
  
  
 Standard references on shiro; Abol's menu not retrievable, 28 August 2026.
+ 
+ UnresolvedYemen Arabic Restaurant
+ 
+
+### A Yemeni charcoal-grilled half chicken at $29.50 in Raleigh, proposed for this edition
+ 
+First edition Proposed on the strength of a review listing at 3933 Western Blvd.
+ 
+Cut. Wake County's environmental-health register has no establishment of that name anywhere in the county; a search returns a differently-named Yemeni restaurant at a different address. The name could not be reconciled with the authoritative record, so the entry was not published rather than published with a hedge.
+ 
+ 
+Wake County Environmental Health establishment register, 28 August 2026.
+ 
+ UnresolvedBackyard BBQ Pit
+ 
+
+### A chopped turkey barbecue plate at $16.79 in Durham, proposed for this edition
+ 
+First edition Proposed with sound internal arithmetic and a well-reasoned fatback accounting.
+ 
+Cut, because current operation could not be established. Durham is outside Wake County, so the inspection register that cleared ten other candidates does not cover it, and nothing else reachable confirmed the business is trading. The reasoning was among the best in the batch, which is exactly why it should not be printed against a dish nobody could confirm is on sale.
+ 
+ 
+No authoritative register available for Durham County establishments, 28 August 2026.
+ 
+ UnresolvedMariscos Los Cabos
+ 
+
+### A green aguachile at $13.99 in Durham, proposed to fill the seafood and raw-bar gap
+ 
+First edition Proposed at 378 cal, 42 g protein and 1,280 mg sodium.
+ 
+Cut on the same rule: the dish is real and confirmed on an aggregator menu, but current operation could not be established. Had it survived, two figures needed work anyway - 200 g of edible shrimp is the generous end for a $13.99 plate, and 1,280 mg understates a lime-and-salt cure served with two salted tostadas.
+ 
+ 
+Aggregator menu confirmed; operation unconfirmed, 28 August 2026.
+ 
+ Unresolvedthe new entries
+ 
+
+### DoorDash store ids for the entries added in this edition
+ 
+First edition Several were reported by the sweeps that found the restaurants.
+ 
+None of them could be independently checked, because DoorDash returns an error to every automated request. Existence was established instead against county restaurant-inspection registers, which carry dated scores and addresses and are a better source for whether a business is trading - ten of the new entries were confirmed that way with 2026 inspections. The store ids are printed as reported, not as verified, and the entries that carry none say so.
+ 
+ 
+Wake, Durham and Orange County environmental-health registers, 28 August 2026.
  
  ConfirmedPoke Bros.
  

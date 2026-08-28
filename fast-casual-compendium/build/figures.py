@@ -2,9 +2,20 @@
 import json, statistics as st, itertools, math, re
 from collections import defaultdict
 
-D  = json.load(open('details_corrected.json'))    # 60 entries, corrections applied + cuisine/prep tags
+import os
+D  = json.load(open('details_corrected.json'))    # the original sixty, corrections applied
 M  = {d['rank']: d for d in json.load(open('master.json'))}   # + alternatives
 for d in D: d['alternatives'] = M[d['rank']]['alternatives']
+ORIG = list(D)
+# The analysis below runs on the first edition's sixty, not on the eighty-seven.
+# The twenty-seven entries added in this edition were chosen to fill named gaps -
+# the best available dish in a category that had none - so they are a purposive
+# sample, not a representative one, and pooling them into a correlation would
+# measure the selection rather than the food. They are scored on the identical
+# model, they appear in the ranking, and they are summarised against these same
+# measures in ADDED below.
+ADDED = json.load(open('additions.json')) if os.path.exists('additions.json') else []
+for _a in ADDED: _a.setdefault('alternatives', [])
 CRIT = ['KID','LIV','MUS','GUT','ENE','INF','SUG']
 
 def pear(xs, ys):
@@ -30,12 +41,11 @@ F['r_fiber_gut']    = pear([d['fiber'] for d in D], [d['GUT'] for d in D])
 F['r_fiber_ene']    = pear([d['fiber'] for d in D], [d['ENE'] for d in D])
 
 # drop-the-outlier robustness for r(price, health)
-def r_without(rank):
-    S=[d for d in D if d['rank']!=rank]
+def r_without(idx):
+    S = [d for i, d in enumerate(D) if i != idx]
     return pear([d['price'] for d in S], [d['health'] for d in S])
-F['r_price_health_no_chengdu'] = r_without(38)   # $36.95, the price outlier
-F['r_price_health_no_msushi']  = r_without(5)    # $31.20
-F['r_price_health_range'] = (min(r_without(d['rank']) for d in D), max(r_without(d['rank']) for d in D))
+F['r_price_health_range'] = (min(r_without(i) for i in range(len(D))),
+                             max(r_without(i) for i in range(len(D))))
 
 # cuisine-level
 g = defaultdict(list)
@@ -118,10 +128,10 @@ F['na_gap_loo'] = dict(lo=min(g for g, _ in _loo), hi=max(g for g, _ in _loo),
 # ranking-structure defect
 merged = sorted(D, key=lambda x: -x['overall'])
 F['merged'] = merged
-F['true_rank'] = {d['rank']: i+1 for i, d in enumerate(merged)}
-worst_main = min(d['overall'] for d in D if d['rank'] <= 30)
+F['true_rank'] = {d['rank']: i+1 for i, d in enumerate(merged) if 'rank' in d}
+worst_main = min(d['overall'] for d in ORIG if d['rank'] <= 30)
 F['worst_main'] = worst_main
-F['promoted'] = sorted([d for d in D if d['rank'] > 30 and d['overall'] > worst_main], key=lambda x: -x['overall'])
+F['promoted'] = sorted([d for d in ORIG if d['rank'] > 30 and d['overall'] > worst_main], key=lambda x: -x['overall'])
 F['n_promoted'] = len(F['promoted'])
 
 # data-tier gap
@@ -332,14 +342,15 @@ F['gut_fiber_swap'] = dict(
 
 # coverage: what the first edition's sample over- and under-weights
 _cu = defaultdict(list)
-for d in D: _cu[d['cuisine']].append(d)
+for d in ORIG: _cu[d['cuisine']].append(d)
 F['coverage'] = sorted([dict(name=k, n=len(v), share=len(v)/len(D),
                              overall=st.mean([d['overall'] for d in v]))
                         for k, v in _cu.items()], key=lambda r: -r['n'])
-_bowlish = [d for d in D if d['cuisine'] in ('US bowl chain', 'Hawaiian/poke')]
-F['bowl_share'] = dict(n=len(_bowlish), pct=len(_bowlish)/len(D)*100,
-                       in_top10=sum(1 for d in sorted(D, key=lambda x: -x['overall'])[:10]
+_bowlish = [d for d in ORIG if d['cuisine'] in ('US bowl chain', 'Hawaiian/poke')]
+F['bowl_share'] = dict(n=len(_bowlish), pct=len(_bowlish)/len(ORIG)*100,
+                       in_top10=sum(1 for d in sorted(ORIG, key=lambda x: -x['overall'])[:10]
                                     if d in _bowlish))
+F['n_orig'] = len(ORIG)
 F['absent'] = [
   'North Carolina barbecue', 'Southern and soul food', 'Greek', 'Persian',
   'Chinese-American takeout', 'West African', 'Brazilian', 'Filipino',
@@ -427,6 +438,35 @@ F['preps'] = sorted([dict(name=k, n=len(v), health=st.mean([d['health'] for d in
                           flavor=st.mean([d['FLAVOR'] for d in v]), sodium=st.mean([d['sodium'] for d in v]),
                           price=st.mean([d['price'] for d in v]), overall=st.mean([d['overall'] for d in v]))
                     for k, v in gp.items()], key=lambda r: -r['health'])
+
+# how the new entries behave against the same measures, reported separately
+if ADDED:
+    _A = ADDED
+    F['added'] = dict(
+        n=len(_A), n_cuisines=len({a['cuisine'] for a in _A}),
+        health=st.mean([a['health'] for a in _A]), flavor=st.mean([a['FLAVOR'] for a in _A]),
+        sodium=st.mean([a['sodium'] for a in _A]), price=st.mean([a['price'] for a in _A]),
+        orig_health=st.mean([d['health'] for d in D]), orig_flavor=st.mean([d['FLAVOR'] for d in D]),
+        orig_sodium=st.mean([d['sodium'] for d in D]), orig_price=st.mean([d['price'] for d in D]),
+        n_grilled=sum(1 for a in _A if a['prep'] == 'grilled'),
+        r_price_health=pear([a['price'] for a in _A], [a['health'] for a in _A]),
+        best=max(_A, key=lambda a: a['overall']),
+        cheapest_good=min([a for a in _A if a['health'] >= 6.0], key=lambda a: a['price'], default=None))
+
+# what happened to the dishes that got re-checked against a restaurant's own figures
+_BEFORE = {d['restaurant']: d for d in json.load(open('details_cu.json'))}
+_C = json.load(open('corrections_v1.json'))
+_resc = [c['restaurant'] for c in _C if c['action'] == 'rescore' and c['restaurant'] in _BEFORE]
+_by = {d['restaurant']: d for d in ORIG}
+_deltas = [(_by[r]['overall'] - _BEFORE[r]['overall'], r) for r in _resc if r in _by]
+F['recheck'] = dict(
+    n=len(_deltas),
+    n_fell=sum(1 for d, _ in _deltas if d < 0),
+    mean_delta=st.mean([d for d, _ in _deltas]),
+    worst=sorted(_deltas)[:3],
+    na_understated=sum(1 for r in _resc if r in _by and _by[r]['sodium'] > _BEFORE[r]['sodium']),
+    na_median_when_understated=st.median([_by[r]['sodium'] - _BEFORE[r]['sodium']
+                                          for r in _resc if r in _by and _by[r]['sodium'] > _BEFORE[r]['sodium']] or [0]))
 
 json.dump({k: v for k, v in F.items()}, open('figures.json','w'), indent=1, default=str)
 print('computed', len(F), 'figure groups')

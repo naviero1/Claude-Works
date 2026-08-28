@@ -290,3 +290,7 @@ section[id]{scroll-margin-top:16px}
 ul.absent li{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
 ul.absent li.filled{color:var(--ink)}
 ul.absent .tick{color:var(--health);font-weight:700}
+@media(min-width:760px){
+  .finding.finding-wide{grid-column:1 / -1;border-right:0;padding-right:0}
+  .finding.finding-wide p{max-width:72ch}
+}

@@ -144,6 +144,7 @@ def sec_findings():
     """The six findings that replace the first edition's front page.
     Every number is computed from the corrected dataset at build time."""
     fs = F['flavor_split']
+    RC = F['recheck']
     wn, wc = F['week_naive'], F['week_cheap']
     saving = wn['cost'] - wc['cost']
     best_val = min(D, key=lambda d: d['dpp'])
@@ -195,6 +196,15 @@ def sec_findings():
        f"{(1 - F['partial_price_flavor']/F['r_price_flavor'])*100:.0f}% of what money appears to buy in flavor is salt.",
        'Watch the sauce, the base and the cure. Stop watching the olive oil and the avocado.'),
 
+      ('f-warn', f"{RC['n_fell']} of {RC['n']}", 'checked dishes that got worse',
+       'Checking a dish against its restaurant almost always made it worse',
+       f"{RC['n']} entries were rebuilt from figures their restaurant publishes or from its current menu. "
+       f"{RC['n_fell']} of them fell, by an average of {abs(RC['mean_delta']):.2f} points &mdash; "
+       f"{', '.join(e(r) + ' ' + f'{d:.2f}'.replace('-', chr(8722)) for d, r in RC['worst'])}. The errors do not sit in one macro: some were sodium, "
+       f"some calories, some a gut score resting on an ingredient that was not on the menu. What they share is direction. "
+       f"Estimation flatters a dish; it does not fluster it.",
+       'Read every dish marked ESTIMATED as roughly half a point generous.'),
+
       ('f-flav', f"{F['within_between']['within']:.2f}", 'points, the spread inside one restaurant',
        'Which dish you order beats where you order it',
        f"Across the restaurants with scored alternatives, the median gap between the best and worst order at a single one is "
@@ -206,8 +216,9 @@ def sec_findings():
     ]
 
     out = ''
-    for kind, num, lab, head, body, do in cards:
-        out += (f'<div class="finding {kind}">'
+    for i, (kind, num, lab, head, body, do) in enumerate(cards):
+        span = ' finding-wide' if (len(cards) % 2 == 1 and i == len(cards) - 1) else ''
+        out += (f'<div class="finding {kind}{span}">'
                 f'<div class="finding-num"><span class="bignum num">{num}</span>'
                 f'<span class="label">{lab}</span></div>'
                 f'<h3>{head}</h3><p>{body}</p>'
@@ -216,12 +227,17 @@ def sec_findings():
     return (
       '<section id="findings">\n'
       '  <hr class="rule-heavy">\n'
-      '  <span class="eyebrow">Six findings that should change your order</span>\n'
+      '  <span class="eyebrow">Seven findings that should change your order</span>\n'
       '  <h2>What sixty menus actually tell you</h2>\n'
       '  <p class="lede measure" style="margin-top:14px">Each of these holds across the whole set rather than at one '
       'restaurant, each survived an attempt to disprove it, and each is recomputable from the ranking table below. Four are '
       'about money, because that is where the data turned out to be most surprising &mdash; and where it most contradicts the '
       'first edition.</p>\n'
+      f'  <p class="caption measure" style="margin-top:10px">Computed on the first edition\'s {F["n_orig"]} dishes, not on all '
+      f'{len(MERGED)}. The {len(ADDS)} entries added here were chosen to fill named gaps &mdash; the best available dish in a '
+      f'category that had none &mdash; so pooling them into a correlation would measure the choosing rather than the food. They '
+      f'are scored identically, they appear in the ranking, and they are summarised against these same measures where they are '
+      f'introduced.</p>\n'
       f'  <div class="findings" style="margin-top:34px">{out}</div>\n'
       '</section>')
 
@@ -810,6 +826,7 @@ def sec_additions():
                   f'<p style="margin-top:6px">Searched, and not padded to fill a row. {e(ABSENT)}</p></div>')
 
     best = entries[0]
+    A = F['added']
     place = ordinal(sum(1 for x in MERGED if x['overall'] > best['overall']) + 1)
 
     return (
@@ -835,6 +852,21 @@ def sec_additions():
       '<th class="n">Flavor</th><th class="n">Price</th><th class="n">Pro</th><th class="n">Na mg</th>'
       f'</tr></thead><tbody>{rows}</tbody></table></div>\n'
       f'  {absent}\n'
+      '  <div class="callout">\n'
+      '    <h4>How the new entries score against the same measures</h4>\n'
+      f'    <p style="margin-top:6px">They are worse food, on this model, and predictably so: mean health {A["health"]:.2f} '
+      f'against {A["orig_health"]:.2f} for the original sixty, on {A["sodium"]-A["orig_sodium"]:+,.0f}&#8202;mg more sodium at '
+      f'almost exactly the same price ({money(A["price"])} against {money(A["orig_price"])}). That is what filling the gaps '
+      f'costs: {A["n_grilled"]} of the {A["n"]} are grilled, smoked or fried, and the compendium&rsquo;s whole argument is that '
+      f'those formats buy their flavor with salt. Mean flavor is {A["flavor"]:.2f} against {A["orig_flavor"]:.2f} &mdash; lower, '
+      f'because the group also contains the steamed and diet-menu orders nobody chooses.</p>\n'
+      f'    <p style="margin-top:10px">The exceptions are the point. {e(A["best"]["restaurant"])}&rsquo;s '
+      f'{e(A["best"]["dish"]).lower()} would rank {ordinal(sum(1 for x in MERGED if x["overall"] > A["best"]["overall"]) + 1)} '
+      f'of {len(MERGED)}, and {e(A["cheapest_good"]["restaurant"])} clears health 6.0 at {money(A["cheapest_good"]["price"])} '
+      f'&mdash; cheaper than anything in the original set that does. Within these {A["n"]} the price&ndash;health correlation is '
+      f'{r2(A["r_price_health"])}, which is higher than the {r2(F["r_price_health"])} across the original sixty and still small '
+      f'enough to be worth nothing.</p>\n'
+      '  </div>\n'
       '  <h3 style="margin-top:40px">Why each one is here</h3>\n'
       f'  <div style="margin-top:14px">{notes}</div>\n'
       '</section>')
