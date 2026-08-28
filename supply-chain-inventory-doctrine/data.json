@@ -131,6 +131,28 @@
           "now": 0.23,
           "widened_by": 0.14
         }
+      },
+      "the_long_arc": {
+        "finding": "The great compression belongs to the 1990s and early 2000s, not to the 2010s. Manufacturing hit its all-time low of 1.14 in December 2005 and drifted up for fifteen years. Retail bottomed at an annual mean of 1.350 in 2011 and was 8.5% higher (1.464) by 2019. Neither sector was still leaning when the pandemic arrived, so 'COVID ended thirty years of relentless inventory reduction' is not what the data shows.",
+        "retail_annual_means": {
+          "1992": 1.673,
+          "1995": 1.719,
+          "2000": 1.593,
+          "2005": 1.505,
+          "2009": 1.464,
+          "2011": 1.35,
+          "2015": 1.458,
+          "2019": 1.464
+        },
+        "manufacturing_annual_means": {
+          "1992": 1.568,
+          "2005": 1.166,
+          "2011": 1.285,
+          "2017": 1.391,
+          "2018": 1.366,
+          "2019": 1.454
+        },
+        "note_on_2018_19": "The manufacturing climb through 2018-19 lines up with the Section 301 tariffs, not with anything pandemic-related. This is why the baseline choice in the main finding matters."
       }
     },
     "china_import_share": {
@@ -2578,6 +2600,18 @@
       "verdict": "Unverifiable at source (second independent confirmation)",
       "correction": "Wave sizes are small (n=71 in 2021, n=113 in 2022, n=101 in 2023) and the two 78% figures could not be located in any primary exhibit.",
       "action": "Sourcing warning in section 7 strengthened with wave sizes; no conclusion rests on these figures."
+    },
+    {
+      "claim_as_originally_written": "Inventory is the first of Ohno's seven wastes.",
+      "verdict": "REFUTED",
+      "correction": "Overproduction is first, and Ohno singles it out as the root waste that generates the others. Inventory is conventionally fifth.",
+      "action": "TPS card corrected. The corrected version actually serves the argument better: inventory is a consequence of overproduction, which is precisely the 'stock is a symptom' reading."
+    },
+    {
+      "claim_as_originally_written": "Retail spent thirty years proving it could operate on less stock.",
+      "verdict": "CORRECTED",
+      "correction": "Retail's I/S fell to an annual mean of 1.350 in 2011 and then ROSE 8.5% to 1.464 by 2019. All of retail's decline happened before 2011; there was no retail leaning in the 2010s.",
+      "action": "Wording fixed, and a new 1992-2026 long-arc figure added at the top of section 3 so the reader can see the whole record rather than the 2018-2026 close-up alone."
     }
   ]
 }

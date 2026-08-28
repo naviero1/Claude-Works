@@ -28,7 +28,7 @@ body = (SRC / "body.html").read_text()
 body = re.sub(r"<!--#include ([\w.-]+)-->",
               lambda m: (SRC / "partials" / m.group(1)).read_text().rstrip(), body)
 css = (SRC / "style.css").read_text()
-js = (SRC / "app.js").read_text() + "\n" + (SRC / "data-series.js").read_text()
+js = "\n".join((SRC / f).read_text() for f in ("app.js", "data-series.js", "data-longarc.js"))
 
 head_bits = f'<title>{TITLE}</title>\n{FONTS}\n<style>\n{css}\n</style>'
 tail = f'<script>\n{js}\n</script>'

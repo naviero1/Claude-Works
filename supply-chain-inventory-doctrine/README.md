@@ -27,7 +27,12 @@ COVID broke, and why the KPIs and risk models changed.
    1998; the bullwhip in the chip market; 109 ships at anchor off Los Angeles.
    Four modelling failures — and a fifth failure that was not modelling at all,
    but the scorecard.
-3. **§03 The correction.** The measured finding at the centre of this report:
+3. **§03 The correction.** Opens with the 1992–2026 long view, because the popular
+   version of this story gets its starting point wrong: **the great compression
+   belongs to the 1990s and early 2000s**. Manufacturing hit its all-time low of
+   1.14 in December 2005 and drifted up for fifteen years; retail bottomed in
+   2011 and was 8.5% higher by 2019. Neither sector was still leaning when the
+   pandemic arrived. Then the measured finding at the centre of this report:
    US manufacturing and retail inventory-to-sales **diverged**. Retail is below
    its pre-COVID level on every baseline (1.25 against a 2015–19 average of
    1.47); the aggregate is **0.10 below**; manufacturing is **0.08 above**. The
