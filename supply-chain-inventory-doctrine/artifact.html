@@ -543,10 +543,12 @@ footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34
   <div class="shead">
     <div class="tag reg"><span class="no">01</span><span>The doctrine</span><span class="rule"></span><span>1913 – 2019</span></div>
     <h2>A century of theory, all pointing the same way</h2>
-    <p class="dek">Pre-COVID inventory theory was not sloppy. It was some of the most rigorous applied
-      mathematics in management, and it was almost unanimous: inventory is capital in a warehouse, it
-      is the physical residue of an information failure, and the correct amount of it is the smallest
-      amount that meets your service level. Here is the canon that operators were trained on.</p>
+    <p class="dek">Pre-COVID inventory practice was not sloppy. It rested on some of the most rigorous applied
+      mathematics in management, and the working canon was near-unanimous: inventory is capital in a warehouse, it
+      is the physical residue of an information failure, and the right amount of it is the smallest amount that
+      meets your service level. Here is what operators were actually trained on and what their software actually
+      implemented — which, as the qualification at the end of this section explains, is not the same thing as
+      what the literature knew.</p>
   </div>
 
   <div class="cards c3">
@@ -578,7 +580,7 @@ footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34
       <div class="who reg">Forrester 1961 · Lee, Padmanabhan &amp; Whang 1997</div>
       <h4>The bullwhip effect</h4>
       <p>Order variance amplifies at every echelon upstream. Four causes: demand signal processing, order batching, price fluctuation, rationing and shortage gaming.</p>
-      <p class="imp"><b>Told you to</b>Fix amplification with <em>information</em>, not stock. Share the point-of-sale signal and the buffer becomes unnecessary.</p>
+      <p class="imp"><b>Told you to</b>Fix amplification with <em>information</em>, not stock. Sterman's Beer Distribution Game (1989) had already shown the harder half: the oscillation appears even when players can see everything, because people systematically under-account for orders already in the pipeline.</p>
     </div>
     <div class="fw">
       <div class="who reg">Gary Eppen · 1979</div>
@@ -616,6 +618,15 @@ footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34
       <p>Speed and cost are not enough. A chain must be <em>agile</em>, <em>adaptable</em> and <em>aligned</em> to survive. Drawn from more than 60 companies studied over 15 years.</p>
       <p class="imp"><b>Told you to</b>Build for change — sixteen years early. Widely cited, thinly implemented, because none of the three had a number attached.</p>
     </div>
+    <div class="fw">
+      <div class="who reg">Hopp &amp; Spearman · 1996</div>
+      <h4>The variability buffering law</h4>
+      <p>Variability in a production system <em>will</em> be buffered — by some combination of inventory, capacity
+        or time. You do not get to choose whether to buffer. You only choose which of the three pays.</p>
+      <p class="imp"><b>Told you to</b>Pick your buffer deliberately. The industry instead minimised inventory
+        <em>and</em> capacity — leaving time as the only buffer left, which is exactly why the shock arrived as a
+        lead-time explosion rather than as a stockout.</p>
+    </div>
     <div class="fw" style="--era-1:var(--accent)">
       <div class="who reg">Corporate finance · throughout</div>
       <h4>The cash conversion cycle</h4>
@@ -627,14 +638,21 @@ footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34
   <div class="stack stack-24" style="margin-top:34px">
     <div class="premise">
       <div class="reg" style="color:var(--accent-ink)">The unwritten assumption</div>
-      <p class="q">Every model above treats uncertainty as something that happens on the demand side.
+      <p class="q">In the models that actually ran operations, uncertainty happens on the demand side.
         Supply is a pipe: it has a length, and the length is a constant.</p>
-      <p>Read the formulas again and you can see it. Demand gets a distribution — a mean, a standard
-        deviation, a service factor. Lead time gets a letter. Not a distribution: a letter, <span class="num">L</span>,
-        a fixed number of days you look up in a table. Suppliers were assumed available, ports were assumed
-        open, and capacity was assumed purchasable at a price. This was not naive. For roughly thirty years,
-        between the opening of global trade and 2020, it was empirically true nearly all of the time — which
-        is precisely why nobody stress-tested it.</p>
+      <p>Read the formulas again and you can see it. Demand gets a distribution — a mean, a standard deviation,
+        a service factor. Lead time gets a letter. Not a distribution: a letter, <span class="num">L</span>, a
+        fixed number of days looked up in a table. Suppliers were assumed available, ports open, capacity
+        purchasable at a price. This was not naive. For roughly thirty years, between the opening of global trade
+        and 2020, it was empirically true nearly all of the time — which is precisely why nobody stress-tested it.</p>
+      <p><b>One important qualification, because the obvious version of this claim is wrong.</b> It is not true
+        that inventory <em>theory</em> ignored supply-side risk. A substantial operations-research literature had
+        modelled unreliable supply for decades — random-yield models, supply-disruption models, stochastic
+        capacity — and all of it predates 2019. The accurate statement is narrower and considerably more damning:
+        <b>supply-side uncertainty was well theorised by 2019 and almost entirely absent from the formulas that
+        shipped in planning software, from the parameters planners were allowed to set, and from the metrics
+        anyone was measured on.</b> The gap was never between what was known and what was knowable. It was
+        between the literature and the configuration screen.</p>
     </div>
 
     <div class="col">
@@ -1261,8 +1279,9 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
     that JIT did not cause this, and the better analysts never claimed it did. Small batch sizes and short cycle
     times did not create the semiconductor shortage; a cancelled order book, a two-decade concentration of
     capacity and zero visibility below tier one did. Toyota — the originator — weathered the chip shortage better
-    than most of its competitors precisely <em>because</em> it had a risk-part database and multi-month buffers on
-    specific critical components, a policy it adopted after the 2011 Tōhoku earthquake. That is not an abandonment
+    than most of its competitors precisely <em>because</em> of what it built after the 2011 Tōhoku earthquake: the
+    RESCUE supplier database, mapping on the order of <b>650,000 supply-chain nodes</b>, together with standing
+    instructions to suppliers to hold months of buffer stock on specifically identified critical parts. That is not an abandonment
     of TPS. It is TPS applied to a risk that had been made visible. The lesson is not "lean was wrong." It is
     <b>"lean was being measured with instruments that could not see supply-side risk."</b> The sharpest academic
     statement of this comes from Jiang, Rigobon and Rigobon, who argue that under a <em>systemic</em> shock — as
@@ -1760,8 +1779,9 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
       </div>
       <div class="note" style="margin-top:12px"><b>Sourcing warning.</b> These figures reach this document through
         secondary reporting of the McKinsey waves; repeated attempts to verify them against the primary
-        publications failed, because mckinsey.com refuses automated requests. Treat them as <b>reported intent,
-        second-hand</b> — indicative of direction only, from unmatched samples with question wording that shifts
+        publications failed, because mckinsey.com refuses automated requests. The waves are also small — n=71 in
+        2021, n=113 in 2022, n=101 in 2023 — and a fact-checking pass could not locate the two 78% figures in any
+        primary exhibit at all. Treat them as <b>reported intent, second-hand</b> — indicative of direction only, from unmatched samples with question wording that shifts
         between years. Nothing in this document's conclusions rests on them.</div>
       <figcaption>Source: McKinsey supply chain pulse surveys, waves 2020–2024, via secondary reporting
         (the 2023 wave: 101 respondents, fieldwork April–May 2023). Primary sources not verified.</figcaption>
@@ -1929,9 +1949,15 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
       </div>
       <p style="font-size:14px;line-height:1.55;color:var(--ink-2);margin:0"><b>Why these two.</b> They are
         independent of anyone selling a supply chain product, they are published on a fixed schedule, and they
-        cover the whole arc without a break. The inventories-to-sales ratio is particularly well suited here
-        because inventories and sales are both measured in current dollars, so the ratio is largely insulated
-        from the inflation that makes raw inventory values from 2019 and 2026 incomparable.</p>
+        cover the whole arc without a break. Because inventories and sales are both in current dollars, the ratio
+        is largely insulated from the general inflation that makes raw 2019 and 2026 inventory values
+        incomparable.</p>
+      <div class="note" style="font-size:13.5px"><b>But it is not a clean instrument, and the report should not
+        pretend otherwise.</b> Inventories are carried at <em>cost</em> while sales are booked at <em>selling
+        price</em>, so a change in gross margin moves the ratio with no change in physical stocking at all. It
+        also moves on product mix. This is why §03 leans on the <em>divergence</em> between two sectors — which is
+        far less exposed to that contamination than either sector's level — and why §07 corroborates it with three
+        further series built on different denominators entirely.</div>
     </div>
     <div class="card stack stack-10">
       <div class="reg" style="color:var(--era-2)">Reported figures — treat as reported</div>

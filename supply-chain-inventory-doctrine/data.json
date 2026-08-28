@@ -365,6 +365,16 @@
       "framework": "'From Just in Time, to Just in Case, to Just in Worst Case' — under systemic shocks neither JIT nor JIC is the right frame; diversify the network rather than deepen the pile",
       "originator": "Jiang, Rigobon & Rigobon",
       "year": "2021-22"
+    },
+    {
+      "framework": "Variability buffering law — variability will be buffered by inventory, capacity or time",
+      "originator": "Hopp & Spearman, Factory Physics",
+      "year": "1996"
+    },
+    {
+      "framework": "Beer Distribution Game — bullwhip arises from human ordering behaviour even under full information",
+      "originator": "John Sterman, Management Science 35(3)",
+      "year": "1989"
     }
   ],
   "known_weaknesses": [
@@ -2549,5 +2559,25 @@
       "Little's Law L = lambda*W — an identity, holds in every regime."
     ],
     "adoption_not_theory": "Clark & Scarf multi-echelon 1960; Little's Law 1961; proper scoring rules long settled; CVaR made tractable by Rockafellar & Uryasev 2000. The bottleneck was adoption, not theory."
-  }
+  },
+  "corrections_from_adversarial_review": [
+    {
+      "claim_as_originally_written": "Every model treats uncertainty as demand-side; supply is assumed reliable.",
+      "verdict": "REFUTED as stated",
+      "correction": "True of the practitioner stack (EOQ, classical safety stock, MRP/DRP lead-time offsets, SCOR metrics, ABC/XYZ) but false of pre-2019 inventory THEORY: random-yield, supply-disruption and stochastic-capacity models all predate 2019. The defensible and stronger claim is that supply-side uncertainty was well theorised by 2019 and almost entirely absent from the formulas shipped in planning software, the parameters planners could set, and the metrics anyone was measured on.",
+      "action": "Section 1's premise callout rewritten to the narrower claim; it now matches section 6's 'adoption was the bottleneck, not theory'."
+    },
+    {
+      "claim_as_originally_written": "Inventories-to-sales is insulated from inflation because both terms are in current dollars.",
+      "verdict": "Incomplete",
+      "correction": "Inventories are carried at cost and sales booked at selling price, so a gross-margin change moves the ratio with no change in physical stocking; it also moves on mix.",
+      "action": "Caveat added to section 8; the argument leans on the sector DIVERGENCE and on three corroborating series with different denominators."
+    },
+    {
+      "claim_as_originally_written": "McKinsey pulse survey percentages",
+      "verdict": "Unverifiable at source (second independent confirmation)",
+      "correction": "Wave sizes are small (n=71 in 2021, n=113 in 2022, n=101 in 2023) and the two 78% figures could not be located in any primary exhibit.",
+      "action": "Sourcing warning in section 7 strengthened with wave sizes; no conclusion rests on these figures."
+    }
+  ]
 }
