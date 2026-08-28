@@ -697,7 +697,7 @@ def sec_ranking():
       <td class="n num">{d['cal']:,}</td>
       <td class="n num">{d['protein']}</td>
       <td class="n num {'lo' if d['sodium'] >= 1500 else ''}">{d['sodium']:,}</td>
-      <td class="n num">{d['fiber']}</td>
+      <td class="n num">{d['fiber']:g}</td>
     </tr>''')
     return f'''<section id="ranking">
   <hr class="rule-heavy">
@@ -721,7 +721,28 @@ def sec_ranking():
 
 def sec_gap():
     B = F['bowl_share']
-    absent = ''.join(f'<li>{e(x)}</li>' for x in F['absent'])
+    _hay = ' | '.join((a['cuisine'] + ' ' + a['dish'] + ' ' + a.get('build', '')).lower() for a in ADDS)
+    KEYS = {
+      'North Carolina barbecue': ['barbecue'], 'Southern and soul food': ['soul food'],
+      'Greek': ['greek'], 'Persian': ['persian'], 'Chinese-American takeout': ['chinese-american'],
+      'West African': ['west african'], 'Brazilian': ['brazilian'], 'Filipino': ['filipino'],
+      'Colombian, Cuban or Puerto Rican': ['cuban', 'colombian', 'puerto rican'],
+      'Burmese': ['burmese'], 'Malaysian or Indonesian': ['malaysian', 'indonesian'],
+      'Taiwanese': ['taiwanese'], 'Halal cart': ['halal'],
+      'Chaat and Indian street food': ['street food', 'chaat'],
+      'Pakistani or Bangladeshi': ['pakistani', 'bangladeshi'],
+      'Seafood and raw bar': ['raw bar', 'aguachile', 'ceviche', 'crudo'],
+      'Pizza': ['pizza'], 'Burgers and sandwiches': ['burger', 'sandwich'],
+      'Wings': ['wings'], 'A dedicated vegan kitchen': ['vegan'],
+    }
+    def _filled(x):
+        return any(k in _hay for k in KEYS.get(x, [x.lower()]))
+    absent = ''.join(f'<li class="{"filled" if _filled(x) else ""}">{e(x)}'
+                     + ('<span class="tick">&#10003;</span>' if _filled(x) else '') + '</li>'
+                     for x in F['absent'])
+    n_filled = sum(1 for x in F['absent'] if _filled(x))
+    filled_note = (f'{n_filled} of these {len(F["absent"])} are filled in this edition, marked with a tick.'
+                   if ADDS else 'None of these is filled.')
     covrows = [[f'<td><span class="rest">{e(c["name"])}</span></td>',
                 f'<td class="n num">{c["n"]}</td>',
                 f'<td class="n num">{c["share"]*100:.1f}%</td>',
@@ -731,8 +752,8 @@ def sec_gap():
   <span class="eyebrow">The sample</span>
   <h2>What a ranking leaves out</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>A ranking is only as good as the set it ranks, and this one was assembled from a narrow slice of what actually delivers here. {B['n']} of the {len(D)} entries &mdash; <strong>{B['pct']:.0f}%</strong> &mdash; are build-your-own bowls or poke, and {B['in_top10']} of the top ten are. That is not a finding about food. It is a finding about how the list was built: assembled-to-order formats are easy to score because you control every component, so they get picked, and they then win on criteria the format is designed to satisfy.</p>
-    <p>The omissions are more telling than the concentrations. This is a document written about food in North Carolina that contains no barbecue.</p>
+    <p>A ranking is only as good as the set it ranks, and the first edition's was assembled from a narrow slice of what actually delivers here. {B['n']} of its {len(D)} entries &mdash; <strong>{B['pct']:.0f}%</strong> &mdash; were build-your-own bowls or poke, and {B['in_top10']} of its top ten. That is not a finding about food. It is a finding about how a list gets built: assembled-to-order formats are easy to score because you control every component, so they get picked, and they then win on criteria the format is designed to satisfy.</p>
+    <p>The omissions were more telling than the concentrations. A document written about food in North Carolina contained no barbecue. {"The next section adds " + str(len(ADDS)) + " entries against that list, and the categories it still cannot fill are named there." if ADDS else "Twenty categories are absent entirely."}</p>
   </div>
   <div class="pair">
     <div>
@@ -741,6 +762,7 @@ def sec_gap():
     </div>
     <div>
       <h4>Absent entirely from the first edition</h4>
+      <p class="caption" style="margin-top:8px">{filled_note}</p>
       <ul class="absent">{absent}</ul>
     </div>
   </div>
@@ -753,8 +775,8 @@ def sec_additions():
     rows = ''
     for d in entries:
         sid = d.get('store') or ''
-        sid_html = (f'<span class="sub">DoorDash store {e(sid)}</span>' if sid
-                    else '<span class="sub dimtd">store id not confirmed</span>')
+        sid_html = (f'<span class="sub dimtd">DoorDash store {e(sid)}, reported but not independently confirmed</span>'
+                    if sid else '<span class="sub dimtd">no DoorDash store id established</span>')
         na_cls = 'lo' if d['sodium'] >= 1500 else ''
         rows += (
             '<tr>'
@@ -803,8 +825,10 @@ def sec_additions():
       f'    <p>The best of them, {e(best["restaurant"])}&rsquo;s {e(best["dish"]).lower()} at {money(best["price"])}, scores '
       f'{best["overall"]:.2f} &mdash; which would place it {place} in the main ranking.</p>\n'
       '    <p class="caption">Every one of these is estimated from menu construction rather than published nutrition, and should '
-      'be read at the confidence the measurement chapter describes. Where a DoorDash store id could not be confirmed it is left '
-      'blank rather than guessed.</p>\n'
+      'be read at the confidence the measurement chapter describes. Existence was established against county restaurant-inspection '
+      'registries and the restaurants&rsquo; own sites; <strong>no DoorDash store id in this group could be independently checked</strong>, '
+      'because DoorDash refuses automated requests, so the ids below are reported rather than verified and several entries carry '
+      'none at all.</p>\n'
       '  </div>\n'
       '  <div class="tablewrap"><table><thead><tr>'
       '<th>Restaurant and dish</th><th>Cuisine</th><th class="n">Overall</th><th class="n">Health</th>'

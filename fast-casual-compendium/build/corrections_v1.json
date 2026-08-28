@@ -544,5 +544,50 @@
   "now": "On the compendium's own figures the nam tok is 8.9 g of protein per 100 kcal, which ranks ninth of the sixty - behind M Sushi's sashimi, both poke bowls, the Peony sashimi bowl and True Food's kale salad. 'Among the leanest hot-protein dishes here' is defensible; the superlative is not, and the document contradicts it four entries above.",
   "source": "The compendium's own data.",
   "kind": "wrong"
+ },
+ {
+  "restaurant": "Krill",
+  "action": "note",
+  "claim": "A Filipino seafood sinigang at $28 in Durham, proposed for this edition's new entries",
+  "was": "Proposed with a full construction estimate - 372 cal, 37 g protein, 1,850 mg sodium for a no-rice sour seafood broth - read off a live website carrying a complete, dated menu.",
+  "now": "The restaurant is closed. Its website is still up and still serving that menu; the homepage footer reads 'Thank You for Dining with Krill'. Cut before publication. This is the same failure the first edition identified in DoorDash's deactivated storefronts, arriving through a different door: a restaurant's own site outliving the restaurant, with numbers that look entirely reasonable attached to food nobody can order. It is also why Filipino is one of the four categories this edition still cannot fill.",
+  "source": "krillrestaurant.com, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Yemen Arabic Restaurant",
+  "action": "note",
+  "claim": "A Yemeni charcoal-grilled half chicken at $29.50 in Raleigh, proposed for this edition",
+  "was": "Proposed on the strength of a review listing at 3933 Western Blvd.",
+  "now": "Cut. Wake County's environmental-health register has no establishment of that name anywhere in the county; a search returns a differently-named Yemeni restaurant at a different address. The name could not be reconciled with the authoritative record, so the entry was not published rather than published with a hedge.",
+  "source": "Wake County Environmental Health establishment register, 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Backyard BBQ Pit",
+  "action": "note",
+  "claim": "A chopped turkey barbecue plate at $16.79 in Durham, proposed for this edition",
+  "was": "Proposed with sound internal arithmetic and a well-reasoned fatback accounting.",
+  "now": "Cut, because current operation could not be established. Durham is outside Wake County, so the inspection register that cleared ten other candidates does not cover it, and nothing else reachable confirmed the business is trading. The reasoning was among the best in the batch, which is exactly why it should not be printed against a dish nobody could confirm is on sale.",
+  "source": "No authoritative register available for Durham County establishments, 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Mariscos Los Cabos",
+  "action": "note",
+  "claim": "A green aguachile at $13.99 in Durham, proposed to fill the seafood and raw-bar gap",
+  "was": "Proposed at 378 cal, 42 g protein and 1,280 mg sodium.",
+  "now": "Cut on the same rule: the dish is real and confirmed on an aggregator menu, but current operation could not be established. Had it survived, two figures needed work anyway - 200 g of edible shrimp is the generous end for a $13.99 plate, and 1,280 mg understates a lime-and-salt cure served with two salted tostadas.",
+  "source": "Aggregator menu confirmed; operation unconfirmed, 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "the new entries",
+  "action": "note",
+  "claim": "DoorDash store ids for the entries added in this edition",
+  "was": "Several were reported by the sweeps that found the restaurants.",
+  "now": "None of them could be independently checked, because DoorDash returns an error to every automated request. Existence was established instead against county restaurant-inspection registers, which carry dated scores and addresses and are a better source for whether a business is trading - ten of the new entries were confirmed that way with 2026 inspections. The store ids are printed as reported, not as verified, and the entries that carry none say so.",
+  "source": "Wake, Durham and Orange County environmental-health registers, 28 August 2026.",
+  "kind": "open"
  }
 ]

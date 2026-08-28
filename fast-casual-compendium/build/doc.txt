@@ -13,24 +13,26 @@
  
  
  
-60 named dishes, each scored on seven health criteria plus flavor and cost. Every figure is either taken from a restaurant's own nutrition document or estimated from how the dish is built — and the entry says which.
+87 named dishes, each scored on seven health criteria plus flavor and cost. Every figure is either taken from a restaurant's own nutrition document or estimated from how the dish is built — and the entry says which.
  
  
  
- 60Dishes ranked
+ 87Dishes ranked
  116Scored alternative orders
- 22Distinct cuisines
- 7 / 60From published nutrition data
+ 43Distinct cuisines
+ 9 / 87From published nutrition data
  
+
+The findingssix results that should change your orderOne · Moneywhat price does and does not buyTwo · Sodiumthe currency everything is priced inThree · Flavorwhat taste actually costsFour · Swapsorders that beat the orderThe samplewhat a ranking leaves outNew entriesthe food the first edition missedThe modelnine criteria, written outConfidencehow much of this is measuredAgainst interestwhere the model misfiresThe rankingall 87 in one sequenceVerification logwhat was wrong
 
  
  What changed in this edition
  
-- The numbers were checked, and some were wrong. Every nutrition figure the first edition attributed to a published document was re-read against that document. 13 entries had to be rescored, including two of the first edition's top five: El Cuscatleco from 2nd to 19th and Sassool from 3rd to 31st. The largest single move was Bul Box from 23rd to 57th. Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.
+- The numbers were checked, and some were wrong. Every nutrition figure the first edition attributed to a published document was re-read against that document. 13 entries had to be rescored, including two of the first edition's top five: El Cuscatleco from 2nd to 23rd and Sassool from 3rd to 42nd. The largest single move was Bul Box from 23rd to 82nd. Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.
 - The front page is new. The first edition opened with four findings, three of which were trivia about a single restaurant each and the fourth about research method rather than food. They have been replaced with findings drawn from the whole set, led by what the data says about money.
 - The two lists are now one. The first edition printed “The Thirty” and “The Next Thirty” as separate ranked lists, but the split tracked research depth rather than score: 27 entries in the second list outscored the weakest in the first. Everything is now ranked in one sequence.
 - The scoring model is printed, not described. Every criterion that can be computed from the macros is given as an actual function, recovered by fitting the first edition's own published scores. Anyone can recompute anything here, including the parts they disagree with.
-- The sample was too narrow. 18 of the original sixty entries were build-your-own bowls or poke — 30% of the set, and 4 of the top ten — in a state whose own barbecue did not appear at all. That gap is quantified below.
+- The sample was too narrow. 18 of the original sixty entries were build-your-own bowls or poke — 30% of the set, and 4 of the top ten — in a state whose own barbecue did not appear at all. This edition adds 27 dishes from cuisines and formats the first edition skipped.
  
 
  
@@ -79,7 +81,7 @@ Money does buy something. The correlation between price and flavor is +0.41 — 
  
  
  [CHART]
- Each dot is one dish. The dashed line is the least-squares fit through all sixty — it is nearly flat. The shaded corner is the useful part of the chart: dishes at or under $16 that still score 6.0 or better on health. There are 11 of them.
+ Each dot is one dish. The dashed line is the least-squares fit through all sixty — it is nearly flat. The shaded corner is the useful part of the chart: dishes at or under $16 that still score 6.0 or better on health. There are 14 of them.
  
 
  
@@ -105,13 +107,16 @@ Sorted by health score. The last column is health points per dollar, which is th
 | Pokeworks — Large chicken bowl on salad base | $16.00 | 7.2 | 5.0 | 43 g | 535 | 0.45 | 
 | DICED — Lentil-base bowl with grilled chicken | $10.95 | 7.0 | 5.7 | 57 g | 144 | 0.64 | 
 | Baba Ghannouj — Chicken kebab plate with fattoush and tzatziki | $15.99 | 6.7 | 8.2 | 44 g | 1,200 | 0.42 | 
+| Alpaca Peruvian Charcoal Chicken — ¼ Chicken w/ White Combo | $11.29 | 6.5 | 4.6 | 53 g | 1,310 | 0.58 | 
 | Chopt — Craft Your Own salad, grilled chicken | $10.79 | 6.5 | 5.7 | 33 g | 735 | 0.60 | 
 | Happy + Hale — Create Your Own bowl | $14.58 | 6.4 | 5.0 | 35 g | 850 | 0.44 | 
 | Guasaca — Grilled chicken bowl | $11.21 | 6.3 | 7.5 | 42 g | 1,050 | 0.56 | 
 | Mahana Fresh — Build Your Own bowl | $14.00 | 6.3 | 5.7 | 38 g | 950 | 0.45 | 
+| Golden Dragon — D6. Steamed Shrimp with Mixed Vegetables Diet | $12.39 | 6.2 | 1.1 | 37 g | 940 | 0.50 | 
 | Neomonde — Build A Bowl | $15.99 | 6.2 | 6.8 | 38 g | 1,050 | 0.39 | 
 | CAVA — SuperGreens and lentil bowl with grilled steak | $15.50 | 6.2 | 7.1 | 50 g | 1,295 | 0.40 | 
 | El Cuscatleco — Filete de pescado with curtido | $15.95 | 6.2 | 8.2 | 42 g | 1,200 | 0.39 | 
+| The Halal Guys — Regular Chicken Platter | $14.75 | 6.0 | 2.9 | 54 g | 1,028 | 0.41 | 
 | Chipotle — Chicken salad with pinto beans and guacamole | $12.00 | 6.0 | 4.3 | 44 g | 1,055 | 0.50 | 
 
  
@@ -130,15 +135,15 @@ Dollars per gram of protein, computed on the DoorDash price of the dish as order
  
 | Dish | Price | Protein | $ per gram | Health | 
 | DICED — Lentil-base bowl with grilled chicken | $10.95 | 57 g | 0.192 | 7.0 | 
+| Alpaca Peruvian Charcoal Chicken — ¼ Chicken w/ White Combo | $11.29 | 53 g | 0.213 | 6.5 | 
+| Al's Burger Shack — Connie | $10.45 | 45 g | 0.232 | 4.8 | 
 | Guasaca — Grilled chicken bowl | $11.21 | 42 g | 0.267 | 6.3 | 
 | Esmeralda Grill — Pollo rostizado | $13.99 | 52 g | 0.269 | 5.1 | 
 | Chipotle — Chicken salad with pinto beans and guacamole | $12.00 | 44 g | 0.273 | 6.0 | 
+| The Halal Guys — Regular Chicken Platter | $14.75 | 54 g | 0.273 | 6.0 | 
 | Quick Meal Mediterranean — Chicken kebab plate | $12.99 | 44 g | 0.295 | 5.6 | 
 | Jamaica Jamaica — Jerk chicken | $14.00 | 46 g | 0.304 | 4.9 | 
 | CAVA — SuperGreens and lentil bowl with grilled steak | $15.50 | 50 g | 0.310 | 6.2 | 
-| Jason's Deli — Salad-bar build with grilled chicken | $12.89 | 40 g | 0.322 | 5.8 | 
-| Chopt — Craft Your Own salad, grilled chicken | $10.79 | 33 g | 0.327 | 6.5 | 
-| Poke Bros. — Double tuna salad bowl | $17.00 | 51 g | 0.333 | 8.2 | 
 
  
 
@@ -437,9 +442,9 @@ Seven groups of near-identical dishes appear at different restaurants across the
 ## What a ranking leaves out
  
  
-A ranking is only as good as the set it ranks, and this one was assembled from a narrow slice of what actually delivers here. 18 of the 60 entries — 30% — are build-your-own bowls or poke, and 4 of the top ten are. That is not a finding about food. It is a finding about how the list was built: assembled-to-order formats are easy to score because you control every component, so they get picked, and they then win on criteria the format is designed to satisfy.
+A ranking is only as good as the set it ranks, and the first edition's was assembled from a narrow slice of what actually delivers here. 18 of its 60 entries — 30% — were build-your-own bowls or poke, and 4 of its top ten. That is not a finding about food. It is a finding about how a list gets built: assembled-to-order formats are easy to score because you control every component, so they get picked, and they then win on criteria the format is designed to satisfy.
  
-The omissions are more telling than the concentrations. This is a document written about food in North Carolina that contains no barbecue.
+The omissions were more telling than the concentrations. A document written about food in North Carolina contained no barbecue. The next section adds 27 entries against that list, and the categories it still cannot fill are named there.
  
  
  
@@ -464,28 +469,216 @@ The omissions are more telling than the concentrations. This is a document writt
 
 #### Absent entirely from the first edition
  
-- North Carolina barbecue
-- Southern and soul food
-- Greek
-- Persian
-- Chinese-American takeout
-- West African
-- Brazilian
+16 of these 20 are filled in this edition, marked with a tick.
+ 
+- North Carolina barbecue✓
+- Southern and soul food✓
+- Greek✓
+- Persian✓
+- Chinese-American takeout✓
+- West African✓
+- Brazilian✓
 - Filipino
-- Colombian, Cuban or Puerto Rican
-- Burmese
+- Colombian, Cuban or Puerto Rican✓
+- Burmese✓
 - Malaysian or Indonesian
 - Taiwanese
-- Halal cart
-- Chaat and Indian street food
+- Halal cart✓
+- Chaat and Indian street food✓
 - Pakistani or Bangladeshi
-- Seafood and raw bar
-- Pizza
-- Burgers and sandwiches
-- Wings
-- A dedicated vegan kitchen
+- Seafood and raw bar✓
+- Pizza✓
+- Burgers and sandwiches✓
+- Wings✓
+- A dedicated vegan kitchen✓
  
  
+
+ 
+ New in this edition
+ 
+
+## The food the first edition missed
+ 
+ 
+These 27 entries close part of the gap the previous section describes. Each was found by asking what actually delivers in the Research Triangle in a category the first edition skipped, each was independently checked for whether the restaurant exists and the dish is really on its menu, and each was scored on the identical model — the six computed criteria by formula, the three rubric criteria by the same judgement the original sixty got.
+ 
+The best of them, Talullas’s balık şiş at $31.00, scores 7.26 — which would place it 3rd in the main ranking.
+ 
+Every one of these is estimated from menu construction rather than published nutrition, and should be read at the confidence the measurement chapter describes. Existence was established against county restaurant-inspection registries and the restaurants’ own sites; no DoorDash store id in this group could be independently checked, because DoorDash refuses automated requests, so the ids below are reported rather than verified and several entries carry none at all.
+ 
+ 
+| Restaurant and dish | Cuisine | Overall | Health | Flavor | Price | Pro | Na mg | 
+| Talullas — Balık Şiş · Chapel HillDoorDash store 245464, reported but not independently confirmed | Turkish | 7.26 | 7.6 | 7.5 | $31.00 | 54 | 845 | 
+| Alpaca Peruvian Charcoal Chicken — ¼ Chicken w/ White Combo · Morrisvilleno DoorDash store id established | Peruvian | 6.62 | 6.5 | 4.6 | $11.29 | 53 | 1,310 | 
+| Carmen's Cuban Cafe & Lounge — Ceviche Salad · Morrisvilleno DoorDash store id established | Cuban | 6.52 | 6.8 | 3.6 | $18.95 | 28 | 880 | 
+| Flame Kabob — Chicken Breast (Boneless) kabob · Raleigh (Brier Creek, ~4 mi from RTP)DoorDash store 208763, reported but not independently confirmed | Persian | 6.44 | 6.5 | 7.1 | $24.98 | 56 | 1,055 | 
+| Pupuseria Doña Laura — Pechuga a la Planca · Durhamno DoorDash store id established | Salvadoran | 6.29 | 6.4 | 3.2 | $17.00 | 46 | 930 | 
+| Twisted Noodles — SL6. Grilled Nam-Tok Salad · Durhamno DoorDash store id established | Thai/Isaan | 6.19 | 6.0 | 7.5 | $17.00 | 35 | 1,960 | 
+| Mum's Jamaican Restaurant — Steam Fish (large) · RaleighDoorDash store 208638, reported but not independently confirmed | Jamaican | 6.08 | 6.3 | 4.3 | $28.48 | 63 | 1,250 | 
+| Golden Dragon — D6. Steamed Shrimp with Mixed Vegetables Diet · Raleighno DoorDash store id established | Chinese-American | 6.08 | 6.2 | 1.1 | $12.39 | 37 | 940 | 
+| Kipos Greek Taverna — Souvlaki, chicken · Chapel Hillno DoorDash store id established | Greek | 6.07 | 5.9 | 7.9 | $22.00 | 50 | 1,100 | 
+| The Halal Guys — Regular Chicken Platter · CaryDoorDash store 33658891, reported but not independently confirmed | Halal cart | 6.01 | 6.0 | 2.9 | $14.75 | 54 | 1,028 | 
+| Road To Myanmar Asian Cuisine — Laphet Thoke (Green tea Salad) · Chapel Hillno DoorDash store id established | Burmese | 5.98 | 5.8 | 6.4 | $14.99 | 31 | 1,680 | 
+| Sam Jones BBQ — Smoked Turkey (Smokehouse Plate) · RaleighDoorDash store 1473527, reported but not independently confirmed | North Carolina barbecue | 5.96 | 6.0 | 4.6 | $20.90 | 55 | 2,100 | 
+| Lawrence Barbecue — Smoked Party Wings, 10 pc · Caryno DoorDash store id established | North Carolina barbecue | 5.71 | 5.5 | 6.4 | $17.00 | 41 | 1,250 | 
+| Boteco do Brazil — House Salad with Sliced Picanha · CaryDoorDash store 29503268, reported but not independently confirmed | Brazilian | 5.49 | 5.4 | 5.7 | $21.00 | 44 | 1,065 | 
+| Hady's Restaurant International Cuisine — Beef Suya · RaleighDoorDash store 2379312, reported but not independently confirmed | West African | 5.25 | 5.2 | 6.8 | $27.29 | 66 | 1,620 | 
+| Chop Naija Kitchen — Vegetable Soup · RaleighDoorDash store 22955973, reported but not independently confirmed | Nigerian | 5.15 | 5.1 | 4.6 | $20.00 | 51 | 1,740 | 
+| Al's Burger Shack — Connie · Apexno DoorDash store id established | Burgers | 5.13 | 4.8 | 4.6 | $10.45 | 45 | 1,380 | 
+| The Pit Authentic Barbecue — Chopped BBQ (barbecue plate) · RaleighDoorDash store 208536, reported but not independently confirmed | North Carolina barbecue | 5.12 | 4.9 | 6.1 | $17.50 | 47 | 1,880 | 
+| Zweli's Ekhaya — Berbere Half Chicken · Durhamno DoorDash store id established | Southern African | 5.12 | 5.2 | 6.1 | $30.00 | 59 | 1,410 | 
+| Another Broken Egg Cafe — Veggie Delight Omelette · Morrisvilleno DoorDash store id established | American breakfast | 5.09 | 5.1 | 3.6 | $16.99 | 31 | 630 | 
+| Grand Malabar Indian Cuisine — Kappa & Meen Curry · Morrisvilleno DoorDash store id established | Keralan | 4.94 | 4.8 | 6.1 | $18.99 | 39 | 1,300 | 
+| Dim Sum House — 37. Slice Fish Congee · Morrisvilleno DoorDash store id established | Cantonese | 4.91 | 4.9 | 3.9 | $19.75 | 34 | 1,780 | 
+| The Fiction Kitchen — Eastern NC Style BBQ Sandwich · Raleighno DoorDash store id established | Vegan Southern | 4.88 | 4.6 | 5.7 | $17.00 | 42 | 1,780 | 
+| Let's Eat Soul Food — Baked Chicken Wings Combo with 2 Sides · DurhamDoorDash store 33087413, reported but not independently confirmed | Southern and soul food | 4.83 | 4.7 | 3.9 | $18.11 | 54 | 2,120 | 
+| BLR Food Street — Aloo Paneer Tikki Chaat · MorrisvilleDoorDash store 33662053, reported but not independently confirmed | Indian street food | 4.36 | 4.0 | 6.4 | $10.00 | 15 | 1,350 | 
+| Makus Empanadas — Beef empanadas (two), with sides · Durhamno DoorDash store id established | Argentine | 3.75 | 3.5 | 4.3 | $15.25 | 31 | 1,560 | 
+| Pizzeria Toro — san marzano tomatoes, basil, buffalo mozzarella (the red margherita) · Durhamno DoorDash store id established | Neapolitan pizza | 3.10 | 2.6 | 8.2 | $24.00 | 36 | 1,900 | 
+ 
+
+#### Categories that really are empty here
+Searched, and not padded to fill a row. Somali, Eritrean and Sudanese kitchens do not exist as standalone restaurants in the Triangle - the searches return only Ethiopian houses, one of which markets itself as Ethiopian and Eritrean but cooks an injera-and-wot menu indistinguishable from the two already scored. The same is true of Ghanaian, Georgian, Armenian and Israeli cooking: no restaurant in the named towns, and the nearest Georgian option sits outside the area entirely. Taiwanese kitchens do exist here, but none of them carries a dish that clears the bar this document sets for a complete meal.
+ 
+
+### Why each one is here
+ Turkish
+
+### Talullas — Balık Şiş
+The second Turkish entry earns its place by not repeating the first: no bulgur, no pide, no rice — a char-grilled wild salmon şiş that arrives on arugula and nothing else. It is the only plate in this sweep with no starch on it at all. The haydari follows Turkish mezze logic and does the same job the compendium's cacık does at Bosphorus.
+Charcoal on oily fish is the best argument in Turkish grilling: skin blisters, the fat renders into the char. Arugula is peppery and bitter, lemon is aggressive, the strained yogurt is thick and garlicky. Almost nothing is declined except the bread basket. The gap is fibre and vegetables — this plate is fish, leaves and yogurt.
+Order it: Balık Şiş · char-grilled wild salmon with arugula salad · add Haydari ($8, cream of yogurt with dill and garlic) · REFUSE the bread · lemon over all of itPeruvian
+
+### Alpaca Peruvian Charcoal Chicken — ¼ Chicken w/ White Combo
+The sides are the whole story: two are included, and black beans and house salad sit in the same price tier as fries and white rice. Take them and a quarter of charcoal white meat delivers 53 grams of protein for $11.29 — 21 cents a gram, among the three cheapest in the book. The soy-heavy brine is what keeps sodium near 1,300.
+Real charcoal does real work: the skin browns properly, the ají panca and cumin in the overnight brine push through, and a low soy savour sits underneath. What you surrender by refusing the ají verde is most of the richness — it is mayonnaise with green chile, and it is worth roughly a point of flavour against a point of health.
+Order it: ¼ Chicken w/ White Combo (breast & wing) · black beans · house salad, dressing on the side and mostly unused · REFUSE the hand-cut fries and the white rice · REFUSE the yellow sauce outright; one ounce of green sauce is a fair trade but costs about two tenths of a pointCuban
+
+### Carmen's Cuban Cafe & Lounge — Ceviche Salad
+Twenty years in Morrisville, and the lean order is not the ropa vieja — it is the ceviche, moved onto the house salad. Every entree here arrives with three sides, and that structure is what sinks the braises: rice, beans and maduros add four hundred calories before the meat does anything. The salad version skips all of it.
+Citrus cure, raw onion, a little cilantro, and whatever the vinaigrette brings. It is the quietest dish in this batch — no char, no ferment, almost no fat — and the Cuban kitchen's actual weapons, mojo and sofrito and slow-roast pork, are all sitting on the plates you just declined. Bright, clean, faintly under-seasoned.
+Order it: Ceviche Salad · vinaigrette on the side and about half of it used · REFUSE the Cuban bread · do NOT convert it into an entree plate — the three included sides are what ruin every other dish here · add black beans (+$3.95) only if you need the meal larger, and know it costs about 450 mg of sodiumPersian
+
+### Flame Kabob — Chicken Breast (Boneless) kabob
+The compendium had no Persian entry and this is why that was a mistake: the menu itself offers salad in place of the chelo, so the single best move in Persian food is a printed option rather than a negotiation. One breast skewer carries 46 g of protein off a charcoal grill, and the $7.99 Cucumber Yogurt is a live-culture bowl, not a two-ounce ramekin.
+Charcoal does the work — lemon-and-onion marinade, real blistering, saffron and turmeric underneath. The mast-o-khiar brings tang, mint and dill. What you give up is the chelo itself, the buttered saffron rice that is half the point of a chelo-kabob, and breast is the driest skewer they grill; koobideh survives the strip better.
+Order it: Chicken Breast (Boneless) kabob · take the SALAD, not the white rice — the menu offers the swap · add Cucumber Yogurt (mast-o-khiar, $7.99) · grilled tomato mashed over the meat · REFUSE the tandoori bread and REFUSE the ranchSalvadoran
+
+### Pupuseria Doña Laura — Pechuga a la Planca
+Three Durham storefronts, and curtido comes with every pupusa order — but only with pupusas, which is the finding. Order the grilled breast and you get 54 grams of protein at 470 calories and lose the ferment entirely. I could not establish whether their curtido is a true ferment or a same-day vinegar slaw, so it is scored at zero here.
+Plancha sear, garlic, a squeeze of lime, and a plain cabbage-and-tomato salad. Honest but thin — this is a kitchen whose best work is masa and curtido, and the grilled-breast plate is what remains once you route around both. Half the rice goes back in the box and you lose nothing you wanted.
+Order it: Pechuga a la plancha · the vegetable salad it comes with · half the rice left in the box · ask them to add a cup of curtido on the side — unconfirmed whether they will sell it apart from a pupusa order, and this entry is scored as if they will not · REFUSE the tajadas and the cremaThai/Isaan
+
+### Twisted Noodles — SL6. Grilled Nam-Tok Salad
+The compendium's one Thai entry was a curry. Nam tok is the other Thailand — Isaan, grilled, herb-forward, dressed rather than sauced. Twisted Noodle grills the beef, showers it with toasted rice powder and chili-lime, and sends no rice with it, so forty grams of protein arrives at just over 400 calories. The fish sauce is what keeps it off the podium.
+Nothing is stripped, so everything lands: real grill char on the beef, lime at full strength, mint and cilantro and shallot stacked high, and toasted rice powder giving both nuttiness and grit. Fish sauce supplies the fermented floor under all of it. This is the most complete flavor architecture in the sweep after the tea leaf salad, and it costs seventeen dollars.
+Order it: SL6 with beef rather than pork · ask for it Thai hot and for extra toasted rice powder · dressed as served, since nam tok is tossed in the kitchen and asking for it on the side wrecks it · refuse the side of steamed sticky rice and refuse the peanut-ginger dressing they offer with the house saladJamaican
+
+### Mum's Jamaican Restaurant — Steam Fish (large)
+Ordered steamed rather than brown-stewed, this beats the compendium's three existing Caribbean entries by a wide margin. A whole snapper in a thyme-and-pimento broth is fifty-seven grams of protein for well under six hundred calories. The butter in the broth is the only meaningful fat; skipping the rice and the water crackers does the rest.
+Everything comes from the broth: thyme, pimento, scallion and a whole scotch bonnet bobbing in it, with okra thickening as it sits. There is no char and almost no acid, which is exactly why it scores where it does. Losing the crackers that normally soak up that broth costs a little texture.
+Order it: "Brown Stew Fish & Steam Fish" ordered STEAMED, large · add Steam Vegetables ($4.49) · no rice and peas, no white rice, no festival, no fried dumpling · leave the water crackers in the bagChinese-American
+
+### Golden Dragon — D6. Steamed Shrimp with Mixed Vegetables Diet
+Every American Chinese takeout prints a Diet Menu and nobody orders from it. Golden Dragon's carries its own instruction — steamed with sauce on the side and no oil — which is the entire nutritional argument in eight words. A quart of shrimp and mixed vegetables with the wok taken out of the equation is the cleanest order within a mile of NC State.
+There is almost none, and that is the honest verdict. Steam extracts nothing; the brown sauce in its plastic cup carries the only soy depth and the only garlic. What survives is texture — snappy shrimp, vegetables still squeaking — and the fact that you meter the sauce yourself. It is a rebuke to the wok, not a dish.
+Order it: D6 from the Diet Menu · it arrives steamed with the sauce cup on the side, which is how the menu itself specifies it · use half the sauce cup, no more · eat about half the white rice and leave the rest · refuse the fried noodles, the duck sauce and the soy packets that come in the bagGreek
+
+### Kipos Greek Taverna — Souvlaki, chicken
+A real taverna with a live wood fire, not a bowl chain, and the archetype arrives assembled: grilled whole-muscle chicken, a live-yogurt tzatziki that is part of the dish rather than an upcharge, and a tomato-cucumber salad. The lemon potatoes are what hold the score down — whole potato, but a lot of it, in a lot of olive oil.
+Wood fire, oregano, garlic and enough lemon that acid runs through every component. The tzatziki is properly sour and thick. Nothing here has been stripped except the pita, which is why it reads richer than the leaner plates around it; the only compromise is that the potatoes soak up most of the olive oil on the plate.
+Order it: SOUVLAKI, chicken · eat the tzatziki, all of it · REFUSE the pita · lemon potatoes as they come, they are whole potato in olive oil · extra lemonHalal cart
+
+### The Halal Guys — Regular Chicken Platter
+The compendium had no halal cart, and the two questions worth asking both have answers here. Yes, it can be had over lettuce — rice out, double lettuce in, no upcharge. And the white sauce costs nothing at the register and 600 kcal with 56 g of fat in the box, because a regular platter ships with two packets. Ordered this way it is 56 g of protein for 446.
+This is the entry that pays for its health score in flavor. The chicken is genuinely spiced — coriander, turmeric, oregano — and the hot sauce is sharp. But the white sauce is the thing people cross town for, and refusing it plus the rice leaves chopped griddled chicken on lettuce. Flat-top browning, no live char, nothing fermented anywhere on the plate.
+Order it: Regular Chicken Platter · NO RICE — double lettuce and extra tomato in its place · hot sauce · REFUSE both packets of white sauce · the pita comes in the box, that is where the carbohydrate now isBurmese
+
+### Road To Myanmar Asian Cuisine — Laphet Thoke (Green tea Salad)
+Laphet is not a garnish or a vinegar trick: tea leaf packed and lacto-fermented for months, and the only genuinely live ferment in this entire sweep. Around it sit four fried legumes and seeds doing the protein work with no grain of rice anywhere. Thirty-one grams of protein and fourteen of fiber, out of a salad, on Franklin Street, and the compendium missed it.
+All of it survives, because there is nothing to strip. The tea leaves are sour, tannic and faintly funky; lime and green chili sharpen them; fried split peas, broad beans, peanuts and sesame supply four separate crunches and the oil to carry everything else. Only char is absent. This is the highest flavor score in the sweep and it is not close.
+Order it: Laphet Thoke as served, tossed at the table or in the box · ask for extra fried yellow split peas and broad beans rather than extra dressing · refuse the side of white rice · refuse the fried chicken and sticky rice that the counter will offer alongside itNorth Carolina barbecue
+
+### Sam Jones BBQ — Smoked Turkey (Smokehouse Plate)
+Sliced turkey breast is the least-ordered thing on a whole-hog board and by a distance the leanest: 55 g of protein for 462 calories and under 5 g of saturated fat. Collards and the house salad carry the plants. The sweet potato muffin is where a plate like this usually goes wrong, so it gets declined. Seasoned turkey plus pork-cooked greens still put sodium near 1,750 mg.
+This is the trade the compendium keeps having to make explicit. Oak smoke reaches the breast, but there is no bark and no fat to carry it, so all the acid has to be poured on from the vinegar bottle. Declining the sweet potato muffin removes the one genuinely delicious thing on the plate.
+Order it: Smoked Turkey plate · two sides: Collard Greens + House Salad, dressing on the side and half used · vinegar sauce applied from the table · REFUSE the sweet potato muffin, cornbread and toast, and the mac 'n cheese and sweet slawNorth Carolina barbecue
+
+### Lawrence Barbecue — Smoked Party Wings, 10 pc
+The answer to the wings question is no. Lawrence smokes them and then fries them, which the menu states plainly, so the smoked wing is not an alternative to the fried one — it is a fried one with better flavor. Choosing the dry rub over hot honey keeps sugar near 3 g. There is no plant on the plate, and the scores say so.
+Best-tasting thing in this sweep and the worst-scoring on nearly everything else. Oak smoke goes in before the fryer, so you get bark and crackle at once, and the all-purpose rub is aromatic without leaning on sugar. The house pickles supply the only acid, and being vinegar quick-pickles they earn no ferment credit.
+Order it: Smoked Party Wings, 10 pc · AP Dry Rub (the only sugar-light option on the sauce board) · keep the house pickles · REFUSE the Martin's rolls, and refuse Helen's Hot Honey, Beef Fat Caramel, Roasted Garlic BBQ and Chamoy-TajinBrazilian
+
+### Boteco do Brazil — House Salad with Sliced Picanha
+The answer to whether anyone sells the grilled protein without the buffet: Boteco lets you add sliced picanha to the house salad for nine dollars and it arrives as a real plate, not a garnish. The fat cap is why saturated fat sits at twelve grams; the peas, corn and balsamic are why sugar reaches thirteen.
+Churrasco flavor is deliberately narrow — coarse salt, fire and beef fat — and the salad supplies what the rice-beans-farofa plate normally would: acid, crunch, sweetness from corn and peas, hearts of palm. Aromatics are nearly absent by design. Skipping the farofa costs the grit that usually breaks up all that fat.
+Order it: House Salad (entrée) · add Sliced Picanha (+$9) · balsamic vinaigrette on the side, use half of it · no farofa, no rice, no beans, no garlic bread, no friesWest African
+
+### Hady's Restaurant International Cuisine — Beef Suya
+Hady's grills suya to order on skewers and lets you take a vegetable instead of rice — the fork in the menu that decides everything here. Seven ounces of beef under a peanut-and-yaji crust carries sixty-odd grams of protein at zero refined carbohydrate. The bouillon in the rub and the braised collards are what push sodium past sixteen hundred.
+Almost all of it is dry heat and yaji: ground peanut, ginger, clove and cayenne baked onto the meat by open flame. Nothing is lost by refusing the rice, because suya was never carried by starch — it is finger food. What you give up is only the fried plantain's sweetness against the pepper.
+Order it: Beef Suya · side: collard greens (not fries, not mac and cheese, not plantains) · no fufu, no jollof, no atieke · extra raw onion and tomato alongside if the kitchen will do itNigerian
+
+### Chop Naija Kitchen — Vegetable Soup
+The soup is the leafy end of the Nigerian menu and the swallow is the calorie problem, so this is scored without pounded yam. Greens, crayfish and assorted protein give an unusual protein density; two tablespoons of palm oil across a pint deliver seventeen grams of saturated fat, and that one ingredient is the entire ceiling on this dish.
+Palm oil, fermented locust bean and dried crayfish do the work — a deep, funky, red-orange base that needs no browning at all. Scotch bonnet carries it. Refusing the pounded yam costs real texture, because the soup is built to be scooped rather than spooned; eaten alone it reads very rich and slightly one-note.
+Order it: Vegetable Soup with choice of protein (goat or chicken) · refuse the swallow entirely — no pounded yam, no fufu, no eba · no jollof on the side · eat it as a soupBurgers
+
+### Al's Burger Shack — Connie
+The grilled chicken sandwich the reader was promised might surprise. It does, on protein — a whole breast plus cheese and roll clears forty-five grams — and it fails on everything the roll and the butter bring: two and a half grams of fibre and eleven and a half of saturated fat. Holding the bacon is the only saturated fat you can actually control here.
+Cajun seasoning and habañero jack carry it, and the flat-top gives the breast a real seasoned crust rather than steam-grill stripes. But pulling the bacon takes out the smoke and half the salt-fat interest, tomato is the only acid on the sandwich, and a buttered potato roll is soft against soft. It reads thin without the pork.
+Order it: Connie · hold the bacon · mayo on the side, use half · no fries, no tots · extra tomato and lettuceNorth Carolina barbecue
+
+### The Pit Authentic Barbecue — Chopped BBQ (barbecue plate)
+Whole hogs go on the pit overnight, so the chopped pork carries its own fat — that is where 12 g of saturated fat and most of the 638 calories come from. Ordered with cabbage collards and green beans instead of hush puppies and mac, and dressed with vinegar-pepper rather than a sweet sauce, it lands at 7 g of sugar. Sodium is the unfixable part.
+Flavor here is smoke and acid, and both survive the order intact. Overnight pit-cooking puts real bark bits through the chop, and the vinegar-pepper cuts the pork fat exactly the way it was designed to. What you give up is the fried and starchy contrast — no hush puppy crunch, no sweet slaw set against the meat.
+Order it: Chopped BBQ plate · two sides: Heirloom Cabbage Collards + Green Beans · vinegar-pepper sauce on the side, applied · REFUSE hush puppies, mac & cheese, cole slaw, sweet potato casserole and any tomato/Western NC sauceSouthern African
+
+### Zweli's Ekhaya — Berbere Half Chicken
+The only Zimbabwean kitchen in the Triangle, and the one African entry here that grills rather than stews. A marinated half bird off the fire is nearly sixty grams of protein with no starch anywhere on the plate; the slaw is the sole vegetable. Skin and the hot-honey finish are what stop saturated fat and sugar from being low.
+Berbere is a fifteen-spice wall — fenugreek, cardamom, ajwain, chili — and the grill sets it hard. The slaw's vinegar cuts the skin. Holding back most of the hot honey is the right call nutritionally and a genuine loss on the plate, because that sweet-heat glaze is the dish's whole argument.
+Order it: Berbere Half Chicken · slaw as it comes · hot honey on the side, use about a teaspoon · no dombolo, no magwinyas, no dovi rice bitesAmerican breakfast
+
+### Another Broken Egg Cafe — Veggie Delight Omelette
+The one breakfast in this sweep that publishes its numbers, and they are better than the format deserves: 630 milligrams of sodium is the lowest figure on this page, in a category otherwise built on bacon, biscuit and sausage gravy — their own Southern Breakfast Bowl carries 4,500. Thirty-one grams of protein from eggs alone, before any side.
+Sautéed vegetables, melted cheese, folded egg: competent and completely unassertive. There is no acid, no char worth the name, and no ferment beyond the cheese. Refusing the muffin and the potatoes removes the only textural contrast on the plate. It scores on the numbers and it has very little else to offer.
+Order it: Veggie Delight Omelette · hold the English muffin · skip the grits and the country potatoes entirely rather than substituting fruit · hot sauce, no syrupKeralan
+
+### Grand Malabar Indian Cuisine — Kappa & Meen Curry
+Kerala cooking, not a curry-house menu with a fish add-on. Malabar meen curry is soured with kudampuli rather than enriched with cream, and the fish portion is a real one, which makes this the only genuine omega-3 plate the whole sweep turned up. The cost is coconut oil: it goes into the kappa and again into the tempering.
+Curry leaves popped in coconut oil, shallot, fenugreek, mustard seed, and kudampuli's dark resinous sourness — an aromatic ceiling almost nothing else in this guide reaches. No char and no ferment at all. The kappa is deliberately plain, there to absorb gravy, so the texture score comes from flaking fish rather than from contrast.
+Order it: Kappa & Meen Curry · ask for the curry gravy on the side of the kappa, not over it · no extra coconut oil finish · no appam or porotta addedCantonese
+
+### Dim Sum House — 37. Slice Fish Congee
+A real Cantonese kitchen does exist in the Triangle and it is in a Morrisville strip mall, running five congees off the dim sum sheet. Sliced fish congee is a rice porridge doing an enormous amount of work for $7.25, but it needs the gai lan and a basket of har gow behind it to become a meal — and the oyster sauce belongs on the side.
+Congee's flavor is entirely aromatic — ginger, scallion, white pepper and cilantro against silky starch — and it holds because Cantonese cooks trust that. The gai lan brings bitterness and stem snap, the har gow bring bounce. Nothing is charred and nothing is sour. Moving the oyster sauce to the side costs you a little of the fermented depth.
+Order it: 37. Slice Fish Congee · plus 5. Chinese Broccoli with Oyster Sauce with the oyster sauce on the side, use half · plus 1. Ha-Gau (Shrimp Dumpling), four pieces · refuse the fried items on the same sheet, particularly 17-31, and refuse the deep-fried dough roll that congee normally arrives withVegan Southern
+
+### The Fiction Kitchen — Eastern NC Style BBQ Sandwich
+The compendium's first dedicated vegan kitchen, and it earns the slot on protein: house-smoked soy-and-wheat seitan is nearly all protein with almost no saturated fat, which is precisely what the mock-meat category usually fails at. Four grams of saturated fat against forty-two of protein is a ratio no meat sandwich here reaches. Sodium is the bill.
+Smoke does the heavy lifting; the vinegar-crushed red pepper sauce supplies the acid that Eastern North Carolina barbecue is actually about. Soy in the cure gives fermented depth without any live culture. The slaw is the only crunch once you send the pickled fries back, and the potato roll contributes nothing but softness.
+Order it: Eastern NC Style BBQ Sandwich · refuse the side of pickled fries · keep the slaw · extra vinegar-pepper sauce on the side rather than more on the rollSouthern and soul food
+
+### Let's Eat Soul Food — Baked Chicken Wings Combo with 2 Sides
+The baked wing is the rare non-fried order at a soul-food counter and it is worth knowing about. But baking does not remove the skin fat, and seasoning salt plus pork-cooked collards and cabbage push sodium past 2,100 mg — enough to zero the kidney score outright. That is the honest answer to whether the vegetable sides rescue a soul-food plate. They do not.
+Seasoning does all the work: lemon pepper, garlic, onion, and whatever smoked meat is in the greens. Richness comes free from the skin. What baking costs is the crackle — this is a soft plate, and the fried wings sitting next to it on the menu are the reason people come here.
+Order it: Baked Chicken Wings Combo, 6 pc, plain or lemon pepper · two sides: Collard Greens + Cabbage · REFUSE the cornbread, hush puppies, roll or white bread, and the candied yams, mac & cheese and potato saladIndian street food
+
+### BLR Food Street — Aloo Paneer Tikki Chaat
+A dedicated Bangalore street-food house, wholly vegetarian, assembling chaat to order rather than holding it. The tikki is griddled on a tawa, not deep-fried, and the paneer in the patty is the only real protein on the board. Everything else in Chatpata Junction is puri shell, potato and sev. Eighteen grams is the ceiling here.
+Chaat is built to be loud: tamarind sweet-sour, dahi cooling it, mint-coriander chutney, the black salt in chaat masala, raw onion, sev for crunch. Griddling gives the tikki only a thin browned edge. Pulling the sweet chutney back to a side dish costs some of that swing, but the aromatics survive intact.
+Order it: Aloo Paneer Tikki Chaat · extra dahi · tamarind chutney on the side, not poured · refuse the extra sev · medium heatArgentine
+
+### Makus Empanadas — Beef empanadas (two), with sides
+The Triangle has no Argentine parrilla; it has two baked-empanada shops. Baked beats fried and the chimichurri is real, but a beef empanada is 290 calories for 12 grams of protein, and two of them with sides is 900 calories at 3.4 grams of protein per hundred. This is the floor of the book, and the floor is the information.
+Cumin, paprika, oregano and enough onion to matter; the baked crust browns rather than blisters, and the chimichurri supplies the only acid on the tray. It eats very well. There is simply no way to order it that changes the arithmetic — the pastry is the dish, and the pastry is the problem.
+Order it: Two beef empanadas · black beans · spinach salad · chimichurri · REFUSE the third empanada, the tequeños, the chipa bread and the Empadog · take the chimichurri, decline the Red HotNeapolitan pizza
+
+### Pizzeria Toro — san marzano tomatoes, basil, buffalo mozzarella (the red margherita)
+A wood oven and a long-fermented dough do something no assembled bowl can, and the protein is genuinely respectable — buffalo mozzarella and a 250-gram dough carry it past thirty-five grams. But a whole pie is a whole pie: getting on for a thousand calories of refined 00 flour, and a twenty percent living-wage fee stacked on the twenty-four dollars.
+This is the highest flavour score in the sweep and it is not close. Leopard-spotted char off a sixty-second bake, san marzano acidity, the lactic tang of buffalo mozzarella against long-fermented dough, basil oil released by residual heat, and the wet-centre-against-blistered-cornicione texture the whole format exists for. Nothing was stripped out to make it score.
+Order it: The san marzano / basil / buffalo mozzarella red pie · no added pepperoni, sausage or prosciutto · anchovies are the only topping worth the three dollars · eat it fresh, it is a one-sitting pie
 
  
  The model
@@ -682,7 +875,7 @@ Two of the model’s more contestable calls survived the check. Weighting the li
  
 
  
- All 60, in one sequence
+ All 87, in one sequence
  
 
 ## The ranking
@@ -729,6 +922,19 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  
 | 
  3 | 
+ Talullas — Balık Şişnew this edition | 
+ New | 
+ 7.26 | 
+ 7.6 | 
+ [CHART] | 
+ $31.00 | 
+ 578 | 
+ 54 | 
+ 845 | 
+ 2.2 | 
+ 
+| 
+ 4 | 
  Pokeworks ⚑ — Large chicken bowl on salad base1st ed. #6 of the first thirty | 
  Published | 
  7.14 | 
@@ -741,7 +947,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 4 | 
+ 5 | 
  DICED ⚑ — Lentil-base bowl with grilled chicken1st ed. #4 of the first thirty | 
  Partial | 
  7.11 | 
@@ -754,7 +960,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  14 | 
  
 | 
- 5 | 
+ 6 | 
  Taste Vietnamese — Sizzling fish with vermicelli and herbs1st ed. #7 of the first thirty | 
  Estimated | 
  7.05 | 
@@ -767,7 +973,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  7 | 
  
 | 
- 6 | 
+ 7 | 
  True Food Kitchen — Tuscan Kale Salad with salmon, dressing declined1st ed. #8 of the first thirty | 
  Published | 
  7.04 | 
@@ -780,8 +986,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  4 | 
  
 | 
- 7 | 
- M Izakaya — Tiradito1st ed. #31 of the next thirty ▲24 | 
+ 8 | 
+ M Izakaya — Tiradito1st ed. #31 of the next thirty ▲23 | 
  Estimated | 
  6.99 | 
  7.2 | 
@@ -793,7 +999,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  3 | 
  
 | 
- 8 | 
+ 9 | 
  Baba Ghannouj — Chicken kebab plate with fattoush and tzatziki1st ed. #10 of the first thirty | 
  Estimated | 
  6.85 | 
@@ -806,7 +1012,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  8 | 
  
 | 
- 9 | 
+ 10 | 
  Bosphorus — Chicken shish kebab with cacık1st ed. #11 of the first thirty | 
  Estimated | 
  6.82 | 
@@ -819,8 +1025,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  9 | 
  
 | 
- 10 | 
- Peony Asian Bistro — Sashimi bowl1st ed. #33 of the next thirty ▲23 | 
+ 11 | 
+ Peony Asian Bistro — Sashimi bowl1st ed. #33 of the next thirty ▲22 | 
  Estimated | 
  6.82 | 
  7.1 | 
@@ -832,7 +1038,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  4 | 
  
 | 
- 11 | 
+ 12 | 
  Kathmandu Kitchen — Chicken choila with dal1st ed. #12 of the first thirty | 
  Estimated | 
  6.80 | 
@@ -845,7 +1051,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  7 | 
  
 | 
- 12 | 
+ 13 | 
  Thai 54 ⚑ ⚠ — Nam tok beef with spicy papaya salad1st ed. #9 of the first thirty | 
  Estimated | 
  6.75 | 
@@ -858,7 +1064,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  8 | 
  
 | 
- 13 | 
+ 14 | 
  Canastas Chicken — Grilled salmon with house salad and green beans1st ed. #13 of the first thirty | 
  Estimated | 
  6.66 | 
@@ -871,8 +1077,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 14 | 
- Chopt ⚑ — Craft Your Own salad, grilled chicken1st ed. #32 of the next thirty ▲18 | 
+ 15 | 
+ Chopt ⚑ — Craft Your Own salad, grilled chicken1st ed. #32 of the next thirty ▲17 | 
  Published | 
  6.64 | 
  6.5 | 
@@ -884,7 +1090,20 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  12 | 
  
 | 
- 15 | 
+ 16 | 
+ Alpaca Peruvian Charcoal Chicken — ¼ Chicken w/ White Combonew this edition | 
+ New | 
+ 6.62 | 
+ 6.5 | 
+ [CHART] | 
+ $11.29 | 
+ 515 | 
+ 53 | 
+ 1,310 | 
+ 9 | 
+ 
+| 
+ 17 | 
  Mi Perú — Ceviche de tilapia1st ed. #15 of the first thirty | 
  Estimated | 
  6.60 | 
@@ -897,7 +1116,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 16 | 
+ 18 | 
  Guasaca — Grilled chicken bowl1st ed. #16 of the first thirty | 
  Estimated | 
  6.56 | 
@@ -910,7 +1129,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  11 | 
  
 | 
- 17 | 
+ 19 | 
  Luna Rotisserie — Quarter rotisserie chicken with two salads1st ed. #17 of the first thirty | 
  Estimated | 
  6.53 | 
@@ -923,7 +1142,33 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  9 | 
  
 | 
- 18 | 
+ 20 | 
+ Carmen's Cuban Cafe & Lounge — Ceviche Saladnew this edition | 
+ New | 
+ 6.52 | 
+ 6.8 | 
+ [CHART] | 
+ $18.95 | 
+ 310 | 
+ 28 | 
+ 880 | 
+ 4 | 
+ 
+| 
+ 21 | 
+ Flame Kabob — Chicken Breast (Boneless) kabobnew this edition | 
+ New | 
+ 6.44 | 
+ 6.5 | 
+ [CHART] | 
+ $24.98 | 
+ 524 | 
+ 56 | 
+ 1,055 | 
+ 4.3 | 
+ 
+| 
+ 22 | 
  Abol Ethiopian — Vegetarian combo with telba shiro1st ed. #18 of the first thirty | 
  Estimated | 
  6.42 | 
@@ -936,8 +1181,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  22 | 
  
 | 
- 19 | 
- El Cuscatleco ⚑ ⚠ — Filete de pescado with curtido1st ed. #2 of the first thirty ▼17 | 
+ 23 | 
+ El Cuscatleco ⚑ ⚠ — Filete de pescado with curtido1st ed. #2 of the first thirty ▼21 | 
  Estimated | 
  6.40 | 
  6.2 | 
@@ -949,8 +1194,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  9 | 
  
 | 
- 20 | 
- Mahana Fresh — Build Your Own bowl1st ed. #34 of the next thirty ▲14 | 
+ 24 | 
+ Mahana Fresh — Build Your Own bowl1st ed. #34 of the next thirty ▲10 | 
  Estimated | 
  6.40 | 
  6.3 | 
@@ -962,8 +1207,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  9 | 
  
 | 
- 21 | 
- Happy + Hale — Create Your Own bowl1st ed. #35 of the next thirty ▲14 | 
+ 25 | 
+ Happy + Hale — Create Your Own bowl1st ed. #35 of the next thirty ▲10 | 
  Estimated | 
  6.39 | 
  6.4 | 
@@ -975,8 +1220,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  11 | 
  
 | 
- 22 | 
- CAVA ⚑ — SuperGreens and lentil bowl with grilled steak1st ed. #14 of the first thirty ▼8 | 
+ 26 | 
+ CAVA ⚑ — SuperGreens and lentil bowl with grilled steak1st ed. #14 of the first thirty ▼12 | 
  Published | 
  6.38 | 
  6.2 | 
@@ -988,7 +1233,7 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  27 | 
  
 | 
- 23 | 
+ 27 | 
  Goorsha ⚑ ⚠ — Vegan vegetable combo1st ed. #26 of the first thirty | 
  Estimated | 
  6.34 | 
@@ -1001,8 +1246,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  12 | 
  
 | 
- 24 | 
- Neomonde — Build A Bowl1st ed. #37 of the next thirty ▲13 | 
+ 28 | 
+ Neomonde — Build A Bowl1st ed. #37 of the next thirty ▲9 | 
  Estimated | 
  6.30 | 
  6.2 | 
@@ -1014,8 +1259,21 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  10 | 
  
 | 
- 25 | 
- Bulkogi — Create Your Own bowl with a kimchi side1st ed. #20 of the first thirty ▼5 | 
+ 29 | 
+ Pupuseria Doña Laura — Pechuga a la Plancanew this edition | 
+ New | 
+ 6.29 | 
+ 6.4 | 
+ [CHART] | 
+ $17.00 | 
+ 425 | 
+ 46 | 
+ 930 | 
+ 2.5 | 
+ 
+| 
+ 30 | 
+ Bulkogi — Create Your Own bowl with a kimchi side1st ed. #20 of the first thirty ▼10 | 
  Estimated | 
  6.28 | 
  6.1 | 
@@ -1027,8 +1285,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  8 | 
  
 | 
- 26 | 
- Clean Eatz — Build A Bowl, large1st ed. #39 of the next thirty ▲13 | 
+ 31 | 
+ Clean Eatz — Build A Bowl, large1st ed. #39 of the next thirty ▲8 | 
  Estimated | 
  6.26 | 
  6.4 | 
@@ -1040,8 +1298,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  8 | 
  
 | 
- 27 | 
- Urban Turban — Tandoori fish tikka with raita and vegetable jalfrezi1st ed. #21 of the first thirty ▼6 | 
+ 32 | 
+ Urban Turban — Tandoori fish tikka with raita and vegetable jalfrezi1st ed. #21 of the first thirty ▼11 | 
  Estimated | 
  6.22 | 
  6.2 | 
@@ -1053,8 +1311,21 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  8 | 
  
 | 
- 28 | 
- Chipotle — Chicken salad with pinto beans and guacamole1st ed. #22 of the first thirty ▼6 | 
+ 33 | 
+ Twisted Noodles — SL6. Grilled Nam-Tok Saladnew this edition | 
+ New | 
+ 6.19 | 
+ 6.0 | 
+ [CHART] | 
+ $17.00 | 
+ 370 | 
+ 35 | 
+ 1,960 | 
+ 3.8 | 
+ 
+| 
+ 34 | 
+ Chipotle — Chicken salad with pinto beans and guacamole1st ed. #22 of the first thirty ▼12 | 
  Published | 
  6.13 | 
  6.0 | 
@@ -1066,8 +1337,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  17 | 
  
 | 
- 29 | 
- Village Juice & Kitchen — Hot honey chicken salad1st ed. #40 of the next thirty ▲11 | 
+ 35 | 
+ Village Juice & Kitchen — Hot honey chicken salad1st ed. #40 of the next thirty ▲5 | 
  Estimated | 
  6.09 | 
  6.0 | 
@@ -1079,8 +1350,60 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  9 | 
  
 | 
- 30 | 
- Farmside Kitchen ⚠ — Build Your Own bowl with chicken and quinoa1st ed. #24 of the first thirty ▼6 | 
+ 36 | 
+ Mum's Jamaican Restaurant — Steam Fish (large)new this edition | 
+ New | 
+ 6.08 | 
+ 6.3 | 
+ [CHART] | 
+ $28.48 | 
+ 545 | 
+ 63 | 
+ 1,250 | 
+ 8 | 
+ 
+| 
+ 37 | 
+ Golden Dragon — D6. Steamed Shrimp with Mixed Vegetables Dietnew this edition | 
+ New | 
+ 6.08 | 
+ 6.2 | 
+ [CHART] | 
+ $12.39 | 
+ 438 | 
+ 37 | 
+ 940 | 
+ 10 | 
+ 
+| 
+ 38 | 
+ Kipos Greek Taverna — Souvlaki, chickennew this edition | 
+ New | 
+ 6.07 | 
+ 5.9 | 
+ [CHART] | 
+ $22.00 | 
+ 655 | 
+ 50 | 
+ 1,100 | 
+ 5.2 | 
+ 
+| 
+ 39 | 
+ The Halal Guys — Regular Chicken Platternew this edition | 
+ New | 
+ 6.01 | 
+ 6.0 | 
+ [CHART] | 
+ $14.75 | 
+ 400 | 
+ 54 | 
+ 1,028 | 
+ 4 | 
+ 
+| 
+ 40 | 
+ Farmside Kitchen ⚠ — Build Your Own bowl with chicken and quinoa1st ed. #24 of the first thirty ▼16 | 
  Estimated | 
  5.98 | 
  5.9 | 
@@ -1092,8 +1415,21 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  11 | 
  
 | 
+ 41 | 
+ Road To Myanmar Asian Cuisine — Laphet Thoke (Green tea Salad)new this edition | 
+ New | 
+ 5.98 | 
+ 5.8 | 
+ [CHART] | 
+ $14.99 | 
+ 690 | 
  31 | 
- Sassool ⚑ ⚠ — Chicken kabob with labneh and three cold salads1st ed. #3 of the first thirty ▼28 | 
+ 1,680 | 
+ 14 | 
+ 
+| 
+ 42 | 
+ Sassool ⚑ ⚠ — Chicken kabob with labneh and three cold salads1st ed. #3 of the first thirty ▼39 | 
  Estimated | 
  5.96 | 
  5.6 | 
@@ -1105,8 +1441,21 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  3 | 
  
 | 
- 32 | 
- Chosun Ok ⚑ ⚠ — Seafood soondubu with a kimchi side1st ed. #19 of the first thirty ▼13 | 
+ 43 | 
+ Sam Jones BBQ — Smoked Turkey (Smokehouse Plate)new this edition | 
+ New | 
+ 5.96 | 
+ 6.0 | 
+ [CHART] | 
+ $20.90 | 
+ 462 | 
+ 55 | 
+ 2,100 | 
+ 6.4 | 
+ 
+| 
+ 44 | 
+ Chosun Ok ⚑ ⚠ — Seafood soondubu with a kimchi side1st ed. #19 of the first thirty ▼25 | 
  Estimated | 
  5.95 | 
  5.7 | 
@@ -1118,8 +1467,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  7 | 
  
 | 
- 33 | 
- Naga's South Indian — Curd rice with idli and sambar1st ed. #25 of the first thirty ▼8 | 
+ 45 | 
+ Naga's South Indian — Curd rice with idli and sambar1st ed. #25 of the first thirty ▼20 | 
  Estimated | 
  5.95 | 
  6.0 | 
@@ -1131,8 +1480,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  10 | 
  
 | 
- 34 | 
- Swagat Indian — Tandoori mixed grill1st ed. #41 of the next thirty ▲7 | 
+ 46 | 
+ Swagat Indian — Tandoori mixed grill1st ed. #41 of the next thirty ▼5 | 
  Estimated | 
  5.93 | 
  5.8 | 
@@ -1144,8 +1493,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  5 | 
  
 | 
- 35 | 
- Jason's Deli — Salad-bar build with grilled chicken1st ed. #42 of the next thirty ▲7 | 
+ 47 | 
+ Jason's Deli — Salad-bar build with grilled chicken1st ed. #42 of the next thirty ▼5 | 
  Estimated | 
  5.90 | 
  5.8 | 
@@ -1157,8 +1506,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  7 | 
  
 | 
- 36 | 
- Roots Natural Kitchen — Create Your Own bowl1st ed. #43 of the next thirty ▲7 | 
+ 48 | 
+ Roots Natural Kitchen — Create Your Own bowl1st ed. #43 of the next thirty ▼5 | 
  Estimated | 
  5.89 | 
  5.7 | 
@@ -1170,8 +1519,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  12 | 
  
 | 
- 37 | 
- Quick Meal Mediterranean — Chicken kebab plate1st ed. #44 of the next thirty ▲7 | 
+ 49 | 
+ Quick Meal Mediterranean — Chicken kebab plate1st ed. #44 of the next thirty ▼5 | 
  Estimated | 
  5.86 | 
  5.6 | 
@@ -1183,8 +1532,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 38 | 
- Mediterra Grill — Chicken kabob plate1st ed. #45 of the next thirty ▲7 | 
+ 50 | 
+ Mediterra Grill — Chicken kabob plate1st ed. #45 of the next thirty ▼5 | 
  Estimated | 
  5.76 | 
  5.5 | 
@@ -1196,8 +1545,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 39 | 
- Shinmai Shokudo — Salmon bento1st ed. #46 of the next thirty ▲7 | 
+ 51 | 
+ Shinmai Shokudo — Salmon bento1st ed. #46 of the next thirty ▼5 | 
  Estimated | 
  5.74 | 
  5.7 | 
@@ -1209,8 +1558,21 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 40 | 
- Sweetgreen ⚑ — Miso Glazed Salmon bowl1st ed. #36 of the next thirty | 
+ 52 | 
+ Lawrence Barbecue — Smoked Party Wings, 10 pcnew this edition | 
+ New | 
+ 5.71 | 
+ 5.5 | 
+ [CHART] | 
+ $17.00 | 
+ 447 | 
+ 41 | 
+ 1,250 | 
+ 0.6 | 
+ 
+| 
+ 53 | 
+ Sweetgreen ⚑ — Miso Glazed Salmon bowl1st ed. #36 of the next thirty ▼17 | 
  Published | 
  5.69 | 
  5.5 | 
@@ -1222,8 +1584,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  12 | 
  
 | 
- 41 | 
- Namu — Bibimbap with banchan ordered separately1st ed. #27 of the first thirty ▼14 | 
+ 54 | 
+ Namu — Bibimbap with banchan ordered separately1st ed. #27 of the first thirty ▼27 | 
  Estimated | 
  5.58 | 
  5.6 | 
@@ -1235,8 +1597,21 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  9 | 
  
 | 
- 42 | 
- Tazza Kitchen — Baja bowl1st ed. #47 of the next thirty ▲5 | 
+ 55 | 
+ Boteco do Brazil — House Salad with Sliced Picanhanew this edition | 
+ New | 
+ 5.49 | 
+ 5.4 | 
+ [CHART] | 
+ $21.00 | 
+ 580 | 
+ 44 | 
+ 1,065 | 
+ 7 | 
+ 
+| 
+ 56 | 
+ Tazza Kitchen — Baja bowl1st ed. #47 of the next thirty ▼9 | 
  Estimated | 
  5.46 | 
  5.3 | 
@@ -1248,8 +1623,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  11 | 
  
 | 
- 43 | 
- Szechuan Mansion Hotpot — Szechuan boiled bean curd1st ed. #48 of the next thirty ▲5 | 
+ 57 | 
+ Szechuan Mansion Hotpot — Szechuan boiled bean curd1st ed. #48 of the next thirty ▼9 | 
  Estimated | 
  5.42 | 
  5.4 | 
@@ -1261,8 +1636,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  7 | 
  
 | 
- 44 | 
- Esmeralda Grill — Pollo rostizado1st ed. #49 of the next thirty ▲5 | 
+ 58 | 
+ Esmeralda Grill — Pollo rostizado1st ed. #49 of the next thirty ▼9 | 
  Estimated | 
  5.40 | 
  5.1 | 
@@ -1274,8 +1649,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  5 | 
  
 | 
- 45 | 
- First Watch — Tri-Fecta1st ed. #50 of the next thirty ▲5 | 
+ 59 | 
+ First Watch — Tri-Fecta1st ed. #50 of the next thirty ▼9 | 
  Estimated | 
  5.35 | 
  5.3 | 
@@ -1287,8 +1662,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  9 | 
  
 | 
- 46 | 
- Chengdu 7 ⚑ ⚠ — Braised fish fillets with green Sichuan peppercorn1st ed. #38 of the next thirty ▼8 | 
+ 60 | 
+ Chengdu 7 ⚑ ⚠ — Braised fish fillets with green Sichuan peppercorn1st ed. #38 of the next thirty ▼22 | 
  Estimated | 
  5.34 | 
  5.4 | 
@@ -1300,8 +1675,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 47 | 
- Jamaica Jamaica — Jerk chicken1st ed. #51 of the next thirty | 
+ 61 | 
+ Jamaica Jamaica — Jerk chicken1st ed. #51 of the next thirty ▼10 | 
  Estimated | 
  5.32 | 
  4.9 | 
@@ -1313,8 +1688,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  5 | 
  
 | 
- 48 | 
- Southern Spice — Sambar idli with chutneys1st ed. #28 of the first thirty ▼20 | 
+ 62 | 
+ Southern Spice — Sambar idli with chutneys1st ed. #28 of the first thirty ▼34 | 
  Estimated | 
  5.30 | 
  5.2 | 
@@ -1326,8 +1701,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  8 | 
  
 | 
- 49 | 
- Bonjour Banh Mi — Grilled chicken vermicelli plate1st ed. #29 of the first thirty ▼20 | 
+ 63 | 
+ Bonjour Banh Mi — Grilled chicken vermicelli plate1st ed. #29 of the first thirty ▼34 | 
  Estimated | 
  5.29 | 
  5.1 | 
@@ -1339,8 +1714,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 50 | 
- Udupi Cafe — Royal South Indian thali1st ed. #30 of the first thirty ▼20 | 
+ 64 | 
+ Udupi Cafe — Royal South Indian thali1st ed. #30 of the first thirty ▼34 | 
  Estimated | 
  5.29 | 
  5.3 | 
@@ -1352,8 +1727,21 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  14 | 
  
 | 
- 51 | 
- Panera Bread — Mediterranean grain bowl1st ed. #52 of the next thirty | 
+ 65 | 
+ Hady's Restaurant International Cuisine — Beef Suyanew this edition | 
+ New | 
+ 5.25 | 
+ 5.2 | 
+ [CHART] | 
+ $27.29 | 
+ 815 | 
+ 66 | 
+ 1,620 | 
+ 8 | 
+ 
+| 
+ 66 | 
+ Panera Bread — Mediterranean grain bowl1st ed. #52 of the next thirty ▼14 | 
  Estimated | 
  5.22 | 
  5.1 | 
@@ -1365,8 +1753,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  10 | 
  
 | 
- 52 | 
- No 1 Pho — Bun thit heo nuong1st ed. #53 of the next thirty | 
+ 67 | 
+ No 1 Pho — Bun thit heo nuong1st ed. #53 of the next thirty ▼14 | 
  Estimated | 
  5.15 | 
  4.8 | 
@@ -1378,8 +1766,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 53 | 
- Los Tres — Street carne asada tacos1st ed. #54 of the next thirty | 
+ 68 | 
+ Los Tres — Street carne asada tacos1st ed. #54 of the next thirty ▼14 | 
  Estimated | 
  5.15 | 
  4.9 | 
@@ -1391,8 +1779,34 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  7 | 
  
 | 
- 54 | 
- Pho 919 — Well-done brisket pho1st ed. #55 of the next thirty | 
+ 69 | 
+ Chop Naija Kitchen — Vegetable Soupnew this edition | 
+ New | 
+ 5.15 | 
+ 5.1 | 
+ [CHART] | 
+ $20.00 | 
+ 680 | 
+ 51 | 
+ 1,740 | 
+ 7 | 
+ 
+| 
+ 70 | 
+ Al's Burger Shack — Connienew this edition | 
+ New | 
+ 5.13 | 
+ 4.8 | 
+ [CHART] | 
+ $10.45 | 
+ 620 | 
+ 45 | 
+ 1,380 | 
+ 2.5 | 
+ 
+| 
+ 71 | 
+ Pho 919 — Well-done brisket pho1st ed. #55 of the next thirty ▼16 | 
  Estimated | 
  5.12 | 
  4.8 | 
@@ -1404,8 +1818,99 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  4 | 
  
 | 
- 55 | 
- Rese's Caribbean Kitchen — Brown stew chicken1st ed. #56 of the next thirty | 
+ 72 | 
+ The Pit Authentic Barbecue — Chopped BBQ (barbecue plate)new this edition | 
+ New | 
+ 5.12 | 
+ 4.9 | 
+ [CHART] | 
+ $17.50 | 
+ 638 | 
+ 47 | 
+ 1,880 | 
+ 8.2 | 
+ 
+| 
+ 73 | 
+ Zweli's Ekhaya — Berbere Half Chickennew this edition | 
+ New | 
+ 5.12 | 
+ 5.2 | 
+ [CHART] | 
+ $30.00 | 
+ 785 | 
+ 59 | 
+ 1,410 | 
+ 4 | 
+ 
+| 
+ 74 | 
+ Another Broken Egg Cafe — Veggie Delight Omelettenew this edition | 
+ New | 
+ 5.09 | 
+ 5.1 | 
+ [CHART] | 
+ $16.99 | 
+ 550 | 
+ 31 | 
+ 630 | 
+ 6 | 
+ 
+| 
+ 75 | 
+ Grand Malabar Indian Cuisine — Kappa & Meen Currynew this edition | 
+ New | 
+ 4.94 | 
+ 4.8 | 
+ [CHART] | 
+ $18.99 | 
+ 700 | 
+ 39 | 
+ 1,300 | 
+ 7.5 | 
+ 
+| 
+ 76 | 
+ Dim Sum House — 37. Slice Fish Congeenew this edition | 
+ New | 
+ 4.91 | 
+ 4.9 | 
+ [CHART] | 
+ $19.75 | 
+ 605 | 
+ 34 | 
+ 1,780 | 
+ 5 | 
+ 
+| 
+ 77 | 
+ The Fiction Kitchen — Eastern NC Style BBQ Sandwichnew this edition | 
+ New | 
+ 4.88 | 
+ 4.6 | 
+ [CHART] | 
+ $17.00 | 
+ 680 | 
+ 42 | 
+ 1,780 | 
+ 5 | 
+ 
+| 
+ 78 | 
+ Let's Eat Soul Food — Baked Chicken Wings Combo with 2 Sidesnew this edition | 
+ New | 
+ 4.83 | 
+ 4.7 | 
+ [CHART] | 
+ $18.11 | 
+ 688 | 
+ 54 | 
+ 2,120 | 
+ 7.1 | 
+ 
+| 
+ 79 | 
+ Rese's Caribbean Kitchen — Brown stew chicken1st ed. #56 of the next thirty ▼23 | 
  Estimated | 
  4.74 | 
  4.4 | 
@@ -1417,8 +1922,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  5 | 
  
 | 
- 56 | 
- MI CANCUN — Carne asada plate1st ed. #57 of the next thirty | 
+ 80 | 
+ MI CANCUN — Carne asada plate1st ed. #57 of the next thirty ▼23 | 
  Estimated | 
  4.46 | 
  4.2 | 
@@ -1430,8 +1935,21 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  9 | 
  
 | 
- 57 | 
- Bul Box ⚑ — Malibu Poke with salmon1st ed. #23 of the first thirty ▼34 | 
+ 81 | 
+ BLR Food Street — Aloo Paneer Tikki Chaatnew this edition | 
+ New | 
+ 4.36 | 
+ 4.0 | 
+ [CHART] | 
+ $10.00 | 
+ 505 | 
+ 15 | 
+ 1,350 | 
+ 5 | 
+ 
+| 
+ 82 | 
+ Bul Box ⚑ — Malibu Poke with salmon1st ed. #23 of the first thirty ▼59 | 
  Partial | 
  4.35 | 
  4.2 | 
@@ -1443,8 +1961,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  10 | 
  
 | 
- 58 | 
- Afghan Kebab — Beef kobidah1st ed. #58 of the next thirty | 
+ 83 | 
+ Afghan Kebab — Beef kobidah1st ed. #58 of the next thirty ▼25 | 
  Estimated | 
  4.17 | 
  3.8 | 
@@ -1456,8 +1974,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 59 | 
- Gifted Hand Cuisine — Braised oxtail1st ed. #59 of the next thirty | 
+ 84 | 
+ Gifted Hand Cuisine — Braised oxtail1st ed. #59 of the next thirty ▼25 | 
  Estimated | 
  4.17 | 
  4.1 | 
@@ -1469,8 +1987,8 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  6 | 
  
 | 
- 60 | 
- Silk Road Uzbek — Manti, four pieces1st ed. #60 of the next thirty | 
+ 85 | 
+ Silk Road Uzbek — Manti, four pieces1st ed. #60 of the next thirty ▼25 | 
  Estimated | 
  4.05 | 
  3.8 | 
@@ -1479,6 +1997,32 @@ The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, 
  560 | 
  28 | 
  1,100 | 
+ 4 | 
+ 
+| 
+ 86 | 
+ Makus Empanadas — Beef empanadas (two), with sidesnew this edition | 
+ New | 
+ 3.75 | 
+ 3.5 | 
+ [CHART] | 
+ $15.25 | 
+ 905 | 
+ 31 | 
+ 1,560 | 
+ 8 | 
+ 
+| 
+ 87 | 
+ Pizzeria Toro — san marzano tomatoes, basil, buffalo mozzarella (the red margherita)new this edition | 
+ New | 
+ 3.10 | 
+ 2.6 | 
+ [CHART] | 
+ $24.00 | 
+ 965 | 
+ 36 | 
+ 1,900 | 
  4 | 
  
  
@@ -1505,7 +2049,7 @@ First edition 542 cal / 52 g protein / 210 mg sodium / 10 g fiber / 9 g sugar.
  
 542 cal / 51 g protein / 201 mg sodium / 9 g fiber / 8 g sugar, by summing Poke Bros.' own component table. The headline calorie and saturated-fat figures reproduce exactly; protein, sodium, fiber and sugar were each rounded up by one unit.
  
-Rescored: overall 7.86, now ranked 1 of 60.
+Rescored: overall 7.86, now ranked 1 of 87.
  
 Poke Bros. Nutritionals PDF, retrieved 28 August 2026.
  
@@ -1518,7 +2062,7 @@ First edition 420 cal / 44 g protein / 550 mg sodium / 8 g fiber.
  
 400 cal / 43 g protein / 535 mg sodium / about 6 g fiber, summing the printed build from the Pokeworks Nutrition Guide v2.0.
  
-Rescored: overall 7.14, now ranked 3 of 60.
+Rescored: overall 7.14, now ranked 4 of 87.
  
 Pokeworks Nutrition Guide v.2.0 (May 2026), retrieved 28 August 2026.
  
@@ -1531,7 +2075,7 @@ First edition 680 cal / 60 g protein / 220 mg sodium / 8 g sugar.
  
 709 cal / 57 g protein / 144 mg sodium / 9 g sugar, summed from DICED's own per-ingredient nutrition calculator. The sodium claim was pessimistic: the bowl is cleaner than the first edition said, and remains the lowest sodium-per-gram-of-protein dish in the set. Saturated fat and fiber stay estimated because DICED publishes neither.
  
-Rescored: overall 7.11, now ranked 4 of 60.
+Rescored: overall 7.11, now ranked 5 of 87.
  
 eatdiced.com/nutrition per-ingredient values, retrieved 28 August 2026.
  
@@ -1544,7 +2088,7 @@ First edition 440 cal / 25 g protein / 900 mg sodium / 8 g sugar, with sodium in
  
 445 cal / 23 g protein / about 1,950 mg sodium / 25 g sugar. The nutrition page resolves normally now and publishes the full component table; summing the printed build more than doubles the sodium and triples the sugar. This is the largest single error in the first edition and it moves the entry a long way down.
  
-Rescored: overall 4.35, now ranked 57 of 60.
+Rescored: overall 4.35, now ranked 82 of 87.
  
 Bul Box nutrition PDF (bulboxgrill.com/nutrition-allergens), retrieved 28 August 2026.
  
@@ -1557,7 +2101,7 @@ First edition Estimated from menu construction, and marked as such.
  
 Sweetgreen publishes a complete per-item nutrition table, updated August 2026, which the first edition did not consult. The real figures are 880 cal / 34 g protein / 1,092 mg sodium / 9 g saturated fat / 12 g fiber. Calories were understated by 42% and saturated fat by more than half. The entry is re-tiered to published and falls accordingly.
  
-Rescored: overall 5.69, now ranked 40 of 60.
+Rescored: overall 5.69, now ranked 53 of 87.
  
 sweetgreen.com/nutrition, updated August 2026, retrieved 28 August 2026.
  
@@ -1570,7 +2114,7 @@ First edition Estimated from menu construction, and marked as such.
  
 Chopt publishes a Craft Your Own nutrition breakdown, updated Spring 2026. Reconstructed from it, the build is 415 cal / 33 g protein / 735 mg sodium / 12 g fiber - cleaner on sodium and calories than estimated, but 15 g of sugar rather than 6, most of it from the vinaigrette and the corn. Re-tiered to published.
  
-Rescored: overall 6.64, now ranked 14 of 60.
+Rescored: overall 6.64, now ranked 15 of 87.
  
 Chopt Nutrition & Allergen Information, Spring 2026, retrieved 28 August 2026.
  
@@ -1583,7 +2127,7 @@ First edition 740 cal / 1,125 mg sodium / 6 g sugar.
  
 About 775 cal / 1,295 mg sodium / 8 g sugar, summing CAVA's own catering nutrition guide at retail portions. The 27 g of fiber and the steak-versus-chicken finding both survive; the sodium total was understated by roughly 170 mg.
  
-Rescored: overall 6.38, now ranked 22 of 60.
+Rescored: overall 6.38, now ranked 26 of 87.
  
 CAVA Nutrition and Allergen Guide, last modified July 2026, retrieved 28 August 2026.
  
@@ -1596,7 +2140,7 @@ First edition 620 cal / 46 g protein / 980 mg sodium / 7 g saturated fat / 12 g 
  
 Sassool's published figures were recovered from the search index even though the PDF itself is still Cloudflare-blocked, and they refute the entry. At Sassool's own serving basis the four cold components alone come to 603 calories and 1,068 mg of sodium BEFORE any chicken: labneh 4 oz is 258 cal and 370 mg, lentil salad 6 oz is 144 cal and 355 mg, tabouli 6 oz is 130 cal and 240 mg, kale salad 6 oz is 71 cal and 103 mg. Their published fiber for those four items totals 3 g, not 12 - no portion scaling reaches 12. Labneh is full-fat strained yogurt blended with olive oil and carries most of the plate's saturated fat on its own. The entry is rescored to a mid-portion central estimate of 850 cal / 1,700 mg / 13 g saturated fat / 3 g fiber, which drops it out of the top ten. It stays flagged as disputed because the true figures depend on scoop size, which could not be established: the defensible range runs from roughly 780 to 950 calories and 1,600 to 2,200 mg.
  
-Rescored: overall 5.96, now ranked 31 of 60.
+Rescored: overall 5.96, now ranked 42 of 87.
  
 Sassool nutrition facts, updated July 2024 (salads at 6 oz, dips at 4 oz), recovered via search-index extraction 28 August 2026; the PDF itself returns HTTP 403 behind Cloudflare.
  
@@ -1609,7 +2153,7 @@ First edition 500 cal / 3.5 g saturated fat / 1,000 mg sodium, gut 6.8, ranked s
  
 Three separate problems, all readable off the restaurant's own current menu. The word 'curtido' does not appear anywhere on it - not as an item, not as a side, not in any dish description - so the gut score, which rested entirely on curtido being a live ferment, falls from 6.8 to 2.3. The seafood section is headed 'All entrees served with rice and beans', not salad, so the build has to either decline the rice or count it. And the menu states no cooking method for the fillet at all, so 'grilled' was an assumption: at USDA's figures the grilled and fried versions differ by roughly 250 calories. Rescored on the grilled reading with the real default sides, and flagged disputed because the fried reading would take it lower still. The restaurant also bills itself as Mexican with a Salvadoran section, and this dish sits in the Mexican seafood section, not a pupuseria plate.
  
-Rescored: overall 6.40, now ranked 19 of 60.
+Rescored: overall 6.40, now ranked 23 of 87.
  
 El Cuscatleco Cary's own food menu, retrieved 28 August 2026.
  
@@ -1622,7 +2166,7 @@ First edition 2,100 mg with a 1 lb kimchi side included, gut 9.4, $24.98, and ba
  
 This entry was corrected twice, in opposite directions, and the sequence is worth printing. First: at USDA's figure of 498 mg of sodium per 100 g, a 1 lb kimchi side is about 2,300 mg on its own, so the dish as described should have read roughly 4,000 mg rather than 2,100. Then: no standalone kimchi item of any size exists on Chosun Ok's own ordering menu. Every kimchi entry there is a cooked dish - kimchi pancake, kimchi stew, kimchi fried rice. The side the entry is built on is not purchasable, which removes the live-ferment claim, removes the 2,300 mg with it, and breaks the price: their seafood soft-tofu stew lists at $15.99 with no side to make up the difference. The delivery menu also has no banchan category at all, so 'complimentary and unlimited' is a dine-in claim applied to a delivery document. The entry now stands at 1,700 mg without kimchi or banchan credit.
  
-Rescored: overall 5.95, now ranked 32 of 60.
+Rescored: overall 5.95, now ranked 44 of 87.
  
 order.chosunoknc.com, all 14 menu categories enumerated 28 August 2026; USDA FoodData Central, kimchi, food code 75502520.
  
@@ -1635,7 +2179,7 @@ First edition $21.90 for the pair, 470 cal, and a footnote saying the higher-sco
  
 Thai 54's own menu prices nam tok beef at $17.95 and either papaya salad at $12.95 - $30.90 for the two items the dish name describes. The $21.90 is nam tok alone with a delivery markup. The menu also states nam tok is 'served with sticky rice or jasmine rice', so the rice arrives by default and has to be actively declined for the 470-calorie figure to hold. And the catering-menu footnote is simply wrong: larb chicken is a standard $15.95 item in the Thai salad section, which matters because the compendium scores it above the recommendation.
  
-Rescored: overall 6.75, now ranked 12 of 60.
+Rescored: overall 6.75, now ranked 13 of 87.
  
 Thai 54's own PDF menu, retrieved 28 August 2026.
  
@@ -1648,7 +2192,7 @@ First edition Six stews, 660 cal, 20 g fiber, gut 7.9, $24.00.
  
 Goorsha's own menu offers 'Choose three options' for $17.00, not six. That roughly halves the plant-type count driving the gut and inflammation scores and the fiber figure with it, and it breaks the price against the restaurant's own $17.00. Rescored for a three-stew plate.
  
-Rescored: overall 6.34, now ranked 23 of 60.
+Rescored: overall 6.34, now ranked 27 of 87.
  
 goorshadurham.com food menu, vegan section, retrieved 28 August 2026.
  
@@ -1661,7 +2205,7 @@ First edition 620 cal / 6 g saturated fat, characterised as a poached dish.
  
 It is a shui zhu dish. The fish is velveted and poached rather than battered, so 'not fried, not breaded' is fair - but the preparation is finished at the pass by pouring a ladle of near-smoking chili-and-peppercorn oil over the top, and recipes for it call for half to three-quarters of a cup of oil. 620 cal and 6 g of saturated fat is a poached-fish assumption that the dish's own method contradicts; 800 to 1,100 calories is the defensible band and it is carried here at 950. The price is also mismatched: the restaurant lists the fillet version at $24.95 and the whole-fish version at $32.95, and the printed $36.95 corresponds to the whole fish with delivery markup, which is a shared dish.
  
-Rescored: overall 5.34, now ranked 46 of 60.
+Rescored: overall 5.34, now ranked 60 of 87.
  
 Chengdu 7's live menu via qMenu, retrieved 28 August 2026; recipe oil quantities from standard published preparations.
  

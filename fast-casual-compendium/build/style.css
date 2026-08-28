@@ -287,3 +287,6 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
   font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .toc .toc-d{font-size:.85rem;color:var(--ink-3);line-height:1.35}
 section[id]{scroll-margin-top:16px}
+ul.absent li{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+ul.absent li.filled{color:var(--ink)}
+ul.absent .tick{color:var(--health);font-weight:700}

@@ -1,0 +1,19 @@
+{
+ "Dim Sum House":                {"fiber": 5, "sugar": 4},
+ "Road To Myanmar Asian Cuisine":{"doordash_store_id": "", "doordash_status": "likely_but_unconfirmed"},
+ "Twisted Noodle":               {"restaurant": "Twisted Noodles", "protein": 35, "cal": 370},
+ "Carmen's Cuban Cafe & Lounge": {"protein": 28, "cal": 310},
+ "Pupuseria Doña Laura":         {"protein": 46, "cal": 425, "fiber": 2.5},
+ "BLR Food Street":              {"sodium": 1350, "protein": 15, "satfat": 8},
+ "Grand Malabar Indian Cuisine": {"cal": 700, "price_note": "price not published anywhere reachable; approximate"},
+ "Another Broken Egg Cafe":      {"price_note": "price not verifiable; the ordering menu renders client-side"},
+ "Makus Empanadas":              {"price_note": "price approximate; derived from category, not seen"},
+ "Pizzeria Toro":                {"sodium": 1900},
+ "Sam Jones BBQ":                {"sodium": 2100},
+ "The Halal Guys":               {"cal": 400, "protein": 54, "sodium": 1028},
+ "Hady's Restaurant International Cuisine": {"cal": 815, "protein": 66},
+ "Chop Naija Kitchen":           {"cal": 680},
+ "Mum's Jamaican Restaurant":    {"protein": 63},
+ "Boteco do Brazil":             {"cal": 580, "sodium": 1065},
+ "Golden Dragon":                {"sugar": 17}
+}

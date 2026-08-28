@@ -5,8 +5,8 @@ def sec_additions():
     rows = ''
     for d in entries:
         sid = d.get('store') or ''
-        sid_html = (f'<span class="sub">DoorDash store {e(sid)}</span>' if sid
-                    else '<span class="sub dimtd">store id not confirmed</span>')
+        sid_html = (f'<span class="sub dimtd">DoorDash store {e(sid)}, reported but not independently confirmed</span>'
+                    if sid else '<span class="sub dimtd">no DoorDash store id established</span>')
         na_cls = 'lo' if d['sodium'] >= 1500 else ''
         rows += (
             '<tr>'
@@ -55,8 +55,10 @@ def sec_additions():
       f'    <p>The best of them, {e(best["restaurant"])}&rsquo;s {e(best["dish"]).lower()} at {money(best["price"])}, scores '
       f'{best["overall"]:.2f} &mdash; which would place it {place} in the main ranking.</p>\n'
       '    <p class="caption">Every one of these is estimated from menu construction rather than published nutrition, and should '
-      'be read at the confidence the measurement chapter describes. Where a DoorDash store id could not be confirmed it is left '
-      'blank rather than guessed.</p>\n'
+      'be read at the confidence the measurement chapter describes. Existence was established against county restaurant-inspection '
+      'registries and the restaurants&rsquo; own sites; <strong>no DoorDash store id in this group could be independently checked</strong>, '
+      'because DoorDash refuses automated requests, so the ids below are reported rather than verified and several entries carry '
+      'none at all.</p>\n'
       '  </div>\n'
       '  <div class="tablewrap"><table><thead><tr>'
       '<th>Restaurant and dish</th><th>Cuisine</th><th class="n">Overall</th><th class="n">Health</th>'
