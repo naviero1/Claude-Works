@@ -984,68 +984,63 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
   </div>
 
   <div class="formula" style="margin-top:20px">
-<span class="cm">The formula, written out in full — the version the textbooks always had</span>
+<span class="cm">The formula, written out in full — the version the textbooks always had
+(Hadley &amp; Whitin; carried into practice via Silver, Pyke &amp; Peterson, and King 2009)</span>
 
-  SS = z · √( L · σ<sub>D</sub>²  <span class="hl">+  D̄² · σ<sub>L</sub>²</span> )
-                    ↑              ↑
-              demand variance   <span class="hl">lead-time variance — set to zero by assumption</span>
+  SS = z · √( E[L] · σ<sub>D</sub>²  <span class="hl">+  E[D]² · σ<sub>L</sub>²</span> )
+                     ↑                ↑
+               demand variance   <span class="hl">lead-time variance — set to zero by assumption</span>
 
 <span class="cm">With σ<sub>L</sub> = 0 this collapses to the familiar  SS = z · σ<sub>D</sub> · √L.
-Note the asymmetry: demand variance is multiplied by L, but lead-time variance is
-multiplied by the SQUARE of average demand. On a high-volume part, a few weeks of
-lead-time uncertainty outweighs everything the demand term can contribute.</span>
+Note the asymmetry: demand variance is multiplied by the mean lead time, but lead-time
+variance is multiplied by the SQUARE of mean demand. On a high-volume part, a few weeks
+of lead-time uncertainty outweighs everything the demand term can contribute.</span>
   </div>
 
   <div style="margin-top:20px">
-<figure class="calc" id="ss-calc">
-  <div class="fhead">
-    <div class="ftitle" style="font-family:var(--sans);font-weight:700;font-size:15.5px;letter-spacing:-.008em;color:var(--ink)">
-      What the missing term is actually worth</div>
-    <div class="fsub" style="font-size:13px;line-height:1.45;color:var(--muted)">
-      A single purchased component. Move the lead-time variability and watch the buffer the formula asks for.</div>
-  </div>
-  <div class="calc-grid">
-    <div>
-      <div class="params">
-        <div class="prow"><span>average demand&ensp;D̄</span><b>500 units / week</b></div>
-        <div class="prow"><span>demand std dev&ensp;σ_D</span><b>100 units / week</b></div>
-        <div class="prow"><span>average lead time&ensp;L</span><b>8 weeks</b></div>
-        <div class="prow"><span>service factor&ensp;z</span><b>1.65 &nbsp;(95%)</b></div>
+    <h3 style="margin-bottom:8px">Four compounding reasons the buffer was too small</h3>
+    <p class="col" style="color:var(--ink-2);margin-bottom:16px">The zeroed term is the famous one, but it was not
+      acting alone. Each of these is independent of the others, and in 2021 all four fired at once.</p>
+    <div class="cards c2">
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">01 · σ<sub>L</sub> was estimated from a calm regime</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Even where firms <em>did</em> estimate supply variability,
+          they estimated it from history — and the history was quiet. The GSCPI's standard deviation across
+          1998–2019 was <b>0.494</b>, and its maximum over those 22 years was <b>+1.58</b>. December 2021 came in
+          at <b>+4.44</b>: nine times that standard deviation, and <b>2.8× the entire pre-2020 range</b>. No
+          estimator fed on that sample could have sized what followed.</div>
       </div>
-      <div class="slider">
-        <label for="sigmaL">Lead-time variability&ensp;σ_L</label>
-        <input type="range" id="sigmaL" min="0" max="6" step="0.25" value="2"
-               aria-describedby="ss-readout">
-        <div class="srange"><span>0 — the pre-2019 assumption</span><span id="sigmaL-val">2.00 wk</span><span>6 wk</span></div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">02 · the term is quadratic in mean demand</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Because σ<sub>L</sub> is multiplied by <em>mean demand
+          squared</em>, it takes over the variance budget fast. On a representative high-volume part, lead-time
+          variance is already <b>77%</b> of total variance at three days of lead-time noise and <b>98%</b> at
+          twelve. The term that was assumed away is the term that dominates.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">03 · the shocks were correlated, and the formula assumes they are not</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">The expression above adds two variances because it assumes
+          demand and lead time are independent. In 2021 they were <em>positively</em> correlated — the same
+          congestion that stretched lead times was driven by the same demand surge — so there is an omitted
+          covariance term, and omitting it biases the buffer downward exactly when you need it most.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">04 · z assumes normality, and tails are not normal</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">The service factor <span class="num">z</span> converts a
+          service level into a multiplier <em>only</em> if lead-time demand is normally distributed. For a merely
+          lognormal distribution — mildly right-skewed, nothing exotic — the true buffer is <b>+15%</b> at the 95th
+          percentile, <b>+45%</b> at the 99th and <b>+85%</b> at the 99.9th. The higher the service level you
+          promised, the worse the under-sizing.</div>
       </div>
     </div>
-    <div class="stack stack-14">
-      <div class="outs" id="ss-readout" aria-live="polite">
-        <div class="out a">
-          <div class="cap">z · σ_D · √L</div>
-          <div class="v"><span id="ss-old">467</span></div>
-          <div class="sub">units &nbsp;·&nbsp; <span id="ss-old-wk">0.93</span> weeks of cover</div>
-        </div>
-        <div class="out b">
-          <div class="cap">z · √(L σ_D² + D̄² σ_L²)</div>
-          <div class="v"><span id="ss-new">1715</span></div>
-          <div class="sub">units &nbsp;·&nbsp; <span id="ss-new-wk">3.43</span> weeks of cover</div>
-        </div>
-      </div>
-      <div class="cbars">
-        <div class="cbar"><span class="cl">classical</span><span class="ctrack"><span class="cfill" id="bar-old" style="width:9%;background:var(--era-1)"></span></span></div>
-        <div class="cbar"><span class="cl">with σ_L</span><span class="ctrack"><span class="cfill" id="bar-new" style="width:34%;background:var(--era-2)"></span></span></div>
-      </div>
-      <div class="mult">The buffer the same part needs is <em id="ss-mult">3.7×</em> larger.</div>
-    </div>
   </div>
-  <figcaption>This is the entire mechanical argument of §02 in one control. At <b>σ_L = 0</b> — the assumption
-    every pre-2019 planning system shipped with — the second term vanishes and you get the familiar answer. At
-    <b>half a week</b> of lead-time variability the part already needs a third more buffer. At <b>one week</b> it
-    needs double. At <b>two</b>, nearly quadruple. Note also that σ_L is multiplied by <em>average demand</em>, not
-    by demand variability: the higher the volume, the more brutally lead-time uncertainty dominates. Nobody
-    decided to under-buffer. The parameter was set to zero and never revisited.</figcaption>
-</figure>
+
+  <div class="note ok" style="margin-top:18px"><b>And a large part of the 2021 build was not a decision at all.</b>
+    Little's Law — <span class="num">L = λW</span>, inventory equals throughput times flow time — is a
+    distribution-free identity, not a behavioural theory. If throughput holds steady and end-to-end flow time goes
+    from 8 weeks to 20, pipeline inventory rises <b>2.5×</b> whether anyone decided anything or not. A great deal
+    of what was reported in 2021 as firms "moving to just-in-case" was arithmetic: the same orders, in transit for
+    longer. It is worth knowing which part of an inventory increase is a strategy and which part is a queue.</div>
   </div>
 </section>
 
@@ -1181,7 +1176,10 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
     particular plant — so <b>stop trying</b>. Assume each node is down, and measure two things you <em>can</em> know:
     how long stock and alternatives keep you serving (<b>TTS</b>), and how long that node takes to come back
     (<b>TTR</b>). Where TTR exceeds TTS, the shortfall times the revenue flowing through that node is the exposure —
-    a number in currency, which is what makes a buffer arguable in front of a CFO.</figcaption>
+    a number in currency, which is what makes a buffer arguable in front of a CFO. Stated as a design rule, the whole
+    method reduces to one line: <b>TTS(j) ≥ TTR(j) for every node j</b>. Formally, TTR is an input to a linear
+    program run once per single-node failure; TTS is the same program with the duration turned into a decision
+    variable and maximised.</figcaption>
 </figure>
 
   <div class="cards c3" style="margin-top:22px">
@@ -1190,7 +1188,9 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
       <h4>Segment by consequence</h4>
       <p>ABC classification ranked parts by annual purchase value, so the cheap ones got the least attention.</p>
       <p class="imp"><b>Now</b>Rank by what happens if it stops: sole-sourced, long re-qualification, no
-        substitute, line-stopping. A class-C part by spend is routinely a class-A part by consequence.</p>
+        substitute, line-stopping. The central empirical result of the Ford risk-exposure work is that
+        <b>exposure is uncorrelated with procurement spend</b> — low-value single-sourced fasteners and sensors
+        repeatedly carried the highest impact, while the parts finance watched carried little.</p>
     </div>
     <div class="fw" style="--era-1:var(--era-3)">
       <div class="who reg">Ptak &amp; Smith · DDMRP</div>
@@ -1227,8 +1227,9 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
       <h4>Distributions, not point forecasts</h4>
       <p>A single expected-demand number plus a MAPE target tells you nothing about the tail you actually
         need to buffer.</p>
-      <p class="imp"><b>Now</b>Forecast quantiles directly and score them with pinball loss. The inventory
-        decision needs the 95th percentile, so forecast the 95th percentile.</p>
+      <p class="imp"><b>Now</b>Forecast quantiles directly and score them with pinball loss. In M5's probabilistic
+        track — 42,840 Walmart series, nine quantiles — the winner beat the best statistical benchmark by
+        <b>24.7%</b>. The inventory decision needs the 95th percentile, so forecast the 95th percentile.</p>
     </div>
     <div class="fw" style="--era-1:var(--era-3)">
       <div class="who reg">Network design</div>
@@ -1242,8 +1243,9 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
       <h4>Buy capacity, not only goods</h4>
       <p>Inventory is one way to buy the right to supply later. It is not the only way, and often not the
         cheapest.</p>
-      <p class="imp"><b>Now</b>Capacity reservation, take-or-pay, multi-year supply agreements and pre-qualified
-        second sources — an option premium paid in cash instead of in warehouse space.</p>
+      <p class="imp"><b>Now</b>Capacity reservation, take-or-pay and multi-year agreements — an option premium paid
+        in cash instead of warehouse space. Cirrus Logic's 2021 wafer agreement with GlobalFoundries priced it
+        explicitly: <b>$60m of non-refundable fees against ~$1.6bn of committed purchases — a 3.75% premium</b>.</p>
     </div>
     <div class="fw" style="--era-1:var(--accent)">
       <div class="who reg">Industrial policy</div>
@@ -1682,6 +1684,42 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
         on the same terms as everything else a capital committee compares — which is the only reason any of this
         outlived the crisis that prompted it.</p>
     </div>
+  </div>
+
+  <div style="margin-top:32px">
+    <h3 style="margin-bottom:8px">And the part that did not change at all</h3>
+    <p class="col" style="color:var(--ink-2);margin-bottom:16px">A document like this one has an obvious failure
+      mode: making it sound as though a century of operations research was overturned in 2020. It was not. The
+      decision rules are intact. What changed is what you feed them.</p>
+    <div class="cards c3">
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-1)">The newsvendor is untouched</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Stock to <span class="num">Q* = F⁻¹(c<sub>u</sub> /
+          (c<sub>u</sub> + c<sub>o</sub>))</span> — still exactly right. The entire probabilistic-forecasting shift
+          is best understood as <b>replacing the estimator of F</b>: from "normal, with a standard deviation
+          plugged in from history" to a directly forecast empirical distribution. The rule did not move. The
+          input did.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-1)">EOQ is untouched, and forgiving</div>
+        <div style="font-size:14.5px;color:var(--ink-2)"><span class="num">Q* = √(2DK/h)</span> still balances
+          ordering against holding cost, and it is famously insensitive to getting the inputs wrong: a
+          <b>100% error in demand produces only a 41% error in the order quantity</b>. It was never the fragile
+          part of the system.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-1)">Little's Law is not a theory</div>
+        <div style="font-size:14.5px;color:var(--ink-2)"><span class="num">L = λW</span> is an identity. It holds
+          in every regime, requires no distributional assumption, and quietly explains a great deal of what was
+          reported in 2021 as a change of strategy. Lengthen the pipe and it fills, whatever anyone intended.</div>
+      </div>
+    </div>
+    <div class="note acc" style="margin-top:16px">Nearly everything in §04 and §05 predates COVID, often by
+      decades — Clark and Scarf's multi-echelon decomposition is from <b>1960</b>, Little's Law from
+      <b>1961</b>, proper scoring rules for probabilistic forecasts were settled long before the M5 competition
+      demonstrated them at scale, and conditional value-at-risk became tractable in <b>2000</b>. <b>Adoption was
+      the bottleneck, not theory.</b> What 2020–22 supplied was not new mathematics. It was the first argument in
+      thirty years that a CFO would accept for paying the cost of using the mathematics that already existed.</div>
   </div>
 </section>
 

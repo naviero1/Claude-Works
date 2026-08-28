@@ -2488,5 +2488,66 @@
       "2026": 85
     },
     "note": "Roughly 7,000 annual filers. Set against 81% of executives reporting dual-sourcing programmes."
+  },
+  "modelling": {
+    "safety_stock_formula": {
+      "expression": "SS = z * sqrt(E[L]*sigma_D^2 + E[D]^2*sigma_L^2)",
+      "attribution": "Hadley & Whitin; carried into practice via Silver, Pyke & Peterson, and King (2009)",
+      "four_compounding_reasons_the_buffer_was_too_small": [
+        {
+          "cause": "sigma_L estimated from a calm regime",
+          "evidence": "GSCPI 1998-2019 SD 0.494, max +1.58; Dec 2021 +4.44 = 9.0x that SD and 2.8x the entire pre-2020 range",
+          "verified": "Recomputed from the NY Fed series, 28 Aug 2026"
+        },
+        {
+          "cause": "the lead-time term is quadratic in mean demand",
+          "evidence": "On a representative high-volume part, lead-time variance is 77% of total variance at sigma_L = 3 days and 98% at 12 days"
+        },
+        {
+          "cause": "omitted covariance",
+          "evidence": "The formula adds variances assuming independence; in 2021 demand and lead-time shocks were positively correlated, biasing the buffer downward"
+        },
+        {
+          "cause": "z assumes normality",
+          "evidence": "For lognormal lead-time demand at CV 0.50, the true buffer is +14.9% at p95, +44.8% at p99, +84.5% at p99.9"
+        }
+      ]
+    },
+    "littles_law": {
+      "expression": "L = lambda * W",
+      "note": "A distribution-free identity. Holding throughput constant, flow time 8 -> 20 weeks raises pipeline inventory 2.5x with no behavioural change. Explains a large part of the 2021 build that was reported as a strategy shift.",
+      "source": "Little (1961), Operations Research 9(3):383-387"
+    },
+    "ttr_tts_formalisation": {
+      "note": "TTR is an input to a linear program run once per single-node failure; TTS is the same program with duration as a decision variable, maximised. Robustness criterion: TTS(j) >= TTR(j) for all nodes j. Risk Exposure Index = PI(j) / max_k PI(k).",
+      "key_empirical_finding": "Risk exposure is uncorrelated with procurement spend: low-value single-sourced parts repeatedly carried the highest impact.",
+      "source": "Schmidt, Simchi-Levi et al., Interfaces (2015); Simchi-Levi, Schmidt & Wei, HBR (2014)"
+    },
+    "m5_competition": {
+      "scale": "42,840 Walmart series, 12 aggregation levels, 9 quantiles, h=28",
+      "uncertainty_track": {
+        "winner_WSPL": 0.1542,
+        "best_statistical_benchmark": "ARIMA 0.20464",
+        "improvement": "24.65%"
+      },
+      "accuracy_track": {
+        "winner_WRMSSE": 0.52044,
+        "best_benchmark": "ES_bu 0.67098",
+        "improvement": "22.44%"
+      },
+      "source": "M5 official scores, Mcompetitions/M5-methods"
+    },
+    "capacity_as_an_option": {
+      "case": "Cirrus Logic / GlobalFoundries wafer agreement",
+      "premium": "$60m non-refundable fees against ~$1.6bn committed purchases = 3.75%",
+      "also": "$316.1m unfavourable working-capital change reported",
+      "source": "Cirrus Logic FY2022 Form 10-K; ratio computed from disclosed figures"
+    },
+    "what_did_not_change": [
+      "Newsvendor critical fractile Q* = F^-1(cu/(cu+co)) — untouched; the probabilistic-forecasting shift replaces the ESTIMATOR of F, not the rule.",
+      "EOQ Q* = sqrt(2DK/h) — untouched, and insensitive: a 100% error in D produces a 41% error in Q*.",
+      "Little's Law L = lambda*W — an identity, holds in every regime."
+    ],
+    "adoption_not_theory": "Clark & Scarf multi-echelon 1960; Little's Law 1961; proper scoring rules long settled; CVaR made tractable by Rockafellar & Uryasev 2000. The bottleneck was adoption, not theory."
   }
 }

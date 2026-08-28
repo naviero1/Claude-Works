@@ -44,5 +44,8 @@
     particular plant — so <b>stop trying</b>. Assume each node is down, and measure two things you <em>can</em> know:
     how long stock and alternatives keep you serving (<b>TTS</b>), and how long that node takes to come back
     (<b>TTR</b>). Where TTR exceeds TTS, the shortfall times the revenue flowing through that node is the exposure —
-    a number in currency, which is what makes a buffer arguable in front of a CFO.</figcaption>
+    a number in currency, which is what makes a buffer arguable in front of a CFO. Stated as a design rule, the whole
+    method reduces to one line: <b>TTS(j) ≥ TTR(j) for every node j</b>. Formally, TTR is an input to a linear
+    program run once per single-node failure; TTS is the same program with the duration turned into a decision
+    variable and maximised.</figcaption>
 </figure>
