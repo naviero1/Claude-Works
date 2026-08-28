@@ -526,13 +526,13 @@ footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34
     </div>
     <div class="hstat" data-era="2">
       <div class="v">1.25</div>
-      <div class="l">US retail inventories-to-sales today — <em>below</em> its 1.46 average in 2019</div>
-      <div class="s reg">Census MTIS · Jun 2026</div>
+      <div class="l">US retail inventories-to-sales today — <em>below</em> its 1.47 average across 2015–19</div>
+      <div class="s reg">Census MTIS · Jun 2026 · lower on every baseline</div>
     </div>
     <div class="hstat" data-era="3">
       <div class="v">1.48</div>
-      <div class="l">US manufacturers' ratio today — <em>above</em> its 1.45 average in 2019</div>
-      <div class="s reg">Census MTIS · Jun 2026</div>
+      <div class="l">US manufacturers' ratio today — <em>above</em> its 1.40 average across 2015–19</div>
+      <div class="s reg">Census MTIS · Jun 2026 · but level with Dec 2019 — see §03</div>
     </div>
   </div>
 </header>
@@ -557,10 +557,10 @@ footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34
       <p class="imp"><b>Told you to</b>Order in the arithmetically optimal lot. Anything larger is a financing decision you did not mean to make.</p>
     </div>
     <div class="fw">
-      <div class="who reg">Arrow · Harris · Marschak · 1951</div>
+      <div class="who reg">Edgeworth 1888 · formalised 1951</div>
       <h4>The newsvendor model</h4>
       <p>One order, uncertain demand. Stock up to the quantile where the cost of one more unit equals the cost of one too few.</p>
-      <p class="imp"><b>Told you to</b>Derive stock from a service level, and derive the service level from a cost ratio — not from nerves.</p>
+      <p class="imp"><b>Told you to</b>Derive stock from a service level, and the service level from a cost ratio — not from nerves. Edgeworth posed it for bank cash reserves; Arrow, Harris and Marschak gave it its modern form.</p>
     </div>
     <div class="fw">
       <div class="who reg">Statistical inventory control · 1950s</div>
@@ -583,13 +583,13 @@ footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34
     <div class="fw">
       <div class="who reg">Gary Eppen · 1979</div>
       <h4>Risk pooling &amp; the square-root law</h4>
-      <p>Consolidate <span class="num">n</span> stocking locations into one and the safety stock needed falls by roughly <span class="num">√n</span>.</p>
-      <p class="imp"><b>Told you to</b>Centralise. Fewer, bigger nodes. Which is also exactly how you build a single point of failure.</p>
+      <p>Consolidate <span class="num">n</span> stocking locations into one and the safety stock needed falls by roughly <span class="num">√n</span> — a <b>68%</b> reduction going from ten locations to one.</p>
+      <p class="imp"><b>Told you to</b>Centralise. Fewer, bigger nodes. Which is also, exactly, how you build a single point of failure.</p>
     </div>
     <div class="fw">
       <div class="who reg">Lee &amp; Billington · HP · c.1993</div>
       <h4>Postponement</h4>
-      <p>Hold inventory in generic form and differentiate as late as possible, so one pooled buffer serves many end variants.</p>
+      <p>Hold inventory in generic form and differentiate as late as possible, so one pooled buffer serves many end variants. Moving DeskJet localisation from the factory to the distribution centres cut finished-goods inventory investment <b>21%</b> at a 98% fill rate.</p>
       <p class="imp"><b>Told you to</b>Push the decoupling point downstream. Still good advice — it survived the decade intact.</p>
     </div>
     <div class="fw">
@@ -607,14 +607,14 @@ footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34
     <div class="fw">
       <div class="who reg">Marshall Fisher · HBR · 1997</div>
       <h4>Functional vs innovative products</h4>
-      <p>Stable, predictable products need a <em>physically efficient</em> chain; volatile, short-life products need a <em>market-responsive</em> one.</p>
-      <p class="imp"><b>Told you to</b>Match the chain to the product. For most industrial goods that meant: minimise cost, and hold as little as possible.</p>
+      <p>Stable, predictable products need a <em>physically efficient</em> chain; volatile, short-life products need a <em>market-responsive</em> one. Fisher quantified the split: 10% forecast error and 1–2% stockouts for functional goods, against 40–100% error and 10–40% stockouts for innovative ones.</p>
+      <p class="imp"><b>Told you to</b>Match the chain to the product. For most industrial goods that meant: minimise cost, hold as little as possible.</p>
     </div>
     <div class="fw">
       <div class="who reg">Hau Lee · HBR · 2004</div>
       <h4>The Triple-A supply chain</h4>
-      <p>Speed and cost are not enough. A chain must be <em>agile</em>, <em>adaptable</em> and <em>aligned</em> to survive.</p>
-      <p class="imp"><b>Told you to</b>Build for change — sixteen years early. It was widely cited and thinly implemented, because none of the three had a number attached.</p>
+      <p>Speed and cost are not enough. A chain must be <em>agile</em>, <em>adaptable</em> and <em>aligned</em> to survive. Drawn from more than 60 companies studied over 15 years.</p>
+      <p class="imp"><b>Told you to</b>Build for change — sixteen years early. Widely cited, thinly implemented, because none of the three had a number attached.</p>
     </div>
     <div class="fw" style="--era-1:var(--accent)">
       <div class="who reg">Corporate finance · throughout</div>
@@ -700,8 +700,9 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
   <figure class="figure">
     <div class="fhead">
       <div class="ftitle">Global supply chain pressure, 2018 – 2026</div>
-      <div class="fsub">The New York Fed's index combines transport costs and manufacturing delivery-time and
-        backlog data into standard deviations from its own long-run average. Zero is normal.</div>
+      <div class="fsub">The New York Fed's index combines ocean and air freight cost indices with PMI delivery-time,
+        backlog and purchased-stocks sub-indices, expressed as standard deviations from its own long-run average.
+        Zero is normal.</div>
     </div>
     <div class="plot" id="fig-gscpi"></div>
     <div class="legend">
@@ -728,7 +729,8 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
       </table>
     </div>
     <figcaption>Source: Federal Reserve Bank of New York, GSCPI, series to July 2026. The December 2021 reading of
-      +4.44σ is the highest in the index's history, which begins in 1998.</figcaption>
+      +4.44σ is the highest in the index's history, which begins in 1998. The index is periodically re-estimated,
+      so earlier vintages put that peak slightly differently — figures here are the August 2026 vintage.</figcaption>
   </figure>
 
   <div style="margin-top:34px;display:grid;gap:28px;grid-template-columns:minmax(0,1fr)">
@@ -753,9 +755,10 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
         <div class="tev" data-era="2">
           <div class="when reg">Mar 2021</div>
           <div class="what"><em>Ever Given</em> grounds in the Suez Canal</div>
-          <div class="detail">Six days of blockage on a route carrying roughly 12% of global trade — and a
-            demonstration that a single geographic chokepoint sits inside thousands of bills of material that
-            never named it.</div>
+          <div class="detail">Six days and seven hours of blockage. At least 369 ships were queued by 28 March
+            and over 400 by the 29th; the backlog cleared on 3 April. A demonstration that a single geographic
+            chokepoint sits inside thousands of bills of material that never named it.</div>
+          <div class="fig">6d 7h · 369+ ships queued</div>
         </div>
         <div class="tev" data-era="2">
           <div class="when reg">Jun 2021</div>
@@ -770,16 +773,26 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
           <div class="what">The chip shortage gets a price tag</div>
           <div class="detail">AlixPartners revises its forecast of 2021 revenue lost to the semiconductor shortage
             from $110bn to $210bn, and unbuilt vehicles from 3.9m to 7.7m — a near-doubling in four months, which
-            is itself the story: nobody could size the exposure.</div>
-          <div class="fig">$210bn · 7.7m units · forecast, Sep 2021</div>
+            is itself the story: nobody could size the exposure. The measured outturn was worse still. S&amp;P Global
+            Mobility later put actual 2021 light-vehicle production lost to the shortage at more than 9.5m units.</div>
+          <div class="fig">forecast 7.7m units · actual 9.5m+ (S&amp;P Global Mobility)</div>
         </div>
         <div class="tev" data-era="2">
           <div class="when reg">Dec 2021 – Jan 2022</div>
           <div class="what">Peak pressure</div>
-          <div class="detail">The GSCPI reaches +4.44σ. A record 109 container ships wait at anchor off Los Angeles
-            and Long Beach in January. Ocean freight, port capacity, chips, labour and warehousing are all
+          <div class="detail">The GSCPI reaches +4.44σ. On 9 January 2022 a record 109 container ships are waiting for
+            berths at Los Angeles and Long Beach. Ocean freight, port capacity, chips, labour and warehousing are
             constrained simultaneously — the correlated failure the models assumed away.</div>
-          <div class="fig">+4.44σ · 109 ships queued</div>
+          <div class="fig">+4.44σ · 109 ships, 9 Jan 2022</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">2020 – 2022</div>
+          <div class="what">Lead time stops being a number</div>
+          <div class="detail">The single most important series for this document, and the one almost nobody was
+            tracking. Susquehanna's semiconductor lead-time survey runs from 13.9 weeks in autumn 2020 to a record
+            27.1 weeks in May 2022 — and stays there. Not a spike: a doubling that held for two years. Every
+            safety-stock calculation in every planning system was parameterised on the first number.</div>
+          <div class="fig">13.9 → 27.1 weeks · Susquehanna Financial Group</div>
         </div>
         <div class="tev" data-era="2">
           <div class="when reg">Spring 2022</div>
@@ -1049,58 +1062,69 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
   <figure class="figure">
     <div class="fhead">
       <div class="ftitle">Inventories-to-sales ratio: manufacturers vs retail trade, 2018 – 2026</div>
-      <div class="fsub">Months of inventory on hand at the current rate of sales. Both sectors averaged
-        about 1.45 in 2019.</div>
+      <div class="fsub">Months of inventory on hand at the current rate of sales, against each sector's own
+        2015–19 average.</div>
     </div>
     <div class="plot" id="fig-isratio"></div>
     <div class="legend">
-      <div class="li"><span class="sw" style="background:var(--era-3)"></span>Manufacturers — <b style="font-weight:600">above</b> 2019</div>
-      <div class="li"><span class="sw" style="background:var(--era-2)"></span>Retail trade — <b style="font-weight:600">below</b> 2019</div>
-      <div class="li"><span class="sw" style="background:var(--faint)"></span>2019 average, 1.45</div>
+      <div class="li"><span class="sw" style="background:var(--era-3)"></span>Manufacturers <span style="color:var(--muted);font-weight:400">— dashed: 2015–19 avg 1.40</span></div>
+      <div class="li"><span class="sw" style="background:var(--era-2)"></span>Retail trade <span style="color:var(--muted);font-weight:400">— dashed: 2015–19 avg 1.47</span></div>
     </div>
     <button class="tbtn" data-tableview="tbl-isratio" aria-expanded="false" style="align-self:flex-start">Show data</button>
     <div class="tw" id="tbl-isratio" hidden>
       <table>
-        <caption>US Census Bureau, Manufacturing and Trade Inventories and Sales (MTIS), seasonally adjusted, via FRED. Latest month June 2026.</caption>
-        <thead><tr><th>Sector</th><th>2019 avg</th><th>Trough</th><th>Peak</th><th>Jun 2026</th><th>Change vs 2019</th></tr></thead>
+        <caption>US Census Bureau, Manufacturing and Trade Inventories and Sales (MTIS), seasonally adjusted, via FRED. Series begins January 1992; latest month June 2026. Three pre-COVID baselines are shown because the answer for manufacturing depends on which one you pick.</caption>
+        <thead><tr><th>Sector</th><th>2015–19 avg</th><th>2019 avg</th><th>Dec 2019</th><th>Jun 2026</th><th>vs 2015–19</th><th>vs Dec 2019</th></tr></thead>
         <tbody>
-          <tr><td>Manufacturers</td><td class="n">1.45</td><td class="n">1.47 <span style="color:var(--faint)">Jan 21</span></td><td class="n">1.61 <span style="color:var(--faint)">Apr 23</span></td><td class="n">1.48</td><td class="n" style="color:var(--era-3)">+0.05</td></tr>
-          <tr><td>Total business</td><td class="n">1.42</td><td class="n">1.26 <span style="color:var(--faint)">Apr 21</span></td><td class="n">1.43 <span style="color:var(--faint)">Mar 23</span></td><td class="n">1.30</td><td class="n" style="color:var(--era-2)">−0.11</td></tr>
-          <tr><td>Merchant wholesalers</td><td class="n">1.35</td><td class="n">1.20 <span style="color:var(--faint)">Jul 21</span></td><td class="n">1.40 <span style="color:var(--faint)">Jun 23</span></td><td class="n">1.19</td><td class="n" style="color:var(--era-2)">−0.14</td></tr>
-          <tr><td>Retail trade</td><td class="n">1.46</td><td class="n">1.09 <span style="color:var(--faint)">Jun 21</span></td><td class="n">1.33 <span style="color:var(--faint)">Sep 24</span></td><td class="n">1.25</td><td class="n" style="color:var(--era-2)">−0.20</td></tr>
+          <tr><td>Manufacturers</td><td class="n">1.40</td><td class="n">1.45</td><td class="n">1.52</td><td class="n">1.48</td><td class="n" style="color:var(--era-3)">+0.08</td><td class="n" style="color:var(--muted)">−0.04</td></tr>
+          <tr><td>Total business</td><td class="n">1.40</td><td class="n">1.42</td><td class="n">1.43</td><td class="n">1.30</td><td class="n" style="color:var(--era-2)">−0.10</td><td class="n" style="color:var(--era-2)">−0.13</td></tr>
+          <tr><td>Merchant wholesalers</td><td class="n">1.32</td><td class="n">1.35</td><td class="n">1.34</td><td class="n">1.19</td><td class="n" style="color:var(--era-2)">−0.13</td><td class="n" style="color:var(--era-2)">−0.15</td></tr>
+          <tr><td>Retail trade</td><td class="n">1.47</td><td class="n">1.46</td><td class="n">1.43</td><td class="n">1.25</td><td class="n" style="color:var(--era-2)">−0.22</td><td class="n" style="color:var(--era-2)">−0.18</td></tr>
         </tbody>
       </table>
     </div>
-    <figcaption>Source: US Census Bureau MTIS via FRED, series ISRATIO / MNFCTRIRSA / RETAILIRSA / WHLSLRIRSA, retrieved 28 Aug 2026.
-      The April 2020 spike in the aggregate to 1.74 is a collapse in the denominator — sales stopped — not a build in stock.</figcaption>
+    <figcaption>Source: US Census Bureau MTIS via FRED, series ISRATIO / MNFCTRIRSA / RETAILIRSA / WHLSLRIRSA, full history from
+      January 1992, retrieved 28 Aug 2026. The April 2020 spikes — 1.74 aggregate, 1.88 manufacturing, both all-time highs — are a
+      collapse in the denominator: sales stopped, stock did not move. Retail's 1.09 in June 2021 is the lowest reading in the
+      series' 34-year history.</figcaption>
   </figure>
 
   <div class="cards c2" style="margin-top:22px">
     <div class="card stack stack-10">
       <div class="reg" style="color:var(--era-3)">Where the buffer stayed</div>
-      <p style="font-size:15px;margin:0;color:var(--ink-2)">Manufacturers hold <b>more</b> than they did before
-        COVID, and have done consistently since 2021. This is the sector with single-sourced, long-lead,
+      <p style="font-size:15px;margin:0;color:var(--ink-2)">Manufacturers hold <b>more</b> than their 2015–19
+        average, and have done consistently since 2021. This is the sector with single-sourced, long-lead,
         low-value, line-stopping components — the $3 connector that idles a $40,000 vehicle. For that class of
         part the economics of a buffer were always overwhelming and simply were not being calculated, because the
-        aggregate metric a plant was judged on could not see the difference between a $3 connector and a pallet of
-        finished goods.</p>
+        aggregate metric a plant was judged on could not tell a $3 connector from a pallet of finished goods.</p>
     </div>
     <div class="card stack stack-10">
       <div class="reg" style="color:var(--era-2)">Where it did not</div>
-      <p style="font-size:15px;margin:0;color:var(--ink-2)">Retail is now <b>leaner than 2019</b> — 1.25 against a
-        1.46 average. It went from 1.09 and empty shelves, through a glut that produced billions in markdowns, to
-        a position tighter than the one it started from. Nothing about retail's exposure profile rewards a
-        permanent buffer: the products are substitutable, the lead times are shorter, and holding the wrong
-        seasonal goods is more expensive than running out of them.</p>
+      <p style="font-size:15px;margin:0;color:var(--ink-2)">Retail is <b>leaner than before COVID on every
+        baseline</b> — 1.25 against a 2015–19 average of 1.47. It went from 1.09 and empty shelves, through a glut
+        that produced billions in markdowns, to a position tighter than the one it started from. Nothing about
+        retail's exposure profile rewards a permanent buffer: the goods are substitutable, the lead times shorter,
+        and holding the wrong seasonal stock costs more than running out of it.</p>
     </div>
   </div>
 
   <div class="note acc" style="margin-top:18px"><b>This is the actual finding.</b> "Just-in-case replaced
-    just-in-time" is false at the aggregate level — total US business inventories-to-sales is <b>0.11 below</b>
-    its 2019 average. The doctrine that replaced lean was not "hold more." It was <b>hold according to
-    consequence</b>: heavy buffers on a small number of parts that can stop a line, thinner buffers than ever on
-    everything else. That is a change in the <em>composition</em> of inventory, which is exactly why it needed a
-    new set of metrics — the old ones only measured the <em>level</em>.</div>
+    just-in-time" is false at the aggregate level — total US business inventories-to-sales sits <b>0.10 below</b>
+    its 2015–19 average, and wholesalers and retail are further below still. The doctrine that replaced lean was
+    not "hold more." It was <b>hold according to consequence</b>: heavier buffers on a small number of parts that
+    can stop a line, thinner buffers than ever on everything else. That is a change in the <em>composition</em> of
+    inventory, which is exactly why it needed new metrics — the old ones could only measure the <em>level</em>.</div>
+
+  <div class="note" style="margin-top:14px"><b>Where this finding is fragile, and where it is not.</b> Honesty
+    about the baseline matters here, because manufacturing inventories were <em>already</em> climbing through 2019
+    under the trade war — from 1.40 in January to 1.52 in December. So the manufacturing result moves with the
+    baseline you choose: <b>+0.08</b> against the 2015–19 average, <b>+0.03</b> against the 2019 average, and
+    <b>−0.04</b> against December 2019 alone. Read against that single month, manufacturers hold marginally
+    <em>less</em>, not more.<br><br>What does <b>not</b> move is the rest of it. Retail, wholesale and the total
+    are below every baseline. And the <b>divergence</b> between manufacturing and retail — the thing that actually
+    evidences buffering by consequence — is robust and large under all three: the gap between the two sectors
+    widened by <b>+0.29</b>, <b>+0.24</b> and <b>+0.14</b> months respectively. The two sectors moved apart. That
+    is the claim to hang weight on, not the size of manufacturing's own increase.</div>
 </section>
 
 <section id="new" class="wrap">
@@ -1176,7 +1200,7 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
         at chosen places instead of propagating. The question moved from "how much" to "where".</p>
     </div>
     <div class="fw" style="--era-1:var(--era-3)">
-      <div class="who reg">Simchi-Levi · HBR 2014</div>
+      <div class="who reg">Simchi-Levi, Schmidt &amp; Wei · HBR 2014</div>
       <h4>Measure impact, not probability</h4>
       <p>You cannot estimate the annual probability of a fire at a specific plant, and pretending otherwise
         produced risk registers full of invented numbers.</p>
@@ -1700,24 +1724,27 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
     <div class="figure">
       <div class="fhead">
         <div class="ftitle">What the measured data says</div>
-        <div class="fsub">US Census MTIS inventories-to-sales, 2019 average against June 2026.</div>
+        <div class="fsub">US Census MTIS inventories-to-sales, June 2026 against each sector's 2015–19 average.</div>
       </div>
       <div class="bars" style="margin-top:6px">
-        <div class="brow"><span class="bl">Manufacturers</span><span class="btrack"><span class="bfill" style="width:74%;background:var(--era-3)"></span></span><span class="bv">+0.05</span></div>
-        <div class="brow"><span class="bl">Total business</span><span class="btrack"><span class="bfill" style="width:38%;background:var(--era-2)"></span></span><span class="bv">−0.11</span></div>
-        <div class="brow"><span class="bl">Wholesalers</span><span class="btrack"><span class="bfill" style="width:30%;background:var(--era-2)"></span></span><span class="bv">−0.14</span></div>
-        <div class="brow"><span class="bl">Retail trade</span><span class="btrack"><span class="bfill" style="width:20%;background:var(--era-2)"></span></span><span class="bv">−0.20</span></div>
+        <div class="brow"><span class="bl">Manufacturers</span><span class="btrack"><span class="bfill" style="width:80%;background:var(--era-3)"></span></span><span class="bv">+0.08</span></div>
+        <div class="brow"><span class="bl">Total business</span><span class="btrack"><span class="bfill" style="width:40%;background:var(--era-2)"></span></span><span class="bv">−0.10</span></div>
+        <div class="brow"><span class="bl">Wholesalers</span><span class="btrack"><span class="bfill" style="width:32%;background:var(--era-2)"></span></span><span class="bv">−0.13</span></div>
+        <div class="brow"><span class="bl">Retail trade</span><span class="btrack"><span class="bfill" style="width:20%;background:var(--era-2)"></span></span><span class="bv">−0.22</span></div>
       </div>
       <div class="note" style="margin-top:12px">Bar length is relative position, not the ratio itself. Three of
-        four sectors hold <b>less</b> inventory relative to sales than they did in 2019. Only manufacturing holds
-        more — and it holds only 0.05 more.</div>
+        four sectors hold <b>less</b> inventory relative to sales than before COVID, on any baseline. Only
+        manufacturing holds more — and only 0.08 more, an increase that shrinks to 0.03 against the 2019 average
+        and reverses against December 2019 alone. See §03.</div>
       <p style="font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0">Set the two panels beside each
         other and the gap is stark. In 2023, 78% of executives reported increasing inventory buffers. In the same
-        period, the aggregate US inventories-to-sales ratio was falling back through its pre-COVID level. Both
+        period, the aggregate US inventories-to-sales ratio was falling back through its pre-COVID level, and it
+        has kept falling since. Both
         can be true — a firm can add buffer on 200 critical parts while destocking everything else, and that is
         precisely the segmented doctrine this document describes. But it means <b>survey answers about resilience
         cannot be read as evidence that balance sheets changed</b>.</p>
-      <figcaption>Source: US Census Bureau MTIS via FRED, retrieved 28 Aug 2026.</figcaption>
+      <figcaption>Source: US Census Bureau MTIS via FRED, retrieved 28 Aug 2026. Change measured against each
+        sector's 2015–19 mean; the full three-baseline comparison is in §03.</figcaption>
     </div>
   </div>
 
@@ -1823,12 +1850,12 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
   <div class="card" style="margin-top:16px">
     <div class="reg" style="color:var(--muted);margin-bottom:10px">Doctrine and framework attributions</div>
     <div class="srcs" style="border:0">
-      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Economic order quantity</div><div class="o">F. W. Harris, 1913</div></div>
-      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Newsvendor / optimal inventory policy</div><div class="o">Arrow, Harris &amp; Marschak, 1951</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Economic order quantity — <em>Factory, The Magazine of Management</em>, Feb 1913</div><div class="o">F. W. Harris</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Newsvendor / critical fractile — posed 1888, formalised 1951</div><div class="o">F. Y. Edgeworth; Arrow, Harris &amp; Marschak</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">Toyota Production System, just-in-time, the seven wastes</div><div class="o">Taiichi Ohno; Shigeo Shingo</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">Industrial dynamics — amplification through echelons</div><div class="o">Jay Forrester, 1961</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">The bullwhip effect, named, with four causes</div><div class="o">Lee, Padmanabhan &amp; Whang, 1997</div></div>
-      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Risk pooling and the square-root law</div><div class="o">Gary Eppen, 1979</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Risk pooling; the square-root law stated independently by Maister (1976)</div><div class="o">Gary Eppen, <em>Management Science</em>, 1979</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">Theory of Constraints</div><div class="o">Eliyahu Goldratt, 1984</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">Lean thinking</div><div class="o">Womack &amp; Jones, 1996</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">Functional vs innovative products</div><div class="o">Marshall Fisher, HBR, 1997</div></div>
@@ -1837,18 +1864,22 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">Building the resilient supply chain</div><div class="o">Christopher &amp; Peck, 2004</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t"><em>The Resilient Enterprise</em> — the disruption profile</div><div class="o">Yossi Sheffi, 2005</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">Shareholder-value effects of supply chain disruptions</div><div class="o">Hendricks &amp; Singhal, 2003–05</div></div>
-      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Risk exposure index, time-to-recover</div><div class="o">Simchi-Levi et al., HBR, 2014</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Risk exposure index, time-to-recover — "From Superstorms to Factory Fires", developed with Ford</div><div class="o">Simchi-Levi, Schmidt &amp; Wei, HBR, Jan–Feb 2014</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">Demand-driven MRP — buffer positioning</div><div class="o">Ptak &amp; Smith</div></div>
       <div class="src" style="padding-left:0;padding-right:0"><div class="t">Quantile forecasting at scale — the M5 competition</div><div class="o">Makridakis et al., 2020</div></div>
     </div>
   </div>
 
-  <div class="note" style="margin-top:16px"><b>Where this document is weak.</b> Four things a careful reader
-    should hold against it. <b>One:</b> sector-level inventory ratios average over enormous firm-level variation —
-    a sector can be flat while half its firms doubled their buffers and the other half halved them.
-    <b>Two:</b> the survey waves are not a matched panel, so the year-on-year movements in §07 are indicative
-    rather than measured change. <b>Three:</b> the KPI ledger describes practice at large, well-resourced firms;
-    the median manufacturer has adopted far less of it than the literature implies. <b>Four:</b> several framework
+  <div class="note" style="margin-top:16px"><b>Where this document is weak.</b> Five things a careful reader
+    should hold against it. <b>One:</b> the manufacturing result is baseline-sensitive. Inventories in that sector
+    were already climbing through 2019, so "manufacturers hold more than before COVID" is true against a
+    multi-year pre-COVID average and false against December 2019 alone. §03 shows all three baselines rather than
+    picking the flattering one; the robust claim is the <em>divergence</em> between manufacturing and retail, not
+    the size of manufacturing's own increase. <b>Two:</b> sector-level ratios average over enormous firm-level
+    variation — a sector can be flat while half its firms doubled their buffers and the other half halved them.
+    <b>Three:</b> the survey waves are not a matched panel, so the year-on-year movements in §07 are indicative
+    rather than measured change. <b>Four:</b> the KPI ledger describes practice at large, well-resourced firms;
+    the median manufacturer has adopted far less of it than the literature implies. <b>Five:</b> several framework
     attributions are conventional rather than uncontested — priority disputes exist for the EOQ formula and for
     parts of the bullwhip literature, and the dates given are for the canonical publication, not the first idea.</div>
 </section>
@@ -1990,7 +2021,7 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
       }, svg);
       if (r.label) {
         var t = el("text", {
-          x: r.at !== undefined ? sx(r.at) : x0 + 6, y: yy - 6, class: "dlabel",
+          x: r.at !== undefined ? sx(r.at) : x0 + 6, y: yy + (r.below ? 13 : -6), class: "dlabel",
           "text-anchor": r.anchor || "start", fill: tok(r.token || "--muted")
         }, svg);
         t.textContent = r.label;
@@ -2244,7 +2275,10 @@ var D_TOT=[[2018.0000,1.37],[2018.0833,1.37],[2018.1667,1.36],[2018.2500,1.36],[
       x: { min: 2018, max: 2026.6, ticks: YR(2018, 2026) },
       y: { min: 1.0, max: 1.95, ticks: [1.0, 1.2, 1.4, 1.6, 1.8], fmt: function (v) { return v.toFixed(1); } },
       bands: bands(),
-      refs: [{ y: 1.455, label: "1.45", token: "--faint", at: 2018.06 }],
+      refs: [
+        { y: 1.403, token: "--era-3" },
+        { y: 1.468, token: "--era-2" }
+      ],
       series: [
         { name: "Manufacturers", token: "--era-3", points: D_MFG },
         { name: "Retail trade", token: "--era-2", points: D_RET }

@@ -121,7 +121,7 @@
       }, svg);
       if (r.label) {
         var t = el("text", {
-          x: r.at !== undefined ? sx(r.at) : x0 + 6, y: yy - 6, class: "dlabel",
+          x: r.at !== undefined ? sx(r.at) : x0 + 6, y: yy + (r.below ? 13 : -6), class: "dlabel",
           "text-anchor": r.anchor || "start", fill: tok(r.token || "--muted")
         }, svg);
         t.textContent = r.label;

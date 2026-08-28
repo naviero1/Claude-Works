@@ -28,9 +28,11 @@ COVID broke, and why the KPIs and risk models changed.
    Four modelling failures — and a fifth failure that was not modelling at all,
    but the scorecard.
 3. **§03 The correction.** The measured finding at the centre of this report:
-   manufacturers and retail both entered 2019 holding ≈1.45 months of inventory.
-   Manufacturers now hold **1.48**; retail holds **1.25**. Aggregate US
-   inventories-to-sales is **0.11 below** its 2019 average.
+   US manufacturing and retail inventory-to-sales **diverged**. Retail is below
+   its pre-COVID level on every baseline (1.25 against a 2015–19 average of
+   1.47); the aggregate is **0.10 below**; manufacturing is **0.08 above**. The
+   section reports all three pre-COVID baselines, including the one that
+   weakens the manufacturing claim.
 4. **§04 The new doctrine.** Nine things that replaced "minimise inventory,"
    including the steel-man for just-in-time — which did not cause this.
 5. **§05 The KPI ledger.** The centrepiece: 16 metric pairs, filterable by domain.
@@ -45,11 +47,20 @@ COVID broke, and why the KPIs and risk models changed.
 ## The finding, in one line
 
 "Just-in-case replaced just-in-time" is **false in aggregate**. What replaced lean
-was not *hold more* but **hold according to consequence** — heavy buffers on the
+was not *hold more* but **hold according to consequence** — heavier buffers on the
 small number of parts that can stop a line, thinner buffers than ever on
 everything else. That is a change in the *composition* of inventory, which is
 exactly why it needed a new set of metrics: the old ones could only measure the
 *level*.
+
+**On baselines.** Manufacturing inventories were already climbing through 2019
+under the trade war (1.40 in January to 1.52 in December), so the manufacturing
+result moves with the baseline: **+0.08** against the 2015–19 average, **+0.03**
+against the 2019 average, **−0.04** against December 2019 alone. The report shows
+all three. What is robust under every baseline is the **divergence** between
+manufacturing and retail — the gap widened by 0.14 to 0.29 months — and the fact
+that retail, wholesale and the total all sit below any pre-COVID level. That is
+the claim the argument rests on.
 
 ## Method & caveats
 

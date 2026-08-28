@@ -48,7 +48,10 @@ var D_TOT=[[2018.0000,1.37],[2018.0833,1.37],[2018.1667,1.36],[2018.2500,1.36],[
       x: { min: 2018, max: 2026.6, ticks: YR(2018, 2026) },
       y: { min: 1.0, max: 1.95, ticks: [1.0, 1.2, 1.4, 1.6, 1.8], fmt: function (v) { return v.toFixed(1); } },
       bands: bands(),
-      refs: [{ y: 1.455, label: "1.45", token: "--faint", at: 2018.06 }],
+      refs: [
+        { y: 1.403, token: "--era-3" },
+        { y: 1.468, token: "--era-2" }
+      ],
       series: [
         { name: "Manufacturers", token: "--era-3", points: D_MFG },
         { name: "Retail trade", token: "--era-2", points: D_RET }

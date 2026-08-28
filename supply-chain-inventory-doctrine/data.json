@@ -34,7 +34,9 @@
           "value": 1.84,
           "month": "2026-04"
         }
-      }
+      },
+      "vintage_caveat": "The index is periodically re-estimated; figures here are the August 2026 vintage. Earlier vintages place the December 2021 peak slightly differently (c. 4.49).",
+      "composition": "Ocean and air freight cost indices plus PMI delivery-time, backlog and purchased-stocks sub-indices."
     },
     "inventories_to_sales": {
       "name": "Manufacturing and Trade Inventories and Sales (MTIS), inventories-to-sales ratio",
@@ -42,79 +44,94 @@
       "url": "https://fred.stlouisfed.org/series/ISRATIO",
       "units": "months of inventory at the current sales rate, seasonally adjusted, current dollars",
       "frequency": "monthly",
-      "coverage_in_report": "2018-01 to 2026-06",
+      "coverage_in_report": "2018-01 to 2026-06 (chart); full series from 1992-01 used for records and baselines",
       "why_this_series": "Numerator and denominator are both in current dollars, so the ratio is largely insulated from the price-level change that makes raw 2019 and 2026 inventory values incomparable.",
       "sectors": {
         "manufacturers": {
           "fred_id": "MNFCTRIRSA",
-          "2019_mean": 1.45,
-          "trough": {
-            "value": 1.47,
-            "month": "2021-01"
+          "mean_2015_19": 1.4,
+          "mean_2019": 1.45,
+          "dec_2019": 1.52,
+          "jun_2026": 1.48,
+          "vs_2015_19": 0.08,
+          "vs_2019": 0.03,
+          "vs_dec_2019": -0.04,
+          "all_time_high": {
+            "value": 1.88,
+            "month": "2020-04"
           },
-          "peak": {
-            "value": 1.61,
-            "month": "2023-04"
-          },
-          "latest": {
-            "value": 1.48,
-            "month": "2026-06"
-          },
-          "change_vs_2019": 0.05
+          "all_time_low": {
+            "value": 1.14,
+            "month": "2005-12"
+          }
         },
         "total_business": {
           "fred_id": "ISRATIO",
-          "2019_mean": 1.42,
-          "trough": {
-            "value": 1.26,
-            "month": "2021-04"
+          "mean_2015_19": 1.4,
+          "mean_2019": 1.42,
+          "dec_2019": 1.43,
+          "jun_2026": 1.3,
+          "vs_2015_19": -0.1,
+          "vs_2019": -0.12,
+          "vs_dec_2019": -0.13,
+          "all_time_high": {
+            "value": 1.74,
+            "month": "2020-04"
           },
-          "peak": {
-            "value": 1.43,
-            "month": "2023-03"
-          },
-          "latest": {
-            "value": 1.3,
-            "month": "2026-06"
-          },
-          "change_vs_2019": -0.11
+          "all_time_low": {
+            "value": 1.24,
+            "month": "2011-03"
+          }
         },
         "merchant_wholesalers": {
           "fred_id": "WHLSLRIRSA",
-          "2019_mean": 1.35,
-          "trough": {
-            "value": 1.2,
-            "month": "2021-07"
-          },
-          "peak": {
-            "value": 1.4,
-            "month": "2023-06"
-          },
-          "latest": {
-            "value": 1.19,
-            "month": "2026-06"
-          },
-          "change_vs_2019": -0.14
+          "mean_2015_19": 1.32,
+          "mean_2019": 1.35,
+          "dec_2019": 1.34,
+          "jun_2026": 1.19,
+          "vs_2015_19": -0.13,
+          "vs_2019": -0.16,
+          "vs_dec_2019": -0.15
         },
         "retail_trade": {
           "fred_id": "RETAILIRSA",
-          "2019_mean": 1.46,
-          "trough": {
+          "mean_2015_19": 1.47,
+          "mean_2019": 1.46,
+          "dec_2019": 1.43,
+          "jun_2026": 1.25,
+          "vs_2015_19": -0.22,
+          "vs_2019": -0.21,
+          "vs_dec_2019": -0.18,
+          "all_time_high": {
+            "value": 1.75,
+            "month": "1995-04"
+          },
+          "all_time_low": {
             "value": 1.09,
             "month": "2021-06"
-          },
-          "peak": {
-            "value": 1.33,
-            "month": "2024-09"
-          },
-          "latest": {
-            "value": 1.25,
-            "month": "2026-06"
-          },
-          "change_vs_2019": -0.2
+          }
         }
       },
-      "caveat": "April 2020 spikes (total 1.74, manufacturers 1.88, retail 1.68) are a collapse in the denominator — sales stopped — not a build in stock."
+      "caveat": "April 2020 spikes (total 1.74, manufacturers 1.88, retail 1.68) are a collapse in the denominator — sales stopped — not a build in stock.",
+      "baseline_note": "Three pre-COVID baselines are reported because the manufacturing result is sensitive to the choice: manufacturing inventories were already climbing through 2019 (1.40 in January to 1.52 in December) under the trade war. The robust claim is the DIVERGENCE between manufacturing and retail, not the size of manufacturing's own increase.",
+      "divergence_manufacturing_minus_retail": {
+        "note": "The robust finding. Gap between the two sectors' ratios, then vs now.",
+        "vs_2015_19_baseline": {
+          "then": -0.06,
+          "now": 0.23,
+          "widened_by": 0.29
+        },
+        "vs_2019_baseline": {
+          "then": -0.01,
+          "now": 0.23,
+          "widened_by": 0.24
+        },
+        "vs_dec_2019_baseline": {
+          "then": 0.09,
+          "now": 0.23,
+          "widened_by": 0.14
+        }
+      }
     }
   },
   "reported_figures": [
@@ -125,6 +142,14 @@
       "date": "2021-09-23",
       "source": "AlixPartners",
       "note": "Revised up from $110bn / 3.9m units in May 2021 — the near-doubling in four months is itself evidence that the exposure could not be sized."
+    },
+    {
+      "claim": "Actual 2021 global light-vehicle production lost to the chip shortage",
+      "value": "more than 9.5m units",
+      "type": "measured outturn",
+      "date": "2023",
+      "source": "S&P Global Mobility",
+      "note": "Exceeded the AlixPartners September 2021 forecast of 7.7m."
     },
     {
       "claim": "Target Q1 FY2022 inventory",
@@ -154,6 +179,35 @@
       "type": "measured",
       "date": "2021-06",
       "source": "US Census MTIS"
+    },
+    {
+      "claim": "Semiconductor lead times",
+      "value": "13.9 weeks (autumn 2020) to 27.1 weeks (May 2022, record)",
+      "type": "industry survey",
+      "date": "2020-2022",
+      "source": "Susquehanna Financial Group lead-time survey",
+      "note": "A doubling that held for roughly two years — the empirical basis for the sigma_L argument in section 2."
+    },
+    {
+      "claim": "Ever Given Suez blockage",
+      "value": "6 days 7 hours; 369+ ships queued by 28 Mar, 400+ by 29 Mar; backlog cleared 3 Apr",
+      "type": "reported",
+      "date": "2021-03",
+      "source": "Suez Canal Authority and contemporaneous reporting"
+    },
+    {
+      "claim": "HP DeskJet postponement — finished-goods inventory investment",
+      "value": "-21% (and -18% total) at a 98% fill-rate target",
+      "type": "published case study",
+      "date": "1993",
+      "source": "Lee, Billington & Carter, Interfaces 23(4):1-11"
+    },
+    {
+      "claim": "Risk pooling — safety stock reduction consolidating 10 locations into 1",
+      "value": "68.4%",
+      "type": "analytical result",
+      "date": "1976",
+      "source": "Maister, square-root law; cf. Eppen 1979"
     }
   ],
   "survey_series": {
@@ -181,13 +235,13 @@
   "framework_attributions": [
     {
       "framework": "Economic order quantity",
-      "originator": "F. W. Harris",
+      "originator": "F. W. Harris, in Factory, The Magazine of Management",
       "year": "1913"
     },
     {
       "framework": "Newsvendor / optimal inventory policy",
-      "originator": "Arrow, Harris & Marschak",
-      "year": "1951"
+      "originator": "F. Y. Edgeworth (1888, bank cash reserves); formalised by Arrow, Harris & Marschak",
+      "year": "1888 / 1951"
     },
     {
       "framework": "Toyota Production System, just-in-time",
@@ -206,7 +260,7 @@
     },
     {
       "framework": "Risk pooling and the square-root law",
-      "originator": "Gary Eppen",
+      "originator": "Gary Eppen (Management Science 25(5)); square-root law stated independently by Maister (1976)",
       "year": "1979"
     },
     {
@@ -256,8 +310,8 @@
     },
     {
       "framework": "Risk exposure index, time-to-recover",
-      "originator": "Simchi-Levi et al. (HBR)",
-      "year": "2014"
+      "originator": "Simchi-Levi, Schmidt & Wei (HBR, 'From Superstorms to Factory Fires', developed with Ford)",
+      "year": "Jan-Feb 2014"
     },
     {
       "framework": "Demand-driven MRP — buffer positioning",
@@ -271,6 +325,7 @@
     }
   ],
   "known_weaknesses": [
+    "The manufacturing result is baseline-sensitive: manufacturing inventories were already climbing through 2019, so 'manufacturers hold more than before COVID' is true against a multi-year average (+0.08) and false against December 2019 alone (-0.04). All three baselines are reported rather than the flattering one.",
     "Sector-level inventory ratios average over large firm-level variation; a flat sector can hide firms moving in opposite directions.",
     "Survey waves are not a matched panel, so year-on-year movements are indicative rather than measured change.",
     "The KPI ledger describes practice at large, well-resourced firms; the median manufacturer has adopted far less of it.",
