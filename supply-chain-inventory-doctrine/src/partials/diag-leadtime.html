@@ -1,4 +1,5 @@
 <figure class="diag">
+  <div class="dgwrap">
   <svg class="dg" viewBox="0 0 720 262" role="img" aria-label="Before 2019 the safety stock formula treated replenishment lead time as a fixed 30 days, so the only uncertainty buffered came from demand. After 2020 lead time itself became a wide, right-skewed distribution, and the lead-time variance term that had been assumed away became the dominant one.">
     <defs>
       <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -44,6 +45,7 @@
     <text class="f2" x="430" y="184">…or 45. or 71. or it never sailed.</text>
     <text class="big f2" x="440" y="248">σ_L ≫ 0</text>
   </svg>
+  </div>
   <figcaption>The classical buffer sized <b>one</b> uncertainty. Holding lead time constant makes the term
     <span class="num">D̄²·σ_L²</span> vanish, so the whole safety stock reduces to <span class="num">z·σ_D·√L</span> —
     the formula that shipped inside essentially every ERP system. It is not wrong; it is <em>conditional</em>. When

@@ -210,8 +210,10 @@
       });
       cross.setAttribute("x1", anchorX); cross.setAttribute("x2", anchorX); cross.setAttribute("opacity", .55);
       tip.innerHTML = rows.join("<br>");
-      tip.style.left = (anchorX / W * 100) + "%";
-      tip.style.top = (anchorY / H * 100) + "%";
+      // px, not %, so the tip stays put when the plot scrolls sideways on narrow screens
+      var lx = anchorX / W * r.width, ly = anchorY / H * r.height;
+      tip.style.left = Math.min(Math.max(lx, 62), r.width - 62) + "px";
+      tip.style.top = Math.max(ly, 34) + "px";
       tip.classList.add("on");
     }
     function out() {

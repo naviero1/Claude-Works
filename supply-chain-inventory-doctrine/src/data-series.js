@@ -26,7 +26,7 @@ var D_TOT=[[2018.0000,1.37],[2018.0833,1.37],[2018.1667,1.36],[2018.2500,1.36],[
     return {
       h: 264, pad: { t: 34, r: 26, b: 30, l: 46 },
       x: { min: 2018, max: 2026.6, ticks: YR(2018, 2026) },
-      y: { min: -2.7, max: 4.8, ticks: [-2, -1, 0, 1, 2, 3, 4], fmt: function (v) { return (v > 0 ? "+" : "") + v + "σ"; } },
+      y: { min: -2.7, max: 4.8, ticks: [-2, -1, 0, 1, 2, 3, 4], fmt: function (v) { return (v > 0 ? "+" : "") + String(v).replace("-", "\u2212") + "σ"; } },
       bands: bands(),
       refs: [{ y: 0, token: "--faint" }],
       series: [{ name: "GSCPI", token: "--era-2", points: D_GSCPI, fill: false }],
@@ -35,7 +35,7 @@ var D_TOT=[[2018.0000,1.37],[2018.0833,1.37],[2018.1667,1.36],[2018.2500,1.36],[
         { x: 2023.3333, y: -1.594, label: "−1.59σ · May 2023|slackest reading since 1998", token: "--era-1", anchor: "start", below: true },
         { x: 2026.25, y: 1.842, label: "+1.84σ|Apr 2026", token: "--era-2", anchor: "end" }
       ],
-      tipFmt: function (v) { return (v > 0 ? "+" : "") + v.toFixed(2) + "σ"; },
+      tipFmt: function (v) { return (v > 0 ? "+" : "") + v.toFixed(2).replace("-", "\u2212") + "σ"; },
       xTipFmt: xTip,
       alt: "The New York Fed Global Supply Chain Pressure Index from 2018 to mid-2026. Near zero through 2018 and 2019, it peaks at 4.44 standard deviations above average in December 2021 — the highest in the series' history back to 1998 — falls to minus 1.59 in May 2023, and rises again to 1.84 in April 2026."
     };
