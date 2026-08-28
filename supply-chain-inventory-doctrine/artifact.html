@@ -825,9 +825,10 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
           <div class="when reg">May – Jun 2022</div>
           <div class="what">The whiplash reverses: the glut</div>
           <div class="detail">Target ends its Q1 with $15.1bn of inventory, 43% above the prior year, cuts full-year
-            guidance on 18 May and cuts it again three weeks later. Walmart is up 33%. Firms that had spent 18 months
-            being punished for holding too little are now punished for holding too much.</div>
-          <div class="fig">Target +43% YoY · Walmart +33% YoY</div>
+            guidance on 18 May and cuts it again three weeks later. Walmart's consolidated inventory is up 32% (its US
+            segment alone up 33.4%). Firms that had spent 18 months being punished for holding too little are now
+            punished for holding too much.</div>
+          <div class="fig">Target +43.1% · Walmart +32.0% consolidated</div>
         </div>
         <div class="tev" data-era="1">
           <div class="when reg">May 2023</div>
@@ -911,6 +912,44 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
     carmaker's tier-one risk register, because neither was a tier-one supplier.</figcaption>
 </figure>
   </div>
+
+  <div class="premise" style="margin-top:28px">
+    <div class="reg" style="color:var(--accent-ink)">The fact that reframes the whole episode</div>
+    <p class="q">There was no aggregate chip shortage. 2021 was the largest year for semiconductor output in
+      the history of the industry.</p>
+    <p>The industry shipped a record <b>1.15 trillion units</b> in 2021 on record revenue of <b>$555.9bn</b>, up
+      26.2% year on year — both all-time highs, achieved during the shortage, according to the Semiconductor
+      Industry Association. More chips were made than ever before. Carmakers still could not get the specific
+      legacy-node parts they had cancelled, at the price and priority they were used to, because that capacity had
+      been reallocated to buyers who had not cancelled.</p>
+    <p><b>This is the single most clarifying fact in the record.</b> What failed was not physical capacity. It was
+      allocation, sequencing and information — a system that could not see whose order mattered, could not price
+      priority, and had no way to represent "we will need this in nine months" as anything other than a purchase
+      order you either place today or do not. A shortage that coexists with record output is not a production
+      problem. It is a <em>measurement and coordination</em> problem, which is exactly why the response was a new
+      scorecard rather than new factories.</p>
+  </div>
+
+  <figure class="figure" style="margin-top:20px">
+    <div class="fhead">
+      <div class="ftitle">And the sector at the sharp end has still not recovered</div>
+      <div class="fsub">US auto dealers' inventories-to-sales — the most violent series of the whole episode.</div>
+    </div>
+    <div class="bars" style="margin-top:8px">
+      <div class="brow"><span class="bl">2015–19 average</span><span class="btrack"><span class="bfill" style="width:100%;background:var(--era-1)"></span></span><span class="bv">2.58</span></div>
+      <div class="brow"><span class="bl">Dec 2019</span><span class="btrack"><span class="bfill" style="width:70%;background:var(--era-1)"></span></span><span class="bv">1.81</span></div>
+      <div class="brow"><span class="bl">Apr 2020</span><span class="btrack"><span class="bfill" style="width:100%;background:var(--era-2)"></span></span><span class="bv">4.34</span></div>
+      <div class="brow"><span class="bl">Jan 2022 — trough</span><span class="btrack"><span class="bfill" style="width:16%;background:var(--era-2)"></span></span><span class="bv">0.42</span></div>
+      <div class="brow"><span class="bl">Jun 2023</span><span class="btrack"><span class="bfill" style="width:32%;background:var(--era-3)"></span></span><span class="bv">0.82</span></div>
+      <div class="brow"><span class="bl">Jul 2026</span><span class="btrack"><span class="bfill" style="width:53%;background:var(--era-3)"></span></span><span class="bv">1.36</span></div>
+    </div>
+    <div class="note" style="margin-top:12px">From a 2015–19 average of <b>2.58</b> months of cover to
+      <b>0.42</b> in January 2022 — an <b>84% collapse</b> — and, more than four years later, still only
+      <b>1.36</b>. The April 2020 reading of 4.34 is the same denominator artefact as everywhere else: dealerships
+      shut, sales went to nearly nothing, the cars stayed on the lot.</div>
+    <figcaption>Source: US Census Bureau via FRED, series AISRSA, monthly to July 2026. Bar length is relative to
+      the highest value shown.</figcaption>
+  </figure>
 
   <div style="margin-top:34px">
     <h3 style="margin-bottom:8px">Four places the models were wrong — and one place the incentives were</h3>
@@ -1341,10 +1380,14 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
   <div class="note ok" style="margin-top:20px"><b>The steel-man for just-in-time.</b> It is worth saying plainly
     that JIT did not cause this, and the better analysts never claimed it did. Small batch sizes and short cycle
     times did not create the semiconductor shortage; a cancelled order book, a two-decade concentration of
-    capacity and zero visibility below tier one did. Toyota — the originator — weathered the chip shortage better
-    than most of its competitors precisely <em>because</em> of what it built after the 2011 Tōhoku earthquake: the
-    RESCUE supplier database, mapping on the order of <b>650,000 supply-chain nodes</b>, together with standing
-    instructions to suppliers to hold months of buffer stock on specifically identified critical parts. That is not an abandonment
+    capacity and zero visibility below tier one did. Toyota — the originator — absorbed the first phase of the chip
+    shortage better than most competitors precisely <em>because</em> of what it built after the 2011 Tōhoku
+    earthquake: the RESCUE supplier database, mapping on the order of <b>650,000 supply-chain nodes</b>, together
+    with standing instructions to suppliers to hold months of buffer stock on specifically identified critical
+    parts. That bought months of insulation through early 2021 — and it is worth being precise about the limit,
+    because the flattering version of this story is wrong: by August 2021 Toyota was announcing a roughly
+    <b>40% cut</b> to September global production on chip and COVID grounds. The buffer bought time. It did not
+    buy immunity, and nothing does. That is not an abandonment
     of TPS. It is TPS applied to a risk that had been made visible. The lesson is not "lean was wrong." It is
     <b>"lean was being measured with instruments that could not see supply-side risk."</b> The sharpest academic
     statement of this comes from Jiang, Rigobon and Rigobon, who argue that under a <em>systemic</em> shock — as

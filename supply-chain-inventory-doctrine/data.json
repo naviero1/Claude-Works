@@ -2628,6 +2628,24 @@
       "verdict": "CORRECTED",
       "correction": "Supply-chain value-at-risk existed as SCOR AG.1.4 from Revision 11.0 (2012), adapting J.P. Morgan's RiskMetrics VaR (1994). It failed not from absence but because VaR = P x Impact requires a probability that does not exist for rare high-impact events — so the standard demoted it to a Level-2/3 diagnostic and practitioners did not produce it.",
       "action": "Ledger row 13 rewritten. The old column is now 'supply-chain value-at-risk (SCOR AG.1.4, in the standard since 2012)' and the failure mode is the missing probability term. This makes the TTR/TTS replacement sharper: it achieves the same ambition by deleting the impossible input."
+    },
+    {
+      "claim_as_originally_written": "Walmart inventory up 33% year on year in Q1 2022.",
+      "verdict": "CORRECTED",
+      "correction": "33.4% is the Walmart U.S. SEGMENT figure from the earnings deck's segment page. CONSOLIDATED inventory rose 32.0% ($61,229m vs $46,383m).",
+      "action": "Timeline now states 32% consolidated, with the US segment figure noted separately."
+    },
+    {
+      "claim_as_originally_written": "Toyota weathered the chip shortage because of its post-Tohoku buffers.",
+      "verdict": "CORRECTED — overstated",
+      "correction": "The post-Tohoku RESCUE database and buffer policy are real and bought months of insulation through early 2021, but by August 2021 Toyota was announcing a roughly 40% cut to September global production on chip and COVID grounds.",
+      "action": "The just-in-time steel-man now says the buffer bought time, not immunity, and names the 40% cut."
+    },
+    {
+      "claim_as_originally_written": "(implicit) the chip shortage was a shortage of chips.",
+      "verdict": "ADDED — the record contradicts the framing",
+      "correction": "2021 semiconductor unit shipments hit an all-time record of 1.15 trillion on record revenue of $555.9bn. There was no aggregate shortage; there was an allocation failure.",
+      "action": "New callout in section 2, verified independently against the Semiconductor Industry Association."
     }
   ],
   "scor_standard": {
@@ -2688,5 +2706,26 @@
     "merck_onahama": "the only global source of Xirallic pigment used in metallic car paint",
     "source": "Congressional Research Service R41831, 23 May 2011",
     "point": "Neither sat on any carmaker's tier-one risk register, because neither was a tier-one supplier."
+  },
+  "no_aggregate_chip_shortage": {
+    "finding": "2021 was the largest year for semiconductor output in the industry's history — during the shortage.",
+    "units_2021": "1.15 trillion units, an all-time record",
+    "revenue_2021": "$555.9bn, up 26.2% year on year, also an all-time record",
+    "source": "Semiconductor Industry Association / WSTS",
+    "why_it_matters": "What failed was not physical capacity but allocation, sequencing and information. A shortage that coexists with record output is a measurement and coordination problem, which is why the response was a new scorecard rather than new factories."
+  },
+  "auto_dealer_inventories": {
+    "series": "AISRSA — US auto dealers' inventories-to-sales, US Census via FRED, monthly to July 2026",
+    "verified": "Recomputed independently, 28 Aug 2026",
+    "values": {
+      "2015_19_mean": 2.58,
+      "dec_2019": 1.81,
+      "apr_2020": 4.34,
+      "jan_2022_trough": 0.42,
+      "jun_2023": 0.82,
+      "jul_2026": 1.36
+    },
+    "finding": "An 84% collapse from the 2015-19 average to the January 2022 trough, and still only 1.36 more than four years later.",
+    "caveat": "The April 2020 reading of 4.34 is a denominator artefact — dealerships shut and sales collapsed."
   }
 }
