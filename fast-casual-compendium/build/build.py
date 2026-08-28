@@ -91,13 +91,20 @@ def sec_masthead():
 </header>'''
 
 def sec_changes():
-    moved = sorted(((abs((d.get('rank') or 0) - (MERGED.index(d) + 1)), d) for d in D if d.get('corrected')),
-                   key=lambda t: -t[0])[:2]
-    movers = '; '.join(f"{e(d['restaurant'])} from {ordinal(d['rank'])} to {ordinal(MERGED.index(d)+1)}"
-                       for _, d in moved)
+    _corr = [d for d in D if d.get('corrected')]
+    _fell = sorted((d for d in _corr
+                    if (d.get('rank') or 99) <= 5 and (MERGED.index(d) + 1) - d['rank'] >= 3),
+                   key=lambda d: d['rank'])[:2]
+    _big = max(_corr, key=lambda d: abs((d.get('rank') or 0) - (MERGED.index(d) + 1)))
+    def _mv(d): return f"{e(d['restaurant'])} from {ordinal(d['rank'])} to {ordinal(MERGED.index(d) + 1)}"
+    movers = ''
+    if _fell:
+        movers = (f"including {'two' if len(_fell) > 1 else 'one'} of the first edition's top five: "
+                  + ' and '.join(_mv(d) for d in _fell) + '. ')
+    movers += f"The largest single move was {_mv(_big)}."
     n_rescored = sum(1 for c in CORR if c['action'] == 'rescore') if CORR else 0
     items = [
-      ('The numbers were checked, and some were wrong.', f'Every nutrition figure the first edition attributed to a published document was re-read against that document. {n_rescored} entries had to be rescored: {movers}. Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.'),
+      ('The numbers were checked, and some were wrong.', f'Every nutrition figure the first edition attributed to a published document was re-read against that document. {n_rescored} entries had to be rescored, {movers} Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.'),
       ('The front page is new.', 'The first edition opened with four findings, three of which were trivia about a single restaurant each and the fourth about research method rather than food. They have been replaced with findings drawn from the whole set, led by what the data says about money.'),
       ('The two lists are now one.', f'The first edition printed &ldquo;The Thirty&rdquo; and &ldquo;The Next Thirty&rdquo; as separate ranked lists, but the split tracked research depth rather than score: {F["n_promoted"]} entries in the second list outscored the weakest in the first. Everything is now ranked in one sequence.'),
       ('The scoring model is printed, not described.', 'Every criterion that can be computed from the macros is given as an actual function, recovered by fitting the first edition\'s own published scores. Anyone can recompute anything here, including the parts they disagree with.'),
