@@ -331,24 +331,6 @@
   "kind": "wrong"
  },
  {
-  "rank": 19,
-  "restaurant": "Chosun Ok",
-  "action": "rescore",
-  "macros": {
-   "cal": 540,
-   "protein": 40,
-   "sodium": 4000,
-   "satfat": 3.5,
-   "fiber": 7,
-   "sugar": 6
-  },
-  "claim": "Seafood soondubu with a 1 lb kimchi side is 2,100 mg of sodium - 'the highest-sodium dish in the compendium'",
-  "was": "2,100 mg, described as the compendium's sodium ceiling.",
-  "now": "The kimchi side alone is about 2,260 mg. USDA FoodData Central puts kimchi at 498 mg of sodium per 100 g, so a 1 lb side is roughly 2,300 mg before the stew is counted, and branded jarred kimchi runs higher. The dish is realistically 3,500-4,500 mg; it is carried here at 4,000. Its score does not change, because the kidney criterion already scored it zero at 2,100 - which is itself the point, and is taken up in the audit above.",
-  "source": "USDA FoodData Central, FNDDS 2021-2023, kimchi, food code 75502520, published October 2024.",
-  "kind": "wrong"
- },
- {
   "restaurant": "Abol Ethiopian",
   "action": "note",
   "claim": "Telba shiro's ground flaxseed is 'a genuine plant omega-3 source', scored as omega-3 in the inflammation criterion",
@@ -418,6 +400,149 @@
   "was": "Suggested as an upside worth asking about.",
   "now": "Gundruk is a genuine lacto-ferment - viable counts rise from about 6 x 10^4 to 9.6 x 10^8 CFU per gram over fermentation, driven by Lactobacillus brevis, Pediococcus pentosaceus and finally Lb. plantarum. But it is dried and then cooked before serving, so as it reaches the table it earns fermented-flavour credit rather than live-culture credit. Worth ordering; not worth the gut points the first edition implied.",
   "source": "Tamang et al., Indian Journal of Microbiology, October 2010 (PMID 22815579).",
+  "kind": "wrong"
+ },
+ {
+  "rank": 2,
+  "restaurant": "El Cuscatleco",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "GUT": 2.3,
+   "cal": 720,
+   "satfat": 5,
+   "sodium": 1200
+  },
+  "claim": "The second-ranked dish is a grilled fish fillet served with salad, beans and 'extra curtido on the side', scoring 6.8 on gut for the curtido's live cultures",
+  "was": "500 cal / 3.5 g saturated fat / 1,000 mg sodium, gut 6.8, ranked second of sixty. The first edition called the curtido 'the assumption most likely to be wrong' and recommended a phone call.",
+  "now": "Three separate problems, all readable off the restaurant's own current menu. The word 'curtido' does not appear anywhere on it - not as an item, not as a side, not in any dish description - so the gut score, which rested entirely on curtido being a live ferment, falls from 6.8 to 2.3. The seafood section is headed 'All entrees served with rice and beans', not salad, so the build has to either decline the rice or count it. And the menu states no cooking method for the fillet at all, so 'grilled' was an assumption: at USDA's figures the grilled and fried versions differ by roughly 250 calories. Rescored on the grilled reading with the real default sides, and flagged disputed because the fried reading would take it lower still. The restaurant also bills itself as Mexican with a Salvadoran section, and this dish sits in the Mexican seafood section, not a pupuseria plate.",
+  "source": "El Cuscatleco Cary's own food menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 19,
+  "restaurant": "Chosun Ok",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "GUT": 3.2,
+   "sodium": 1700,
+   "price": 18.39
+  },
+  "claim": "Seafood soondubu with a 1 lb kimchi side at $24.98 is 2,100 mg of sodium, 'the highest-sodium dish in the compendium', and Chosun Ok is 'the most reliable live lacto-ferment source in the region'",
+  "was": "2,100 mg with a 1 lb kimchi side included, gut 9.4, $24.98, and banchan described as complimentary and unlimited.",
+  "now": "This entry was corrected twice, in opposite directions, and the sequence is worth printing. First: at USDA's figure of 498 mg of sodium per 100 g, a 1 lb kimchi side is about 2,300 mg on its own, so the dish as described should have read roughly 4,000 mg rather than 2,100. Then: no standalone kimchi item of any size exists on Chosun Ok's own ordering menu. Every kimchi entry there is a cooked dish - kimchi pancake, kimchi stew, kimchi fried rice. The side the entry is built on is not purchasable, which removes the live-ferment claim, removes the 2,300 mg with it, and breaks the price: their seafood soft-tofu stew lists at $15.99 with no side to make up the difference. The delivery menu also has no banchan category at all, so 'complimentary and unlimited' is a dine-in claim applied to a delivery document. The entry now stands at 1,700 mg without kimchi or banchan credit.",
+  "source": "order.chosunoknc.com, all 14 menu categories enumerated 28 August 2026; USDA FoodData Central, kimchi, food code 75502520.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 9,
+  "restaurant": "Thai 54",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "price": 30.9
+  },
+  "claim": "Nam tok beef with spicy papaya salad at $21.90, with larb available only on the catering menu",
+  "was": "$21.90 for the pair, 470 cal, and a footnote saying the higher-scoring larb chicken 'appears only on the catering menu'.",
+  "now": "Thai 54's own menu prices nam tok beef at $17.95 and either papaya salad at $12.95 - $30.90 for the two items the dish name describes. The $21.90 is nam tok alone with a delivery markup. The menu also states nam tok is 'served with sticky rice or jasmine rice', so the rice arrives by default and has to be actively declined for the 470-calorie figure to hold. And the catering-menu footnote is simply wrong: larb chicken is a standard $15.95 item in the Thai salad section, which matters because the compendium scores it above the recommendation.",
+  "source": "Thai 54's own PDF menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 26,
+  "restaurant": "Goorsha",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "GUT": 6.2,
+   "cal": 450,
+   "fiber": 12,
+   "sodium": 850,
+   "price": 19.55
+  },
+  "claim": "The vegan combo is 'six vegetable stews on injera' at $24.00, giving 20 g of fiber and eight to twelve plant species",
+  "was": "Six stews, 660 cal, 20 g fiber, gut 7.9, $24.00.",
+  "now": "Goorsha's own menu offers 'Choose three options' for $17.00, not six. That roughly halves the plant-type count driving the gut and inflammation scores and the fiber figure with it, and it breaks the price against the restaurant's own $17.00. Rescored for a three-stew plate.",
+  "source": "goorshadurham.com food menu, vegan section, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 38,
+  "restaurant": "Chengdu 7",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "cal": 950,
+   "satfat": 11
+  },
+  "claim": "Braised fish fillets with green Sichuan peppercorn is 'fish poached in broth, not fried, not breaded' at 620 cal and 6 g saturated fat",
+  "was": "620 cal / 6 g saturated fat, characterised as a poached dish.",
+  "now": "It is a shui zhu dish. The fish is velveted and poached rather than battered, so 'not fried, not breaded' is fair - but the preparation is finished at the pass by pouring a ladle of near-smoking chili-and-peppercorn oil over the top, and recipes for it call for half to three-quarters of a cup of oil. 620 cal and 6 g of saturated fat is a poached-fish assumption that the dish's own method contradicts; 800 to 1,100 calories is the defensible band and it is carried here at 950. The price is also mismatched: the restaurant lists the fillet version at $24.95 and the whole-fish version at $32.95, and the printed $36.95 corresponds to the whole fish with delivery markup, which is a shared dish.",
+  "source": "Chengdu 7's live menu via qMenu, retrieved 28 August 2026; recipe oil quantities from standard published preparations.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Abol Ethiopian",
+  "action": "note",
+  "claim": "Telba shiro - ground flaxseed and chickpea - is a real Ethiopian menu item and is the entry's omega-3 source",
+  "was": "Scored as a flaxseed omega-3 source, driving an inflammation score of 8.0, the fourth-highest in the compendium.",
+  "now": "Could not be sourced at all. Standard references describe shiro as powdered chickpea or broad bean and name only shiro fit-fit and bozena shiro as variants; no flaxseed version surfaced, and the item could not be found on Abol's own menu. Combined with the separate finding that flaxseed ALA is not a functional EPA/DHA source, an inflammation score of 8.0 is resting on an ingredient that has not been shown to be in the order.",
+  "source": "Standard references on shiro; Abol's menu not retrievable, 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Luna Rotisserie",
+  "action": "note",
+  "claim": "Two house salads can be substituted for the starchy sides",
+  "was": "The build specifies 'two house salads in place of the starchy sides'.",
+  "now": "Luna's current Durham menu offers rotisserie meats with a choice of two sides from a fixed list of eight, of which two are leafy - sauteed garlic kale and cilantro kale slaw. A low-starch order is possible; 'two house salads' is not an orderable configuration as printed. Their menu also prices the quarter chicken at $16 against the $18.70 shown.",
+  "source": "Luna Rotisserie Durham food menu, Spring 2026, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Guasaca",
+  "action": "note",
+  "claim": "The bowl is grilled chicken, black beans, avocado, guasaca sauce and pico de gallo",
+  "was": "Printed as the build.",
+  "now": "Guasaca's fillings list contains no plain avocado - the nearest item is an avocado ranch salad - and the guasaca sauce itself carries an upcharge rather than being included. The bowl format is confirmed orderable, and the sauce is closer to avocado, bell pepper, onion, garlic and herbs than to the avocado-cilantro-garlic-vinegar described. The 'mostly unsaturated fat and herbs' reading survives.",
+  "source": "Guasaca's own food menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Canastas Chicken",
+  "action": "note",
+  "claim": "Anticuchera-marinated grilled salmon at $25.50",
+  "was": "Described as anticuchera-marinated - aji panca, garlic, cumin and vinegar applied before the grill.",
+  "now": "Canastas' own menu says 'Salmon marinated in special sauce', and reserves the anticucho description for its anticucho items. The free choice of two sides is confirmed, including two salads, mixed vegetables and green beans - which is the part of the entry that matters. Their menu price is $19.95; $25.50 is a delivery-marked figure, which the entry does not say.",
+  "source": "Canastas Chicken's own printed menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Taste Vietnamese",
+  "action": "note",
+  "claim": "Cha ca is grilled rather than fried, at 4 g of saturated fat",
+  "was": "Framed as a purely grilled preparation.",
+  "now": "The description is otherwise sound - turmeric marinade, grilled, dill, herb plate, nuoc cham on the side are all correct. But the canonical service finishes the grilled fish in a hot pan coated with oil, and in a delivery container that oil travels with the dish. Treat 4 g of saturated fat as a floor rather than an estimate.",
+  "source": "Standard references on cha ca La Vong, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Bosphorus",
+  "action": "note",
+  "claim": "Order shish rather than Ali Nazik, Beyti or Iskender - 'those arrive under sauce over bread'",
+  "was": "All three grouped together as sauce-over-bread dishes.",
+  "now": "True of two. Iskender is sliced meat over pita under tomato sauce and melted butter, and Beyti is wrapped in lavash under sauce. Ali Nazik is a different problem: no bread, but a smoked-eggplant-and-yogurt base finished with melted butter. The advice to order shish stands; the reason differs.",
+  "source": "Standard references, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Thai 54",
+  "action": "note",
+  "claim": "Nam tok and larb are 'among the highest protein-per-calorie restaurant dishes that exist'",
+  "was": "Stated as a general claim about the dishes.",
+  "now": "On the compendium's own figures the nam tok is 8.9 g of protein per 100 kcal, which ranks ninth of the sixty - behind M Sushi's sashimi, both poke bowls, the Peony sashimi bowl and True Food's kale salad. 'Among the leanest hot-protein dishes here' is defensible; the superlative is not, and the document contradicts it four entries above.",
+  "source": "The compendium's own data.",
   "kind": "wrong"
  }
 ]

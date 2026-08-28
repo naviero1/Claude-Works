@@ -133,10 +133,10 @@ def sec_findings():
        f"Treat {money(fr['cutoff'])} as a ceiling. Above it you are buying something other than nutrition."),
 
       ('f-money', money(saving), 'saved on a week, for the same coverage',
-       'The cheap week is as good as the expensive one',
-       f"Five dinners chosen as the top-ranked dishes cost {money(wn['cost'])}. Five chosen as the cheapest that still cover "
-       f"every criterion cost {money(wc['cost'])} &mdash; and both bottom out at exactly {wc['floor']:.1f}&#8202;/&#8202;10 on their "
-       f"weakest criterion. The extra {money(saving)} buys nothing the model can measure.",
+       'The cheap week covers more than the expensive one',
+       f"Five dinners chosen as the top-ranked dishes cost {money(wn['cost'])} and bottom out at {wn['floor']:.1f}&#8202;/&#8202;10 on "
+       f"their weakest criterion. Five chosen as the cheapest that still clear that bar cost {money(wc['cost'])} &mdash; and bottom out "
+       f"at {wc['floor']:.1f}. The cheap week is not merely as good as the expensive one. It covers more, for {money(saving)} less.",
        f"Rotate {', '.join(e(d['restaurant']) for d in sorted(wc['dishes'], key=lambda x: x['price'])[:3])} and two more "
        f"instead of chasing the top of the list."),
 
@@ -271,12 +271,12 @@ def sec_money():
   <p class="small measure-wide" style="margin-top:8px">Five dinners, chosen three ways. The test is criterion coverage: across the five dishes, what is the <em>weakest</em> criterion that any one of them covers well? A rotation is only as good as the thing it never delivers.</p>
   <div class="weeks">
     {week_block(F['week_naive'], 'Just order the top five', 'This is what following the ranking blindly gets you.')}
-    {week_block(F['week_cheap'], 'The cheap five', 'Identical coverage to the naive week, for ' + money(F['week_naive']['cost']-F['week_cheap']['cost']) + ' less.', 'best')}
+    {week_block(F['week_cheap'], 'The cheap five', 'Better coverage than the naive week, for ' + money(F['week_naive']['cost']-F['week_cheap']['cost']) + ' less.', 'best')}
     {week_block(F['week_best'], 'The best coverage available', 'Buys a real improvement in the weak spot, and still costs less than the naive week.')}
   </div>
   <div class="callout">
     <h4>The whole chapter in one line</h4>
-    <p style="margin-top:6px">The five cheapest dishes that clear every criterion cost <strong class="num">{money(F['week_cheap']['cost'])}</strong> for the week and cover the criteria exactly as well as the five top-ranked dishes, which cost <strong class="num">{money(F['week_naive']['cost'])}</strong>. Both bottom out at <span class="num">{F['week_cheap']['floor']:.1f}</span>&#8202;/&#8202;10 on their weakest criterion. Paying the extra {money(F['week_naive']['cost']-F['week_cheap']['cost'])} buys nothing measurable.</p>
+    <p style="margin-top:6px">The five top-ranked dishes cost <strong class="num">{money(F['week_naive']['cost'])}</strong> for the week and leave their weakest criterion at <span class="num">{F['week_naive']['floor']:.1f}</span>&#8202;/&#8202;10. The five cheapest that clear the same bar cost <strong class="num">{money(F['week_cheap']['cost'])}</strong> and leave it at <span class="num">{F['week_cheap']['floor']:.1f}</span>. Following the ranking down from the top is not just expensive. On this measure it is worse.</p>
   </div>
 </section>'''
 
@@ -533,8 +533,6 @@ def sec_audit():
     ceiling = [d for d in D if d['sodium'] >= 2000]
     ck = byname['Chosun Ok']
     fw = byname['First Watch']
-    _ck_before = next(d for d in json.load(open('details_cu.json')) if d['restaurant'] == 'Chosun Ok')
-    ck_delta = abs(_ck_before['overall'] - ck['overall'])
     r_fg = f"{F['r_fiber_gut']:+.2f}"
 
     faults = [
@@ -549,13 +547,14 @@ def sec_audit():
        + table(['Highest gut score in the set', '~Fiber', '~Gut'], grows2)),
 
       ('The kidney criterion stops measuring at 2,000&#8202;mg',
-       'It runs linearly from 350&#8202;mg to 2,000 and then floors, so every dish past that point scores zero and none can be told apart. '
-       'That sounds academic until you meet ' + e(ck['restaurant']) + '. This edition corrected its sodium from 2,100&#8202;mg to about '
-       '<strong class="num">' + f"{ck['sodium']:,}" + '&#8202;mg</strong>, once the 1&#8202;lb kimchi side was counted at USDA’s figure of 498&#8202;mg '
-       'per 100&#8202;g &mdash; roughly 2,300&#8202;mg from the kimchi alone, before the stew. Its overall score moved by '
-       '<strong class="num">' + f"{ck_delta:.2f}" + '</strong>. A dish carrying nearly twice a full day’s recommended sodium is scored as merely equal to '
-       'the worst thing the criterion can express.',
-       'USDA FoodData Central, FNDDS 2021&ndash;2023, food code 75502520.', ''),
+       'It runs linearly from 350&#8202;mg to 2,000 and then floors, so every dish past that point scores zero and none can be told '
+       'apart. This edition produced its own demonstration. ' + e(ck['restaurant']) + '&rsquo;s stew was corrected twice: first up to '
+       'about 4,000&#8202;mg, once the 1&#8202;lb kimchi side was counted at USDA&rsquo;s 498&#8202;mg per 100&#8202;g, and then back down to '
+       '<strong class="num">' + f"{ck['sodium']:,}" + '&#8202;mg</strong> when the kimchi side turned out not to exist on the menu at all. '
+       'The first correction nearly doubled the dish&rsquo;s sodium and the kidney criterion did not move at all &mdash; it was already at '
+       'zero. Only the second correction, which brought the figure back under the ceiling, changed anything. A scale that cannot tell '
+       '2,100&#8202;mg from 4,000 is not measuring the thing it is named for at the end of its range that matters most.',
+       'USDA FoodData Central, FNDDS 2021&ndash;2023, food code 75502520; order.chosunoknc.com.', ''),
 
       ('Sugar is scored as total, not added',
        'Current dietary guidance targets added and free sugars and explicitly exempts the sugars in fruit and plain milk. This '
