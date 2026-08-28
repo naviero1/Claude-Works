@@ -28,8 +28,10 @@
         <p class="lede">For a century, inventory theory pointed one way: <b>hold less</b>. The models were
           rigorous, the finance was sound, and they all rested on a single assumption that nobody wrote
           down — that supply shows up. Between 2020 and 2022 that assumption failed in every direction
-          at once. What followed was not a swing to "just in case." It was something more interesting,
-          and the measurement system is where you can see it.</p>
+          at once. What followed was not a swing to "just in case." The unit itself changed: from
+          <b>units of stock sized to demand variance</b> to <b>days of survival sized to how long a supplier takes
+          to come back</b>. That is a change of denominator, not of level — and the measurement system is where
+          you can see it.</p>
       </div>
       <div class="docmeta reg">
         <div class="row"><span class="k">Document</span><span class="v">Doctrine review</span></div>
@@ -175,8 +177,10 @@
         and 2020, it was empirically true nearly all of the time — which is precisely why nobody stress-tested it.</p>
       <p><b>One important qualification, because the obvious version of this claim is wrong.</b> It is not true
         that inventory <em>theory</em> ignored supply-side risk. A substantial operations-research literature had
-        modelled unreliable supply for decades — random-yield models, supply-disruption models, stochastic
-        capacity — and all of it predates 2019. The accurate statement is narrower and considerably more damning:
+        modelled unreliable supply for decades — random yield, supply disruption, stochastic capacity. One citation
+        settles it: Snyder and colleagues' 2016 review surveys roughly <b>180 papers on supply-chain disruptions
+        published before 2016</b>, and Tomlin had priced resilience inventory directly against dual sourcing in
+        2006. The accurate statement is narrower and considerably more damning:
         <b>supply-side uncertainty was well theorised by 2019 and almost entirely absent from the formulas that
         shipped in planning software, from the parameters planners were allowed to set, and from the metrics
         anyone was measured on.</b> The gap was never between what was known and what was knowable. It was
@@ -231,7 +235,9 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
         <div style="font-size:14.5px;color:var(--ink-2)">Put a number on it, fifteen years early. Announcing a
           supply chain glitch cost <b>−10.3%</b> abnormal return over two days; over a three-year window around
           the announcement, mean buy-and-hold abnormal return was <b>−40.7%</b> and equity volatility rose
-          <b>+13.5%</b> and did not revert. They also diagnosed the adoption problem in 2003: efficiency
+          <b>+13.5%</b> and did not revert. Read the decomposition, though, before treating that as pure causation:
+          roughly a third of the decline lands in the year <em>before</em> the announcement. Markets were already
+          marking these firms down; the glitch is as much symptom as cause. They also diagnosed the adoption problem in 2003: efficiency
           improvement "is an ongoing activity at most firms, so managers have developed the necessary skills…
           and they know how to justify and manage resources" for it. Nobody had those skills for resilience.</div>
       </div>
@@ -815,10 +821,12 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
     earthquake — two distinct things, worth separating. <b>RESCUE</b> is the supplier-mapping system, on the order of
     <b>650,000 supply-chain nodes</b>. The buffer rule is a separate business-continuity policy requiring suppliers
     to hold roughly <b>two to six months</b> of chip inventory; Toyota's own CFO later put the range actually held
-    at one to four months. That bought months of insulation through early 2021 — and it is worth being precise about the limit,
-    because the flattering version of this story is wrong: by August 2021 Toyota was announcing a roughly
-    <b>40% cut</b> to September global production on chip and COVID grounds. The buffer bought time. It did not
-    buy immunity, and nothing does. That is not an abandonment
+    at one to four months. That bought months of insulation through early 2021 — and it is worth being precise about the limit, because the
+    flattering version of this story is wrong twice over. In April 2016, <em>five years after Tōhoku and with the
+    mapping already built</em>, Toyota lost its Japanese assembly lines to a single supplier's plants at Kumamoto.
+    And by August 2021 it was announcing a roughly <b>40% cut</b> to September global production on chip and COVID
+    grounds. Mapping is necessary and nowhere near sufficient; the buffer bought time, not immunity, and nothing
+    buys immunity. That is not an abandonment
     of TPS. It is TPS applied to a risk that had been made visible. The lesson is not "lean was wrong." It is
     <b>"lean was being measured with instruments that could not see supply-side risk."</b> The sharpest academic
     statement of this comes from Jiang, Rigobon and Rigobon, who argue that under a <em>systemic</em> shock — as
@@ -870,8 +878,8 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
 <section id="risk" class="wrap">
   <div class="shead">
     <div class="tag reg"><span class="no">06</span><span>Risk assessment</span><span class="rule"></span><span>The conceptual shifts</span></div>
-    <h2>Seven changes underneath all of it</h2>
-    <p class="dek">Strip away the individual metrics and the same seven moves sit underneath every one of them.
+    <h2>Eight changes underneath all of it</h2>
+    <p class="dek">Strip away the individual metrics and the same eight moves sit underneath every one of them.
       These are the ones worth arguing about, because they determine whether a firm has genuinely changed its
       model of the world or has simply bought some software.</p>
   </div>
@@ -920,7 +928,19 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
         weighting of the same one.</p>
     </div>
     <div class="shift">
-      <div class="pair"><span class="reg n">07</span><span class="from">Risk lives in a register</span><span class="arw">→</span><span class="to">Risk lives on the balance sheet</span></div>
+      <div class="pair"><span class="reg n">07</span><span class="from">Inventory is a residual cost in the ROIC denominator</span><span class="arw">→</span><span class="to">Inventory is a priced option on continued operation</span></div>
+      <p>For a century inventory entered the objective function only as a cost with a service constraint, and
+        entered the financial machinery only as capital in the denominator of a return metric — so a dollar removed
+        always improved the reported number, and no mechanism existed for a dollar added to improve anything. The
+        post-2022 framing treats a strategic buffer as what it actually is: an <em>option</em> to keep operating
+        through a supply failure, with a premium (the carrying cost), a strike (the disruption), and a payoff
+        (revenue that keeps flowing). Once it is an option it can be priced, compared against the alternative
+        instruments — a qualified second source, reserved capacity, a design change — and defended. Cirrus Logic's
+        wafer agreement in §04 is the same instrument bought in cash rather than in warehouse space, at a
+        3.75% premium.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">08</span><span class="from">Risk lives in a register</span><span class="arw">→</span><span class="to">Risk lives on the balance sheet</span></div>
       <p>The change that made the other six fundable. As long as exposure was a colour on a heat map, it lost
         every budget argument to a cost saving denominated in currency. Expressing it as revenue-at-risk put it
         on the same terms as everything else a capital committee compares — which is the only reason any of this
@@ -1147,6 +1167,16 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
           is the centre of this document. Metrics outlive the enthusiasm that created them, because they are
           embedded in systems, reports and comp plans. A firm that added revenue-at-risk to its planning review
           in 2021 is still running it.</div>
+      </div>
+      <div class="card tight stack stack-6" style="border-left:2px solid var(--accent)">
+        <div class="reg" style="color:var(--accent-ink)">The best argument against this whole section</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Flat inventory may be evidence the resilience literature
+          was <em>followed</em>, not ignored. Sheffi and Rice argued explicitly that redundancy "represents sheer
+          cost with limited benefit unless it is needed" and that <b>flexibility should be preferred to stock</b> —
+          because you use flexibility every day and stock only in a crisis. A firm that qualified a second source,
+          added a flexible line or redesigned a part to drop a scarce component has bought resilience that will
+          never show up in an inventory ratio. Every measured series in this section is blind to exactly the
+          response the literature recommended most.</div>
       </div>
       <div class="card tight stack stack-6" style="border-left:2px solid var(--accent)">
         <div class="reg" style="color:var(--accent-ink)">The live test, now</div>

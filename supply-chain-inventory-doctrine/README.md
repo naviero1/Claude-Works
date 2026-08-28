@@ -43,7 +43,9 @@ COVID broke, and why the KPIs and risk models changed.
 5. **§05 The KPI ledger.** The centrepiece: 16 metric pairs, filterable by domain.
    Old metric → what it optimised for → the failure mode COVID exposed → the new
    metric → why that replacement follows.
-6. **§06 Risk assessment.** The seven conceptual shifts underneath all of it.
+6. **§06 Risk assessment.** The eight conceptual shifts underneath all of it,
+   and the part that did not change at all — the newsvendor, EOQ and Little's
+   Law are untouched; what changed is the *estimator*, not the decision rule.
 7. **§07 Did it stick?** What leaders *say* against four independent measured
    series, and an evidence-weighted verdict. The measured evidence wins: real
    inventories as a share of GDP are below even the 2021 trough; the largest
@@ -57,7 +59,15 @@ COVID broke, and why the KPIs and risk models changed.
 8. **§08 Sources & method**, including four things a careful reader should hold
    against the document.
 
-## The finding, in one line
+## The thesis, in one line
+
+Inventory stopped being **a cost to be minimised under demand uncertainty** and
+became **a quantity of time bought against supply failure**. The unit of
+buffering migrated from *units of stock sized to demand variance*
+(`z·σ_D·√L`) to *days of survival sized to how long a node takes to recover*
+(`TTS ≥ TTR`) — a change of denominator, not merely of level.
+
+## The measured finding, in one line
 
 "Just-in-case replaced just-in-time" is **false in aggregate**. What replaced lean
 was not *hold more* but **hold according to consequence** — heavier buffers on the

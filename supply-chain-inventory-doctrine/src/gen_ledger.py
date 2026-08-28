@@ -84,7 +84,7 @@ ROWS = [
 ("Finance",
  "Cash conversion cycle", "CCC = DIO + DSO − DPO",
  "Free cash flow, the fastest lever available to a CFO and the one most visible to investors.",
- "CCC improves when you extend payment terms — which finances your inventory on a small supplier's balance sheet at their cost of capital, not yours. The network's total financing cost rises while your metric improves. Then the supplier fails and it is your disruption.",
+ "CCC improves when you extend payment terms — which finances your inventory on a small supplier's balance sheet at their cost of capital, not yours. The network's total financing cost rises while your metric improves. Then the supplier fails and it is your disruption. The 2010s data says this is exactly what happened: across the largest US non-financial corporates, days payable went from 53.3 in 2016 to 55.5 in 2019 to an all-time high above 62 in 2020 — while days of inventory barely moved. The celebrated working-capital wins were financed by suppliers, not by operations.",
  "Network working capital &amp; supplier health", "Chain-level working capital cost; supplier financial-distress scoring; disclosed supplier-finance obligations",
  "A metric you can improve by moving a cost onto someone whose failure would stop your line is not measuring what it claims to measure. The accounting caught up: <b>FASB ASU 2022-04</b>, effective for fiscal years beginning after 15 December 2022, requires firms to disclose their supplier-finance programme obligations — which is what makes the DPO-extension game visible in the accounts for the first time."),
 

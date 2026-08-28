@@ -2831,5 +2831,39 @@
     },
     "finding": "An 84% collapse from the 2015-19 average to the January 2022 trough, and still only 1.36 more than four years later.",
     "caveat": "The April 2020 reading of 4.34 is a denominator artefact — dealerships shut and sales collapsed."
+  },
+  "synthesis_thesis": "Inventory stopped being a cost to be minimised under demand uncertainty and became a quantity of TIME bought against supply failure. The load-bearing assumption that broke was not in the literature — OR had modelled unreliable supply, random yield and disruption for decades — but in the operating stack firms actually ran on: the safety-stock formula, the MRP lead-time offset, the MEIO engine and the cash-to-cash board metric all encode that goods arrive and the only open question is when. COVID falsified 'when' too. The unit of buffering migrated from units of stock sized to demand variance (z*sigma_D*sqrt(L)) to days of survival sized to node recovery time (TTS >= TTR) — a change of denominator, not merely of level.",
+  "strongest_counter_arguments": [
+    {
+      "argument": "Flat inventory may be evidence the resilience literature was FOLLOWED, not ignored.",
+      "basis": "Sheffi & Rice argued redundancy 'represents sheer cost with limited benefit unless it is needed' and that FLEXIBILITY should be preferred to stock. A firm that qualified a second source, added a flexible line or redesigned a part to drop a scarce component bought resilience that never shows in an inventory ratio.",
+      "status": "Included in section 7 as the best argument against the section's own reading."
+    },
+    {
+      "argument": "The Hendricks & Singhal headline overstates causation.",
+      "basis": "Their own decomposition puts roughly a third of the -40.66% three-year abnormal return in the year BEFORE the announcement. The glitch is as much symptom as cause.",
+      "status": "Nuance added to the Hendricks & Singhal card."
+    },
+    {
+      "argument": "Mapping is necessary and nowhere near sufficient.",
+      "basis": "In April 2016 — five years after Tohoku and with the visibility database already built — Toyota lost its Japanese assembly lines to a single supplier's Kumamoto plants.",
+      "status": "Added to the just-in-time steel-man alongside the August 2021 40% production cut."
+    },
+    {
+      "argument": "'Nobody had modelled supply failure' is false and one citation refutes it.",
+      "basis": "Snyder et al. (2016) survey roughly 180 pre-2016 OR papers on supply-chain disruptions; Tomlin (2006) prices resilience inventory directly against dual sourcing.",
+      "status": "Named in section 1's corrected premise."
+    }
+  ],
+  "dpo_evidence": {
+    "finding": "The 2010s working-capital wins were financed by suppliers, not operations.",
+    "days_payable_outstanding": {
+      "2016": 53.3,
+      "2019": 55.5,
+      "2020": "above 62 (all-time high)"
+    },
+    "days_inventory": "barely moved across the same period",
+    "source": "Hackett Group working capital surveys, largest US non-financial corporates",
+    "status": "Added to the cash-conversion-cycle ledger row alongside FASB ASU 2022-04."
   }
 }
