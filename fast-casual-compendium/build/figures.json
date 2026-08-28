@@ -1,16 +1,16 @@
 {
- "r_price_health": 0.07859068520940614,
+ "r_price_health": 0.07786180394189135,
  "r_price_flavor": 0.39410895070910684,
- "r_price_overall": -0.028074248732313577,
- "r_health_flavor": -0.04940008688009078,
+ "r_price_overall": -0.02850929815993043,
+ "r_health_flavor": -0.0502763660094864,
  "r_fiber_gut": 0.3129814714683192,
- "r_price_health_no_chengdu": 0.051945850947671145,
- "r_price_health_no_msushi": 0.0031921920751764314,
+ "r_price_health_no_chengdu": 0.05108512236004421,
+ "r_price_health_no_msushi": 0.0023505802050480594,
  "r_price_health_range": [
-  0.0031921920751764314,
-  0.17309887454314765
+  0.0023505802050480594,
+  0.17229729369510569
  ],
- "r_health_flavor_cuisine": -0.28638477124345346,
+ "r_health_flavor_cuisine": -0.2883659481814756,
  "cuisines": [
   {
    "name": "North Indian",
@@ -25,12 +25,12 @@
   {
    "name": "Korean",
    "n": 3,
-   "health": 6.033333333333333,
+   "health": 6.02,
    "flavor": 8.333333333333332,
-   "sodium": 1800,
+   "sodium": 2433.3333333333335,
    "price": 23.193333333333335,
    "satfat": 4.5,
-   "overall": 6.08
+   "overall": 6.073333333333333
   },
   {
    "name": "Vietnamese",
@@ -146,11 +146,11 @@
  "flavor_split": {
   "n_hi": 22,
   "n_lo": 14,
-  "na_hi": 1451.909090909091,
+  "na_hi": 1538.2727272727273,
   "na_lo": 870.8571428571429,
   "sf_hi": 6.636363636363637,
   "sf_lo": 4.942857142857143,
-  "health_hi": 5.865454545454545,
+  "health_hi": 5.863636363636363,
   "health_lo": 6.201428571428571,
   "price_hi": 21.34318181818182,
   "price_lo": 17.449285714285715
@@ -3246,6 +3246,86 @@
  ],
  "na_worst": [
   {
+   "rank": 19,
+   "overall": 6.36,
+   "health": 6.36,
+   "restaurant": "Chosun Ok",
+   "data": "ESTIMATED",
+   "price": 24.98,
+   "dish": "Seafood soondubu with a kimchi side",
+   "store": "904879",
+   "miles": 4,
+   "build": "Seafood soft-tofu stew \u00b7 complimentary banchan \u00b7 one 1 lb kimchi ordered as a side",
+   "cal": 540,
+   "protein": 40,
+   "sodium": 4000,
+   "satfat": 3.5,
+   "fiber": 7,
+   "sugar": 6,
+   "KID": 0.0,
+   "LIV": 9.0,
+   "MUS": 7.8,
+   "GUT": 9.4,
+   "ENE": 3.1,
+   "INF": 7.4,
+   "SUG": 8.4,
+   "FLAVOR": 8.6,
+   "COST": 4.1,
+   "cuisine": "Korean",
+   "prep": "stewed",
+   "corrected": true,
+   "alternatives": [
+    {
+     "text": "Grilled mackerel with a stew High omega-3; a large plate",
+     "cal": 700,
+     "protein": 48,
+     "sodium": 1950,
+     "score": 6.32,
+     "name": "Grilled mackerel with a stew",
+     "change": "High omega-3; a large plate",
+     "avoid": false,
+     "beats_flag": false
+    },
+    {
+     "text": "Doenjang jjigae Fermented soybean paste stew; tofu and vegetables",
+     "cal": 460,
+     "protein": 28,
+     "sodium": 1850,
+     "score": 6.08,
+     "name": "Doenjang jjigae",
+     "change": "Fermented soybean paste stew; tofu and vegetables",
+     "avoid": false,
+     "beats_flag": false
+    },
+    {
+     "text": "Vegetable soondubu with kimchi Lower sodium; no omega-3",
+     "cal": 480,
+     "protein": 32,
+     "sodium": 1900,
+     "score": 5.73,
+     "name": "Vegetable soondubu with kimchi",
+     "change": "Lower sodium; no omega-3",
+     "avoid": false,
+     "beats_flag": false
+    },
+    {
+     "text": "LA galbi Direct-fire grilled short rib; no sugar marinade",
+     "cal": 820,
+     "protein": 52,
+     "sodium": 1600,
+     "score": 4.72,
+     "name": "LA galbi",
+     "change": "Direct-fire grilled short rib; no sugar marinade",
+     "avoid": false,
+     "beats_flag": false
+    }
+   ],
+   "hpd": 0.2546036829463571,
+   "dpp": 0.6245,
+   "na_p": 100.0,
+   "ppc": 7.4074074074074066
+  },
+  {
    "rank": 23,
    "overall": 4.35,
    "health": 4.21,
@@ -3573,85 +3653,6 @@
    "dpp": 0.95,
    "na_p": 57.5,
    "ppc": 3.5714285714285716
-  },
-  {
-   "rank": 19,
-   "overall": 6.38,
-   "health": 6.4,
-   "restaurant": "Chosun Ok",
-   "data": "ESTIMATED",
-   "price": 24.98,
-   "dish": "Seafood soondubu with a kimchi side",
-   "store": "904879",
-   "miles": 4,
-   "build": "Seafood soft-tofu stew \u00b7 complimentary banchan \u00b7 one 1 lb kimchi ordered as a side",
-   "cal": 540,
-   "protein": 40,
-   "sodium": 2100,
-   "satfat": 3.5,
-   "fiber": 7,
-   "sugar": 6,
-   "KID": 0.0,
-   "LIV": 9.2,
-   "MUS": 7.8,
-   "GUT": 9.4,
-   "ENE": 3.1,
-   "INF": 7.4,
-   "SUG": 8.4,
-   "FLAVOR": 8.6,
-   "COST": 4.1,
-   "cuisine": "Korean",
-   "prep": "stewed",
-   "alternatives": [
-    {
-     "text": "Grilled mackerel with a stew High omega-3; a large plate",
-     "cal": 700,
-     "protein": 48,
-     "sodium": 1950,
-     "score": 6.32,
-     "name": "Grilled mackerel with a stew",
-     "change": "High omega-3; a large plate",
-     "avoid": false,
-     "beats_flag": false
-    },
-    {
-     "text": "Doenjang jjigae Fermented soybean paste stew; tofu and vegetables",
-     "cal": 460,
-     "protein": 28,
-     "sodium": 1850,
-     "score": 6.08,
-     "name": "Doenjang jjigae",
-     "change": "Fermented soybean paste stew; tofu and vegetables",
-     "avoid": false,
-     "beats_flag": false
-    },
-    {
-     "text": "Vegetable soondubu with kimchi Lower sodium; no omega-3",
-     "cal": 480,
-     "protein": 32,
-     "sodium": 1900,
-     "score": 5.73,
-     "name": "Vegetable soondubu with kimchi",
-     "change": "Lower sodium; no omega-3",
-     "avoid": false,
-     "beats_flag": false
-    },
-    {
-     "text": "LA galbi Direct-fire grilled short rib; no sugar marinade",
-     "cal": 820,
-     "protein": 52,
-     "sodium": 1600,
-     "score": 4.72,
-     "name": "LA galbi",
-     "change": "Direct-fire grilled short rib; no sugar marinade",
-     "avoid": false,
-     "beats_flag": false
-    }
-   ],
-   "hpd": 0.2562049639711769,
-   "dpp": 0.6245,
-   "na_p": 52.5,
-   "ppc": 7.4074074074074066
   }
  ],
  "cheapest": [
@@ -5975,8 +5976,8 @@
   "floor": 9.3
  },
  "welch_sodium": [
-  4.394139484800173,
-  20.14102096429644
+  3.8357873615888995,
+  33.28346994953215
  ],
  "welch_satfat": [
   2.03426710312802,
@@ -7481,8 +7482,8 @@
   },
   {
    "rank": 19,
-   "overall": 6.38,
-   "health": 6.4,
+   "overall": 6.36,
+   "health": 6.36,
    "restaurant": "Chosun Ok",
    "data": "ESTIMATED",
    "price": 24.98,
@@ -7492,12 +7493,12 @@
    "build": "Seafood soft-tofu stew \u00b7 complimentary banchan \u00b7 one 1 lb kimchi ordered as a side",
    "cal": 540,
    "protein": 40,
-   "sodium": 2100,
+   "sodium": 4000,
    "satfat": 3.5,
    "fiber": 7,
    "sugar": 6,
    "KID": 0.0,
-   "LIV": 9.2,
+   "LIV": 9.0,
    "MUS": 7.8,
    "GUT": 9.4,
    "ENE": 3.1,
@@ -7507,6 +7508,7 @@
    "COST": 4.1,
    "cuisine": "Korean",
    "prep": "stewed",
+   "corrected": true,
    "alternatives": [
     {
      "text": "Grilled mackerel with a stew High omega-3; a large plate",
@@ -7553,9 +7555,9 @@
      "beats_flag": false
     }
    ],
-   "hpd": 0.2562049639711769,
+   "hpd": 0.2546036829463571,
    "dpp": 0.6245,
-   "na_p": 52.5,
+   "na_p": 100.0,
    "ppc": 7.4074074074074066
   },
   {
@@ -10345,10 +10347,10 @@
   },
   "ESTIMATED": {
    "n": 51,
-   "health": 5.841372549019608,
-   "sodium": 1240.5882352941176,
+   "health": 5.840588235294118,
+   "sodium": 1277.8431372549019,
    "flavor": 6.905882352941176,
-   "overall": 5.926470588235294,
+   "overall": 5.926078431372549,
    "price": 19.375686274509803
   }
  },
@@ -10576,8 +10578,8 @@
   },
   {
    "rank": 19,
-   "overall": 6.38,
-   "health": 6.4,
+   "overall": 6.36,
+   "health": 6.36,
    "restaurant": "Chosun Ok",
    "data": "ESTIMATED",
    "price": 24.98,
@@ -10587,12 +10589,12 @@
    "build": "Seafood soft-tofu stew \u00b7 complimentary banchan \u00b7 one 1 lb kimchi ordered as a side",
    "cal": 540,
    "protein": 40,
-   "sodium": 2100,
+   "sodium": 4000,
    "satfat": 3.5,
    "fiber": 7,
    "sugar": 6,
    "KID": 0.0,
-   "LIV": 9.2,
+   "LIV": 9.0,
    "MUS": 7.8,
    "GUT": 9.4,
    "ENE": 3.1,
@@ -10602,6 +10604,7 @@
    "COST": 4.1,
    "cuisine": "Korean",
    "prep": "stewed",
+   "corrected": true,
    "alternatives": [
     {
      "text": "Grilled mackerel with a stew High omega-3; a large plate",
@@ -10648,9 +10651,9 @@
      "beats_flag": false
     }
    ],
-   "hpd": 0.2562049639711769,
+   "hpd": 0.2546036829463571,
    "dpp": 0.6245,
-   "na_p": 52.5,
+   "na_p": 100.0,
    "ppc": 7.4074074074074066
   },
   {
@@ -11206,16 +11209,6 @@
    "score_delta": -0.69
   },
   {
-   "restaurant": "Chosun Ok",
-   "dish": "Seafood soondubu with a kimchi side",
-   "alt": "LA galbi",
-   "alt_note": "Direct-fire grilled short rib; no sugar marinade",
-   "cut": 500,
-   "protein_lost": -12,
-   "cal_delta": 280,
-   "score_delta": -1.66
-  },
-  {
    "restaurant": "Abol Ethiopian",
    "dish": "Vegetarian combo with telba shiro",
    "alt": "Shiro wot alone",
@@ -11291,73 +11284,85 @@
    "item": "Farmside Kitchen seasoned quinoa",
    "per": "8 oz base portion",
    "mg": 900,
+   "protein": null,
    "note": "The base, before anything is put on it."
   },
   {
    "item": "Chipotle chipotle-honey vinaigrette",
    "per": "2 fl oz",
    "mg": 850,
+   "protein": null,
    "note": "Also 220 calories and 12 g of sugar."
   },
   {
    "item": "CAVA saffron basmati or brown rice",
    "per": "one base",
    "mg": 770,
-   "note": "Identical for both rices; the largest sodium item among CAVA's bases."
+   "protein": null,
+   "note": "Identical for both rices, and the largest sodium item among CAVA's bases."
   },
   {
    "item": "Poke Bros. OG Sauce",
    "per": "one bowl",
    "mg": 730,
+   "protein": null,
    "note": "Added to every bowl unless you refuse it."
-  },
-  {
-   "item": "Farmside Kitchen Signature grilled chicken",
-   "per": "3.5 oz",
-   "mg": 660,
-   "note": "A plain grilled breast is 190 mg for the same protein."
   },
   {
    "item": "CAVA grilled chicken",
    "per": "one portion",
    "mg": 670,
+   "protein": 28,
    "note": "CAVA's grilled steak is 280 mg for 23 g of protein."
+  },
+  {
+   "item": "Farmside Kitchen Signature grilled chicken",
+   "per": "3.5 oz",
+   "mg": 660,
+   "protein": null,
+   "note": "A plain grilled breast is 190 mg for the same protein."
   },
   {
    "item": "Bul Box sriracha",
    "per": "1 oz",
    "mg": 454,
-   "note": "The 30-calorie sauce. Yum yum sauce is 150 calories and 115 mg."
+   "protein": null,
+   "note": "The 30-calorie sauce, and four times the sodium of the 150-calorie one."
   },
   {
    "item": "Pokeworks ahi tuna",
    "per": "2 oz scoop",
    "mg": 350,
-   "note": "Their chicken is 80 mg for the same scoop."
+   "protein": 14,
+   "note": "Their chicken is 80 mg for the same scoop and 12 g of protein."
   },
   {
    "item": "Chipotle chicken",
    "per": "4 oz",
    "mg": 310,
-   "note": "32 g of protein - the most sodium-efficient protein in the set."
+   "protein": 32,
+   "note": "9.7 mg of sodium per gram of protein."
   },
   {
    "item": "True Food Kitchen salmon add-on",
    "per": "one portion",
    "mg": 90,
-   "note": "29 g of protein. The cleanest protein anywhere here."
+   "protein": 29,
+   "note": "3.1 mg per gram, and the cleanest protein on any menu here."
   },
   {
    "item": "DICED grilled chicken",
    "per": "one portion",
    "mg": 69,
-   "note": "26 g of protein, at 2.7 mg of sodium per gram."
+   "protein": 26,
+   "note": "2.7 mg per gram."
   },
   {
    "item": "Poke Bros. plain tuna",
    "per": "85 g",
    "mg": 40,
-   "note": "Their own marinated tuna is 820 mg."
+   "protein": 21,
+   "note": "1.9 mg per gram. Their own marinated tuna is 820 mg."
   }
  ],
  "beats": [
@@ -11931,7 +11936,7 @@
    "gain": 0.009999999999999787
   }
  ],
- "n_alt_excluded": 32,
+ "n_alt_excluded": 36,
  "avoids": [
   {
    "rec": {
@@ -15773,6 +15778,167 @@
   }
  ],
  "dupe_priciest_wins": 2,
+ "coverage": [
+  {
+   "name": "US bowl chain",
+   "n": 15,
+   "share": 0.25,
+   "overall": 6.172
+  },
+  {
+   "name": "Levantine",
+   "n": 5,
+   "share": 0.08333333333333333,
+   "overall": 6.146
+  },
+  {
+   "name": "Japanese",
+   "n": 4,
+   "share": 0.06666666666666667,
+   "overall": 6.715
+  },
+  {
+   "name": "Vietnamese",
+   "n": 4,
+   "share": 0.06666666666666667,
+   "overall": 5.6525
+  },
+  {
+   "name": "Hawaiian/poke",
+   "n": 3,
+   "share": 0.05,
+   "overall": 6.45
+  },
+  {
+   "name": "Korean",
+   "n": 3,
+   "share": 0.05,
+   "overall": 6.073333333333333
+  },
+  {
+   "name": "South Indian",
+   "n": 3,
+   "share": 0.05,
+   "overall": 5.513333333333334
+  },
+  {
+   "name": "Mexican",
+   "n": 3,
+   "share": 0.05,
+   "overall": 5.003333333333334
+  },
+  {
+   "name": "Caribbean",
+   "n": 3,
+   "share": 0.05,
+   "overall": 4.743333333333333
+  },
+  {
+   "name": "Peruvian",
+   "n": 2,
+   "share": 0.03333333333333333,
+   "overall": 6.63
+  },
+  {
+   "name": "Ethiopian",
+   "n": 2,
+   "share": 0.03333333333333333,
+   "overall": 6.13
+  },
+  {
+   "name": "North Indian",
+   "n": 2,
+   "share": 0.03333333333333333,
+   "overall": 6.074999999999999
+  },
+  {
+   "name": "Sichuan",
+   "n": 2,
+   "share": 0.03333333333333333,
+   "overall": 5.85
+  },
+  {
+   "name": "Salvadoran",
+   "n": 1,
+   "share": 0.016666666666666666,
+   "overall": 7.77
+  },
+  {
+   "name": "Thai/Isaan",
+   "n": 1,
+   "share": 0.016666666666666666,
+   "overall": 7.02
+  },
+  {
+   "name": "Turkish",
+   "n": 1,
+   "share": 0.016666666666666666,
+   "overall": 6.82
+  },
+  {
+   "name": "Nepali",
+   "n": 1,
+   "share": 0.016666666666666666,
+   "overall": 6.8
+  },
+  {
+   "name": "Venezuelan",
+   "n": 1,
+   "share": 0.016666666666666666,
+   "overall": 6.56
+  },
+  {
+   "name": "Latin American",
+   "n": 1,
+   "share": 0.016666666666666666,
+   "overall": 6.53
+  },
+  {
+   "name": "US breakfast",
+   "n": 1,
+   "share": 0.016666666666666666,
+   "overall": 5.35
+  },
+  {
+   "name": "Afghan",
+   "n": 1,
+   "share": 0.016666666666666666,
+   "overall": 4.17
+  },
+  {
+   "name": "Uzbek",
+   "n": 1,
+   "share": 0.016666666666666666,
+   "overall": 4.05
+  }
+ ],
+ "bowl_share": {
+  "n": 18,
+  "pct": 30.0,
+  "in_top10": 4
+ },
+ "absent": [
+  "North Carolina barbecue",
+  "Southern and soul food",
+  "Greek",
+  "Persian",
+  "Chinese-American takeout",
+  "West African",
+  "Brazilian",
+  "Filipino",
+  "Colombian, Cuban or Puerto Rican",
+  "Burmese",
+  "Malaysian or Indonesian",
+  "Taiwanese",
+  "Halal cart",
+  "Chaat and Indian street food",
+  "Pakistani or Bangladeshi",
+  "Seafood and raw bar",
+  "Pizza",
+  "Burgers and sandwiches",
+  "Wings",
+  "A dedicated vegan kitchen"
+ ],
  "preps": [
   {
    "name": "raw",
@@ -15804,11 +15970,11 @@
   {
    "name": "stewed",
    "n": 8,
-   "health": 5.5,
+   "health": 5.495,
    "flavor": 7.325,
-   "sodium": 1606.25,
+   "sodium": 1843.75,
    "price": 23.6925,
-   "overall": 5.54625
+   "overall": 5.54375
   },
   {
    "name": "steamed",

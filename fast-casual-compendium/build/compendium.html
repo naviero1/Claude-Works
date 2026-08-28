@@ -268,6 +268,18 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
 .corr-effect{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
   font-size:.8rem;color:var(--alarm);margin-top:8px;padding-left:11px;border-left:2px solid var(--alarm)}
 .corr{max-width:78ch}
+ul.absent{list-style:none;margin:16px 0 0;padding:0;columns:2;column-gap:28px;font-size:.88rem}
+@media(max-width:640px){ul.absent{columns:1}}
+ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoid;color:var(--ink-2)}
+/* grid children default to min-width:auto, which lets a wide table push the
+   whole track past the viewport; let them shrink and scroll instead */
+.pair>*,.weeks>*,.findings>*,.criteria>*,.masthead-grid>*{min-width:0}
+.tablewrap{max-width:100%}
+.faults{margin-top:26px;border-top:3px solid var(--ink)}
+.fault{padding:22px 0 24px;border-bottom:1px solid var(--rule);max-width:82ch}
+.fault h3{font-size:1.08rem;margin-bottom:9px}
+.fault .cite{font-size:.78rem;color:var(--ink-3);margin-top:8px;font-style:italic}
+.fault .tablewrap{margin-top:16px}
 
 </style>
 <div class="wrap">
@@ -291,7 +303,7 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
 <section id="changes">
   <div class="changelog measure-wide">
     <span class="eyebrow">What changed in this edition</span>
-    <ul><li><strong>The numbers were checked, and some were wrong.</strong> Every nutrition figure the first edition attributed to a published document was re-read against that document. 8 entries had to be rescored: Bul Box from 23rd to 57th; Sassool from 3rd to 32nd. Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.</li><li><strong>The front page is new.</strong> The first edition opened with four findings, three of which were trivia about a single restaurant each and the fourth about research method rather than food. They have been replaced with findings drawn from the whole set, led by what the data says about money.</li><li><strong>The two lists are now one.</strong> The first edition printed &ldquo;The Thirty&rdquo; and &ldquo;The Next Thirty&rdquo; as separate ranked lists, but the split tracked research depth rather than score: 27 entries in the second list outscored the weakest in the first. Everything is now ranked in one sequence.</li><li><strong>The scoring model is printed, not described.</strong> Every criterion that can be computed from the macros is given as an actual function, recovered by fitting the first edition's own published scores. Anyone can recompute anything here, including the parts they disagree with.</li><li><strong>The sample was too narrow.</strong> Eighteen of the original sixty entries were build-your-own bowls or poke &mdash; 30% of the set, and four of the top ten &mdash; in a state whose own barbecue did not appear at all. That gap is quantified below.</li></ul>
+    <ul><li><strong>The numbers were checked, and some were wrong.</strong> Every nutrition figure the first edition attributed to a published document was re-read against that document. 9 entries had to be rescored: Bul Box from 23rd to 57th; Sassool from 3rd to 32nd. Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.</li><li><strong>The front page is new.</strong> The first edition opened with four findings, three of which were trivia about a single restaurant each and the fourth about research method rather than food. They have been replaced with findings drawn from the whole set, led by what the data says about money.</li><li><strong>The two lists are now one.</strong> The first edition printed &ldquo;The Thirty&rdquo; and &ldquo;The Next Thirty&rdquo; as separate ranked lists, but the split tracked research depth rather than score: 27 entries in the second list outscored the weakest in the first. Everything is now ranked in one sequence.</li><li><strong>The scoring model is printed, not described.</strong> Every criterion that can be computed from the macros is given as an actual function, recovered by fitting the first edition's own published scores. Anyone can recompute anything here, including the parts they disagree with.</li><li><strong>The sample was too narrow.</strong> Eighteen of the original sixty entries were build-your-own bowls or poke &mdash; 30% of the set, and four of the top ten &mdash; in a state whose own barbecue did not appear at all. That gap is quantified below.</li></ul>
   </div>
 </section>
 
@@ -300,8 +312,8 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
   <span class="eyebrow">Chapter one</span>
   <h2>What money does and does not buy</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>Across all 60 dishes, the correlation between what a dish costs on DoorDash and how healthy it scores is <strong class="num">+.08</strong>. Squared, that is well under one percent of the variation: price tells you essentially nothing about whether a meal is good for you. Drop any single dish and it stays between <span class="num">+0.00</span> and <span class="num">+0.17</span>, so it is not one outlier holding it down.</p>
-    <p>Money does buy something. The correlation between price and <em>flavor</em> is <strong class="num">+.39</strong> &mdash; modest, but five times the size and in a direction you can feel. Expensive food in this set is more interesting to eat and no better for you. Everything in this chapter follows from those two numbers.</p>
+    <p>Across all 60 dishes, the correlation between what a dish costs on DoorDash and how healthy it scores is <strong class="num">+0.08</strong>. Squared, that is well under one percent of the variation: price tells you essentially nothing about whether a meal is good for you. Leave out any single dish and it never leaves the range <span class="num">0.00</span> to <span class="num">+0.17</span>, so it is not one outlier holding it down.</p>
+    <p>Money does buy something. The correlation between price and <em>flavor</em> is <strong class="num">+0.39</strong> &mdash; modest, but five times the size and in a direction you can feel. Expensive food in this set is more interesting to eat and no better for you. Everything in this chapter follows from those two numbers.</p>
   </div>
   <figure>
     <svg viewBox="0 0 760 440" class="chart" role="img" aria-label="Price against health score for all sixty dishes; the fitted line is flat">
@@ -324,7 +336,7 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
 <text x="443.9" y="414" class="tick tick-x">$25</text>
 <text x="558.5" y="414" class="tick tick-x">$30</text>
 <text x="673.2" y="414" class="tick tick-x">$35</text>
-<line x1="54.0" y1="224.0" x2="742.0" y2="192.6" class="fit"/>
+<line x1="54.0" y1="223.9" x2="742.0" y2="192.8" class="fit"/>
 <circle cx="260.4" cy="47.3" r="4.6" class="pt"><title>Poke Bros. — $17.00, health 8.2</title></circle>
 <circle cx="236.3" cy="81.5" r="4.6" class="pt pt-good"><title>El Cuscatleco — $15.95, health 7.7</title></circle>
 <circle cx="246.0" cy="237.0" r="4.6" class="pt"><title>Sassool — $16.37, health 5.6</title></circle>
@@ -343,7 +355,7 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
 <circle cx="127.6" cy="185.7" r="4.6" class="pt pt-good"><title>Guasaca — $11.21, health 6.3</title></circle>
 <circle cx="299.4" cy="163.4" r="4.6" class="pt"><title>Luna Rotisserie — $18.70, health 6.6</title></circle>
 <circle cx="260.2" cy="178.2" r="4.6" class="pt"><title>Abol Ethiopian — $16.99, health 6.4</title></circle>
-<circle cx="443.4" cy="178.2" r="4.6" class="pt"><title>Chosun Ok — $24.98, health 6.4</title></circle>
+<circle cx="443.4" cy="181.2" r="4.6" class="pt"><title>Chosun Ok — $24.98, health 6.4</title></circle>
 <circle cx="297.1" cy="200.6" r="4.6" class="pt"><title>Bulkogi — $18.60, health 6.1</title></circle>
 <circle cx="489.7" cy="193.1" r="4.6" class="pt"><title>Urban Turban — $27.00, health 6.2</title></circle>
 <circle cx="145.7" cy="208.0" r="4.6" class="pt pt-good"><title>Chipotle — $12.00, health 6.0</title></circle>
@@ -446,93 +458,93 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
   <h2>Sodium is the currency</h2>
   <div class="measure stack" style="margin-top:16px">
     <p>Sodium separates this list more than any other single number, and the useful way to hold it is not as a total but as a rate: how much sodium you are paying for each gram of protein you actually get. On that measure the spread across the set is more than twentyfold.</p>
-    <p>DICED delivers protein at <strong class="num">2.5&#8202;mg</strong> of sodium per gram. Bul Box charges <strong class="num">84.8&#8202;mg</strong> for the same gram. Both are on the same list, in the same city, at similar prices.</p>
+    <p>DICED delivers protein at <strong class="num">2.5&#8202;mg</strong> of sodium per gram. Chosun Ok charges <strong class="num">100.0&#8202;mg</strong> for the same gram. Both are on the same list, in the same city, at similar prices.</p>
   </div>
   <figure>
     <svg viewBox="0 0 760 514" class="chart" role="img" aria-label="Milligrams of sodium per gram of protein, best ten and worst six">
 <line x1="190.0" y1="18" x2="190.0" y2="472" class="grid"/>
 <text x="190.0" y="486" class="tick tick-x">0</text>
-<line x1="250.1" y1="18" x2="250.1" y2="472" class="grid"/>
-<text x="250.1" y="486" class="tick tick-x">10</text>
-<line x1="310.2" y1="18" x2="310.2" y2="472" class="grid"/>
-<text x="310.2" y="486" class="tick tick-x">20</text>
-<line x1="370.4" y1="18" x2="370.4" y2="472" class="grid"/>
-<text x="370.4" y="486" class="tick tick-x">30</text>
-<line x1="430.5" y1="18" x2="430.5" y2="472" class="grid"/>
-<text x="430.5" y="486" class="tick tick-x">40</text>
-<line x1="490.6" y1="18" x2="490.6" y2="472" class="grid"/>
-<text x="490.6" y="486" class="tick tick-x">50</text>
-<line x1="550.7" y1="18" x2="550.7" y2="472" class="grid"/>
-<text x="550.7" y="486" class="tick tick-x">60</text>
-<line x1="610.9" y1="18" x2="610.9" y2="472" class="grid"/>
-<text x="610.9" y="486" class="tick tick-x">70</text>
-<rect x="190" y="30.0" width="15.2" height="15" class="bar bar-good"><title>DICED — 144 mg over 57 g protein</title></rect>
+<line x1="241.0" y1="18" x2="241.0" y2="472" class="grid"/>
+<text x="241.0" y="486" class="tick tick-x">10</text>
+<line x1="292.0" y1="18" x2="292.0" y2="472" class="grid"/>
+<text x="292.0" y="486" class="tick tick-x">20</text>
+<line x1="343.0" y1="18" x2="343.0" y2="472" class="grid"/>
+<text x="343.0" y="486" class="tick tick-x">30</text>
+<line x1="394.0" y1="18" x2="394.0" y2="472" class="grid"/>
+<text x="394.0" y="486" class="tick tick-x">40</text>
+<line x1="445.0" y1="18" x2="445.0" y2="472" class="grid"/>
+<text x="445.0" y="486" class="tick tick-x">50</text>
+<line x1="496.0" y1="18" x2="496.0" y2="472" class="grid"/>
+<text x="496.0" y="486" class="tick tick-x">60</text>
+<line x1="547.0" y1="18" x2="547.0" y2="472" class="grid"/>
+<text x="547.0" y="486" class="tick tick-x">70</text>
+<rect x="190" y="30.0" width="12.9" height="15" class="bar bar-good"><title>DICED — 144 mg over 57 g protein</title></rect>
 <text x="180" y="43.0" class="row-label" text-anchor="end">DICED</text>
-<text x="213.2" y="43.0" class="row-val">2.5</text>
-<rect x="190" y="56.0" width="23.7" height="15" class="bar bar-good"><title>Poke Bros. — 201 mg over 51 g protein</title></rect>
+<text x="210.9" y="43.0" class="row-val">2.5</text>
+<rect x="190" y="56.0" width="20.1" height="15" class="bar bar-good"><title>Poke Bros. — 201 mg over 51 g protein</title></rect>
 <text x="180" y="69.0" class="row-label" text-anchor="end">Poke Bros.</text>
-<text x="221.7" y="69.0" class="row-val">3.9</text>
-<rect x="190" y="82.0" width="55.1" height="15" class="bar bar-good"><title>True Food Kitchen — 330 mg over 36 g protein</title></rect>
+<text x="218.1" y="69.0" class="row-val">3.9</text>
+<rect x="190" y="82.0" width="46.8" height="15" class="bar bar-good"><title>True Food Kitchen — 330 mg over 36 g protein</title></rect>
 <text x="180" y="95.0" class="row-label" text-anchor="end">True Food Kitchen</text>
-<text x="253.1" y="95.0" class="row-val">9.2</text>
-<rect x="190" y="108.0" width="74.8" height="15" class="bar bar-good"><title>Pokeworks — 535 mg over 43 g protein</title></rect>
+<text x="244.8" y="95.0" class="row-val">9.2</text>
+<rect x="190" y="108.0" width="63.5" height="15" class="bar bar-good"><title>Pokeworks — 535 mg over 43 g protein</title></rect>
 <text x="180" y="121.0" class="row-label" text-anchor="end">Pokeworks</text>
-<text x="272.8" y="121.0" class="row-val">12.4</text>
-<rect x="190" y="134.0" width="81.0" height="15" class="bar bar-good"><title>M Sushi — 620 mg over 46 g protein</title></rect>
+<text x="261.5" y="121.0" class="row-val">12.4</text>
+<rect x="190" y="134.0" width="68.7" height="15" class="bar bar-good"><title>M Sushi — 620 mg over 46 g protein</title></rect>
 <text x="180" y="147.0" class="row-label" text-anchor="end">M Sushi</text>
-<text x="279.0" y="147.0" class="row-val">13.5</text>
-<rect x="190" y="160.0" width="106.5" height="15" class="bar bar-good"><title>Farmside Kitchen — 620 mg over 35 g protein</title></rect>
+<text x="266.7" y="147.0" class="row-val">13.5</text>
+<rect x="190" y="160.0" width="90.3" height="15" class="bar bar-good"><title>Farmside Kitchen — 620 mg over 35 g protein</title></rect>
 <text x="180" y="173.0" class="row-label" text-anchor="end">Farmside Kitchen</text>
-<text x="304.5" y="173.0" class="row-val">17.7</text>
-<rect x="190" y="186.0" width="111.7" height="15" class="bar bar-good"><title>Clean Eatz — 780 mg over 42 g protein</title></rect>
+<text x="288.3" y="173.0" class="row-val">17.7</text>
+<rect x="190" y="186.0" width="94.7" height="15" class="bar bar-good"><title>Clean Eatz — 780 mg over 42 g protein</title></rect>
 <text x="180" y="199.0" class="row-label" text-anchor="end">Clean Eatz</text>
-<text x="309.7" y="199.0" class="row-val">18.6</text>
-<rect x="190" y="212.0" width="120.2" height="15" class="bar bar-good"><title>Peony Asian Bistro — 800 mg over 40 g protein</title></rect>
+<text x="292.7" y="199.0" class="row-val">18.6</text>
+<rect x="190" y="212.0" width="102.0" height="15" class="bar bar-good"><title>Peony Asian Bistro — 800 mg over 40 g protein</title></rect>
 <text x="180" y="225.0" class="row-label" text-anchor="end">Peony Asian Bistro</text>
-<text x="318.2" y="225.0" class="row-val">20.0</text>
-<rect x="190" y="238.0" width="133.9" height="15" class="bar bar-good"><title>Chopt — 735 mg over 33 g protein</title></rect>
+<text x="300.0" y="225.0" class="row-val">20.0</text>
+<rect x="190" y="238.0" width="113.6" height="15" class="bar bar-good"><title>Chopt — 735 mg over 33 g protein</title></rect>
 <text x="180" y="251.0" class="row-label" text-anchor="end">Chopt</text>
-<text x="331.9" y="251.0" class="row-val">22.3</text>
-<rect x="190" y="264.0" width="138.7" height="15" class="bar bar-good"><title>Esmeralda Grill — 1200 mg over 52 g protein</title></rect>
+<text x="311.6" y="251.0" class="row-val">22.3</text>
+<rect x="190" y="264.0" width="117.7" height="15" class="bar bar-good"><title>Esmeralda Grill — 1200 mg over 52 g protein</title></rect>
 <text x="180" y="277.0" class="row-label" text-anchor="end">Esmeralda Grill</text>
-<text x="336.7" y="277.0" class="row-val">23.1</text>
+<text x="315.7" y="277.0" class="row-val">23.1</text>
 <line x1="190" y1="299.0" x2="700" y2="299.0" class="break"/>
 <text x="180" y="303.0" class="row-label dim" text-anchor="end">the other 44 dishes</text>
-<rect x="190" y="316.0" width="510.0" height="15" class="bar bar-bad"><title>Bul Box — 1951 mg over 23 g protein</title></rect>
-<text x="180" y="329.0" class="row-label" text-anchor="end">Bul Box</text>
-<text x="708.0" y="329.0" class="row-val">84.8</text>
-<rect x="190" y="342.0" width="420.9" height="15" class="bar bar-bad"><title>Southern Spice — 980 mg over 14 g protein</title></rect>
-<text x="180" y="355.0" class="row-label" text-anchor="end">Southern Spice</text>
-<text x="618.9" y="355.0" class="row-val">70.0</text>
-<rect x="190" y="368.0" width="375.8" height="15" class="bar bar-bad"><title>Udupi Cafe — 1500 mg over 24 g protein</title></rect>
-<text x="180" y="381.0" class="row-label" text-anchor="end">Udupi Cafe</text>
-<text x="573.8" y="381.0" class="row-val">62.5</text>
-<rect x="190" y="394.0" width="360.7" height="15" class="bar bar-bad"><title>Szechuan Mansion Hotpot — 1800 mg over 30 g protein</title></rect>
-<text x="180" y="407.0" class="row-label" text-anchor="end">Szechuan Mansion Hotpot</text>
-<text x="558.7" y="407.0" class="row-val">60.0</text>
-<rect x="190" y="420.0" width="345.7" height="15" class="bar bar-bad"><title>Naga's South Indian — 1150 mg over 20 g protein</title></rect>
-<text x="180" y="433.0" class="row-label" text-anchor="end">Naga's South Indian</text>
-<text x="543.7" y="433.0" class="row-val">57.5</text>
-<rect x="190" y="446.0" width="315.6" height="15" class="bar bar-bad"><title>Chosun Ok — 2100 mg over 40 g protein</title></rect>
-<text x="180" y="459.0" class="row-label" text-anchor="end">Chosun Ok</text>
-<text x="513.6" y="459.0" class="row-val">52.5</text>
+<rect x="190" y="316.0" width="510.0" height="15" class="bar bar-bad"><title>Chosun Ok — 4000 mg over 40 g protein</title></rect>
+<text x="180" y="329.0" class="row-label" text-anchor="end">Chosun Ok</text>
+<text x="708.0" y="329.0" class="row-val">100.0</text>
+<rect x="190" y="342.0" width="432.6" height="15" class="bar bar-bad"><title>Bul Box — 1951 mg over 23 g protein</title></rect>
+<text x="180" y="355.0" class="row-label" text-anchor="end">Bul Box</text>
+<text x="630.6" y="355.0" class="row-val">84.8</text>
+<rect x="190" y="368.0" width="357.0" height="15" class="bar bar-bad"><title>Southern Spice — 980 mg over 14 g protein</title></rect>
+<text x="180" y="381.0" class="row-label" text-anchor="end">Southern Spice</text>
+<text x="555.0" y="381.0" class="row-val">70.0</text>
+<rect x="190" y="394.0" width="318.8" height="15" class="bar bar-bad"><title>Udupi Cafe — 1500 mg over 24 g protein</title></rect>
+<text x="180" y="407.0" class="row-label" text-anchor="end">Udupi Cafe</text>
+<text x="516.8" y="407.0" class="row-val">62.5</text>
+<rect x="190" y="420.0" width="306.0" height="15" class="bar bar-bad"><title>Szechuan Mansion Hotpot — 1800 mg over 30 g protein</title></rect>
+<text x="180" y="433.0" class="row-label" text-anchor="end">Szechuan Mansion Hotpot</text>
+<text x="504.0" y="433.0" class="row-val">60.0</text>
+<rect x="190" y="446.0" width="293.2" height="15" class="bar bar-bad"><title>Naga's South Indian — 1150 mg over 20 g protein</title></rect>
+<text x="180" y="459.0" class="row-label" text-anchor="end">Naga's South Indian</text>
+<text x="491.2" y="459.0" class="row-val">57.5</text>
 <text x="190" y="508" class="axis-title">MILLIGRAMS OF SODIUM PER GRAM OF PROTEIN</text>
 </svg>
     <figcaption>Milligrams of sodium per gram of protein &mdash; the ten most efficient dishes and the six least. The cut-off drawn at 25&#8202;mg is arbitrary but useful: below it, a full meal lands under about 1,000&#8202;mg without any special ordering.</figcaption>
   </figure>
 
   <h3 style="margin-top:44px">Where the salt actually is</h3>
-  <p class="small measure" style="margin-top:8px">Single components, each read off the restaurant's own published nutrition document. Almost none of these is the part of the meal a customer thinks of as salty.</p>
-  <div class="tablewrap"><table class=""><thead><tr><th>Component</th><th>Portion</th><th class="n">Sodium mg</th></tr></thead><tbody><tr><td><span class="rest">Farmside Kitchen seasoned quinoa</span><span class="sub">The base, before anything is put on it.</span></td><td class="dimtd">8 oz base portion</td><td class="n num lo">900</td></tr><tr><td><span class="rest">Chipotle chipotle-honey vinaigrette</span><span class="sub">Also 220 calories and 12 g of sugar.</span></td><td class="dimtd">2 fl oz</td><td class="n num lo">850</td></tr><tr><td><span class="rest">CAVA saffron basmati or brown rice</span><span class="sub">Identical for both rices; the largest sodium item among CAVA's bases.</span></td><td class="dimtd">one base</td><td class="n num lo">770</td></tr><tr><td><span class="rest">Poke Bros. OG Sauce</span><span class="sub">Added to every bowl unless you refuse it.</span></td><td class="dimtd">one bowl</td><td class="n num lo">730</td></tr><tr><td><span class="rest">Farmside Kitchen Signature grilled chicken</span><span class="sub">A plain grilled breast is 190 mg for the same protein.</span></td><td class="dimtd">3.5 oz</td><td class="n num lo">660</td></tr><tr><td><span class="rest">CAVA grilled chicken</span><span class="sub">CAVA's grilled steak is 280 mg for 23 g of protein.</span></td><td class="dimtd">one portion</td><td class="n num lo">670</td></tr><tr><td><span class="rest">Bul Box sriracha</span><span class="sub">The 30-calorie sauce. Yum yum sauce is 150 calories and 115 mg.</span></td><td class="dimtd">1 oz</td><td class="n num lo">454</td></tr><tr><td><span class="rest">Pokeworks ahi tuna</span><span class="sub">Their chicken is 80 mg for the same scoop.</span></td><td class="dimtd">2 oz scoop</td><td class="n num hi">350</td></tr><tr><td><span class="rest">Chipotle chicken</span><span class="sub">32 g of protein - the most sodium-efficient protein in the set.</span></td><td class="dimtd">4 oz</td><td class="n num hi">310</td></tr><tr><td><span class="rest">True Food Kitchen salmon add-on</span><span class="sub">29 g of protein. The cleanest protein anywhere here.</span></td><td class="dimtd">one portion</td><td class="n num hi">90</td></tr><tr><td><span class="rest">DICED grilled chicken</span><span class="sub">26 g of protein, at 2.7 mg of sodium per gram.</span></td><td class="dimtd">one portion</td><td class="n num hi">69</td></tr><tr><td><span class="rest">Poke Bros. plain tuna</span><span class="sub">Their own marinated tuna is 820 mg.</span></td><td class="dimtd">85 g</td><td class="n num hi">40</td></tr></tbody></table></div>
+  <p class="small measure" style="margin-top:8px">Single components, each read off the restaurant's own published nutrition document. Almost none of the heavy ones is the part of the meal a customer thinks of as salty &mdash; and the four lightest are all proteins, which is the opposite of what most people would guess.</p>
+  <div class="tablewrap"><table class=""><thead><tr><th>Component</th><th>Portion</th><th class="n">Sodium mg</th><th class="n">Protein</th></tr></thead><tbody><tr><td><span class="rest">Farmside Kitchen seasoned quinoa</span><span class="sub">The base, before anything is put on it.</span></td><td class="dimtd">8 oz base portion</td><td class="n num lo">900</td><td class="n dimtd">&mdash;</td></tr><tr><td><span class="rest">Chipotle chipotle-honey vinaigrette</span><span class="sub">Also 220 calories and 12 g of sugar.</span></td><td class="dimtd">2 fl oz</td><td class="n num lo">850</td><td class="n dimtd">&mdash;</td></tr><tr><td><span class="rest">CAVA saffron basmati or brown rice</span><span class="sub">Identical for both rices, and the largest sodium item among CAVA's bases.</span></td><td class="dimtd">one base</td><td class="n num lo">770</td><td class="n dimtd">&mdash;</td></tr><tr><td><span class="rest">Poke Bros. OG Sauce</span><span class="sub">Added to every bowl unless you refuse it.</span></td><td class="dimtd">one bowl</td><td class="n num lo">730</td><td class="n dimtd">&mdash;</td></tr><tr><td><span class="rest">CAVA grilled chicken</span><span class="sub">CAVA's grilled steak is 280 mg for 23 g of protein.</span></td><td class="dimtd">one portion</td><td class="n num lo">670</td><td class="n num dimtd">28&#8202;g</td></tr><tr><td><span class="rest">Farmside Kitchen Signature grilled chicken</span><span class="sub">A plain grilled breast is 190 mg for the same protein.</span></td><td class="dimtd">3.5 oz</td><td class="n num lo">660</td><td class="n dimtd">&mdash;</td></tr><tr><td><span class="rest">Bul Box sriracha</span><span class="sub">The 30-calorie sauce, and four times the sodium of the 150-calorie one.</span></td><td class="dimtd">1 oz</td><td class="n num lo">454</td><td class="n dimtd">&mdash;</td></tr><tr><td><span class="rest">Pokeworks ahi tuna</span><span class="sub">Their chicken is 80 mg for the same scoop and 12 g of protein.</span></td><td class="dimtd">2 oz scoop</td><td class="n num hi">350</td><td class="n num dimtd">14&#8202;g</td></tr><tr><td><span class="rest">Chipotle chicken</span><span class="sub">9.7 mg of sodium per gram of protein.</span></td><td class="dimtd">4 oz</td><td class="n num hi">310</td><td class="n num dimtd">32&#8202;g</td></tr><tr><td><span class="rest">True Food Kitchen salmon add-on</span><span class="sub">3.1 mg per gram, and the cleanest protein on any menu here.</span></td><td class="dimtd">one portion</td><td class="n num hi">90</td><td class="n num dimtd">29&#8202;g</td></tr><tr><td><span class="rest">DICED grilled chicken</span><span class="sub">2.7 mg per gram.</span></td><td class="dimtd">one portion</td><td class="n num hi">69</td><td class="n num dimtd">26&#8202;g</td></tr><tr><td><span class="rest">Poke Bros. plain tuna</span><span class="sub">1.9 mg per gram. Their own marinated tuna is 820 mg.</span></td><td class="dimtd">85 g</td><td class="n num hi">40</td><td class="n num dimtd">21&#8202;g</td></tr></tbody></table></div>
 
   <h3 style="margin-top:44px">The biggest sodium saving available in one swap</h3>
   <p class="small measure" style="margin-top:8px">Changing one thing about an order at the same restaurant. The last column is what the swap does to the dish's overall score, so a positive number means the lower-sodium order is also the better one.</p>
-  <div class="tablewrap"><table class=""><thead><tr><th>Restaurant</th><th>Change one thing</th><th class="n">Sodium saved</th><th class="n">Protein</th><th class="n">Calories</th><th class="n">Score</th></tr></thead><tbody><tr><td><span class="rest">Namu</span><span class="sub">instead of bibimbap with banchan ordered separately</span></td><td><strong>Ban chan plates only</strong><span class="sub">Kimchi and namul; vegetarian, very light</span></td><td class="n num hi">&minus;600</td><td class="n num">-26&#8202;g</td><td class="n num">-420</td><td class="n num hi">+0.81</td></tr><tr><td><span class="rest">Southern Spice</span><span class="sub">instead of sambar idli with chutneys</span></td><td><strong>Idli alone, no sambar</strong><span class="sub">Very low sodium; nutritionally thin</span></td><td class="n num hi">&minus;560</td><td class="n num">-7&#8202;g</td><td class="n num">-170</td><td class="n num dimtd">-0.52</td></tr><tr><td><span class="rest">Abol Ethiopian</span><span class="sub">instead of vegetarian combo with telba shiro</span></td><td><strong>Telba shiro alone</strong><span class="sub">Flaxseed and chickpea; the omega-3 pick</span></td><td class="n num hi">&minus;530</td><td class="n num">-14&#8202;g</td><td class="n num">-300</td><td class="n num dimtd">-0.52</td></tr><tr><td><span class="rest">Goorsha</span><span class="sub">instead of vegan vegetable combo</span></td><td><strong>Kik alicha and tikil gomen only</strong><span class="sub">The two mildest stews; much lighter</span></td><td class="n num hi">&minus;530</td><td class="n num">-14&#8202;g</td><td class="n num">-340</td><td class="n num dimtd">-0.29</td></tr><tr><td><span class="rest">Taste Vietnamese</span><span class="sub">instead of sizzling fish with vermicelli and herbs</span></td><td><strong>Fresh spring rolls</strong><span class="sub">Steamed rice paper, not fried</span></td><td class="n num hi">&minus;520</td><td class="n num">-24&#8202;g</td><td class="n num">-340</td><td class="n num dimtd">-0.69</td></tr><tr><td><span class="rest">Chosun Ok</span><span class="sub">instead of seafood soondubu with a kimchi side</span></td><td><strong>LA galbi</strong><span class="sub">Direct-fire grilled short rib; no sugar marinade</span></td><td class="n num hi">&minus;500</td><td class="n num">+12&#8202;g</td><td class="n num">+280</td><td class="n num dimtd">-1.66</td></tr><tr><td><span class="rest">Abol Ethiopian</span><span class="sub">instead of vegetarian combo with telba shiro</span></td><td><strong>Shiro wot alone</strong><span class="sub">Ground chickpea stew; high plant protein</span></td><td class="n num hi">&minus;470</td><td class="n num">-12&#8202;g</td><td class="n num">-340</td><td class="n num dimtd">-0.94</td></tr><tr><td><span class="rest">Bonjour Banh Mi</span><span class="sub">instead of grilled chicken vermicelli plate</span></td><td><strong>Grilled pork rolls</strong><span class="sub">Steamed rice paper, not fried</span></td><td class="n num hi">&minus;470</td><td class="n num">-13&#8202;g</td><td class="n num">-280</td><td class="n num hi">+0.36</td></tr><tr><td><span class="rest">Udupi Cafe</span><span class="sub">instead of royal south indian thali</span></td><td><strong>Plain dosai with sambar</strong><span class="sub">Less starch, less protein</span></td><td class="n num hi">&minus;450</td><td class="n num">-10&#8202;g</td><td class="n num">-230</td><td class="n num dimtd">-0.02</td></tr><tr><td><span class="rest">Chipotle</span><span class="sub">instead of chicken salad with pinto beans and guacamole</span></td><td><strong>Same salad without guacamole</strong><span class="sub">240 cal and 385 mg lighter; blander still</span></td><td class="n num hi">&minus;385</td><td class="n num">-3&#8202;g</td><td class="n num">-240</td><td class="n num hi">+0.49</td></tr><tr><td><span class="rest">Thai 54</span><span class="sub">instead of nam tok beef with spicy papaya salad</span></td><td><strong>Lao papaya salad on its own</strong><span class="sub">Contains pla ra — genuine fermented fish, served cold</span></td><td class="n num hi">&minus;350</td><td class="n num">-36&#8202;g</td><td class="n num">-290</td><td class="n num dimtd">-1.25</td></tr><tr><td><span class="rest">Abol Ethiopian</span><span class="sub">instead of vegetarian combo with telba shiro</span></td><td><strong>Veggie Combo alone</strong><span class="sub">Four stews and salad; no flaxseed</span></td><td class="n num hi">&minus;350</td><td class="n num">-10&#8202;g</td><td class="n num">-240</td><td class="n num dimtd">-0.30</td></tr><tr><td><span class="rest">Udupi Cafe</span><span class="sub">instead of royal south indian thali</span></td><td><strong>Uthappam with onion and chilli</strong><span class="sub">Thicker pancake; more vegetables on top</span></td><td class="n num hi">&minus;320</td><td class="n num">-8&#8202;g</td><td class="n num">-150</td><td class="n num dimtd">-0.03</td></tr></tbody></table></div>
-  <p class="caption" style="margin-top:12px">Restaurants whose figures were corrected in this edition are left out of this table: their alternative orders were scored against numbers that no longer stand, and 32 alternatives are excluded on that basis.</p>
+  <div class="tablewrap"><table class=""><thead><tr><th>Restaurant</th><th>Change one thing</th><th class="n">Sodium saved</th><th class="n">Protein</th><th class="n">Calories</th><th class="n">Score</th></tr></thead><tbody><tr><td><span class="rest">Namu</span><span class="sub">instead of bibimbap with banchan ordered separately</span></td><td><strong>Ban chan plates only</strong><span class="sub">Kimchi and namul; vegetarian, very light</span></td><td class="n num hi">&minus;600</td><td class="n num">-26&#8202;g</td><td class="n num">-420</td><td class="n num hi">+0.81</td></tr><tr><td><span class="rest">Southern Spice</span><span class="sub">instead of sambar idli with chutneys</span></td><td><strong>Idli alone, no sambar</strong><span class="sub">Very low sodium; nutritionally thin</span></td><td class="n num hi">&minus;560</td><td class="n num">-7&#8202;g</td><td class="n num">-170</td><td class="n num dimtd">-0.52</td></tr><tr><td><span class="rest">Abol Ethiopian</span><span class="sub">instead of vegetarian combo with telba shiro</span></td><td><strong>Telba shiro alone</strong><span class="sub">Flaxseed and chickpea; the omega-3 pick</span></td><td class="n num hi">&minus;530</td><td class="n num">-14&#8202;g</td><td class="n num">-300</td><td class="n num dimtd">-0.52</td></tr><tr><td><span class="rest">Goorsha</span><span class="sub">instead of vegan vegetable combo</span></td><td><strong>Kik alicha and tikil gomen only</strong><span class="sub">The two mildest stews; much lighter</span></td><td class="n num hi">&minus;530</td><td class="n num">-14&#8202;g</td><td class="n num">-340</td><td class="n num dimtd">-0.29</td></tr><tr><td><span class="rest">Taste Vietnamese</span><span class="sub">instead of sizzling fish with vermicelli and herbs</span></td><td><strong>Fresh spring rolls</strong><span class="sub">Steamed rice paper, not fried</span></td><td class="n num hi">&minus;520</td><td class="n num">-24&#8202;g</td><td class="n num">-340</td><td class="n num dimtd">-0.69</td></tr><tr><td><span class="rest">Abol Ethiopian</span><span class="sub">instead of vegetarian combo with telba shiro</span></td><td><strong>Shiro wot alone</strong><span class="sub">Ground chickpea stew; high plant protein</span></td><td class="n num hi">&minus;470</td><td class="n num">-12&#8202;g</td><td class="n num">-340</td><td class="n num dimtd">-0.94</td></tr><tr><td><span class="rest">Bonjour Banh Mi</span><span class="sub">instead of grilled chicken vermicelli plate</span></td><td><strong>Grilled pork rolls</strong><span class="sub">Steamed rice paper, not fried</span></td><td class="n num hi">&minus;470</td><td class="n num">-13&#8202;g</td><td class="n num">-280</td><td class="n num hi">+0.36</td></tr><tr><td><span class="rest">Udupi Cafe</span><span class="sub">instead of royal south indian thali</span></td><td><strong>Plain dosai with sambar</strong><span class="sub">Less starch, less protein</span></td><td class="n num hi">&minus;450</td><td class="n num">-10&#8202;g</td><td class="n num">-230</td><td class="n num dimtd">-0.02</td></tr><tr><td><span class="rest">Chipotle</span><span class="sub">instead of chicken salad with pinto beans and guacamole</span></td><td><strong>Same salad without guacamole</strong><span class="sub">240 cal and 385 mg lighter; blander still</span></td><td class="n num hi">&minus;385</td><td class="n num">-3&#8202;g</td><td class="n num">-240</td><td class="n num hi">+0.49</td></tr><tr><td><span class="rest">Thai 54</span><span class="sub">instead of nam tok beef with spicy papaya salad</span></td><td><strong>Lao papaya salad on its own</strong><span class="sub">Contains pla ra — genuine fermented fish, served cold</span></td><td class="n num hi">&minus;350</td><td class="n num">-36&#8202;g</td><td class="n num">-290</td><td class="n num dimtd">-1.25</td></tr><tr><td><span class="rest">Abol Ethiopian</span><span class="sub">instead of vegetarian combo with telba shiro</span></td><td><strong>Veggie Combo alone</strong><span class="sub">Four stews and salad; no flaxseed</span></td><td class="n num hi">&minus;350</td><td class="n num">-10&#8202;g</td><td class="n num">-240</td><td class="n num dimtd">-0.30</td></tr><tr><td><span class="rest">Udupi Cafe</span><span class="sub">instead of royal south indian thali</span></td><td><strong>Uthappam with onion and chilli</strong><span class="sub">Thicker pancake; more vegetables on top</span></td><td class="n num hi">&minus;320</td><td class="n num">-8&#8202;g</td><td class="n num">-150</td><td class="n num dimtd">-0.03</td></tr></tbody></table></div>
+  <p class="caption" style="margin-top:12px">Restaurants whose figures were corrected in this edition are left out of this table: their alternative orders were scored against numbers that no longer stand, and 36 alternatives are excluded on that basis.</p>
 
   <div class="callout">
     <h4>The counterintuitive part</h4>
-    <p style="margin-top:6px">Only 3 of the 13 swaps above <em>raise</em> the dish's score while cutting sodium. Look at what the rest give up: Namu's banchan plates save 600&#8202;mg and lose 26&#8202;g of protein. Southern Spice's idli-without-sambar saves 560&#8202;mg and drops the score by half a point. The reliable way to cut sodium at a restaurant is to eat less of the meal, which is a real option and a poor one. The exceptions &mdash; the ones where you cut salt without cutting food &mdash; are almost all sauce refusals, and they are listed above under &ldquo;where the salt actually is.&rdquo;</p>
+    <p style="margin-top:6px">Only 3 of the 12 swaps above <em>raise</em> the dish's score while cutting sodium. Look at what the rest give up: Namu's banchan plates save 600&#8202;mg and lose 26&#8202;g of protein. Southern Spice's idli-without-sambar saves 560&#8202;mg and drops the score by half a point. The reliable way to cut sodium at a restaurant is to eat less of the meal, which is a real option and a poor one. The exceptions &mdash; the ones where you cut salt without cutting food &mdash; are almost all sauce refusals, and they are listed above under &ldquo;where the salt actually is.&rdquo;</p>
   </div>
 </section>
 <section id="flavor">
@@ -541,8 +553,8 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
   <h2>What flavor actually costs</h2>
   <div class="measure stack" style="margin-top:16px">
     <p>The first edition argued that cuisines built on char, acid and aromatics keep their flavor when you strip out salt and fat, while cuisines built on sauce, cheese and frying do not. The first half of that is right and the second half is aimed at the wrong nutrient.</p>
-    <p>Take the 22 dishes scoring 7.5 or better on flavor and the 14 scoring 5.5 or worse. The flavorful group carries <strong class="num">+581&#8202;mg</strong> more sodium, at <span class="num">t&nbsp;=&nbsp;4.4</span> &mdash; a separation nothing about this sample can explain away. It also carries <strong class="num">+1.7&#8202;g</strong> more saturated fat, at <span class="num">t&nbsp;=&nbsp;2.0</span>, which is on the edge of meaning nothing at all.</p>
-    <p>So flavor in this set is bought mainly with salt, not with fat, and the first edition was policing the wrong nutrient. That is also why there is no health-flavor tradeoff between individual dishes &mdash; the correlation is <span class="num">−.05</span>, nil. The tradeoff is not a property of a dish. It is a property of a kitchen's whole seasoning strategy, and it shows up only when you group by cuisine.</p>
+    <p>Take the 22 dishes scoring 7.5 or better on flavor and the 14 scoring 5.5 or worse. The flavorful group carries <strong class="num">+667&#8202;mg</strong> more sodium, at <span class="num">t&nbsp;=&nbsp;3.8</span> &mdash; a separation nothing about this sample can explain away. It also carries <strong class="num">+1.7&#8202;g</strong> more saturated fat, at <span class="num">t&nbsp;=&nbsp;2.0</span>, which is on the edge of meaning nothing at all.</p>
+    <p>So flavor in this set is bought mainly with salt, not with fat, and the first edition was policing the wrong nutrient. That is also why there is no health-flavor tradeoff between individual dishes &mdash; the correlation is <span class="num">−0.05</span>, nil. The tradeoff is not a property of a dish. It is a property of a kitchen's whole seasoning strategy, and it shows up only when you group by cuisine.</p>
   </div>
   <figure>
     <svg viewBox="0 0 760 460" class="chart" role="img" aria-label="Mean flavor against mean health for each cuisine; the trend runs downward">
@@ -560,11 +572,11 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
 <text x="466.8" y="434" class="tick tick-x">7.0</text>
 <text x="604.4" y="434" class="tick tick-x">8.0</text>
 <text x="742.0" y="434" class="tick tick-x">9.0</text>
-<line x1="54.0" y1="149.0" x2="742.0" y2="249.4" class="fit fit-down"/>
+<line x1="54.0" y1="148.7" x2="742.0" y2="249.8" class="fit fit-down"/>
 <circle cx="659.4" cy="196.2" r="7.3" class="bub"><title>North Indian — n=2, flavor 8.4, health 6.0, mean sodium 1550 mg</title></circle>
 <text x="669.4" y="216.2" class="bub-label" text-anchor="middle">North Indian</text>
-<circle cx="650.3" cy="192.6" r="8.4" class="bub"><title>Korean — n=3, flavor 8.3, health 6.0, mean sodium 1800 mg</title></circle>
-<text x="636.3" y="177.6" class="bub-label" text-anchor="middle">Korean</text>
+<circle cx="650.3" cy="194.0" r="8.4" class="bub"><title>Korean — n=3, flavor 8.3, health 6.0, mean sodium 2433 mg</title></circle>
+<text x="636.3" y="179.0" class="bub-label" text-anchor="middle">Korean</text>
 <circle cx="631.9" cy="261.6" r="9.6" class="bub"><title>Vietnamese — n=4, flavor 8.2, health 5.4, mean sodium 1438 mg</title></circle>
 <text x="631.9" y="278.6" class="bub-label" text-anchor="middle">Vietnamese</text>
 <circle cx="563.1" cy="201.7" r="7.3" class="bub"><title>Sichuan — n=2, flavor 7.7, health 6.0, mean sodium 1850 mg</title></circle>
@@ -590,10 +602,10 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
 <text x="14" y="16" class="axis-title">HEALTH</text>
 <text x="742" y="454" class="axis-title" text-anchor="end">FLAVOR</text>
 </svg>
-    <figcaption>Each bubble is a cuisine with at least two dishes in the set, sized by how many. The kitchens that lead on flavor tend to trail on health and the reverse; across the 13 groups the relationship is <span class="num">−.29</span>, which is a pattern worth seeing rather than a result worth betting on. What is solid is the mechanism in the sodium column below: every cuisine above 7.0 on flavor sits at or above 1,096&#8202;mg.</figcaption>
+    <figcaption>Each bubble is a cuisine with at least two dishes in the set, sized by how many. The kitchens that lead on flavor tend to trail on health and the reverse; across the 13 groups the relationship is <span class="num">−0.29</span>, which is a pattern worth seeing rather than a result worth betting on. What is solid is the mechanism in the sodium column below: every cuisine above 7.0 on flavor sits at or above 1,096&#8202;mg.</figcaption>
   </figure>
   <div class="tablewrap" style="margin-top:26px">
-    <div class="tablewrap"><table class=""><thead><tr><th>Cuisine</th><th class="n">Flavor</th><th class="n">Health</th><th class="n">Sodium mg</th><th class="n">Sat fat g</th><th class="n">Mean price</th></tr></thead><tbody><tr><td><span class="rest">North Indian</span><span class="sub">2 dishes</span></td><td class="n score" style="color:var(--flavor)">8.4</td><td class="n score hi">6.0</td><td class="n num">1,550</td><td class="n num">7.5</td><td class="n money">$24.50</td></tr><tr><td><span class="rest">Korean</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">8.3</td><td class="n score hi">6.0</td><td class="n num">1,800</td><td class="n num">4.5</td><td class="n money">$23.19</td></tr><tr><td><span class="rest">Vietnamese</span><span class="sub">4 dishes</span></td><td class="n score" style="color:var(--flavor)">8.2</td><td class="n score hi">5.4</td><td class="n num">1,438</td><td class="n num">5.0</td><td class="n money">$18.67</td></tr><tr><td><span class="rest">Sichuan</span><span class="sub">2 dishes</span></td><td class="n score" style="color:var(--flavor)">7.7</td><td class="n score hi">6.0</td><td class="n num">1,850</td><td class="n num">5.5</td><td class="n money">$28.98</td></tr><tr><td><span class="rest">Levantine</span><span class="sub">5 dishes</span></td><td class="n score" style="color:var(--flavor)">7.3</td><td class="n score hi">5.9</td><td class="n num">1,240</td><td class="n num">7.2</td><td class="n money">$15.47</td></tr><tr><td><span class="rest">South Indian</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">7.0</td><td class="n score hi">5.5</td><td class="n num">1,210</td><td class="n num">3.2</td><td class="n money">$18.66</td></tr><tr><td><span class="rest">Ethiopian</span><span class="sub">2 dishes</span></td><td class="n score" style="color:var(--flavor)">6.9</td><td class="n score hi">6.2</td><td class="n num">1,200</td><td class="n num">3.2</td><td class="n money">$20.49</td></tr><tr><td><span class="rest">Caribbean</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">6.9</td><td class="n score hi">4.5</td><td class="n num">1,467</td><td class="n num">11.0</td><td class="n money">$20.43</td></tr><tr><td><span class="rest">Mexican</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">6.5</td><td class="n score hi">4.7</td><td class="n num">1,367</td><td class="n num">10.7</td><td class="n money">$18.99</td></tr><tr><td><span class="rest">Peruvian</span><span class="sub">2 dishes</span></td><td class="n score" style="color:var(--flavor)">6.4</td><td class="n score hi">6.8</td><td class="n num">1,125</td><td class="n num">3.5</td><td class="n money">$24.86</td></tr><tr><td><span class="rest">Japanese</span><span class="sub">4 dishes</span></td><td class="n score" style="color:var(--flavor)">6.2</td><td class="n score hi">7.0</td><td class="n num">880</td><td class="n num">3.9</td><td class="n money">$25.15</td></tr><tr><td><span class="rest">US bowl chain</span><span class="sub">15 dishes</span></td><td class="n score" style="color:var(--flavor)">5.5</td><td class="n score hi">6.1</td><td class="n num">897</td><td class="n num">5.7</td><td class="n money">$15.21</td></tr><tr><td><span class="rest">Hawaiian/poke</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">4.5</td><td class="n score hi">6.5</td><td class="n num">896</td><td class="n num">2.9</td><td class="n money">$16.30</td></tr></tbody></table></div>
+    <div class="tablewrap"><table class=""><thead><tr><th>Cuisine</th><th class="n">Flavor</th><th class="n">Health</th><th class="n">Sodium mg</th><th class="n">Sat fat g</th><th class="n">Mean price</th></tr></thead><tbody><tr><td><span class="rest">North Indian</span><span class="sub">2 dishes</span></td><td class="n score" style="color:var(--flavor)">8.4</td><td class="n score hi">6.0</td><td class="n num">1,550</td><td class="n num">7.5</td><td class="n money">$24.50</td></tr><tr><td><span class="rest">Korean</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">8.3</td><td class="n score hi">6.0</td><td class="n num">2,433</td><td class="n num">4.5</td><td class="n money">$23.19</td></tr><tr><td><span class="rest">Vietnamese</span><span class="sub">4 dishes</span></td><td class="n score" style="color:var(--flavor)">8.2</td><td class="n score hi">5.4</td><td class="n num">1,438</td><td class="n num">5.0</td><td class="n money">$18.67</td></tr><tr><td><span class="rest">Sichuan</span><span class="sub">2 dishes</span></td><td class="n score" style="color:var(--flavor)">7.7</td><td class="n score hi">6.0</td><td class="n num">1,850</td><td class="n num">5.5</td><td class="n money">$28.98</td></tr><tr><td><span class="rest">Levantine</span><span class="sub">5 dishes</span></td><td class="n score" style="color:var(--flavor)">7.3</td><td class="n score hi">5.9</td><td class="n num">1,240</td><td class="n num">7.2</td><td class="n money">$15.47</td></tr><tr><td><span class="rest">South Indian</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">7.0</td><td class="n score hi">5.5</td><td class="n num">1,210</td><td class="n num">3.2</td><td class="n money">$18.66</td></tr><tr><td><span class="rest">Ethiopian</span><span class="sub">2 dishes</span></td><td class="n score" style="color:var(--flavor)">6.9</td><td class="n score hi">6.2</td><td class="n num">1,200</td><td class="n num">3.2</td><td class="n money">$20.49</td></tr><tr><td><span class="rest">Caribbean</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">6.9</td><td class="n score hi">4.5</td><td class="n num">1,467</td><td class="n num">11.0</td><td class="n money">$20.43</td></tr><tr><td><span class="rest">Mexican</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">6.5</td><td class="n score hi">4.7</td><td class="n num">1,367</td><td class="n num">10.7</td><td class="n money">$18.99</td></tr><tr><td><span class="rest">Peruvian</span><span class="sub">2 dishes</span></td><td class="n score" style="color:var(--flavor)">6.4</td><td class="n score hi">6.8</td><td class="n num">1,125</td><td class="n num">3.5</td><td class="n money">$24.86</td></tr><tr><td><span class="rest">Japanese</span><span class="sub">4 dishes</span></td><td class="n score" style="color:var(--flavor)">6.2</td><td class="n score hi">7.0</td><td class="n num">880</td><td class="n num">3.9</td><td class="n money">$25.15</td></tr><tr><td><span class="rest">US bowl chain</span><span class="sub">15 dishes</span></td><td class="n score" style="color:var(--flavor)">5.5</td><td class="n score hi">6.1</td><td class="n num">897</td><td class="n num">5.7</td><td class="n money">$15.21</td></tr><tr><td><span class="rest">Hawaiian/poke</span><span class="sub">3 dishes</span></td><td class="n score" style="color:var(--flavor)">4.5</td><td class="n score hi">6.5</td><td class="n num">896</td><td class="n num">2.9</td><td class="n money">$16.30</td></tr></tbody></table></div>
   </div>
   <h3 style="margin-top:44px">The dishes that break the pattern</h3>
   <p class="small measure" style="margin-top:8px">Flavor of 7.5 or better, health of 6.0 or better, on under 1,100&#8202;mg of sodium. There are only 3 in 60, and they are the most useful entries in this document: food you would order because you wanted it, that also happens to score.</p>
@@ -604,7 +616,7 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
   <span class="eyebrow">Chapter four</span>
   <h2>Orders that beat the order</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>The first edition scored 116 alternative orders alongside its recommendations. 84 of them are still comparable after this edition's corrections, and in 6 of those the alternative outscores the dish it sits under. The reason is nearly always the same: the alternative is smaller. 5 of the 6 cut calories and 5 cut sodium, giving up protein the model barely misses.</p>
+    <p>The first edition scored 116 alternative orders alongside its recommendations. 80 of them are still comparable after this edition's corrections, and in 6 of those the alternative outscores the dish it sits under. The reason is nearly always the same: the alternative is smaller. 5 of the 6 cut calories and 5 cut sodium, giving up protein the model barely misses.</p>
     <p>That is worth knowing on its own. It is also the clearest evidence in this document that the model rewards restraint more than it rewards any particular ingredient.</p>
   </div>
   <div class="tablewrap"><table class=""><thead><tr><th>Restaurant</th><th>Order this instead</th><th class="n">Listed</th><th class="n">Alt</th><th class="n">Δcal</th><th class="n">Δpro</th><th class="n">ΔNa</th></tr></thead><tbody><tr><td><span class="rest">Namu</span><span class="sub">instead of bibimbap with banchan ordered separately</span></td><td><strong>Ban chan plates only</strong><span class="sub">Kimchi and namul; vegetarian, very light</span></td><td class="n score">5.58</td><td class="n score hi">6.39</td><td class="n num">-420</td><td class="n num">-26</td><td class="n num">-600</td></tr><tr><td><span class="rest">Chipotle</span><span class="sub">instead of chicken salad with pinto beans and guacamole</span></td><td><strong>Same salad without guacamole</strong><span class="sub">240 cal and 385 mg lighter; blander still</span></td><td class="n score">6.13</td><td class="n score hi">6.62</td><td class="n num">-240</td><td class="n num">-3</td><td class="n num">-385</td></tr><tr><td><span class="rest">Bonjour Banh Mi</span><span class="sub">instead of grilled chicken vermicelli plate</span></td><td><strong>Grilled pork rolls</strong><span class="sub">Steamed rice paper, not fried</span></td><td class="n score">5.29</td><td class="n score hi">5.65</td><td class="n num">-280</td><td class="n num">-13</td><td class="n num">-470</td></tr><tr><td><span class="rest">Thai 54</span><span class="sub">instead of nam tok beef with spicy papaya salad</span></td><td><strong>Larb chicken</strong><span class="sub">Poached, no oil at all; catering menu only</span></td><td class="n score">7.02</td><td class="n score hi">7.25</td><td class="n num">-90</td><td class="n num">-4</td><td class="n num">-200</td></tr><tr><td><span class="rest">Bulkogi</span><span class="sub">instead of create your own bowl with a kimchi side</span></td><td><strong>Tofu bulgogi, spring mix base</strong><span class="sub">Plant protein</span></td><td class="n score">6.28</td><td class="n score hi">6.33</td><td class="n num">-120</td><td class="n num">-11</td><td class="n num">-200</td></tr><tr><td><span class="rest">Bosphorus</span><span class="sub">instead of chicken shish kebab with cacık</span></td><td><strong>Add ezme or shepherd salad</strong><span class="sub">Raw chopped salad; more plant species</span></td><td class="n score">6.82</td><td class="n score hi">6.83</td><td class="n num">+80</td><td class="n num">+1</td><td class="n num">+180</td></tr></tbody></table></div>
@@ -637,6 +649,25 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
       <td class="n money">$15.89<span class="sub">Bul Box</span></td>
       <td class="n money">$17.00<span class="sub">Poke Bros.</span></td>
       <td class="n"><span class="">Poke Bros.</span><span class="sub">7.86 &middot; $17.00</span></td></tr></tbody></table></div>
+</section>
+<section id="gap">
+  <hr class="rule-heavy">
+  <span class="eyebrow">The sample</span>
+  <h2>What a ranking leaves out</h2>
+  <div class="measure stack" style="margin-top:16px">
+    <p>A ranking is only as good as the set it ranks, and this one was assembled from a narrow slice of what actually delivers here. 18 of the 60 entries &mdash; <strong>30%</strong> &mdash; are build-your-own bowls or poke, and 4 of the top ten are. That is not a finding about food. It is a finding about how the list was built: assembled-to-order formats are easy to score because you control every component, so they get picked, and they then win on criteria the format is designed to satisfy.</p>
+    <p>The omissions are more telling than the concentrations. This is a document written about food in North Carolina that contains no barbecue.</p>
+  </div>
+  <div class="pair">
+    <div>
+      <h4>The ten largest groups</h4>
+      <div class="tablewrap"><table class=""><thead><tr><th>Cuisine</th><th class="n">Dishes</th><th class="n">Share</th><th class="n">Mean score</th></tr></thead><tbody><tr><td><span class="rest">US bowl chain</span></td><td class="n num">15</td><td class="n num">25.0%</td><td class="n score">6.17</td></tr><tr><td><span class="rest">Levantine</span></td><td class="n num">5</td><td class="n num">8.3%</td><td class="n score">6.15</td></tr><tr><td><span class="rest">Japanese</span></td><td class="n num">4</td><td class="n num">6.7%</td><td class="n score">6.71</td></tr><tr><td><span class="rest">Vietnamese</span></td><td class="n num">4</td><td class="n num">6.7%</td><td class="n score">5.65</td></tr><tr><td><span class="rest">Hawaiian/poke</span></td><td class="n num">3</td><td class="n num">5.0%</td><td class="n score">6.45</td></tr><tr><td><span class="rest">Korean</span></td><td class="n num">3</td><td class="n num">5.0%</td><td class="n score">6.07</td></tr><tr><td><span class="rest">South Indian</span></td><td class="n num">3</td><td class="n num">5.0%</td><td class="n score">5.51</td></tr><tr><td><span class="rest">Mexican</span></td><td class="n num">3</td><td class="n num">5.0%</td><td class="n score">5.00</td></tr><tr><td><span class="rest">Caribbean</span></td><td class="n num">3</td><td class="n num">5.0%</td><td class="n score">4.74</td></tr><tr><td><span class="rest">Peruvian</span></td><td class="n num">2</td><td class="n num">3.3%</td><td class="n score">6.63</td></tr></tbody></table></div>
+    </div>
+    <div>
+      <h4>Absent entirely from the first edition</h4>
+      <ul class="absent"><li>North Carolina barbecue</li><li>Southern and soul food</li><li>Greek</li><li>Persian</li><li>Chinese-American takeout</li><li>West African</li><li>Brazilian</li><li>Filipino</li><li>Colombian, Cuban or Puerto Rican</li><li>Burmese</li><li>Malaysian or Indonesian</li><li>Taiwanese</li><li>Halal cart</li><li>Chaat and Indian street food</li><li>Pakistani or Bangladeshi</li><li>Seafood and raw bar</li><li>Pizza</li><li>Burgers and sandwiches</li><li>Wings</li><li>A dedicated vegan kitchen</li></ul>
+    </div>
+  </div>
 </section>
 
 <section id="criteria">
@@ -714,10 +745,10 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
     <p>7 of the 60 entries are built from a chain's own published nutrition documents &mdash; 2 more than the first edition claimed, because Chopt and Sweetgreen both publish nutrition the first edition did not consult. 2 are partial. The other 51 are reasoned from how the dish is put together, and that reasoning leaves fingerprints: 46 of them land on a round multiple of 50&#8202;mg of sodium and 44 on a multiple of 20 calories. Real nutrition panels do not do that. The published entries here read 380, 400, 415, 542, 575, 775 and 880 calories.</p>
     <p>The gap between the tiers is not small, and it is the most important caveat in this document:</p>
   </div>
-  <div class="tablewrap"><table class=""><thead><tr><th>Confidence tier</th><th class="n">Entries</th><th class="n">Mean health</th><th class="n">Mean sodium mg</th><th class="n">Mean flavor</th><th class="n">Mean price</th></tr></thead><tbody><tr><td><span class="rest">Published</span></td><td class="n num">7</td><td class="n score">6.73</td><td class="n num">749</td><td class="n score">5.56</td><td class="n money">$16.58</td></tr><tr><td><span class="rest">Partial</span></td><td class="n num">2</td><td class="n score">5.61</td><td class="n num">1,048</td><td class="n score">5.15</td><td class="n money">$13.42</td></tr><tr><td><span class="rest">Estimated</span></td><td class="n num">51</td><td class="n score">5.84</td><td class="n num">1,241</td><td class="n score">6.91</td><td class="n money">$19.38</td></tr></tbody></table></div>
+  <div class="tablewrap"><table class=""><thead><tr><th>Confidence tier</th><th class="n">Entries</th><th class="n">Mean health</th><th class="n">Mean sodium mg</th><th class="n">Mean flavor</th><th class="n">Mean price</th></tr></thead><tbody><tr><td><span class="rest">Published</span></td><td class="n num">7</td><td class="n score">6.73</td><td class="n num">749</td><td class="n score">5.56</td><td class="n money">$16.58</td></tr><tr><td><span class="rest">Partial</span></td><td class="n num">2</td><td class="n score">5.61</td><td class="n num">1,048</td><td class="n score">5.15</td><td class="n money">$13.42</td></tr><tr><td><span class="rest">Estimated</span></td><td class="n num">51</td><td class="n score">5.84</td><td class="n num">1,278</td><td class="n score">6.91</td><td class="n money">$19.38</td></tr></tbody></table></div>
   <div class="callout warn">
     <h4>Read that table as a warning, not a result</h4>
-    <p style="margin-top:6px">Entries built from published data score 0.89 points higher on health and carry 492&#8202;mg less sodium than estimated ones. Some of that is real &mdash; the chains that publish nutrition are exactly the build-your-own bowl chains whose format permits a low-sodium build. But some of it is estimation, and an estimator who does not know a number reaches for a plausible restaurant figure, which for sodium is high. <strong>The safest reading is that the published entries are accurate and the estimated ones are directionally right and individually soft.</strong> Where a dish's rank matters to you, the entry tells you which kind it is.</p>
+    <p style="margin-top:6px">Entries built from published data score 0.89 points higher on health and carry 529&#8202;mg less sodium than estimated ones. Some of that is real &mdash; the chains that publish nutrition are exactly the build-your-own bowl chains whose format permits a low-sodium build. But some of it is estimation, and an estimator who does not know a number reaches for a plausible restaurant figure, which for sodium is high. <strong>The safest reading is that the published entries are accurate and the estimated ones are directionally right and individually soft.</strong> Where a dish's rank matters to you, the entry tells you which kind it is.</p>
   </div>
 </section>
 <section id="audit">
@@ -725,24 +756,12 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
   <span class="eyebrow">Against interest</span>
   <h2>Where this model misfires</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>Four places where the scoring produces a result its own author would struggle to defend. They are printed here because a ranking that never argues with itself is not worth reading.</p>
+    <p>Every criterion in this document was checked against current dietary guidance and the primary literature. Five produce results their own author would struggle to defend. They are printed here because a ranking that never argues with itself is not worth reading, and because a reader who knows where a model is weak can still use it.</p>
   </div>
-
-  <div class="pair">
-    <div class="stack-tight">
-      <h4>1 &mdash; The gut criterion ignores fiber</h4>
-      <p class="small">It weights live ferments at 60% and a plant-type count at 40%, and gives fiber nothing. Across the set, fiber and the gut score correlate at only <span class="num">+0.31</span>. The result is that the highest-fiber dish in the compendium scores mid-table on gut health while a bowl of curd rice scores a perfect ten.</p>
-      <div class="tablewrap"><table class=""><thead><tr><th>Highest fiber in the set</th><th class="n">Fiber</th><th class="n">Gut</th></tr></thead><tbody><tr><td><span class="rest">CAVA</span><span class="sub">SuperGreens and lentil bowl with grilled steak</span></td><td class="n num">27&#8202;g</td><td class="n score">6.8</td></tr><tr><td><span class="rest">Abol Ethiopian</span><span class="sub">Vegetarian combo with telba shiro</span></td><td class="n num">22&#8202;g</td><td class="n score">7.9</td></tr><tr><td><span class="rest">Goorsha</span><span class="sub">Vegan vegetable combo</span></td><td class="n num">20&#8202;g</td><td class="n score">7.9</td></tr><tr><td><span class="rest">Chipotle</span><span class="sub">Chicken salad with pinto beans and guacamole</span></td><td class="n num">17&#8202;g</td><td class="n score">1.7</td></tr><tr><td><span class="rest">DICED</span><span class="sub">Lentil-base bowl with grilled chicken</span></td><td class="n num">14&#8202;g</td><td class="n score">3.4</td></tr></tbody></table></div>
-      <div class="tablewrap"><table class=""><thead><tr><th>Highest gut score in the set</th><th class="n">Fiber</th><th class="n">Gut</th></tr></thead><tbody><tr><td><span class="rest">Naga's South Indian</span><span class="sub">Curd rice with idli and sambar</span></td><td class="n num">10&#8202;g</td><td class="n score">10.0</td></tr><tr><td><span class="rest">Namu</span><span class="sub">Bibimbap with banchan ordered separately</span></td><td class="n num">9&#8202;g</td><td class="n score">10.0</td></tr><tr><td><span class="rest">Udupi Cafe</span><span class="sub">Royal South Indian thali</span></td><td class="n num">14&#8202;g</td><td class="n score">10.0</td></tr><tr><td><span class="rest">Chosun Ok</span><span class="sub">Seafood soondubu with a kimchi side</span></td><td class="n num">7&#8202;g</td><td class="n score">9.4</td></tr><tr><td><span class="rest">Bulkogi</span><span class="sub">Create Your Own bowl with a kimchi side</span></td><td class="n num">8&#8202;g</td><td class="n score">9.4</td></tr></tbody></table></div>
-    </div>
-    <div class="stack-tight">
-      <h4>2 &mdash; The kidney criterion has a floor it hits early</h4>
-      <p class="small">It runs linearly from 350&#8202;mg to 2,000&#8202;mg and then stops. 1 dish in the set is at or past 2,000&#8202;mg, so the model cannot distinguish a 2,100&#8202;mg stew from a 3,000&#8202;mg one. Both are simply zero.</p>
-      <h4 style="margin-top:22px">3 &mdash; Sugar is scored as total, not added</h4>
-      <p class="small">A dish is penalised identically for 12&#8202;g of sugar from a bowl of fruit and 12&#8202;g from a honey vinaigrette. First Watch's Tri-Fecta, which is eggs, avocado, seasonal fruit and whole-grain toast, takes a sugar score of 5.3 almost entirely on the fruit.</p>
-      <h4 style="margin-top:22px">4 &mdash; Cost ignores how much food you get</h4>
-      <p class="small">The cost criterion rewards a low price and good protein value, and knows nothing about portion size. A 320-calorie dish and a 780-calorie dish at the same price and protein score identically, though only one of them is dinner.</p>
-    </div>
+  <div class="faults"><div class="fault"><h3>The gut criterion gives fiber no weight at all</h3><p class="small">It scores live ferments at 60% and a count of plant types at 40%. Fiber contributes nothing, and across the set fiber and the gut score correlate at only <span class="num">+0.31</span>. There is a narrow defence &mdash; a 17-week trial found a fermented-food diet raised microbiome diversity where a high-fiber diet did not &mdash; but that defence is about alpha diversity, not about gut health as a reader would understand the phrase, and the criterion is labelled for the reader. As built it is a live-culture detector wearing a gut-health label.</p><p class="cite">Wastyk et al., <em>Cell</em>, August 2021.</p><div class="tablewrap"><table class=""><thead><tr><th>Highest fiber in the set</th><th class="n">Fiber</th><th class="n">Gut</th></tr></thead><tbody><tr><td><span class="rest">CAVA</span><span class="sub">SuperGreens and lentil bowl with grilled steak</span></td><td class="n num">27&#8202;g</td><td class="n score">6.8</td></tr><tr><td><span class="rest">Abol Ethiopian</span><span class="sub">Vegetarian combo with telba shiro</span></td><td class="n num">22&#8202;g</td><td class="n score">7.9</td></tr><tr><td><span class="rest">Goorsha</span><span class="sub">Vegan vegetable combo</span></td><td class="n num">20&#8202;g</td><td class="n score">7.9</td></tr><tr><td><span class="rest">Chipotle</span><span class="sub">Chicken salad with pinto beans and guacamole</span></td><td class="n num">17&#8202;g</td><td class="n score">1.7</td></tr><tr><td><span class="rest">DICED</span><span class="sub">Lentil-base bowl with grilled chicken</span></td><td class="n num">14&#8202;g</td><td class="n score">3.4</td></tr></tbody></table></div><div class="tablewrap"><table class=""><thead><tr><th>Highest gut score in the set</th><th class="n">Fiber</th><th class="n">Gut</th></tr></thead><tbody><tr><td><span class="rest">Naga's South Indian</span><span class="sub">Curd rice with idli and sambar</span></td><td class="n num">10&#8202;g</td><td class="n score">10.0</td></tr><tr><td><span class="rest">Namu</span><span class="sub">Bibimbap with banchan ordered separately</span></td><td class="n num">9&#8202;g</td><td class="n score">10.0</td></tr><tr><td><span class="rest">Udupi Cafe</span><span class="sub">Royal South Indian thali</span></td><td class="n num">14&#8202;g</td><td class="n score">10.0</td></tr><tr><td><span class="rest">Chosun Ok</span><span class="sub">Seafood soondubu with a kimchi side</span></td><td class="n num">7&#8202;g</td><td class="n score">9.4</td></tr><tr><td><span class="rest">Bulkogi</span><span class="sub">Create Your Own bowl with a kimchi side</span></td><td class="n num">8&#8202;g</td><td class="n score">9.4</td></tr></tbody></table></div></div><div class="fault"><h3>The kidney criterion stops measuring at 2,000&#8202;mg</h3><p class="small">It runs linearly from 350&#8202;mg to 2,000 and then floors, so every dish past that point scores zero and none can be told apart. That sounds academic until you meet Chosun Ok. This edition corrected its sodium from 2,100&#8202;mg to about <strong class="num">4,000&#8202;mg</strong>, once the 1&#8202;lb kimchi side was counted at USDA’s figure of 498&#8202;mg per 100&#8202;g &mdash; roughly 2,300&#8202;mg from the kimchi alone, before the stew. Its overall score moved by <strong class="num">0.02</strong>. A dish carrying nearly twice a full day’s recommended sodium is scored as merely equal to the worst thing the criterion can express.</p><p class="cite">USDA FoodData Central, FNDDS 2021&ndash;2023, food code 75502520.</p></div><div class="fault"><h3>Sugar is scored as total, not added</h3><p class="small">Current dietary guidance targets added and free sugars and explicitly exempts the sugars in fruit and plain milk. This criterion does not distinguish them, so a bowl of fruit and a honey vinaigrette are penalised identically. First Watch’s Tri-Fecta &mdash; eggs, avocado, seasonal fruit and whole-grain toast &mdash; takes a sugar score of <span class="num">5.3</span> mostly on the fruit, where the same 12&#8202;g from a glaze would cost exactly as much.</p><p class="cite">Dietary Guidelines for Americans 2025&ndash;2030.</p></div><div class="fault"><h3>The omega-3 ladder treats flaxseed as if it were fish</h3><p class="small">The inflammation criterion scores omega-3 on a single ladder that does not distinguish plant ALA from marine EPA and DHA. It should. A review of 13 randomised trials found high-dose flaxseed and echium oil produced no increase in the omega-3 index at all, against reliable increases from fish oil; conversion of ALA to EPA runs at a few percent and to DHA below one. Every entry here scored for flaxseed is scored generously.</p><p class="cite">Lane et al., <em>Critical Reviews in Food Science and Nutrition</em>, 2022.</p></div><div class="fault"><h3>Cost knows nothing about how much food you get</h3><p class="small">It rewards a low price and good protein value and ignores portion size entirely. A 320-calorie dish and a 780-calorie dish at the same price and protein score identically, though only one of them is dinner. On a list whose portions range more than twofold, this is the criterion most likely to mislead.</p></div></div>
+  <div class="callout">
+    <h4>And what held up</h4>
+    <p style="margin-top:6px">Two of the model’s more contestable calls survived the check. Weighting the liver criterion on <strong>saturated fat</strong> rather than sugar is right: in a head-to-head overfeeding trial, saturated fat raised liver fat substantially more than unsaturated fat or simple sugars did &mdash; though the same guidance also names excess fructose, so a small added-sugar term belongs in that criterion and is not there. And the rule that <strong>vinegar quick-pickles score zero</strong> is correct: quick-process pickles are brined briefly then covered in vinegar with no fermentation step at all, a real and frequently-missed distinction. Labneh, cacık and raita are confirmed live-culture items, conditional only on the yogurt not having been heat-treated after culturing &mdash; which no menu will tell you.</p>
   </div>
 </section>
 <section id="ranking">
@@ -1246,13 +1265,13 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
       <td class="n num">27</td>
     </tr><tr>
       <td class="pos">23</td>
-      <td><span class="rest">Chosun Ok</span><span class="sub">Seafood soondubu with a kimchi side</span><span class="prov">1st ed. #19 of the first thirty</span></td>
+      <td><span class="rest">Chosun Ok <span class="flag" title="macros corrected against published data">&#9873;</span></span><span class="sub">Seafood soondubu with a kimchi side</span><span class="prov">1st ed. #19 of the first thirty</span></td>
       <td><span class="tier">Estimated</span></td>
-      <td class="n score" style="font-weight:600">6.38</td>
+      <td class="n score" style="font-weight:600">6.36</td>
       <td class="n score">6.4</td>
       <td><svg viewBox="0 0 132 26" class="bars" aria-hidden="true">
 <rect x="0.0" y="22.8" width="11" height="1.2" class="b b-h"/>
-<rect x="13.6" y="3.8" width="11" height="20.2" class="b b-h"/>
+<rect x="13.6" y="4.2" width="11" height="19.8" class="b b-h"/>
 <rect x="27.2" y="6.8" width="11" height="17.2" class="b b-h"/>
 <rect x="40.8" y="3.3" width="11" height="20.7" class="b b-h"/>
 <rect x="54.4" y="17.2" width="11" height="6.8" class="b b-h"/>
@@ -1264,7 +1283,7 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
       <td class="n money">$24.98</td>
       <td class="n num">540</td>
       <td class="n num">40</td>
-      <td class="n num lo">2,100</td>
+      <td class="n num lo">4,000</td>
       <td class="n num">7</td>
     </tr><tr>
       <td class="pos">24</td>
@@ -2089,7 +2108,7 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
   <span class="eyebrow">The verification log</span>
   <h2>What was wrong</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>Every nutrition figure the first edition attributed to a published document was re-read against that document, and the restaurants were spot-checked for whether they exist and are trading. 20 claims came back wrong, 8 of them badly enough to change a score. 4 could not be settled either way and are printed as open rather than quietly dropped.</p>
+    <p>Every nutrition figure the first edition attributed to a published document was re-read against that document, and the restaurants were spot-checked for whether they exist and are trading. 26 claims came back wrong, 9 of them badly enough to change a score. 6 could not be settled either way and are printed as open rather than quietly dropped.</p>
     <p>Two of the corrections move an entry a long way. Sassool was ranked third on figures its own published nutrition sheet does not support. Bul Box was scored on sodium inferred from construction because its nutrition page was returning an error; the page works now, and the real number is more than double.</p>
   </div>
   <div style="margin-top:26px"><div class="corr">
@@ -2148,6 +2167,13 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
       <p class="now">Sassool's published figures were recovered from the search index even though the PDF itself is still Cloudflare-blocked, and they refute the entry. At Sassool's own serving basis the four cold components alone come to 603 calories and 1,068 mg of sodium BEFORE any chicken: labneh 4 oz is 258 cal and 370 mg, lentil salad 6 oz is 144 cal and 355 mg, tabouli 6 oz is 130 cal and 240 mg, kale salad 6 oz is 71 cal and 103 mg. Their published fiber for those four items totals 3 g, not 12 - no portion scaling reaches 12. Labneh is full-fat strained yogurt blended with olive oil and carries most of the plate's saturated fat on its own. The entry is rescored to a mid-portion central estimate of 850 cal / 1,700 mg / 13 g saturated fat / 3 g fiber, which drops it out of the top ten. It stays flagged as disputed because the true figures depend on scoop size, which could not be established: the defensible range runs from roughly 780 to 950 calories and 1,600 to 2,200 mg.</p>
       <p class="corr-effect">Rescored: overall 5.96, now ranked 32 of 60.</p>
       <p class="caption" style="margin-top:6px">Sassool nutrition facts, updated July 2024 (salads at 6 oz, dips at 4 oz), recovered via search-index extraction 28 August 2026; the PDF itself returns HTTP 403 behind Cloudflare.</p>
+    </div><div class="corr">
+      <div class="corr-head"><span class="badge badge-wrong">Corrected</span><span class="corr-who">Chosun Ok</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">Seafood soondubu with a 1 lb kimchi side is 2,100 mg of sodium - 'the highest-sodium dish in the compendium'</h3>
+      <p class="was"><b>First edition</b> 2,100 mg, described as the compendium's sodium ceiling.</p>
+      <p class="now">The kimchi side alone is about 2,260 mg. USDA FoodData Central puts kimchi at 498 mg of sodium per 100 g, so a 1 lb side is roughly 2,300 mg before the stew is counted, and branded jarred kimchi runs higher. The dish is realistically 3,500-4,500 mg; it is carried here at 4,000. Its score does not change, because the kidney criterion already scored it zero at 2,100 - which is itself the point, and is taken up in the audit above.</p>
+      <p class="corr-effect">Rescored: overall 6.36, now ranked 23 of 60.</p>
+      <p class="caption" style="margin-top:6px">USDA FoodData Central, FNDDS 2021-2023, kimchi, food code 75502520, published October 2024.</p>
     </div><div class="corr">
       <div class="corr-head"><span class="badge badge-wrong">Corrected</span><span class="corr-who">Farmside Kitchen</span></div>
       <h3 style="font-size:1.02rem;margin-bottom:7px">'Sodium at Farmside lives in the dressing and the cheese rather than the produce', so building the bowl manually roughly halves it to 620 mg</h3>
@@ -2233,6 +2259,41 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
       
       <p class="caption" style="margin-top:6px">The first edition, pages 4 and 26.</p>
     </div><div class="corr">
+      <div class="corr-head"><span class="badge badge-wrong">Corrected</span><span class="corr-who">Abol Ethiopian</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">Telba shiro's ground flaxseed is 'a genuine plant omega-3 source', scored as omega-3 in the inflammation criterion</h3>
+      <p class="was"><b>First edition</b> Scored as an omega-3 source alongside oily fish.</p>
+      <p class="now">Flaxseed is a real source of ALA and not a functional source of EPA or DHA. A scoping review of 13 randomised trials found high-dose flaxseed and echium oil produced no increase in the omega-3 index, against reliable increases from fish oil; conversion of ALA to EPA runs at a few percent and to DHA below one percent. The model is treating several grams of ALA as interchangeable with about a gram of preformed EPA and DHA, and it should not.</p>
+      
+      <p class="caption" style="margin-top:6px">Lane et al., Critical Reviews in Food Science and Nutrition, 2022 (PMID 33576691).</p>
+    </div><div class="corr">
+      <div class="corr-head"><span class="badge badge-wrong">Corrected</span><span class="corr-who">Bul Box</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">Salmon is 'one of few foods with trial evidence for reducing liver fat'</h3>
+      <p class="was"><b>First edition</b> Given as the reason the salmon build scores well on the liver criterion.</p>
+      <p class="now">No randomised trial of salmon with liver fat as an outcome could be found. The 13 indexed salmon-intervention trials cover vitamin D status, cognition, ulcerative colitis and pollutant kinetics. The defensible version is that oily fish and long-chain omega-3s have trial evidence for improving some liver markers, with the effect on directly measured liver fat inconsistent across meta-analyses.</p>
+      
+      <p class="caption" style="margin-top:6px">PubMed searches on salmon with hepatic steatosis and liver fat outcomes, 28 August 2026.</p>
+    </div><div class="corr">
+      <div class="corr-head"><span class="badge badge-wrong">Corrected</span><span class="corr-who">M Sushi</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">Salmon belly and chutoro 'carry several times the EPA and DHA of lean loin'</h3>
+      <p class="was"><b>First edition</b> Given as the reason to order the oily cuts.</p>
+      <p class="now">Half right, and the right half is understated. Japan's standard food composition tables put fatty bluefin tuna at 4,600 mg of EPA plus DHA per 100 g against akami's roughly 150 - about thirty times, not several. Salmon does not work the same way: belly flap runs 18.5% lipid against 2.4% in the tail, so it is modestly richer in absolute omega-3 but slightly poorer as a proportion of its fatty acids. The advice is right for the tuna and overstated for the salmon.</p>
+      
+      <p class="caption" style="margin-top:6px">MEXT Standard Tables of Food Composition, 8th edition; Katikou, Hughes &amp; Robb, Aquaculture 202 (2001).</p>
+    </div><div class="corr">
+      <div class="corr-head"><span class="badge badge-wrong">Corrected</span><span class="corr-who">Abol Ethiopian</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">Injera's fermentation reduces phytate even though griddling kills the cultures</h3>
+      <p class="was"><b>First edition</b> Stated without qualification.</p>
+      <p class="now">Partly, and strain-dependently. Teff's phytic acid is only partly degraded during fermentation, and of 76 isolates from thirteen household fermentations only 13 were phytase-positive. Directionally right, overstated as written.</p>
+      
+      <p class="caption" style="margin-top:6px">Fischer et al., International Journal of Food Microbiology, 2014 (PMID 25180667).</p>
+    </div><div class="corr">
+      <div class="corr-head"><span class="badge badge-wrong">Corrected</span><span class="corr-who">Kathmandu Kitchen</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">Gundruk, if available, is a true Nepali lacto-ferment that would move the entry up</h3>
+      <p class="was"><b>First edition</b> Suggested as an upside worth asking about.</p>
+      <p class="now">Gundruk is a genuine lacto-ferment - viable counts rise from about 6 x 10^4 to 9.6 x 10^8 CFU per gram over fermentation, driven by Lactobacillus brevis, Pediococcus pentosaceus and finally Lb. plantarum. But it is dried and then cooked before serving, so as it reaches the table it earns fermented-flavour credit rather than live-culture credit. Worth ordering; not worth the gut points the first edition implied.</p>
+      
+      <p class="caption" style="margin-top:6px">Tamang et al., Indian Journal of Microbiology, October 2010 (PMID 22815579).</p>
+    </div><div class="corr">
       <div class="corr-head"><span class="badge badge-open">Unresolved</span><span class="corr-who">DICED</span></div>
       <h3 style="font-size:1.02rem;margin-bottom:7px">The DICED bowl costs $10.95</h3>
       <p class="was"><b>First edition</b> Printed as a DoorDash-listed price.</p>
@@ -2261,6 +2322,20 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
       
       <p class="caption" style="margin-top:6px">CAVA Nutrition and Allergen Guide, retrieved 28 August 2026.</p>
     </div><div class="corr">
+      <div class="corr-head"><span class="badge badge-open">Unresolved</span><span class="corr-who">Naga's South Indian</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">Curd rice is a live-culture item because it is 'set yogurt stirred into cooled rice and served cold', scoring a perfect 10.0 on gut</h3>
+      <p class="was"><b>First edition</b> Scored as an established live ferment, the highest gut score in the document.</p>
+      <p class="now">The yogurt carries live cultures; the word doing the work is 'cooled', and it is not reliably true in restaurant practice. Curd rice is commonly assembled with warm rice and very often finished with a hot tadka poured over it, either of which kills vegetative lactobacilli. A gut score of 10.0 is the strongest claim in that column and it rests on an assumption a menu cannot settle.</p>
+      
+      <p class="caption" style="margin-top:6px">21 CFR 131.200 on yogurt cultures; standard preparation practice.</p>
+    </div><div class="corr">
+      <div class="corr-head"><span class="badge badge-open">Unresolved</span><span class="corr-who">El Cuscatleco</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">El Cuscatleco's curtido is scored as a live lacto-ferment</h3>
+      <p class="was"><b>First edition</b> Scored optimistically, with the first edition noting the assumption was the one most likely to be wrong.</p>
+      <p class="now">Traditionally-made curtido is a genuine live ferment - salted submerged brassica follows the same lactic succession as sauerkraut and kimchi, reaching around 9 to 10 log CFU per gram. But no survey exists of how many US pupuserias ferment rather than vinegar-pickle, and the vinegar version is the dominant published recipe outside El Salvador. The first edition scored the optimistic case as the base case. Still worth the phone call it recommended.</p>
+      
+      <p class="caption" style="margin-top:6px">Park et al., Critical Reviews in Food Science and Nutrition, 2024 (PMID 36718547); no survey data located.</p>
+    </div><div class="corr">
       <div class="corr-head"><span class="badge badge-ok">Confirmed</span><span class="corr-who">Poke Bros.</span></div>
       <h3 style="font-size:1.02rem;margin-bottom:7px">OG Sauce is auto-added to every bowl at 730 mg and must be affirmatively refused</h3>
       <p class="was"><b>First edition</b> Stated as a fact about every bowl.</p>
@@ -2288,6 +2363,13 @@ footer{margin-top:86px;border-top:3px solid var(--ink);padding-top:22px}
       <p class="now">Confirmed. The convention is observable on live public DoorDash store pages across several states, with titles of the form 'GRAVEYARD DNU DO NOT REACTIVATE!!'. It is a real trap for anyone verifying a storefront - it just is not a finding about food, which is why it has moved to the method notes.</p>
       
       <p class="caption" style="margin-top:6px">Live DoorDash store pages, retrieved 28 August 2026.</p>
+    </div><div class="corr">
+      <div class="corr-head"><span class="badge badge-ok">Confirmed</span><span class="corr-who">the whole set</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">Vinegar quick-pickles carry no live cultures and score zero on the gut criterion</h3>
+      <p class="was"><b>First edition</b> Applied as a rule across the document - Vietnamese do chua, pickled red onion, CAVA's onions, Bulkogi's daikon.</p>
+      <p class="now">Confirmed, and it is one of the model's better calls. Quick-process pickles are brined briefly then covered in vinegar and seasonings, with no fermentation step at all, as distinct from cured fermented pickles and sauerkraut. Labneh, cacik and raita are correspondingly confirmed as live-culture items, subject only to the yogurt not having been heat-treated after culturing - which a menu cannot tell you.</p>
+      
+      <p class="caption" style="margin-top:6px">National Center for Home Food Preservation, University of Georgia; 21 CFR 131.200.</p>
     </div></div>
 </section>
 <footer>

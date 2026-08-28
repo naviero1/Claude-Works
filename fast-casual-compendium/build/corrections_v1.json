@@ -329,5 +329,95 @@
   "now": "The table is right and the endnote is wrong. Noted because it is the kind of small inconsistency that signals a document assembled from more than one pass.",
   "source": "The first edition, pages 4 and 26.",
   "kind": "wrong"
+ },
+ {
+  "rank": 19,
+  "restaurant": "Chosun Ok",
+  "action": "rescore",
+  "macros": {
+   "cal": 540,
+   "protein": 40,
+   "sodium": 4000,
+   "satfat": 3.5,
+   "fiber": 7,
+   "sugar": 6
+  },
+  "claim": "Seafood soondubu with a 1 lb kimchi side is 2,100 mg of sodium - 'the highest-sodium dish in the compendium'",
+  "was": "2,100 mg, described as the compendium's sodium ceiling.",
+  "now": "The kimchi side alone is about 2,260 mg. USDA FoodData Central puts kimchi at 498 mg of sodium per 100 g, so a 1 lb side is roughly 2,300 mg before the stew is counted, and branded jarred kimchi runs higher. The dish is realistically 3,500-4,500 mg; it is carried here at 4,000. Its score does not change, because the kidney criterion already scored it zero at 2,100 - which is itself the point, and is taken up in the audit above.",
+  "source": "USDA FoodData Central, FNDDS 2021-2023, kimchi, food code 75502520, published October 2024.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Abol Ethiopian",
+  "action": "note",
+  "claim": "Telba shiro's ground flaxseed is 'a genuine plant omega-3 source', scored as omega-3 in the inflammation criterion",
+  "was": "Scored as an omega-3 source alongside oily fish.",
+  "now": "Flaxseed is a real source of ALA and not a functional source of EPA or DHA. A scoping review of 13 randomised trials found high-dose flaxseed and echium oil produced no increase in the omega-3 index, against reliable increases from fish oil; conversion of ALA to EPA runs at a few percent and to DHA below one percent. The model is treating several grams of ALA as interchangeable with about a gram of preformed EPA and DHA, and it should not.",
+  "source": "Lane et al., Critical Reviews in Food Science and Nutrition, 2022 (PMID 33576691).",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Bul Box",
+  "action": "note",
+  "claim": "Salmon is 'one of few foods with trial evidence for reducing liver fat'",
+  "was": "Given as the reason the salmon build scores well on the liver criterion.",
+  "now": "No randomised trial of salmon with liver fat as an outcome could be found. The 13 indexed salmon-intervention trials cover vitamin D status, cognition, ulcerative colitis and pollutant kinetics. The defensible version is that oily fish and long-chain omega-3s have trial evidence for improving some liver markers, with the effect on directly measured liver fat inconsistent across meta-analyses.",
+  "source": "PubMed searches on salmon with hepatic steatosis and liver fat outcomes, 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "M Sushi",
+  "action": "note",
+  "claim": "Salmon belly and chutoro 'carry several times the EPA and DHA of lean loin'",
+  "was": "Given as the reason to order the oily cuts.",
+  "now": "Half right, and the right half is understated. Japan's standard food composition tables put fatty bluefin tuna at 4,600 mg of EPA plus DHA per 100 g against akami's roughly 150 - about thirty times, not several. Salmon does not work the same way: belly flap runs 18.5% lipid against 2.4% in the tail, so it is modestly richer in absolute omega-3 but slightly poorer as a proportion of its fatty acids. The advice is right for the tuna and overstated for the salmon.",
+  "source": "MEXT Standard Tables of Food Composition, 8th edition; Katikou, Hughes & Robb, Aquaculture 202 (2001).",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Naga's South Indian",
+  "action": "note",
+  "claim": "Curd rice is a live-culture item because it is 'set yogurt stirred into cooled rice and served cold', scoring a perfect 10.0 on gut",
+  "was": "Scored as an established live ferment, the highest gut score in the document.",
+  "now": "The yogurt carries live cultures; the word doing the work is 'cooled', and it is not reliably true in restaurant practice. Curd rice is commonly assembled with warm rice and very often finished with a hot tadka poured over it, either of which kills vegetative lactobacilli. A gut score of 10.0 is the strongest claim in that column and it rests on an assumption a menu cannot settle.",
+  "source": "21 CFR 131.200 on yogurt cultures; standard preparation practice.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "El Cuscatleco",
+  "action": "note",
+  "claim": "El Cuscatleco's curtido is scored as a live lacto-ferment",
+  "was": "Scored optimistically, with the first edition noting the assumption was the one most likely to be wrong.",
+  "now": "Traditionally-made curtido is a genuine live ferment - salted submerged brassica follows the same lactic succession as sauerkraut and kimchi, reaching around 9 to 10 log CFU per gram. But no survey exists of how many US pupuserias ferment rather than vinegar-pickle, and the vinegar version is the dominant published recipe outside El Salvador. The first edition scored the optimistic case as the base case. Still worth the phone call it recommended.",
+  "source": "Park et al., Critical Reviews in Food Science and Nutrition, 2024 (PMID 36718547); no survey data located.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Abol Ethiopian",
+  "action": "note",
+  "claim": "Injera's fermentation reduces phytate even though griddling kills the cultures",
+  "was": "Stated without qualification.",
+  "now": "Partly, and strain-dependently. Teff's phytic acid is only partly degraded during fermentation, and of 76 isolates from thirteen household fermentations only 13 were phytase-positive. Directionally right, overstated as written.",
+  "source": "Fischer et al., International Journal of Food Microbiology, 2014 (PMID 25180667).",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "Vinegar quick-pickles carry no live cultures and score zero on the gut criterion",
+  "was": "Applied as a rule across the document - Vietnamese do chua, pickled red onion, CAVA's onions, Bulkogi's daikon.",
+  "now": "Confirmed, and it is one of the model's better calls. Quick-process pickles are brined briefly then covered in vinegar and seasonings, with no fermentation step at all, as distinct from cured fermented pickles and sauerkraut. Labneh, cacik and raita are correspondingly confirmed as live-culture items, subject only to the yogurt not having been heat-treated after culturing - which a menu cannot tell you.",
+  "source": "National Center for Home Food Preservation, University of Georgia; 21 CFR 131.200.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "Kathmandu Kitchen",
+  "action": "note",
+  "claim": "Gundruk, if available, is a true Nepali lacto-ferment that would move the entry up",
+  "was": "Suggested as an upside worth asking about.",
+  "now": "Gundruk is a genuine lacto-ferment - viable counts rise from about 6 x 10^4 to 9.6 x 10^8 CFU per gram over fermentation, driven by Lactobacillus brevis, Pediococcus pentosaceus and finally Lb. plantarum. But it is dried and then cooked before serving, so as it reaches the table it earns fermented-flavour credit rather than live-culture credit. Worth ordering; not worth the gut points the first edition implied.",
+  "source": "Tamang et al., Indian Journal of Microbiology, October 2010 (PMID 22815579).",
+  "kind": "wrong"
  }
 ]

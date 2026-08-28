@@ -24,7 +24,7 @@ def ordinal(n):
     if 10 <= n % 100 <= 20: suf = 'th'
     else: suf = {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')
     return f'{n}{suf}'
-def r2(v):    return f"{v:+.2f}".replace('+0.', '+.').replace('-0.', '−.')
+def r2(v):    return f"{v:+.2f}".replace('-', '\u2212')
 
 ALL = D + ADDS
 for d in ALL:
@@ -161,7 +161,7 @@ def sec_money():
   <span class="eyebrow">Chapter one</span>
   <h2>What money does and does not buy</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>Across all {len(D)} dishes, the correlation between what a dish costs on DoorDash and how healthy it scores is <strong class="num">{r2(F['r_price_health'])}</strong>. Squared, that is well under one percent of the variation: price tells you essentially nothing about whether a meal is good for you. Drop any single dish and it stays between <span class="num">{lo:+.2f}</span> and <span class="num">{hi:+.2f}</span>, so it is not one outlier holding it down.</p>
+    <p>Across all {len(D)} dishes, the correlation between what a dish costs on DoorDash and how healthy it scores is <strong class="num">{r2(F['r_price_health'])}</strong>. Squared, that is well under one percent of the variation: price tells you essentially nothing about whether a meal is good for you. Leave out any single dish and it never leaves the range <span class="num">{lo:.2f}</span> to <span class="num">{hi:+.2f}</span>, so it is not one outlier holding it down.</p>
     <p>Money does buy something. The correlation between price and <em>flavor</em> is <strong class="num">{r2(F['r_price_flavor'])}</strong> &mdash; modest, but five times the size and in a direction you can feel. Expensive food in this set is more interesting to eat and no better for you. Everything in this chapter follows from those two numbers.</p>
   </div>
   <figure>
@@ -195,8 +195,10 @@ def sec_sodium():
     n_up = sum(1 for x in F['na_swaps'] if x['score_delta'] > 0)
     saltrows = [[f'<td><span class="rest">{e(x["item"])}</span><span class="sub">{e(x["note"])}</span></td>',
                  f'<td class="dimtd">{e(x["per"])}</td>',
-                 f'<td class="n num {"lo" if x["mg"] >= 400 else "hi"}">{x["mg"]:,}</td>'] for x in F['salt_components']]
-    salt = table(['Component', 'Portion', '~Sodium mg'], saltrows)
+                 f'<td class="n num {"lo" if x["mg"] >= 400 else "hi"}">{x["mg"]:,}</td>',
+                 f'<td class="n num dimtd">{x["protein"]}&#8202;g</td>' if x["protein"] else '<td class="n dimtd">&mdash;</td>']
+                for x in F['salt_components']]
+    salt = table(['Component', 'Portion', '~Sodium mg', '~Protein'], saltrows)
     swrows = [[f'<td><span class="rest">{e(x["restaurant"])}</span><span class="sub">instead of {e(x["dish"]).lower()}</span></td>',
                f'<td><strong>{e(x["alt"])}</strong><span class="sub">{e(x["alt_note"])}</span></td>',
                f'<td class="n num hi">&minus;{x["cut"]:,}</td>',
@@ -219,7 +221,7 @@ def sec_sodium():
   </figure>
 
   <h3 style="margin-top:44px">Where the salt actually is</h3>
-  <p class="small measure" style="margin-top:8px">Single components, each read off the restaurant's own published nutrition document. Almost none of these is the part of the meal a customer thinks of as salty.</p>
+  <p class="small measure" style="margin-top:8px">Single components, each read off the restaurant's own published nutrition document. Almost none of the heavy ones is the part of the meal a customer thinks of as salty &mdash; and the four lightest are all proteins, which is the opposite of what most people would guess.</p>
   {salt}
 
   <h3 style="margin-top:44px">The biggest sodium saving available in one swap</h3>
@@ -403,32 +405,79 @@ def sec_audit():
     grows2 = [[f'<td><span class="rest">{e(d["restaurant"])}</span><span class="sub">{e(d["dish"])}</span></td>',
                f'<td class="n num">{d["fiber"]}&#8202;g</td>',
                f'<td class="n score">{d["GUT"]:.1f}</td>'] for d in gt]
-    zero = [d for d in D if d['sodium'] >= 2000]
-    return f'''<section id="audit">
-  <hr class="rule-heavy">
-  <span class="eyebrow">Against interest</span>
-  <h2>Where this model misfires</h2>
-  <div class="measure stack" style="margin-top:16px">
-    <p>Four places where the scoring produces a result its own author would struggle to defend. They are printed here because a ranking that never argues with itself is not worth reading.</p>
-  </div>
+    ceiling = [d for d in D if d['sodium'] >= 2000]
+    ck = byname['Chosun Ok']
+    fw = byname['First Watch']
+    r_fg = f"{F['r_fiber_gut']:+.2f}"
 
-  <div class="pair">
-    <div class="stack-tight">
-      <h4>1 &mdash; The gut criterion ignores fiber</h4>
-      <p class="small">It weights live ferments at 60% and a plant-type count at 40%, and gives fiber nothing. Across the set, fiber and the gut score correlate at only <span class="num">{F['r_fiber_gut']:+.2f}</span>. The result is that the highest-fiber dish in the compendium scores mid-table on gut health while a bowl of curd rice scores a perfect ten.</p>
-      {table(['Highest fiber in the set', '~Fiber', '~Gut'], grows)}
-      {table(['Highest gut score in the set', '~Fiber', '~Gut'], grows2)}
-    </div>
-    <div class="stack-tight">
-      <h4>2 &mdash; The kidney criterion has a floor it hits early</h4>
-      <p class="small">It runs linearly from 350&#8202;mg to 2,000&#8202;mg and then stops. {len(zero)} dish{'es' if len(zero)!=1 else ''} in the set {'are' if len(zero)!=1 else 'is'} at or past 2,000&#8202;mg, so the model cannot distinguish a 2,100&#8202;mg stew from a 3,000&#8202;mg one. Both are simply zero.</p>
-      <h4 style="margin-top:22px">3 &mdash; Sugar is scored as total, not added</h4>
-      <p class="small">A dish is penalised identically for 12&#8202;g of sugar from a bowl of fruit and 12&#8202;g from a honey vinaigrette. First Watch's Tri-Fecta, which is eggs, avocado, seasonal fruit and whole-grain toast, takes a sugar score of {byname['First Watch']['SUG']:.1f} almost entirely on the fruit.</p>
-      <h4 style="margin-top:22px">4 &mdash; Cost ignores how much food you get</h4>
-      <p class="small">The cost criterion rewards a low price and good protein value, and knows nothing about portion size. A 320-calorie dish and a 780-calorie dish at the same price and protein score identically, though only one of them is dinner.</p>
-    </div>
-  </div>
-</section>'''
+    faults = [
+      ('The gut criterion gives fiber no weight at all',
+       'It scores live ferments at 60% and a count of plant types at 40%. Fiber contributes nothing, and across the set '
+       'fiber and the gut score correlate at only <span class="num">' + r_fg + '</span>. There is a narrow defence &mdash; a 17-week '
+       'trial found a fermented-food diet raised microbiome diversity where a high-fiber diet did not &mdash; but that defence is '
+       'about alpha diversity, not about gut health as a reader would understand the phrase, and the criterion is labelled for the '
+       'reader. As built it is a live-culture detector wearing a gut-health label.',
+       'Wastyk et al., <em>Cell</em>, August 2021.',
+       table(['Highest fiber in the set', '~Fiber', '~Gut'], grows)
+       + table(['Highest gut score in the set', '~Fiber', '~Gut'], grows2)),
+
+      ('The kidney criterion stops measuring at 2,000&#8202;mg',
+       'It runs linearly from 350&#8202;mg to 2,000 and then floors, so every dish past that point scores zero and none can be told apart. '
+       'That sounds academic until you meet ' + e(ck['restaurant']) + '. This edition corrected its sodium from 2,100&#8202;mg to about '
+       '<strong class="num">' + f"{ck['sodium']:,}" + '&#8202;mg</strong>, once the 1&#8202;lb kimchi side was counted at USDA’s figure of 498&#8202;mg '
+       'per 100&#8202;g &mdash; roughly 2,300&#8202;mg from the kimchi alone, before the stew. Its overall score moved by '
+       '<strong class="num">0.02</strong>. A dish carrying nearly twice a full day’s recommended sodium is scored as merely equal to '
+       'the worst thing the criterion can express.',
+       'USDA FoodData Central, FNDDS 2021&ndash;2023, food code 75502520.', ''),
+
+      ('Sugar is scored as total, not added',
+       'Current dietary guidance targets added and free sugars and explicitly exempts the sugars in fruit and plain milk. This '
+       'criterion does not distinguish them, so a bowl of fruit and a honey vinaigrette are penalised identically. First Watch’s '
+       'Tri-Fecta &mdash; eggs, avocado, seasonal fruit and whole-grain toast &mdash; takes a sugar score of <span class="num">'
+       + f"{fw['SUG']:.1f}" + '</span> mostly on the fruit, where the same 12&#8202;g from a glaze would cost exactly as much.',
+       'Dietary Guidelines for Americans 2025&ndash;2030.', ''),
+
+      ('The omega-3 ladder treats flaxseed as if it were fish',
+       'The inflammation criterion scores omega-3 on a single ladder that does not distinguish plant ALA from marine EPA and DHA. It '
+       'should. A review of 13 randomised trials found high-dose flaxseed and echium oil produced no increase in the omega-3 index at '
+       'all, against reliable increases from fish oil; conversion of ALA to EPA runs at a few percent and to DHA below one. Every '
+       'entry here scored for flaxseed is scored generously.',
+       'Lane et al., <em>Critical Reviews in Food Science and Nutrition</em>, 2022.', ''),
+
+      ('Cost knows nothing about how much food you get',
+       'It rewards a low price and good protein value and ignores portion size entirely. A 320-calorie dish and a 780-calorie dish at '
+       'the same price and protein score identically, though only one of them is dinner. On a list whose portions range more than '
+       'twofold, this is the criterion most likely to mislead.',
+       '', ''),
+    ]
+
+    blocks = ''
+    for head, body, cite, tbl in faults:
+        cite_html = f'<p class="cite">{cite}</p>' if cite else ''
+        blocks += (f'<div class="fault"><h3>{head}</h3><p class="small">{body}</p>{cite_html}{tbl}</div>')
+
+    return (
+      '<section id="audit">\n'
+      '  <hr class="rule-heavy">\n'
+      '  <span class="eyebrow">Against interest</span>\n'
+      '  <h2>Where this model misfires</h2>\n'
+      '  <div class="measure stack" style="margin-top:16px">\n'
+      '    <p>Every criterion in this document was checked against current dietary guidance and the primary literature. Five produce '
+      'results their own author would struggle to defend. They are printed here because a ranking that never argues with itself is not '
+      'worth reading, and because a reader who knows where a model is weak can still use it.</p>\n'
+      '  </div>\n'
+      f'  <div class="faults">{blocks}</div>\n'
+      '  <div class="callout">\n'
+      '    <h4>And what held up</h4>\n'
+      '    <p style="margin-top:6px">Two of the model’s more contestable calls survived the check. Weighting the liver criterion on '
+      '<strong>saturated fat</strong> rather than sugar is right: in a head-to-head overfeeding trial, saturated fat raised liver fat '
+      'substantially more than unsaturated fat or simple sugars did &mdash; though the same guidance also names excess fructose, so a '
+      'small added-sugar term belongs in that criterion and is not there. And the rule that <strong>vinegar quick-pickles score '
+      'zero</strong> is correct: quick-process pickles are brined briefly then covered in vinegar with no fermentation step at all, a '
+      'real and frequently-missed distinction. Labneh, cacık and raita are confirmed live-culture items, conditional only on the '
+      'yogurt not having been heat-treated after culturing &mdash; which no menu will tell you.</p>\n'
+      '  </div>\n'
+      '</section>')
 
 def sec_ranking():
     rows = []
@@ -480,6 +529,33 @@ def sec_ranking():
   </div>
 </section>'''
 
+def sec_gap():
+    B = F['bowl_share']
+    absent = ''.join(f'<li>{e(x)}</li>' for x in F['absent'])
+    covrows = [[f'<td><span class="rest">{e(c["name"])}</span></td>',
+                f'<td class="n num">{c["n"]}</td>',
+                f'<td class="n num">{c["share"]*100:.1f}%</td>',
+                f'<td class="n score">{c["overall"]:.2f}</td>'] for c in F['coverage'][:10]]
+    return f'''<section id="gap">
+  <hr class="rule-heavy">
+  <span class="eyebrow">The sample</span>
+  <h2>What a ranking leaves out</h2>
+  <div class="measure stack" style="margin-top:16px">
+    <p>A ranking is only as good as the set it ranks, and this one was assembled from a narrow slice of what actually delivers here. {B['n']} of the {len(D)} entries &mdash; <strong>{B['pct']:.0f}%</strong> &mdash; are build-your-own bowls or poke, and {B['in_top10']} of the top ten are. That is not a finding about food. It is a finding about how the list was built: assembled-to-order formats are easy to score because you control every component, so they get picked, and they then win on criteria the format is designed to satisfy.</p>
+    <p>The omissions are more telling than the concentrations. This is a document written about food in North Carolina that contains no barbecue.</p>
+  </div>
+  <div class="pair">
+    <div>
+      <h4>The ten largest groups</h4>
+      {table(['Cuisine', '~Dishes', '~Share', '~Mean score'], covrows)}
+    </div>
+    <div>
+      <h4>Absent entirely from the first edition</h4>
+      <ul class="absent">{absent}</ul>
+    </div>
+  </div>
+</section>'''
+
 def sec_additions():
     if not ADDS: return ''
     rows = []
@@ -503,7 +579,7 @@ def sec_additions():
   <span class="eyebrow">New in this edition</span>
   <h2>The food the first edition missed</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>Eighteen of the original sixty entries were build-your-own bowls or poke &mdash; 30% of the set and four of the top ten &mdash; while a document written in North Carolina contained no barbecue, no Southern cooking, no Greek, no Persian, no West African and no Chinese-American takeout. These {len(ADDS)} entries close part of that gap. Each was scored on the identical model.</p>
+    <p>These {len(ADDS)} entries close part of the gap the previous section describes. Each was found by looking for what actually delivers in the Research Triangle in the categories the first edition skipped, each was checked for whether the restaurant exists and the dish is on its menu, and each was scored on the identical model &mdash; the six computed criteria by formula, the three rubric criteria by the same judgement the original sixty got.</p>
     <p class="caption">All of these are estimated from menu construction, not published nutrition, and should be read at the confidence the chapter above describes. Where a DoorDash store ID could not be confirmed it is not printed rather than guessed.</p>
   </div>
   <div class="tablewrap"><table><thead><tr>
@@ -590,6 +666,7 @@ PAGE = f'''<title>The Fast-Casual Compendium</title>
 {sec_sodium()}
 {sec_flavor()}
 {sec_swaps()}
+{sec_gap()}
 {sec_additions()}
 {sec_criteria()}
 {sec_confidence()}

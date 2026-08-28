@@ -1,0 +1,1875 @@
+
+
+- 
+
+- 
+
+- 
+
+ Second editionFast-casual delivery menus · Research Triangle, North Carolina
+ 
+ 
+ The Fast-Casual Compendium
+ 
+ 
+ 
+60 named dishes, each scored on seven health criteria plus flavor and cost. Every figure is either taken from a restaurant's own nutrition document or estimated from how the dish is built — and the entry says which.
+ 
+ 
+ 
+ 60Dishes ranked
+ 116Scored alternative orders
+ 22Distinct cuisines
+ 7 / 60From published nutrition data
+ 
+
+ 
+ What changed in this edition
+ 
+- The numbers were checked, and some were wrong. Every nutrition figure the first edition attributed to a published document was re-read against that document. 9 entries had to be rescored: Bul Box from 23rd to 57th; Sassool from 3rd to 32nd. Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.
+- The front page is new. The first edition opened with four findings, three of which were trivia about a single restaurant each and the fourth about research method rather than food. They have been replaced with findings drawn from the whole set, led by what the data says about money.
+- The two lists are now one. The first edition printed “The Thirty” and “The Next Thirty” as separate ranked lists, but the split tracked research depth rather than score: 27 entries in the second list outscored the weakest in the first. Everything is now ranked in one sequence.
+- The scoring model is printed, not described. Every criterion that can be computed from the macros is given as an actual function, recovered by fitting the first edition's own published scores. Anyone can recompute anything here, including the parts they disagree with.
+- The sample was too narrow. Eighteen of the original sixty entries were build-your-own bowls or poke — 30% of the set, and four of the top ten — in a state whose own barbecue did not appear at all. That gap is quantified below.
+ 
+
+ 
+ Chapter one
+ 
+
+## What money does and does not buy
+ 
+ 
+Across all 60 dishes, the correlation between what a dish costs on DoorDash and how healthy it scores is +0.08. Squared, that is well under one percent of the variation: price tells you essentially nothing about whether a meal is good for you. Leave out any single dish and it never leaves the range 0.00 to +0.17, so it is not one outlier holding it down.
+ 
+Money does buy something. The correlation between price and flavor is +0.39 — modest, but five times the size and in a direction you can feel. Expensive food in this set is more interesting to eat and no better for you. Everything in this chapter follows from those two numbers.
+ 
+ 
+ [CHART]
+ Each dot is one dish. The dashed line is the least-squares fit through all sixty — it is nearly flat. The shaded corner is the useful part of the chart: dishes at or under $16 that still score 6.0 or better on health. There are 11 of them.
+ 
+
+ 
+
+### Cheap and genuinely good for you
+ 
+Sorted by health score. The last column is health points per dollar, which is the blunt version of the same question.
+ 
+| Dish | Price | Health | Flavor | Protein | Sodium mg | Health per $ | 
+| El Cuscatleco — Filete de pescado with curtido | $15.95 | 7.7 | 8.2 | 42 g | 1,000 | 0.48 | 
+| Pokeworks — Large chicken bowl on salad base | $16.00 | 7.2 | 5.0 | 43 g | 535 | 0.45 | 
+| DICED — Lentil-base bowl with grilled chicken | $10.95 | 7.0 | 5.7 | 57 g | 144 | 0.64 | 
+| Baba Ghannouj — Chicken kebab plate with fattoush and tzatziki | $15.99 | 6.7 | 8.2 | 44 g | 1,200 | 0.42 | 
+| Chopt — Craft Your Own salad, grilled chicken | $10.79 | 6.5 | 5.7 | 33 g | 735 | 0.60 | 
+| Happy + Hale — Create Your Own bowl | $14.58 | 6.4 | 5.0 | 35 g | 850 | 0.44 | 
+| Guasaca — Grilled chicken bowl | $11.21 | 6.3 | 7.5 | 42 g | 1,050 | 0.56 | 
+| Mahana Fresh — Build Your Own bowl | $14.00 | 6.3 | 5.7 | 38 g | 950 | 0.45 | 
+| Neomonde — Build A Bowl | $15.99 | 6.2 | 6.8 | 38 g | 1,050 | 0.39 | 
+| CAVA — SuperGreens and lentil bowl with grilled steak | $15.50 | 6.2 | 7.1 | 50 g | 1,295 | 0.40 | 
+| Chipotle — Chicken salad with pinto beans and guacamole | $12.00 | 6.0 | 4.3 | 44 g | 1,055 | 0.50 | 
+
+ 
+
+### The cheapest protein on the list
+ 
+Dollars per gram of protein, computed on the DoorDash price of the dish as ordered.
+ 
+| Dish | Price | Protein | $ per gram | Health | 
+| DICED — Lentil-base bowl with grilled chicken | $10.95 | 57 g | 0.192 | 7.0 | 
+| Guasaca — Grilled chicken bowl | $11.21 | 42 g | 0.267 | 6.3 | 
+| Esmeralda Grill — Pollo rostizado | $13.99 | 52 g | 0.269 | 5.1 | 
+| Chipotle — Chicken salad with pinto beans and guacamole | $12.00 | 44 g | 0.273 | 6.0 | 
+| Quick Meal Mediterranean — Chicken kebab plate | $12.99 | 44 g | 0.295 | 5.6 | 
+| Jamaica Jamaica — Jerk chicken | $14.00 | 46 g | 0.304 | 4.9 | 
+| CAVA — SuperGreens and lentil bowl with grilled steak | $15.50 | 50 g | 0.310 | 6.2 | 
+| Jason's Deli — Salad-bar build with grilled chicken | $12.89 | 40 g | 0.322 | 5.8 | 
+| Chopt — Craft Your Own salad, grilled chicken | $10.79 | 33 g | 0.327 | 6.5 | 
+| Poke Bros. — Double tuna salad bowl | $17.00 | 51 g | 0.333 | 8.2 | 
+
+ 
+
+### A week costs less than you would guess
+ 
+Five dinners, chosen three ways. The test is criterion coverage: across the five dishes, what is the weakest criterion that any one of them covers well? A rotation is only as good as the thing it never delivers.
+ 
+ 
+ 
+
+#### Just order the top five
+ $91.10
+ five dinners · $18.22 each
+ 
+- Poke Bros.$17.00
+- El Cuscatleco$15.95
+- M Sushi$31.20
+- Pokeworks$16.00
+- DICED$10.95
+ 
+Weakest criterion covered across the week: 6.8 / 10. This is what following the ranking blindly gets you.
+ 
+ 
+ 
+
+#### The cheap five
+ $60.89
+ five dinners · $12.18 each
+ 
+- El Cuscatleco$15.95
+- DICED$10.95
+- Chopt$10.79
+- Guasaca$11.21
+- Southern Spice$11.99
+ 
+Weakest criterion covered across the week: 6.8 / 10. Identical coverage to the naive week, for $30.21 less.
+ 
+ 
+ 
+
+#### The best coverage available
+ $79.00
+ five dinners · $15.80 each
+ 
+- Pokeworks$16.00
+- DICED$10.95
+- Taste Vietnamese$17.95
+- CAVA$15.50
+- Bulkogi$18.60
+ 
+Weakest criterion covered across the week: 9.3 / 10. Buys a real improvement in the weak spot, and still costs less than the naive week.
+ 
+ 
+ 
+ 
+
+#### The whole chapter in one line
+ 
+The five cheapest dishes that clear every criterion cost $60.89 for the week and cover the criteria exactly as well as the five top-ranked dishes, which cost $91.10. Both bottom out at 6.8 / 10 on their weakest criterion. Paying the extra $30.21 buys nothing measurable.
+ 
+
+ 
+ Chapter two
+ 
+
+## Sodium is the currency
+ 
+ 
+Sodium separates this list more than any other single number, and the useful way to hold it is not as a total but as a rate: how much sodium you are paying for each gram of protein you actually get. On that measure the spread across the set is more than twentyfold.
+ 
+DICED delivers protein at 2.5 mg of sodium per gram. Chosun Ok charges 100.0 mg for the same gram. Both are on the same list, in the same city, at similar prices.
+ 
+ 
+ [CHART]
+ Milligrams of sodium per gram of protein — the ten most efficient dishes and the six least. The cut-off drawn at 25 mg is arbitrary but useful: below it, a full meal lands under about 1,000 mg without any special ordering.
+ 
+
+ 
+
+### Where the salt actually is
+ 
+Single components, each read off the restaurant's own published nutrition document. Almost none of these is the part of the meal a customer thinks of as salty.
+ 
+| Component | Portion | Sodium mg | 
+| Farmside Kitchen seasoned quinoa — The base, before anything is put on it. | 8 oz base portion | 900 | 
+| Chipotle chipotle-honey vinaigrette — Also 220 calories and 12 g of sugar. | 2 fl oz | 850 | 
+| CAVA saffron basmati or brown rice — Identical for both rices; the largest sodium item among CAVA's bases. | one base | 770 | 
+| Poke Bros. OG Sauce — Added to every bowl unless you refuse it. | one bowl | 730 | 
+| Farmside Kitchen Signature grilled chicken — A plain grilled breast is 190 mg for the same protein. | 3.5 oz | 660 | 
+| CAVA grilled chicken — CAVA's grilled steak is 280 mg for 23 g of protein. | one portion | 670 | 
+| Bul Box sriracha — The 30-calorie sauce. Yum yum sauce is 150 calories and 115 mg. | 1 oz | 454 | 
+| Pokeworks ahi tuna — Their chicken is 80 mg for the same scoop. | 2 oz scoop | 350 | 
+| Chipotle chicken — 32 g of protein - the most sodium-efficient protein in the set. | 4 oz | 310 | 
+| True Food Kitchen salmon add-on — 29 g of protein. The cleanest protein anywhere here. | one portion | 90 | 
+| DICED grilled chicken — 26 g of protein, at 2.7 mg of sodium per gram. | one portion | 69 | 
+| Poke Bros. plain tuna — Their own marinated tuna is 820 mg. | 85 g | 40 | 
+
+ 
+
+### The biggest sodium saving available in one swap
+ 
+Changing one thing about an order at the same restaurant. The last column is what the swap does to the dish's overall score, so a positive number means the lower-sodium order is also the better one.
+ 
+| Restaurant | Change one thing | Sodium saved | Protein | Calories | Score | 
+| Namu — instead of bibimbap with banchan ordered separately | Ban chan plates only — Kimchi and namul; vegetarian, very light | −600 | -26 g | -420 | +0.81 | 
+| Southern Spice — instead of sambar idli with chutneys | Idli alone, no sambar — Very low sodium; nutritionally thin | −560 | -7 g | -170 | -0.52 | 
+| Abol Ethiopian — instead of vegetarian combo with telba shiro | Telba shiro alone — Flaxseed and chickpea; the omega-3 pick | −530 | -14 g | -300 | -0.52 | 
+| Goorsha — instead of vegan vegetable combo | Kik alicha and tikil gomen only — The two mildest stews; much lighter | −530 | -14 g | -340 | -0.29 | 
+| Taste Vietnamese — instead of sizzling fish with vermicelli and herbs | Fresh spring rolls — Steamed rice paper, not fried | −520 | -24 g | -340 | -0.69 | 
+| Abol Ethiopian — instead of vegetarian combo with telba shiro | Shiro wot alone — Ground chickpea stew; high plant protein | −470 | -12 g | -340 | -0.94 | 
+| Bonjour Banh Mi — instead of grilled chicken vermicelli plate | Grilled pork rolls — Steamed rice paper, not fried | −470 | -13 g | -280 | +0.36 | 
+| Udupi Cafe — instead of royal south indian thali | Plain dosai with sambar — Less starch, less protein | −450 | -10 g | -230 | -0.02 | 
+| Chipotle — instead of chicken salad with pinto beans and guacamole | Same salad without guacamole — 240 cal and 385 mg lighter; blander still | −385 | -3 g | -240 | +0.49 | 
+| Thai 54 — instead of nam tok beef with spicy papaya salad | Lao papaya salad on its own — Contains pla ra — genuine fermented fish, served cold | −350 | -36 g | -290 | -1.25 | 
+| Abol Ethiopian — instead of vegetarian combo with telba shiro | Veggie Combo alone — Four stews and salad; no flaxseed | −350 | -10 g | -240 | -0.30 | 
+| Udupi Cafe — instead of royal south indian thali | Uthappam with onion and chilli — Thicker pancake; more vegetables on top | −320 | -8 g | -150 | -0.03 | 
+ 
+Restaurants whose figures were corrected in this edition are left out of this table: their alternative orders were scored against numbers that no longer stand, and 36 alternatives are excluded on that basis.
+
+ 
+ 
+
+#### The counterintuitive part
+ 
+Only 3 of the 12 swaps above raise the dish's score while cutting sodium. Look at what the rest give up: Namu's banchan plates save 600 mg and lose 26 g of protein. Southern Spice's idli-without-sambar saves 560 mg and drops the score by half a point. The reliable way to cut sodium at a restaurant is to eat less of the meal, which is a real option and a poor one. The exceptions — the ones where you cut salt without cutting food — are almost all sauce refusals, and they are listed above under “where the salt actually is.”
+ 
+
+ 
+ Chapter three
+ 
+
+## What flavor actually costs
+ 
+ 
+The first edition argued that cuisines built on char, acid and aromatics keep their flavor when you strip out salt and fat, while cuisines built on sauce, cheese and frying do not. The first half of that is right and the second half is aimed at the wrong nutrient.
+ 
+Take the 22 dishes scoring 7.5 or better on flavor and the 14 scoring 5.5 or worse. The flavorful group carries +667 mg more sodium, at t = 3.8 — a separation nothing about this sample can explain away. It also carries +1.7 g more saturated fat, at t = 2.0, which is on the edge of meaning nothing at all.
+ 
+So flavor in this set is bought mainly with salt, not with fat, and the first edition was policing the wrong nutrient. That is also why there is no health-flavor tradeoff between individual dishes — the correlation is −0.05, nil. The tradeoff is not a property of a dish. It is a property of a kitchen's whole seasoning strategy, and it shows up only when you group by cuisine.
+ 
+ 
+ [CHART]
+ Each bubble is a cuisine with at least two dishes in the set, sized by how many. The kitchens that lead on flavor tend to trail on health and the reverse; across the 13 groups the relationship is −0.29, which is a pattern worth seeing rather than a result worth betting on. What is solid is the mechanism in the sodium column below: every cuisine above 7.0 on flavor sits at or above 1,096 mg.
+ 
+ 
+ 
+| Cuisine | Flavor | Health | Sodium mg | Sat fat g | Mean price | 
+| North Indian — 2 dishes | 8.4 | 6.0 | 1,550 | 7.5 | $24.50 | 
+| Korean — 3 dishes | 8.3 | 6.0 | 2,433 | 4.5 | $23.19 | 
+| Vietnamese — 4 dishes | 8.2 | 5.4 | 1,438 | 5.0 | $18.67 | 
+| Sichuan — 2 dishes | 7.7 | 6.0 | 1,850 | 5.5 | $28.98 | 
+| Levantine — 5 dishes | 7.3 | 5.9 | 1,240 | 7.2 | $15.47 | 
+| South Indian — 3 dishes | 7.0 | 5.5 | 1,210 | 3.2 | $18.66 | 
+| Ethiopian — 2 dishes | 6.9 | 6.2 | 1,200 | 3.2 | $20.49 | 
+| Caribbean — 3 dishes | 6.9 | 4.5 | 1,467 | 11.0 | $20.43 | 
+| Mexican — 3 dishes | 6.5 | 4.7 | 1,367 | 10.7 | $18.99 | 
+| Peruvian — 2 dishes | 6.4 | 6.8 | 1,125 | 3.5 | $24.86 | 
+| Japanese — 4 dishes | 6.2 | 7.0 | 880 | 3.9 | $25.15 | 
+| US bowl chain — 15 dishes | 5.5 | 6.1 | 897 | 5.7 | $15.21 | 
+| Hawaiian/poke — 3 dishes | 4.5 | 6.5 | 896 | 2.9 | $16.30 | 
+ 
+ 
+
+### The dishes that break the pattern
+ 
+Flavor of 7.5 or better, health of 6.0 or better, on under 1,100 mg of sodium. There are only 3 in 60, and they are the most useful entries in this document: food you would order because you wanted it, that also happens to score.
+ 
+| Dish | Flavor | Health | Sodium mg | Price | 
+| El Cuscatleco — Filete de pescado with curtido | 8.2 | 7.7 | 1,000 | $15.95 | 
+| Kathmandu Kitchen — Chicken choila with dal | 8.6 | 6.8 | 1,100 | $21.99 | 
+| Guasaca — Grilled chicken bowl | 7.5 | 6.3 | 1,050 | $11.21 | 
+
+ 
+ Chapter four
+ 
+
+## Orders that beat the order
+ 
+ 
+The first edition scored 116 alternative orders alongside its recommendations. 80 of them are still comparable after this edition's corrections, and in 6 of those the alternative outscores the dish it sits under. The reason is nearly always the same: the alternative is smaller. 5 of the 6 cut calories and 5 cut sodium, giving up protein the model barely misses.
+ 
+That is worth knowing on its own. It is also the clearest evidence in this document that the model rewards restraint more than it rewards any particular ingredient.
+ 
+ 
+| Restaurant | Order this instead | Listed | Alt | Δcal | Δpro | ΔNa | 
+| Namu — instead of bibimbap with banchan ordered separately | Ban chan plates only — Kimchi and namul; vegetarian, very light | 5.58 | 6.39 | -420 | -26 | -600 | 
+| Chipotle — instead of chicken salad with pinto beans and guacamole | Same salad without guacamole — 240 cal and 385 mg lighter; blander still | 6.13 | 6.62 | -240 | -3 | -385 | 
+| Bonjour Banh Mi — instead of grilled chicken vermicelli plate | Grilled pork rolls — Steamed rice paper, not fried | 5.29 | 5.65 | -280 | -13 | -470 | 
+| Thai 54 — instead of nam tok beef with spicy papaya salad | Larb chicken — Poached, no oil at all; catering menu only | 7.02 | 7.25 | -90 | -4 | -200 | 
+| Bulkogi — instead of create your own bowl with a kimchi side | Tofu bulgogi, spring mix base — Plant protein | 6.28 | 6.33 | -120 | -11 | -200 | 
+| Bosphorus — instead of chicken shish kebab with cacık | Add ezme or shepherd salad — Raw chopped salad; more plant species | 6.82 | 6.83 | +80 | +1 | +180 | 
+
+ 
+
+### And the ones that cost you
+ 
+The same restaurants, ordered the way most people order them.
+ 
+| Restaurant | The default order | Best | Default | Δcal | ΔNa | 
+| Kathmandu Kitchen | Butter chicken or tikka masala — cream-based | 6.80 | 4.04 | +420 | +700 | 
+| Bulkogi | Kimchi Bul-Fries — waffle fries | 6.28 | 3.96 | +380 | +400 | 
+| Thai 54 | Tom kha — coconut cream base | 7.02 | 4.86 | +90 | +150 | 
+| Urban Turban | Butter chicken — the cream-based contrast case | 6.22 | 4.23 | +270 | +300 | 
+| Bonjour Banh Mi | Any banh mi — baguette plus house mayonnaise | 5.29 | 3.98 | +100 | +350 | 
+
+ 
+
+### The same dish, twice, at two prices
+ 
+Seven groups of near-identical dishes appear at different restaurants across the set. The most expensive version is the best one in only 2 of 7 of them.
+ 
+| Group | Cheapest | Priciest | Best-scoring | 
+| Chicken kebab plate — 5 versions in the set | 
+ $12.99 — Quick Meal Mediterranean | 
+ $16.50 — Bosphorus | 
+ Baba Ghannouj — 6.85 · $15.99 | 
+| Build-your-own bowl — 10 versions in the set | 
+ $10.79 — Chopt | 
+ $16.79 — Clean Eatz | 
+ DICED — 7.11 · $10.95 | 
+| Raw fish plate — 4 versions in the set | 
+ $20.40 — M Izakaya | 
+ $31.20 — M Sushi | 
+ M Sushi — 7.31 · $31.20 | 
+| South Indian plate — 3 versions in the set | 
+ $11.99 — Southern Spice | 
+ $24.99 — Udupi Cafe | 
+ Naga's South Indian — 5.95 · $19.00 | 
+| Ethiopian veg combo — 2 versions in the set | 
+ $16.99 — Abol Ethiopian | 
+ $24.00 — Goorsha | 
+ Abol Ethiopian — 6.42 · $16.99 | 
+| Vietnamese vermicelli — 3 versions in the set | 
+ $17.90 — Bonjour Banh Mi | 
+ $20.50 — No 1 Pho | 
+ Taste Vietnamese — 7.05 · $17.95 | 
+| Poke bowl — 3 versions in the set | 
+ $15.89 — Bul Box | 
+ $17.00 — Poke Bros. | 
+ Poke Bros. — 7.86 · $17.00 | 
+
+ 
+ The sample
+ 
+
+## What a ranking leaves out
+ 
+ 
+A ranking is only as good as the set it ranks, and this one was assembled from a narrow slice of what actually delivers here. 18 of the 60 entries — 30% — are build-your-own bowls or poke, and 4 of the top ten are. That is not a finding about food. It is a finding about how the list was built: assembled-to-order formats are easy to score because you control every component, so they get picked, and they then win on criteria the format is designed to satisfy.
+ 
+The omissions are more telling than the concentrations. This is a document written about food in North Carolina that contains no barbecue.
+ 
+ 
+ 
+ 
+
+#### The ten largest groups
+ 
+| Cuisine | Dishes | Share | Mean score | 
+| US bowl chain | 15 | 25.0% | 6.17 | 
+| Levantine | 5 | 8.3% | 6.15 | 
+| Japanese | 4 | 6.7% | 6.71 | 
+| Vietnamese | 4 | 6.7% | 5.65 | 
+| Hawaiian/poke | 3 | 5.0% | 6.45 | 
+| Korean | 3 | 5.0% | 6.07 | 
+| South Indian | 3 | 5.0% | 5.51 | 
+| Mexican | 3 | 5.0% | 5.00 | 
+| Caribbean | 3 | 5.0% | 4.74 | 
+| Peruvian | 2 | 3.3% | 6.63 | 
+ 
+ 
+ 
+
+#### Absent entirely from the first edition
+ 
+- North Carolina barbecue
+- Southern and soul food
+- Greek
+- Persian
+- Chinese-American takeout
+- West African
+- Brazilian
+- Filipino
+- Colombian, Cuban or Puerto Rican
+- Burmese
+- Malaysian or Indonesian
+- Taiwanese
+- Halal cart
+- Chaat and Indian street food
+- Pakistani or Bangladeshi
+- Seafood and raw bar
+- Pizza
+- Burgers and sandwiches
+- Wings
+- A dedicated vegan kitchen
+ 
+ 
+
+ 
+ The model
+ 
+
+## Nine criteria, written out
+ 
+ 
+The first edition described its criteria in prose. This one prints them as functions, because a scoring model you cannot recompute is an opinion wearing a number's clothes.
+ 
+Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the published macros back through them returns every one of the 60 printed overall scores to within 0.10. Three — gut, energy and inflammation — are human judgements on a rubric, and no formula will recover them. Those three are marked.
+ 
+Composite: health = (KID + LIV + MUS + GUT + ENE + INF + 0.7×SUG) / 6.7, then overall = (health×6.7 + FLAVOR×0.5 + COST×0.5) / 7.7. Flavor and cost at half weight cannot rescue an unhealthy dish; they reorder the middle of the list.
+ 
+ 
+ 
+
+### Kidney×1.0
+ 
+Sodium alone.
+ 
+KID = clamp( 10 × (2000 − sodium_mg) / 1650 )
+ 
+Full marks at 350 mg, zero at 2,000. Linear between, which means a dish at 2,100 mg and one at 3,000 mg both score zero.
+ 
+ 
+
+### Liver×1.0
+ 
+Saturated fat 65%, calorie load 35%.
+ 
+LIV = 0.65 × clamp( 10 × (16.5 − satfat_g) / 14.5 )
+ + 0.35 × clamp( 10 × (1000 − cal) / 500 )
+ 
+Recovered by fitting the published scores; reproduces them to within 0.18 on average.
+ 
+ 
+
+### Muscle×1.0
+ 
+Protein density 70%, absolute protein 30%.
+ 
+MUS = 0.7 × clamp( 10 × (perKcal − 2) / 7 )
+ + 0.3 × clamp( 10 × (protein_g − 20) / 25 )
+ where perKcal = protein_g / (cal/100)
+ 
+Rewards protein per calorie first, so a light dish with 30 g beats a heavy one with 40.
+ 
+ 
+
+### Gut×1.0
+ 
+Live ferments 60%, plant-type count 40%.
+ 
+GUT = 0.6 × (live-ferment ladder, 0–4)
+ + 0.4 × (plant types, capped at 19)
+ 
+A judgement, not a calculation. Vinegar pickles score zero. Fiber carries no weight at all — see the audit below. Judged, not computed.
+ 
+ 
+
+### Energy×1.0
+ 
+Refined-carb load, fiber, protein presence.
+ 
+ENE — rubric, 0–10
+ 
+A glycemic proxy assembled by hand. It correlates with fiber at +0.44, which is the closest thing to a check available on it. Judged, not computed.
+ 
+ 
+
+### Inflammation×1.0
+ 
+Omega-3 60%, plant and herb diversity 40%.
+ 
+INF = 0.6 × (omega-3 ladder, 0–3)
+ + 0.4 × (plant and herb diversity, 0–7)
+ 
+The omega-3 ladder does not distinguish plant ALA from marine EPA and DHA, which overstates flaxseed. Judged, not computed.
+ 
+ 
+
+### Sugar×0.7
+ 
+Total sugars.
+ 
+SUG = clamp( 10 × (22 − sugar_g) / 19 )
+ 
+Full marks at 3 g, zero at 22. Uses total sugars, so fruit and plain dairy are penalised exactly like added sugar.
+ 
+ 
+
+### Flavor×0.5
+ 
+Six components, minus what the health edit removes.
+ 
+FLAVOR = ( char 0–3 + acid 0–2
+ + ferment 0–2 + aromatics 0–3
+ + richness 0–2 + texture 0–2
+ − strip penalty 0–3 ) / 14 × 10
+ 
+Half-points allowed. Not a taste rating: it measures where a dish's intensity comes from and how much survives ordering it the healthy way. Judged, not computed.
+ 
+ 
+
+### Cost×0.5
+ 
+Listed price 60%, price per gram of protein 40%.
+ 
+COST = 0.6 × clamp( 10 × (35 − price) / 25 )
+ + 0.4 × clamp( 10 × (0.90 − perGram)
+ / 0.65 )
+ where perGram = price / protein_g
+ 
+Rewards a cheap meal and good protein value together. Ignores portion size, which is its main flaw.
+ 
+
+ 
+ Before you trust a number
+ 
+
+## How much of this is measured
+ 
+ 
+7 of the 60 entries are built from a chain's own published nutrition documents — 2 more than the first edition claimed, because Chopt and Sweetgreen both publish nutrition the first edition did not consult. 2 are partial. The other 51 are reasoned from how the dish is put together, and that reasoning leaves fingerprints: 46 of them land on a round multiple of 50 mg of sodium and 44 on a multiple of 20 calories. Real nutrition panels do not do that. The published entries here read 380, 400, 415, 542, 575, 775 and 880 calories.
+ 
+The gap between the tiers is not small, and it is the most important caveat in this document:
+ 
+ 
+| Confidence tier | Entries | Mean health | Mean sodium mg | Mean flavor | Mean price | 
+| Published | 7 | 6.73 | 749 | 5.56 | $16.58 | 
+| Partial | 2 | 5.61 | 1,048 | 5.15 | $13.42 | 
+| Estimated | 51 | 5.84 | 1,278 | 6.91 | $19.38 | 
+ 
+ 
+
+#### Read that table as a warning, not a result
+ 
+Entries built from published data score 0.89 points higher on health and carry 529 mg less sodium than estimated ones. Some of that is real — the chains that publish nutrition are exactly the build-your-own bowl chains whose format permits a low-sodium build. But some of it is estimation, and an estimator who does not know a number reaches for a plausible restaurant figure, which for sodium is high. The safest reading is that the published entries are accurate and the estimated ones are directionally right and individually soft. Where a dish's rank matters to you, the entry tells you which kind it is.
+ 
+
+ 
+ Against interest
+ 
+
+## Where this model misfires
+ 
+ 
+Every criterion in this document was checked against current dietary guidance and the primary literature. Five produce results their own author would struggle to defend. They are printed here because a ranking that never argues with itself is not worth reading, and because a reader who knows where a model is weak can still use it.
+ 
+ 
+
+### The gut criterion gives fiber no weight at all
+It scores live ferments at 60% and a count of plant types at 40%. Fiber contributes nothing, and across the set fiber and the gut score correlate at only +0.31. There is a narrow defence — a 17-week trial found a fermented-food diet raised microbiome diversity where a high-fiber diet did not — but that defence is about alpha diversity, not about gut health as a reader would understand the phrase, and the criterion is labelled for the reader. As built it is a live-culture detector wearing a gut-health label.
+Wastyk et al., Cell, August 2021.
+| Highest fiber in the set | Fiber | Gut | 
+| CAVA — SuperGreens and lentil bowl with grilled steak | 27 g | 6.8 | 
+| Abol Ethiopian — Vegetarian combo with telba shiro | 22 g | 7.9 | 
+| Goorsha — Vegan vegetable combo | 20 g | 7.9 | 
+| Chipotle — Chicken salad with pinto beans and guacamole | 17 g | 1.7 | 
+| DICED — Lentil-base bowl with grilled chicken | 14 g | 3.4 | 
+| Highest gut score in the set | Fiber | Gut | 
+| Naga's South Indian — Curd rice with idli and sambar | 10 g | 10.0 | 
+| Namu — Bibimbap with banchan ordered separately | 9 g | 10.0 | 
+| Udupi Cafe — Royal South Indian thali | 14 g | 10.0 | 
+| Chosun Ok — Seafood soondubu with a kimchi side | 7 g | 9.4 | 
+| Bulkogi — Create Your Own bowl with a kimchi side | 8 g | 9.4 | 
+
+### The kidney criterion stops measuring at 2,000 mg
+It runs linearly from 350 mg to 2,000 and then floors, so every dish past that point scores zero and none can be told apart. That sounds academic until you meet Chosun Ok. This edition corrected its sodium from 2,100 mg to about 4,000 mg, once the 1 lb kimchi side was counted at USDA’s figure of 498 mg per 100 g — roughly 2,300 mg from the kimchi alone, before the stew. Its overall score moved by 0.02. A dish carrying nearly twice a full day’s recommended sodium is scored as merely equal to the worst thing the criterion can express.
+USDA FoodData Central, FNDDS 2021–2023, food code 75502520.
+
+### Sugar is scored as total, not added
+Current dietary guidance targets added and free sugars and explicitly exempts the sugars in fruit and plain milk. This criterion does not distinguish them, so a bowl of fruit and a honey vinaigrette are penalised identically. First Watch’s Tri-Fecta — eggs, avocado, seasonal fruit and whole-grain toast — takes a sugar score of 5.3 mostly on the fruit, where the same 12 g from a glaze would cost exactly as much.
+Dietary Guidelines for Americans 2025–2030.
+
+### The omega-3 ladder treats flaxseed as if it were fish
+The inflammation criterion scores omega-3 on a single ladder that does not distinguish plant ALA from marine EPA and DHA. It should. A review of 13 randomised trials found high-dose flaxseed and echium oil produced no increase in the omega-3 index at all, against reliable increases from fish oil; conversion of ALA to EPA runs at a few percent and to DHA below one. Every entry here scored for flaxseed is scored generously.
+Lane et al., Critical Reviews in Food Science and Nutrition, 2022.
+
+### Cost knows nothing about how much food you get
+It rewards a low price and good protein value and ignores portion size entirely. A 320-calorie dish and a 780-calorie dish at the same price and protein score identically, though only one of them is dinner. On a list whose portions range more than twofold, this is the criterion most likely to mislead.
+ 
+ 
+
+#### And what held up
+ 
+Two of the model’s more contestable calls survived the check. Weighting the liver criterion on saturated fat rather than sugar is right: in a head-to-head overfeeding trial, saturated fat raised liver fat substantially more than unsaturated fat or simple sugars did — though the same guidance also names excess fructose, so a small added-sugar term belongs in that criterion and is not there. And the rule that vinegar quick-pickles score zero is correct: quick-process pickles are brined briefly then covered in vinegar with no fermentation step at all, a real and frequently-missed distinction. Labneh, cacık and raita are confirmed live-culture items, conditional only on the yogurt not having been heat-treated after culturing — which no menu will tell you.
+ 
+
+ 
+ All 60, in one sequence
+ 
+
+## The ranking
+ 
+ 
+The first edition split this into two lists and ranked each separately, which buried good food: 27 entries in the second list outscored the weakest entry in the first, and the highest of them would have placed tenth. The split tracked how much research each restaurant got, not how the food scored. Here everything sits in one order.
+ 
+The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, inflammation, sugar — then, set apart, flavor in amber and cost in slate. Tall is good. Each row carries where the first edition printed it. ⚑ marks an entry whose figures were corrected against a restaurant's published data; ⚠ marks one whose figures are disputed and could not be replaced.
+ 
+ 
+ 
+ 
+| 
+ # | Restaurant and dish | Data | 
+ Overall | Health | Profile | 
+ Price | Cal | Pro | Na mg | Fib | 
+ 
+ 
+| 
+ 1 | 
+ Poke Bros. ⚑ — Double tuna salad bowl1st ed. #1 of the first thirty | 
+ Published | 
+ 7.86 | 
+ 8.2 | 
+ [CHART] | 
+ $17.00 | 
+ 542 | 
+ 51 | 
+ 201 | 
+ 9 | 
+ 
+| 
+ 2 | 
+ El Cuscatleco — Filete de pescado with curtido1st ed. #2 of the first thirty | 
+ Estimated | 
+ 7.77 | 
+ 7.7 | 
+ [CHART] | 
+ $15.95 | 
+ 500 | 
+ 42 | 
+ 1,000 | 
+ 9 | 
+ 
+| 
+ 3 | 
+ M Sushi — Oily-cut sashimi selection1st ed. #5 of the first thirty | 
+ Estimated | 
+ 7.31 | 
+ 7.9 | 
+ [CHART] | 
+ $31.20 | 
+ 430 | 
+ 46 | 
+ 620 | 
+ 4 | 
+ 
+| 
+ 4 | 
+ Pokeworks ⚑ — Large chicken bowl on salad base1st ed. #6 of the first thirty | 
+ Published | 
+ 7.14 | 
+ 7.2 | 
+ [CHART] | 
+ $16.00 | 
+ 400 | 
+ 43 | 
+ 535 | 
+ 6 | 
+ 
+| 
+ 5 | 
+ DICED ⚑ — Lentil-base bowl with grilled chicken1st ed. #4 of the first thirty | 
+ Partial | 
+ 7.11 | 
+ 7.0 | 
+ [CHART] | 
+ $10.95 | 
+ 709 | 
+ 57 | 
+ 144 | 
+ 14 | 
+ 
+| 
+ 6 | 
+ Taste Vietnamese — Sizzling fish with vermicelli and herbs1st ed. #7 of the first thirty | 
+ Estimated | 
+ 7.05 | 
+ 6.9 | 
+ [CHART] | 
+ $17.95 | 
+ 600 | 
+ 40 | 
+ 1,300 | 
+ 7 | 
+ 
+| 
+ 7 | 
+ True Food Kitchen — Tuscan Kale Salad with salmon, dressing declined1st ed. #8 of the first thirty | 
+ Published | 
+ 7.04 | 
+ 7.5 | 
+ [CHART] | 
+ $26.00 | 
+ 380 | 
+ 36 | 
+ 330 | 
+ 4 | 
+ 
+| 
+ 8 | 
+ Thai 54 — Nam tok beef with spicy papaya salad1st ed. #9 of the first thirty | 
+ Estimated | 
+ 7.02 | 
+ 6.9 | 
+ [CHART] | 
+ $21.90 | 
+ 470 | 
+ 42 | 
+ 1,450 | 
+ 8 | 
+ 
+| 
+ 9 | 
+ M Izakaya — Tiradito1st ed. #31 of the next thirty ▲22 | 
+ Estimated | 
+ 6.99 | 
+ 7.2 | 
+ [CHART] | 
+ $20.40 | 
+ 320 | 
+ 30 | 
+ 750 | 
+ 3 | 
+ 
+| 
+ 10 | 
+ Baba Ghannouj — Chicken kebab plate with fattoush and tzatziki1st ed. #10 of the first thirty | 
+ Estimated | 
+ 6.85 | 
+ 6.7 | 
+ [CHART] | 
+ $15.99 | 
+ 560 | 
+ 44 | 
+ 1,200 | 
+ 8 | 
+ 
+| 
+ 11 | 
+ Bosphorus — Chicken shish kebab with cacık1st ed. #11 of the first thirty | 
+ Estimated | 
+ 6.82 | 
+ 6.6 | 
+ [CHART] | 
+ $16.50 | 
+ 580 | 
+ 48 | 
+ 1,150 | 
+ 9 | 
+ 
+| 
+ 12 | 
+ Peony Asian Bistro — Sashimi bowl1st ed. #33 of the next thirty ▲21 | 
+ Estimated | 
+ 6.82 | 
+ 7.1 | 
+ [CHART] | 
+ $22.00 | 
+ 420 | 
+ 40 | 
+ 800 | 
+ 4 | 
+ 
+| 
+ 13 | 
+ Kathmandu Kitchen — Chicken choila with dal1st ed. #12 of the first thirty | 
+ Estimated | 
+ 6.80 | 
+ 6.8 | 
+ [CHART] | 
+ $21.99 | 
+ 460 | 
+ 42 | 
+ 1,100 | 
+ 7 | 
+ 
+| 
+ 14 | 
+ Canastas Chicken — Grilled salmon with house salad and green beans1st ed. #13 of the first thirty | 
+ Estimated | 
+ 6.66 | 
+ 6.8 | 
+ [CHART] | 
+ $25.50 | 
+ 560 | 
+ 45 | 
+ 1,150 | 
+ 6 | 
+ 
+| 
+ 15 | 
+ Chopt ⚑ — Craft Your Own salad, grilled chicken1st ed. #32 of the next thirty ▲17 | 
+ Published | 
+ 6.64 | 
+ 6.5 | 
+ [CHART] | 
+ $10.79 | 
+ 415 | 
+ 33 | 
+ 735 | 
+ 12 | 
+ 
+| 
+ 16 | 
+ Mi Perú — Ceviche de tilapia1st ed. #15 of the first thirty | 
+ Estimated | 
+ 6.60 | 
+ 6.8 | 
+ [CHART] | 
+ $24.22 | 
+ 420 | 
+ 38 | 
+ 1,100 | 
+ 6 | 
+ 
+| 
+ 17 | 
+ Guasaca — Grilled chicken bowl1st ed. #16 of the first thirty | 
+ Estimated | 
+ 6.56 | 
+ 6.3 | 
+ [CHART] | 
+ $11.21 | 
+ 540 | 
+ 42 | 
+ 1,050 | 
+ 11 | 
+ 
+| 
+ 18 | 
+ Luna Rotisserie — Quarter rotisserie chicken with two salads1st ed. #17 of the first thirty | 
+ Estimated | 
+ 6.53 | 
+ 6.6 | 
+ [CHART] | 
+ $18.70 | 
+ 420 | 
+ 34 | 
+ 820 | 
+ 9 | 
+ 
+| 
+ 19 | 
+ Abol Ethiopian — Vegetarian combo with telba shiro1st ed. #18 of the first thirty | 
+ Estimated | 
+ 6.42 | 
+ 6.4 | 
+ [CHART] | 
+ $16.99 | 
+ 720 | 
+ 28 | 
+ 1,250 | 
+ 22 | 
+ 
+| 
+ 20 | 
+ Mahana Fresh — Build Your Own bowl1st ed. #34 of the next thirty ▲14 | 
+ Estimated | 
+ 6.40 | 
+ 6.3 | 
+ [CHART] | 
+ $14.00 | 
+ 560 | 
+ 38 | 
+ 950 | 
+ 9 | 
+ 
+| 
+ 21 | 
+ Happy + Hale — Create Your Own bowl1st ed. #35 of the next thirty ▲14 | 
+ Estimated | 
+ 6.39 | 
+ 6.4 | 
+ [CHART] | 
+ $14.58 | 
+ 550 | 
+ 35 | 
+ 850 | 
+ 11 | 
+ 
+| 
+ 22 | 
+ CAVA ⚑ — SuperGreens and lentil bowl with grilled steak1st ed. #14 of the first thirty ▼8 | 
+ Published | 
+ 6.38 | 
+ 6.2 | 
+ [CHART] | 
+ $15.50 | 
+ 775 | 
+ 50 | 
+ 1,295 | 
+ 27 | 
+ 
+| 
+ 23 | 
+ Chosun Ok ⚑ — Seafood soondubu with a kimchi side1st ed. #19 of the first thirty | 
+ Estimated | 
+ 6.36 | 
+ 6.4 | 
+ [CHART] | 
+ $24.98 | 
+ 540 | 
+ 40 | 
+ 4,000 | 
+ 7 | 
+ 
+| 
+ 24 | 
+ Neomonde — Build A Bowl1st ed. #37 of the next thirty ▲13 | 
+ Estimated | 
+ 6.30 | 
+ 6.2 | 
+ [CHART] | 
+ $15.99 | 
+ 580 | 
+ 38 | 
+ 1,050 | 
+ 10 | 
+ 
+| 
+ 25 | 
+ Bulkogi — Create Your Own bowl with a kimchi side1st ed. #20 of the first thirty ▼5 | 
+ Estimated | 
+ 6.28 | 
+ 6.1 | 
+ [CHART] | 
+ $18.60 | 
+ 500 | 
+ 35 | 
+ 1,800 | 
+ 8 | 
+ 
+| 
+ 26 | 
+ Chengdu 7 — Braised fish fillets with green Sichuan peppercorn1st ed. #38 of the next thirty ▲12 | 
+ Estimated | 
+ 6.28 | 
+ 6.5 | 
+ [CHART] | 
+ $36.95 | 
+ 620 | 
+ 48 | 
+ 1,900 | 
+ 6 | 
+ 
+| 
+ 27 | 
+ Clean Eatz — Build A Bowl, large1st ed. #39 of the next thirty ▲12 | 
+ Estimated | 
+ 6.26 | 
+ 6.4 | 
+ [CHART] | 
+ $16.79 | 
+ 520 | 
+ 42 | 
+ 780 | 
+ 8 | 
+ 
+| 
+ 28 | 
+ Urban Turban — Tandoori fish tikka with raita and vegetable jalfrezi1st ed. #21 of the first thirty ▼7 | 
+ Estimated | 
+ 6.22 | 
+ 6.2 | 
+ [CHART] | 
+ $27.00 | 
+ 650 | 
+ 50 | 
+ 1,600 | 
+ 8 | 
+ 
+| 
+ 29 | 
+ Chipotle — Chicken salad with pinto beans and guacamole1st ed. #22 of the first thirty ▼7 | 
+ Published | 
+ 6.13 | 
+ 6.0 | 
+ [CHART] | 
+ $12.00 | 
+ 575 | 
+ 44 | 
+ 1,055 | 
+ 17 | 
+ 
+| 
+ 30 | 
+ Village Juice & Kitchen — Hot honey chicken salad1st ed. #40 of the next thirty ▲10 | 
+ Estimated | 
+ 6.09 | 
+ 6.0 | 
+ [CHART] | 
+ $16.45 | 
+ 540 | 
+ 36 | 
+ 950 | 
+ 9 | 
+ 
+| 
+ 31 | 
+ Farmside Kitchen ⚠ — Build Your Own bowl with chicken and quinoa1st ed. #24 of the first thirty ▼7 | 
+ Estimated | 
+ 5.98 | 
+ 5.9 | 
+ [CHART] | 
+ $13.14 | 
+ 600 | 
+ 35 | 
+ 620 | 
+ 11 | 
+ 
+| 
+ 32 | 
+ Sassool ⚑ ⚠ — Chicken kabob with labneh and three cold salads1st ed. #3 of the first thirty ▼29 | 
+ Estimated | 
+ 5.96 | 
+ 5.6 | 
+ [CHART] | 
+ $16.37 | 
+ 850 | 
+ 44 | 
+ 1,700 | 
+ 3 | 
+ 
+| 
+ 33 | 
+ Naga's South Indian — Curd rice with idli and sambar1st ed. #25 of the first thirty ▼8 | 
+ Estimated | 
+ 5.95 | 
+ 6.0 | 
+ [CHART] | 
+ $19.00 | 
+ 560 | 
+ 20 | 
+ 1,150 | 
+ 10 | 
+ 
+| 
+ 34 | 
+ Swagat Indian — Tandoori mixed grill1st ed. #41 of the next thirty ▲7 | 
+ Estimated | 
+ 5.93 | 
+ 5.8 | 
+ [CHART] | 
+ $22.00 | 
+ 620 | 
+ 50 | 
+ 1,500 | 
+ 5 | 
+ 
+| 
+ 35 | 
+ Jason's Deli — Salad-bar build with grilled chicken1st ed. #42 of the next thirty ▲7 | 
+ Estimated | 
+ 5.90 | 
+ 5.8 | 
+ [CHART] | 
+ $12.89 | 
+ 560 | 
+ 40 | 
+ 1,200 | 
+ 7 | 
+ 
+| 
+ 36 | 
+ Roots Natural Kitchen — Create Your Own bowl1st ed. #43 of the next thirty ▲7 | 
+ Estimated | 
+ 5.89 | 
+ 5.7 | 
+ [CHART] | 
+ $14.00 | 
+ 580 | 
+ 32 | 
+ 950 | 
+ 12 | 
+ 
+| 
+ 37 | 
+ Quick Meal Mediterranean — Chicken kebab plate1st ed. #44 of the next thirty ▲7 | 
+ Estimated | 
+ 5.86 | 
+ 5.6 | 
+ [CHART] | 
+ $12.99 | 
+ 540 | 
+ 44 | 
+ 1,100 | 
+ 6 | 
+ 
+| 
+ 38 | 
+ Goorsha — Vegan vegetable combo1st ed. #26 of the first thirty ▼12 | 
+ Estimated | 
+ 5.84 | 
+ 6.0 | 
+ [CHART] | 
+ $24.00 | 
+ 660 | 
+ 26 | 
+ 1,150 | 
+ 20 | 
+ 
+| 
+ 39 | 
+ Mediterra Grill — Chicken kabob plate1st ed. #45 of the next thirty ▲6 | 
+ Estimated | 
+ 5.76 | 
+ 5.5 | 
+ [CHART] | 
+ $15.99 | 
+ 560 | 
+ 46 | 
+ 1,150 | 
+ 6 | 
+ 
+| 
+ 40 | 
+ Shinmai Shokudo — Salmon bento1st ed. #46 of the next thirty ▲6 | 
+ Estimated | 
+ 5.74 | 
+ 5.7 | 
+ [CHART] | 
+ $27.00 | 
+ 680 | 
+ 40 | 
+ 1,350 | 
+ 6 | 
+ 
+| 
+ 41 | 
+ Sweetgreen ⚑ — Miso Glazed Salmon bowl1st ed. #36 of the next thirty ▼5 | 
+ Published | 
+ 5.69 | 
+ 5.5 | 
+ [CHART] | 
+ $18.75 | 
+ 880 | 
+ 34 | 
+ 1,092 | 
+ 12 | 
+ 
+| 
+ 42 | 
+ Namu — Bibimbap with banchan ordered separately1st ed. #27 of the first thirty ▼15 | 
+ Estimated | 
+ 5.58 | 
+ 5.6 | 
+ [CHART] | 
+ $26.00 | 
+ 640 | 
+ 34 | 
+ 1,500 | 
+ 9 | 
+ 
+| 
+ 43 | 
+ Tazza Kitchen — Baja bowl1st ed. #47 of the next thirty | 
+ Estimated | 
+ 5.46 | 
+ 5.3 | 
+ [CHART] | 
+ $19.38 | 
+ 640 | 
+ 36 | 
+ 1,250 | 
+ 11 | 
+ 
+| 
+ 44 | 
+ Szechuan Mansion Hotpot — Szechuan boiled bean curd1st ed. #48 of the next thirty | 
+ Estimated | 
+ 5.42 | 
+ 5.4 | 
+ [CHART] | 
+ $21.00 | 
+ 480 | 
+ 30 | 
+ 1,800 | 
+ 7 | 
+ 
+| 
+ 45 | 
+ Esmeralda Grill — Pollo rostizado1st ed. #49 of the next thirty | 
+ Estimated | 
+ 5.40 | 
+ 5.1 | 
+ [CHART] | 
+ $13.99 | 
+ 620 | 
+ 52 | 
+ 1,200 | 
+ 5 | 
+ 
+| 
+ 46 | 
+ First Watch — Tri-Fecta1st ed. #50 of the next thirty | 
+ Estimated | 
+ 5.35 | 
+ 5.3 | 
+ [CHART] | 
+ $16.81 | 
+ 540 | 
+ 28 | 
+ 900 | 
+ 9 | 
+ 
+| 
+ 47 | 
+ Jamaica Jamaica — Jerk chicken1st ed. #51 of the next thirty | 
+ Estimated | 
+ 5.32 | 
+ 4.9 | 
+ [CHART] | 
+ $14.00 | 
+ 620 | 
+ 46 | 
+ 1,500 | 
+ 5 | 
+ 
+| 
+ 48 | 
+ Southern Spice — Sambar idli with chutneys1st ed. #28 of the first thirty ▼20 | 
+ Estimated | 
+ 5.30 | 
+ 5.2 | 
+ [CHART] | 
+ $11.99 | 
+ 380 | 
+ 14 | 
+ 980 | 
+ 8 | 
+ 
+| 
+ 49 | 
+ Bonjour Banh Mi — Grilled chicken vermicelli plate1st ed. #29 of the first thirty ▼20 | 
+ Estimated | 
+ 5.29 | 
+ 5.1 | 
+ [CHART] | 
+ $17.90 | 
+ 600 | 
+ 35 | 
+ 1,250 | 
+ 6 | 
+ 
+| 
+ 50 | 
+ Udupi Cafe — Royal South Indian thali1st ed. #30 of the first thirty ▼20 | 
+ Estimated | 
+ 5.29 | 
+ 5.3 | 
+ [CHART] | 
+ $24.99 | 
+ 750 | 
+ 24 | 
+ 1,500 | 
+ 14 | 
+ 
+| 
+ 51 | 
+ Panera Bread — Mediterranean grain bowl1st ed. #52 of the next thirty | 
+ Estimated | 
+ 5.22 | 
+ 5.1 | 
+ [CHART] | 
+ $13.00 | 
+ 550 | 
+ 24 | 
+ 1,250 | 
+ 10 | 
+ 
+| 
+ 52 | 
+ No 1 Pho — Bun thit heo nuong1st ed. #53 of the next thirty | 
+ Estimated | 
+ 5.15 | 
+ 4.8 | 
+ [CHART] | 
+ $20.50 | 
+ 640 | 
+ 38 | 
+ 1,450 | 
+ 6 | 
+ 
+| 
+ 53 | 
+ Los Tres — Street carne asada tacos1st ed. #54 of the next thirty | 
+ Estimated | 
+ 5.15 | 
+ 4.9 | 
+ [CHART] | 
+ $17.99 | 
+ 680 | 
+ 46 | 
+ 1,300 | 
+ 7 | 
+ 
+| 
+ 54 | 
+ Pho 919 — Well-done brisket pho1st ed. #55 of the next thirty | 
+ Estimated | 
+ 5.12 | 
+ 4.8 | 
+ [CHART] | 
+ $18.34 | 
+ 520 | 
+ 36 | 
+ 1,750 | 
+ 4 | 
+ 
+| 
+ 55 | 
+ Rese's Caribbean Kitchen — Brown stew chicken1st ed. #56 of the next thirty | 
+ Estimated | 
+ 4.74 | 
+ 4.4 | 
+ [CHART] | 
+ $14.49 | 
+ 640 | 
+ 42 | 
+ 1,400 | 
+ 5 | 
+ 
+| 
+ 56 | 
+ MI CANCUN — Carne asada plate1st ed. #57 of the next thirty | 
+ Estimated | 
+ 4.46 | 
+ 4.2 | 
+ [CHART] | 
+ $24.99 | 
+ 780 | 
+ 50 | 
+ 1,600 | 
+ 9 | 
+ 
+| 
+ 57 | 
+ Bul Box ⚑ — Malibu Poke with salmon1st ed. #23 of the first thirty ▼34 | 
+ Partial | 
+ 4.35 | 
+ 4.2 | 
+ [CHART] | 
+ $15.89 | 
+ 445 | 
+ 23 | 
+ 1,951 | 
+ 10 | 
+ 
+| 
+ 58 | 
+ Afghan Kebab — Beef kobidah1st ed. #58 of the next thirty | 
+ Estimated | 
+ 4.17 | 
+ 3.8 | 
+ [CHART] | 
+ $19.79 | 
+ 780 | 
+ 44 | 
+ 1,450 | 
+ 6 | 
+ 
+| 
+ 59 | 
+ Gifted Hand Cuisine — Braised oxtail1st ed. #59 of the next thirty | 
+ Estimated | 
+ 4.17 | 
+ 4.1 | 
+ [CHART] | 
+ $32.79 | 
+ 780 | 
+ 52 | 
+ 1,500 | 
+ 6 | 
+ 
+| 
+ 60 | 
+ Silk Road Uzbek — Manti, four pieces1st ed. #60 of the next thirty | 
+ Estimated | 
+ 4.05 | 
+ 3.8 | 
+ [CHART] | 
+ $16.99 | 
+ 560 | 
+ 28 | 
+ 1,100 | 
+ 4 | 
+ 
+ 
+ 
+
+ 
+ The verification log
+ 
+
+## What was wrong
+ 
+ 
+Every nutrition figure the first edition attributed to a published document was re-read against that document, and the restaurants were spot-checked for whether they exist and are trading. 26 claims came back wrong, 9 of them badly enough to change a score. 6 could not be settled either way and are printed as open rather than quietly dropped.
+ 
+Two of the corrections move an entry a long way. Sassool was ranked third on figures its own published nutrition sheet does not support. Bul Box was scored on sodium inferred from construction because its nutrition page was returning an error; the page works now, and the real number is more than double.
+ 
+ 
+ CorrectedPoke Bros.
+ 
+
+### The Poke Bros. double tuna salad bowl's headline figures
+ 
+First edition 542 cal / 52 g protein / 210 mg sodium / 10 g fiber / 9 g sugar.
+ 
+542 cal / 51 g protein / 201 mg sodium / 9 g fiber / 8 g sugar, by summing Poke Bros.' own component table. The headline calorie and saturated-fat figures reproduce exactly; protein, sodium, fiber and sugar were each rounded up by one unit.
+ 
+Rescored: overall 7.86, now ranked 1 of 60.
+ 
+Poke Bros. Nutritionals PDF, retrieved 28 August 2026.
+ 
+ CorrectedPokeworks
+ 
+
+### The Pokeworks large chicken bowl's totals
+ 
+First edition 420 cal / 44 g protein / 550 mg sodium / 8 g fiber.
+ 
+400 cal / 43 g protein / 535 mg sodium / about 6 g fiber, summing the printed build from the Pokeworks Nutrition Guide v2.0.
+ 
+Rescored: overall 7.14, now ranked 4 of 60.
+ 
+Pokeworks Nutrition Guide v.2.0 (May 2026), retrieved 28 August 2026.
+ 
+ CorrectedDICED
+ 
+
+### The DICED lentil bowl 'lands near 220 mg' of sodium at 680 cal and 60 g protein
+ 
+First edition 680 cal / 60 g protein / 220 mg sodium / 8 g sugar.
+ 
+709 cal / 57 g protein / 144 mg sodium / 9 g sugar, summed from DICED's own per-ingredient nutrition calculator. The sodium claim was pessimistic: the bowl is cleaner than the first edition said, and remains the lowest sodium-per-gram-of-protein dish in the set. Saturated fat and fiber stay estimated because DICED publishes neither.
+ 
+Rescored: overall 7.11, now ranked 5 of 60.
+ 
+eatdiced.com/nutrition per-ingredient values, retrieved 28 August 2026.
+ 
+ CorrectedBul Box
+ 
+
+### Bul Box Malibu Poke with salmon is 440 cal / 25 g protein / 900 mg sodium / 8 g sugar
+ 
+First edition 440 cal / 25 g protein / 900 mg sodium / 8 g sugar, with sodium inferred from construction because the nutrition page returned a server error.
+ 
+445 cal / 23 g protein / about 1,950 mg sodium / 25 g sugar. The nutrition page resolves normally now and publishes the full component table; summing the printed build more than doubles the sodium and triples the sugar. This is the largest single error in the first edition and it moves the entry a long way down.
+ 
+Rescored: overall 4.35, now ranked 57 of 60.
+ 
+Bul Box nutrition PDF (bulboxgrill.com/nutrition-allergens), retrieved 28 August 2026.
+ 
+ CorrectedSweetgreen
+ 
+
+### Sweetgreen's Miso Glazed Salmon was estimated at 620 cal / 33 g protein / 1,100 mg sodium / 4 g saturated fat
+ 
+First edition Estimated from menu construction, and marked as such.
+ 
+Sweetgreen publishes a complete per-item nutrition table, updated August 2026, which the first edition did not consult. The real figures are 880 cal / 34 g protein / 1,092 mg sodium / 9 g saturated fat / 12 g fiber. Calories were understated by 42% and saturated fat by more than half. The entry is re-tiered to published and falls accordingly.
+ 
+Rescored: overall 5.69, now ranked 41 of 60.
+ 
+sweetgreen.com/nutrition, updated August 2026, retrieved 28 August 2026.
+ 
+ CorrectedChopt
+ 
+
+### Chopt's Craft Your Own salad was estimated at 480 cal / 38 g protein / 900 mg sodium / 6 g sugar
+ 
+First edition Estimated from menu construction, and marked as such.
+ 
+Chopt publishes a Craft Your Own nutrition breakdown, updated Spring 2026. Reconstructed from it, the build is 415 cal / 33 g protein / 735 mg sodium / 12 g fiber - cleaner on sodium and calories than estimated, but 15 g of sugar rather than 6, most of it from the vinaigrette and the corn. Re-tiered to published.
+ 
+Rescored: overall 6.64, now ranked 15 of 60.
+ 
+Chopt Nutrition & Allergen Information, Spring 2026, retrieved 28 August 2026.
+ 
+ CorrectedCAVA
+ 
+
+### The CAVA bowl totals 740 cal / 50 g protein / 1,125 mg sodium / 6 g sugar
+ 
+First edition 740 cal / 1,125 mg sodium / 6 g sugar.
+ 
+About 775 cal / 1,295 mg sodium / 8 g sugar, summing CAVA's own catering nutrition guide at retail portions. The 27 g of fiber and the steak-versus-chicken finding both survive; the sodium total was understated by roughly 170 mg.
+ 
+Rescored: overall 6.38, now ranked 22 of 60.
+ 
+CAVA Nutrition and Allergen Guide, last modified July 2026, retrieved 28 August 2026.
+ 
+ CorrectedSassool
+ 
+
+### The Sassool plate - ranked third in the first edition - at 620 cal / 46 g protein / 980 mg sodium / 7 g saturated fat / 12 g fiber / 6 g sugar
+ 
+First edition 620 cal / 46 g protein / 980 mg sodium / 7 g saturated fat / 12 g fiber / 6 g sugar, estimated from menu construction, with the first edition calling Sassool's blocked nutrition PDF 'the highest-value single correction available to this document'.
+ 
+Sassool's published figures were recovered from the search index even though the PDF itself is still Cloudflare-blocked, and they refute the entry. At Sassool's own serving basis the four cold components alone come to 603 calories and 1,068 mg of sodium BEFORE any chicken: labneh 4 oz is 258 cal and 370 mg, lentil salad 6 oz is 144 cal and 355 mg, tabouli 6 oz is 130 cal and 240 mg, kale salad 6 oz is 71 cal and 103 mg. Their published fiber for those four items totals 3 g, not 12 - no portion scaling reaches 12. Labneh is full-fat strained yogurt blended with olive oil and carries most of the plate's saturated fat on its own. The entry is rescored to a mid-portion central estimate of 850 cal / 1,700 mg / 13 g saturated fat / 3 g fiber, which drops it out of the top ten. It stays flagged as disputed because the true figures depend on scoop size, which could not be established: the defensible range runs from roughly 780 to 950 calories and 1,600 to 2,200 mg.
+ 
+Rescored: overall 5.96, now ranked 32 of 60.
+ 
+Sassool nutrition facts, updated July 2024 (salads at 6 oz, dips at 4 oz), recovered via search-index extraction 28 August 2026; the PDF itself returns HTTP 403 behind Cloudflare.
+ 
+ CorrectedChosun Ok
+ 
+
+### Seafood soondubu with a 1 lb kimchi side is 2,100 mg of sodium - 'the highest-sodium dish in the compendium'
+ 
+First edition 2,100 mg, described as the compendium's sodium ceiling.
+ 
+The kimchi side alone is about 2,260 mg. USDA FoodData Central puts kimchi at 498 mg of sodium per 100 g, so a 1 lb side is roughly 2,300 mg before the stew is counted, and branded jarred kimchi runs higher. The dish is realistically 3,500-4,500 mg; it is carried here at 4,000. Its score does not change, because the kidney criterion already scored it zero at 2,100 - which is itself the point, and is taken up in the audit above.
+ 
+Rescored: overall 6.36, now ranked 23 of 60.
+ 
+USDA FoodData Central, FNDDS 2021-2023, kimchi, food code 75502520, published October 2024.
+ 
+ CorrectedFarmside Kitchen
+ 
+
+### 'Sodium at Farmside lives in the dressing and the cheese rather than the produce', so building the bowl manually roughly halves it to 620 mg
+ 
+First edition 620 mg sodium for the build-your-own bowl, on the theory that the dressing and cheese carry the salt.
+ 
+Farmside's own nutrition table puts the sodium in the grains and the seasoned protein: seasoned quinoa is 900 mg per 8 oz, seasoned black beans 700 mg, brown rice 660 mg, and the Signature Grilled Chicken 660 mg against 190 mg for a plain grilled breast. A bowl of greens, quinoa, chicken and black beans cannot land at 620 mg. The entry is held as disputed rather than rescored, because the component portions used in a built bowl could not be established.
+ 
+ 
+Farmside Kitchen nutrition PDF; their ordering platform returns HTTP 403 to automated retrieval.
+ 
+ CorrectedBul Box
+ 
+
+### 'Taking one sriracha instead of two creamy sauces is the entire health edit' at Bul Box
+ 
+First edition Sriracha at 28 calories was recommended over spicy mayo at 178 and yum yum at 150.
+ 
+Sriracha is 30 cal but 454 mg of sodium per ounce; yum yum sauce is 150 cal and 115 mg. The calorie-cheapest sauce on the board is the salt-heaviest by a factor of four. Which one to take depends entirely on which number you are managing, and the first edition only looked at one of them.
+ 
+ 
+Bul Box nutrition PDF, retrieved 28 August 2026.
+ 
+ CorrectedBul Box
+ 
+
+### Bul Box enforces a hard two-sauce cap you cannot exceed
+ 
+First edition Described as a hard cap that cannot be exceeded.
+ 
+The two-sauce limit appears only on DoorDash's Build Your Own Box. Bul Box's own menu states no sauce cap at all, and signature boxes such as the Kona Poke carry three by default.
+ 
+ 
+bulboxgrill.com/menu, retrieved 28 August 2026.
+ 
+ CorrectedDICED
+ 
+
+### DICED's creamy dressings add 90-185 mg of sodium
+ 
+First edition 90-185 mg and about 100 calories.
+ 
+90-280 mg. The 185 mg figure is blue cheese; Caesar at 280 mg is the real ceiling. The calorie range, 94-129, was fair.
+ 
+ 
+eatdiced.com/nutrition, retrieved 28 August 2026.
+ 
+ CorrectedPoke Bros.
+ 
+
+### Without the OG sauce the bowl is 'clean fish, acid and aromatics'
+ 
+First edition Described as a sauceless bowl.
+ 
+The first edition's own build keeps the wasabi aioli, which is 125 cal and 2 g of sugar per 14 g. The bowl refuses one sauce and keeps another; it is not sauceless, and about 2 g of its sugar comes from the aioli rather than from produce.
+ 
+ 
+Poke Bros. Nutritionals PDF, retrieved 28 August 2026.
+ 
+ CorrectedCAVA
+ 
+
+### CAVA's rice bases are 'the single largest sodium item on the menu' at 770 mg
+ 
+First edition Stated as the menu's sodium ceiling.
+ 
+The 770 mg figure is right, and both rice bases really are identical. The superlative is not: falafel is higher at about 810 mg, and grilled chicken, harissa honey chicken and the lamb meatballs all sit in the same 650-680 mg band. The rices are the largest sodium item among the bases.
+ 
+ 
+CAVA Nutrition and Allergen Guide, retrieved 28 August 2026.
+ 
+ CorrectedChipotle
+ 
+
+### Chipotle's guacamole is 'roughly 230-240 cal and 370-385 mg sodium'
+ 
+First edition Given as a range, and the no-guacamole alternative was scored at 240 cal and 385 mg lighter.
+ 
+Chipotle publishes one figure, not a range: 230 cal and 370 mg for 4 oz. The no-guacamole alternative should read 345 cal / 42 g protein / 685 mg, not 335 / 41 / 670.
+ 
+ 
+Chipotle US nutrition facts chart, revision OCT-2024-US-CK, retrieved 28 August 2026.
+ 
+ CorrectedSassool
+ 
+
+### 'Baked salmon instead of kabob' is a Sassool alternative order at 700 cal / 44 g protein / 1,050 mg sodium
+ 
+First edition Printed as a scored alternative that outranks the recommendation.
+ 
+Baked salmon is a call-ahead special at Sassool, not a standard-menu item - the restaurant's own bariatric handout stars it with 'call restaurant for availability'. The compendium's own rule requires alternatives to be orderable from the standard menu, and no nutrition row for it exists anywhere. The figures were invented.
+ 
+ 
+Sassool bariatric handout, November 2025, sourced from the restaurant.
+ 
+ CorrectedAbol Ethiopian
+ 
+
+### Abol Ethiopian is ~10 miles from Research Triangle Park
+ 
+First edition ~10 mi from RTP.
+ 
+About 2-3 miles. Abol is at 2945 South Miami Boulevard in Durham, which is close to the park, not ten miles from it. The restaurant, its hours and its DoorDash store id all check out; only the distance was wrong.
+ 
+ 
+Yelp listing updated July 2026; DoorDash store 35410175.
+ 
+ Correctedthe whole set
+ 
+
+### 'Every restaurant was verified to have a live DoorDash storefront; its store ID is printed with the dish'
+ 
+First edition Printed on the masthead alongside a 'DoorDash-verified 30 / 30' badge.
+ 
+57 of the 60 entries print a store id. Poke Bros. prints a DoorDash business id, which identifies the brand rather than any one storefront and so cannot establish that a particular location is live; CAVA and Chipotle print the literal word 'chain'. Independently, 35 restaurants were spot-checked in this edition and all 35 exist and appear to be trading, with 29 of the printed store ids matched to the right restaurant and address.
+ 
+ 
+Spot-check of 35 entries against Yelp, OpenTable, Discover Durham, visitRaleigh and first-party sites, 28 August 2026.
+ 
+ Correctedthe whole set
+ 
+
+### DoorDash prices run roughly 15-25% above in-store
+ 
+First edition Stated in the methodology note.
+ 
+The published measurements land lower: Gordon Haskett found about 20% across 25 major brands, and later analyses put the typical spread nearer 10-15%. Roughly 10-20%, averaging about 15%, is better supported. This matters, because every cost score in the document is computed on a DoorDash-listed price.
+ 
+ 
+Gordon Haskett Research Advisors delivery-price tracking; subsequent published analyses.
+ 
+ Correctedthe whole set
+ 
+
+### Internal inconsistency: the first edition's endnote says Sassool ranks fourth
+ 
+First edition 'Given Sassool ranks fourth on estimated figures...' while the ranking table and the entry header both place it third.
+ 
+The table is right and the endnote is wrong. Noted because it is the kind of small inconsistency that signals a document assembled from more than one pass.
+ 
+ 
+The first edition, pages 4 and 26.
+ 
+ CorrectedAbol Ethiopian
+ 
+
+### Telba shiro's ground flaxseed is 'a genuine plant omega-3 source', scored as omega-3 in the inflammation criterion
+ 
+First edition Scored as an omega-3 source alongside oily fish.
+ 
+Flaxseed is a real source of ALA and not a functional source of EPA or DHA. A scoping review of 13 randomised trials found high-dose flaxseed and echium oil produced no increase in the omega-3 index, against reliable increases from fish oil; conversion of ALA to EPA runs at a few percent and to DHA below one percent. The model is treating several grams of ALA as interchangeable with about a gram of preformed EPA and DHA, and it should not.
+ 
+ 
+Lane et al., Critical Reviews in Food Science and Nutrition, 2022 (PMID 33576691).
+ 
+ CorrectedBul Box
+ 
+
+### Salmon is 'one of few foods with trial evidence for reducing liver fat'
+ 
+First edition Given as the reason the salmon build scores well on the liver criterion.
+ 
+No randomised trial of salmon with liver fat as an outcome could be found. The 13 indexed salmon-intervention trials cover vitamin D status, cognition, ulcerative colitis and pollutant kinetics. The defensible version is that oily fish and long-chain omega-3s have trial evidence for improving some liver markers, with the effect on directly measured liver fat inconsistent across meta-analyses.
+ 
+ 
+PubMed searches on salmon with hepatic steatosis and liver fat outcomes, 28 August 2026.
+ 
+ CorrectedM Sushi
+ 
+
+### Salmon belly and chutoro 'carry several times the EPA and DHA of lean loin'
+ 
+First edition Given as the reason to order the oily cuts.
+ 
+Half right, and the right half is understated. Japan's standard food composition tables put fatty bluefin tuna at 4,600 mg of EPA plus DHA per 100 g against akami's roughly 150 - about thirty times, not several. Salmon does not work the same way: belly flap runs 18.5% lipid against 2.4% in the tail, so it is modestly richer in absolute omega-3 but slightly poorer as a proportion of its fatty acids. The advice is right for the tuna and overstated for the salmon.
+ 
+ 
+MEXT Standard Tables of Food Composition, 8th edition; Katikou, Hughes & Robb, Aquaculture 202 (2001).
+ 
+ CorrectedAbol Ethiopian
+ 
+
+### Injera's fermentation reduces phytate even though griddling kills the cultures
+ 
+First edition Stated without qualification.
+ 
+Partly, and strain-dependently. Teff's phytic acid is only partly degraded during fermentation, and of 76 isolates from thirteen household fermentations only 13 were phytase-positive. Directionally right, overstated as written.
+ 
+ 
+Fischer et al., International Journal of Food Microbiology, 2014 (PMID 25180667).
+ 
+ CorrectedKathmandu Kitchen
+ 
+
+### Gundruk, if available, is a true Nepali lacto-ferment that would move the entry up
+ 
+First edition Suggested as an upside worth asking about.
+ 
+Gundruk is a genuine lacto-ferment - viable counts rise from about 6 x 10^4 to 9.6 x 10^8 CFU per gram over fermentation, driven by Lactobacillus brevis, Pediococcus pentosaceus and finally Lb. plantarum. But it is dried and then cooked before serving, so as it reaches the table it earns fermented-flavour credit rather than live-culture credit. Worth ordering; not worth the gut points the first edition implied.
+ 
+ 
+Tamang et al., Indian Journal of Microbiology, October 2010 (PMID 22815579).
+ 
+ UnresolvedDICED
+ 
+
+### The DICED bowl costs $10.95
+ 
+First edition Printed as a DoorDash-listed price.
+ 
+Could not be verified. DICED publishes no prices in first-party sources at all - the build-your-own carries only a pricing rule, and no delivery platform could be retrieved. The price is carried forward unchanged and flagged.
+ 
+ 
+eatdiced.com/menu, retrieved 28 August 2026.
+ 
+ UnresolvedFarmside Kitchen
+ 
+
+### Farmside's 'No dressing' plus 'Extra Dressing $0.75' is a buildable sauce-on-the-side mechanism, and the only one on the list
+ 
+First edition Presented as verified ordering mechanics.
+ 
+Not verifiable. Farmside's ordering platform returns HTTP 403 to automated retrieval on every path, their public menu prices nothing, and no snapshot exists. The claim may well be true; nothing in reach establishes it.
+ 
+ 
+order.farmsidekitchen.com, inaccessible 28 August 2026.
+ 
+ UnresolvedChipotle
+ 
+
+### Light / standard / extra portioning is confirmed only in Chipotle's first-party app, not on delivery platforms
+ 
+First edition Asserted as verified ordering mechanics.
+ 
+Half of that is documented: Chipotle announced Complete Customization - making any ingredient light, standard or extra - as an app feature in May 2020. Whether delivery platforms pass it through is addressed in no Chipotle document that could be found, so the second half of the sentence was an assumption, not a finding.
+ 
+ 
+Chipotle newsroom, 19 May 2020.
+ 
+ UnresolvedCAVA
+ 
+
+### Braised lamb at CAVA is 450 mg sodium for 24 g protein
+ 
+First edition Printed as an alternative order with figures.
+ 
+Could not be verified. Braised lamb does not appear in CAVA's catering nutrition guide at all; the only lamb item there is spicy lamb meatballs at roughly 674 mg per serving, a different preparation with about 50% more sodium.
+ 
+ 
+CAVA Nutrition and Allergen Guide, retrieved 28 August 2026.
+ 
+ UnresolvedNaga's South Indian
+ 
+
+### Curd rice is a live-culture item because it is 'set yogurt stirred into cooled rice and served cold', scoring a perfect 10.0 on gut
+ 
+First edition Scored as an established live ferment, the highest gut score in the document.
+ 
+The yogurt carries live cultures; the word doing the work is 'cooled', and it is not reliably true in restaurant practice. Curd rice is commonly assembled with warm rice and very often finished with a hot tadka poured over it, either of which kills vegetative lactobacilli. A gut score of 10.0 is the strongest claim in that column and it rests on an assumption a menu cannot settle.
+ 
+ 
+21 CFR 131.200 on yogurt cultures; standard preparation practice.
+ 
+ UnresolvedEl Cuscatleco
+ 
+
+### El Cuscatleco's curtido is scored as a live lacto-ferment
+ 
+First edition Scored optimistically, with the first edition noting the assumption was the one most likely to be wrong.
+ 
+Traditionally-made curtido is a genuine live ferment - salted submerged brassica follows the same lactic succession as sauerkraut and kimchi, reaching around 9 to 10 log CFU per gram. But no survey exists of how many US pupuserias ferment rather than vinegar-pickle, and the vinegar version is the dominant published recipe outside El Salvador. The first edition scored the optimistic case as the base case. Still worth the phone call it recommended.
+ 
+ 
+Park et al., Critical Reviews in Food Science and Nutrition, 2024 (PMID 36718547); no survey data located.
+ 
+ ConfirmedPoke Bros.
+ 
+
+### OG Sauce is auto-added to every bowl at 730 mg and must be affirmatively refused
+ 
+First edition Stated as a fact about every bowl.
+ 
+Confirmed, and it does apply to build-your-own bowls rather than only signature ones. Poke Bros.' own menu carries the line 'OG SAUCE ADDED TO ALL BOWLS UNLESS REQUESTED OTHERWISE' inside the build-your-own block.
+ 
+ 
+Poke Bros. General Handheld Menu and eatpokebros.com/menu, retrieved 28 August 2026.
+ 
+ ConfirmedTrue Food Kitchen
+ 
+
+### The undressed Tuscan Kale Salad with salmon is 380 cal / 36 g protein / 330 mg sodium, and the dressing it omits is 340 cal and 630 mg
+ 
+First edition Presented as assembled from published data.
+ 
+Confirmed exactly, component by component, against True Food Kitchen's Summer 2026 guide. The salmon add-on really is 29 g of protein at 90 mg of sodium, the lowest-sodium meaningful protein add-on on their menu.
+ 
+ 
+True Food Kitchen Summer 2026 Nutritional Guide, retrieved 28 August 2026.
+ 
+ ConfirmedChipotle
+ 
+
+### Chipotle chicken is 32 g protein for 310 mg sodium; pinto beats black on fiber; brown rice is lower-sodium than white; the vinaigrette is 850 mg and 12 g sugar
+ 
+First edition Four component claims underpinning the Chipotle entry.
+ 
+All four confirmed exactly against Chipotle's own chart, and the assembled dish total of 575 cal / 44 g protein / 1,055 mg sodium reproduces component by component. Worth adding: declining the vinaigrette also removes 220 calories and 2.5 g of saturated fat.
+ 
+ 
+Chipotle US nutrition facts chart, revision OCT-2024-US-CK, retrieved 28 August 2026.
+ 
+ Confirmedthe whole set
+ 
+
+### DoorDash renames deactivated storefronts to 'Graveyard' or '[DNU]' while keeping the URL, rating and hours rendering normally
+ 
+First edition Given as one of the first edition's four headline findings.
+ 
+Confirmed. The convention is observable on live public DoorDash store pages across several states, with titles of the form 'GRAVEYARD DNU DO NOT REACTIVATE!!'. It is a real trap for anyone verifying a storefront - it just is not a finding about food, which is why it has moved to the method notes.
+ 
+ 
+Live DoorDash store pages, retrieved 28 August 2026.
+ 
+ Confirmedthe whole set
+ 
+
+### Vinegar quick-pickles carry no live cultures and score zero on the gut criterion
+ 
+First edition Applied as a rule across the document - Vietnamese do chua, pickled red onion, CAVA's onions, Bulkogi's daikon.
+ 
+Confirmed, and it is one of the model's better calls. Quick-process pickles are brined briefly then covered in vinegar and seasonings, with no fermentation step at all, as distinct from cured fermented pickles and sauerkraut. Labneh, cacik and raita are correspondingly confirmed as live-culture items, subject only to the yogurt not having been heat-treated after culturing - which a menu cannot tell you.
+ 
+ 
+National Center for Home Food Preservation, University of Georgia; 21 CFR 131.200.
+ 
+
+ Method and provenance
+ 
+ 
+ 
+
+#### What a score is
+ 
+Each entry is one specific dish, ordered one specific way, and every figure describes that dish as built — not the restaurant, and not the menu item as it arrives by default. Where the build says to refuse something, the numbers assume you refused it.
+ 
+
+#### Prices
+ 
+DoorDash-listed, which run roughly 15–25% above in-store. Distances are straight-line from Research Triangle Park; an active storefront is not the same as delivery to a given address, which is computed per address at checkout.
+ 
+ 
+ 
+
+#### What this is not
+ 
+Not medical advice, and not a clinical instrument. The criteria are a defensible way to compare restaurant meals with each other; they are not a diagnosis and the anchor points are judgement calls, some of which are argued with above.
+ 
+
+#### Reproducibility
+ 
+The six computed criteria are printed as functions and the dataset behind this edition is machine-readable. Any score here can be recomputed, disagreed with, and refitted with different anchors.
+ 
+ 
+ 
+
+ Second edition. First edition compiled 25 August 2026; this revision 28 August 2026. Menus and formulations change constantly and every figure here has a shelf life measured in months.
+ 
+

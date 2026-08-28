@@ -147,31 +147,32 @@ F['na_swaps'].sort(key=lambda r: -r['cut'])
 
 # where the salt sits: single components verified against published nutrition documents
 F['salt_components'] = [
-  dict(item='Farmside Kitchen seasoned quinoa', per='8 oz base portion', mg=900,
+  dict(item='Farmside Kitchen seasoned quinoa', per='8 oz base portion', mg=900, protein=None,
        note='The base, before anything is put on it.'),
-  dict(item='Chipotle chipotle-honey vinaigrette', per='2 fl oz', mg=850,
+  dict(item='Chipotle chipotle-honey vinaigrette', per='2 fl oz', mg=850, protein=None,
        note='Also 220 calories and 12 g of sugar.'),
-  dict(item='CAVA saffron basmati or brown rice', per='one base', mg=770,
-       note='Identical for both rices; the largest sodium item among CAVA\'s bases.'),
-  dict(item='Poke Bros. OG Sauce', per='one bowl', mg=730,
+  dict(item='CAVA saffron basmati or brown rice', per='one base', mg=770, protein=None,
+       note='Identical for both rices, and the largest sodium item among CAVA\'s bases.'),
+  dict(item='Poke Bros. OG Sauce', per='one bowl', mg=730, protein=None,
        note='Added to every bowl unless you refuse it.'),
-  dict(item='Farmside Kitchen Signature grilled chicken', per='3.5 oz', mg=660,
-       note='A plain grilled breast is 190 mg for the same protein.'),
-  dict(item='CAVA grilled chicken', per='one portion', mg=670,
+  dict(item='CAVA grilled chicken', per='one portion', mg=670, protein=28,
        note='CAVA\'s grilled steak is 280 mg for 23 g of protein.'),
-  dict(item='Bul Box sriracha', per='1 oz', mg=454,
-       note='The 30-calorie sauce. Yum yum sauce is 150 calories and 115 mg.'),
-  dict(item='Pokeworks ahi tuna', per='2 oz scoop', mg=350,
-       note='Their chicken is 80 mg for the same scoop.'),
-  dict(item='Chipotle chicken', per='4 oz', mg=310,
-       note='32 g of protein - the most sodium-efficient protein in the set.'),
-  dict(item='True Food Kitchen salmon add-on', per='one portion', mg=90,
-       note='29 g of protein. The cleanest protein anywhere here.'),
-  dict(item='DICED grilled chicken', per='one portion', mg=69,
-       note='26 g of protein, at 2.7 mg of sodium per gram.'),
-  dict(item='Poke Bros. plain tuna', per='85 g', mg=40,
-       note='Their own marinated tuna is 820 mg.'),
+  dict(item='Farmside Kitchen Signature grilled chicken', per='3.5 oz', mg=660, protein=None,
+       note='A plain grilled breast is 190 mg for the same protein.'),
+  dict(item='Bul Box sriracha', per='1 oz', mg=454, protein=None,
+       note='The 30-calorie sauce, and four times the sodium of the 150-calorie one.'),
+  dict(item='Pokeworks ahi tuna', per='2 oz scoop', mg=350, protein=14,
+       note='Their chicken is 80 mg for the same scoop and 12 g of protein.'),
+  dict(item='Chipotle chicken', per='4 oz', mg=310, protein=32,
+       note='9.7 mg of sodium per gram of protein.'),
+  dict(item='True Food Kitchen salmon add-on', per='one portion', mg=90, protein=29,
+       note='3.1 mg per gram, and the cleanest protein on any menu here.'),
+  dict(item='DICED grilled chicken', per='one portion', mg=69, protein=26,
+       note='2.7 mg per gram.'),
+  dict(item='Poke Bros. plain tuna', per='85 g', mg=40, protein=21,
+       note='1.9 mg per gram. Their own marinated tuna is 820 mg.'),
 ]
+F['salt_components'].sort(key=lambda x: -x['mg'])
 
 # alternatives
 F['beats'] = [dict(rec=d, alt=a, gain=a['score']-d['overall'])
@@ -205,6 +206,25 @@ for name, rs in GROUPS.items():
                            spread_price=rows[-1]['price']-rows[0]['price'],
                            spread_score=best['overall']-min(d['overall'] for d in rows)))
 F['dupe_priciest_wins'] = sum(1 for x in F['dupes'] if x['best_is_priciest'])
+
+# coverage: what the first edition's sample over- and under-weights
+_cu = defaultdict(list)
+for d in D: _cu[d['cuisine']].append(d)
+F['coverage'] = sorted([dict(name=k, n=len(v), share=len(v)/len(D),
+                             overall=st.mean([d['overall'] for d in v]))
+                        for k, v in _cu.items()], key=lambda r: -r['n'])
+_bowlish = [d for d in D if d['cuisine'] in ('US bowl chain', 'Hawaiian/poke')]
+F['bowl_share'] = dict(n=len(_bowlish), pct=len(_bowlish)/len(D)*100,
+                       in_top10=sum(1 for d in sorted(D, key=lambda x: -x['overall'])[:10]
+                                    if d in _bowlish))
+F['absent'] = [
+  'North Carolina barbecue', 'Southern and soul food', 'Greek', 'Persian',
+  'Chinese-American takeout', 'West African', 'Brazilian', 'Filipino',
+  'Colombian, Cuban or Puerto Rican', 'Burmese', 'Malaysian or Indonesian',
+  'Taiwanese', 'Halal cart', 'Chaat and Indian street food', 'Pakistani or Bangladeshi',
+  'Seafood and raw bar', 'Pizza', 'Burgers and sandwiches', 'Wings',
+  'A dedicated vegan kitchen',
+]
 
 # prep groups
 gp = defaultdict(list)

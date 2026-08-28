@@ -529,8 +529,8 @@
  },
  {
   "rank": 19,
-  "overall": 6.38,
-  "health": 6.4,
+  "overall": 6.36,
+  "health": 6.36,
   "restaurant": "Chosun Ok",
   "data": "ESTIMATED",
   "price": 24.98,
@@ -540,12 +540,12 @@
   "build": "Seafood soft-tofu stew \u00b7 complimentary banchan \u00b7 one 1 lb kimchi ordered as a side",
   "cal": 540,
   "protein": 40,
-  "sodium": 2100,
+  "sodium": 4000,
   "satfat": 3.5,
   "fiber": 7,
   "sugar": 6,
   "KID": 0.0,
-  "LIV": 9.2,
+  "LIV": 9.0,
   "MUS": 7.8,
   "GUT": 9.4,
   "ENE": 3.1,
@@ -554,7 +554,8 @@
   "FLAVOR": 8.6,
   "COST": 4.1,
   "cuisine": "Korean",
-  "prep": "stewed"
+  "prep": "stewed",
+  "corrected": true
  },
  {
   "rank": 20,
