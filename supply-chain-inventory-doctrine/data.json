@@ -153,6 +153,28 @@
           "2019": 1.454
         },
         "note_on_2018_19": "The manufacturing climb through 2018-19 lines up with the Section 301 tariffs, not with anything pandemic-related. This is why the baseline choice in the main finding matters."
+      },
+      "robustness_check_retail_ex_auto": {
+        "objection": "RETAILIRSA is heavily weighted to auto dealers, whose 2021-22 collapse was the chip shortage rather than a doctrinal choice.",
+        "auto_share_of_retail_inventories": {
+          "2019-06": "36.4%",
+          "2021-06": "25.3%",
+          "2026-06": "32.2%"
+        },
+        "result": {
+          "total_retail": {
+            "2015_19_mean": 1.468,
+            "jun_2026": 1.252,
+            "change": -0.216
+          },
+          "ex_motor_vehicles": {
+            "2015_19_mean": 1.238,
+            "jun_2026": 1.083,
+            "change": -0.156
+          }
+        },
+        "conclusion": "Retail leanness survives the exclusion at about 70% of its headline size. The auto collapse amplifies the result; it does not create it.",
+        "source": "Computed from US Census MTIS levels via FRED: RETAILIMSA, RETAILSMSA, MRTSIM441USS, MRTSSM441USS"
       }
     },
     "china_import_share": {
@@ -208,7 +230,22 @@
         "real_inventories": "+10.5%",
         "real_GDP": "+18.8%"
       },
-      "finding": "The 2022-23 restock never regained the pre-COVID level (13.19% against a 2015-19 mean of 13.56%), and the latest reading of 12.57% is the lowest in the window, below even the pandemic trough. Stripped of every price effect, the US economy carries less inventory per unit of output than before COVID, and the gap is still widening."
+      "finding": "The 2022-23 restock never regained the pre-COVID level (13.19% against a 2015-19 mean of 13.56%), and the latest reading of 12.57% is the lowest in the window, below even the pandemic trough. Stripped of every price effect, the US economy carries less inventory per unit of output than before COVID, and the gap is still widening.",
+      "robustness_check_goods_denominator": {
+        "objection": "Real inventories over real GDP can fall simply because output shifted toward services and IP, which carry no stock.",
+        "test": "Normalise against real personal consumption of goods (DGDSRX1Q020SBEA) instead of real GDP.",
+        "result": {
+          "2015_19_mean_pct": 63.5,
+          "2026Q2_pct": 53.12,
+          "change_pp": -10.38
+        },
+        "growth_2019Q1_to_2026Q2": {
+          "real_goods_consumption": "+29.9%",
+          "real_GDP": "+18.8%",
+          "real_inventories": "+10.5%"
+        },
+        "conclusion": "The confound runs the other way. Goods demand grew FASTER than GDP, so the economy did not shift away from goods — and against a goods denominator the inventory decline is roughly ten times larger than against GDP."
+      }
     }
   },
   "reported_figures": [
@@ -2694,6 +2731,24 @@
       "verdict": "ADDED — flagged as the single most directly relevant measurement change",
       "correction": "FASB ASU 2022-04, Supplier Finance Program Obligations, effective for fiscal years beginning after 15 December 2022, requires disclosure of supplier-finance programme obligations.",
       "action": "Added to the cash-conversion-cycle ledger row: it is what makes the DPO-extension game visible in the accounts for the first time."
+    },
+    {
+      "claim_as_originally_written": "The 2025 tariff swing was the most violent inventory swing in the US national accounts outside the pandemic.",
+      "verdict": "CORRECTED — superlative wrong",
+      "correction": "36 consecutive-quarter swings in the postwar record (from 1947) exceed 6.02pp, including 17.4pp in 1950-51. The defensible statement: largest since the pandemic, and largest outside the pandemic since 1988.",
+      "action": "Restated in section 7 with the count and the 1988 comparison, verified independently."
+    },
+    {
+      "claim_as_originally_written": "Real inventories / real GDP proves the economy runs leaner.",
+      "verdict": "CHALLENGED — composition confound",
+      "correction": "Could reflect GDP shifting toward services rather than firms holding less. Tested against real goods consumption: goods grew +29.9% vs GDP +18.8%, and the inventory decline against a goods denominator is -10.38pp, ten times larger.",
+      "action": "Both checks now shown in the section 3 figure. The confound runs in the report's favour."
+    },
+    {
+      "claim_as_originally_written": "Retail is leaner than before COVID.",
+      "verdict": "CHALLENGED — auto confound",
+      "correction": "Auto dealers were 36% of retail inventories in 2019 and their collapse was the chip shortage. Ex motor vehicles, retail is 1.083 against a 2015-19 mean of 1.238 — a 0.156 decline, about 70% of the headline.",
+      "action": "Robustness check added to the section 3 figure; the claim survives at reduced size and is now stated with the exclusion."
     }
   ],
   "scor_standard": {
