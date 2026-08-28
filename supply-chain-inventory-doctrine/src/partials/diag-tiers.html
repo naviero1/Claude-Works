@@ -1,0 +1,61 @@
+<figure class="diag">
+  <svg class="dg" viewBox="0 0 760 250" role="img" aria-label="A five-tier supply chain. Pre-2019 risk registers mapped tier-one suppliers, the firm's own plants and its customers. The shortages of 2020 to 2022 originated below that line — at tier two and tier three, and in the shipping links between them — where firms had no supplier names, no capacity data and no visibility.">
+    <defs>
+      <marker id="ta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+      </marker>
+    </defs>
+
+    <rect x="0" y="60" width="300" height="112" class="f2" opacity=".07" rx="3"/>
+    <line class="hair dash k2" x1="304" y1="44" x2="304" y2="182" stroke-width="1.5"/>
+
+    <text class="e f2" x="0" y="26">Unmapped in 2019</text>
+    <text x="0" y="42">no supplier names · no capacity data · no lead-time signal</text>
+    <text class="e f1" x="326" y="26">The 2019 risk register</text>
+    <text x="326" y="42">scorecards, audits, dual-source policy, OTIF</text>
+
+    <g>
+      <rect class="box" x="0" y="76" width="108" height="52" rx="3"/>
+      <text class="t" x="54" y="98" text-anchor="middle">Tier 3</text>
+      <text x="54" y="114" text-anchor="middle">substrate, resin,</text>
+      <text x="54" y="126" text-anchor="middle">wafer, magnet</text>
+
+      <rect class="box" x="163" y="76" width="108" height="52" rx="3"/>
+      <text class="t" x="217" y="98" text-anchor="middle">Tier 2</text>
+      <text x="217" y="114" text-anchor="middle">chip, casting,</text>
+      <text x="217" y="126" text-anchor="middle">harness</text>
+
+      <rect class="box" x="326" y="76" width="108" height="52" rx="3"/>
+      <text class="t" x="380" y="98" text-anchor="middle">Tier 1</text>
+      <text x="380" y="114" text-anchor="middle">module and</text>
+      <text x="380" y="126" text-anchor="middle">assembly</text>
+
+      <rect class="box k1" x="489" y="76" width="108" height="52" rx="3" stroke-width="1.6"/>
+      <text class="t f1" x="543" y="98" text-anchor="middle">Your plant</text>
+      <text x="543" y="114" text-anchor="middle">MRP, safety stock,</text>
+      <text x="543" y="126" text-anchor="middle">the forecast</text>
+
+      <rect class="box" x="652" y="76" width="108" height="52" rx="3"/>
+      <text class="t" x="706" y="98" text-anchor="middle">Customer</text>
+      <text x="706" y="114" text-anchor="middle">the only modelled</text>
+      <text x="706" y="126" text-anchor="middle">uncertainty</text>
+    </g>
+
+    <line class="ln" x1="112" y1="102" x2="157" y2="102" marker-end="url(#ta)"/>
+    <line class="ln" x1="275" y1="102" x2="320" y2="102" marker-end="url(#ta)"/>
+    <line class="ln" x1="438" y1="102" x2="483" y2="102" marker-end="url(#ta)"/>
+    <line class="ln" x1="601" y1="102" x2="646" y2="102" marker-end="url(#ta)"/>
+
+    <circle cx="54" cy="152" r="5" class="f2"/>
+    <circle cx="217" cy="152" r="5" class="f2"/>
+    <circle cx="134" cy="152" r="5" class="f2"/>
+    <circle cx="297" cy="152" r="5" class="f2"/>
+    <text class="e f2" x="0" y="196">Where 2020–22 shortages actually started</text>
+    <text x="0" y="214">a sub-component vendor two tiers down · a single port · a container that did not sail</text>
+    <text x="0" y="232">— nodes with no owner, no metric and no line in anyone's risk register</text>
+  </svg>
+  <figcaption>The buffer was in the wrong place because the map stopped too early. Firms had dual-sourced their tier ones
+    and still went down, because both tier ones bought the same part from the same tier two, who bought from a single
+    tier three. <b>Correlation the map could not show</b> is why <em>n</em>-tier visibility became a coverage KPI rather
+    than a project.</figcaption>
+</figure>

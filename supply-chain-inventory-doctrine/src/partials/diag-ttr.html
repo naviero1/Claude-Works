@@ -1,0 +1,46 @@
+<figure class="diag">
+  <svg class="dg" viewBox="0 0 720 250" role="img" aria-label="Time-to-recover and time-to-survive. When a supplying node stops, on-hand inventory covers demand for a fixed number of days — time to survive, here 28 days. The node comes back after time to recover, here 62 days. Because recovery takes longer than coverage lasts, the 34-day gap between them is the exposure window, and its width times the revenue flowing through the node is the loss.">
+    <defs>
+      <pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="8" class="k2" stroke-width="2" opacity=".22"/>
+      </pattern>
+    </defs>
+
+    <rect x="258" y="30" width="198" height="152" fill="url(#hatch)"/>
+    <line class="hair dash k3" x1="258" y1="30" x2="258" y2="196"/>
+    <line class="hair dash k2" x1="456" y1="30" x2="456" y2="196"/>
+
+    <text class="e fm" x="0" y="20">Node stops at day 0</text>
+    <text class="big f2" x="357" y="20" text-anchor="middle">34 days uncovered</text>
+
+    <text x="0" y="50">supply</text>
+    <rect x="96" y="38" width="360" height="16" rx="2" class="f2" opacity=".9"/>
+    <rect x="456" y="38" width="220" height="16" rx="2" class="f3" opacity=".9"/>
+    <text class="fp" x="276" y="50" text-anchor="middle">node down</text>
+    <text class="fp" x="566" y="50" text-anchor="middle">restored</text>
+
+    <text x="0" y="88">on-hand</text>
+    <text x="0" y="102">stock</text>
+    <path d="M96 96 L258 182 L96 182 Z" class="f1" opacity=".18"/>
+    <path class="ln k1 w2 nf" d="M96 96 L258 182"/>
+    <path class="ln k1 nf dash" d="M258 182 L676 182" opacity=".5"/>
+
+    <line class="axis" x1="96" y1="182" x2="676" y2="182"/>
+    <text x="96" y="198" text-anchor="middle">day 0</text>
+    <text x="386" y="198" text-anchor="middle">days elapsed</text>
+    <text x="676" y="198" text-anchor="middle">100</text>
+
+    <circle cx="258" cy="182" r="4.5" class="f3"/>
+    <text class="big f3" x="258" y="222" text-anchor="middle">TTS 28d</text>
+    <text class="f3" x="258" y="238" text-anchor="middle">time to survive</text>
+
+    <circle cx="456" cy="182" r="4.5" class="f2"/>
+    <text class="big f2" x="456" y="222" text-anchor="middle">TTR 62d</text>
+    <text class="f2" x="456" y="238" text-anchor="middle">time to recover</text>
+  </svg>
+  <figcaption>The metric that replaced probability. You cannot forecast the odds of a fire, a flood or a lockdown at a
+    particular plant — so <b>stop trying</b>. Assume each node is down, and measure two things you <em>can</em> know:
+    how long stock and alternatives keep you serving (<b>TTS</b>), and how long that node takes to come back
+    (<b>TTR</b>). Where TTR exceeds TTS, the shortfall times the revenue flowing through that node is the exposure —
+    a number in currency, which is what makes a buffer arguable in front of a CFO.</figcaption>
+</figure>

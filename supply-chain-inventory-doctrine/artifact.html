@@ -1,0 +1,2143 @@
+<title>The Inventory Doctrine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* ============================================================================
+   THE INVENTORY DOCTRINE — stylesheet
+   Visual world: the freight document. Bill of lading / dispatch manifest /
+   engineering drawing. Hairline rules, stencilled mono registers, hazard-amber
+   accent, cool paper ground with a green-blue bias.
+
+   Type roles   display  Archivo (grotesque, ANSI-adjacent)
+                body     Source Serif 4 (report gravity, long-read comfort)
+                data     IBM Plex Mono (ledger register, formulas, labels)
+
+   Chart series (validated, dataviz skill validate_palette.js, adjacent pairs,
+   both modes ALL CHECKS PASS):
+     light  #1c6ea4 #c0492c #00918a #c07d00 #6a5ab8 #4f7a1f  on #f5f7f6
+     dark   #3e8fc4 #d8623f #12a99f #b98209 #8a7ce0 #6e9c37  on #111a1d
+   All-pairs forms (scatter/bubble) are capped at 2 slots — none are used here.
+   ========================================================================= */
+
+:root{
+  color-scheme: light;
+
+  --page:#e9edec;
+  --panel:#f7f9f9;
+  --panel-2:#eef2f1;
+  --panel-3:#e2e8e7;
+  --ink:#0f1719;
+  --ink-2:#31403f;
+  --muted:#65767a;
+  --faint:#8b9a9c;
+  --rule:#cbd5d3;
+  --rule-2:#dde4e2;
+  --rule-strong:#a4b2b0;
+
+  /* signature accent — hazard amber, forklift stripe */
+  --accent:#c07d00;
+  --accent-ink:#8f5e00;
+  --accent-wash:rgba(192,125,0,.10);
+  --accent-line:rgba(192,125,0,.34);
+
+  /* the three acts */
+  --era-1:#1c6ea4;   /* 1913–2019  the efficiency era */
+  --era-2:#c0492c;   /* 2020–2022  the shock          */
+  --era-3:#00918a;   /* 2022–      the resilience era  */
+  --era-1-wash:rgba(28,110,164,.10);
+  --era-2-wash:rgba(192,73,44,.10);
+  --era-3-wash:rgba(0,145,138,.10);
+  --era-1-line:rgba(28,110,164,.30);
+  --era-2-line:rgba(192,73,44,.30);
+  --era-3-line:rgba(0,145,138,.30);
+
+  --s4:#c07d00; --s5:#6a5ab8; --s6:#4f7a1f;
+
+  --viz-surface:#f5f7f6;
+  --grid:#dde4e2;
+
+  --shadow:0 1px 2px rgba(15,23,25,.05), 0 8px 24px -16px rgba(15,23,25,.18);
+
+  --measure:66ch;
+  --wide:1140px;
+  --gutter:clamp(18px,4vw,40px);
+
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --serif:"Source Serif 4",Charter,Georgia,"Times New Roman",serif;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --page:#0b1214;
+    --panel:#111a1d;
+    --panel-2:#151f22;
+    --panel-3:#1b262a;
+    --ink:#e9efee;
+    --ink-2:#c2cfce;
+    --muted:#93a4a6;
+    --faint:#6f8082;
+    --rule:#233034;
+    --rule-2:#1b262a;
+    --rule-strong:#33454a;
+
+    --accent:#d9a01f;
+    --accent-ink:#e8b849;
+    --accent-wash:rgba(217,160,31,.12);
+    --accent-line:rgba(217,160,31,.36);
+
+    --era-1:#3e8fc4;
+    --era-2:#d8623f;
+    --era-3:#12a99f;
+    --era-1-wash:rgba(62,143,196,.14);
+    --era-2-wash:rgba(216,98,63,.14);
+    --era-3-wash:rgba(18,169,159,.14);
+    --era-1-line:rgba(62,143,196,.34);
+    --era-2-line:rgba(216,98,63,.34);
+    --era-3-line:rgba(18,169,159,.34);
+
+    --s4:#b98209; --s5:#8a7ce0; --s6:#6e9c37;
+
+    --viz-surface:#111a1d;
+    --grid:#222f33;
+
+    --shadow:0 1px 2px rgba(0,0,0,.34), 0 10px 30px -18px rgba(0,0,0,.7);
+  }
+}
+
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --page:#0b1214;
+  --panel:#111a1d;
+  --panel-2:#151f22;
+  --panel-3:#1b262a;
+  --ink:#e9efee;
+  --ink-2:#c2cfce;
+  --muted:#93a4a6;
+  --faint:#6f8082;
+  --rule:#233034;
+  --rule-2:#1b262a;
+  --rule-strong:#33454a;
+
+  --accent:#d9a01f;
+  --accent-ink:#e8b849;
+  --accent-wash:rgba(217,160,31,.12);
+  --accent-line:rgba(217,160,31,.36);
+
+  --era-1:#3e8fc4;
+  --era-2:#d8623f;
+  --era-3:#12a99f;
+  --era-1-wash:rgba(62,143,196,.14);
+  --era-2-wash:rgba(216,98,63,.14);
+  --era-3-wash:rgba(18,169,159,.14);
+  --era-1-line:rgba(62,143,196,.34);
+  --era-2-line:rgba(216,98,63,.34);
+  --era-3-line:rgba(18,169,159,.34);
+
+  --s4:#b98209; --s5:#8a7ce0; --s6:#6e9c37;
+
+  --viz-surface:#111a1d;
+  --grid:#222f33;
+
+  --shadow:0 1px 2px rgba(0,0,0,.34), 0 10px 30px -18px rgba(0,0,0,.7);
+}
+
+/* ---------------------------------------------------------------- base ---- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+
+body{
+  margin:0;
+  background:var(--page);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+:where(a){color:var(--accent-ink);text-underline-offset:2px;text-decoration-thickness:1px}
+:where(a):hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3,h4,.d{font-family:var(--sans);font-weight:700;text-wrap:balance;letter-spacing:-.018em;line-height:1.1;margin:0}
+h2{font-size:clamp(26px,3.5vw,40px)}
+h3{font-size:clamp(19px,2.1vw,23px);letter-spacing:-.012em}
+h4{font-size:16px;letter-spacing:-.006em;line-height:1.3}
+p{margin:0 0 1.05em}
+p:last-child{margin-bottom:0}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+
+/* the mono register — stencilled labels, ledger data, formulas */
+.reg{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;
+  font-variant-numeric:tabular-nums;
+}
+.num{font-variant-numeric:tabular-nums;font-family:var(--mono)}
+
+/* --------------------------------------------------------------- layout --- */
+.wrap{max-width:var(--wide);margin:0 auto;padding-inline:var(--gutter)}
+.col{max-width:var(--measure)}
+.stack{display:flex;flex-direction:column}
+.stack-6{gap:6px}.stack-10{gap:10px}.stack-14{gap:14px}
+.stack-18{gap:18px}.stack-24{gap:24px}.stack-32{gap:32px}.stack-44{gap:44px}
+
+section{padding-block:clamp(48px,7vw,86px);border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0}
+
+/* section head — the manifest register line */
+.shead{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(28px,4vw,44px)}
+.shead .tag{display:flex;align-items:baseline;gap:14px;color:var(--muted)}
+.shead .tag .no{color:var(--accent-ink);font-weight:600}
+.shead .tag .rule{flex:1;height:1px;background:var(--rule);align-self:center}
+.shead .dek{color:var(--ink-2);font-size:clamp(16px,1.7vw,18.5px);max-width:74ch;margin:0}
+
+/* --------------------------------------------------------------- header --- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule);background:var(--panel)}
+/* hazard stripe — the one decorative flourish, and it is literal to the subject */
+.hazard{height:7px;background:repeating-linear-gradient(-45deg,var(--accent) 0 12px,transparent 12px 24px);opacity:.85}
+.hero .wrap{padding-block:clamp(44px,6.5vw,78px) clamp(34px,4.5vw,52px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(26px,3.4vw,42px)}
+@media (min-width:900px){.hero-grid{grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);align-items:end}}
+h1{font-size:clamp(38px,6.6vw,74px);letter-spacing:-.032em;line-height:.98;font-weight:800}
+h1 .lo{display:block;color:var(--muted);font-weight:600;font-size:.44em;letter-spacing:-.01em;line-height:1.16;margin-top:.5em}
+.lede{font-size:clamp(17px,2vw,21px);line-height:1.5;color:var(--ink-2);max-width:60ch}
+.lede b{color:var(--ink);font-weight:600}
+
+.docmeta{border:1px solid var(--rule);background:var(--panel-2);border-radius:3px}
+.docmeta .row{display:flex;justify-content:space-between;gap:16px;padding:9px 14px;border-bottom:1px solid var(--rule-2)}
+.docmeta .row:last-child{border-bottom:0}
+.docmeta .k{color:var(--faint)}
+.docmeta .v{color:var(--ink-2);text-align:right;font-family:var(--mono);font-size:11.5px;letter-spacing:.02em}
+
+/* hero stat strip */
+.hstats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--rule);border-block:1px solid var(--rule)}
+@media (min-width:820px){.hstats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.hstat{background:var(--panel);padding:20px var(--gutter) 22px;display:flex;flex-direction:column;gap:5px}
+.hstat .v{font-family:var(--sans);font-weight:800;font-size:clamp(27px,3.4vw,38px);letter-spacing:-.028em;line-height:1;color:var(--ink)}
+.hstat .v .u{font-size:.5em;font-weight:600;color:var(--muted);letter-spacing:-.01em;margin-left:.15em}
+.hstat .l{font-size:14px;line-height:1.36;color:var(--ink-2)}
+.hstat .s{color:var(--faint);font-size:10.5px}
+.hstat[data-era="1"] .v{color:var(--era-1)}
+.hstat[data-era="2"] .v{color:var(--era-2)}
+.hstat[data-era="3"] .v{color:var(--era-3)}
+
+/* ---------------------------------------------------------------- cards --- */
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:22px}
+.card.tight{padding:16px 18px}
+.cards{display:grid;gap:14px}
+.cards.c2{grid-template-columns:minmax(0,1fr)}
+.cards.c3{grid-template-columns:minmax(0,1fr)}
+@media (min-width:720px){.cards.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards.c3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1000px){.cards.c3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* framework card — the doctrine board */
+.fw{display:flex;flex-direction:column;gap:11px;background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:18px;position:relative}
+.fw::before{content:"";position:absolute;inset:-1px auto -1px -1px;width:2px;background:var(--era-1);border-radius:4px 0 0 4px}
+.fw .who{color:var(--faint)}
+.fw h4{color:var(--ink)}
+.fw p{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
+.fw .imp{font-size:13.5px;line-height:1.5;color:var(--ink-2);border-top:1px dashed var(--rule);padding-top:10px;margin:0}
+.fw .imp b{color:var(--era-1);font-weight:600;font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px}
+
+/* formula block */
+.formula{
+  font-family:var(--mono);font-size:14px;line-height:1.75;
+  background:var(--panel-2);border:1px solid var(--rule);border-left:2px solid var(--accent);
+  border-radius:3px;padding:14px 16px;overflow-x:auto;color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.formula .cm{color:var(--muted)}
+.formula .hl{color:var(--era-2);font-weight:600}
+.formula .hl3{color:var(--era-3);font-weight:600}
+
+/* pull / premise */
+.premise{
+  border:1px solid var(--accent-line);background:var(--accent-wash);border-radius:4px;
+  padding:clamp(20px,3vw,30px);display:flex;flex-direction:column;gap:12px;
+}
+.premise .q{font-family:var(--sans);font-weight:700;font-size:clamp(19px,2.5vw,27px);line-height:1.24;letter-spacing:-.02em;text-wrap:balance;color:var(--ink)}
+.premise p{font-size:15.5px;color:var(--ink-2);margin:0}
+
+.note{border:1px solid var(--rule);border-left:2px solid var(--era-2);background:var(--panel-2);border-radius:3px;padding:14px 16px;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.note.ok{border-left-color:var(--era-3)}
+.note.acc{border-left-color:var(--accent)}
+.note b{color:var(--ink)}
+
+/* ---------------------------------------------------------------- table --- */
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule-2);vertical-align:top;line-height:1.45}
+thead th{
+  position:sticky;top:0;z-index:2;background:var(--panel-3);color:var(--muted);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
+  border-bottom:1px solid var(--rule-strong);white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--panel-2)}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+caption{caption-side:bottom;text-align:left;padding:10px 14px;color:var(--faint);font-size:12px;font-family:var(--mono);border-top:1px solid var(--rule-2)}
+
+/* ------------------------------------------------------------ ledger kpi -- */
+.ledger{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.lrow{background:var(--panel);display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+@media (min-width:880px){.lrow{grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr)}}
+.lcell{padding:16px 18px;display:flex;flex-direction:column;gap:7px}
+.lcell.old{background:linear-gradient(90deg,var(--era-1-wash),transparent 65%)}
+.lcell.new{background:linear-gradient(270deg,var(--era-3-wash),transparent 65%)}
+.lcell .m{font-family:var(--sans);font-weight:700;font-size:16px;letter-spacing:-.01em;line-height:1.24;color:var(--ink)}
+.lcell .f{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.5;font-variant-numeric:tabular-nums}
+.lcell .d{font-family:var(--serif);font-weight:400;font-size:14px;line-height:1.5;color:var(--ink-2);letter-spacing:0}
+.lcell.old .lab{color:var(--era-1)}
+.lcell.new .lab{color:var(--era-3)}
+.larrow{display:none}
+@media (min-width:880px){
+  .larrow{display:flex;align-items:center;justify-content:center;background:var(--panel);color:var(--rule-strong)}
+  .larrow svg{width:15px;height:15px}
+}
+.lfail{grid-column:1/-1;background:var(--panel-2);border-top:1px solid var(--rule-2);padding:12px 18px;font-size:13.5px;line-height:1.5;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start}
+.lfail .lab{color:var(--era-2);flex:none;padding-top:2px}
+.ldomain{background:var(--panel-3);padding:7px 18px;color:var(--muted);border-top:1px solid var(--rule)}
+
+/* filter row */
+.filters{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:14px}
+.chip{
+  font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:500;
+  padding:6px 12px;border:1px solid var(--rule);background:var(--panel);color:var(--muted);
+  border-radius:999px;cursor:pointer;transition:background .14s,color .14s,border-color .14s;
+}
+.chip:hover{border-color:var(--rule-strong);color:var(--ink-2)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+
+/* ---------------------------------------------------------------- charts -- */
+.figure{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:18px 18px 14px;display:flex;flex-direction:column;gap:12px}
+.figure .fhead{display:flex;flex-direction:column;gap:4px}
+.figure .ftitle{font-family:var(--sans);font-weight:700;font-size:15.5px;letter-spacing:-.008em;color:var(--ink);line-height:1.3}
+.figure .fsub{font-size:13px;line-height:1.45;color:var(--muted);font-family:var(--serif)}
+.figure figcaption{font-size:11.5px;color:var(--faint);font-family:var(--mono);line-height:1.5;border-top:1px solid var(--rule-2);padding-top:9px;letter-spacing:.01em}
+.plot{position:relative;width:100%}
+.plot svg{display:block;width:100%;height:auto;overflow:visible}
+.gridline{stroke:var(--grid);stroke-width:1;shape-rendering:crispEdges}
+.axis{stroke:var(--rule-strong);stroke-width:1;shape-rendering:crispEdges}
+.tick{font-family:var(--mono);font-size:10px;fill:var(--faint);font-variant-numeric:tabular-nums}
+.dlabel{font-family:var(--mono);font-size:10.5px;font-weight:500;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.legend .li{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-2);font-family:var(--sans);font-weight:500}
+.legend .sw{width:14px;height:3px;border-radius:2px;flex:none}
+.legend .sw.dot{width:9px;height:9px;border-radius:50%}
+
+/* bar rows (horizontal) */
+.bars{display:flex;flex-direction:column;gap:9px}
+.brow{display:grid;grid-template-columns:minmax(96px,26%) minmax(0,1fr) auto;gap:12px;align-items:center;font-size:13px}
+@media (min-width:640px){.brow{grid-template-columns:minmax(150px,30%) minmax(0,1fr) auto}}
+.brow .bl{color:var(--ink-2);line-height:1.3;font-family:var(--sans);font-weight:500;font-size:13px}
+.btrack{background:var(--panel-3);height:20px;border-radius:3px;position:relative;overflow:hidden}
+.bfill{height:100%;border-radius:0 3px 3px 0}
+.brow .bv{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink);min-width:44px;text-align:right}
+/* paired bars — intended vs implemented */
+.bpair{display:grid;grid-template-columns:minmax(120px,34%) minmax(0,1fr);gap:12px;align-items:center}
+.bpair .bstack{display:flex;flex-direction:column;gap:3px}
+.bseg{height:15px;border-radius:0 3px 3px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:6px}
+.bseg span{font-family:var(--mono);font-size:10.5px;font-weight:600;font-variant-numeric:tabular-nums}
+
+/* tooltip */
+.tip{
+  position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-118%);
+  background:var(--ink);color:var(--page);padding:7px 10px;border-radius:4px;
+  font-family:var(--mono);font-size:11px;line-height:1.45;white-space:nowrap;z-index:6;
+  transition:opacity .1s;box-shadow:0 4px 14px rgba(0,0,0,.22);font-variant-numeric:tabular-nums;
+}
+.tip.on{opacity:1}
+.tip b{color:#fff;font-weight:600}
+:root[data-theme="dark"] .tip b{color:var(--page)}
+
+/* ------------------------------------------------------------- timeline --- */
+.tl{display:flex;flex-direction:column;gap:0;border-left:2px solid var(--rule);margin-left:6px}
+.tev{display:grid;grid-template-columns:minmax(0,1fr);gap:5px;padding:0 0 22px 22px;position:relative}
+.tev::before{content:"";position:absolute;left:-7px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--era-2);border:2px solid var(--panel)}
+.tev[data-era="1"]::before{background:var(--era-1)}
+.tev[data-era="3"]::before{background:var(--era-3)}
+.tev .when{color:var(--muted)}
+.tev .what{font-family:var(--sans);font-weight:600;font-size:15.5px;line-height:1.3;color:var(--ink);letter-spacing:-.008em}
+.tev .detail{font-size:14px;line-height:1.5;color:var(--ink-2)}
+.tev .fig{font-family:var(--mono);font-size:12.5px;color:var(--era-2);font-variant-numeric:tabular-nums;font-weight:500}
+.tev[data-era="1"] .fig{color:var(--era-1)}
+.tev[data-era="3"] .fig{color:var(--era-3)}
+
+/* ------------------------------------------------------------- footnotes -- */
+.srcs{display:grid;gap:0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--panel)}
+.src{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;padding:11px 15px;border-bottom:1px solid var(--rule-2);font-size:13.5px;line-height:1.45}
+@media (min-width:760px){.src{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:16px;align-items:baseline}}
+.src:last-child{border-bottom:0}
+.src .t{color:var(--ink-2)}
+.src .o{color:var(--faint);font-family:var(--mono);font-size:11.5px}
+
+footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34px 44px;color:var(--muted);font-size:13.5px}
+
+/* --------------------------------------------------------------- toolbar -- */
+.toolbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--page) 88%,transparent);backdrop-filter:blur(9px);border-bottom:1px solid var(--rule)}
+.toolbar .in{display:flex;align-items:center;gap:14px;justify-content:space-between;padding-block:9px}
+.tnav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tnav::-webkit-scrollbar{display:none}
+.tnav a{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;padding:6px 9px;border-radius:3px;white-space:nowrap;
+}
+.tnav a:hover{color:var(--ink);background:var(--panel-2)}
+.tbtn{
+  flex:none;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  background:var(--panel);border:1px solid var(--rule);color:var(--muted);
+  padding:6px 11px;border-radius:3px;cursor:pointer;
+}
+.tbtn:hover{color:var(--ink);border-color:var(--rule-strong)}
+
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ------------------------------------------------------------- diagrams --- */
+.dg{width:100%;height:auto;display:block;color:var(--ink-2)}
+.dg text{font-family:var(--mono);font-size:11px;fill:var(--muted);font-variant-numeric:tabular-nums}
+.dg text.t{font-family:var(--sans);font-size:12.5px;font-weight:600;fill:var(--ink);letter-spacing:-.005em}
+/* colour classes — declared after the base rules so equal-specificity wins go to these */
+.dg text.e{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.dg text.big{font-family:var(--sans);font-size:15px;font-weight:700;letter-spacing:-.01em}
+.dg .box{fill:var(--panel-2);stroke:var(--rule-strong);stroke-width:1}
+.dg .ln{stroke:currentColor;stroke-width:1.4;fill:none}
+.dg .hair{stroke:var(--rule);stroke-width:1;fill:none}
+.dg .dash{stroke-dasharray:4 3}
+.diag{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:20px 20px 14px;display:flex;flex-direction:column;gap:12px;margin:0}
+.diag figcaption{font-size:12.5px;line-height:1.5;color:var(--muted);font-family:var(--serif);border-top:1px solid var(--rule-2);padding-top:10px}
+.diag figcaption b{color:var(--ink-2);font-weight:600}
+
+.dg .f1{fill:var(--era-1)} .dg .f2{fill:var(--era-2)} .dg .f3{fill:var(--era-3)}
+.dg .fi{fill:var(--ink)} .dg .fm{fill:var(--muted)} .dg .fp{fill:var(--panel)} .dg .fa{fill:var(--accent-ink)}
+.dg .k1{stroke:var(--era-1)} .dg .k2{stroke:var(--era-2)} .dg .k3{stroke:var(--era-3)}
+.dg .kr{stroke:var(--rule-strong)}
+.dg .w2{stroke-width:2} .dg .nf{fill:none}
+
+/* ledger row head */
+.lhead{grid-column:1/-1;background:var(--panel-3);padding:6px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule-2)}
+.lhead .dom{color:var(--ink-2);font-weight:600}
+.lhead .idx{color:var(--faint)}
+.lcell .lab{margin-bottom:-2px}
+
+/* ------------------------------------------------------------- shifts ----- */
+.shifts{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.shift{background:var(--panel);padding:18px}
+.shift .pair{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:8px}
+.shift .from{font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--muted);letter-spacing:-.01em;text-decoration:line-through;text-decoration-color:var(--rule-strong);text-decoration-thickness:1px}
+.shift .to{font-family:var(--sans);font-weight:700;font-size:16.5px;color:var(--ink);letter-spacing:-.012em}
+.shift .arw{color:var(--accent-ink);font-family:var(--mono);font-size:13px}
+.shift p{font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0;max-width:82ch}
+.shift .n{color:var(--faint);margin-right:8px}
+
+</style>
+<a class="sr" href="#main">Skip to content</a>
+
+<div class="toolbar">
+  <div class="wrap in">
+    <nav class="tnav" aria-label="Sections">
+      <a href="#doctrine">01 · The doctrine</a>
+      <a href="#broke">02 · What broke</a>
+      <a href="#overcorrect">03 · Over-correction</a>
+      <a href="#new">04 · The new doctrine</a>
+      <a href="#ledger">05 · The KPI ledger</a>
+      <a href="#risk">06 · Risk assessment</a>
+      <a href="#stick">07 · Did it stick?</a>
+      <a href="#method">08 · Sources</a>
+    </nav>
+    <button class="tbtn" id="theme-toggle" type="button">Dark</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hazard" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="stack stack-24">
+        <div class="reg" style="color:var(--accent-ink)">Supply chain &amp; manufacturing · doctrine review</div>
+        <h1>The Inventory<br>Doctrine
+          <span class="lo">What the theory said before 2019, what 2020 did to it, and why the KPIs changed</span>
+        </h1>
+        <p class="lede">For a century, inventory theory pointed one way: <b>hold less</b>. The models were
+          rigorous, the finance was sound, and they all rested on a single assumption that nobody wrote
+          down — that supply shows up. Between 2020 and 2022 that assumption failed in every direction
+          at once. What followed was not a swing to "just in case." It was something more interesting,
+          and the measurement system is where you can see it.</p>
+      </div>
+      <div class="docmeta reg">
+        <div class="row"><span class="k">Document</span><span class="v">Doctrine review</span></div>
+        <div class="row"><span class="k">Scope</span><span class="v">Inventory policy, KPIs, risk models</span></div>
+        <div class="row"><span class="k">Period</span><span class="v">1913 – 2026</span></div>
+        <div class="row"><span class="k">Evidence</span><span class="v">US Census MTIS · NY Fed GSCPI<br>McKinsey pulse surveys · HBR / MIT</span></div>
+        <div class="row"><span class="k">Method</span><span class="v">8 research passes,<br>adversarially fact-checked</span></div>
+        <div class="row"><span class="k">Compiled</span><span class="v">28 Aug 2026</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hstats">
+    <div class="hstat" data-era="2">
+      <div class="v">+4.44<span class="u">σ</span></div>
+      <div class="l">Peak global supply-chain pressure, December 2021</div>
+      <div class="s reg">NY Fed GSCPI · highest since the series began in 1998</div>
+    </div>
+    <div class="hstat" data-era="2">
+      <div class="v">$210<span class="u">bn</span></div>
+      <div class="l">Revenue the chip shortage was forecast to cost carmakers in 2021 alone</div>
+      <div class="s reg">AlixPartners forecast, Sep 2021 · 7.7m units unbuilt</div>
+    </div>
+    <div class="hstat" data-era="2">
+      <div class="v">1.25</div>
+      <div class="l">US retail inventories-to-sales today — <em>below</em> its 1.46 average in 2019</div>
+      <div class="s reg">Census MTIS · Jun 2026</div>
+    </div>
+    <div class="hstat" data-era="3">
+      <div class="v">1.48</div>
+      <div class="l">US manufacturers' ratio today — <em>above</em> its 1.45 average in 2019</div>
+      <div class="s reg">Census MTIS · Jun 2026</div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="doctrine" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">01</span><span>The doctrine</span><span class="rule"></span><span>1913 – 2019</span></div>
+    <h2>A century of theory, all pointing the same way</h2>
+    <p class="dek">Pre-COVID inventory theory was not sloppy. It was some of the most rigorous applied
+      mathematics in management, and it was almost unanimous: inventory is capital in a warehouse, it
+      is the physical residue of an information failure, and the correct amount of it is the smallest
+      amount that meets your service level. Here is the canon that operators were trained on.</p>
+  </div>
+
+  <div class="cards c3">
+    <div class="fw">
+      <div class="who reg">F. W. Harris · 1913</div>
+      <h4>Economic Order Quantity</h4>
+      <p>Trade the fixed cost of placing an order against the cost of holding what it brings. Differentiate, solve, get one number.</p>
+      <p class="imp"><b>Told you to</b>Order in the arithmetically optimal lot. Anything larger is a financing decision you did not mean to make.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Arrow · Harris · Marschak · 1951</div>
+      <h4>The newsvendor model</h4>
+      <p>One order, uncertain demand. Stock up to the quantile where the cost of one more unit equals the cost of one too few.</p>
+      <p class="imp"><b>Told you to</b>Derive stock from a service level, and derive the service level from a cost ratio — not from nerves.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Statistical inventory control · 1950s</div>
+      <h4>Safety stock &amp; reorder point</h4>
+      <p>Buffer the demand variation that can occur during the replenishment lead time, scaled by the service factor <span class="num">z</span>.</p>
+      <p class="imp"><b>Told you to</b>Hold <span class="num">z·σ<sub>D</sub>·√L</span> and no more. This is the formula that shipped inside essentially every ERP system.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Taiichi Ohno · Toyota · 1950s–1988</div>
+      <h4>Just-in-Time / TPS</h4>
+      <p>Inventory is the first of the seven wastes. Lower the water in the pond and the rocks — long changeovers, bad quality, unreliable suppliers — become visible and get fixed.</p>
+      <p class="imp"><b>Told you to</b>Treat stock as a <em>symptom</em>, never as insurance. Removing it is how you find out what is actually wrong.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Forrester 1961 · Lee, Padmanabhan &amp; Whang 1997</div>
+      <h4>The bullwhip effect</h4>
+      <p>Order variance amplifies at every echelon upstream. Four causes: demand signal processing, order batching, price fluctuation, rationing and shortage gaming.</p>
+      <p class="imp"><b>Told you to</b>Fix amplification with <em>information</em>, not stock. Share the point-of-sale signal and the buffer becomes unnecessary.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Gary Eppen · 1979</div>
+      <h4>Risk pooling &amp; the square-root law</h4>
+      <p>Consolidate <span class="num">n</span> stocking locations into one and the safety stock needed falls by roughly <span class="num">√n</span>.</p>
+      <p class="imp"><b>Told you to</b>Centralise. Fewer, bigger nodes. Which is also exactly how you build a single point of failure.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Lee &amp; Billington · HP · c.1993</div>
+      <h4>Postponement</h4>
+      <p>Hold inventory in generic form and differentiate as late as possible, so one pooled buffer serves many end variants.</p>
+      <p class="imp"><b>Told you to</b>Push the decoupling point downstream. Still good advice — it survived the decade intact.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Eliyahu Goldratt · 1984</div>
+      <h4>Theory of Constraints</h4>
+      <p>Throughput is set by one bottleneck. Buffer that, subordinate everything else, and stock held anywhere else is pure carrying cost.</p>
+      <p class="imp"><b>Told you to</b>Concentrate protection at one known point — on the assumption that you know where the constraint is.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Womack &amp; Jones · 1996</div>
+      <h4>Lean thinking</h4>
+      <p>Specify value, map the value stream, make it flow, let the customer pull, pursue perfection. Inventory is a failure of flow.</p>
+      <p class="imp"><b>Told you to</b>Convert push to pull everywhere, and read any accumulation of stock as a defect in the system.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Marshall Fisher · HBR · 1997</div>
+      <h4>Functional vs innovative products</h4>
+      <p>Stable, predictable products need a <em>physically efficient</em> chain; volatile, short-life products need a <em>market-responsive</em> one.</p>
+      <p class="imp"><b>Told you to</b>Match the chain to the product. For most industrial goods that meant: minimise cost, and hold as little as possible.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Hau Lee · HBR · 2004</div>
+      <h4>The Triple-A supply chain</h4>
+      <p>Speed and cost are not enough. A chain must be <em>agile</em>, <em>adaptable</em> and <em>aligned</em> to survive.</p>
+      <p class="imp"><b>Told you to</b>Build for change — sixteen years early. It was widely cited and thinly implemented, because none of the three had a number attached.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--accent)">
+      <div class="who reg">Corporate finance · throughout</div>
+      <h4>The cash conversion cycle</h4>
+      <p><span class="num">CCC = DIO + DSO − DPO</span>. Inventory is invested capital sitting in the denominator of return on capital.</p>
+      <p class="imp"><b>Told you to</b>Cut days of inventory, because it is the fastest lever on free cash flow — and this is the one your bonus was actually tied to.</p>
+    </div>
+  </div>
+
+  <div class="stack stack-24" style="margin-top:34px">
+    <div class="premise">
+      <div class="reg" style="color:var(--accent-ink)">The unwritten assumption</div>
+      <p class="q">Every model above treats uncertainty as something that happens on the demand side.
+        Supply is a pipe: it has a length, and the length is a constant.</p>
+      <p>Read the formulas again and you can see it. Demand gets a distribution — a mean, a standard
+        deviation, a service factor. Lead time gets a letter. Not a distribution: a letter, <span class="num">L</span>,
+        a fixed number of days you look up in a table. Suppliers were assumed available, ports were assumed
+        open, and capacity was assumed purchasable at a price. This was not naive. For roughly thirty years,
+        between the opening of global trade and 2020, it was empirically true nearly all of the time — which
+        is precisely why nobody stress-tested it.</p>
+    </div>
+
+    <div class="col">
+      <h3 style="margin-bottom:10px">The five equations that ran the warehouse</h3>
+      <p style="color:var(--ink-2);font-size:15.5px">Four of them are about physical goods. The fifth is the
+        one that determined what anyone was actually paid to do.</p>
+    </div>
+
+    <div class="formula">
+Economic order quantity   Q* = √( 2DS / H )                    <span class="cm">Harris, 1913</span>
+Critical fractile         P(D ≤ Q*) = Cu / (Cu + Co)           <span class="cm">newsvendor service level</span>
+Safety stock              SS = z · σ<sub>D</sub> · √L                    <span class="cm">← shipped in every ERP</span>
+Reorder point             ROP = D̄ · L + SS
+Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm">← what the board paid on</span>
+    </div>
+  </div>
+
+  <div style="margin-top:30px">
+    <h3 style="margin-bottom:8px">The warnings that were already published</h3>
+    <p class="col" style="color:var(--ink-2);margin-bottom:18px">It is not true that nobody saw this coming.
+      The resilience literature pre-dates COVID by fifteen years and it was accurate. It failed to change
+      behaviour for a reason that is itself a measurement problem: the cost of resilience is certain,
+      immediate and lands in one budget, while the benefit is probabilistic, deferred and lands in someone
+      else's. There was no line on the P&amp;L called "disruption that did not happen."</p>
+    <div class="cards c2">
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--muted)">Chopra &amp; Sodhi · MIT SMR · 2004</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Separated <em>recurrent</em> risk (demand noise, which
+          inventory handles) from <em>disruptive</em> risk (which it mostly does not), and warned that
+          mitigation bought for one increases exposure to the other.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--muted)">Christopher &amp; Peck · 2004</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Defined supply chain resilience as a design property —
+          re-engineering, collaboration, agility, risk culture — rather than a stock level.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--muted)">Yossi Sheffi · <em>The Resilient Enterprise</em> · 2005</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Gave the disruption profile its shape: detection,
+          first response, full impact, recovery. Argued flexibility beats redundancy because you use it
+          every day rather than only in a crisis.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--muted)">Hendricks &amp; Singhal · 2003–05</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Showed disruptions are not transient accounting events:
+          announcing one was associated with large, persistent declines in shareholder value and operating
+          performance that did not recover quickly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="broke" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">02</span><span>What actually broke</span><span class="rule"></span><span>2020 – 2022</span></div>
+    <h2>Not a shortage. A failure of the assumption underneath the shortage</h2>
+    <p class="dek">It is tempting to summarise 2020–22 as "there was not enough stuff." That is not what
+      the data shows, and it is not the lesson. What broke was the premise that supply is a constant —
+      and it broke in a correlated way, everywhere at once, which is the one failure mode none of the
+      models could represent.</p>
+  </div>
+
+  <figure class="figure">
+    <div class="fhead">
+      <div class="ftitle">Global supply chain pressure, 2018 – 2026</div>
+      <div class="fsub">The New York Fed's index combines transport costs and manufacturing delivery-time and
+        backlog data into standard deviations from its own long-run average. Zero is normal.</div>
+    </div>
+    <div class="plot" id="fig-gscpi"></div>
+    <div class="legend">
+      <div class="li"><span class="sw" style="background:var(--era-2)"></span>GSCPI, monthly</div>
+      <div class="li"><span class="sw" style="background:var(--era-2-wash);height:12px;width:18px;border-radius:2px"></span>Mar 2020 – Sep 2022</div>
+      <div class="li"><span class="sw" style="background:var(--faint)"></span>0σ — the index's long-run normal</div>
+    </div>
+    <button class="tbtn" data-tableview="tbl-gscpi" aria-expanded="false" style="align-self:flex-start">Show data</button>
+    <div class="tw" id="tbl-gscpi" hidden>
+      <table>
+        <caption>NY Fed Global Supply Chain Pressure Index, annual mean of monthly values. 2026 is Jan–Jul.</caption>
+        <thead><tr><th>Year</th><th>Mean</th><th>Low</th><th>High</th><th>Reading</th></tr></thead>
+        <tbody>
+          <tr><td class="n">2018</td><td class="n">+0.43</td><td class="n">+0.05</td><td class="n">+0.57</td><td>Mildly tight — trade-war era</td></tr>
+          <tr><td class="n">2019</td><td class="n">−0.06</td><td class="n">−0.64</td><td class="n">+0.50</td><td>Normal</td></tr>
+          <tr><td class="n">2020</td><td class="n">+1.64</td><td class="n">+0.06</td><td class="n">+3.35</td><td>First shock — China shutdown, April peak</td></tr>
+          <tr><td class="n">2021</td><td class="n">+3.05</td><td class="n">+1.34</td><td class="n">+4.44</td><td>Sustained crisis — December all-time high</td></tr>
+          <tr><td class="n">2022</td><td class="n">+2.17</td><td class="n">+0.99</td><td class="n">+3.72</td><td>Shanghai lockdown, then rapid unwind</td></tr>
+          <tr><td class="n">2023</td><td class="n">−0.62</td><td class="n">−1.59</td><td class="n">+1.07</td><td>Slack — destocking, freight collapse</td></tr>
+          <tr><td class="n">2024</td><td class="n">−0.29</td><td class="n">−0.97</td><td class="n">+0.23</td><td>Normal, despite Red Sea diversions</td></tr>
+          <tr><td class="n">2025</td><td class="n">+0.00</td><td class="n">−0.24</td><td class="n">+0.57</td><td>Normal</td></tr>
+          <tr><td class="n">2026</td><td class="n">+1.05</td><td class="n">+0.47</td><td class="n">+1.84</td><td>Tight again — tariff-driven re-sourcing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Source: Federal Reserve Bank of New York, GSCPI, series to July 2026. The December 2021 reading of
+      +4.44σ is the highest in the index's history, which begins in 1998.</figcaption>
+  </figure>
+
+  <div style="margin-top:34px;display:grid;gap:28px;grid-template-columns:minmax(0,1fr)">
+    <div>
+      <h3 style="margin-bottom:14px">The sequence</h3>
+      <div class="tl">
+        <div class="tev" data-era="2">
+          <div class="when reg">Feb – Apr 2020</div>
+          <div class="what">Supply stops, then demand inverts</div>
+          <div class="detail">Chinese production halts. Weeks later, spending rotates violently out of services
+            and into goods. Two shocks with opposite signs arrive inside one quarter.</div>
+          <div class="fig">Total inventories-to-sales spikes to 1.74 in April — a <em>sales</em> collapse, not a stock build</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Mid 2020</div>
+          <div class="what">The bullwhip, textbook edition</div>
+          <div class="detail">Carmakers, reading a recession, cancel semiconductor orders. Foundries reallocate that
+            capacity to consumer electronics, where demand is exploding. When autos return, the queue is full and
+            automotive chips are the least profitable thing a fab can make.</div>
+          <div class="fig">Lee, Padmanabhan &amp; Whang described this exact mechanism in 1997</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Mar 2021</div>
+          <div class="what"><em>Ever Given</em> grounds in the Suez Canal</div>
+          <div class="detail">Six days of blockage on a route carrying roughly 12% of global trade — and a
+            demonstration that a single geographic chokepoint sits inside thousands of bills of material that
+            never named it.</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Jun 2021</div>
+          <div class="what">US retail runs out of inventory</div>
+          <div class="detail">The retail inventories-to-sales ratio falls to 1.09 — the lowest reading in a series
+            that begins in 1992. Retail had spent thirty years proving it could operate on less stock, and then
+            found out what the floor was.</div>
+          <div class="fig">1.09 — down from a 1.46 average in 2019</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Sep 2021</div>
+          <div class="what">The chip shortage gets a price tag</div>
+          <div class="detail">AlixPartners revises its forecast of 2021 revenue lost to the semiconductor shortage
+            from $110bn to $210bn, and unbuilt vehicles from 3.9m to 7.7m — a near-doubling in four months, which
+            is itself the story: nobody could size the exposure.</div>
+          <div class="fig">$210bn · 7.7m units · forecast, Sep 2021</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Dec 2021 – Jan 2022</div>
+          <div class="what">Peak pressure</div>
+          <div class="detail">The GSCPI reaches +4.44σ. A record 109 container ships wait at anchor off Los Angeles
+            and Long Beach in January. Ocean freight, port capacity, chips, labour and warehousing are all
+            constrained simultaneously — the correlated failure the models assumed away.</div>
+          <div class="fig">+4.44σ · 109 ships queued</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Spring 2022</div>
+          <div class="what">Shanghai locks down</div>
+          <div class="detail">Two years in, the single-country concentration built over two decades is still there,
+            and still binding.</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">May – Jun 2022</div>
+          <div class="what">The whiplash reverses: the glut</div>
+          <div class="detail">Target ends its Q1 with $15.1bn of inventory, 43% above the prior year, cuts full-year
+            guidance on 18 May and cuts it again three weeks later. Walmart is up 33%. Firms that had spent 18 months
+            being punished for holding too little are now punished for holding too much.</div>
+          <div class="fig">Target +43% YoY · Walmart +33% YoY</div>
+        </div>
+        <div class="tev" data-era="1">
+          <div class="when reg">May 2023</div>
+          <div class="what">Slack — and over-shoot in the other direction</div>
+          <div class="detail">The GSCPI falls to −1.59σ. Freight rates collapse, destocking runs through the year,
+            and the resilience budgets raised in 2021 meet the cost-cutting cycle of 2023.</div>
+        </div>
+        <div class="tev" data-era="3">
+          <div class="when reg">2025 – 2026</div>
+          <div class="what">A different shock, on the same fault lines</div>
+          <div class="detail">Tariff changes and re-sourcing push the index back to +1.84σ in April 2026 — not a
+            2021-scale event, but a second live test of whether the capabilities built after 2020 were kept.</div>
+          <div class="fig">+1.84σ, Apr 2026</div>
+        </div>
+      </div>
+    </div>
+<figure class="diag">
+  <svg class="dg" viewBox="0 0 760 250" role="img" aria-label="A five-tier supply chain. Pre-2019 risk registers mapped tier-one suppliers, the firm's own plants and its customers. The shortages of 2020 to 2022 originated below that line — at tier two and tier three, and in the shipping links between them — where firms had no supplier names, no capacity data and no visibility.">
+    <defs>
+      <marker id="ta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+      </marker>
+    </defs>
+
+    <rect x="0" y="60" width="300" height="112" class="f2" opacity=".07" rx="3"/>
+    <line class="hair dash k2" x1="304" y1="44" x2="304" y2="182" stroke-width="1.5"/>
+
+    <text class="e f2" x="0" y="26">Unmapped in 2019</text>
+    <text x="0" y="42">no supplier names · no capacity data · no lead-time signal</text>
+    <text class="e f1" x="326" y="26">The 2019 risk register</text>
+    <text x="326" y="42">scorecards, audits, dual-source policy, OTIF</text>
+
+    <g>
+      <rect class="box" x="0" y="76" width="108" height="52" rx="3"/>
+      <text class="t" x="54" y="98" text-anchor="middle">Tier 3</text>
+      <text x="54" y="114" text-anchor="middle">substrate, resin,</text>
+      <text x="54" y="126" text-anchor="middle">wafer, magnet</text>
+
+      <rect class="box" x="163" y="76" width="108" height="52" rx="3"/>
+      <text class="t" x="217" y="98" text-anchor="middle">Tier 2</text>
+      <text x="217" y="114" text-anchor="middle">chip, casting,</text>
+      <text x="217" y="126" text-anchor="middle">harness</text>
+
+      <rect class="box" x="326" y="76" width="108" height="52" rx="3"/>
+      <text class="t" x="380" y="98" text-anchor="middle">Tier 1</text>
+      <text x="380" y="114" text-anchor="middle">module and</text>
+      <text x="380" y="126" text-anchor="middle">assembly</text>
+
+      <rect class="box k1" x="489" y="76" width="108" height="52" rx="3" stroke-width="1.6"/>
+      <text class="t f1" x="543" y="98" text-anchor="middle">Your plant</text>
+      <text x="543" y="114" text-anchor="middle">MRP, safety stock,</text>
+      <text x="543" y="126" text-anchor="middle">the forecast</text>
+
+      <rect class="box" x="652" y="76" width="108" height="52" rx="3"/>
+      <text class="t" x="706" y="98" text-anchor="middle">Customer</text>
+      <text x="706" y="114" text-anchor="middle">the only modelled</text>
+      <text x="706" y="126" text-anchor="middle">uncertainty</text>
+    </g>
+
+    <line class="ln" x1="112" y1="102" x2="157" y2="102" marker-end="url(#ta)"/>
+    <line class="ln" x1="275" y1="102" x2="320" y2="102" marker-end="url(#ta)"/>
+    <line class="ln" x1="438" y1="102" x2="483" y2="102" marker-end="url(#ta)"/>
+    <line class="ln" x1="601" y1="102" x2="646" y2="102" marker-end="url(#ta)"/>
+
+    <circle cx="54" cy="152" r="5" class="f2"/>
+    <circle cx="217" cy="152" r="5" class="f2"/>
+    <circle cx="134" cy="152" r="5" class="f2"/>
+    <circle cx="297" cy="152" r="5" class="f2"/>
+    <text class="e f2" x="0" y="196">Where 2020–22 shortages actually started</text>
+    <text x="0" y="214">a sub-component vendor two tiers down · a single port · a container that did not sail</text>
+    <text x="0" y="232">— nodes with no owner, no metric and no line in anyone's risk register</text>
+  </svg>
+  <figcaption>The buffer was in the wrong place because the map stopped too early. Firms had dual-sourced their tier ones
+    and still went down, because both tier ones bought the same part from the same tier two, who bought from a single
+    tier three. <b>Correlation the map could not show</b> is why <em>n</em>-tier visibility became a coverage KPI rather
+    than a project.</figcaption>
+</figure>
+  </div>
+
+  <div style="margin-top:34px">
+    <h3 style="margin-bottom:8px">Four places the models were wrong — and one place the incentives were</h3>
+    <p class="col" style="color:var(--ink-2);margin-bottom:18px">Each of these maps directly onto a metric that
+      exists today and did not exist, or was not tracked, in 2019.</p>
+    <div class="cards c2">
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">01 · Uncertainty was on the wrong side</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Demand got a distribution; supply got a constant. Every
+          buffer in the network was sized for the variance that mattered least in 2021.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">02 · Failures were assumed independent</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Risk pooling, portfolio diversification and dual sourcing
+          all rest on independence. Two suppliers on the same island, feeding through the same port, buying from
+          the same tier three, are one supplier wearing two names.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">03 · The process was assumed stationary</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Forecasts and safety stocks are refit on history. When the
+          data-generating process changes, history stops being evidence — and every model retrained on 2020–21 then
+          carried the shock forward into 2023 as if it were signal.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">04 · The map stopped at tier one</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">You cannot buffer, dual-source or insure a node you cannot
+          name. Most firms discovered their critical dependency only when it stopped.</div>
+      </div>
+      <div class="card tight stack stack-6" style="grid-column:1/-1;border-left:2px solid var(--accent)">
+        <div class="reg" style="color:var(--accent-ink)">05 · And the scorecard was paying for all of it</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">This is the part that is not a modelling error. Purchase
+          price variance rewarded the buyer who consolidated volume onto the cheapest single source. Asset
+          utilisation rewarded the plant with no slack. Inventory turns rewarded the planner who cut the buffer,
+          and reported nothing when the stockout arrived. Cash-to-cash improved when you pushed inventory onto a
+          supplier who financed it worse than you did. <b>Every one of these metrics was going the right way in
+          2019.</b> The fragility was not a failure to hit the targets. It was the targets.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:30px">
+<figure class="diag">
+  <svg class="dg" viewBox="0 0 720 262" role="img" aria-label="Before 2019 the safety stock formula treated replenishment lead time as a fixed 30 days, so the only uncertainty buffered came from demand. After 2020 lead time itself became a wide, right-skewed distribution, and the lead-time variance term that had been assumed away became the dominant one.">
+    <defs>
+      <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+      </marker>
+      <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 z" fill="var(--era-2)"/>
+      </marker>
+    </defs>
+
+    <text class="e f1" x="0" y="12">Before 2019</text>
+    <text class="t f1" x="86" y="13">Lead time is a number</text>
+    <line class="hair" x1="0" y1="26" x2="720" y2="26"/>
+
+    <text x="0" y="60">order</text>
+    <text x="0" y="74">placed</text>
+    <line class="ln" x1="46" y1="64" x2="82" y2="64" marker-end="url(#ar)"/>
+    <rect class="box" x="88" y="52" width="330" height="24" rx="2"/>
+    <text x="253" y="68" text-anchor="middle">L = 30 days · a constant</text>
+    <line class="ln" x1="422" y1="64" x2="458" y2="64" marker-end="url(#ar)"/>
+    <text x="464" y="60">goods</text>
+    <text x="464" y="74">received</text>
+
+    <path class="ln k1 nf" d="M566 78 C 580 78 582 44 596 44 C 610 44 612 78 626 78"/>
+    <line class="hair" x1="556" y1="78" x2="636" y2="78"/>
+    <text class="f1" x="596" y="94" text-anchor="middle">σ_D — the only</text>
+    <text class="f1" x="596" y="106" text-anchor="middle">modelled variance</text>
+
+    <line class="hair" x1="0" y1="126" x2="720" y2="126"/>
+    <text class="e f2" x="0" y="150">After 2020</text>
+    <text class="t f2" x="86" y="151">Lead time is a distribution</text>
+    <line class="hair" x1="0" y1="164" x2="720" y2="164"/>
+
+    <text x="0" y="200">order</text>
+    <text x="0" y="214">placed</text>
+    <line class="ln" x1="46" y1="204" x2="82" y2="204" marker-end="url(#ar)"/>
+    <path d="M88 192 L418 192 L664 178 L664 232 L418 216 L88 216 Z" class="f2" opacity=".12"/>
+    <rect class="box" x="88" y="192" width="330" height="24" rx="2"/>
+    <text x="253" y="208" text-anchor="middle">L = 30 days</text>
+    <line class="ln k2" x1="422" y1="198" x2="492" y2="198" marker-end="url(#ar2)" opacity=".9"/>
+    <line class="ln k2" x1="422" y1="210" x2="566" y2="210" marker-end="url(#ar2)" opacity=".62"/>
+    <line class="ln k2" x1="422" y1="222" x2="662" y2="222" marker-end="url(#ar2)" opacity=".4"/>
+    <text class="f2" x="430" y="184">…or 45. or 71. or it never sailed.</text>
+    <text class="big f2" x="440" y="248">σ_L ≫ 0</text>
+  </svg>
+  <figcaption>The classical buffer sized <b>one</b> uncertainty. Holding lead time constant makes the term
+    <span class="num">D̄²·σ_L²</span> vanish, so the whole safety stock reduces to <span class="num">z·σ_D·√L</span> —
+    the formula that shipped inside essentially every ERP system. It is not wrong; it is <em>conditional</em>. When
+    σ_L went from near-zero to weeks, the term that had been assumed away became the larger of the two.</figcaption>
+</figure>
+  </div>
+
+  <div class="formula" style="margin-top:20px">
+<span class="cm">The formula, written out in full — the version the textbooks always had</span>
+
+  SS = z · √( L · σ<sub>D</sub>²  <span class="hl">+  D̄² · σ<sub>L</sub>²</span> )
+                    ↑              ↑
+              demand variance   <span class="hl">lead-time variance — set to zero by assumption</span>
+
+<span class="cm">With σ<sub>L</sub> = 0 this collapses to the familiar  SS = z · σ<sub>D</sub> · √L.
+Note the asymmetry: demand variance is multiplied by L, but lead-time variance is
+multiplied by the SQUARE of average demand. On a high-volume part, a few weeks of
+lead-time uncertainty outweighs everything the demand term can contribute.</span>
+  </div>
+</section>
+
+<section id="overcorrect" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">03</span><span>The correction</span><span class="rule"></span><span>2022 – 2026</span></div>
+    <h2>The answer was not "hold more." It was "hold differently"</h2>
+    <p class="dek">The popular account is that just-in-time died and just-in-case replaced it. The measured
+      data says something sharper. Two sectors that entered 2019 holding almost exactly the same inventory
+      relative to sales have ended up in opposite places — and the split tells you precisely which parts of
+      the new doctrine were real.</p>
+  </div>
+
+  <figure class="figure">
+    <div class="fhead">
+      <div class="ftitle">Inventories-to-sales ratio: manufacturers vs retail trade, 2018 – 2026</div>
+      <div class="fsub">Months of inventory on hand at the current rate of sales. Both sectors averaged
+        about 1.45 in 2019.</div>
+    </div>
+    <div class="plot" id="fig-isratio"></div>
+    <div class="legend">
+      <div class="li"><span class="sw" style="background:var(--era-3)"></span>Manufacturers — <b style="font-weight:600">above</b> 2019</div>
+      <div class="li"><span class="sw" style="background:var(--era-2)"></span>Retail trade — <b style="font-weight:600">below</b> 2019</div>
+      <div class="li"><span class="sw" style="background:var(--faint)"></span>2019 average, 1.45</div>
+    </div>
+    <button class="tbtn" data-tableview="tbl-isratio" aria-expanded="false" style="align-self:flex-start">Show data</button>
+    <div class="tw" id="tbl-isratio" hidden>
+      <table>
+        <caption>US Census Bureau, Manufacturing and Trade Inventories and Sales (MTIS), seasonally adjusted, via FRED. Latest month June 2026.</caption>
+        <thead><tr><th>Sector</th><th>2019 avg</th><th>Trough</th><th>Peak</th><th>Jun 2026</th><th>Change vs 2019</th></tr></thead>
+        <tbody>
+          <tr><td>Manufacturers</td><td class="n">1.45</td><td class="n">1.47 <span style="color:var(--faint)">Jan 21</span></td><td class="n">1.61 <span style="color:var(--faint)">Apr 23</span></td><td class="n">1.48</td><td class="n" style="color:var(--era-3)">+0.05</td></tr>
+          <tr><td>Total business</td><td class="n">1.42</td><td class="n">1.26 <span style="color:var(--faint)">Apr 21</span></td><td class="n">1.43 <span style="color:var(--faint)">Mar 23</span></td><td class="n">1.30</td><td class="n" style="color:var(--era-2)">−0.11</td></tr>
+          <tr><td>Merchant wholesalers</td><td class="n">1.35</td><td class="n">1.20 <span style="color:var(--faint)">Jul 21</span></td><td class="n">1.40 <span style="color:var(--faint)">Jun 23</span></td><td class="n">1.19</td><td class="n" style="color:var(--era-2)">−0.14</td></tr>
+          <tr><td>Retail trade</td><td class="n">1.46</td><td class="n">1.09 <span style="color:var(--faint)">Jun 21</span></td><td class="n">1.33 <span style="color:var(--faint)">Sep 24</span></td><td class="n">1.25</td><td class="n" style="color:var(--era-2)">−0.20</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Source: US Census Bureau MTIS via FRED, series ISRATIO / MNFCTRIRSA / RETAILIRSA / WHLSLRIRSA, retrieved 28 Aug 2026.
+      The April 2020 spike in the aggregate to 1.74 is a collapse in the denominator — sales stopped — not a build in stock.</figcaption>
+  </figure>
+
+  <div class="cards c2" style="margin-top:22px">
+    <div class="card stack stack-10">
+      <div class="reg" style="color:var(--era-3)">Where the buffer stayed</div>
+      <p style="font-size:15px;margin:0;color:var(--ink-2)">Manufacturers hold <b>more</b> than they did before
+        COVID, and have done consistently since 2021. This is the sector with single-sourced, long-lead,
+        low-value, line-stopping components — the $3 connector that idles a $40,000 vehicle. For that class of
+        part the economics of a buffer were always overwhelming and simply were not being calculated, because the
+        aggregate metric a plant was judged on could not see the difference between a $3 connector and a pallet of
+        finished goods.</p>
+    </div>
+    <div class="card stack stack-10">
+      <div class="reg" style="color:var(--era-2)">Where it did not</div>
+      <p style="font-size:15px;margin:0;color:var(--ink-2)">Retail is now <b>leaner than 2019</b> — 1.25 against a
+        1.46 average. It went from 1.09 and empty shelves, through a glut that produced billions in markdowns, to
+        a position tighter than the one it started from. Nothing about retail's exposure profile rewards a
+        permanent buffer: the products are substitutable, the lead times are shorter, and holding the wrong
+        seasonal goods is more expensive than running out of them.</p>
+    </div>
+  </div>
+
+  <div class="note acc" style="margin-top:18px"><b>This is the actual finding.</b> "Just-in-case replaced
+    just-in-time" is false at the aggregate level — total US business inventories-to-sales is <b>0.11 below</b>
+    its 2019 average. The doctrine that replaced lean was not "hold more." It was <b>hold according to
+    consequence</b>: heavy buffers on a small number of parts that can stop a line, thinner buffers than ever on
+    everything else. That is a change in the <em>composition</em> of inventory, which is exactly why it needed a
+    new set of metrics — the old ones only measured the <em>level</em>.</div>
+</section>
+
+<section id="new" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">04</span><span>The new doctrine</span><span class="rule"></span><span>2022 –</span></div>
+    <h2>Nine things that replaced "minimise inventory"</h2>
+    <p class="dek">None of these ideas are new. Almost all of them existed in the literature before 2019.
+      What changed is that they acquired numbers, owners and budget — which is the difference between a
+      framework and a practice.</p>
+  </div>
+<figure class="diag">
+  <svg class="dg" viewBox="0 0 720 250" role="img" aria-label="Time-to-recover and time-to-survive. When a supplying node stops, on-hand inventory covers demand for a fixed number of days — time to survive, here 28 days. The node comes back after time to recover, here 62 days. Because recovery takes longer than coverage lasts, the 34-day gap between them is the exposure window, and its width times the revenue flowing through the node is the loss.">
+    <defs>
+      <pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="8" class="k2" stroke-width="2" opacity=".22"/>
+      </pattern>
+    </defs>
+
+    <rect x="258" y="30" width="198" height="152" fill="url(#hatch)"/>
+    <line class="hair dash k3" x1="258" y1="30" x2="258" y2="196"/>
+    <line class="hair dash k2" x1="456" y1="30" x2="456" y2="196"/>
+
+    <text class="e fm" x="0" y="20">Node stops at day 0</text>
+    <text class="big f2" x="357" y="20" text-anchor="middle">34 days uncovered</text>
+
+    <text x="0" y="50">supply</text>
+    <rect x="96" y="38" width="360" height="16" rx="2" class="f2" opacity=".9"/>
+    <rect x="456" y="38" width="220" height="16" rx="2" class="f3" opacity=".9"/>
+    <text class="fp" x="276" y="50" text-anchor="middle">node down</text>
+    <text class="fp" x="566" y="50" text-anchor="middle">restored</text>
+
+    <text x="0" y="88">on-hand</text>
+    <text x="0" y="102">stock</text>
+    <path d="M96 96 L258 182 L96 182 Z" class="f1" opacity=".18"/>
+    <path class="ln k1 w2 nf" d="M96 96 L258 182"/>
+    <path class="ln k1 nf dash" d="M258 182 L676 182" opacity=".5"/>
+
+    <line class="axis" x1="96" y1="182" x2="676" y2="182"/>
+    <text x="96" y="198" text-anchor="middle">day 0</text>
+    <text x="386" y="198" text-anchor="middle">days elapsed</text>
+    <text x="676" y="198" text-anchor="middle">100</text>
+
+    <circle cx="258" cy="182" r="4.5" class="f3"/>
+    <text class="big f3" x="258" y="222" text-anchor="middle">TTS 28d</text>
+    <text class="f3" x="258" y="238" text-anchor="middle">time to survive</text>
+
+    <circle cx="456" cy="182" r="4.5" class="f2"/>
+    <text class="big f2" x="456" y="222" text-anchor="middle">TTR 62d</text>
+    <text class="f2" x="456" y="238" text-anchor="middle">time to recover</text>
+  </svg>
+  <figcaption>The metric that replaced probability. You cannot forecast the odds of a fire, a flood or a lockdown at a
+    particular plant — so <b>stop trying</b>. Assume each node is down, and measure two things you <em>can</em> know:
+    how long stock and alternatives keep you serving (<b>TTS</b>), and how long that node takes to come back
+    (<b>TTR</b>). Where TTR exceeds TTS, the shortfall times the revenue flowing through that node is the exposure —
+    a number in currency, which is what makes a buffer arguable in front of a CFO.</figcaption>
+</figure>
+
+  <div class="cards c3" style="margin-top:22px">
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Replaces ABC-by-spend</div>
+      <h4>Segment by consequence</h4>
+      <p>ABC classification ranked parts by annual purchase value, so the cheap ones got the least attention.</p>
+      <p class="imp"><b>Now</b>Rank by what happens if it stops: sole-sourced, long re-qualification, no
+        substitute, line-stopping. A class-C part by spend is routinely a class-A part by consequence.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Ptak &amp; Smith · DDMRP</div>
+      <h4>Position the buffer, don't just size it</h4>
+      <p>A single end-to-end forecast transmits every error along the whole chain.</p>
+      <p class="imp"><b>Now</b>Insert decoupling points and hold buffers <em>there</em>, so variability is absorbed
+        at chosen places instead of propagating. The question moved from "how much" to "where".</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Simchi-Levi · HBR 2014</div>
+      <h4>Measure impact, not probability</h4>
+      <p>You cannot estimate the annual probability of a fire at a specific plant, and pretending otherwise
+        produced risk registers full of invented numbers.</p>
+      <p class="imp"><b>Now</b>Assume the node is down. Measure time-to-recover and time-to-survive, and price
+        the gap in revenue. It is auditable, and it is arguable in front of a CFO.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Resilinc · Interos · Everstream</div>
+      <h4><em>n</em>-tier visibility as a coverage number</h4>
+      <p>Dual-sourcing tier one is worthless if both tier ones buy from the same tier three.</p>
+      <p class="imp"><b>Now</b>Percentage of critical BOM mapped to tier <em>n</em> becomes a tracked coverage KPI
+        with a target, not a one-off consulting exercise.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Clark–Scarf · Graves &amp; Willems</div>
+      <h4>Multi-echelon optimisation</h4>
+      <p>Setting safety stock site by site guarantees the network holds more in total than it needs, in the
+        wrong places.</p>
+      <p class="imp"><b>Now</b>Optimise across echelons at once. The theory dates to 1960; commodity compute and
+        clean data are what made it default practice after 2021.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">M5 competition · 2020</div>
+      <h4>Distributions, not point forecasts</h4>
+      <p>A single expected-demand number plus a MAPE target tells you nothing about the tail you actually
+        need to buffer.</p>
+      <p class="imp"><b>Now</b>Forecast quantiles directly and score them with pinball loss. The inventory
+        decision needs the 95th percentile, so forecast the 95th percentile.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Network design</div>
+      <h4>China+1, regional, nearer</h4>
+      <p>Two decades of single-country concentration turned a cost optimum into a correlated exposure.</p>
+      <p class="imp"><b>Now</b>Qualified alternates in a second geography, regional service for regional demand.
+        Genuinely under way — and, as §07 shows, considerably slower than the survey answers suggest.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Commercial terms</div>
+      <h4>Buy capacity, not only goods</h4>
+      <p>Inventory is one way to buy the right to supply later. It is not the only way, and often not the
+        cheapest.</p>
+      <p class="imp"><b>Now</b>Capacity reservation, take-or-pay, multi-year supply agreements and pre-qualified
+        second sources — an option premium paid in cash instead of in warehouse space.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--accent)">
+      <div class="who reg">Industrial policy</div>
+      <h4>The state became a supply chain actor</h4>
+      <p>For thirty years, sourcing was a commercial decision. It is now partly a regulated one.</p>
+      <p class="imp"><b>Now</b>Subsidy, export control, forced-labour import bans and tariffs change the landed
+        cost and the legality of a source. Sourcing decisions carry a policy risk line that did not exist in
+        the 2019 model.</p>
+    </div>
+  </div>
+
+  <div class="note ok" style="margin-top:20px"><b>The steel-man for just-in-time.</b> It is worth saying plainly
+    that JIT did not cause this, and the better analysts never claimed it did. Small batch sizes and short cycle
+    times did not create the semiconductor shortage; a cancelled order book, a two-decade concentration of
+    capacity and zero visibility below tier one did. Toyota — the originator — weathered the chip shortage better
+    than most of its competitors precisely <em>because</em> it had a risk-part database and multi-month buffers on
+    specific critical components, a policy it adopted after the 2011 Tōhoku earthquake. That is not an abandonment
+    of TPS. It is TPS applied to a risk that had been made visible. The lesson is not "lean was wrong." It is
+    <b>"lean was being measured with instruments that could not see supply-side risk."</b></div>
+</section>
+
+<section id="ledger" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">05</span><span>The KPI ledger</span><span class="rule"></span><span>16 metric pairs</span></div>
+    <h2>Every KPI that changed, and the exact reason it had to</h2>
+    <p class="dek">This is the argument of the whole document, repeated sixteen times. Read each row left to
+      right: the metric that governed the decision before 2019, what it was optimising for, the failure mode
+      2020–22 exposed in it, and the metric that now sits beside or in place of it. Almost none of the old
+      metrics were <em>wrong</em>. They were incomplete in one specific, identifiable way — and the new metric
+      is the patch for that specific hole.</p>
+  </div>
+
+  <div class="filters" role="group" aria-label="Filter metric pairs by domain">
+    <button class="chip" data-filter="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="inventory" aria-pressed="false">Inventory</button>
+    <button class="chip" data-filter="sourcing" aria-pressed="false">Sourcing</button>
+    <button class="chip" data-filter="planning" aria-pressed="false">Planning</button>
+    <button class="chip" data-filter="service" aria-pressed="false">Service</button>
+    <button class="chip" data-filter="network" aria-pressed="false">Network</button>
+    <button class="chip" data-filter="finance" aria-pressed="false">Finance</button>
+    <button class="chip" data-filter="risk" aria-pressed="false">Risk</button>
+    <button class="chip" data-filter="governance" aria-pressed="false">Governance</button>
+    <span class="reg" id="kpi-count" style="color:var(--faint);margin-left:6px" aria-live="polite"></span>
+  </div>
+
+  <div class="ledger">
+    <div class="lrow" data-domain="inventory">
+      <div class="lhead"><span class="reg dom">Inventory</span><span class="reg idx">01 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Inventory turns</div>
+        <div class="f">COGS ÷ average inventory</div>
+        <div class="d"><b>Optimised for:</b> Capital efficiency, as one number covering the whole book. Higher was always better, and the board could read it without context.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Inventory composition &amp; health</div>
+        <div class="f">Cycle · safety · strategic · excess &amp; obsolete, each with its own target</div>
+        <div class="d"><b>Why it follows:</b> Once you buffer by consequence rather than uniformly, the aggregate <em>must</em> move in confusing directions. The useful question stopped being how much inventory there is and became which inventory grew, and whether it is the inventory you chose.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>A high turn rate and a stockout look identical in the metric. It also prices a $3 line-stopping connector and a pallet of finished goods identically, because it can only see dollars — so the cheapest cut was always the most dangerous one.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="inventory">
+      <div class="lhead"><span class="reg dom">Inventory</span><span class="reg idx">02 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Days inventory outstanding</div>
+        <div class="f">365 × average inventory ÷ COGS — one target for the enterprise</div>
+        <div class="d"><b>Optimised for:</b> A single, comparable, benchmarkable number that finance could set as a target and cascade down.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Critical-component days of supply</div>
+        <div class="f">Tracked separately per risk-designated part, with a floor, exempt from the aggregate target</div>
+        <div class="d"><b>Why it follows:</b> You cannot let one target govern both a commodity fastener and a custom ASIC with a 52-week lead time. Carving critical parts out of the aggregate is what makes a deliberate buffer survive the next cost programme.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>A company-wide DIO target is a blunt instrument applied to a portfolio with hugely varying consequence. It was the mechanism by which planners were instructed to cut exactly the cheap, long-lead, sole-sourced parts that later stopped the line.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="sourcing">
+      <div class="lhead"><span class="reg dom">Sourcing</span><span class="reg idx">03 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Supplier count reduction</div>
+        <div class="f">Number of active suppliers, tracked downward</div>
+        <div class="d"><b>Optimised for:</b> Leverage, administrative cost, quality consistency. Consolidation was a stated strategic goal with a number attached.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Single-source exposure &amp; concentration</div>
+        <div class="f">% of spend and % of critical BOM on one source; supplier concentration index</div>
+        <div class="d"><b>Why it follows:</b> The identical underlying fact — few suppliers — now carries the sign it always deserved. What was an achievement metric became an exposure metric.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>Supplier rationalisation and supply concentration are the same act, reported with opposite signs. Firms hit their consolidation targets and reported it as progress right up until the single remaining source went offline.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="sourcing">
+      <div class="lhead"><span class="reg dom">Sourcing</span><span class="reg idx">04 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Purchase price variance</div>
+        <div class="f">Actual purchase price − standard cost</div>
+        <div class="d"><b>Optimised for:</b> Unit cost, measured per buyer, per quarter. The single most powerful individual incentive in procurement.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Total cost of ownership incl. risk</div>
+        <div class="f">Landed cost + qualification + carrying + expected disruption cost</div>
+        <div class="d"><b>Why it follows:</b> If the second source's cost is charged to the buyer and its benefit is charged to nobody, no buyer will ever qualify one. Making the disruption term explicit is the only way the trade-off gets made at the level where it is decided.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>PPV rewards awarding volume to the cheapest single source and actively penalises paying to qualify a second one. The cost of resilience lands in this metric; the benefit never does. This is the incentive that built the fragility.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="sourcing">
+      <div class="lhead"><span class="reg dom">Sourcing</span><span class="reg idx">05 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Tier-1 audit &amp; scorecard coverage</div>
+        <div class="f">% of direct suppliers audited and scored</div>
+        <div class="d"><b>Optimised for:</b> Quality, delivery and compliance assurance across the suppliers you actually contract with.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m"><em>n</em>-tier visibility coverage</div>
+        <div class="f">% of critical BOM mapped to tier 2 / 3, with site-level geolocation</div>
+        <div class="d"><b>Why it follows:</b> Correlated failure lives below tier one. A map that stops at your contractual boundary cannot show you the shared node that makes your two suppliers one supplier.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>Dual-sourcing tier one is worthless if both tier ones buy from the same tier two, who buys from the same tier three. Firms with perfect tier-1 coverage discovered their true dependency only when it stopped.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="planning">
+      <div class="lhead"><span class="reg dom">Planning</span><span class="reg idx">06 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Forecast accuracy — MAPE</div>
+        <div class="f">mean(|actual − forecast| ÷ actual)</div>
+        <div class="d"><b>Optimised for:</b> A single-number report card on the demand plan, comparable across periods and planners.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Quantile forecasts &amp; pinball loss</div>
+        <div class="f">Forecast the distribution; score the quantile you actually stock to (CRPS / pinball)</div>
+        <div class="d"><b>Why it follows:</b> Safety stock has always been a quantile — the <span class="num">z</span> in the formula is a service level. Forecasting the mean and then bolting a normal assumption onto it was always a workaround. Forecast the quantile you need.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>MAPE scores a point forecast, but an inventory decision is a statement about a <em>tail</em>. It also penalises volatile, high-consequence items hardest, so the planner's rational move is to focus on the SKUs that matter least.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="planning">
+      <div class="lhead"><span class="reg dom">Planning</span><span class="reg idx">07 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Schedule attainment</div>
+        <div class="f">% of the production plan executed as planned</div>
+        <div class="d"><b>Optimised for:</b> Stability and discipline on the shop floor: build what was scheduled.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Plan stability &amp; time-to-detect</div>
+        <div class="f">Re-plan frequency and nervousness; latency from demand or supply signal to plan response</div>
+        <div class="d"><b>Why it follows:</b> When the environment moves faster than the planning cycle, the speed and quality of re-planning matters more than adherence to the original plan.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>In a volatile regime, a plan produced on Monday is wrong by Wednesday. Attainment measures fidelity to a stale instruction, and rewards a planner who refuses to re-plan.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="service">
+      <div class="lhead"><span class="reg dom">Service</span><span class="reg idx">08 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Fill rate / OTIF</div>
+        <div class="f">Units or lines shipped complete and on time ÷ demanded, in aggregate</div>
+        <div class="d"><b>Optimised for:</b> Customer service, measured as one enterprise-level percentage.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Segmented, revenue-weighted service</div>
+        <div class="f">Service level by customer and product criticality; margin- or revenue-weighted OTIF</div>
+        <div class="d"><b>Why it follows:</b> During an allocation event the only useful question is which demand you protect. A metric that cannot distinguish between customers cannot inform that decision.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>A 98% aggregate fill rate can hide that the missing 2% was 40% of gross margin, or the one customer with a contractual penalty. Aggregation destroys precisely the information you need in a shortage.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="service">
+      <div class="lhead"><span class="reg dom">Service</span><span class="reg idx">09 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Asset / capacity utilisation</div>
+        <div class="f">Output ÷ theoretical capacity</div>
+        <div class="d"><b>Optimised for:</b> Sweating capital. Every idle hour of a machine reads as waste.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Surge capacity &amp; time-to-scale</div>
+        <div class="f">Sustainable headroom above plan; time to reach a defined uplift</div>
+        <div class="d"><b>Why it follows:</b> Slack stopped being a defect and became an asset with a price. If you want to recover from a shock, someone has to have somewhere to recover into.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>Queueing theory has always said that as utilisation approaches 1, queue length and lead time go to infinity. A plant run at 100% has no ability to catch up after any disruption at all — it is the definition of no recovery capacity.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="network">
+      <div class="lhead"><span class="reg dom">Network</span><span class="reg idx">10 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Landed cost per unit</div>
+        <div class="f">Ex-works price + freight + duty + handling</div>
+        <div class="d"><b>Optimised for:</b> The lowest delivered cost per unit, which for two decades meant the longest supply line to the lowest-wage geography.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Cost-to-serve under scenarios</div>
+        <div class="f">Landed cost evaluated across defined disruption and policy scenarios, not just base case</div>
+        <div class="d"><b>Why it follows:</b> The comparison that matters is not which source is cheapest today but which is cheapest across the range of futures you are actually exposed to.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>Landed cost is a point estimate on a stable route. It has no term for the route closing, the port queueing, the freight rate going up twelvefold, or the tariff being changed by legislation.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="network">
+      <div class="lhead"><span class="reg dom">Network</span><span class="reg idx">11 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">DC count &amp; pooling savings</div>
+        <div class="f">Safety stock reduction from consolidation, ≈ √n</div>
+        <div class="d"><b>Optimised for:</b> Risk pooling. Eppen's square-root law is correct and the savings are real.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Geographic &amp; chokepoint concentration</div>
+        <div class="f">% of critical volume through one country, one port, one strait, one plant</div>
+        <div class="d"><b>Why it follows:</b> Pooling and single-point-of-failure are the same structure. The saving is real and so is the exposure; both now have a number so the trade is made deliberately.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>Pooling assumes independent demand and an always-available supply line into the pooled node. Consolidation converts many partial failures into one total failure, and 2020–22 was a decade's worth of correlated events.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="finance">
+      <div class="lhead"><span class="reg dom">Finance</span><span class="reg idx">12 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Cash conversion cycle</div>
+        <div class="f">CCC = DIO + DSO − DPO</div>
+        <div class="d"><b>Optimised for:</b> Free cash flow, the fastest lever available to a CFO and the one most visible to investors.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Network working capital &amp; supplier health</div>
+        <div class="f">Chain-level working capital cost; supplier financial-distress scoring</div>
+        <div class="d"><b>Why it follows:</b> A metric you can improve by moving a cost onto someone whose failure would stop your line is not measuring what it claims to measure.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>CCC improves when you extend payment terms — which finances your inventory on a small supplier's balance sheet at their cost of capital, not yours. The network's total financing cost rises while your metric improves. Then the supplier fails and it is your disruption.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="finance">
+      <div class="lhead"><span class="reg dom">Finance</span><span class="reg idx">13 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">&mdash; not measured &mdash;</div>
+        <div class="f">Disruption did not appear anywhere in financial reporting</div>
+        <div class="d"><b>Optimised for:</b> Nothing. There was no line on the P&amp;L called "the disruption that did not happen," which is exactly why resilience never won a budget argument.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Supply chain value-at-risk</div>
+        <div class="f">Revenue-at-risk per node = exposure × (TTR − TTS), aggregated across the network</div>
+        <div class="d"><b>Why it follows:</b> This is the change that made all the others fundable. Once exposure is denominated in revenue, a buffer stops being an operational preference and becomes a capital allocation decision on the same terms as any other.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>Firms could not compare the certain, immediate, budget-line cost of a second source against the uncertain, deferred benefit — so the comparison was never made and the default always won.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="risk">
+      <div class="lhead"><span class="reg dom">Risk</span><span class="reg idx">14 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Likelihood × impact heat map</div>
+        <div class="f">Probability score 1–5 × impact score 1–5, on a risk register</div>
+        <div class="d"><b>Optimised for:</b> An auditable-looking register that satisfied governance requirements.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Time-to-recover / time-to-survive</div>
+        <div class="f">TTR: days to restore a node. TTS: days you can serve without it. Exposure = the gap.</div>
+        <div class="d"><b>Why it follows:</b> It deletes the unknowable input. You stop guessing how likely a failure is and instead measure two quantities you can actually establish, then price the difference. Auditable, comparable, and arguable in front of a CFO.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>Nobody can estimate the annual probability of a fire at a named plant, so the probability column was invented. Worse, genuine low-probability / catastrophic-impact events score mid-range on a 5×5 grid and receive no budget — the arithmetic actively hides the risks that matter.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="risk">
+      <div class="lhead"><span class="reg dom">Risk</span><span class="reg idx">15 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Business continuity plan exists</div>
+        <div class="f">A document, reviewed annually, filed</div>
+        <div class="d"><b>Optimised for:</b> Compliance. The plan's existence was the metric.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Recovery time objective, rehearsed</div>
+        <div class="f">Measured RTO per critical node; stress-test and playbook rehearsal cadence</div>
+        <div class="d"><b>Why it follows:</b> Stress testing moved across from banking wholesale. An untested recovery time is an assumption, and this decade's lesson is that untested assumptions are where the exposure lives.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>Plans that had never been exercised failed on contact. Nobody knew how long it actually took to re-qualify an alternate part, because nobody had ever done it under time pressure.</div>
+      </div>
+    </div>
+    <div class="lrow" data-domain="governance">
+      <div class="lhead"><span class="reg dom">Governance</span><span class="reg idx">16 / 16</span></div>
+      <div class="lcell old">
+        <div class="reg lab">Before 2019</div>
+        <div class="m">Supplier code of conduct signed</div>
+        <div class="f">% of suppliers who have signed the code</div>
+        <div class="d"><b>Optimised for:</b> Documented compliance at the tier-1 contractual boundary.</div>
+      </div>
+      <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
+      <div class="lcell new">
+        <div class="reg lab">After 2022</div>
+        <div class="m">Traceability to source</div>
+        <div class="f">% of restricted or high-risk inputs traced to origin; Scope 3 coverage</div>
+        <div class="d"><b>Why it follows:</b> The same <em>n</em>-tier map that supports resilience is now also a legal and regulatory requirement. Two separate arguments now fund the same capability, which is a large part of why this one stuck.</div>
+      </div>
+      <div class="lfail">
+        <div class="reg lab">Exposed</div>
+        <div>Forced-labour import bans, origin rules and emissions accounting all attach to the <em>source</em>, not to your direct supplier. A signature from tier one says nothing about tier three, and unmappable inputs became seizable at the border.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note acc" style="margin-top:20px"><b>The pattern across all sixteen.</b> Every old metric is an
+    <em>aggregate</em>, a <em>point estimate</em>, or a <em>cost</em>. Every new one is a <em>decomposition</em>,
+    a <em>distribution</em>, or an <em>exposure</em>. That is the whole shift in one line: the pre-2019 system
+    measured the average of a stable world in a single number, and the post-2022 system measures the shape of
+    an unstable one — because the average is exactly what tells you nothing during a shock.</div>
+</section>
+
+<section id="risk" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">06</span><span>Risk assessment</span><span class="rule"></span><span>The conceptual shifts</span></div>
+    <h2>Seven changes underneath all of it</h2>
+    <p class="dek">Strip away the individual metrics and the same seven moves sit underneath every one of them.
+      These are the ones worth arguing about, because they determine whether a firm has genuinely changed its
+      model of the world or has simply bought some software.</p>
+  </div>
+
+  <div class="shifts">
+    <div class="shift">
+      <div class="pair"><span class="reg n">01</span><span class="from">Uncertainty is on the demand side</span><span class="arw">→</span><span class="to">Uncertainty is on both sides</span></div>
+      <p>The single most consequential change. Every classical model gives demand a distribution and supply a
+        constant. The post-2020 model gives lead time, yield, capacity and availability their own distributions —
+        which means the buffer calculation, the forecast and the network design all have to be redone, not
+        re-parameterised.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">02</span><span class="from">Risk = probability × impact</span><span class="arw">→</span><span class="to">Risk = impact, failure assumed</span></div>
+      <p>The probability of a specific plant failing in a specific year is not knowable, and every register that
+        claimed otherwise was recording a guess dressed as an estimate. Assuming failure and measuring recovery
+        time removes the fabricated input entirely. It is a weaker claim about the world and a much stronger
+        basis for a decision.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">03</span><span class="from">Failures are independent</span><span class="arw">→</span><span class="to">Failures are correlated</span></div>
+      <p>Risk pooling, portfolio diversification and dual sourcing all rest on independence — and independence is
+        exactly what a shared tier-three supplier, a shared port, a shared country or a shared cloud region
+        destroys. Most of what looks like new technology in this field, from <em>n</em>-tier mapping to network
+        digital twins, exists to find correlation that the org chart hides.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">04</span><span class="from">Inventory is a level</span><span class="arw">→</span><span class="to">Inventory is a portfolio</span></div>
+      <p>A single number to be minimised became a set of positions with different jobs: cycle stock buys
+        efficiency, safety stock buys service, strategic stock buys time, and excess and obsolete stock is a loss
+        you have not booked yet. They are managed by different people against different targets, and aggregating
+        them destroyed the only information that mattered.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">05</span><span class="from">Forecast the expected value</span><span class="arw">→</span><span class="to">Forecast the distribution</span></div>
+      <p>An inventory decision has always been a quantile decision — the service factor <span class="num">z</span>
+        in the safety-stock formula <em>is</em> a quantile. Pairing a point forecast with an assumed normal
+        distribution was a computational convenience from an era without compute. Forecasting the quantile
+        directly, and scoring it as a quantile, closes a gap that was always there.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">06</span><span class="from">Minimise local cost</span><span class="arw">→</span><span class="to">Maximise network survivability</span></div>
+      <p>The objective function itself changed. It was: minimise cost subject to a service level. It is now:
+        minimise total cost including the expected cost of disruption, subject to surviving a defined set of node
+        failures. The constraint is new — and a new constraint is a genuinely different problem, not a different
+        weighting of the same one.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">07</span><span class="from">Risk lives in a register</span><span class="arw">→</span><span class="to">Risk lives on the balance sheet</span></div>
+      <p>The change that made the other six fundable. As long as exposure was a colour on a heat map, it lost
+        every budget argument to a cost saving denominated in currency. Expressing it as revenue-at-risk put it
+        on the same terms as everything else a capital committee compares — which is the only reason any of this
+        outlived the crisis that prompted it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="stick" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">07</span><span>Did it stick?</span><span class="rule"></span><span>2023 – 2026</span></div>
+    <h2>What leaders say, and what the data says</h2>
+    <p class="dek">Any honest version of this document has to answer the sceptic's question: was this a genuine
+      change of doctrine, or a crisis-era enthusiasm that faded when the cost programmes came back? The survey
+      evidence and the measured evidence disagree, and the disagreement is the most useful thing here.</p>
+  </div>
+
+  <div class="cards c2">
+    <div class="figure">
+      <div class="fhead">
+        <div class="ftitle">What leaders say they are doing</div>
+        <div class="fsub">Share of supply chain executives reporting each action, McKinsey pulse surveys by wave.</div>
+      </div>
+      <div class="reg" style="color:var(--muted);margin-top:4px">Dual sourcing</div>
+      <div class="bars">
+        <div class="brow"><span class="bl">2020</span><span class="btrack"><span class="bfill" style="width:55%;background:var(--era-3)"></span></span><span class="bv">55%</span></div>
+        <div class="brow"><span class="bl">2022</span><span class="btrack"><span class="bfill" style="width:81%;background:var(--era-3)"></span></span><span class="bv">81%</span></div>
+        <div class="brow"><span class="bl">2023</span><span class="btrack"><span class="bfill" style="width:78%;background:var(--era-3)"></span></span><span class="bv">78%</span></div>
+        <div class="brow"><span class="bl">2024</span><span class="btrack"><span class="bfill" style="width:73%;background:var(--era-3)"></span></span><span class="bv">73%</span></div>
+      </div>
+      <div class="reg" style="color:var(--muted);margin-top:8px">Regionalising the network</div>
+      <div class="bars">
+        <div class="brow"><span class="bl">2021</span><span class="btrack"><span class="bfill" style="width:25%;background:var(--era-3)"></span></span><span class="bv">25%</span></div>
+        <div class="brow"><span class="bl">2022</span><span class="btrack"><span class="bfill" style="width:44%;background:var(--era-3)"></span></span><span class="bv">44%</span></div>
+        <div class="brow"><span class="bl">2023</span><span class="btrack"><span class="bfill" style="width:64%;background:var(--era-3)"></span></span><span class="bv">64%</span></div>
+        <div class="brow"><span class="bl">2024</span><span class="btrack"><span class="bfill" style="width:60%;background:var(--era-3)"></span></span><span class="bv">60%</span></div>
+      </div>
+      <div class="reg" style="color:var(--muted);margin-top:8px">Increased inventory buffers</div>
+      <div class="bars">
+        <div class="brow"><span class="bl">2021</span><span class="btrack"><span class="bfill" style="width:80%;background:var(--era-3)"></span></span><span class="bv">80%</span></div>
+        <div class="brow"><span class="bl">2023</span><span class="btrack"><span class="bfill" style="width:78%;background:var(--era-3)"></span></span><span class="bv">78%</span></div>
+      </div>
+      <figcaption>Source: McKinsey supply chain pulse surveys, waves 2020–2024 (the 2023 wave: 101 respondents,
+        fieldwork April–May 2023). <b>Read with care:</b> these are separate waves with different samples and
+        question wording that shifts between years — the 2023 dual-sourcing figure is specific to critical raw
+        materials. Treat the shape as directional, not as a matched panel.</figcaption>
+    </div>
+
+    <div class="figure">
+      <div class="fhead">
+        <div class="ftitle">What the measured data says</div>
+        <div class="fsub">US Census MTIS inventories-to-sales, 2019 average against June 2026.</div>
+      </div>
+      <div class="bars" style="margin-top:6px">
+        <div class="brow"><span class="bl">Manufacturers</span><span class="btrack"><span class="bfill" style="width:74%;background:var(--era-3)"></span></span><span class="bv">+0.05</span></div>
+        <div class="brow"><span class="bl">Total business</span><span class="btrack"><span class="bfill" style="width:38%;background:var(--era-2)"></span></span><span class="bv">−0.11</span></div>
+        <div class="brow"><span class="bl">Wholesalers</span><span class="btrack"><span class="bfill" style="width:30%;background:var(--era-2)"></span></span><span class="bv">−0.14</span></div>
+        <div class="brow"><span class="bl">Retail trade</span><span class="btrack"><span class="bfill" style="width:20%;background:var(--era-2)"></span></span><span class="bv">−0.20</span></div>
+      </div>
+      <div class="note" style="margin-top:12px">Bar length is relative position, not the ratio itself. Three of
+        four sectors hold <b>less</b> inventory relative to sales than they did in 2019. Only manufacturing holds
+        more — and it holds only 0.05 more.</div>
+      <p style="font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0">Set the two panels beside each
+        other and the gap is stark. In 2023, 78% of executives reported increasing inventory buffers. In the same
+        period, the aggregate US inventories-to-sales ratio was falling back through its pre-COVID level. Both
+        can be true — a firm can add buffer on 200 critical parts while destocking everything else, and that is
+        precisely the segmented doctrine this document describes. But it means <b>survey answers about resilience
+        cannot be read as evidence that balance sheets changed</b>.</p>
+      <figcaption>Source: US Census Bureau MTIS via FRED, retrieved 28 Aug 2026.</figcaption>
+    </div>
+  </div>
+
+  <div style="margin-top:30px">
+    <h3 style="margin-bottom:8px">The honest verdict</h3>
+    <div class="cards c2" style="margin-top:14px">
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">Retreated · intent peaked in 2022</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Dual sourcing fell from 81% to 73% and regionalisation
+          from 64% to 60% between 2022 and 2024. McKinsey's own reading is that momentum has plateaued. The
+          2023 cost-cutting cycle arrived before most resilience programmes had finished paying for themselves.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">Retreated · the 2022 glut was not precision</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Target at +43% and Walmart at +33% year on year were not
+          firms executing a considered buffer strategy. They were firms that ordered aggressively into a demand
+          signal that had already turned — the bullwhip again, in the opposite direction, eighteen months later.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">Retreated · resilience often meant software</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Visibility platforms and control towers are easier to
+          buy than second sources are to qualify, and they book as one project rather than a permanent cost
+          increase. A dashboard showing an exposure you have not funded a response to is not resilience.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-3)">Stuck · physical and legal facts</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Fabs and plants that were built are still built.
+          Industrial policy, export controls and origin rules are still law. Long-term capacity agreements still
+          run. Manufacturing still holds more inventory relative to sales than it did in 2019, five years on.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-3)">Stuck · the measurement system</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">This is the durable part, and it is why the KPI ledger
+          is the centre of this document. Metrics outlive the enthusiasm that created them, because they are
+          embedded in systems, reports and comp plans. A firm that added revenue-at-risk to its planning review
+          in 2021 is still running it.</div>
+      </div>
+      <div class="card tight stack stack-6" style="border-left:2px solid var(--accent)">
+        <div class="reg" style="color:var(--accent-ink)">The live test, now</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Pressure is back at +1.84σ as of April 2026 on tariff
+          and re-sourcing effects. This is the first shock since 2020 to hit firms that claim to have built the
+          capability. Whether TTR and exposure figures were maintained — or quietly stopped being produced in
+          2024 — is about to be visible in who absorbs it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="method" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">08</span><span>Sources &amp; method</span><span class="rule"></span><span>Read the caveats</span></div>
+    <h2>What this is built on, and where it is weak</h2>
+    <p class="dek">Every figure in this document has a named source and a date. Where a number is a forecast, an
+      estimate or a survey response rather than a measurement, it is labelled as such — the distinction matters
+      more in this subject than in most, because a great deal of what circulates as supply chain evidence is
+      consultant projection repeated until it sounds like data.</p>
+  </div>
+
+  <div class="cards c2">
+    <div class="card stack stack-10">
+      <div class="reg" style="color:var(--era-3)">Measured series — the spine of the argument</div>
+      <div class="srcs" style="border:0">
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>Global Supply Chain Pressure Index</b>, monthly to July 2026</div>
+          <div class="o">Federal Reserve Bank of New York</div>
+        </div>
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>Manufacturing &amp; Trade Inventories and Sales</b> — ISRATIO, MNFCTRIRSA, RETAILIRSA, WHLSLRIRSA, to June 2026</div>
+          <div class="o">US Census Bureau, via FRED</div>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.55;color:var(--ink-2);margin:0"><b>Why these two.</b> They are
+        independent of anyone selling a supply chain product, they are published on a fixed schedule, and they
+        cover the whole arc without a break. The inventories-to-sales ratio is particularly well suited here
+        because inventories and sales are both measured in current dollars, so the ratio is largely insulated
+        from the inflation that makes raw inventory values from 2019 and 2026 incomparable.</p>
+    </div>
+    <div class="card stack stack-10">
+      <div class="reg" style="color:var(--era-2)">Reported figures — treat as reported</div>
+      <div class="srcs" style="border:0">
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>$210bn revenue / 7.7m units</b> lost to the chip shortage — a <em>forecast</em> issued
+            in September 2021, revised up from $110bn in May 2021. Not a measured outcome.</div>
+          <div class="o">AlixPartners, Sep 2021</div>
+        </div>
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>Pulse survey percentages</b>, waves 2020–2024 — self-reported intent and action from
+            differing samples with shifting question wording. Directional only.</div>
+          <div class="o">McKinsey &amp; Company</div>
+        </div>
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>$15.1bn inventory, +43% YoY</b>; guidance cut 18 May and again 7 June 2022. Walmart +33% YoY.</div>
+          <div class="o">Target Corp. Q1 FY2022 reporting</div>
+        </div>
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>109 container ships at anchor</b>, the LA / Long Beach peak, January 2022.</div>
+          <div class="o">Contemporary port and trade-press reporting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="reg" style="color:var(--muted);margin-bottom:10px">Doctrine and framework attributions</div>
+    <div class="srcs" style="border:0">
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Economic order quantity</div><div class="o">F. W. Harris, 1913</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Newsvendor / optimal inventory policy</div><div class="o">Arrow, Harris &amp; Marschak, 1951</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Toyota Production System, just-in-time, the seven wastes</div><div class="o">Taiichi Ohno; Shigeo Shingo</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Industrial dynamics — amplification through echelons</div><div class="o">Jay Forrester, 1961</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">The bullwhip effect, named, with four causes</div><div class="o">Lee, Padmanabhan &amp; Whang, 1997</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Risk pooling and the square-root law</div><div class="o">Gary Eppen, 1979</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Theory of Constraints</div><div class="o">Eliyahu Goldratt, 1984</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Lean thinking</div><div class="o">Womack &amp; Jones, 1996</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Functional vs innovative products</div><div class="o">Marshall Fisher, HBR, 1997</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">The Triple-A supply chain</div><div class="o">Hau Lee, HBR, 2004</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Managing risk to avoid supply chain breakdown</div><div class="o">Chopra &amp; Sodhi, MIT SMR, 2004</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Building the resilient supply chain</div><div class="o">Christopher &amp; Peck, 2004</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t"><em>The Resilient Enterprise</em> — the disruption profile</div><div class="o">Yossi Sheffi, 2005</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Shareholder-value effects of supply chain disruptions</div><div class="o">Hendricks &amp; Singhal, 2003–05</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Risk exposure index, time-to-recover</div><div class="o">Simchi-Levi et al., HBR, 2014</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Demand-driven MRP — buffer positioning</div><div class="o">Ptak &amp; Smith</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Quantile forecasting at scale — the M5 competition</div><div class="o">Makridakis et al., 2020</div></div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:16px"><b>Where this document is weak.</b> Four things a careful reader
+    should hold against it. <b>One:</b> sector-level inventory ratios average over enormous firm-level variation —
+    a sector can be flat while half its firms doubled their buffers and the other half halved them.
+    <b>Two:</b> the survey waves are not a matched panel, so the year-on-year movements in §07 are indicative
+    rather than measured change. <b>Three:</b> the KPI ledger describes practice at large, well-resourced firms;
+    the median manufacturer has adopted far less of it than the literature implies. <b>Four:</b> several framework
+    attributions are conventional rather than uncontested — priority disputes exist for the EOQ formula and for
+    parts of the bullwhip literature, and the dates given are for the canonical publication, not the first idea.</div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap stack stack-10">
+    <div class="reg" style="color:var(--accent-ink)">End of document</div>
+    <p style="max-width:70ch;margin:0">If you take one thing from this: the pre-2019 system was not
+      badly run. It was <b>well run against an incomplete scorecard</b>, and the scorecard's blind spot was
+      supply-side uncertainty. Everything in §05 is an attempt to fix that one hole. Whether it holds depends
+      less on what firms believe than on whether the numbers are still being produced in three years — which is
+      the only reliable test of whether a doctrine actually changed.</p>
+    <p class="reg" style="color:var(--faint);margin:0">Compiled 28 August 2026 · figures current to June–July 2026</p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================================
+   THE INVENTORY DOCTRINE — behaviour
+   Charts are hand-rolled SVG (no library): line/area with a crosshair+tooltip
+   hover layer, plus a table view for every figure. Colours come from the CSS
+   token set so both themes are one source of truth.
+   ========================================================================= */
+(function () {
+  "use strict";
+
+  /* ---------------------------------------------------------------- theme -- */
+  var root = document.documentElement;
+  var KEY = "inv-doctrine-theme";
+  function stored(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  var saved = stored(KEY);
+  if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+
+  function currentMode() {
+    var t = root.getAttribute("data-theme");
+    if (t) return t;
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  var toggle = document.getElementById("theme-toggle");
+  function labelToggle() {
+    if (!toggle) return;
+    var next = currentMode() === "dark" ? "light" : "dark";
+    toggle.textContent = next === "dark" ? "Dark" : "Light";
+    toggle.setAttribute("aria-label", "Switch to " + next + " theme");
+  }
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      var next = currentMode() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      store(KEY, next);
+      labelToggle();
+      redrawAll();
+    });
+    labelToggle();
+  }
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    var onMq = function () { if (!root.getAttribute("data-theme")) { labelToggle(); redrawAll(); } };
+    if (mq.addEventListener) mq.addEventListener("change", onMq);
+    else if (mq.addListener) mq.addListener(onMq);
+  }
+
+  function tok(name) {
+    return getComputedStyle(root).getPropertyValue(name).trim() || "#888";
+  }
+
+  /* ----------------------------------------------------------------- util -- */
+  var NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, parent) {
+    var n = document.createElementNS(NS, tag);
+    for (var k in attrs) if (attrs[k] !== null && attrs[k] !== undefined) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
+  function fmt(v, spec) {
+    if (spec && spec.pre) v = spec.pre + v;
+    return String(v);
+  }
+
+  /* ----------------------------------------------------- line/area figure -- */
+  /* spec = {
+       w, h, pad:{t,r,b,l},
+       x:{min,max,ticks:[{v,label}]},
+       y:{min,max,ticks:[num], fmt:fn},
+       bands:[{from,to,token,label}],
+       series:[{name, token, points:[[x,y]], fill:bool, dash:bool}],
+       marks:[{x,y,label,token,anchor}]
+     } */
+  function drawLine(host, spec) {
+    var W = 900, H = spec.h || 260;
+    var P = spec.pad || { t: 14, r: 16, b: 26, l: 42 };
+    var x0 = P.l, x1 = W - P.r, y0 = P.t, y1 = H - P.b;
+
+    var svg = el("svg", {
+      viewBox: "0 0 " + W + " " + H, role: "img",
+      "aria-label": spec.alt || spec.title || "chart", preserveAspectRatio: "none"
+    });
+    svg.style.width = "100%";
+    svg.style.height = "auto";
+    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+    var sx = function (v) { return x0 + (v - spec.x.min) / (spec.x.max - spec.x.min) * (x1 - x0); };
+    var sy = function (v) { return y1 - (v - spec.y.min) / (spec.y.max - spec.y.min) * (y1 - y0); };
+
+    // era bands (behind everything)
+    (spec.bands || []).forEach(function (b) {
+      var bx = sx(b.from), bw = sx(b.to) - sx(b.from);
+      el("rect", { x: bx, y: y0, width: bw, height: y1 - y0, fill: tok(b.token), opacity: b.opacity || 1 }, svg);
+      if (b.label) {
+        var t = el("text", {
+          x: bx + 6, y: y0 + 12, class: "tick", "text-anchor": "start",
+          fill: tok(b.textToken || "--faint")
+        }, svg);
+        t.textContent = b.label;
+      }
+    });
+
+    // horizontal gridlines + y ticks
+    spec.y.ticks.forEach(function (v) {
+      var yy = Math.round(sy(v)) + .5;
+      el("line", { x1: x0, x2: x1, y1: yy, y2: yy, class: "gridline" }, svg);
+      var t = el("text", { x: x0 - 8, y: yy + 3.5, class: "tick", "text-anchor": "end" }, svg);
+      t.textContent = spec.y.fmt ? spec.y.fmt(v) : v;
+    });
+    // baseline
+    el("line", { x1: x0, x2: x1, y1: Math.round(sy(spec.y.min)) + .5, y2: Math.round(sy(spec.y.min)) + .5, class: "axis" }, svg);
+
+    // horizontal reference lines
+    (spec.refs || []).forEach(function (r) {
+      var yy = Math.round(sy(r.y)) + .5;
+      el("line", {
+        x1: x0, x2: x1, y1: yy, y2: yy, stroke: tok(r.token || "--rule-strong"),
+        "stroke-width": 1.4, "stroke-dasharray": "5 4"
+      }, svg);
+      if (r.label) {
+        var t = el("text", {
+          x: r.at !== undefined ? sx(r.at) : x0 + 6, y: yy - 6, class: "dlabel",
+          "text-anchor": r.anchor || "start", fill: tok(r.token || "--muted")
+        }, svg);
+        t.textContent = r.label;
+      }
+    });
+
+    // x ticks
+    spec.x.ticks.forEach(function (t) {
+      var xx = Math.round(sx(t.v)) + .5;
+      var lb = el("text", { x: xx, y: H - P.b + 15, class: "tick", "text-anchor": "middle" }, svg);
+      lb.textContent = t.label;
+    });
+
+    // series
+    spec.series.forEach(function (s) {
+      var col = tok(s.token);
+      var pts = s.points;
+      var d = pts.map(function (p, i) { return (i ? "L" : "M") + sx(p[0]).toFixed(2) + " " + sy(p[1]).toFixed(2); }).join(" ");
+      if (s.fill) {
+        var area = d + " L" + sx(pts[pts.length - 1][0]).toFixed(2) + " " + sy(spec.y.min).toFixed(2) +
+          " L" + sx(pts[0][0]).toFixed(2) + " " + sy(spec.y.min).toFixed(2) + " Z";
+        el("path", { d: area, fill: col, opacity: .12 }, svg);
+      }
+      el("path", {
+        d: d, fill: "none", stroke: col, "stroke-width": 2,
+        "stroke-linejoin": "round", "stroke-linecap": "round",
+        "stroke-dasharray": s.dash ? "5 4" : null
+      }, svg);
+      // emphasised endpoint
+      if (s.endpoint !== false) {
+        var last = pts[pts.length - 1];
+        el("circle", { cx: sx(last[0]), cy: sy(last[1]), r: 4, fill: col, stroke: tok("--panel"), "stroke-width": 2 }, svg);
+      }
+    });
+
+    // annotated marks
+    (spec.marks || []).forEach(function (m) {
+      var col = tok(m.token || "--ink");
+      el("circle", { cx: sx(m.x), cy: sy(m.y), r: 4.5, fill: col, stroke: tok("--panel"), "stroke-width": 2 }, svg);
+      var anchor = m.anchor || "middle";
+      var dx = anchor === "start" ? 9 : anchor === "end" ? -9 : 0;
+      var dy = m.below ? 17 : -11;
+      var lines = String(m.label).split("|");
+      lines.forEach(function (ln, i) {
+        var t = el("text", {
+          x: sx(m.x) + dx, y: sy(m.y) + dy + i * 12, class: "dlabel",
+          "text-anchor": anchor, fill: col
+        }, svg);
+        t.textContent = ln;
+      });
+    });
+
+    clear(host);
+    host.appendChild(svg);
+
+    // ---- hover layer -------------------------------------------------------
+    var tip = document.createElement("div");
+    tip.className = "tip";
+    host.appendChild(tip);
+    var cross = el("line", { x1: 0, x2: 0, y1: y0, y2: y1, stroke: tok("--rule-strong"), "stroke-width": 1, opacity: 0 }, svg);
+    var dots = spec.series.map(function (s) {
+      return el("circle", { r: 5, fill: tok(s.token), stroke: tok("--panel"), "stroke-width": 2, opacity: 0 }, svg);
+    });
+
+    function nearest(pts, xv) {
+      var best = pts[0], bd = Infinity;
+      pts.forEach(function (p) { var d = Math.abs(p[0] - xv); if (d < bd) { bd = d; best = p; } });
+      return best;
+    }
+    function move(ev) {
+      var r = svg.getBoundingClientRect();
+      var cx = ev.touches ? ev.touches[0].clientX : ev.clientX;
+      var px = (cx - r.left) / r.width * W;
+      if (px < x0 - 4 || px > x1 + 4) return out();
+      var xv = spec.x.min + (px - x0) / (x1 - x0) * (spec.x.max - spec.x.min);
+      var rows = [], anchorY = Infinity, anchorX = px;
+      spec.series.forEach(function (s, i) {
+        var p = nearest(s.points, xv);
+        anchorX = sx(p[0]);
+        dots[i].setAttribute("cx", sx(p[0]));
+        dots[i].setAttribute("cy", sy(p[1]));
+        dots[i].setAttribute("opacity", 1);
+        anchorY = Math.min(anchorY, sy(p[1]));
+        rows.push((spec.series.length > 1 ? s.name + " " : "") + "<b>" + (spec.tipFmt ? spec.tipFmt(p[1]) : p[1]) + "</b>");
+        if (i === 0) rows.unshift(spec.xTipFmt ? spec.xTipFmt(p[0]) : String(p[0]));
+      });
+      cross.setAttribute("x1", anchorX); cross.setAttribute("x2", anchorX); cross.setAttribute("opacity", .55);
+      tip.innerHTML = rows.join("<br>");
+      tip.style.left = (anchorX / W * 100) + "%";
+      tip.style.top = (anchorY / H * 100) + "%";
+      tip.classList.add("on");
+    }
+    function out() {
+      cross.setAttribute("opacity", 0);
+      dots.forEach(function (d) { d.setAttribute("opacity", 0); });
+      tip.classList.remove("on");
+    }
+    svg.addEventListener("mousemove", move);
+    svg.addEventListener("mouseleave", out);
+    svg.addEventListener("touchmove", function (e) { move(e); }, { passive: true });
+    svg.addEventListener("touchend", out);
+  }
+
+  /* ---------------------------------------------------------- chart specs -- */
+  var SPECS = {};
+  function register(id, factory) { SPECS[id] = factory; }
+  function redrawAll() {
+    Object.keys(SPECS).forEach(function (id) {
+      var host = document.getElementById(id);
+      if (host) drawLine(host, SPECS[id]());
+    });
+  }
+  window.__registerChart = register;
+  window.__redrawCharts = redrawAll;
+  window.__drawLine = drawLine;
+
+  /* ---------------------------------------------------------- kpi filters -- */
+  var chips = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
+  var rows = Array.prototype.slice.call(document.querySelectorAll("[data-domain]"));
+  var count = document.getElementById("kpi-count");
+  function applyFilter(val) {
+    var shown = 0;
+    rows.forEach(function (r) {
+      var hit = val === "all" || r.getAttribute("data-domain") === val;
+      r.hidden = !hit;
+      if (hit && r.classList.contains("lrow")) shown++;
+    });
+    chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c.getAttribute("data-filter") === val)); });
+    if (count) count.textContent = shown + (shown === 1 ? " metric pair" : " metric pairs");
+  }
+  chips.forEach(function (c) {
+    c.addEventListener("click", function () { applyFilter(c.getAttribute("data-filter")); });
+  });
+  if (chips.length) applyFilter("all");
+
+  /* --------------------------------------------------- figure table views -- */
+  Array.prototype.slice.call(document.querySelectorAll("[data-tableview]")).forEach(function (btn) {
+    var target = document.getElementById(btn.getAttribute("data-tableview"));
+    if (!target) return;
+    btn.addEventListener("click", function () {
+      var open = target.hidden;
+      target.hidden = !open;
+      btn.setAttribute("aria-expanded", String(open));
+      btn.textContent = open ? "Hide data" : "Show data";
+    });
+  });
+
+  /* ------------------------------------------------------------ nav state -- */
+  var links = Array.prototype.slice.call(document.querySelectorAll(".tnav a"));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
+  if ("IntersectionObserver" in window && secs.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) {
+          var on = a.getAttribute("href") === "#" + e.target.id;
+          a.style.color = on ? "var(--ink)" : "";
+          a.style.background = on ? "var(--panel-2)" : "";
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    secs.forEach(function (s) { io.observe(s); });
+  }
+
+  document.addEventListener("DOMContentLoaded", redrawAll);
+  if (document.readyState !== "loading") redrawAll();
+})();
+
+/* --- data: FRED/US Census MTIS + NY Fed GSCPI, pulled 2026-08-28 --- */
+var D_GSCPI=[[2018.0000,0.569],[2018.0833,0.046],[2018.1667,0.424],[2018.2500,0.498],[2018.3333,0.356],[2018.4167,0.411],[2018.5000,0.418],[2018.5833,0.522],[2018.6667,0.453],[2018.7500,0.515],[2018.8333,0.439],[2018.9167,0.450],[2019.0000,0.500],[2019.0833,0.123],[2019.1667,0.201],[2019.2500,-0.002],[2019.3333,-0.637],[2019.4167,-0.473],[2019.5000,-0.460],[2019.5833,-0.306],[2019.6667,0.120],[2019.7500,0.071],[2019.8333,0.138],[2019.9167,0.023],[2020.0000,0.056],[2020.0833,1.224],[2020.1667,2.606],[2020.2500,3.347],[2020.3333,2.567],[2020.4167,2.302],[2020.5000,2.954],[2020.5833,1.472],[2020.6667,0.629],[2020.7500,0.108],[2020.8333,0.762],[2020.9167,1.702],[2021.0000,1.340],[2021.0833,1.970],[2021.1667,2.285],[2021.2500,2.778],[2021.3333,3.060],[2021.4167,2.765],[2021.5000,2.966],[2021.5833,3.329],[2021.6667,3.390],[2021.7500,3.933],[2021.8333,4.356],[2021.9167,4.438],[2022.0000,3.717],[2022.0833,2.810],[2022.1667,2.858],[2022.2500,3.528],[2022.3333,2.739],[2022.4167,2.413],[2022.5000,1.826],[2022.5833,1.509],[2022.6667,0.993],[2022.7500,1.097],[2022.8333,1.267],[2022.9167,1.341],[2023.0000,1.067],[2023.0833,-0.253],[2023.1667,-1.185],[2023.2500,-1.326],[2023.3333,-1.589],[2023.4167,-1.110],[2023.5000,-0.919],[2023.5833,-1.098],[2023.6667,-0.662],[2023.7500,-0.386],[2023.8333,0.189],[2023.9167,-0.148],[2024.0000,-0.346],[2024.0833,-0.191],[2024.1667,-0.359],[2024.2500,-0.974],[2024.3333,-0.584],[2024.4167,-0.354],[2024.5000,-0.044],[2024.5833,0.235],[2024.6667,0.117],[2024.7500,-0.385],[2024.8333,-0.308],[2024.9167,-0.293],[2025.0000,-0.200],[2025.0833,-0.013],[2025.1667,-0.197],[2025.2500,-0.238],[2025.3333,0.291],[2025.4167,0.089],[2025.5000,0.024],[2025.5833,-0.083],[2025.6667,-0.023],[2025.7500,-0.075],[2025.8333,-0.127],[2025.9167,0.575],[2026.0000,0.473],[2026.0833,0.579],[2026.1667,0.677],[2026.2500,1.842],[2026.3333,1.810],[2026.4167,1.185],[2026.5000,0.805]];
+var D_MFG=[[2018.0000,1.37],[2018.0833,1.37],[2018.1667,1.36],[2018.2500,1.36],[2018.3333,1.35],[2018.4167,1.35],[2018.5000,1.37],[2018.5833,1.36],[2018.6667,1.36],[2018.7500,1.37],[2018.8333,1.38],[2018.9167,1.39],[2019.0000,1.40],[2019.0833,1.40],[2019.1667,1.41],[2019.2500,1.42],[2019.3333,1.42],[2019.4167,1.44],[2019.5000,1.46],[2019.5833,1.47],[2019.6667,1.49],[2019.7500,1.51],[2019.8333,1.51],[2019.9167,1.52],[2020.0000,1.54],[2020.0833,1.54],[2020.1667,1.61],[2020.2500,1.88],[2020.3333,1.83],[2020.4167,1.66],[2020.5000,1.58],[2020.5833,1.58],[2020.6667,1.56],[2020.7500,1.54],[2020.8333,1.54],[2020.9167,1.50],[2021.0000,1.47],[2021.0833,1.51],[2021.1667,1.50],[2021.2500,1.49],[2021.3333,1.50],[2021.4167,1.49],[2021.5000,1.48],[2021.5833,1.50],[2021.6667,1.51],[2021.7500,1.49],[2021.8333,1.50],[2021.9167,1.49],[2022.0000,1.50],[2022.0833,1.51],[2022.1667,1.50],[2022.2500,1.50],[2022.3333,1.51],[2022.4167,1.51],[2022.5000,1.54],[2022.5833,1.55],[2022.6667,1.55],[2022.7500,1.55],[2022.8333,1.58],[2022.9167,1.60],[2023.0000,1.58],[2023.0833,1.60],[2023.1667,1.60],[2023.2500,1.61],[2023.3333,1.60],[2023.4167,1.60],[2023.5000,1.59],[2023.5833,1.57],[2023.6667,1.57],[2023.7500,1.59],[2023.8333,1.59],[2023.9167,1.58],[2024.0000,1.60],[2024.0833,1.59],[2024.1667,1.58],[2024.2500,1.57],[2024.3333,1.59],[2024.4167,1.58],[2024.5000,1.57],[2024.5833,1.58],[2024.6667,1.58],[2024.7500,1.58],[2024.8333,1.58],[2024.9167,1.58],[2025.0000,1.57],[2025.0833,1.57],[2025.1667,1.57],[2025.2500,1.58],[2025.3333,1.57],[2025.4167,1.57],[2025.5000,1.56],[2025.5833,1.56],[2025.6667,1.56],[2025.7500,1.56],[2025.8333,1.57],[2025.9167,1.56],[2026.0000,1.55],[2026.0833,1.52],[2026.1667,1.51],[2026.2500,1.49],[2026.3333,1.47],[2026.4167,1.48]];
+var D_RET=[[2018.0000,1.45],[2018.0833,1.45],[2018.1667,1.45],[2018.2500,1.45],[2018.3333,1.44],[2018.4167,1.45],[2018.5000,1.44],[2018.5833,1.45],[2018.6667,1.46],[2018.7500,1.46],[2018.8333,1.44],[2018.9167,1.49],[2019.0000,1.50],[2019.0833,1.50],[2019.1667,1.47],[2019.2500,1.48],[2019.3333,1.46],[2019.4167,1.46],[2019.5000,1.46],[2019.5833,1.45],[2019.6667,1.46],[2019.7500,1.46],[2019.8333,1.44],[2019.9167,1.43],[2020.0000,1.44],[2020.0833,1.43],[2020.1667,1.54],[2020.2500,1.68],[2020.3333,1.33],[2020.4167,1.21],[2020.5000,1.21],[2020.5833,1.22],[2020.6667,1.22],[2020.7500,1.24],[2020.8333,1.26],[2020.9167,1.26],[2021.0000,1.22],[2021.0833,1.25],[2021.1667,1.12],[2021.2500,1.10],[2021.3333,1.10],[2021.4167,1.09],[2021.5000,1.13],[2021.5833,1.13],[2021.6667,1.12],[2021.7500,1.11],[2021.8333,1.12],[2021.9167,1.18],[2022.0000,1.19],[2022.0833,1.20],[2022.1667,1.21],[2022.2500,1.20],[2022.3333,1.22],[2022.4167,1.22],[2022.5000,1.25],[2022.5833,1.25],[2022.6667,1.25],[2022.7500,1.24],[2022.8333,1.26],[2022.9167,1.28],[2023.0000,1.24],[2023.0833,1.25],[2023.1667,1.28],[2023.2500,1.27],[2023.3333,1.27],[2023.4167,1.27],[2023.5000,1.26],[2023.5833,1.26],[2023.6667,1.26],[2023.7500,1.27],[2023.8333,1.27],[2023.9167,1.28],[2024.0000,1.30],[2024.0833,1.30],[2024.1667,1.29],[2024.2500,1.30],[2024.3333,1.30],[2024.4167,1.32],[2024.5000,1.31],[2024.5833,1.33],[2024.6667,1.33],[2024.7500,1.32],[2024.8333,1.31],[2024.9167,1.30],[2025.0000,1.31],[2025.0833,1.31],[2025.1667,1.29],[2025.2500,1.29],[2025.3333,1.31],[2025.4167,1.30],[2025.5000,1.29],[2025.5833,1.28],[2025.6667,1.28],[2025.7500,1.29],[2025.8333,1.28],[2025.9167,1.28],[2026.0000,1.28],[2026.0833,1.27],[2026.1667,1.26],[2026.2500,1.26],[2026.3333,1.26],[2026.4167,1.25]];
+var D_TOT=[[2018.0000,1.37],[2018.0833,1.37],[2018.1667,1.36],[2018.2500,1.36],[2018.3333,1.34],[2018.4167,1.35],[2018.5000,1.35],[2018.5833,1.35],[2018.6667,1.36],[2018.7500,1.36],[2018.8333,1.37],[2018.9167,1.40],[2019.0000,1.41],[2019.0833,1.41],[2019.1667,1.40],[2019.2500,1.41],[2019.3333,1.41],[2019.4167,1.42],[2019.5000,1.42],[2019.5833,1.42],[2019.6667,1.43],[2019.7500,1.44],[2019.8333,1.43],[2019.9167,1.43],[2020.0000,1.43],[2020.0833,1.43],[2020.1667,1.51],[2020.2500,1.74],[2020.3333,1.56],[2020.4167,1.42],[2020.5000,1.37],[2020.5833,1.36],[2020.6667,1.36],[2020.7500,1.36],[2020.8333,1.36],[2020.9167,1.34],[2021.0000,1.31],[2021.0833,1.34],[2021.1667,1.28],[2021.2500,1.26],[2021.3333,1.27],[2021.4167,1.26],[2021.5000,1.27],[2021.5833,1.28],[2021.6667,1.29],[2021.7500,1.28],[2021.8333,1.28],[2021.9167,1.31],[2022.0000,1.30],[2022.0833,1.31],[2022.1667,1.31],[2022.2500,1.32],[2022.3333,1.34],[2022.4167,1.34],[2022.5000,1.37],[2022.5833,1.38],[2022.6667,1.39],[2022.7500,1.39],[2022.8333,1.41],[2022.9167,1.43],[2023.0000,1.40],[2023.0833,1.41],[2023.1667,1.43],[2023.2500,1.42],[2023.3333,1.42],[2023.4167,1.42],[2023.5000,1.41],[2023.5833,1.40],[2023.6667,1.38],[2023.7500,1.40],[2023.8333,1.40],[2023.9167,1.40],[2024.0000,1.41],[2024.0833,1.40],[2024.1667,1.40],[2024.2500,1.40],[2024.3333,1.41],[2024.4167,1.41],[2024.5000,1.40],[2024.5833,1.41],[2024.6667,1.40],[2024.7500,1.41],[2024.8333,1.40],[2024.9167,1.39],[2025.0000,1.40],[2025.0833,1.39],[2025.1667,1.38],[2025.2500,1.38],[2025.3333,1.39],[2025.4167,1.39],[2025.5000,1.37],[2025.5833,1.37],[2025.6667,1.37],[2025.7500,1.38],[2025.8333,1.37],[2025.9167,1.36],[2026.0000,1.35],[2026.0833,1.33],[2026.1667,1.32],[2026.2500,1.30],[2026.3333,1.28],[2026.4167,1.30]];
+
+/* ------------------------------------------------------------ chart specs -- */
+(function () {
+  var reg = window.__registerChart;
+  if (!reg) return;
+  var YR = function (a, b, step) {
+    var t = []; for (var y = a; y <= b; y += (step || 1)) t.push({ v: y, label: String(y) }); return t;
+  };
+  var bands = function () {
+    return [
+      { from: 2020.0, to: 2022.75, token: "--era-2-wash" }
+    ];
+  };
+  var xTip = function (x) {
+    var y = Math.floor(x + 1e-6), m = Math.round((x - y) * 12);
+    return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][m] + " " + y;
+  };
+
+  /* Figure 1 — NY Fed Global Supply Chain Pressure Index */
+  reg("fig-gscpi", function () {
+    return {
+      h: 264, pad: { t: 34, r: 26, b: 30, l: 46 },
+      x: { min: 2018, max: 2026.6, ticks: YR(2018, 2026) },
+      y: { min: -2.7, max: 4.8, ticks: [-2, -1, 0, 1, 2, 3, 4], fmt: function (v) { return (v > 0 ? "+" : "") + v + "σ"; } },
+      bands: bands(),
+      refs: [{ y: 0, token: "--faint" }],
+      series: [{ name: "GSCPI", token: "--era-2", points: D_GSCPI, fill: false }],
+      marks: [
+        { x: 2021.9167, y: 4.438, label: "+4.44σ|Dec 2021", token: "--era-2", anchor: "end" },
+        { x: 2023.3333, y: -1.594, label: "−1.59σ · May 2023|slackest reading since 1998", token: "--era-1", anchor: "start", below: true },
+        { x: 2026.25, y: 1.842, label: "+1.84σ|Apr 2026", token: "--era-2", anchor: "end" }
+      ],
+      tipFmt: function (v) { return (v > 0 ? "+" : "") + v.toFixed(2) + "σ"; },
+      xTipFmt: xTip,
+      alt: "The New York Fed Global Supply Chain Pressure Index from 2018 to mid-2026. Near zero through 2018 and 2019, it peaks at 4.44 standard deviations above average in December 2021 — the highest in the series' history back to 1998 — falls to minus 1.59 in May 2023, and rises again to 1.84 in April 2026."
+    };
+  });
+
+  /* Figure 2 — inventories-to-sales, manufacturers vs retail */
+  reg("fig-isratio", function () {
+    return {
+      h: 276, pad: { t: 26, r: 80, b: 30, l: 46 },
+      x: { min: 2018, max: 2026.6, ticks: YR(2018, 2026) },
+      y: { min: 1.0, max: 1.95, ticks: [1.0, 1.2, 1.4, 1.6, 1.8], fmt: function (v) { return v.toFixed(1); } },
+      bands: bands(),
+      refs: [{ y: 1.455, label: "1.45", token: "--faint", at: 2018.06 }],
+      series: [
+        { name: "Manufacturers", token: "--era-3", points: D_MFG },
+        { name: "Retail trade", token: "--era-2", points: D_RET }
+      ],
+      marks: [
+        { x: 2026.4167, y: 1.48, label: "1.48", token: "--era-3", anchor: "start" },
+        { x: 2026.4167, y: 1.25, label: "1.25", token: "--era-2", anchor: "start" },
+        { x: 2021.4167, y: 1.09, label: "1.09 — the shelves were empty", token: "--era-2", anchor: "start", below: true },
+        { x: 2020.25, y: 1.88, label: "Apr 2020 spike:|sales stopped,|stock did not move", token: "--faint", anchor: "start" }
+      ],
+      tipFmt: function (v) { return v.toFixed(2); },
+      xTipFmt: xTip,
+      alt: "Inventories-to-sales ratios for US manufacturers and retail trade, 2018 to mid-2026. Both sat near 1.45 in 2019. Retail collapsed to 1.09 by mid-2021 and, after the 2022 glut, settled at 1.25 — well below its pre-COVID level. Manufacturers rose to 1.61 in 2023 and remain at 1.48, above their pre-COVID level."
+    };
+  });
+})();
+
+</script>

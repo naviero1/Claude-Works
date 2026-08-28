@@ -1,0 +1,863 @@
+<a class="sr" href="#main">Skip to content</a>
+
+<div class="toolbar">
+  <div class="wrap in">
+    <nav class="tnav" aria-label="Sections">
+      <a href="#doctrine">01 · The doctrine</a>
+      <a href="#broke">02 · What broke</a>
+      <a href="#overcorrect">03 · Over-correction</a>
+      <a href="#new">04 · The new doctrine</a>
+      <a href="#ledger">05 · The KPI ledger</a>
+      <a href="#risk">06 · Risk assessment</a>
+      <a href="#stick">07 · Did it stick?</a>
+      <a href="#method">08 · Sources</a>
+    </nav>
+    <button class="tbtn" id="theme-toggle" type="button">Dark</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hazard" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="stack stack-24">
+        <div class="reg" style="color:var(--accent-ink)">Supply chain &amp; manufacturing · doctrine review</div>
+        <h1>The Inventory<br>Doctrine
+          <span class="lo">What the theory said before 2019, what 2020 did to it, and why the KPIs changed</span>
+        </h1>
+        <p class="lede">For a century, inventory theory pointed one way: <b>hold less</b>. The models were
+          rigorous, the finance was sound, and they all rested on a single assumption that nobody wrote
+          down — that supply shows up. Between 2020 and 2022 that assumption failed in every direction
+          at once. What followed was not a swing to "just in case." It was something more interesting,
+          and the measurement system is where you can see it.</p>
+      </div>
+      <div class="docmeta reg">
+        <div class="row"><span class="k">Document</span><span class="v">Doctrine review</span></div>
+        <div class="row"><span class="k">Scope</span><span class="v">Inventory policy, KPIs, risk models</span></div>
+        <div class="row"><span class="k">Period</span><span class="v">1913 – 2026</span></div>
+        <div class="row"><span class="k">Evidence</span><span class="v">US Census MTIS · NY Fed GSCPI<br>McKinsey pulse surveys · HBR / MIT</span></div>
+        <div class="row"><span class="k">Method</span><span class="v">8 research passes,<br>adversarially fact-checked</span></div>
+        <div class="row"><span class="k">Compiled</span><span class="v">28 Aug 2026</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hstats">
+    <div class="hstat" data-era="2">
+      <div class="v">+4.44<span class="u">σ</span></div>
+      <div class="l">Peak global supply-chain pressure, December 2021</div>
+      <div class="s reg">NY Fed GSCPI · highest since the series began in 1998</div>
+    </div>
+    <div class="hstat" data-era="2">
+      <div class="v">$210<span class="u">bn</span></div>
+      <div class="l">Revenue the chip shortage was forecast to cost carmakers in 2021 alone</div>
+      <div class="s reg">AlixPartners forecast, Sep 2021 · 7.7m units unbuilt</div>
+    </div>
+    <div class="hstat" data-era="2">
+      <div class="v">1.25</div>
+      <div class="l">US retail inventories-to-sales today — <em>below</em> its 1.46 average in 2019</div>
+      <div class="s reg">Census MTIS · Jun 2026</div>
+    </div>
+    <div class="hstat" data-era="3">
+      <div class="v">1.48</div>
+      <div class="l">US manufacturers' ratio today — <em>above</em> its 1.45 average in 2019</div>
+      <div class="s reg">Census MTIS · Jun 2026</div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="doctrine" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">01</span><span>The doctrine</span><span class="rule"></span><span>1913 – 2019</span></div>
+    <h2>A century of theory, all pointing the same way</h2>
+    <p class="dek">Pre-COVID inventory theory was not sloppy. It was some of the most rigorous applied
+      mathematics in management, and it was almost unanimous: inventory is capital in a warehouse, it
+      is the physical residue of an information failure, and the correct amount of it is the smallest
+      amount that meets your service level. Here is the canon that operators were trained on.</p>
+  </div>
+
+  <div class="cards c3">
+    <div class="fw">
+      <div class="who reg">F. W. Harris · 1913</div>
+      <h4>Economic Order Quantity</h4>
+      <p>Trade the fixed cost of placing an order against the cost of holding what it brings. Differentiate, solve, get one number.</p>
+      <p class="imp"><b>Told you to</b>Order in the arithmetically optimal lot. Anything larger is a financing decision you did not mean to make.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Arrow · Harris · Marschak · 1951</div>
+      <h4>The newsvendor model</h4>
+      <p>One order, uncertain demand. Stock up to the quantile where the cost of one more unit equals the cost of one too few.</p>
+      <p class="imp"><b>Told you to</b>Derive stock from a service level, and derive the service level from a cost ratio — not from nerves.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Statistical inventory control · 1950s</div>
+      <h4>Safety stock &amp; reorder point</h4>
+      <p>Buffer the demand variation that can occur during the replenishment lead time, scaled by the service factor <span class="num">z</span>.</p>
+      <p class="imp"><b>Told you to</b>Hold <span class="num">z·σ<sub>D</sub>·√L</span> and no more. This is the formula that shipped inside essentially every ERP system.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Taiichi Ohno · Toyota · 1950s–1988</div>
+      <h4>Just-in-Time / TPS</h4>
+      <p>Inventory is the first of the seven wastes. Lower the water in the pond and the rocks — long changeovers, bad quality, unreliable suppliers — become visible and get fixed.</p>
+      <p class="imp"><b>Told you to</b>Treat stock as a <em>symptom</em>, never as insurance. Removing it is how you find out what is actually wrong.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Forrester 1961 · Lee, Padmanabhan &amp; Whang 1997</div>
+      <h4>The bullwhip effect</h4>
+      <p>Order variance amplifies at every echelon upstream. Four causes: demand signal processing, order batching, price fluctuation, rationing and shortage gaming.</p>
+      <p class="imp"><b>Told you to</b>Fix amplification with <em>information</em>, not stock. Share the point-of-sale signal and the buffer becomes unnecessary.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Gary Eppen · 1979</div>
+      <h4>Risk pooling &amp; the square-root law</h4>
+      <p>Consolidate <span class="num">n</span> stocking locations into one and the safety stock needed falls by roughly <span class="num">√n</span>.</p>
+      <p class="imp"><b>Told you to</b>Centralise. Fewer, bigger nodes. Which is also exactly how you build a single point of failure.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Lee &amp; Billington · HP · c.1993</div>
+      <h4>Postponement</h4>
+      <p>Hold inventory in generic form and differentiate as late as possible, so one pooled buffer serves many end variants.</p>
+      <p class="imp"><b>Told you to</b>Push the decoupling point downstream. Still good advice — it survived the decade intact.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Eliyahu Goldratt · 1984</div>
+      <h4>Theory of Constraints</h4>
+      <p>Throughput is set by one bottleneck. Buffer that, subordinate everything else, and stock held anywhere else is pure carrying cost.</p>
+      <p class="imp"><b>Told you to</b>Concentrate protection at one known point — on the assumption that you know where the constraint is.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Womack &amp; Jones · 1996</div>
+      <h4>Lean thinking</h4>
+      <p>Specify value, map the value stream, make it flow, let the customer pull, pursue perfection. Inventory is a failure of flow.</p>
+      <p class="imp"><b>Told you to</b>Convert push to pull everywhere, and read any accumulation of stock as a defect in the system.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Marshall Fisher · HBR · 1997</div>
+      <h4>Functional vs innovative products</h4>
+      <p>Stable, predictable products need a <em>physically efficient</em> chain; volatile, short-life products need a <em>market-responsive</em> one.</p>
+      <p class="imp"><b>Told you to</b>Match the chain to the product. For most industrial goods that meant: minimise cost, and hold as little as possible.</p>
+    </div>
+    <div class="fw">
+      <div class="who reg">Hau Lee · HBR · 2004</div>
+      <h4>The Triple-A supply chain</h4>
+      <p>Speed and cost are not enough. A chain must be <em>agile</em>, <em>adaptable</em> and <em>aligned</em> to survive.</p>
+      <p class="imp"><b>Told you to</b>Build for change — sixteen years early. It was widely cited and thinly implemented, because none of the three had a number attached.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--accent)">
+      <div class="who reg">Corporate finance · throughout</div>
+      <h4>The cash conversion cycle</h4>
+      <p><span class="num">CCC = DIO + DSO − DPO</span>. Inventory is invested capital sitting in the denominator of return on capital.</p>
+      <p class="imp"><b>Told you to</b>Cut days of inventory, because it is the fastest lever on free cash flow — and this is the one your bonus was actually tied to.</p>
+    </div>
+  </div>
+
+  <div class="stack stack-24" style="margin-top:34px">
+    <div class="premise">
+      <div class="reg" style="color:var(--accent-ink)">The unwritten assumption</div>
+      <p class="q">Every model above treats uncertainty as something that happens on the demand side.
+        Supply is a pipe: it has a length, and the length is a constant.</p>
+      <p>Read the formulas again and you can see it. Demand gets a distribution — a mean, a standard
+        deviation, a service factor. Lead time gets a letter. Not a distribution: a letter, <span class="num">L</span>,
+        a fixed number of days you look up in a table. Suppliers were assumed available, ports were assumed
+        open, and capacity was assumed purchasable at a price. This was not naive. For roughly thirty years,
+        between the opening of global trade and 2020, it was empirically true nearly all of the time — which
+        is precisely why nobody stress-tested it.</p>
+    </div>
+
+    <div class="col">
+      <h3 style="margin-bottom:10px">The five equations that ran the warehouse</h3>
+      <p style="color:var(--ink-2);font-size:15.5px">Four of them are about physical goods. The fifth is the
+        one that determined what anyone was actually paid to do.</p>
+    </div>
+
+    <div class="formula">
+Economic order quantity   Q* = √( 2DS / H )                    <span class="cm">Harris, 1913</span>
+Critical fractile         P(D ≤ Q*) = Cu / (Cu + Co)           <span class="cm">newsvendor service level</span>
+Safety stock              SS = z · σ<sub>D</sub> · √L                    <span class="cm">← shipped in every ERP</span>
+Reorder point             ROP = D̄ · L + SS
+Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm">← what the board paid on</span>
+    </div>
+  </div>
+
+  <div style="margin-top:30px">
+    <h3 style="margin-bottom:8px">The warnings that were already published</h3>
+    <p class="col" style="color:var(--ink-2);margin-bottom:18px">It is not true that nobody saw this coming.
+      The resilience literature pre-dates COVID by fifteen years and it was accurate. It failed to change
+      behaviour for a reason that is itself a measurement problem: the cost of resilience is certain,
+      immediate and lands in one budget, while the benefit is probabilistic, deferred and lands in someone
+      else's. There was no line on the P&amp;L called "disruption that did not happen."</p>
+    <div class="cards c2">
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--muted)">Chopra &amp; Sodhi · MIT SMR · 2004</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Separated <em>recurrent</em> risk (demand noise, which
+          inventory handles) from <em>disruptive</em> risk (which it mostly does not), and warned that
+          mitigation bought for one increases exposure to the other.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--muted)">Christopher &amp; Peck · 2004</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Defined supply chain resilience as a design property —
+          re-engineering, collaboration, agility, risk culture — rather than a stock level.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--muted)">Yossi Sheffi · <em>The Resilient Enterprise</em> · 2005</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Gave the disruption profile its shape: detection,
+          first response, full impact, recovery. Argued flexibility beats redundancy because you use it
+          every day rather than only in a crisis.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--muted)">Hendricks &amp; Singhal · 2003–05</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Showed disruptions are not transient accounting events:
+          announcing one was associated with large, persistent declines in shareholder value and operating
+          performance that did not recover quickly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="broke" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">02</span><span>What actually broke</span><span class="rule"></span><span>2020 – 2022</span></div>
+    <h2>Not a shortage. A failure of the assumption underneath the shortage</h2>
+    <p class="dek">It is tempting to summarise 2020–22 as "there was not enough stuff." That is not what
+      the data shows, and it is not the lesson. What broke was the premise that supply is a constant —
+      and it broke in a correlated way, everywhere at once, which is the one failure mode none of the
+      models could represent.</p>
+  </div>
+
+  <figure class="figure">
+    <div class="fhead">
+      <div class="ftitle">Global supply chain pressure, 2018 – 2026</div>
+      <div class="fsub">The New York Fed's index combines transport costs and manufacturing delivery-time and
+        backlog data into standard deviations from its own long-run average. Zero is normal.</div>
+    </div>
+    <div class="plot" id="fig-gscpi"></div>
+    <div class="legend">
+      <div class="li"><span class="sw" style="background:var(--era-2)"></span>GSCPI, monthly</div>
+      <div class="li"><span class="sw" style="background:var(--era-2-wash);height:12px;width:18px;border-radius:2px"></span>Mar 2020 – Sep 2022</div>
+      <div class="li"><span class="sw" style="background:var(--faint)"></span>0σ — the index's long-run normal</div>
+    </div>
+    <button class="tbtn" data-tableview="tbl-gscpi" aria-expanded="false" style="align-self:flex-start">Show data</button>
+    <div class="tw" id="tbl-gscpi" hidden>
+      <table>
+        <caption>NY Fed Global Supply Chain Pressure Index, annual mean of monthly values. 2026 is Jan–Jul.</caption>
+        <thead><tr><th>Year</th><th>Mean</th><th>Low</th><th>High</th><th>Reading</th></tr></thead>
+        <tbody>
+          <tr><td class="n">2018</td><td class="n">+0.43</td><td class="n">+0.05</td><td class="n">+0.57</td><td>Mildly tight — trade-war era</td></tr>
+          <tr><td class="n">2019</td><td class="n">−0.06</td><td class="n">−0.64</td><td class="n">+0.50</td><td>Normal</td></tr>
+          <tr><td class="n">2020</td><td class="n">+1.64</td><td class="n">+0.06</td><td class="n">+3.35</td><td>First shock — China shutdown, April peak</td></tr>
+          <tr><td class="n">2021</td><td class="n">+3.05</td><td class="n">+1.34</td><td class="n">+4.44</td><td>Sustained crisis — December all-time high</td></tr>
+          <tr><td class="n">2022</td><td class="n">+2.17</td><td class="n">+0.99</td><td class="n">+3.72</td><td>Shanghai lockdown, then rapid unwind</td></tr>
+          <tr><td class="n">2023</td><td class="n">−0.62</td><td class="n">−1.59</td><td class="n">+1.07</td><td>Slack — destocking, freight collapse</td></tr>
+          <tr><td class="n">2024</td><td class="n">−0.29</td><td class="n">−0.97</td><td class="n">+0.23</td><td>Normal, despite Red Sea diversions</td></tr>
+          <tr><td class="n">2025</td><td class="n">+0.00</td><td class="n">−0.24</td><td class="n">+0.57</td><td>Normal</td></tr>
+          <tr><td class="n">2026</td><td class="n">+1.05</td><td class="n">+0.47</td><td class="n">+1.84</td><td>Tight again — tariff-driven re-sourcing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Source: Federal Reserve Bank of New York, GSCPI, series to July 2026. The December 2021 reading of
+      +4.44σ is the highest in the index's history, which begins in 1998.</figcaption>
+  </figure>
+
+  <div style="margin-top:34px;display:grid;gap:28px;grid-template-columns:minmax(0,1fr)">
+    <div>
+      <h3 style="margin-bottom:14px">The sequence</h3>
+      <div class="tl">
+        <div class="tev" data-era="2">
+          <div class="when reg">Feb – Apr 2020</div>
+          <div class="what">Supply stops, then demand inverts</div>
+          <div class="detail">Chinese production halts. Weeks later, spending rotates violently out of services
+            and into goods. Two shocks with opposite signs arrive inside one quarter.</div>
+          <div class="fig">Total inventories-to-sales spikes to 1.74 in April — a <em>sales</em> collapse, not a stock build</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Mid 2020</div>
+          <div class="what">The bullwhip, textbook edition</div>
+          <div class="detail">Carmakers, reading a recession, cancel semiconductor orders. Foundries reallocate that
+            capacity to consumer electronics, where demand is exploding. When autos return, the queue is full and
+            automotive chips are the least profitable thing a fab can make.</div>
+          <div class="fig">Lee, Padmanabhan &amp; Whang described this exact mechanism in 1997</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Mar 2021</div>
+          <div class="what"><em>Ever Given</em> grounds in the Suez Canal</div>
+          <div class="detail">Six days of blockage on a route carrying roughly 12% of global trade — and a
+            demonstration that a single geographic chokepoint sits inside thousands of bills of material that
+            never named it.</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Jun 2021</div>
+          <div class="what">US retail runs out of inventory</div>
+          <div class="detail">The retail inventories-to-sales ratio falls to 1.09 — the lowest reading in a series
+            that begins in 1992. Retail had spent thirty years proving it could operate on less stock, and then
+            found out what the floor was.</div>
+          <div class="fig">1.09 — down from a 1.46 average in 2019</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Sep 2021</div>
+          <div class="what">The chip shortage gets a price tag</div>
+          <div class="detail">AlixPartners revises its forecast of 2021 revenue lost to the semiconductor shortage
+            from $110bn to $210bn, and unbuilt vehicles from 3.9m to 7.7m — a near-doubling in four months, which
+            is itself the story: nobody could size the exposure.</div>
+          <div class="fig">$210bn · 7.7m units · forecast, Sep 2021</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Dec 2021 – Jan 2022</div>
+          <div class="what">Peak pressure</div>
+          <div class="detail">The GSCPI reaches +4.44σ. A record 109 container ships wait at anchor off Los Angeles
+            and Long Beach in January. Ocean freight, port capacity, chips, labour and warehousing are all
+            constrained simultaneously — the correlated failure the models assumed away.</div>
+          <div class="fig">+4.44σ · 109 ships queued</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">Spring 2022</div>
+          <div class="what">Shanghai locks down</div>
+          <div class="detail">Two years in, the single-country concentration built over two decades is still there,
+            and still binding.</div>
+        </div>
+        <div class="tev" data-era="2">
+          <div class="when reg">May – Jun 2022</div>
+          <div class="what">The whiplash reverses: the glut</div>
+          <div class="detail">Target ends its Q1 with $15.1bn of inventory, 43% above the prior year, cuts full-year
+            guidance on 18 May and cuts it again three weeks later. Walmart is up 33%. Firms that had spent 18 months
+            being punished for holding too little are now punished for holding too much.</div>
+          <div class="fig">Target +43% YoY · Walmart +33% YoY</div>
+        </div>
+        <div class="tev" data-era="1">
+          <div class="when reg">May 2023</div>
+          <div class="what">Slack — and over-shoot in the other direction</div>
+          <div class="detail">The GSCPI falls to −1.59σ. Freight rates collapse, destocking runs through the year,
+            and the resilience budgets raised in 2021 meet the cost-cutting cycle of 2023.</div>
+        </div>
+        <div class="tev" data-era="3">
+          <div class="when reg">2025 – 2026</div>
+          <div class="what">A different shock, on the same fault lines</div>
+          <div class="detail">Tariff changes and re-sourcing push the index back to +1.84σ in April 2026 — not a
+            2021-scale event, but a second live test of whether the capabilities built after 2020 were kept.</div>
+          <div class="fig">+1.84σ, Apr 2026</div>
+        </div>
+      </div>
+    </div>
+<!--#include diag-tiers.html-->
+  </div>
+
+  <div style="margin-top:34px">
+    <h3 style="margin-bottom:8px">Four places the models were wrong — and one place the incentives were</h3>
+    <p class="col" style="color:var(--ink-2);margin-bottom:18px">Each of these maps directly onto a metric that
+      exists today and did not exist, or was not tracked, in 2019.</p>
+    <div class="cards c2">
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">01 · Uncertainty was on the wrong side</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Demand got a distribution; supply got a constant. Every
+          buffer in the network was sized for the variance that mattered least in 2021.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">02 · Failures were assumed independent</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Risk pooling, portfolio diversification and dual sourcing
+          all rest on independence. Two suppliers on the same island, feeding through the same port, buying from
+          the same tier three, are one supplier wearing two names.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">03 · The process was assumed stationary</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Forecasts and safety stocks are refit on history. When the
+          data-generating process changes, history stops being evidence — and every model retrained on 2020–21 then
+          carried the shock forward into 2023 as if it were signal.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">04 · The map stopped at tier one</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">You cannot buffer, dual-source or insure a node you cannot
+          name. Most firms discovered their critical dependency only when it stopped.</div>
+      </div>
+      <div class="card tight stack stack-6" style="grid-column:1/-1;border-left:2px solid var(--accent)">
+        <div class="reg" style="color:var(--accent-ink)">05 · And the scorecard was paying for all of it</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">This is the part that is not a modelling error. Purchase
+          price variance rewarded the buyer who consolidated volume onto the cheapest single source. Asset
+          utilisation rewarded the plant with no slack. Inventory turns rewarded the planner who cut the buffer,
+          and reported nothing when the stockout arrived. Cash-to-cash improved when you pushed inventory onto a
+          supplier who financed it worse than you did. <b>Every one of these metrics was going the right way in
+          2019.</b> The fragility was not a failure to hit the targets. It was the targets.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:30px">
+<!--#include diag-leadtime.html-->
+  </div>
+
+  <div class="formula" style="margin-top:20px">
+<span class="cm">The formula, written out in full — the version the textbooks always had</span>
+
+  SS = z · √( L · σ<sub>D</sub>²  <span class="hl">+  D̄² · σ<sub>L</sub>²</span> )
+                    ↑              ↑
+              demand variance   <span class="hl">lead-time variance — set to zero by assumption</span>
+
+<span class="cm">With σ<sub>L</sub> = 0 this collapses to the familiar  SS = z · σ<sub>D</sub> · √L.
+Note the asymmetry: demand variance is multiplied by L, but lead-time variance is
+multiplied by the SQUARE of average demand. On a high-volume part, a few weeks of
+lead-time uncertainty outweighs everything the demand term can contribute.</span>
+  </div>
+</section>
+
+<section id="overcorrect" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">03</span><span>The correction</span><span class="rule"></span><span>2022 – 2026</span></div>
+    <h2>The answer was not "hold more." It was "hold differently"</h2>
+    <p class="dek">The popular account is that just-in-time died and just-in-case replaced it. The measured
+      data says something sharper. Two sectors that entered 2019 holding almost exactly the same inventory
+      relative to sales have ended up in opposite places — and the split tells you precisely which parts of
+      the new doctrine were real.</p>
+  </div>
+
+  <figure class="figure">
+    <div class="fhead">
+      <div class="ftitle">Inventories-to-sales ratio: manufacturers vs retail trade, 2018 – 2026</div>
+      <div class="fsub">Months of inventory on hand at the current rate of sales. Both sectors averaged
+        about 1.45 in 2019.</div>
+    </div>
+    <div class="plot" id="fig-isratio"></div>
+    <div class="legend">
+      <div class="li"><span class="sw" style="background:var(--era-3)"></span>Manufacturers — <b style="font-weight:600">above</b> 2019</div>
+      <div class="li"><span class="sw" style="background:var(--era-2)"></span>Retail trade — <b style="font-weight:600">below</b> 2019</div>
+      <div class="li"><span class="sw" style="background:var(--faint)"></span>2019 average, 1.45</div>
+    </div>
+    <button class="tbtn" data-tableview="tbl-isratio" aria-expanded="false" style="align-self:flex-start">Show data</button>
+    <div class="tw" id="tbl-isratio" hidden>
+      <table>
+        <caption>US Census Bureau, Manufacturing and Trade Inventories and Sales (MTIS), seasonally adjusted, via FRED. Latest month June 2026.</caption>
+        <thead><tr><th>Sector</th><th>2019 avg</th><th>Trough</th><th>Peak</th><th>Jun 2026</th><th>Change vs 2019</th></tr></thead>
+        <tbody>
+          <tr><td>Manufacturers</td><td class="n">1.45</td><td class="n">1.47 <span style="color:var(--faint)">Jan 21</span></td><td class="n">1.61 <span style="color:var(--faint)">Apr 23</span></td><td class="n">1.48</td><td class="n" style="color:var(--era-3)">+0.05</td></tr>
+          <tr><td>Total business</td><td class="n">1.42</td><td class="n">1.26 <span style="color:var(--faint)">Apr 21</span></td><td class="n">1.43 <span style="color:var(--faint)">Mar 23</span></td><td class="n">1.30</td><td class="n" style="color:var(--era-2)">−0.11</td></tr>
+          <tr><td>Merchant wholesalers</td><td class="n">1.35</td><td class="n">1.20 <span style="color:var(--faint)">Jul 21</span></td><td class="n">1.40 <span style="color:var(--faint)">Jun 23</span></td><td class="n">1.19</td><td class="n" style="color:var(--era-2)">−0.14</td></tr>
+          <tr><td>Retail trade</td><td class="n">1.46</td><td class="n">1.09 <span style="color:var(--faint)">Jun 21</span></td><td class="n">1.33 <span style="color:var(--faint)">Sep 24</span></td><td class="n">1.25</td><td class="n" style="color:var(--era-2)">−0.20</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figcaption>Source: US Census Bureau MTIS via FRED, series ISRATIO / MNFCTRIRSA / RETAILIRSA / WHLSLRIRSA, retrieved 28 Aug 2026.
+      The April 2020 spike in the aggregate to 1.74 is a collapse in the denominator — sales stopped — not a build in stock.</figcaption>
+  </figure>
+
+  <div class="cards c2" style="margin-top:22px">
+    <div class="card stack stack-10">
+      <div class="reg" style="color:var(--era-3)">Where the buffer stayed</div>
+      <p style="font-size:15px;margin:0;color:var(--ink-2)">Manufacturers hold <b>more</b> than they did before
+        COVID, and have done consistently since 2021. This is the sector with single-sourced, long-lead,
+        low-value, line-stopping components — the $3 connector that idles a $40,000 vehicle. For that class of
+        part the economics of a buffer were always overwhelming and simply were not being calculated, because the
+        aggregate metric a plant was judged on could not see the difference between a $3 connector and a pallet of
+        finished goods.</p>
+    </div>
+    <div class="card stack stack-10">
+      <div class="reg" style="color:var(--era-2)">Where it did not</div>
+      <p style="font-size:15px;margin:0;color:var(--ink-2)">Retail is now <b>leaner than 2019</b> — 1.25 against a
+        1.46 average. It went from 1.09 and empty shelves, through a glut that produced billions in markdowns, to
+        a position tighter than the one it started from. Nothing about retail's exposure profile rewards a
+        permanent buffer: the products are substitutable, the lead times are shorter, and holding the wrong
+        seasonal goods is more expensive than running out of them.</p>
+    </div>
+  </div>
+
+  <div class="note acc" style="margin-top:18px"><b>This is the actual finding.</b> "Just-in-case replaced
+    just-in-time" is false at the aggregate level — total US business inventories-to-sales is <b>0.11 below</b>
+    its 2019 average. The doctrine that replaced lean was not "hold more." It was <b>hold according to
+    consequence</b>: heavy buffers on a small number of parts that can stop a line, thinner buffers than ever on
+    everything else. That is a change in the <em>composition</em> of inventory, which is exactly why it needed a
+    new set of metrics — the old ones only measured the <em>level</em>.</div>
+</section>
+
+<section id="new" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">04</span><span>The new doctrine</span><span class="rule"></span><span>2022 –</span></div>
+    <h2>Nine things that replaced "minimise inventory"</h2>
+    <p class="dek">None of these ideas are new. Almost all of them existed in the literature before 2019.
+      What changed is that they acquired numbers, owners and budget — which is the difference between a
+      framework and a practice.</p>
+  </div>
+<!--#include diag-ttr.html-->
+
+  <div class="cards c3" style="margin-top:22px">
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Replaces ABC-by-spend</div>
+      <h4>Segment by consequence</h4>
+      <p>ABC classification ranked parts by annual purchase value, so the cheap ones got the least attention.</p>
+      <p class="imp"><b>Now</b>Rank by what happens if it stops: sole-sourced, long re-qualification, no
+        substitute, line-stopping. A class-C part by spend is routinely a class-A part by consequence.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Ptak &amp; Smith · DDMRP</div>
+      <h4>Position the buffer, don't just size it</h4>
+      <p>A single end-to-end forecast transmits every error along the whole chain.</p>
+      <p class="imp"><b>Now</b>Insert decoupling points and hold buffers <em>there</em>, so variability is absorbed
+        at chosen places instead of propagating. The question moved from "how much" to "where".</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Simchi-Levi · HBR 2014</div>
+      <h4>Measure impact, not probability</h4>
+      <p>You cannot estimate the annual probability of a fire at a specific plant, and pretending otherwise
+        produced risk registers full of invented numbers.</p>
+      <p class="imp"><b>Now</b>Assume the node is down. Measure time-to-recover and time-to-survive, and price
+        the gap in revenue. It is auditable, and it is arguable in front of a CFO.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Resilinc · Interos · Everstream</div>
+      <h4><em>n</em>-tier visibility as a coverage number</h4>
+      <p>Dual-sourcing tier one is worthless if both tier ones buy from the same tier three.</p>
+      <p class="imp"><b>Now</b>Percentage of critical BOM mapped to tier <em>n</em> becomes a tracked coverage KPI
+        with a target, not a one-off consulting exercise.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Clark–Scarf · Graves &amp; Willems</div>
+      <h4>Multi-echelon optimisation</h4>
+      <p>Setting safety stock site by site guarantees the network holds more in total than it needs, in the
+        wrong places.</p>
+      <p class="imp"><b>Now</b>Optimise across echelons at once. The theory dates to 1960; commodity compute and
+        clean data are what made it default practice after 2021.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">M5 competition · 2020</div>
+      <h4>Distributions, not point forecasts</h4>
+      <p>A single expected-demand number plus a MAPE target tells you nothing about the tail you actually
+        need to buffer.</p>
+      <p class="imp"><b>Now</b>Forecast quantiles directly and score them with pinball loss. The inventory
+        decision needs the 95th percentile, so forecast the 95th percentile.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Network design</div>
+      <h4>China+1, regional, nearer</h4>
+      <p>Two decades of single-country concentration turned a cost optimum into a correlated exposure.</p>
+      <p class="imp"><b>Now</b>Qualified alternates in a second geography, regional service for regional demand.
+        Genuinely under way — and, as §07 shows, considerably slower than the survey answers suggest.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--era-3)">
+      <div class="who reg">Commercial terms</div>
+      <h4>Buy capacity, not only goods</h4>
+      <p>Inventory is one way to buy the right to supply later. It is not the only way, and often not the
+        cheapest.</p>
+      <p class="imp"><b>Now</b>Capacity reservation, take-or-pay, multi-year supply agreements and pre-qualified
+        second sources — an option premium paid in cash instead of in warehouse space.</p>
+    </div>
+    <div class="fw" style="--era-1:var(--accent)">
+      <div class="who reg">Industrial policy</div>
+      <h4>The state became a supply chain actor</h4>
+      <p>For thirty years, sourcing was a commercial decision. It is now partly a regulated one.</p>
+      <p class="imp"><b>Now</b>Subsidy, export control, forced-labour import bans and tariffs change the landed
+        cost and the legality of a source. Sourcing decisions carry a policy risk line that did not exist in
+        the 2019 model.</p>
+    </div>
+  </div>
+
+  <div class="note ok" style="margin-top:20px"><b>The steel-man for just-in-time.</b> It is worth saying plainly
+    that JIT did not cause this, and the better analysts never claimed it did. Small batch sizes and short cycle
+    times did not create the semiconductor shortage; a cancelled order book, a two-decade concentration of
+    capacity and zero visibility below tier one did. Toyota — the originator — weathered the chip shortage better
+    than most of its competitors precisely <em>because</em> it had a risk-part database and multi-month buffers on
+    specific critical components, a policy it adopted after the 2011 Tōhoku earthquake. That is not an abandonment
+    of TPS. It is TPS applied to a risk that had been made visible. The lesson is not "lean was wrong." It is
+    <b>"lean was being measured with instruments that could not see supply-side risk."</b></div>
+</section>
+
+<section id="ledger" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">05</span><span>The KPI ledger</span><span class="rule"></span><span>16 metric pairs</span></div>
+    <h2>Every KPI that changed, and the exact reason it had to</h2>
+    <p class="dek">This is the argument of the whole document, repeated sixteen times. Read each row left to
+      right: the metric that governed the decision before 2019, what it was optimising for, the failure mode
+      2020–22 exposed in it, and the metric that now sits beside or in place of it. Almost none of the old
+      metrics were <em>wrong</em>. They were incomplete in one specific, identifiable way — and the new metric
+      is the patch for that specific hole.</p>
+  </div>
+
+  <div class="filters" role="group" aria-label="Filter metric pairs by domain">
+    <button class="chip" data-filter="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="inventory" aria-pressed="false">Inventory</button>
+    <button class="chip" data-filter="sourcing" aria-pressed="false">Sourcing</button>
+    <button class="chip" data-filter="planning" aria-pressed="false">Planning</button>
+    <button class="chip" data-filter="service" aria-pressed="false">Service</button>
+    <button class="chip" data-filter="network" aria-pressed="false">Network</button>
+    <button class="chip" data-filter="finance" aria-pressed="false">Finance</button>
+    <button class="chip" data-filter="risk" aria-pressed="false">Risk</button>
+    <button class="chip" data-filter="governance" aria-pressed="false">Governance</button>
+    <span class="reg" id="kpi-count" style="color:var(--faint);margin-left:6px" aria-live="polite"></span>
+  </div>
+
+  <div class="ledger">
+<!--#include ledger.html-->
+  </div>
+
+  <div class="note acc" style="margin-top:20px"><b>The pattern across all sixteen.</b> Every old metric is an
+    <em>aggregate</em>, a <em>point estimate</em>, or a <em>cost</em>. Every new one is a <em>decomposition</em>,
+    a <em>distribution</em>, or an <em>exposure</em>. That is the whole shift in one line: the pre-2019 system
+    measured the average of a stable world in a single number, and the post-2022 system measures the shape of
+    an unstable one — because the average is exactly what tells you nothing during a shock.</div>
+</section>
+
+<section id="risk" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">06</span><span>Risk assessment</span><span class="rule"></span><span>The conceptual shifts</span></div>
+    <h2>Seven changes underneath all of it</h2>
+    <p class="dek">Strip away the individual metrics and the same seven moves sit underneath every one of them.
+      These are the ones worth arguing about, because they determine whether a firm has genuinely changed its
+      model of the world or has simply bought some software.</p>
+  </div>
+
+  <div class="shifts">
+    <div class="shift">
+      <div class="pair"><span class="reg n">01</span><span class="from">Uncertainty is on the demand side</span><span class="arw">→</span><span class="to">Uncertainty is on both sides</span></div>
+      <p>The single most consequential change. Every classical model gives demand a distribution and supply a
+        constant. The post-2020 model gives lead time, yield, capacity and availability their own distributions —
+        which means the buffer calculation, the forecast and the network design all have to be redone, not
+        re-parameterised.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">02</span><span class="from">Risk = probability × impact</span><span class="arw">→</span><span class="to">Risk = impact, failure assumed</span></div>
+      <p>The probability of a specific plant failing in a specific year is not knowable, and every register that
+        claimed otherwise was recording a guess dressed as an estimate. Assuming failure and measuring recovery
+        time removes the fabricated input entirely. It is a weaker claim about the world and a much stronger
+        basis for a decision.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">03</span><span class="from">Failures are independent</span><span class="arw">→</span><span class="to">Failures are correlated</span></div>
+      <p>Risk pooling, portfolio diversification and dual sourcing all rest on independence — and independence is
+        exactly what a shared tier-three supplier, a shared port, a shared country or a shared cloud region
+        destroys. Most of what looks like new technology in this field, from <em>n</em>-tier mapping to network
+        digital twins, exists to find correlation that the org chart hides.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">04</span><span class="from">Inventory is a level</span><span class="arw">→</span><span class="to">Inventory is a portfolio</span></div>
+      <p>A single number to be minimised became a set of positions with different jobs: cycle stock buys
+        efficiency, safety stock buys service, strategic stock buys time, and excess and obsolete stock is a loss
+        you have not booked yet. They are managed by different people against different targets, and aggregating
+        them destroyed the only information that mattered.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">05</span><span class="from">Forecast the expected value</span><span class="arw">→</span><span class="to">Forecast the distribution</span></div>
+      <p>An inventory decision has always been a quantile decision — the service factor <span class="num">z</span>
+        in the safety-stock formula <em>is</em> a quantile. Pairing a point forecast with an assumed normal
+        distribution was a computational convenience from an era without compute. Forecasting the quantile
+        directly, and scoring it as a quantile, closes a gap that was always there.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">06</span><span class="from">Minimise local cost</span><span class="arw">→</span><span class="to">Maximise network survivability</span></div>
+      <p>The objective function itself changed. It was: minimise cost subject to a service level. It is now:
+        minimise total cost including the expected cost of disruption, subject to surviving a defined set of node
+        failures. The constraint is new — and a new constraint is a genuinely different problem, not a different
+        weighting of the same one.</p>
+    </div>
+    <div class="shift">
+      <div class="pair"><span class="reg n">07</span><span class="from">Risk lives in a register</span><span class="arw">→</span><span class="to">Risk lives on the balance sheet</span></div>
+      <p>The change that made the other six fundable. As long as exposure was a colour on a heat map, it lost
+        every budget argument to a cost saving denominated in currency. Expressing it as revenue-at-risk put it
+        on the same terms as everything else a capital committee compares — which is the only reason any of this
+        outlived the crisis that prompted it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="stick" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">07</span><span>Did it stick?</span><span class="rule"></span><span>2023 – 2026</span></div>
+    <h2>What leaders say, and what the data says</h2>
+    <p class="dek">Any honest version of this document has to answer the sceptic's question: was this a genuine
+      change of doctrine, or a crisis-era enthusiasm that faded when the cost programmes came back? The survey
+      evidence and the measured evidence disagree, and the disagreement is the most useful thing here.</p>
+  </div>
+
+  <div class="cards c2">
+    <div class="figure">
+      <div class="fhead">
+        <div class="ftitle">What leaders say they are doing</div>
+        <div class="fsub">Share of supply chain executives reporting each action, McKinsey pulse surveys by wave.</div>
+      </div>
+      <div class="reg" style="color:var(--muted);margin-top:4px">Dual sourcing</div>
+      <div class="bars">
+        <div class="brow"><span class="bl">2020</span><span class="btrack"><span class="bfill" style="width:55%;background:var(--era-3)"></span></span><span class="bv">55%</span></div>
+        <div class="brow"><span class="bl">2022</span><span class="btrack"><span class="bfill" style="width:81%;background:var(--era-3)"></span></span><span class="bv">81%</span></div>
+        <div class="brow"><span class="bl">2023</span><span class="btrack"><span class="bfill" style="width:78%;background:var(--era-3)"></span></span><span class="bv">78%</span></div>
+        <div class="brow"><span class="bl">2024</span><span class="btrack"><span class="bfill" style="width:73%;background:var(--era-3)"></span></span><span class="bv">73%</span></div>
+      </div>
+      <div class="reg" style="color:var(--muted);margin-top:8px">Regionalising the network</div>
+      <div class="bars">
+        <div class="brow"><span class="bl">2021</span><span class="btrack"><span class="bfill" style="width:25%;background:var(--era-3)"></span></span><span class="bv">25%</span></div>
+        <div class="brow"><span class="bl">2022</span><span class="btrack"><span class="bfill" style="width:44%;background:var(--era-3)"></span></span><span class="bv">44%</span></div>
+        <div class="brow"><span class="bl">2023</span><span class="btrack"><span class="bfill" style="width:64%;background:var(--era-3)"></span></span><span class="bv">64%</span></div>
+        <div class="brow"><span class="bl">2024</span><span class="btrack"><span class="bfill" style="width:60%;background:var(--era-3)"></span></span><span class="bv">60%</span></div>
+      </div>
+      <div class="reg" style="color:var(--muted);margin-top:8px">Increased inventory buffers</div>
+      <div class="bars">
+        <div class="brow"><span class="bl">2021</span><span class="btrack"><span class="bfill" style="width:80%;background:var(--era-3)"></span></span><span class="bv">80%</span></div>
+        <div class="brow"><span class="bl">2023</span><span class="btrack"><span class="bfill" style="width:78%;background:var(--era-3)"></span></span><span class="bv">78%</span></div>
+      </div>
+      <figcaption>Source: McKinsey supply chain pulse surveys, waves 2020–2024 (the 2023 wave: 101 respondents,
+        fieldwork April–May 2023). <b>Read with care:</b> these are separate waves with different samples and
+        question wording that shifts between years — the 2023 dual-sourcing figure is specific to critical raw
+        materials. Treat the shape as directional, not as a matched panel.</figcaption>
+    </div>
+
+    <div class="figure">
+      <div class="fhead">
+        <div class="ftitle">What the measured data says</div>
+        <div class="fsub">US Census MTIS inventories-to-sales, 2019 average against June 2026.</div>
+      </div>
+      <div class="bars" style="margin-top:6px">
+        <div class="brow"><span class="bl">Manufacturers</span><span class="btrack"><span class="bfill" style="width:74%;background:var(--era-3)"></span></span><span class="bv">+0.05</span></div>
+        <div class="brow"><span class="bl">Total business</span><span class="btrack"><span class="bfill" style="width:38%;background:var(--era-2)"></span></span><span class="bv">−0.11</span></div>
+        <div class="brow"><span class="bl">Wholesalers</span><span class="btrack"><span class="bfill" style="width:30%;background:var(--era-2)"></span></span><span class="bv">−0.14</span></div>
+        <div class="brow"><span class="bl">Retail trade</span><span class="btrack"><span class="bfill" style="width:20%;background:var(--era-2)"></span></span><span class="bv">−0.20</span></div>
+      </div>
+      <div class="note" style="margin-top:12px">Bar length is relative position, not the ratio itself. Three of
+        four sectors hold <b>less</b> inventory relative to sales than they did in 2019. Only manufacturing holds
+        more — and it holds only 0.05 more.</div>
+      <p style="font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0">Set the two panels beside each
+        other and the gap is stark. In 2023, 78% of executives reported increasing inventory buffers. In the same
+        period, the aggregate US inventories-to-sales ratio was falling back through its pre-COVID level. Both
+        can be true — a firm can add buffer on 200 critical parts while destocking everything else, and that is
+        precisely the segmented doctrine this document describes. But it means <b>survey answers about resilience
+        cannot be read as evidence that balance sheets changed</b>.</p>
+      <figcaption>Source: US Census Bureau MTIS via FRED, retrieved 28 Aug 2026.</figcaption>
+    </div>
+  </div>
+
+  <div style="margin-top:30px">
+    <h3 style="margin-bottom:8px">The honest verdict</h3>
+    <div class="cards c2" style="margin-top:14px">
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">Retreated · intent peaked in 2022</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Dual sourcing fell from 81% to 73% and regionalisation
+          from 64% to 60% between 2022 and 2024. McKinsey's own reading is that momentum has plateaued. The
+          2023 cost-cutting cycle arrived before most resilience programmes had finished paying for themselves.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">Retreated · the 2022 glut was not precision</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Target at +43% and Walmart at +33% year on year were not
+          firms executing a considered buffer strategy. They were firms that ordered aggressively into a demand
+          signal that had already turned — the bullwhip again, in the opposite direction, eighteen months later.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">Retreated · resilience often meant software</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Visibility platforms and control towers are easier to
+          buy than second sources are to qualify, and they book as one project rather than a permanent cost
+          increase. A dashboard showing an exposure you have not funded a response to is not resilience.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-3)">Stuck · physical and legal facts</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Fabs and plants that were built are still built.
+          Industrial policy, export controls and origin rules are still law. Long-term capacity agreements still
+          run. Manufacturing still holds more inventory relative to sales than it did in 2019, five years on.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-3)">Stuck · the measurement system</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">This is the durable part, and it is why the KPI ledger
+          is the centre of this document. Metrics outlive the enthusiasm that created them, because they are
+          embedded in systems, reports and comp plans. A firm that added revenue-at-risk to its planning review
+          in 2021 is still running it.</div>
+      </div>
+      <div class="card tight stack stack-6" style="border-left:2px solid var(--accent)">
+        <div class="reg" style="color:var(--accent-ink)">The live test, now</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Pressure is back at +1.84σ as of April 2026 on tariff
+          and re-sourcing effects. This is the first shock since 2020 to hit firms that claim to have built the
+          capability. Whether TTR and exposure figures were maintained — or quietly stopped being produced in
+          2024 — is about to be visible in who absorbs it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="method" class="wrap">
+  <div class="shead">
+    <div class="tag reg"><span class="no">08</span><span>Sources &amp; method</span><span class="rule"></span><span>Read the caveats</span></div>
+    <h2>What this is built on, and where it is weak</h2>
+    <p class="dek">Every figure in this document has a named source and a date. Where a number is a forecast, an
+      estimate or a survey response rather than a measurement, it is labelled as such — the distinction matters
+      more in this subject than in most, because a great deal of what circulates as supply chain evidence is
+      consultant projection repeated until it sounds like data.</p>
+  </div>
+
+  <div class="cards c2">
+    <div class="card stack stack-10">
+      <div class="reg" style="color:var(--era-3)">Measured series — the spine of the argument</div>
+      <div class="srcs" style="border:0">
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>Global Supply Chain Pressure Index</b>, monthly to July 2026</div>
+          <div class="o">Federal Reserve Bank of New York</div>
+        </div>
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>Manufacturing &amp; Trade Inventories and Sales</b> — ISRATIO, MNFCTRIRSA, RETAILIRSA, WHLSLRIRSA, to June 2026</div>
+          <div class="o">US Census Bureau, via FRED</div>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.55;color:var(--ink-2);margin:0"><b>Why these two.</b> They are
+        independent of anyone selling a supply chain product, they are published on a fixed schedule, and they
+        cover the whole arc without a break. The inventories-to-sales ratio is particularly well suited here
+        because inventories and sales are both measured in current dollars, so the ratio is largely insulated
+        from the inflation that makes raw inventory values from 2019 and 2026 incomparable.</p>
+    </div>
+    <div class="card stack stack-10">
+      <div class="reg" style="color:var(--era-2)">Reported figures — treat as reported</div>
+      <div class="srcs" style="border:0">
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>$210bn revenue / 7.7m units</b> lost to the chip shortage — a <em>forecast</em> issued
+            in September 2021, revised up from $110bn in May 2021. Not a measured outcome.</div>
+          <div class="o">AlixPartners, Sep 2021</div>
+        </div>
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>Pulse survey percentages</b>, waves 2020–2024 — self-reported intent and action from
+            differing samples with shifting question wording. Directional only.</div>
+          <div class="o">McKinsey &amp; Company</div>
+        </div>
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>$15.1bn inventory, +43% YoY</b>; guidance cut 18 May and again 7 June 2022. Walmart +33% YoY.</div>
+          <div class="o">Target Corp. Q1 FY2022 reporting</div>
+        </div>
+        <div class="src" style="padding-left:0;padding-right:0">
+          <div class="t"><b>109 container ships at anchor</b>, the LA / Long Beach peak, January 2022.</div>
+          <div class="o">Contemporary port and trade-press reporting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="reg" style="color:var(--muted);margin-bottom:10px">Doctrine and framework attributions</div>
+    <div class="srcs" style="border:0">
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Economic order quantity</div><div class="o">F. W. Harris, 1913</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Newsvendor / optimal inventory policy</div><div class="o">Arrow, Harris &amp; Marschak, 1951</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Toyota Production System, just-in-time, the seven wastes</div><div class="o">Taiichi Ohno; Shigeo Shingo</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Industrial dynamics — amplification through echelons</div><div class="o">Jay Forrester, 1961</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">The bullwhip effect, named, with four causes</div><div class="o">Lee, Padmanabhan &amp; Whang, 1997</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Risk pooling and the square-root law</div><div class="o">Gary Eppen, 1979</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Theory of Constraints</div><div class="o">Eliyahu Goldratt, 1984</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Lean thinking</div><div class="o">Womack &amp; Jones, 1996</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Functional vs innovative products</div><div class="o">Marshall Fisher, HBR, 1997</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">The Triple-A supply chain</div><div class="o">Hau Lee, HBR, 2004</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Managing risk to avoid supply chain breakdown</div><div class="o">Chopra &amp; Sodhi, MIT SMR, 2004</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Building the resilient supply chain</div><div class="o">Christopher &amp; Peck, 2004</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t"><em>The Resilient Enterprise</em> — the disruption profile</div><div class="o">Yossi Sheffi, 2005</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Shareholder-value effects of supply chain disruptions</div><div class="o">Hendricks &amp; Singhal, 2003–05</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Risk exposure index, time-to-recover</div><div class="o">Simchi-Levi et al., HBR, 2014</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Demand-driven MRP — buffer positioning</div><div class="o">Ptak &amp; Smith</div></div>
+      <div class="src" style="padding-left:0;padding-right:0"><div class="t">Quantile forecasting at scale — the M5 competition</div><div class="o">Makridakis et al., 2020</div></div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:16px"><b>Where this document is weak.</b> Four things a careful reader
+    should hold against it. <b>One:</b> sector-level inventory ratios average over enormous firm-level variation —
+    a sector can be flat while half its firms doubled their buffers and the other half halved them.
+    <b>Two:</b> the survey waves are not a matched panel, so the year-on-year movements in §07 are indicative
+    rather than measured change. <b>Three:</b> the KPI ledger describes practice at large, well-resourced firms;
+    the median manufacturer has adopted far less of it than the literature implies. <b>Four:</b> several framework
+    attributions are conventional rather than uncontested — priority disputes exist for the EOQ formula and for
+    parts of the bullwhip literature, and the dates given are for the canonical publication, not the first idea.</div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap stack stack-10">
+    <div class="reg" style="color:var(--accent-ink)">End of document</div>
+    <p style="max-width:70ch;margin:0">If you take one thing from this: the pre-2019 system was not
+      badly run. It was <b>well run against an incomplete scorecard</b>, and the scorecard's blind spot was
+      supply-side uncertainty. Everything in §05 is an attempt to fix that one hole. Whether it holds depends
+      less on what firms believe than on whether the numbers are still being produced in three years — which is
+      the only reliable test of whether a doctrine actually changed.</p>
+    <p class="reg" style="color:var(--faint);margin:0">Compiled 28 August 2026 · figures current to June–July 2026</p>
+  </div>
+</footer>
