@@ -397,6 +397,16 @@
       "framework": "Beer Distribution Game — bullwhip arises from human ordering behaviour even under full information",
       "originator": "John Sterman, Management Science 35(3)",
       "year": "1989"
+    },
+    {
+      "framework": "Forecast Value Added (FVA) — scores each process step against a naive benchmark; characteristic finding is negative FVA from planner and executive overrides",
+      "originator": "Michael Gilliland (SAS)",
+      "year": "2002, formalised 2013/2015"
+    },
+    {
+      "framework": "Bank stress testing as a governance import — pass/fail threshold, fixed cadence, named accountability",
+      "originator": "US Federal Reserve SCAP (2009) / Dodd-Frank (2010); supply chain application proposed by Simchi-Levi & Simchi-Levi, HBR",
+      "year": "28 April 2020"
     }
   ],
   "known_weaknesses": [
@@ -2612,6 +2622,27 @@
       "verdict": "CORRECTED",
       "correction": "Retail's I/S fell to an annual mean of 1.350 in 2011 and then ROSE 8.5% to 1.464 by 2019. All of retail's decline happened before 2011; there was no retail leaning in the 2010s.",
       "action": "Wording fixed, and a new 1992-2026 long-arc figure added at the top of section 3 so the reader can see the whole record rather than the 2018-2026 close-up alone."
+    },
+    {
+      "claim_as_originally_written": "Disruption was not measured at all before 2019 — there was no financial metric for it.",
+      "verdict": "CORRECTED",
+      "correction": "Supply-chain value-at-risk existed as SCOR AG.1.4 from Revision 11.0 (2012), adapting J.P. Morgan's RiskMetrics VaR (1994). It failed not from absence but because VaR = P x Impact requires a probability that does not exist for rare high-impact events — so the standard demoted it to a Level-2/3 diagnostic and practitioners did not produce it.",
+      "action": "Ledger row 13 rewritten. The old column is now 'supply-chain value-at-risk (SCOR AG.1.4, in the standard since 2012)' and the failure mode is the missing probability term. This makes the TTR/TTS replacement sharper: it achieves the same ambition by deleting the impossible input."
     }
-  ]
+  ],
+  "scor_standard": {
+    "pre_2019": {
+      "body": "Supply Chain Council (1996), merged into APICS 2014, now ASCM",
+      "versions": "SCOR 1996; Rev 11.0 (2012); v12.0 (2017)",
+      "structure": "Five performance attributes: Reliability, Responsiveness, Agility, Cost, Asset Management",
+      "risk_treatment": "Present only as AG.1.4 Overall Value at Risk, which the standard itself relegated to a Level-2/3 diagnostic because it could not be rolled into cost",
+      "inventory_treatment": "Appears only through cash-to-cash and return on working capital — capital to be minimised, never capability to be sized"
+    },
+    "post_2022": {
+      "body": "ASCM",
+      "version": "SCOR Digital Standard v14.0, released September 2022, still current in the 2025 reissue",
+      "change": "Rebuilt around three strategic categories with 'Resilience' named as a first-class category, plus eight sustainability Level-1 metrics",
+      "honest_caveat": "'Resilience' is a relabelling of the three pre-existing customer-facing attributes, not new measurement. There is still NO Level-1 metric for time-to-survive, single-source exposure, n-tier coverage, disruption-scenario service or inventory composition. Firms running those measures are extending beyond the standard, not implementing it."
+    }
+  }
 }

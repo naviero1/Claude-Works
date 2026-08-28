@@ -43,8 +43,8 @@ ROWS = [
  "Forecast accuracy — MAPE", "mean(|actual − forecast| ÷ actual)",
  "A single-number report card on the demand plan, comparable across periods and planners.",
  "MAPE scores a point forecast, but an inventory decision is a statement about a <em>tail</em>. It also penalises volatile, high-consequence items hardest, so the planner's rational move is to focus on the SKUs that matter least.",
- "Quantile forecasts &amp; pinball loss", "Forecast the distribution; score the quantile you actually stock to (CRPS / pinball)",
- "Safety stock has always been a quantile — the <span class=\"num\">z</span> in the formula is a service level. Forecasting the mean and then bolting a normal assumption onto it was always a workaround. Forecast the quantile you need."),
+ "Quantile forecasts, pinball loss &amp; FVA", "Score the quantile you stock to (CRPS / pinball); score each process step against a naive benchmark",
+ "Safety stock has always been a quantile — the <span class=\"num\">z</span> in the formula is a service level. Forecasting the mean and bolting a normal assumption onto it was always a workaround. Forecast Value Added answers the separate question MAPE never could — <em>is this step worth doing?</em> — and its characteristic finding is politically explosive: planner and executive overrides frequently make the statistical forecast <b>worse</b> while consuming most of the process cost."),
 
 ("Planning",
  "Schedule attainment", "% of the production plan executed as planned",
@@ -89,11 +89,11 @@ ROWS = [
  "A metric you can improve by moving a cost onto someone whose failure would stop your line is not measuring what it claims to measure."),
 
 ("Finance",
- "&mdash; not measured &mdash;", "Disruption did not appear anywhere in financial reporting",
- "Nothing. There was no line on the P&amp;L called \"the disruption that did not happen,\" which is exactly why resilience never won a budget argument.",
- "Firms could not compare the certain, immediate, budget-line cost of a second source against the uncertain, deferred benefit — so the comparison was never made and the default always won.",
- "Supply chain value-at-risk", "Revenue-at-risk per node = exposure × (TTR − TTS), aggregated across the network",
- "This is the change that made all the others fundable. Once exposure is denominated in revenue, a buffer stops being an operational preference and becomes a capital allocation decision on the same terms as any other."),
+ "Supply-chain value-at-risk", "VaR = P(risk event) × monetised impact — SCOR AG.1.4, in the standard since 2012",
+ "Monetising risk for the CFO. Note that the ambition was right and the metric already existed: it adapts J.P. Morgan's RiskMetrics VaR to the five SCOR processes.",
+ "It needs <em>P</em> — and P for a specific plant in a specific year does not exist. The standard's own documentation concedes the metric is derived from historical event frequencies that are unavailable precisely for rare, high-impact events. So SCOR relegated it to a Level-2/3 diagnostic because it could not be rolled into cost, and in practice almost nobody produced it. The pre-2019 system did not fail to think of this. It thought of it and could not make it work.",
+ "Revenue-at-risk per node", "exposure × (TTR − TTS), aggregated across the network — no probability term",
+ "The same ambition, achieved by deleting the impossible input. This is the change that made all the others fundable: once exposure is denominated in revenue <em>without</em> requiring a probability nobody can estimate, a buffer stops being an operational preference and becomes a capital allocation decision on the same terms as any other."),
 
 ("Risk",
  "Likelihood × impact heat map", "Probability score 1–5 × impact score 1–5, on a risk register",

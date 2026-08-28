@@ -109,9 +109,9 @@
       <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
       <div class="lcell new">
         <div class="reg lab">After 2022</div>
-        <div class="m">Quantile forecasts &amp; pinball loss</div>
-        <div class="f">Forecast the distribution; score the quantile you actually stock to (CRPS / pinball)</div>
-        <div class="d"><b>Why it follows:</b> Safety stock has always been a quantile — the <span class="num">z</span> in the formula is a service level. Forecasting the mean and then bolting a normal assumption onto it was always a workaround. Forecast the quantile you need.</div>
+        <div class="m">Quantile forecasts, pinball loss &amp; FVA</div>
+        <div class="f">Score the quantile you stock to (CRPS / pinball); score each process step against a naive benchmark</div>
+        <div class="d"><b>Why it follows:</b> Safety stock has always been a quantile — the <span class="num">z</span> in the formula is a service level. Forecasting the mean and bolting a normal assumption onto it was always a workaround. Forecast Value Added answers the separate question MAPE never could — <em>is this step worth doing?</em> — and its characteristic finding is politically explosive: planner and executive overrides frequently make the statistical forecast <b>worse</b> while consuming most of the process cost.</div>
       </div>
       <div class="lfail">
         <div class="reg lab">Exposed</div>
@@ -242,20 +242,20 @@
       <div class="lhead"><span class="reg dom">Finance</span><span class="reg idx">13 / 16</span></div>
       <div class="lcell old">
         <div class="reg lab">Before 2019</div>
-        <div class="m">&mdash; not measured &mdash;</div>
-        <div class="f">Disruption did not appear anywhere in financial reporting</div>
-        <div class="d"><b>Optimised for:</b> Nothing. There was no line on the P&amp;L called "the disruption that did not happen," which is exactly why resilience never won a budget argument.</div>
+        <div class="m">Supply-chain value-at-risk</div>
+        <div class="f">VaR = P(risk event) × monetised impact — SCOR AG.1.4, in the standard since 2012</div>
+        <div class="d"><b>Optimised for:</b> Monetising risk for the CFO. Note that the ambition was right and the metric already existed: it adapts J.P. Morgan's RiskMetrics VaR to the five SCOR processes.</div>
       </div>
       <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
       <div class="lcell new">
         <div class="reg lab">After 2022</div>
-        <div class="m">Supply chain value-at-risk</div>
-        <div class="f">Revenue-at-risk per node = exposure × (TTR − TTS), aggregated across the network</div>
-        <div class="d"><b>Why it follows:</b> This is the change that made all the others fundable. Once exposure is denominated in revenue, a buffer stops being an operational preference and becomes a capital allocation decision on the same terms as any other.</div>
+        <div class="m">Revenue-at-risk per node</div>
+        <div class="f">exposure × (TTR − TTS), aggregated across the network — no probability term</div>
+        <div class="d"><b>Why it follows:</b> The same ambition, achieved by deleting the impossible input. This is the change that made all the others fundable: once exposure is denominated in revenue <em>without</em> requiring a probability nobody can estimate, a buffer stops being an operational preference and becomes a capital allocation decision on the same terms as any other.</div>
       </div>
       <div class="lfail">
         <div class="reg lab">Exposed</div>
-        <div>Firms could not compare the certain, immediate, budget-line cost of a second source against the uncertain, deferred benefit — so the comparison was never made and the default always won.</div>
+        <div>It needs <em>P</em> — and P for a specific plant in a specific year does not exist. The standard's own documentation concedes the metric is derived from historical event frequencies that are unavailable precisely for rare, high-impact events. So SCOR relegated it to a Level-2/3 diagnostic because it could not be rolled into cost, and in practice almost nobody produced it. The pre-2019 system did not fail to think of this. It thought of it and could not make it work.</div>
       </div>
     </div>
     <div class="lrow" data-domain="risk">

@@ -1254,8 +1254,11 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
       <h4>Measure impact, not probability</h4>
       <p>You cannot estimate the annual probability of a fire at a specific plant, and pretending otherwise
         produced risk registers full of invented numbers.</p>
-      <p class="imp"><b>Now</b>Assume the node is down. Measure time-to-recover and time-to-survive, and price
-        the gap in revenue. It is auditable, and it is arguable in front of a CFO.</p>
+      <p class="imp"><b>Now</b>Assume the node is down. Measure time-to-recover and time-to-survive. Note what
+        <span class="num">TTR(j) &lt; TTS(j) for all j</span> actually is: not an optimisation but a
+        <b>per-node feasibility test</b> with a binary pass/fail that names the failing nodes in priority order —
+        and at each one, stock is only one of three substitutable fixes, alongside alternate capacity and design
+        change.</p>
     </div>
     <div class="fw" style="--era-1:var(--era-3)">
       <div class="who reg">Resilinc · Interos · Everstream</div>
@@ -1458,9 +1461,9 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
       <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
       <div class="lcell new">
         <div class="reg lab">After 2022</div>
-        <div class="m">Quantile forecasts &amp; pinball loss</div>
-        <div class="f">Forecast the distribution; score the quantile you actually stock to (CRPS / pinball)</div>
-        <div class="d"><b>Why it follows:</b> Safety stock has always been a quantile — the <span class="num">z</span> in the formula is a service level. Forecasting the mean and then bolting a normal assumption onto it was always a workaround. Forecast the quantile you need.</div>
+        <div class="m">Quantile forecasts, pinball loss &amp; FVA</div>
+        <div class="f">Score the quantile you stock to (CRPS / pinball); score each process step against a naive benchmark</div>
+        <div class="d"><b>Why it follows:</b> Safety stock has always been a quantile — the <span class="num">z</span> in the formula is a service level. Forecasting the mean and bolting a normal assumption onto it was always a workaround. Forecast Value Added answers the separate question MAPE never could — <em>is this step worth doing?</em> — and its characteristic finding is politically explosive: planner and executive overrides frequently make the statistical forecast <b>worse</b> while consuming most of the process cost.</div>
       </div>
       <div class="lfail">
         <div class="reg lab">Exposed</div>
@@ -1591,20 +1594,20 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
       <div class="lhead"><span class="reg dom">Finance</span><span class="reg idx">13 / 16</span></div>
       <div class="lcell old">
         <div class="reg lab">Before 2019</div>
-        <div class="m">&mdash; not measured &mdash;</div>
-        <div class="f">Disruption did not appear anywhere in financial reporting</div>
-        <div class="d"><b>Optimised for:</b> Nothing. There was no line on the P&amp;L called "the disruption that did not happen," which is exactly why resilience never won a budget argument.</div>
+        <div class="m">Supply-chain value-at-risk</div>
+        <div class="f">VaR = P(risk event) × monetised impact — SCOR AG.1.4, in the standard since 2012</div>
+        <div class="d"><b>Optimised for:</b> Monetising risk for the CFO. Note that the ambition was right and the metric already existed: it adapts J.P. Morgan's RiskMetrics VaR to the five SCOR processes.</div>
       </div>
       <div class="larrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></div>
       <div class="lcell new">
         <div class="reg lab">After 2022</div>
-        <div class="m">Supply chain value-at-risk</div>
-        <div class="f">Revenue-at-risk per node = exposure × (TTR − TTS), aggregated across the network</div>
-        <div class="d"><b>Why it follows:</b> This is the change that made all the others fundable. Once exposure is denominated in revenue, a buffer stops being an operational preference and becomes a capital allocation decision on the same terms as any other.</div>
+        <div class="m">Revenue-at-risk per node</div>
+        <div class="f">exposure × (TTR − TTS), aggregated across the network — no probability term</div>
+        <div class="d"><b>Why it follows:</b> The same ambition, achieved by deleting the impossible input. This is the change that made all the others fundable: once exposure is denominated in revenue <em>without</em> requiring a probability nobody can estimate, a buffer stops being an operational preference and becomes a capital allocation decision on the same terms as any other.</div>
       </div>
       <div class="lfail">
         <div class="reg lab">Exposed</div>
-        <div>Firms could not compare the certain, immediate, budget-line cost of a second source against the uncertain, deferred benefit — so the comparison was never made and the default always won.</div>
+        <div>It needs <em>P</em> — and P for a specific plant in a specific year does not exist. The standard's own documentation concedes the metric is derived from historical event frequencies that are unavailable precisely for rare, high-impact events. So SCOR relegated it to a Level-2/3 diagnostic because it could not be rolled into cost, and in practice almost nobody produced it. The pre-2019 system did not fail to think of this. It thought of it and could not make it work.</div>
       </div>
     </div>
     <div class="lrow" data-domain="risk">
@@ -1671,9 +1674,14 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
 
   <div class="note acc" style="margin-top:20px"><b>The pattern across all sixteen.</b> Every old metric is an
     <em>aggregate</em>, a <em>point estimate</em>, or a <em>cost</em>. Every new one is a <em>decomposition</em>,
-    a <em>distribution</em>, or an <em>exposure</em>. That is the whole shift in one line: the pre-2019 system
-    measured the average of a stable world in a single number, and the post-2022 system measures the shape of
-    an unstable one — because the average is exactly what tells you nothing during a shock.</div>
+    a <em>distribution</em>, or an <em>exposure</em>. The pre-2019 system measured the average of a stable world
+    in a single number; the post-2022 system measures the shape of an unstable one, because the average is
+    exactly what tells you nothing during a shock.<br><br>There is a harder way to say it, and it is the sentence
+    worth taking away: <b>every metric in the left-hand column is a ratio whose numerator or denominator can be
+    improved by making the network more brittle.</b> Turns rise when you stock out. Cash-to-cash improves when
+    you push inventory one node upstream without removing a gram from the network. PPV improves when you
+    consolidate onto a single source. Utilisation improves when you delete your ability to recover. That is not
+    a set of metrics that happened to miss disruption risk. It is a set of metrics that <em>paid for</em> it.</div>
 </section>
 
 <section id="risk" class="wrap">
@@ -1935,6 +1943,16 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
         <div style="font-size:14.5px;color:var(--ink-2)">Fabs and plants that were built are still built.
           Industrial policy, export controls and origin rules are still law. Long-term capacity agreements still
           run. Manufacturing still holds more inventory relative to sales than it did in 2019, five years on.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">Retreated · the standard renamed rather than measured</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">The clearest test of whether this became institutional is
+          what happened to SCOR, the industry-standard scorecard. In September 2022 ASCM rebuilt it around three
+          categories with <b>"Resilience" named as a first-class category</b> — but that category is a relabelling
+          of three pre-existing customer-facing attributes. There is still <b>no Level-1 metric</b> for
+          time-to-survive, single-source exposure, <em>n</em>-tier coverage, disruption-scenario service or
+          inventory composition. Firms running those measures are extending beyond the standard, not implementing
+          it.</div>
       </div>
       <div class="card tight stack stack-6">
         <div class="reg" style="color:var(--era-3)">Stuck · the measurement system</div>
