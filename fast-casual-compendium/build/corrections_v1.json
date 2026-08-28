@@ -253,5 +253,81 @@
   "now": "Could not be verified. Braised lamb does not appear in CAVA's catering nutrition guide at all; the only lamb item there is spicy lamb meatballs at roughly 674 mg per serving, a different preparation with about 50% more sodium.",
   "source": "CAVA Nutrition and Allergen Guide, retrieved 28 August 2026.",
   "kind": "open"
+ },
+ {
+  "rank": 3,
+  "restaurant": "Sassool",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "cal": 850,
+   "protein": 44,
+   "sodium": 1700,
+   "satfat": 13,
+   "fiber": 3,
+   "sugar": 8
+  },
+  "claim": "The Sassool plate - ranked third in the first edition - at 620 cal / 46 g protein / 980 mg sodium / 7 g saturated fat / 12 g fiber / 6 g sugar",
+  "was": "620 cal / 46 g protein / 980 mg sodium / 7 g saturated fat / 12 g fiber / 6 g sugar, estimated from menu construction, with the first edition calling Sassool's blocked nutrition PDF 'the highest-value single correction available to this document'.",
+  "now": "Sassool's published figures were recovered from the search index even though the PDF itself is still Cloudflare-blocked, and they refute the entry. At Sassool's own serving basis the four cold components alone come to 603 calories and 1,068 mg of sodium BEFORE any chicken: labneh 4 oz is 258 cal and 370 mg, lentil salad 6 oz is 144 cal and 355 mg, tabouli 6 oz is 130 cal and 240 mg, kale salad 6 oz is 71 cal and 103 mg. Their published fiber for those four items totals 3 g, not 12 - no portion scaling reaches 12. Labneh is full-fat strained yogurt blended with olive oil and carries most of the plate's saturated fat on its own. The entry is rescored to a mid-portion central estimate of 850 cal / 1,700 mg / 13 g saturated fat / 3 g fiber, which drops it out of the top ten. It stays flagged as disputed because the true figures depend on scoop size, which could not be established: the defensible range runs from roughly 780 to 950 calories and 1,600 to 2,200 mg.",
+  "source": "Sassool nutrition facts, updated July 2024 (salads at 6 oz, dips at 4 oz), recovered via search-index extraction 28 August 2026; the PDF itself returns HTTP 403 behind Cloudflare.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Sassool",
+  "action": "note",
+  "claim": "'Baked salmon instead of kabob' is a Sassool alternative order at 700 cal / 44 g protein / 1,050 mg sodium",
+  "was": "Printed as a scored alternative that outranks the recommendation.",
+  "now": "Baked salmon is a call-ahead special at Sassool, not a standard-menu item - the restaurant's own bariatric handout stars it with 'call restaurant for availability'. The compendium's own rule requires alternatives to be orderable from the standard menu, and no nutrition row for it exists anywhere. The figures were invented.",
+  "source": "Sassool bariatric handout, November 2025, sourced from the restaurant.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 18,
+  "restaurant": "Abol Ethiopian",
+  "action": "fix_field",
+  "field": "miles",
+  "value": 3,
+  "claim": "Abol Ethiopian is ~10 miles from Research Triangle Park",
+  "was": "~10 mi from RTP.",
+  "now": "About 2-3 miles. Abol is at 2945 South Miami Boulevard in Durham, which is close to the park, not ten miles from it. The restaurant, its hours and its DoorDash store id all check out; only the distance was wrong.",
+  "source": "Yelp listing updated July 2026; DoorDash store 35410175.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "'Every restaurant was verified to have a live DoorDash storefront; its store ID is printed with the dish'",
+  "was": "Printed on the masthead alongside a 'DoorDash-verified 30 / 30' badge.",
+  "now": "57 of the 60 entries print a store id. Poke Bros. prints a DoorDash business id, which identifies the brand rather than any one storefront and so cannot establish that a particular location is live; CAVA and Chipotle print the literal word 'chain'. Independently, 35 restaurants were spot-checked in this edition and all 35 exist and appear to be trading, with 29 of the printed store ids matched to the right restaurant and address.",
+  "source": "Spot-check of 35 entries against Yelp, OpenTable, Discover Durham, visitRaleigh and first-party sites, 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "DoorDash prices run roughly 15-25% above in-store",
+  "was": "Stated in the methodology note.",
+  "now": "The published measurements land lower: Gordon Haskett found about 20% across 25 major brands, and later analyses put the typical spread nearer 10-15%. Roughly 10-20%, averaging about 15%, is better supported. This matters, because every cost score in the document is computed on a DoorDash-listed price.",
+  "source": "Gordon Haskett Research Advisors delivery-price tracking; subsequent published analyses.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "DoorDash renames deactivated storefronts to 'Graveyard' or '[DNU]' while keeping the URL, rating and hours rendering normally",
+  "was": "Given as one of the first edition's four headline findings.",
+  "now": "Confirmed. The convention is observable on live public DoorDash store pages across several states, with titles of the form 'GRAVEYARD DNU DO NOT REACTIVATE!!'. It is a real trap for anyone verifying a storefront - it just is not a finding about food, which is why it has moved to the method notes.",
+  "source": "Live DoorDash store pages, retrieved 28 August 2026.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "Internal inconsistency: the first edition's endnote says Sassool ranks fourth",
+  "was": "'Given Sassool ranks fourth on estimated figures...' while the ranking table and the entry header both place it third.",
+  "now": "The table is right and the endnote is wrong. Noted because it is the kind of small inconsistency that signals a document assembled from more than one pass.",
+  "source": "The first edition, pages 4 and 26.",
+  "kind": "wrong"
  }
 ]

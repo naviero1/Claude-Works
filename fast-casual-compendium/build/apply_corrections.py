@@ -19,9 +19,12 @@ for c in C:
         d['overall'] = round((d['health']*6.7 + d['FLAVOR']*0.5 + d['COST']*0.5)/7.7, 2)
         d['corrected'] = True
         if c.get('retier'): d['data'] = c['retier']
+        if c.get('dispute'): d['disputed'] = True
         log.append((d['restaurant'], before['overall'], d['overall'], before['sodium'], d['sodium']))
     elif c['action'] == 'dispute':
         by[c['rank']]['disputed'] = True
+    elif c['action'] == 'fix_field':
+        by[c['rank']][c['field']] = c['value']
 
 new_order = sorted(D, key=lambda x: -x['overall'])
 print(f"{'restaurant':22s} {'was':>6s} {'now':>6s}  {'Na was':>7s} {'Na now':>7s}  {'rank':>12s}")

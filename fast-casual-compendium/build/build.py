@@ -13,12 +13,17 @@ CSS = open('style.css').read()
 def load(name, default):
     return json.load(open(name)) if os.path.exists(name) else default
 FIND = load('findings.json', None)     # from the verification workflow
-CORR = load('corrections.json', None)
+CORR = load('corrections_v1.json', None)
 ADDS = load('additions.json', [])      # from the widening workflow
 
 e = lambda s: html.escape(str(s), quote=False)
 byname = {d['restaurant']: d for d in D}
 def money(v): return f"${v:,.2f}"
+def ordinal(n):
+    n = int(n)
+    if 10 <= n % 100 <= 20: suf = 'th'
+    else: suf = {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')
+    return f'{n}{suf}'
 def r2(v):    return f"{v:+.2f}".replace('+0.', '+.').replace('-0.', '−.')
 
 ALL = D + ADDS
@@ -85,12 +90,17 @@ def sec_masthead():
 </header>'''
 
 def sec_changes():
+    moved = sorted(((abs((d.get('rank') or 0) - (MERGED.index(d) + 1)), d) for d in D if d.get('corrected')),
+                   key=lambda t: -t[0])[:2]
+    movers = '; '.join(f"{e(d['restaurant'])} from {ordinal(d['rank'])} to {ordinal(MERGED.index(d)+1)}"
+                       for _, d in moved)
+    n_rescored = sum(1 for c in CORR if c['action'] == 'rescore') if CORR else 0
     items = [
-      ('The front page is new.', 'The first edition opened with four findings, three of which were trivia about a single restaurant each. They have been replaced with findings drawn from the whole set &mdash; led by what the data says about money.'),
-      ('The two lists are now one.', f'The first edition printed &ldquo;The Thirty&rdquo; and &ldquo;The Next Thirty&rdquo; as separate ranked lists, but the split was by research depth, not by score: {F["n_promoted"]} of the second thirty outscored the weakest member of the first. Everything is now ranked in a single sequence.'),
-      ('The scoring model is printed, not described.', 'Every criterion that can be computed from the macros is now given as an actual function. Anyone can recompute any score in this document, including the ones they disagree with.'),
-      ('The sample was too narrow.', f'Eighteen of the original sixty entries were build-your-own bowls or poke &mdash; 30% of the set, and four of the top ten &mdash; in a state with no barbecue entry at all. {"This edition adds " + str(len(ADDS)) + " dishes from cuisines and formats the first edition skipped." if ADDS else "That gap is documented below."}'),
-      ('Claims were checked against sources.', 'The nutrition figures the first edition attributed to published documents were re-read against those documents, and the food-science claims against the literature. What was wrong is listed at the end rather than quietly fixed.'),
+      ('The numbers were checked, and some were wrong.', f'Every nutrition figure the first edition attributed to a published document was re-read against that document. {n_rescored} entries had to be rescored: {movers}. Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.'),
+      ('The front page is new.', 'The first edition opened with four findings, three of which were trivia about a single restaurant each and the fourth about research method rather than food. They have been replaced with findings drawn from the whole set, led by what the data says about money.'),
+      ('The two lists are now one.', f'The first edition printed &ldquo;The Thirty&rdquo; and &ldquo;The Next Thirty&rdquo; as separate ranked lists, but the split tracked research depth rather than score: {F["n_promoted"]} entries in the second list outscored the weakest in the first. Everything is now ranked in one sequence.'),
+      ('The scoring model is printed, not described.', 'Every criterion that can be computed from the macros is given as an actual function, recovered by fitting the first edition\'s own published scores. Anyone can recompute anything here, including the parts they disagree with.'),
+      ('The sample was too narrow.', f'Eighteen of the original sixty entries were build-your-own bowls or poke &mdash; 30% of the set, and four of the top ten &mdash; in a state whose own barbecue did not appear at all. {"This edition adds " + str(len(ADDS)) + " dishes from cuisines and formats the first edition skipped." if ADDS else "That gap is quantified below."}'),
     ]
     lis = ''.join(f'<li><strong>{t}</strong> {b}</li>' for t, b in items)
     return f'''<section id="changes">
@@ -151,8 +161,8 @@ def sec_money():
   <span class="eyebrow">Chapter one</span>
   <h2>What money does and does not buy</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>Across all {len(D)} dishes in the original set, the correlation between what a dish costs on DoorDash and how healthy it scores is <strong class="num">{r2(F['r_price_health'])}</strong>. That is not a weak relationship; it is the absence of one. Drop any single dish from the set and it stays between <span class="num">{lo:+.2f}</span> and <span class="num">{hi:+.2f}</span>, so it is not the work of one outlier either.</p>
-    <p>Money does buy something. The correlation between price and <em>flavor</em> is <strong class="num">{r2(F['r_price_flavor'])}</strong> &mdash; real, if modest. Expensive food in this set is more interesting to eat and no better for you. Everything in this chapter follows from those two numbers.</p>
+    <p>Across all {len(D)} dishes, the correlation between what a dish costs on DoorDash and how healthy it scores is <strong class="num">{r2(F['r_price_health'])}</strong>. Squared, that is well under one percent of the variation: price tells you essentially nothing about whether a meal is good for you. Drop any single dish and it stays between <span class="num">{lo:+.2f}</span> and <span class="num">{hi:+.2f}</span>, so it is not one outlier holding it down.</p>
+    <p>Money does buy something. The correlation between price and <em>flavor</em> is <strong class="num">{r2(F['r_price_flavor'])}</strong> &mdash; modest, but five times the size and in a direction you can feel. Expensive food in this set is more interesting to eat and no better for you. Everything in this chapter follows from those two numbers.</p>
   </div>
   <figure>
     {charts.scatter_price_health(D, quad_n=len(quad))}
@@ -243,8 +253,8 @@ def sec_flavor():
   <h2>What flavor actually costs</h2>
   <div class="measure stack" style="margin-top:16px">
     <p>The first edition argued that cuisines built on char, acid and aromatics keep their flavor when you strip out salt and fat, while cuisines built on sauce, cheese and frying do not. The first half of that is right and the second half is aimed at the wrong nutrient.</p>
-    <p>Take the {fs['n_hi']} dishes scoring 7.5 or better on flavor and the {fs['n_lo']} scoring 5.5 or worse. The flavorful group carries <strong class="num">{fs['na_hi']-fs['na_lo']:+,.0f}&#8202;mg</strong> more sodium &mdash; a difference far too large to be chance, at <span class="num">t&nbsp;=&nbsp;{F['welch_sodium'][0]:.1f}</span> on {F['welch_sodium'][1]:.0f} degrees of freedom. It carries <strong class="num">{fs['sf_hi']-fs['sf_lo']:+.1f}&#8202;g</strong> more saturated fat, which at <span class="num">t&nbsp;=&nbsp;{F['welch_satfat'][0]:.1f}</span> is indistinguishable from noise.</p>
-    <p>So flavor in this set is not bought with fat. It is bought with salt, and the first edition was policing the wrong nutrient. That is also why there is no health-flavor tradeoff between individual dishes &mdash; the correlation is <span class="num">{r2(F['r_health_flavor'])}</span>, nil. The tradeoff is not a property of a dish. It is a property of a kitchen's whole seasoning strategy, and it shows up only when you group by cuisine.</p>
+    <p>Take the {fs['n_hi']} dishes scoring 7.5 or better on flavor and the {fs['n_lo']} scoring 5.5 or worse. The flavorful group carries <strong class="num">{fs['na_hi']-fs['na_lo']:+,.0f}&#8202;mg</strong> more sodium, at <span class="num">t&nbsp;=&nbsp;{F['welch_sodium'][0]:.1f}</span> &mdash; a separation nothing about this sample can explain away. It also carries <strong class="num">{fs['sf_hi']-fs['sf_lo']:+.1f}&#8202;g</strong> more saturated fat, at <span class="num">t&nbsp;=&nbsp;{F['welch_satfat'][0]:.1f}</span>, which is on the edge of meaning nothing at all.</p>
+    <p>So flavor in this set is bought mainly with salt, not with fat, and the first edition was policing the wrong nutrient. That is also why there is no health-flavor tradeoff between individual dishes &mdash; the correlation is <span class="num">{r2(F['r_health_flavor'])}</span>, nil. The tradeoff is not a property of a dish. It is a property of a kitchen's whole seasoning strategy, and it shows up only when you group by cuisine.</p>
   </div>
   <figure>
     {charts.cuisine_map(F)}
@@ -259,6 +269,9 @@ def sec_flavor():
 </section>'''
 
 def sec_swaps():
+    n_lighter = sum(1 for b in F['beats'] if b['alt']['cal'] < b['rec']['cal'])
+    n_lessna  = sum(1 for b in F['beats'] if b['alt']['sodium'] < b['rec']['sodium'])
+    n_alt_scored = sum(len(d['alternatives']) for d in D) - F['n_alt_excluded']
     rows = []
     for b in F['beats']:
         rec = byname[b['rec']['restaurant']] if isinstance(b['rec'], dict) and 'restaurant' in b['rec'] else None
@@ -297,7 +310,7 @@ def sec_swaps():
   <span class="eyebrow">Chapter four</span>
   <h2>Orders that beat the order</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>The first edition scored {sum(len(d['alternatives']) for d in D)} alternative orders alongside its recommendations. In {len(F['beats'])} cases the alternative outscores the dish it sits under, and the reason is nearly always the same: the alternative is smaller. Six of the {len(F['beats'])} cut calories, and five cut sodium, while giving up protein the score barely misses.</p>
+    <p>The first edition scored {sum(len(d['alternatives']) for d in D)} alternative orders alongside its recommendations. {n_alt_scored} of them are still comparable after this edition's corrections, and in {len(F['beats'])} of those the alternative outscores the dish it sits under. The reason is nearly always the same: the alternative is smaller. {n_lighter} of the {len(F['beats'])} cut calories and {n_lessna} cut sodium, giving up protein the model barely misses.</p>
     <p>That is worth knowing on its own. It is also the clearest evidence in this document that the model rewards restraint more than it rewards any particular ingredient.</p>
   </div>
   {beats}
@@ -358,6 +371,9 @@ def sec_criteria():
 
 def sec_confidence():
     T = F['tiers']; rt = F['round_tell']
+    n_retier = sum(1 for c in json.load(open('corrections_v1.json')) if c.get('retier') == 'PUBLISHED')
+    _pc = sorted(d['cal'] for d in D if d['data'] == 'PUBLISHED')
+    pub_cals = ', '.join(str(c) for c in _pc[:-1]) + ' and ' + str(_pc[-1])
     rows = [[f'<td><span class="rest">{k.title()}</span></td>',
              f'<td class="n num">{v["n"]}</td>',
              f'<td class="n score">{v["health"]:.2f}</td>',
@@ -369,7 +385,7 @@ def sec_confidence():
   <span class="eyebrow">Before you trust a number</span>
   <h2>How much of this is measured</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>Five of the original sixty entries are built from a chain's own published nutrition documents. Two are partial. The other {T['ESTIMATED']['n']} are reasoned from how the dish is put together, and that reasoning leaves fingerprints: {rt['sodium']} of the {rt['n']} estimated entries land on a round multiple of 50&#8202;mg of sodium, and {rt['cal']} on a multiple of 20 calories. Real nutrition panels do not do that. The published entries in this set read 542, 420, 380, 740 and 575 calories.</p>
+    <p>{T['PUBLISHED']['n']} of the {len(D)} entries are built from a chain's own published nutrition documents &mdash; {n_retier} more than the first edition claimed, because Chopt and Sweetgreen both publish nutrition the first edition did not consult. {T['PARTIAL']['n']} are partial. The other {T['ESTIMATED']['n']} are reasoned from how the dish is put together, and that reasoning leaves fingerprints: {rt['sodium']} of them land on a round multiple of 50&#8202;mg of sodium and {rt['cal']} on a multiple of 20 calories. Real nutrition panels do not do that. The published entries here read {pub_cals} calories.</p>
     <p>The gap between the tiers is not small, and it is the most important caveat in this document:</p>
   </div>
   {table(['Confidence tier', '~Entries', '~Mean health', '~Mean sodium mg', '~Mean flavor', '~Mean price'], rows)}
@@ -500,24 +516,38 @@ def sec_additions():
 
 def sec_corrections():
     if not CORR: return ''
+    BADGE = {'wrong': ('badge-wrong', 'Corrected'), 'stale': ('badge-stale', 'Out of date'),
+             'confirmed': ('badge-ok', 'Confirmed'), 'open': ('badge-open', 'Unresolved')}
     def block(c):
-        kind = c.get('kind', 'wrong')
-        badge = {'wrong': ('badge-wrong', 'Corrected'), 'stale': ('badge-stale', 'Out of date'),
-                 'confirmed': ('badge-ok', 'Confirmed'), 'open': ('badge-open', 'Still open')}[kind]
+        b = BADGE[c.get('kind', 'wrong')]
+        who = c.get('restaurant', '')
+        rescored = ''
+        if c['action'] == 'rescore':
+            d = byname.get(who)
+            if d: rescored = (f'<p class="corr-effect">Rescored: overall {d["overall"]:.2f}, '
+                              f'now ranked {MERGED.index(d)+1} of {len(MERGED)}.</p>')
         return f'''<div class="corr">
-      <div class="corr-head"><span class="badge {badge[0]}">{badge[1]}</span><h3 style="font-size:1rem">{e(c['claim'])}</h3></div>
-      <p class="was">First edition: {e(c['was'])}</p>
+      <div class="corr-head"><span class="badge {b[0]}">{b[1]}</span><span class="corr-who">{e(who)}</span></div>
+      <h3 style="font-size:1.02rem;margin-bottom:7px">{e(c['claim'])}</h3>
+      <p class="was"><b>First edition</b> {e(c['was'])}</p>
       <p class="now">{e(c['now'])}</p>
-      {f'<p class="caption" style="margin-top:5px">{e(c["source"])}</p>' if c.get('source') else ''}
+      {rescored}
+      {f'<p class="caption" style="margin-top:6px">{e(c["source"])}</p>' if c.get('source') else ''}
     </div>'''
+    order = {'wrong': 0, 'open': 1, 'stale': 2, 'confirmed': 3}
+    items = sorted(CORR, key=lambda c: (order[c.get('kind', 'wrong')], 0 if c['action'] == 'rescore' else 1))
+    n_wrong = sum(1 for c in CORR if c.get('kind') == 'wrong')
+    n_open = sum(1 for c in CORR if c.get('kind') == 'open')
+    n_score = sum(1 for c in CORR if c['action'] == 'rescore')
     return f'''<section id="corrections">
   <hr class="rule-heavy">
   <span class="eyebrow">The verification log</span>
   <h2>What was wrong</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>{e(CORR.get('preamble',''))}</p>
+    <p>Every nutrition figure the first edition attributed to a published document was re-read against that document, and the restaurants were spot-checked for whether they exist and are trading. {n_wrong} claims came back wrong, {n_score} of them badly enough to change a score. {n_open} could not be settled either way and are printed as open rather than quietly dropped.</p>
+    <p>Two of the corrections move an entry a long way. Sassool was ranked third on figures its own published nutrition sheet does not support. Bul Box was scored on sodium inferred from construction because its nutrition page was returning an error; the page works now, and the real number is more than double.</p>
   </div>
-  <div style="margin-top:24px">{''.join(block(c) for c in CORR['items'])}</div>
+  <div style="margin-top:26px">{''.join(block(c) for c in items)}</div>
 </section>'''
 
 def sec_method():
