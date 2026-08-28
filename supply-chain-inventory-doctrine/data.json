@@ -2644,5 +2644,49 @@
       "change": "Rebuilt around three strategic categories with 'Resilience' named as a first-class category, plus eight sustainability Level-1 metrics",
       "honest_caveat": "'Resilience' is a relabelling of the three pre-existing customer-facing attributes, not new measurement. There is still NO Level-1 metric for time-to-survive, single-source exposure, n-tier coverage, disruption-scenario service or inventory composition. Firms running those measures are extending beyond the standard, not implementing it."
     }
+  },
+  "ford_risk_exposure_case": {
+    "source": "Simchi-Levi, Schmidt, Wei et al., INFORMS Wagner Prize presentation 2014; Interfaces 45(5), 2015",
+    "network_modelled": {
+      "plants": ">50",
+      "tiers": 10,
+      "tier1_firms": 1400,
+      "tier1_sites": 4400,
+      "countries": "60+",
+      "distinct_parts": 55000,
+      "vehicles_per_year": "6m"
+    },
+    "the_finding": {
+      "sites_monitored": 1500,
+      "sites_with_material_exposure": 2600,
+      "overlap": 1100,
+      "exposed_but_unmonitored": 1500,
+      "monitored_but_low_risk": "~400",
+      "revenue_at_risk": "up to $2.5bn"
+    },
+    "impact_distribution": {
+      "no_impact": 2773,
+      "very_low": 805,
+      "low": 142,
+      "medium": 252,
+      "high": 154,
+      "very_high": 408
+    },
+    "why_it_matters": "A well-resourced supply chain function was watching substantially the wrong sites, because the allocation had been made on spend. Risk exposure turned out to be uncorrelated with procurement spend.",
+    "caveat": "The raw figures are verified; avoid the 'watching the wrong two-thirds' gloss, which the arithmetic does not support."
+  },
+  "hendricks_singhal": {
+    "source": "Hendricks & Singhal, JOM 21(5) 2003; POM 14(1) 2005; and the operating-performance study",
+    "two_day_abnormal_return": "-10.28% (N=519 glitch announcements)",
+    "three_year_BHAR": "-40.66% mean, -59.94% median (N=827); ~67% of firms underperformed their matched portfolio",
+    "equity_volatility": "+13.50% abnormal change in equity standard deviation in the year after, significant at 1%; does not revert",
+    "operating_performance": "Control-adjusted: -107% operating income, -114% return on sales, -92% return on assets; also 13.88% higher inventory growth",
+    "their_own_diagnosis_of_the_adoption_gap": "Efficiency improvement 'is an ongoing activity at most firms, so managers have developed the necessary skills to deal with it, and they know how to justify and manage resources that improve efficiency.' Nobody had those skills for resilience — stated in 2003."
+  },
+  "tohoku_deep_tier": {
+    "renesas": "supplied as much as 40% of the world's automotive microcontrollers; at least four months to restore production",
+    "merck_onahama": "the only global source of Xirallic pigment used in metallic car paint",
+    "source": "Congressional Research Service R41831, 23 May 2011",
+    "point": "Neither sat on any carmaker's tier-one risk register, because neither was a tier-one supplier."
   }
 }

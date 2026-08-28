@@ -705,9 +705,12 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
       </div>
       <div class="card tight stack stack-6">
         <div class="reg" style="color:var(--muted)">Hendricks &amp; Singhal · 2003–05</div>
-        <div style="font-size:14.5px;color:var(--ink-2)">Showed disruptions are not transient accounting events:
-          announcing one was associated with large, persistent declines in shareholder value and operating
-          performance that did not recover quickly.</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Put a number on it, fifteen years early. Announcing a
+          supply chain glitch cost <b>−10.3%</b> abnormal return over two days; over a three-year window around
+          the announcement, mean buy-and-hold abnormal return was <b>−40.7%</b> and equity volatility rose
+          <b>+13.5%</b> and did not revert. They also diagnosed the adoption problem in 2003: efficiency
+          improvement "is an ongoing activity at most firms, so managers have developed the necessary skills…
+          and they know how to justify and manage resources" for it. Nobody had those skills for resilience.</div>
       </div>
     </div>
   </div>
@@ -910,7 +913,10 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
   <figcaption>The buffer was in the wrong place because the map stopped too early. Firms had dual-sourced their tier ones
     and still went down, because both tier ones bought the same part from the same tier two, who bought from a single
     tier three. <b>Correlation the map could not show</b> is why <em>n</em>-tier visibility became a coverage KPI rather
-    than a project.</figcaption>
+    than a project. Tōhoku had already demonstrated it in 2011: Renesas supplied as much as <b>40% of the world's
+    automotive microcontrollers</b> and needed at least four months to restore production, and Merck's Onahama
+    plant was the <b>only global source</b> of the Xirallic pigment used in metallic car paint. Neither sat on any
+    carmaker's tier-one risk register, because neither was a tier-one supplier.</figcaption>
 </figure>
   </div>
 
@@ -1231,6 +1237,36 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
     program run once per single-node failure; TTS is the same program with the duration turned into a decision
     variable and maximised.</figcaption>
 </figure>
+
+  <div class="card" style="margin-top:20px;border-left:2px solid var(--era-3)">
+    <div class="reg" style="color:var(--era-3);margin-bottom:12px">What happened when Ford actually ran the numbers</div>
+    <p style="font-size:15px;color:var(--ink-2);margin:0 0 14px">This is not a thought experiment. Ford modelled its
+      own network — more than 50 plants, ten tiers, 1,400 tier-one firms operating 4,400 sites across 60-plus
+      countries, 55,000 distinct parts — and compared what the risk model flagged against what the company was
+      already watching.</p>
+    <div class="hstats" style="border:1px solid var(--rule);border-radius:3px;overflow:hidden">
+      <div class="hstat" style="padding:16px 18px">
+        <div class="v">1,500</div><div class="l">supplier sites Ford was monitoring</div>
+      </div>
+      <div class="hstat" data-era="2" style="padding:16px 18px">
+        <div class="v">2,600</div><div class="l">sites the model found carrying material exposure</div>
+      </div>
+      <div class="hstat" style="padding:16px 18px">
+        <div class="v">1,100</div><div class="l">of those already being monitored — the overlap</div>
+      </div>
+      <div class="hstat" data-era="2" style="padding:16px 18px">
+        <div class="v">$2.5<span class="u">bn</span></div><div class="l">revenue at risk across the exposed set</div>
+      </div>
+    </div>
+    <p style="font-size:15px;color:var(--ink-2);margin:14px 0 0">Read the arithmetic. <b>1,500 materially exposed
+      sites were not being monitored at all</b>, and around 400 of the sites that <em>were</em> being watched
+      turned out to be low-risk. The effort was real, the team was serious, and the attention was landing in
+      substantially the wrong places — which nobody could have known without running the model, because the
+      allocation had been made on spend. The impact distribution is what you would expect once you see it:
+      2,773 sites showed no impact at all, while 408 showed very high impact.</p>
+    <p style="font-size:13.5px;color:var(--muted);font-family:var(--mono);margin:12px 0 0;line-height:1.5">
+      Source: Simchi-Levi et al., INFORMS Wagner Prize presentation, 2014; Interfaces 45(5), 2015.</p>
+  </div>
 
   <div class="cards c3" style="margin-top:22px">
     <div class="fw" style="--era-1:var(--era-3)">
