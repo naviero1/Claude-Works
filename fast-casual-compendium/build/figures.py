@@ -254,6 +254,54 @@ _vrows.sort(key=lambda r: -r['jump'])
 F['veg_sodium'] = dict(n=len(_vrows), n_up=sum(1 for r in _vrows if r['jump'] > 0),
                        median_jump=st.median([r['jump'] for r in _vrows]), rows=_vrows[:5])
 
+# why r(health, flavor) is near zero: decompose the covariance by criterion
+_mf = st.mean([d['FLAVOR'] for d in D])
+F['cov_decomp'] = []
+for _c in CRIT:
+    _xs = [d[_c] for d in D]; _mx = st.mean(_xs)
+    _w = 0.7 if _c == 'SUG' else 1.0
+    F['cov_decomp'].append(dict(crit=_c, contrib=_w/6.7*sum((a-_mx)*(b-_mf) for a, b in zip(_xs, [d['FLAVOR'] for d in D]))/len(D)))
+F['cov_decomp'].sort(key=lambda r: r['contrib'])
+def _health_without(d, drop):
+    ks = [c for c in CRIT if c not in drop]
+    t = sum(0.7 if c == 'SUG' else 1.0 for c in ks)
+    return sum((0.7 if c == 'SUG' else 1.0)*d[c] for c in ks)/t
+F['r_hf_variants'] = {name: pear([_health_without(d, drop) for d in D], [d['FLAVOR'] for d in D])
+                      for name, drop in [('all', ()), ('no_kidney', ('KID',)),
+                                         ('no_gut', ('GUT',)), ('no_kidney_no_gut', ('KID', 'GUT'))]}
+
+# nobody publishes nutrition for food that meets fire
+_cooked = [d for d in D if d['prep'] in ('grilled', 'stewed', 'steamed')]
+_assembled = [d for d in D if d['prep'] in ('assembled', 'raw')]
+F['verified_by_prep'] = dict(
+    n_cooked=len(_cooked),
+    n_cooked_verified=sum(1 for d in _cooked if d['data'] in ('PUBLISHED', 'PARTIAL')),
+    n_assembled=len(_assembled),
+    n_assembled_verified=sum(1 for d in _assembled if d['data'] in ('PUBLISHED', 'PARTIAL')))
+_pub = [d for d in _assembled if d['data'] in ('PUBLISHED', 'PARTIAL')]
+_est = [d for d in _assembled if d['data'] == 'ESTIMATED']
+F['tier_controlled'] = dict(
+    n_pub=len(_pub), n_est=len(_est),
+    flavor_gap=st.mean([d['FLAVOR'] for d in _pub]) - st.mean([d['FLAVOR'] for d in _est]),
+    sodium_gap=st.mean([d['sodium'] for d in _pub]) - st.mean([d['sodium'] for d in _est]),
+    health_gap=st.mean([d['health'] for d in _pub]) - st.mean([d['health'] for d in _est]),
+    raw_flavor_gap=F['tiers']['PUBLISHED']['flavor'] - F['tiers']['ESTIMATED']['flavor'],
+    raw_sodium_gap=F['tiers']['PUBLISHED']['sodium'] - F['tiers']['ESTIMATED']['sodium'])
+
+# what if the gut criterion were scored on fiber instead of ferments?
+_mxf = max(d['fiber'] for d in D)
+def _h_fiber(d):
+    g = min(10.0, d['fiber']/_mxf*10)
+    return (d['KID']+d['LIV']+d['MUS']+g+d['ENE']+d['INF']+0.7*d['SUG'])/6.7
+_old = sorted(D, key=lambda d: -d['overall'])
+_new = sorted(D, key=lambda d: -((_h_fiber(d)*6.7 + d['FLAVOR']*0.5 + d['COST']*0.5)/7.7))
+F['gut_fiber_swap'] = dict(
+    mean_move=st.mean([abs(_old.index(d)-_new.index(d)) for d in D]),
+    max_move=max(abs(_old.index(d)-_new.index(d)) for d in D),
+    movers=[dict(name=d['restaurant'], fiber=d['fiber'], gut=d['GUT'],
+                 was=_old.index(d)+1, now=_new.index(d)+1)
+            for d in sorted(D, key=lambda d: -abs(_old.index(d)-_new.index(d)))[:5]])
+
 # coverage: what the first edition's sample over- and under-weights
 _cu = defaultdict(list)
 for d in D: _cu[d['cuisine']].append(d)

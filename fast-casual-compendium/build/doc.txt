@@ -44,7 +44,7 @@ Each of these holds across the whole set rather than at one restaurant, each sur
 
 ### Every dish over $17 is beaten by a cheaper one
 Only 4 dishes on this list are efficient — meaning nothing cheaper is also as healthy. They are Chopt at $10.79, DICED at $10.95, Pokeworks at $16.00, Poke Bros. at $17.00. All 30 dishes priced above $17.00 are matched or beaten by something cheaper. Chengdu 7 charges $36.95 for a health score of 5.4; Chopt scores 6.5 for $10.79 — $26.16 less for the same or better.
-What to doTreat $17.00 as a ceiling. Above it you are buying something other than nutrition.$31.17saved on a week, for the same coverage
+What to doTreat $17.00 as a ceiling. Above it you are buying something other than nutrition.$31.17saved on a week, with better coverage
 
 ### The cheap week covers more than the expensive one
 Five dinners chosen as the top-ranked dishes cost $93.10 and bottom out at 7.3 / 10 on their weakest criterion. Five chosen as the cheapest that still clear that bar cost $61.93 — and bottom out at 7.9. The cheap week is not merely as good as the expensive one. It covers more, for $31.17 less.
@@ -59,7 +59,7 @@ DICED’s lentil-base bowl with grilled chicken is $10.95 for 57 g of protein 
 What to doIf you order one thing off this list, order that.+572 mgwhat flavor actually costs
 
 ### Flavor is bought with salt, not with fat
-The 22 dishes scoring 7.5 or better on flavor carry +572 mg more sodium than the 14 scoring 5.5 or worse, and only +2.0 g more saturated fat. It also explains what price is really buying: control for sodium and the price–flavor correlation falls from +0.41 to +0.30. A third of what money appears to buy in flavor is salt.
+The 22 dishes scoring 7.5 or better on flavor carry +572 mg more sodium than the 14 scoring 5.5 or worse, and only +2.0 g more saturated fat. It also explains what price is really buying: control for sodium and the price–flavor correlation falls from +0.41 to +0.30 — 26% of what money appears to buy in flavor is salt.
 What to doWatch the sauce, the base and the cure. Stop watching the olive oil and the avocado.1.44points, the spread inside one restaurant
 
 ### Which dish you order beats where you order it
@@ -320,6 +320,14 @@ So flavor in this set is bought mainly with salt, not with fat, and the first ed
 #### Read the last two columns together
  
 Salt is what flavor costs. It is not the only way a cuisine loses the health column. Korean, Sichuan and Vietnamese kitchens sit high on flavor and low on health entirely on sodium — their saturated fat is unremarkable. Caribbean and Mexican kitchens lose it a different way, on 11.0 g and 10.7 g of saturated fat against a set median near 5.0, and they do not get leading flavor scores in exchange. Those are the two failure modes, and only one of them buys you anything.
+ 
+
+ 
+ 
+
+#### Why the set-level correlation is nearly zero
+ 
+It is not that health and flavor are unrelated. It is that two criteria pull in opposite directions and very nearly cancel. Decompose the covariance and kidney contributes −0.31 while gut contributes +0.28 — the salty, fermented kitchens lose on one exactly as fast as they win on the other. Take the kidney criterion out and health correlates +0.12 with flavor; take gut out instead and it goes to −0.31. The flat headline number is an artifact of the model's own weighting, not a fact about food.
  
 
  
@@ -600,9 +608,7 @@ Rewards a cheap meal and good protein value together. Ignores portion size, whic
 ## How much of this is measured
  
  
-7 of the 60 entries are built from a chain's own published nutrition documents — 2 more than the first edition claimed, because Chopt and Sweetgreen both publish nutrition the first edition did not consult. 2 are partial. The other 51 are reasoned from how the dish is put together, and that reasoning leaves fingerprints: 46 of them land on a round multiple of 50 mg of sodium and 42 on a multiple of 20 calories. Real nutrition panels do not do that. The published entries here read 380, 400, 415, 542, 575, 775 and 880 calories.
- 
-The gap between the tiers is not small, and it is the most important caveat in this document:
+7 of the 60 entries are built from a chain’s own published nutrition documents — 2 more than the first edition claimed, because Chopt and Sweetgreen both publish figures it never consulted. 2 are partial. The other 51 are reasoned from how the dish is put together, and that reasoning leaves fingerprints: 46 of them land on a round multiple of 50 mg of sodium and 42 on a multiple of 20 calories. Real nutrition panels do not do that. The published entries here read 380, 400, 415, 542, 575, 775 and 880 calories.
  
  
 | Confidence tier | Entries | Mean health | Mean sodium mg | Mean flavor | Mean price | 
@@ -612,9 +618,13 @@ The gap between the tiers is not small, and it is the most important caveat in t
  
  
 
-#### Read that table as a warning, not a result
+#### The gap in that table is not what it looks like
  
-Entries built from published data score 0.95 points higher on health and carry 482 mg less sodium than estimated ones. Some of that is real — the chains that publish nutrition are exactly the build-your-own bowl chains whose format permits a low-sodium build. But some of it is estimation, and an estimator who does not know a number reaches for a plausible restaurant figure, which for sodium is high. The safest reading is that the published entries are accurate and the estimated ones are directionally right and individually soft. Where a dish's rank matters to you, the entry tells you which kind it is.
+Read naively, published entries carry 482 mg less sodium than estimated ones and score 1.35 lower on flavor. That reads like an estimator who reaches for a high, dull number when they do not know one. It is not. Every one of the 9 entries with published or partial data is an assembled bowl or a plate of raw fish. Not one of the 36 dishes here that meets heat — grilled, stewed or steamed — rests on a published number. Nobody publishes nutrition for food cooked to order over fire, so the published tier and the bowl-chain tier are the same tier.
+ 
+Control for that and the apparent bias mostly disappears. Compare only the assembled and raw dishes with each other — 9 verified against 15 estimated, same format — and the flavor gap collapses to +0.01 and the sodium gap actually reverses to -136 mg. The estimator was not systematically pessimistic. The sample was systematically narrow.
+ 
+Which leaves the caveat in a more useful place. Trust the ranking’s treatment of bowls, salads and raw fish, because that is where the real numbers are. Treat every grilled, stewed and steamed entry as a construction estimate that no restaurant has confirmed — and note that this edition’s largest corrections, Sassool and El Cuscatleco, both came from exactly that group.
  
 
  
@@ -643,6 +653,7 @@ Wastyk et al., Cell, August 2021.
 | Udupi Cafe — Royal South Indian thali | 14 g | 10.0 | 
 | Bulkogi — Create Your Own bowl with a kimchi side | 8 g | 9.4 | 
 | Sassool — Chicken kabob with labneh and three cold salads | 3 g | 7.9 | 
+It is not a small choice. Score the gut column on fiber instead of ferments, change nothing else, and the average dish moves 4.9 places and the furthest moves 17: Sassool 31st to 48th, Chipotle 28th to 12th, Thai 54 12th to 27th. One line of an unstated rubric is worth more to a dish’s position than most of the arithmetic above it.
 
 ### The kidney criterion stops measuring at 2,000 mg
 It runs linearly from 350 mg to 2,000 and then floors, so every dish past that point scores zero and none can be told apart. This edition produced its own demonstration. Chosun Ok’s stew was corrected twice: first up to about 4,000 mg, once the 1 lb kimchi side was counted at USDA’s 498 mg per 100 g, and then back down to 1,700 mg when the kimchi side turned out not to exist on the menu at all. The first correction nearly doubled the dish’s sodium and the kidney criterion did not move at all — it was already at zero. Only the second correction, which brought the figure back under the ceiling, changed anything. A scale that cannot tell 2,100 mg from 4,000 is not measuring the thing it is named for at the end of its range that matters most.

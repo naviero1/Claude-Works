@@ -16639,6 +16639,98 @@
    }
   ]
  },
+ "cov_decomp": [
+  {
+   "crit": "KID",
+   "contrib": -0.30967412935323374
+  },
+  {
+   "crit": "LIV",
+   "contrib": -0.1414925373134328
+  },
+  {
+   "crit": "ENE",
+   "contrib": -0.04082587064676616
+  },
+  {
+   "crit": "MUS",
+   "contrib": -0.016611940298507443
+  },
+  {
+   "crit": "SUG",
+   "contrib": -0.01227960199004975
+  },
+  {
+   "crit": "INF",
+   "contrib": 0.0692835820895522
+  },
+  {
+   "crit": "GUT",
+   "contrib": 0.28147512437810934
+  }
+ ],
+ "r_hf_variants": {
+  "all": -0.11863798802245351,
+  "no_kidney": 0.11818483075141024,
+  "no_gut": -0.30635318201660383,
+  "no_kidney_no_gut": -0.12489244216330522
+ },
+ "verified_by_prep": {
+  "n_cooked": 36,
+  "n_cooked_verified": 0,
+  "n_assembled": 24,
+  "n_assembled_verified": 9
+ },
+ "tier_controlled": {
+  "n_pub": 9,
+  "n_est": 15,
+  "flavor_gap": 0.013333333333333641,
+  "sodium_gap": -136.0,
+  "health_gap": 0.23666666666666636,
+  "raw_flavor_gap": -1.348739495798319,
+  "raw_sodium_gap": -481.78431372549016
+ },
+ "gut_fiber_swap": {
+  "mean_move": 4.866666666666666,
+  "max_move": 17,
+  "movers": [
+   {
+    "name": "Sassool",
+    "fiber": 3,
+    "gut": 7.9,
+    "was": 31,
+    "now": 48
+   },
+   {
+    "name": "Chipotle",
+    "fiber": 17,
+    "gut": 1.7,
+    "was": 28,
+    "now": 12
+   },
+   {
+    "name": "Thai 54",
+    "fiber": 8,
+    "gut": 7.9,
+    "was": 12,
+    "now": 27
+   },
+   {
+    "name": "Taste Vietnamese",
+    "fiber": 7,
+    "gut": 7.3,
+    "was": 5,
+    "now": 19
+   },
+   {
+    "name": "CAVA",
+    "fiber": 27,
+    "gut": 6.8,
+    "was": 22,
+    "now": 8
+   }
+  ]
+ },
  "coverage": [
   {
    "name": "US bowl chain",

@@ -132,7 +132,7 @@ def sec_findings():
        f"{money(fr['beater']['price'])} &mdash; {money(fr['gap'])} less for the same or better.",
        f"Treat {money(fr['cutoff'])} as a ceiling. Above it you are buying something other than nutrition."),
 
-      ('f-money', money(saving), 'saved on a week, for the same coverage',
+      ('f-money', money(saving), 'saved on a week, with better coverage',
        'The cheap week covers more than the expensive one',
        f"Five dinners chosen as the top-ranked dishes cost {money(wn['cost'])} and bottom out at {wn['floor']:.1f}&#8202;/&#8202;10 on "
        f"their weakest criterion. Five chosen as the cheapest that still clear that bar cost {money(wc['cost'])} &mdash; and bottom out "
@@ -162,7 +162,8 @@ def sec_findings():
        f"The {fs['n_hi']} dishes scoring 7.5 or better on flavor carry {fs['na_hi']-fs['na_lo']:+,.0f}&#8202;mg more sodium than the "
        f"{fs['n_lo']} scoring 5.5 or worse, and only {fs['sf_hi']-fs['sf_lo']:+.1f}&#8202;g more saturated fat. It also explains what "
        f"price is really buying: control for sodium and the price&ndash;flavor correlation falls from "
-       f"{F['r_price_flavor']:+.2f} to {F['partial_price_flavor']:+.2f}. A third of what money appears to buy in flavor is salt.",
+       f"{F['r_price_flavor']:+.2f} to {F['partial_price_flavor']:+.2f} &mdash; "
+       f"{(1 - F['partial_price_flavor']/F['r_price_flavor'])*100:.0f}% of what money appears to buy in flavor is salt.",
        'Watch the sauce, the base and the cure. Stop watching the olive oil and the avocado.'),
 
       ('f-flav', f"{F['within_between']['within']:.2f}", 'points, the spread inside one restaurant',
@@ -382,6 +383,11 @@ def sec_flavor():
     <p style="margin-top:6px">Salt is what flavor costs. It is not the only way a cuisine loses the health column. Korean, Sichuan and Vietnamese kitchens sit high on flavor and low on health entirely on sodium &mdash; their saturated fat is unremarkable. Caribbean and Mexican kitchens lose it a different way, on <strong class="num">{max(c['satfat'] for c in F['cuisines']):.1f}&#8202;g</strong> and <strong class="num">{sorted((c['satfat'] for c in F['cuisines']), reverse=True)[1]:.1f}&#8202;g</strong> of saturated fat against a set median near <span class="num">{st.median([c['satfat'] for c in F['cuisines']]):.1f}</span>, and they do not get leading flavor scores in exchange. Those are the two failure modes, and only one of them buys you anything.</p>
   </div>
 
+  <div class="callout">
+    <h4>Why the set-level correlation is nearly zero</h4>
+    <p style="margin-top:6px">It is not that health and flavor are unrelated. It is that two criteria pull in opposite directions and very nearly cancel. Decompose the covariance and <strong>kidney contributes {r2(F['cov_decomp'][0]['contrib'])} while gut contributes {r2(F['cov_decomp'][-1]['contrib'])}</strong> &mdash; the salty, fermented kitchens lose on one exactly as fast as they win on the other. Take the kidney criterion out and health correlates <span class="num">{r2(F['r_hf_variants']['no_kidney'])}</span> with flavor; take gut out instead and it goes to <span class="num">{r2(F['r_hf_variants']['no_gut'])}</span>. The flat headline number is an artifact of the model's own weighting, not a fact about food.</p>
+  </div>
+
   <h3 style="margin-top:44px">The market rate for a flavor point</h3>
   <p class="small measure" style="margin-top:8px">Regress flavor on sodium across all {len(D)} dishes and the exchange rate is <strong class="num">{F['flavor_price']['mg_per_point']:,.0f}&#8202;mg</strong> per point (r&nbsp;=&nbsp;{r2(F['flavor_price']['r'])}). That is the going price of taste on this list. {len(F['flavor_bargains'])} dishes beat it by more than a full point &mdash; and <strong>{F['flavor_bargain_grilled']} of those {len(F['flavor_bargains'])} are grilled</strong>. This is the first edition's thesis, stated as a number rather than an assertion: char, acid and aromatics are how a kitchen buys flavor without paying in salt.</p>
   {bargains}
@@ -497,30 +503,49 @@ def sec_criteria():
 </section>'''
 
 def sec_confidence():
-    T = F['tiers']; rt = F['round_tell']
-    n_retier = sum(1 for c in json.load(open('corrections_v1.json')) if c.get('retier') == 'PUBLISHED')
+    T = F['tiers']; rt = F['round_tell']; V = F['verified_by_prep']; TC = F['tier_controlled']
+    n_retier = sum(1 for c in CORR if c.get('retier') == 'PUBLISHED') if CORR else 0
     _pc = sorted(d['cal'] for d in D if d['data'] == 'PUBLISHED')
     pub_cals = ', '.join(str(c) for c in _pc[:-1]) + ' and ' + str(_pc[-1])
-    rows = [[f'<td><span class="rest">{k.title()}</span></td>',
+    rows = [[f'<td><span class="rest">{e(k.title())}</span></td>',
              f'<td class="n num">{v["n"]}</td>',
              f'<td class="n score">{v["health"]:.2f}</td>',
              f'<td class="n num">{v["sodium"]:,.0f}</td>',
              f'<td class="n score">{v["flavor"]:.2f}</td>',
              f'<td class="n money">{money(v["price"])}</td>'] for k, v in T.items()]
-    return f'''<section id="confidence">
-  <hr class="rule-heavy">
-  <span class="eyebrow">Before you trust a number</span>
-  <h2>How much of this is measured</h2>
-  <div class="measure stack" style="margin-top:16px">
-    <p>{T['PUBLISHED']['n']} of the {len(D)} entries are built from a chain's own published nutrition documents &mdash; {n_retier} more than the first edition claimed, because Chopt and Sweetgreen both publish nutrition the first edition did not consult. {T['PARTIAL']['n']} are partial. The other {T['ESTIMATED']['n']} are reasoned from how the dish is put together, and that reasoning leaves fingerprints: {rt['sodium']} of them land on a round multiple of 50&#8202;mg of sodium and {rt['cal']} on a multiple of 20 calories. Real nutrition panels do not do that. The published entries here read {pub_cals} calories.</p>
-    <p>The gap between the tiers is not small, and it is the most important caveat in this document:</p>
-  </div>
-  {table(['Confidence tier', '~Entries', '~Mean health', '~Mean sodium mg', '~Mean flavor', '~Mean price'], rows)}
-  <div class="callout warn">
-    <h4>Read that table as a warning, not a result</h4>
-    <p style="margin-top:6px">Entries built from published data score {T['PUBLISHED']['health']-T['ESTIMATED']['health']:.2f} points higher on health and carry {T['ESTIMATED']['sodium']-T['PUBLISHED']['sodium']:,.0f}&#8202;mg less sodium than estimated ones. Some of that is real &mdash; the chains that publish nutrition are exactly the build-your-own bowl chains whose format permits a low-sodium build. But some of it is estimation, and an estimator who does not know a number reaches for a plausible restaurant figure, which for sodium is high. <strong>The safest reading is that the published entries are accurate and the estimated ones are directionally right and individually soft.</strong> Where a dish's rank matters to you, the entry tells you which kind it is.</p>
-  </div>
-</section>'''
+    return (
+      '<section id="confidence">\n'
+      '  <hr class="rule-heavy">\n'
+      '  <span class="eyebrow">Before you trust a number</span>\n'
+      '  <h2>How much of this is measured</h2>\n'
+      '  <div class="measure stack" style="margin-top:16px">\n'
+      f'    <p>{T["PUBLISHED"]["n"]} of the {len(D)} entries are built from a chain&rsquo;s own published nutrition documents &mdash; '
+      f'{n_retier} more than the first edition claimed, because Chopt and Sweetgreen both publish figures it never consulted. '
+      f'{T["PARTIAL"]["n"]} are partial. The other {T["ESTIMATED"]["n"]} are reasoned from how the dish is put together, and that '
+      f'reasoning leaves fingerprints: {rt["sodium"]} of them land on a round multiple of 50&#8202;mg of sodium and {rt["cal"]} on a '
+      f'multiple of 20 calories. Real nutrition panels do not do that. The published entries here read {pub_cals} calories.</p>\n'
+      '  </div>\n'
+      f'  {table(["Confidence tier", "~Entries", "~Mean health", "~Mean sodium mg", "~Mean flavor", "~Mean price"], rows)}\n'
+      '  <div class="callout warn">\n'
+      '    <h4>The gap in that table is not what it looks like</h4>\n'
+      f'    <p style="margin-top:6px">Read naively, published entries carry <span class="num">{abs(TC["raw_sodium_gap"]):,.0f}&#8202;mg</span> '
+      f'less sodium than estimated ones and score <span class="num">{abs(TC["raw_flavor_gap"]):.2f}</span> lower on flavor. That reads '
+      f'like an estimator who reaches for a high, dull number when they do not know one. It is not. '
+      f'<strong>Every one of the {V["n_assembled_verified"]} entries with published or partial data is an assembled bowl or a plate '
+      f'of raw fish. Not one of the {V["n_cooked"]} dishes here that meets heat &mdash; grilled, stewed or steamed &mdash; rests on a '
+      f'published number.</strong> Nobody publishes nutrition for food cooked to order over fire, so the published tier and the '
+      f'bowl-chain tier are the same tier.</p>\n'
+      f'    <p style="margin-top:10px">Control for that and the apparent bias mostly disappears. Compare only the assembled and raw '
+      f'dishes with each other &mdash; {TC["n_pub"]} verified against {TC["n_est"]} estimated, same format &mdash; and the flavor gap '
+      f'collapses to <span class="num">{TC["flavor_gap"]:+.2f}</span> and the sodium gap actually reverses to '
+      f'<span class="num">{TC["sodium_gap"]:+,.0f}&#8202;mg</span>. The estimator was not systematically pessimistic. '
+      f'<strong>The sample was systematically narrow.</strong></p>\n'
+      '    <p style="margin-top:10px">Which leaves the caveat in a more useful place. Trust the ranking&rsquo;s treatment of bowls, '
+      'salads and raw fish, because that is where the real numbers are. Treat every grilled, stewed and steamed entry as a '
+      'construction estimate that no restaurant has confirmed &mdash; and note that this edition&rsquo;s largest corrections, '
+      'Sassool and El Cuscatleco, both came from exactly that group.</p>\n'
+      '  </div>\n'
+      '</section>')
 
 def sec_audit():
     gt, ft = F['gut_top'], F['fiber_top']
@@ -544,7 +569,13 @@ def sec_audit():
        'reader. As built it is a live-culture detector wearing a gut-health label.',
        'Wastyk et al., <em>Cell</em>, August 2021.',
        table(['Highest fiber in the set', '~Fiber', '~Gut'], grows)
-       + table(['Highest gut score in the set', '~Fiber', '~Gut'], grows2)),
+       + table(['Highest gut score in the set', '~Fiber', '~Gut'], grows2)
+       + f'<p class="small" style="margin-top:16px">It is not a small choice. Score the gut column on fiber instead of ferments, '
+         f'change nothing else, and the average dish moves <strong>{F["gut_fiber_swap"]["mean_move"]:.1f} places</strong> and the '
+         f'furthest moves {F["gut_fiber_swap"]["max_move"]}: '
+         + ', '.join(f'{e(m["name"])} {ordinal(m["was"])} to {ordinal(m["now"])}'
+                     for m in F['gut_fiber_swap']['movers'][:3])
+         + '. One line of an unstated rubric is worth more to a dish&rsquo;s position than most of the arithmetic above it.</p>'),
 
       ('The kidney criterion stops measuring at 2,000&#8202;mg',
        'It runs linearly from 350&#8202;mg to 2,000 and then floors, so every dish past that point scores zero and none can be told '
