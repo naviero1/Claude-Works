@@ -251,7 +251,7 @@ Changing one thing about an order at the same restaurant. The last column is wha
 | Abol Ethiopian — instead of vegetarian combo with telba shiro | Shiro wot alone — Ground chickpea stew; high plant protein | −470 | -12 g | -340 | -0.94 | 
 | Bonjour Banh Mi — instead of grilled chicken vermicelli plate | Grilled pork rolls — Steamed rice paper, not fried | −470 | -13 g | -280 | +0.36 | 
 | Udupi Cafe — instead of royal south indian thali | Plain dosai with sambar — Less starch, less protein | −450 | -10 g | -230 | -0.02 | 
-| Chipotle — instead of chicken salad with pinto beans and guacamole | Same salad without guacamole — 240 cal and 385 mg lighter; blander still | −385 | -3 g | -240 | +0.49 | 
+| Chipotle — instead of chicken salad with pinto beans and guacamole | Same salad without guacamole — 230 cal and 370 mg lighter; blander still | −370 | -2 g | -230 | +0.49 | 
 | Thai 54 — instead of nam tok beef with spicy papaya salad | Lao papaya salad on its own — Contains pla ra — genuine fermented fish, served cold | −350 | -36 g | -290 | -1.25 | 
 | Abol Ethiopian — instead of vegetarian combo with telba shiro | Veggie Combo alone — Four stews and salad; no flaxseed | −350 | -10 g | -240 | -0.30 | 
 | Udupi Cafe — instead of royal south indian thali | Uthappam with onion and chilli — Thicker pancake; more vegetables on top | −320 | -8 g | -150 | -0.03 | 
@@ -335,7 +335,7 @@ That is worth knowing on its own. It is also the clearest evidence in this docum
  
 | Restaurant | Order this instead | Listed | Alt | Δcal | Δpro | ΔNa | 
 | Namu — instead of bibimbap with banchan ordered separately | Ban chan plates only — Kimchi and namul; vegetarian, very light | 5.58 | 6.39 | -420 | -26 | -600 | 
-| Chipotle — instead of chicken salad with pinto beans and guacamole | Same salad without guacamole — 240 cal and 385 mg lighter; blander still | 6.13 | 6.62 | -240 | -3 | -385 | 
+| Chipotle — instead of chicken salad with pinto beans and guacamole | Same salad without guacamole ⚑ — 230 cal and 370 mg lighter; blander still | 6.13 | 6.62 | -230 | -2 | -370 | 
 | Bonjour Banh Mi — instead of grilled chicken vermicelli plate | Grilled pork rolls — Steamed rice paper, not fried | 5.29 | 5.65 | -280 | -13 | -470 | 
 | Thai 54 — instead of nam tok beef with spicy papaya salad | Larb chicken — Poached, no oil at all; catering menu only | 7.02 | 7.25 | -90 | -4 | -200 | 
 | Bulkogi — instead of create your own bowl with a kimchi side | Tofu bulgogi, spring mix base — Plant protein | 6.28 | 6.33 | -120 | -11 | -200 | 

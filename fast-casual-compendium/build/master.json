@@ -1728,14 +1728,15 @@
   "alternatives": [
    {
     "text": "Same salad without guacamole \u25b2 240 cal and 385 mg lighter; blander still",
-    "cal": 335,
-    "protein": 41,
-    "sodium": 670,
+    "cal": 345,
+    "protein": 42,
+    "sodium": 685,
     "score": 6.62,
     "name": "Same salad without guacamole",
-    "change": "240 cal and 385 mg lighter; blander still",
+    "change": "230 cal and 370 mg lighter; blander still",
     "avoid": false,
-    "beats_flag": true
+    "beats_flag": true,
+    "corrected": true
    },
    {
     "text": "Cauliflower rice bowl 4 g fiber for 60 cal, keeps the bowl format",

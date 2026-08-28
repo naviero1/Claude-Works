@@ -368,6 +368,9 @@ def sec_flavor():
   {table(['Dish', '~Flavor', '~Health', '~Sodium mg', '~Price'], brrows)}
 </section>'''
 
+ALT_FLAG = ' <span class="flag" title="figures corrected in this edition">&#9873;</span>'
+
+
 def sec_swaps():
     n_lighter = sum(1 for b in F['beats'] if b['alt']['cal'] < b['rec']['cal'])
     n_lessna  = sum(1 for b in F['beats'] if b['alt']['sodium'] < b['rec']['sodium'])
@@ -378,7 +381,7 @@ def sec_swaps():
         r = b['rec']; a = b['alt']
         rows.append([
             f'<td><span class="rest">{e(r["restaurant"])}</span><span class="sub">instead of {e(r["dish"]).lower()}</span></td>',
-            f'<td><strong>{e(a["name"])}</strong><span class="sub">{e(a["change"])}</span></td>',
+            f'<td><strong>{e(a["name"])}</strong>{ALT_FLAG if a.get("corrected") else ""}<span class="sub">{e(a["change"])}</span></td>',
             f'<td class="n score">{r["overall"]:.2f}</td>',
             f'<td class="n score hi">{a["score"]:.2f}</td>',
             f'<td class="n num">{a["cal"]-r["cal"]:+,}</td>',
