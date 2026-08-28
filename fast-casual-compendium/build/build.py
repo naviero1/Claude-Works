@@ -430,18 +430,18 @@ def sec_criteria():
        'Full marks at 350&#8202;mg, zero at 2,000. Linear between, which means a dish at 2,100&#8202;mg and one at 3,000&#8202;mg both score zero.', False),
       ('Liver', '×1.0', 'Saturated fat 65%, calorie load 35%.',
        'LIV = 0.65 × clamp( 10 × (16.5 − satfat_g) / 14.5 )\n    + 0.35 × clamp( 10 × (1000 − cal) / 500 )',
-       'Recovered by fitting the published scores; reproduces them to within 0.18 on average.', False),
+       'The only criterion whose anchors had to be fitted rather than read off. Reproduces the published scores with a mean deviation of 0.13.', False),
       ('Muscle', '×1.0', 'Protein density 70%, absolute protein 30%.',
        'MUS = 0.7 × clamp( 10 × (perKcal − 2) / 7 )\n    + 0.3 × clamp( 10 × (protein_g − 20) / 25 )\n  where perKcal = protein_g / (cal/100)',
        'Rewards protein per calorie first, so a light dish with 30&#8202;g beats a heavy one with 40.', False),
       ('Gut', '×1.0', 'Live ferments 60%, plant-type count 40%.',
-       'GUT = 0.6 × (live-ferment ladder, 0–4)\n    + 0.4 × (plant types, capped at 19)',
-       'A judgement, not a calculation. Vinegar pickles score zero. <strong>Fiber carries no weight at all</strong> &mdash; see the audit below.', True),
+       'GUT ≈ 0.6 × (live-ferment ladder, 0–4)\n    + 0.4 × (plant types, capped at 19)',
+       'A judgement, not a calculation &mdash; the ladder above is the smallest one consistent with all 60 published scores, not a formula the first edition states. Vinegar pickles score zero. <strong>Fiber carries no weight at all</strong> &mdash; see the audit below.', True),
       ('Energy', '×1.0', 'Refined-carb load, fiber, protein presence.', 'ENE — rubric, 0–10',
        f'A glycemic proxy assembled by hand. It correlates with fiber at {F["r_fiber_ene"]:+.2f}, which is the closest thing to a check available on it.', True),
       ('Inflammation', '×1.0', 'Omega-3 60%, plant and herb diversity 40%.',
-       'INF = 0.6 × (omega-3 ladder, 0–3)\n    + 0.4 × (plant and herb diversity, 0–7)',
-       'The omega-3 ladder does not distinguish plant ALA from marine EPA and DHA, which overstates flaxseed.', True),
+       'INF ≈ 0.6 × (omega-3 ladder, 0–3)\n    + 0.4 × (plant and herb diversity, 0–7)',
+       'Inferred, like the gut ladder, rather than recovered exactly. The omega-3 ladder does not distinguish plant ALA from marine EPA and DHA, which overstates flaxseed &mdash; see the audit.', True),
       ('Sugar', '×0.7', 'Total sugars.', 'SUG = clamp( 10 × (22 − sugar_g) / 19 )',
        'Full marks at 3&#8202;g, zero at 22. Uses <em>total</em> sugars, so fruit and plain dairy are penalised exactly like added sugar.', False),
       ('Flavor', '×0.5', 'Six components, minus what the health edit removes.',
@@ -463,7 +463,7 @@ def sec_criteria():
   <h2>Nine criteria, written out</h2>
   <div class="measure stack" style="margin-top:16px">
     <p>The first edition described its criteria in prose. This one prints them as functions, because a scoring model you cannot recompute is an opinion wearing a number's clothes.</p>
-    <p>Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the first edition's own published macros back through them returns every one of its {len(D)} printed overall scores to within 0.10, with a mean deviation of 0.023. Three &mdash; gut, energy and inflammation &mdash; are human judgements on a rubric, and no formula will recover them. Those three are marked.</p>
+    <p>Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the first edition's own published macros back through them returns every one of its {len(D)} printed overall scores to within 0.10, with a mean deviation of 0.023. Three &mdash; gut, energy and inflammation &mdash; are human judgements on a rubric, and no formula recovers them. Where a shape can be inferred from the pattern of scores it is given with an approximation sign; where it cannot, the criterion is simply marked as judged.</p>
     <p class="caption">Composite: <span class="num">health = (KID + LIV + MUS + GUT + ENE + INF + 0.7×SUG) / 6.7</span>, then <span class="num">overall = (health×6.7 + FLAVOR×0.5 + COST×0.5) / 7.7</span>. Flavor and cost at half weight cannot rescue an unhealthy dish; they reorder the middle of the list.</p>
   </div>
   <div class="criteria">{cards}</div>

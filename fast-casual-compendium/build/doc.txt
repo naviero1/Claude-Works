@@ -456,7 +456,7 @@ The omissions are more telling than the concentrations. This is a document writt
  
 The first edition described its criteria in prose. This one prints them as functions, because a scoring model you cannot recompute is an opinion wearing a number's clothes.
  
-Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the first edition's own published macros back through them returns every one of its 60 printed overall scores to within 0.10, with a mean deviation of 0.023. Three — gut, energy and inflammation — are human judgements on a rubric, and no formula will recover them. Those three are marked.
+Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the first edition's own published macros back through them returns every one of its 60 printed overall scores to within 0.10, with a mean deviation of 0.023. Three — gut, energy and inflammation — are human judgements on a rubric, and no formula recovers them. Where a shape can be inferred from the pattern of scores it is given with an approximation sign; where it cannot, the criterion is simply marked as judged.
  
 Composite: health = (KID + LIV + MUS + GUT + ENE + INF + 0.7×SUG) / 6.7, then overall = (health×6.7 + FLAVOR×0.5 + COST×0.5) / 7.7. Flavor and cost at half weight cannot rescue an unhealthy dish; they reorder the middle of the list.
  
@@ -480,7 +480,7 @@ Saturated fat 65%, calorie load 35%.
 LIV = 0.65 × clamp( 10 × (16.5 − satfat_g) / 14.5 )
  + 0.35 × clamp( 10 × (1000 − cal) / 500 )
  
-Recovered by fitting the published scores; reproduces them to within 0.18 on average.
+The only criterion whose anchors had to be fitted rather than read off. Reproduces the published scores with a mean deviation of 0.13.
  
  
 
@@ -500,10 +500,10 @@ Rewards protein per calorie first, so a light dish with 30 g beats a heavy one
  
 Live ferments 60%, plant-type count 40%.
  
-GUT = 0.6 × (live-ferment ladder, 0–4)
+GUT ≈ 0.6 × (live-ferment ladder, 0–4)
  + 0.4 × (plant types, capped at 19)
  
-A judgement, not a calculation. Vinegar pickles score zero. Fiber carries no weight at all — see the audit below. Judged, not computed.
+A judgement, not a calculation — the ladder above is the smallest one consistent with all 60 published scores, not a formula the first edition states. Vinegar pickles score zero. Fiber carries no weight at all — see the audit below. Judged, not computed.
  
  
 
@@ -521,10 +521,10 @@ A glycemic proxy assembled by hand. It correlates with fiber at +0.38, which is 
  
 Omega-3 60%, plant and herb diversity 40%.
  
-INF = 0.6 × (omega-3 ladder, 0–3)
+INF ≈ 0.6 × (omega-3 ladder, 0–3)
  + 0.4 × (plant and herb diversity, 0–7)
  
-The omega-3 ladder does not distinguish plant ALA from marine EPA and DHA, which overstates flaxseed. Judged, not computed.
+Inferred, like the gut ladder, rather than recovered exactly. The omega-3 ladder does not distinguish plant ALA from marine EPA and DHA, which overstates flaxseed — see the audit. Judged, not computed.
  
  
 

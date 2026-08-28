@@ -699,7 +699,7 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
   <h2>Nine criteria, written out</h2>
   <div class="measure stack" style="margin-top:16px">
     <p>The first edition described its criteria in prose. This one prints them as functions, because a scoring model you cannot recompute is an opinion wearing a number's clothes.</p>
-    <p>Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the first edition's own published macros back through them returns every one of its 60 printed overall scores to within 0.10, with a mean deviation of 0.023. Three &mdash; gut, energy and inflammation &mdash; are human judgements on a rubric, and no formula will recover them. Those three are marked.</p>
+    <p>Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the first edition's own published macros back through them returns every one of its 60 printed overall scores to within 0.10, with a mean deviation of 0.023. Three &mdash; gut, energy and inflammation &mdash; are human judgements on a rubric, and no formula recovers them. Where a shape can be inferred from the pattern of scores it is given with an approximation sign; where it cannot, the criterion is simply marked as judged.</p>
     <p class="caption">Composite: <span class="num">health = (KID + LIV + MUS + GUT + ENE + INF + 0.7×SUG) / 6.7</span>, then <span class="num">overall = (health×6.7 + FLAVOR×0.5 + COST×0.5) / 7.7</span>. Flavor and cost at half weight cannot rescue an unhealthy dish; they reorder the middle of the list.</p>
   </div>
   <div class="criteria"><div class="crit">
@@ -712,7 +712,7 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
       <p>Saturated fat 65%, calorie load 35%.</p>
       <pre class="formula">LIV = 0.65 × clamp( 10 × (16.5 − satfat_g) / 14.5 )
     + 0.35 × clamp( 10 × (1000 − cal) / 500 )</pre>
-      <p style="margin-top:9px">Recovered by fitting the published scores; reproduces them to within 0.18 on average.</p>
+      <p style="margin-top:9px">The only criterion whose anchors had to be fitted rather than read off. Reproduces the published scores with a mean deviation of 0.13.</p>
     </div><div class="crit">
       <div class="crit-head"><h3>Muscle</h3><span class="weight">×1.0</span></div>
       <p>Protein density 70%, absolute protein 30%.</p>
@@ -723,9 +723,9 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
     </div><div class="crit">
       <div class="crit-head"><h3>Gut</h3><span class="weight">×1.0</span></div>
       <p>Live ferments 60%, plant-type count 40%.</p>
-      <pre class="formula">GUT = 0.6 × (live-ferment ladder, 0–4)
+      <pre class="formula">GUT ≈ 0.6 × (live-ferment ladder, 0–4)
     + 0.4 × (plant types, capped at 19)</pre>
-      <p style="margin-top:9px">A judgement, not a calculation. Vinegar pickles score zero. <strong>Fiber carries no weight at all</strong> &mdash; see the audit below. <span class="judged">Judged, not computed.</span></p>
+      <p style="margin-top:9px">A judgement, not a calculation &mdash; the ladder above is the smallest one consistent with all 60 published scores, not a formula the first edition states. Vinegar pickles score zero. <strong>Fiber carries no weight at all</strong> &mdash; see the audit below. <span class="judged">Judged, not computed.</span></p>
     </div><div class="crit">
       <div class="crit-head"><h3>Energy</h3><span class="weight">×1.0</span></div>
       <p>Refined-carb load, fiber, protein presence.</p>
@@ -734,9 +734,9 @@ ul.absent li{padding:5px 0;border-bottom:1px solid var(--rule);break-inside:avoi
     </div><div class="crit">
       <div class="crit-head"><h3>Inflammation</h3><span class="weight">×1.0</span></div>
       <p>Omega-3 60%, plant and herb diversity 40%.</p>
-      <pre class="formula">INF = 0.6 × (omega-3 ladder, 0–3)
+      <pre class="formula">INF ≈ 0.6 × (omega-3 ladder, 0–3)
     + 0.4 × (plant and herb diversity, 0–7)</pre>
-      <p style="margin-top:9px">The omega-3 ladder does not distinguish plant ALA from marine EPA and DHA, which overstates flaxseed. <span class="judged">Judged, not computed.</span></p>
+      <p style="margin-top:9px">Inferred, like the gut ladder, rather than recovered exactly. The omega-3 ladder does not distinguish plant ALA from marine EPA and DHA, which overstates flaxseed &mdash; see the audit. <span class="judged">Judged, not computed.</span></p>
     </div><div class="crit">
       <div class="crit-head"><h3>Sugar</h3><span class="weight">×0.7</span></div>
       <p>Total sugars.</p>
