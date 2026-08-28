@@ -2676,6 +2676,24 @@
       "verdict": "CORRECTED",
       "correction": "RESCUE is the supplier-mapping system; the chip stockpile rule is a separate business-continuity policy (suppliers 2-6 months; Toyota's CFO put the range actually held at 1-4 months).",
       "action": "The two are now named and separated, with the figures."
+    },
+    {
+      "claim_as_originally_written": "The TTR model runs one linear program per single-node failure.",
+      "verdict": "REFUTED",
+      "correction": "The Interfaces paper states the opposite: 'The model can accommodate simultaneous disruptions in multiple supply chain nodes', which is what lets it represent a whole supplier plant or region going down at once.",
+      "action": "TTR diagram caption corrected. The error made the method look weaker than it is."
+    },
+    {
+      "claim_as_originally_written": "Chopra & Sodhi separated recurrent from disruptive risk.",
+      "verdict": "INCOMPLETE — added",
+      "correction": "They also gave the trade-off its arithmetic: the cost of n pooled resources rises with sqrt(n) while the expected cost of disruption falls as 1/n.",
+      "action": "Added to the Chopra & Sodhi card — it is the case for a second source in one line, published in 2004."
+    },
+    {
+      "claim_as_originally_written": "(missing) the accounting reckoning for DPO extension.",
+      "verdict": "ADDED — flagged as the single most directly relevant measurement change",
+      "correction": "FASB ASU 2022-04, Supplier Finance Program Obligations, effective for fiscal years beginning after 15 December 2022, requires disclosure of supplier-finance programme obligations.",
+      "action": "Added to the cash-conversion-cycle ledger row: it is what makes the DPO-extension game visible in the accounts for the first time."
     }
   ],
   "scor_standard": {
@@ -2706,7 +2724,7 @@
     },
     "the_finding": {
       "sites_monitored": 1500,
-      "sites_with_material_exposure": 2600,
+      "sites_with_material_exposure": "2,600 tier-one sites",
       "overlap": 1100,
       "exposed_but_unmonitored": 1500,
       "monitored_but_low_risk": "~400",
@@ -2721,7 +2739,8 @@
       "very_high": 408
     },
     "why_it_matters": "A well-resourced supply chain function was watching substantially the wrong sites, because the allocation had been made on spend. Risk exposure turned out to be uncorrelated with procurement spend.",
-    "caveat": "The raw figures are verified; avoid the 'watching the wrong two-thirds' gloss, which the arithmetic does not support."
+    "caveat": "The raw figures are verified; avoid the 'watching the wrong two-thirds' gloss, which the arithmetic does not support.",
+    "model_capability": "Not restricted to one node at a time — the model accommodates simultaneous multi-node disruptions."
   },
   "hendricks_singhal": {
     "source": "Hendricks & Singhal, JOM 21(5) 2003; POM 14(1) 2005; and the operating-performance study",

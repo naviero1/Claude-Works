@@ -681,8 +681,11 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
       <div class="card tight stack stack-6">
         <div class="reg" style="color:var(--muted)">Chopra &amp; Sodhi · MIT SMR · 2004</div>
         <div style="font-size:14.5px;color:var(--ink-2)">Separated <em>recurrent</em> risk (demand noise, which
-          inventory handles) from <em>disruptive</em> risk (which it mostly does not), and warned that
-          mitigation bought for one increases exposure to the other.</div>
+          inventory handles) from <em>disruptive</em> risk (which it mostly does not), and warned that mitigation
+          bought for one increases exposure to the other. They also gave the trade-off its arithmetic: the cost of
+          holding <span class="num">n</span> pooled resources rises with <b>√n</b>, while the expected cost of
+          disruption falls as <b>1/n</b>. Redundancy gets cheap faster than it gets useless — which is the case
+          for a second source in one line, published in 2004.</div>
       </div>
       <div class="card tight stack stack-6">
         <div class="reg" style="color:var(--muted)">Christopher &amp; Peck · 2004</div>
@@ -1304,9 +1307,10 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
     how long stock and alternatives keep you serving (<b>TTS</b>), and how long that node takes to come back
     (<b>TTR</b>). Where TTR exceeds TTS, the shortfall times the revenue flowing through that node is the exposure —
     a number in currency, which is what makes a buffer arguable in front of a CFO. Stated as a design rule, the whole
-    method reduces to one line: <b>TTS(j) ≥ TTR(j) for every node j</b>. Formally, TTR is an input to a linear
-    program run once per single-node failure; TTS is the same program with the duration turned into a decision
-    variable and maximised.</figcaption>
+    method reduces to one line: <b>TTS(j) ≥ TTR(j) for every node j</b>. Formally, TTR is an input to a linear program solved
+    per disruption scenario — and the model is <em>not</em> restricted to one node at a time; it accommodates
+    simultaneous failures, which is what lets it represent a whole supplier plant or a whole region going down at
+    once. TTS is the same program with the duration turned into a decision variable and maximised.</figcaption>
 </figure>
 
   <div class="card" style="margin-top:20px;border-left:2px solid var(--era-3)">
@@ -1320,7 +1324,7 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
         <div class="v">1,500</div><div class="l">supplier sites Ford was monitoring</div>
       </div>
       <div class="hstat" data-era="2" style="padding:16px 18px">
-        <div class="v">2,600</div><div class="l">sites the model found carrying material exposure</div>
+        <div class="v">2,600</div><div class="l">tier-one sites the model found carrying material exposure</div>
       </div>
       <div class="hstat" style="padding:16px 18px">
         <div class="v">1,100</div><div class="l">of those already being monitored — the overlap</div>
@@ -1357,7 +1361,7 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
         at chosen places instead of propagating. The question moved from "how much" to "where".</p>
     </div>
     <div class="fw" style="--era-1:var(--era-3)">
-      <div class="who reg">Simchi-Levi, Schmidt &amp; Wei · HBR 2014</div>
+      <div class="who reg">Simchi-Levi et al. · 2013–15, with Ford</div>
       <h4>Measure impact, not probability</h4>
       <p>You cannot estimate the annual probability of a fire at a specific plant, and pretending otherwise
         produced risk registers full of invented numbers.</p>
@@ -1697,8 +1701,8 @@ of lead-time uncertainty outweighs everything the demand term can contribute.</s
       <div class="lcell new">
         <div class="reg lab">After 2022</div>
         <div class="m">Network working capital &amp; supplier health</div>
-        <div class="f">Chain-level working capital cost; supplier financial-distress scoring</div>
-        <div class="d"><b>Why it follows:</b> A metric you can improve by moving a cost onto someone whose failure would stop your line is not measuring what it claims to measure.</div>
+        <div class="f">Chain-level working capital cost; supplier financial-distress scoring; disclosed supplier-finance obligations</div>
+        <div class="d"><b>Why it follows:</b> A metric you can improve by moving a cost onto someone whose failure would stop your line is not measuring what it claims to measure. The accounting caught up: <b>FASB ASU 2022-04</b>, effective for fiscal years beginning after 15 December 2022, requires firms to disclose their supplier-finance programme obligations — which is what makes the DPO-extension game visible in the accounts for the first time.</div>
       </div>
       <div class="lfail">
         <div class="reg lab">Exposed</div>

@@ -85,8 +85,8 @@ ROWS = [
  "Cash conversion cycle", "CCC = DIO + DSO − DPO",
  "Free cash flow, the fastest lever available to a CFO and the one most visible to investors.",
  "CCC improves when you extend payment terms — which finances your inventory on a small supplier's balance sheet at their cost of capital, not yours. The network's total financing cost rises while your metric improves. Then the supplier fails and it is your disruption.",
- "Network working capital &amp; supplier health", "Chain-level working capital cost; supplier financial-distress scoring",
- "A metric you can improve by moving a cost onto someone whose failure would stop your line is not measuring what it claims to measure."),
+ "Network working capital &amp; supplier health", "Chain-level working capital cost; supplier financial-distress scoring; disclosed supplier-finance obligations",
+ "A metric you can improve by moving a cost onto someone whose failure would stop your line is not measuring what it claims to measure. The accounting caught up: <b>FASB ASU 2022-04</b>, effective for fiscal years beginning after 15 December 2022, requires firms to disclose their supplier-finance programme obligations — which is what makes the DPO-extension game visible in the accounts for the first time."),
 
 ("Finance",
  "Supply-chain value-at-risk", "VaR = P(risk event) × monetised impact — SCOR AG.1.4, in the standard since 2012",

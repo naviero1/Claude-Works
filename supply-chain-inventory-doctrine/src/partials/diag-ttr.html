@@ -45,7 +45,8 @@
     how long stock and alternatives keep you serving (<b>TTS</b>), and how long that node takes to come back
     (<b>TTR</b>). Where TTR exceeds TTS, the shortfall times the revenue flowing through that node is the exposure —
     a number in currency, which is what makes a buffer arguable in front of a CFO. Stated as a design rule, the whole
-    method reduces to one line: <b>TTS(j) ≥ TTR(j) for every node j</b>. Formally, TTR is an input to a linear
-    program run once per single-node failure; TTS is the same program with the duration turned into a decision
-    variable and maximised.</figcaption>
+    method reduces to one line: <b>TTS(j) ≥ TTR(j) for every node j</b>. Formally, TTR is an input to a linear program solved
+    per disruption scenario — and the model is <em>not</em> restricted to one node at a time; it accommodates
+    simultaneous failures, which is what lets it represent a whole supplier plant or a whole region going down at
+    once. TTS is the same program with the duration turned into a decision variable and maximised.</figcaption>
 </figure>
