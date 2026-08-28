@@ -27,8 +27,8 @@ def scatter_price_health(D, w=760, h=440, quad_n=None):
         s.append(f'<text x="{X(gx):.1f}" y="{h-pad_b+20}" class="tick tick-x">${gx}</text>')
     m, b = linreg(xs, ys)
     s.append(f'<line x1="{X(x0):.1f}" y1="{Y(m*x0+b):.1f}" x2="{X(x1):.1f}" y2="{Y(m*x1+b):.1f}" class="fit"/>')
-    LABEL = {4:('DICED',7,4),32:('Chopt',-7,-9),16:('Guasaca',7,15),1:('Poke Bros.',9,5),
-             2:('El Cuscatleco',9,4),5:('M Sushi',-9,-9),38:('Chengdu 7',-9,-9),
+    LABEL = {4:('DICED',7,4),32:('Chopt',-7,-9),16:('Guasaca',-8,16),1:('Poke Bros.',9,5),
+             2:('El Cuscatleco',9,17),5:('M Sushi',-9,-9),38:('Chengdu 7',-9,-9),
              59:('Gifted Hand',-9,15),27:('Namu',-9,-9),30:('Udupi',-7,15)}
     for d in D:
         cls = 'pt pt-good' if (d['price'] <= 16 and d['health'] >= 6.0) else 'pt'
@@ -38,7 +38,7 @@ def scatter_price_health(D, w=760, h=440, quad_n=None):
         anchor = 'start' if dx > 0 else 'end'
         s.append(f'<text x="{X(d["price"])+dx:.1f}" y="{Y(d["health"])+dy:.1f}" class="pt-label" text-anchor="{anchor}">{esc(lab)}</text>')
     n = quad_n if quad_n is not None else sum(1 for d in D if d['price'] <= 16 and d['health'] >= 6.0)
-    s.append(f'<text x="{X(8.4):.1f}" y="{Y(8.42):.1f}" class="q-label">CHEAP AND GOOD FOR YOU &#183; {n} of {len(D)}</text>')
+    s.append(f'<text x="{X(8.4):.1f}" y="{Y(8.42):.1f}" class="q-label">CHEAP AND GOOD &#183; {n} OF {len(D)}</text>')
     s.append(f'<text x="{pad_l-40}" y="{pad_t-6}" class="axis-title">HEALTH</text>')
     s.append(f'<text x="{w-pad_r}" y="{h-6}" class="axis-title" text-anchor="end">DOORDASH PRICE</text>')
     s.append('</svg>')
