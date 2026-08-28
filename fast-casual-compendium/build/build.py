@@ -15,6 +15,7 @@ def load(name, default):
 FIND = load('findings.json', None)     # from the verification workflow
 CORR = load('corrections_v1.json', None)
 ADDS = load('additions.json', [])      # from the widening workflow
+ABSENT = load('absent.json', '')       # categories searched that came up genuinely empty
 
 e = lambda s: html.escape(str(s), quote=False)
 byname = {d['restaurant']: d for d in D}
@@ -684,37 +685,73 @@ def sec_gap():
 
 def sec_additions():
     if not ADDS: return ''
-    rows = []
-    for d in sorted(ADDS, key=lambda x: -x['overall']):
-        rows.append(f'''<tr>
-      <td><span class="rest">{e(d['restaurant'])}</span><span class="sub">{e(d['dish'])} &middot; {e(d.get('city',''))}</span></td>
-      <td><span class="sub" style="margin:0">{e(d.get('cuisine',''))}</span></td>
-      <td class="n score" style="font-weight:600">{d['overall']:.2f}</td>
-      <td class="n score">{d['health']:.1f}</td>
-      <td class="n score" style="color:var(--flavor)">{d['FLAVOR']:.1f}</td>
-      <td class="n money">{money(d['price'])}</td>
-      <td class="n num">{d['protein']}</td>
-      <td class="n num">{d['sodium']:,}</td>
-    </tr>''')
-    notes = ''.join(f'<div class="corr"><div class="corr-head"><span class="rest">{e(d["restaurant"])}</span><span class="badge badge-open">{e(d.get("cuisine",""))}</span></div>'
-                    f'<p class="small">{e(d.get("why_it_scores",""))}</p>'
-                    f'<p class="small" style="margin-top:8px;color:var(--ink-3)"><strong>Order it:</strong> {e(d.get("build",""))}</p></div>'
-                    for d in sorted(ADDS, key=lambda x: -x['overall']))
-    return f'''<section id="additions">
-  <hr class="rule-heavy">
-  <span class="eyebrow">New in this edition</span>
-  <h2>The food the first edition missed</h2>
-  <div class="measure stack" style="margin-top:16px">
-    <p>These {len(ADDS)} entries close part of the gap the previous section describes. Each was found by looking for what actually delivers in the Research Triangle in the categories the first edition skipped, each was checked for whether the restaurant exists and the dish is on its menu, and each was scored on the identical model &mdash; the six computed criteria by formula, the three rubric criteria by the same judgement the original sixty got.</p>
-    <p class="caption">All of these are estimated from menu construction, not published nutrition, and should be read at the confidence the chapter above describes. Where a DoorDash store ID could not be confirmed it is not printed rather than guessed.</p>
-  </div>
-  <div class="tablewrap"><table><thead><tr>
-    <th>Restaurant and dish</th><th>Cuisine</th><th class="n">Overall</th><th class="n">Health</th>
-    <th class="n">Flavor</th><th class="n">Price</th><th class="n">Pro</th><th class="n">Na mg</th>
-  </tr></thead><tbody>{''.join(rows)}</tbody></table></div>
-  <h3 style="margin-top:40px">Why each one is here</h3>
-  <div style="margin-top:14px">{notes}</div>
-</section>'''
+    entries = sorted(ADDS, key=lambda x: -x['overall'])
+
+    rows = ''
+    for d in entries:
+        sid = d.get('store') or ''
+        sid_html = (f'<span class="sub">DoorDash store {e(sid)}</span>' if sid
+                    else '<span class="sub dimtd">store id not confirmed</span>')
+        na_cls = 'lo' if d['sodium'] >= 1500 else ''
+        rows += (
+            '<tr>'
+            f'<td><span class="rest">{e(d["restaurant"])}</span>'
+            f'<span class="sub">{e(d["dish"])} &middot; {e(d.get("city", ""))}</span>{sid_html}</td>'
+            f'<td class="dimtd">{e(d.get("cuisine", ""))}</td>'
+            f'<td class="n score" style="font-weight:600">{d["overall"]:.2f}</td>'
+            f'<td class="n score">{d["health"]:.1f}</td>'
+            f'<td class="n score" style="color:var(--flavor)">{d["FLAVOR"]:.1f}</td>'
+            f'<td class="n money">{money(d["price"])}</td>'
+            f'<td class="n num">{d["protein"]}</td>'
+            f'<td class="n num {na_cls}">{d["sodium"]:,}</td>'
+            '</tr>')
+
+    notes = ''
+    for d in entries:
+        flav = f'<p class="small" style="margin-top:7px">{e(d.get("on_flavor", ""))}</p>' if d.get('on_flavor') else ''
+        notes += (
+            '<div class="corr">'
+            f'<div class="corr-head"><span class="corr-who">{e(d.get("cuisine", ""))}</span></div>'
+            f'<h3 style="font-size:1.02rem;margin-bottom:7px">{e(d["restaurant"])} &mdash; {e(d["dish"])}</h3>'
+            f'<p class="small">{e(d.get("why_it_scores", ""))}</p>'
+            f'{flav}'
+            f'<p class="small" style="margin-top:9px;color:var(--ink-3)">'
+            f'<strong>Order it:</strong> {e(d.get("build", ""))}</p>'
+            '</div>')
+
+    absent = ''
+    if ABSENT:
+        absent = ('<div class="callout"><h4>Categories that really are empty here</h4>'
+                  f'<p style="margin-top:6px">Searched, and not padded to fill a row. {e(ABSENT)}</p></div>')
+
+    best = entries[0]
+    place = ordinal(sum(1 for x in MERGED if x['overall'] > best['overall']) + 1)
+
+    return (
+      '<section id="additions">\n'
+      '  <hr class="rule-heavy">\n'
+      '  <span class="eyebrow">New in this edition</span>\n'
+      '  <h2>The food the first edition missed</h2>\n'
+      '  <div class="measure stack" style="margin-top:16px">\n'
+      f'    <p>These {len(entries)} entries close part of the gap the previous section describes. Each was found by asking what '
+      'actually delivers in the Research Triangle in a category the first edition skipped, each was independently checked for '
+      'whether the restaurant exists and the dish is really on its menu, and each was scored on the identical model &mdash; the '
+      'six computed criteria by formula, the three rubric criteria by the same judgement the original sixty got.</p>\n'
+      f'    <p>The best of them, {e(best["restaurant"])}&rsquo;s {e(best["dish"]).lower()} at {money(best["price"])}, scores '
+      f'{best["overall"]:.2f} &mdash; which would place it {place} in the main ranking.</p>\n'
+      '    <p class="caption">Every one of these is estimated from menu construction rather than published nutrition, and should '
+      'be read at the confidence the measurement chapter describes. Where a DoorDash store id could not be confirmed it is left '
+      'blank rather than guessed.</p>\n'
+      '  </div>\n'
+      '  <div class="tablewrap"><table><thead><tr>'
+      '<th>Restaurant and dish</th><th>Cuisine</th><th class="n">Overall</th><th class="n">Health</th>'
+      '<th class="n">Flavor</th><th class="n">Price</th><th class="n">Pro</th><th class="n">Na mg</th>'
+      f'</tr></thead><tbody>{rows}</tbody></table></div>\n'
+      f'  {absent}\n'
+      '  <h3 style="margin-top:40px">Why each one is here</h3>\n'
+      f'  <div style="margin-top:14px">{notes}</div>\n'
+      '</section>')
+
 
 def sec_corrections():
     if not CORR: return ''
