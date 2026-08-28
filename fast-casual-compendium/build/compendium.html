@@ -300,6 +300,119 @@ ul.absent .tick{color:var(--health);font-weight:700}
   .finding.finding-wide p{max-width:72ch}
 }
 
+/* ============================================================
+   Print. Letter, light palette, repeating table headers, and
+   break rules that keep a card, a chart or a correction whole.
+   ============================================================ */
+@media print{
+
+  /* the page renders in whatever theme the renderer is in; print is always light */
+  :root,:root[data-theme="dark"]{
+    --paper:#FFFFFF; --paper-2:#F3F4EE; --paper-3:#E8EAE0;
+    --ink:#14170F; --ink-2:#454C3F; --ink-3:#5E6457;
+    --rule:#CFD3C6; --rule-2:#9BA292;
+    --health:#25583B; --flavor:#7E520D; --cost:#4A5A6B; --alarm:#8A3A20;
+    --health-soft:#EDF3EF; --alarm-soft:#F8ECE7; --flavor-soft:#F6EFE1;
+  }
+
+  @page{ size:Letter; margin:14mm 13mm 16mm; }
+
+  html,body{background:#fff !important}
+  body{font-size:9.4pt; line-height:1.5}
+  .wrap{max-width:none; padding:0 0 0}
+
+  /* nothing may be clipped on paper */
+  .tablewrap,.formula,figure,pre{overflow:visible !important; max-width:none !important}
+  table{min-width:0 !important; width:100% !important; font-size:7.6pt}
+  thead{display:table-header-group}
+  tfoot{display:table-footer-group}
+  tr,img,svg{break-inside:avoid; page-break-inside:avoid}
+  tbody td{padding:4px 7px 4px 0}
+  thead th{padding:0 7px 5px 0; font-size:5.9pt}
+  tbody tr:hover{background:none}
+
+  /* keep composed blocks whole */
+  .finding,.crit,.corr,.week,.fault,figure,.callout,.tally,.toc a,.entry{
+    break-inside:avoid; page-break-inside:avoid}
+  h1,h2,h3,h4{break-after:avoid; page-break-after:avoid}
+  figcaption{break-before:avoid}
+
+  /* each chapter opens a page */
+  section#findings,section#money,section#sodium,section#flavor,section#swaps,
+  section#gap,section#additions,section#criteria,section#confidence,
+  section#audit,section#ranking,section#corrections{
+    break-before:page; page-break-before:always; margin-top:0}
+  section{margin-top:26px}
+
+  .masthead{padding-top:0}
+  h1{font-size:34pt; line-height:.95}
+  h2{font-size:17pt}
+  h3{font-size:10.5pt}
+  .lede{font-size:10.5pt}
+  .measure,.measure-wide{max-width:none}
+
+  /* two-column reading measure for long prose sections on paper */
+  .rule-heavy{height:5px}
+  .rule-mid{height:2px}
+
+  /* the responsive breakpoints key off viewport width, which on Letter is
+     ~718px of content - below every min-width the screen layout uses. Restore
+     the multi-column grids explicitly or every card stacks and the file doubles. */
+  /* Neither a two-up grid nor multi-column survives Chromium's paginator: grid
+     rows refuse to split and columns drop content outright. On paper each card
+     becomes a full-width row with its figure in a left rail, which breaks cleanly. */
+  .findings,.criteria,.faults{display:block}
+  .finding,.crit{display:block; width:auto; padding:11px 0 12px;
+    border-right:0 !important; border-left:0 !important;
+    border-bottom:1px solid var(--rule); break-inside:avoid}
+  .finding{display:grid; grid-template-columns:132px 1fr; column-gap:20px;
+    row-gap:6px; align-items:start; align-content:start}
+  .finding-num{grid-column:1; grid-row:1 / span 4; flex-direction:column; gap:3px;
+    align-items:flex-start}
+  .finding-num .bignum{font-size:17pt}
+  .finding-num .label{max-width:none}
+  .finding h3,.finding p{grid-column:2}
+  .finding .do{grid-column:2; margin-top:7px; padding-top:6px}
+  .crit{display:grid; grid-template-columns:150px 1fr; column-gap:20px;
+    row-gap:5px; align-items:start; align-content:start}
+  .crit-head{grid-column:1; grid-row:1 / span 4; flex-direction:column;
+    align-items:flex-start; gap:1px; margin:0}
+  .crit>p,.crit>.formula{grid-column:2; margin-top:0}
+  .crit>.formula{margin:5px 0}
+
+  .weeks{grid-template-columns:repeat(3,1fr)}
+  .week{padding-right:16px;border-right:1px solid var(--rule)}
+  .week:last-child{border-right:0}
+  .pair{grid-template-columns:1fr 1fr; gap:28px}
+  .masthead-grid{grid-template-columns:1.35fr 1fr; gap:34px; align-items:end}
+  .tallies{grid-template-columns:repeat(4,1fr)}
+  .fault{max-width:none}
+
+  .toc{display:none}                 /* the PDF has real page numbers instead */
+  .finding .do{margin-top:8px}
+  .findings{border-top-width:5px}
+  .finding{padding:14px 18px 16px 0}
+  .bars{width:96px;height:17px}
+  /* the ranking runs to eighty-seven rows; fold the provenance onto the dish line
+     so a page carries fourteen rows instead of nine */
+  .rank-table tbody td{padding:3px 6px 3px 0; line-height:1.3}
+  .rank-table .sub{display:inline; margin:0}
+  .rank-table .prov{display:inline; margin-left:7px; font-size:5.6pt}
+  .rank-table .rest{display:block}
+  .rank-table .pos{padding-top:3px}
+  .criteria{column-gap:22px}
+  .formula{font-size:6.6pt; padding:6px 8px}
+  ul.absent{columns:2}
+  .weeks .price{font-size:16pt}
+  .finding-num .bignum{font-size:19pt}
+  .tally .bignum{font-size:13pt}
+
+  a{color:var(--ink); text-decoration:none}
+  a[href^="#"]::after{content:""}
+
+  footer{break-before:page; page-break-before:always}
+}
+
 </style>
 <div class="wrap">
 <header class="masthead">
@@ -434,11 +547,11 @@ ul.absent .tick{color:var(--health);font-weight:700}
 <text x="613.5" y="364.4" class="pt-label" text-anchor="end">Gifted Hand</text>
 <text x="457.8" y="228.8" class="pt-label" text-anchor="end">Namu</text>
 <text x="436.6" y="275.1" class="pt-label" text-anchor="end">Udupi</text>
-<text x="63.2" y="28.0" class="q-label">CHEAP AND GOOD &#183; 14 OF 60</text>
+<text x="63.2" y="28.0" class="q-label">CHEAP AND GOOD &#183; 11 OF 60</text>
 <text x="14" y="16" class="axis-title">HEALTH</text>
 <text x="742" y="434" class="axis-title" text-anchor="end">DOORDASH PRICE</text>
 </svg>
-    <figcaption>Each dot is one dish. The dashed line is the least-squares fit through all sixty &mdash; it is nearly flat. The shaded corner is the useful part of the chart: dishes at or under $16 that still score 6.0 or better on health. There are 14 of them.</figcaption>
+    <figcaption>Each dot is one dish. The dashed line is the least-squares fit through all sixty &mdash; it is nearly flat. The shaded corner is the useful part of the chart: dishes at or under $16 that still score 6.0 or better on health. There are 11 of them among the sixty plotted, and 14 across all 87.</figcaption>
   </figure>
 
   <h3 style="margin-top:44px">What each extra five dollars actually buys</h3>
@@ -447,7 +560,7 @@ ul.absent .tick{color:var(--health);font-weight:700}
   <p class="caption" style="margin-top:12px">Fifteen dishes &mdash; a quarter of the list &mdash; price between $15.50 and $17.00. That $1.50 band contains Poke Bros. at health 8.2 and Silk Road Uzbek at 3.8 &mdash; the entire health range of all 60 dishes, top to bottom, at effectively one price.</p>
 
   <h3 style="margin-top:44px">Cheap and genuinely good for you</h3>
-  <p class="small measure" style="margin-top:8px">Sorted by health score. The last column is health points per dollar, which is the blunt version of the same question.</p>
+  <p class="small measure" style="margin-top:8px">Every dish in the set at or under $16 that still clears health 6.0, including the entries added in this edition. Sorted by health score; the last column is health points per dollar, which is the blunt version of the same question.</p>
   <div class="tablewrap"><table class=""><thead><tr><th>Dish</th><th class="n">Price</th><th class="n">Health</th><th class="n">Flavor</th><th class="n">Protein</th><th class="n">Sodium mg</th><th class="n">Health per $</th></tr></thead><tbody><tr><td><span class="rest">Pokeworks</span><span class="sub">Large chicken bowl on salad base</span></td><td class="n money">$16.00</td><td class="n score hi">7.2</td><td class="n score">5.0</td><td class="n num">43&#8202;g</td><td class="n num">535</td><td class="n num">0.45</td></tr><tr><td><span class="rest">DICED</span><span class="sub">Lentil-base bowl with grilled chicken</span></td><td class="n money">$10.95</td><td class="n score hi">7.0</td><td class="n score">5.7</td><td class="n num">57&#8202;g</td><td class="n num">144</td><td class="n num">0.64</td></tr><tr><td><span class="rest">Baba Ghannouj</span><span class="sub">Chicken kebab plate with fattoush and tzatziki</span></td><td class="n money">$15.99</td><td class="n score hi">6.7</td><td class="n score">8.2</td><td class="n num">44&#8202;g</td><td class="n num">1,200</td><td class="n num">0.42</td></tr><tr><td><span class="rest">Alpaca Peruvian Charcoal Chicken</span><span class="sub">¼ Chicken w/ White Combo</span></td><td class="n money">$11.29</td><td class="n score hi">6.5</td><td class="n score">4.6</td><td class="n num">53&#8202;g</td><td class="n num">1,310</td><td class="n num">0.58</td></tr><tr><td><span class="rest">Chopt</span><span class="sub">Craft Your Own salad, grilled chicken</span></td><td class="n money">$10.79</td><td class="n score hi">6.5</td><td class="n score">5.7</td><td class="n num">33&#8202;g</td><td class="n num">735</td><td class="n num">0.60</td></tr><tr><td><span class="rest">Happy + Hale</span><span class="sub">Create Your Own bowl</span></td><td class="n money">$14.58</td><td class="n score hi">6.4</td><td class="n score">5.0</td><td class="n num">35&#8202;g</td><td class="n num">850</td><td class="n num">0.44</td></tr><tr><td><span class="rest">Guasaca</span><span class="sub">Grilled chicken bowl</span></td><td class="n money">$11.21</td><td class="n score hi">6.3</td><td class="n score">7.5</td><td class="n num">42&#8202;g</td><td class="n num">1,050</td><td class="n num">0.56</td></tr><tr><td><span class="rest">Mahana Fresh</span><span class="sub">Build Your Own bowl</span></td><td class="n money">$14.00</td><td class="n score hi">6.3</td><td class="n score">5.7</td><td class="n num">38&#8202;g</td><td class="n num">950</td><td class="n num">0.45</td></tr><tr><td><span class="rest">Golden Dragon</span><span class="sub">D6. Steamed Shrimp with Mixed Vegetables Diet</span></td><td class="n money">$12.39</td><td class="n score hi">6.2</td><td class="n score">1.1</td><td class="n num">37&#8202;g</td><td class="n num">940</td><td class="n num">0.50</td></tr><tr><td><span class="rest">Neomonde</span><span class="sub">Build A Bowl</span></td><td class="n money">$15.99</td><td class="n score hi">6.2</td><td class="n score">6.8</td><td class="n num">38&#8202;g</td><td class="n num">1,050</td><td class="n num">0.39</td></tr><tr><td><span class="rest">CAVA</span><span class="sub">SuperGreens and lentil bowl with grilled steak</span></td><td class="n money">$15.50</td><td class="n score hi">6.2</td><td class="n score">7.1</td><td class="n num">50&#8202;g</td><td class="n num">1,295</td><td class="n num">0.40</td></tr><tr><td><span class="rest">El Cuscatleco</span><span class="sub">Filete de pescado with curtido</span></td><td class="n money">$15.95</td><td class="n score hi">6.2</td><td class="n score">8.2</td><td class="n num">42&#8202;g</td><td class="n num">1,200</td><td class="n num">0.39</td></tr><tr><td><span class="rest">The Halal Guys</span><span class="sub">Regular Chicken Platter</span></td><td class="n money">$14.75</td><td class="n score hi">6.0</td><td class="n score">2.9</td><td class="n num">54&#8202;g</td><td class="n num">1,028</td><td class="n num">0.41</td></tr><tr><td><span class="rest">Chipotle</span><span class="sub">Chicken salad with pinto beans and guacamole</span></td><td class="n money">$12.00</td><td class="n score hi">6.0</td><td class="n score">4.3</td><td class="n num">44&#8202;g</td><td class="n num">1,055</td><td class="n num">0.50</td></tr></tbody></table></div>
 
   <div class="callout">

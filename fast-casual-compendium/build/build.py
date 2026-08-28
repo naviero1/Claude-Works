@@ -8,7 +8,7 @@ D  = json.load(open('details_corrected.json'))
 M  = {d['rank']: d for d in json.load(open('master.json'))}
 for d in D: d['alternatives'] = M[d['rank']]['alternatives']
 F  = json.load(open('figures.json'))
-CSS = open('style.css').read()
+CSS = open('style.css').read() + '\n' + open('print.css').read()
 
 def load(name, default):
     return json.load(open(name)) if os.path.exists(name) else default
@@ -251,6 +251,9 @@ def sec_money():
                    f'<td class="n score">{t["KID"]:.1f}</td>',
                    f'<td class="n score" style="color:var(--flavor)">{t["flavor"]:.1f}</td>',
                    f'<td class="n score">{t["health"]:.2f}</td>'] for t in F['terciles']])
+    # the chart plots the analysed sixty, so its quadrant count must come from the same set
+    quad_chart = [d for d in D if d['health'] >= 6.0 and d['price'] <= 16]
+    # the recommendation table draws on everything the reader can actually order
     quad = sorted([d for d in ALL if d['health'] >= 6.0 and d['price'] <= 16], key=lambda x: -x['health'])
     rows = []
     for d in quad[:14]:
@@ -291,8 +294,8 @@ def sec_money():
     <p>Money does buy something. The correlation between price and <em>flavor</em> is <strong class="num">{r2(F['r_price_flavor'])}</strong> &mdash; modest, but five times the size and in a direction you can feel. Expensive food in this set is more interesting to eat and no better for you. Everything in this chapter follows from those two numbers.</p>
   </div>
   <figure>
-    {charts.scatter_price_health(D, quad_n=len(quad))}
-    <figcaption>Each dot is one dish. The dashed line is the least-squares fit through all sixty &mdash; it is nearly flat. The shaded corner is the useful part of the chart: dishes at or under $16 that still score 6.0 or better on health. There are {len(quad)} of them.</figcaption>
+    {charts.scatter_price_health(D, quad_n=len(quad_chart))}
+    <figcaption>Each dot is one dish. The dashed line is the least-squares fit through all sixty &mdash; it is nearly flat. The shaded corner is the useful part of the chart: dishes at or under $16 that still score 6.0 or better on health. There are {len(quad_chart)} of them among the sixty plotted, and {len(quad)} across all {len(ALL)}.</figcaption>
   </figure>
 
   <h3 style="margin-top:44px">What each extra five dollars actually buys</h3>
@@ -301,7 +304,7 @@ def sec_money():
   <p class="caption" style="margin-top:12px">Fifteen dishes &mdash; a quarter of the list &mdash; price between {money(shelf['lo'])} and {money(shelf['hi'])}. That {money(shelf['hi']-shelf['lo'])} band contains {e(shelf['best']['restaurant'])} at health {shelf['best']['health']:.1f} and {e(shelf['worst']['restaurant'])} at {shelf['worst']['health']:.1f} &mdash; the entire health range of all {len(D)} dishes, top to bottom, at effectively one price.</p>
 
   <h3 style="margin-top:44px">Cheap and genuinely good for you</h3>
-  <p class="small measure" style="margin-top:8px">Sorted by health score. The last column is health points per dollar, which is the blunt version of the same question.</p>
+  <p class="small measure" style="margin-top:8px">Every dish in the set at or under $16 that still clears health 6.0, including the entries added in this edition. Sorted by health score; the last column is health points per dollar, which is the blunt version of the same question.</p>
   {val}
 
   <div class="callout">
