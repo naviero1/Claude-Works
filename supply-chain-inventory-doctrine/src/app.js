@@ -291,3 +291,36 @@
   document.addEventListener("DOMContentLoaded", redrawAll);
   if (document.readyState !== "loading") redrawAll();
 })();
+
+/* ------------------------------------------------- safety-stock demonstrator */
+(function () {
+  "use strict";
+  var slider = document.getElementById("sigmaL");
+  if (!slider) return;
+  var D = 500, sD = 100, L = 8, z = 1.65;
+  var SS_MAX = z * Math.sqrt(L * sD * sD + D * D * 6 * 6);   // fixed scale at σ_L = 6
+  var $ = function (id) { return document.getElementById(id); };
+
+  function render() {
+    var sL = parseFloat(slider.value);
+    var oldSS = z * sD * Math.sqrt(L);
+    var newSS = z * Math.sqrt(L * sD * sD + D * D * sL * sL);
+    $("sigmaL-val").textContent = sL.toFixed(2) + " wk";
+    $("ss-old").textContent = Math.round(oldSS);
+    $("ss-old-wk").textContent = (oldSS / D).toFixed(2);
+    $("ss-new").textContent = Math.round(newSS);
+    $("ss-new-wk").textContent = (newSS / D).toFixed(2);
+    $("bar-old").style.width = (oldSS / SS_MAX * 100).toFixed(1) + "%";
+    $("bar-new").style.width = (newSS / SS_MAX * 100).toFixed(1) + "%";
+    var m = newSS / oldSS;
+    $("ss-mult").textContent = (m < 1.005 ? "exactly the same" : m.toFixed(1) + "×");
+    $("ss-mult").nextSibling && null;
+    var line = $("ss-mult").parentNode;
+    line.firstChild.nodeValue = m < 1.005
+      ? "With no lead-time variability the two formulas agree — the buffer is "
+      : "The buffer the same part needs is ";
+    line.lastChild.nodeValue = m < 1.005 ? "." : " larger.";
+  }
+  slider.addEventListener("input", render);
+  render();
+})();

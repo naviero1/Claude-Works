@@ -341,13 +341,13 @@ caption{caption-side:bottom;text-align:left;padding:10px 14px;color:var(--faint)
 .brow{display:grid;grid-template-columns:minmax(96px,26%) minmax(0,1fr) auto;gap:12px;align-items:center;font-size:13px}
 @media (min-width:640px){.brow{grid-template-columns:minmax(150px,30%) minmax(0,1fr) auto}}
 .brow .bl{color:var(--ink-2);line-height:1.3;font-family:var(--sans);font-weight:500;font-size:13px}
-.btrack{background:var(--panel-3);height:20px;border-radius:3px;position:relative;overflow:hidden}
-.bfill{height:100%;border-radius:0 3px 3px 0}
+.btrack{display:block;background:var(--panel-3);height:20px;border-radius:3px;position:relative;overflow:hidden}
+.bfill{display:block;height:100%;border-radius:0 3px 3px 0}
 .brow .bv{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink);min-width:44px;text-align:right}
 /* paired bars — intended vs implemented */
 .bpair{display:grid;grid-template-columns:minmax(120px,34%) minmax(0,1fr);gap:12px;align-items:center}
 .bpair .bstack{display:flex;flex-direction:column;gap:3px}
-.bseg{height:15px;border-radius:0 3px 3px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:6px}
+.bseg{display:flex;height:15px;border-radius:0 3px 3px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:6px}
 .bseg span{font-family:var(--mono);font-size:10.5px;font-weight:600;font-variant-numeric:tabular-nums}
 
 /* tooltip */
@@ -440,6 +440,34 @@ footer{border-top:1px solid var(--rule);background:var(--panel);padding-block:34
 .shift .arw{color:var(--accent-ink);font-family:var(--mono);font-size:13px}
 .shift p{font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0;max-width:82ch}
 .shift .n{color:var(--faint);margin-right:8px}
+
+/* --------------------------------------------------------------- calc ----- */
+.calc{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:20px 20px 14px;display:flex;flex-direction:column;gap:16px;margin:0}
+.calc-grid{display:grid;gap:20px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:820px){.calc-grid{grid-template-columns:minmax(230px,.8fr) minmax(0,1.2fr)}}
+.calc .params{display:flex;flex-direction:column;gap:7px}
+.calc .prow{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12.5px;color:var(--muted);border-bottom:1px dotted var(--rule);padding-bottom:5px;font-variant-numeric:tabular-nums}
+.calc .prow b{color:var(--ink-2);font-weight:500}
+.calc .slider{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.calc .slider label{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--accent-ink);font-weight:600}
+.calc input[type=range]{width:100%;accent-color:var(--accent);height:22px;cursor:pointer;background:transparent}
+.calc .srange{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+.calc .outs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.calc .out{display:flex;flex-direction:column;gap:3px}
+.calc .out .cap{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;font-weight:600}
+.calc .out .v{font-family:var(--sans);font-weight:800;font-size:clamp(24px,3.2vw,32px);letter-spacing:-.028em;line-height:1;color:var(--ink)}
+.calc .out .sub{font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.calc .out.a .cap{color:var(--era-1)} .calc .out.b .cap{color:var(--era-2)}
+.calc .cbars{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.calc .cbar{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;align-items:center}
+.calc .cbar .cl{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right}
+.calc .ctrack{display:block;background:var(--panel-3);height:18px;border-radius:3px;overflow:hidden}
+.calc .cfill{display:block;height:100%;border-radius:0 3px 3px 0;transition:width .12s linear}
+@media (prefers-reduced-motion:reduce){.calc .cfill{transition:none}}
+.calc .mult{font-family:var(--sans);font-weight:700;font-size:16px;color:var(--ink);letter-spacing:-.01em}
+.calc .mult em{font-style:normal;color:var(--era-2);font-size:22px;font-weight:800}
+.calc figcaption{font-size:12.5px;line-height:1.55;color:var(--muted);font-family:var(--serif);border-top:1px solid var(--rule-2);padding-top:10px}
+.calc figcaption b{color:var(--ink-2);font-weight:600}
 
 </style>
 <a class="sr" href="#main">Skip to content</a>
@@ -953,6 +981,58 @@ Cash conversion cycle     CCC = DIO + DSO − DPO                <span class="cm
 Note the asymmetry: demand variance is multiplied by L, but lead-time variance is
 multiplied by the SQUARE of average demand. On a high-volume part, a few weeks of
 lead-time uncertainty outweighs everything the demand term can contribute.</span>
+  </div>
+
+  <div style="margin-top:20px">
+<figure class="calc" id="ss-calc">
+  <div class="fhead">
+    <div class="ftitle" style="font-family:var(--sans);font-weight:700;font-size:15.5px;letter-spacing:-.008em;color:var(--ink)">
+      What the missing term is actually worth</div>
+    <div class="fsub" style="font-size:13px;line-height:1.45;color:var(--muted)">
+      A single purchased component. Move the lead-time variability and watch the buffer the formula asks for.</div>
+  </div>
+  <div class="calc-grid">
+    <div>
+      <div class="params">
+        <div class="prow"><span>average demand&ensp;D̄</span><b>500 units / week</b></div>
+        <div class="prow"><span>demand std dev&ensp;σ_D</span><b>100 units / week</b></div>
+        <div class="prow"><span>average lead time&ensp;L</span><b>8 weeks</b></div>
+        <div class="prow"><span>service factor&ensp;z</span><b>1.65 &nbsp;(95%)</b></div>
+      </div>
+      <div class="slider">
+        <label for="sigmaL">Lead-time variability&ensp;σ_L</label>
+        <input type="range" id="sigmaL" min="0" max="6" step="0.25" value="2"
+               aria-describedby="ss-readout">
+        <div class="srange"><span>0 — the pre-2019 assumption</span><span id="sigmaL-val">2.00 wk</span><span>6 wk</span></div>
+      </div>
+    </div>
+    <div class="stack stack-14">
+      <div class="outs" id="ss-readout" aria-live="polite">
+        <div class="out a">
+          <div class="cap">z · σ_D · √L</div>
+          <div class="v"><span id="ss-old">467</span></div>
+          <div class="sub">units &nbsp;·&nbsp; <span id="ss-old-wk">0.93</span> weeks of cover</div>
+        </div>
+        <div class="out b">
+          <div class="cap">z · √(L σ_D² + D̄² σ_L²)</div>
+          <div class="v"><span id="ss-new">1715</span></div>
+          <div class="sub">units &nbsp;·&nbsp; <span id="ss-new-wk">3.43</span> weeks of cover</div>
+        </div>
+      </div>
+      <div class="cbars">
+        <div class="cbar"><span class="cl">classical</span><span class="ctrack"><span class="cfill" id="bar-old" style="width:9%;background:var(--era-1)"></span></span></div>
+        <div class="cbar"><span class="cl">with σ_L</span><span class="ctrack"><span class="cfill" id="bar-new" style="width:34%;background:var(--era-2)"></span></span></div>
+      </div>
+      <div class="mult">The buffer the same part needs is <em id="ss-mult">3.7×</em> larger.</div>
+    </div>
+  </div>
+  <figcaption>This is the entire mechanical argument of §02 in one control. At <b>σ_L = 0</b> — the assumption
+    every pre-2019 planning system shipped with — the second term vanishes and you get the familiar answer. At
+    <b>half a week</b> of lead-time variability the part already needs a third more buffer. At <b>one week</b> it
+    needs double. At <b>two</b>, nearly quadruple. Note also that σ_L is multiplied by <em>average demand</em>, not
+    by demand variability: the higher the volume, the more brutally lead-time uncertainty dominates. Nobody
+    decided to under-buffer. The parameter was set to zero and never revisited.</figcaption>
+</figure>
   </div>
 </section>
 
@@ -2079,6 +2159,39 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
 
   document.addEventListener("DOMContentLoaded", redrawAll);
   if (document.readyState !== "loading") redrawAll();
+})();
+
+/* ------------------------------------------------- safety-stock demonstrator */
+(function () {
+  "use strict";
+  var slider = document.getElementById("sigmaL");
+  if (!slider) return;
+  var D = 500, sD = 100, L = 8, z = 1.65;
+  var SS_MAX = z * Math.sqrt(L * sD * sD + D * D * 6 * 6);   // fixed scale at σ_L = 6
+  var $ = function (id) { return document.getElementById(id); };
+
+  function render() {
+    var sL = parseFloat(slider.value);
+    var oldSS = z * sD * Math.sqrt(L);
+    var newSS = z * Math.sqrt(L * sD * sD + D * D * sL * sL);
+    $("sigmaL-val").textContent = sL.toFixed(2) + " wk";
+    $("ss-old").textContent = Math.round(oldSS);
+    $("ss-old-wk").textContent = (oldSS / D).toFixed(2);
+    $("ss-new").textContent = Math.round(newSS);
+    $("ss-new-wk").textContent = (newSS / D).toFixed(2);
+    $("bar-old").style.width = (oldSS / SS_MAX * 100).toFixed(1) + "%";
+    $("bar-new").style.width = (newSS / SS_MAX * 100).toFixed(1) + "%";
+    var m = newSS / oldSS;
+    $("ss-mult").textContent = (m < 1.005 ? "exactly the same" : m.toFixed(1) + "×");
+    $("ss-mult").nextSibling && null;
+    var line = $("ss-mult").parentNode;
+    line.firstChild.nodeValue = m < 1.005
+      ? "With no lead-time variability the two formulas agree — the buffer is "
+      : "The buffer the same part needs is ";
+    line.lastChild.nodeValue = m < 1.005 ? "." : " larger.";
+  }
+  slider.addEventListener("input", render);
+  render();
 })();
 
 /* --- data: FRED/US Census MTIS + NY Fed GSCPI, pulled 2026-08-28 --- */

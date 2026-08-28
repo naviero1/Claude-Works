@@ -1,0 +1,49 @@
+<figure class="calc" id="ss-calc">
+  <div class="fhead">
+    <div class="ftitle" style="font-family:var(--sans);font-weight:700;font-size:15.5px;letter-spacing:-.008em;color:var(--ink)">
+      What the missing term is actually worth</div>
+    <div class="fsub" style="font-size:13px;line-height:1.45;color:var(--muted)">
+      A single purchased component. Move the lead-time variability and watch the buffer the formula asks for.</div>
+  </div>
+  <div class="calc-grid">
+    <div>
+      <div class="params">
+        <div class="prow"><span>average demand&ensp;D̄</span><b>500 units / week</b></div>
+        <div class="prow"><span>demand std dev&ensp;σ_D</span><b>100 units / week</b></div>
+        <div class="prow"><span>average lead time&ensp;L</span><b>8 weeks</b></div>
+        <div class="prow"><span>service factor&ensp;z</span><b>1.65 &nbsp;(95%)</b></div>
+      </div>
+      <div class="slider">
+        <label for="sigmaL">Lead-time variability&ensp;σ_L</label>
+        <input type="range" id="sigmaL" min="0" max="6" step="0.25" value="2"
+               aria-describedby="ss-readout">
+        <div class="srange"><span>0 — the pre-2019 assumption</span><span id="sigmaL-val">2.00 wk</span><span>6 wk</span></div>
+      </div>
+    </div>
+    <div class="stack stack-14">
+      <div class="outs" id="ss-readout" aria-live="polite">
+        <div class="out a">
+          <div class="cap">z · σ_D · √L</div>
+          <div class="v"><span id="ss-old">467</span></div>
+          <div class="sub">units &nbsp;·&nbsp; <span id="ss-old-wk">0.93</span> weeks of cover</div>
+        </div>
+        <div class="out b">
+          <div class="cap">z · √(L σ_D² + D̄² σ_L²)</div>
+          <div class="v"><span id="ss-new">1715</span></div>
+          <div class="sub">units &nbsp;·&nbsp; <span id="ss-new-wk">3.43</span> weeks of cover</div>
+        </div>
+      </div>
+      <div class="cbars">
+        <div class="cbar"><span class="cl">classical</span><span class="ctrack"><span class="cfill" id="bar-old" style="width:9%;background:var(--era-1)"></span></span></div>
+        <div class="cbar"><span class="cl">with σ_L</span><span class="ctrack"><span class="cfill" id="bar-new" style="width:34%;background:var(--era-2)"></span></span></div>
+      </div>
+      <div class="mult">The buffer the same part needs is <em id="ss-mult">3.7×</em> larger.</div>
+    </div>
+  </div>
+  <figcaption>This is the entire mechanical argument of §02 in one control. At <b>σ_L = 0</b> — the assumption
+    every pre-2019 planning system shipped with — the second term vanishes and you get the familiar answer. At
+    <b>half a week</b> of lead-time variability the part already needs a third more buffer. At <b>one week</b> it
+    needs double. At <b>two</b>, nearly quadruple. Note also that σ_L is multiplied by <em>average demand</em>, not
+    by demand variability: the higher the volume, the more brutally lead-time uncertainty dominates. Nobody
+    decided to under-buffer. The parameter was set to zero and never revisited.</figcaption>
+</figure>
