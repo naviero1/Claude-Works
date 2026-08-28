@@ -270,6 +270,34 @@ F['r_hf_variants'] = {name: pear([_health_without(d, drop) for d in D], [d['FLAV
                       for name, drop in [('all', ()), ('no_kidney', ('KID',)),
                                          ('no_gut', ('GUT',)), ('no_kidney_no_gut', ('KID', 'GUT'))]}
 
+# is there any dish that feeds the gut and spares the kidneys?
+F['gut_kid'] = dict(
+    n_both7=sum(1 for d in D if d['GUT'] >= 7 and d['KID'] >= 7),
+    n_both6=sum(1 for d in D if d['GUT'] >= 6 and d['KID'] >= 6),
+    closest=max(D, key=lambda d: min(d['GUT'], d['KID'])))
+
+# how much can each column actually move an overall score?
+F['leverage'] = sorted(
+    [dict(crit=c, rng=max(d[c] for d in D)-min(d[c] for d in D),
+          effect=(0.7 if c == 'SUG' else 1.0)*(max(d[c] for d in D)-min(d[c] for d in D))/7.7)
+     for c in CRIT]
+    + [dict(crit=c, rng=max(d[c] for d in D)-min(d[c] for d in D),
+            effect=0.5*(max(d[c] for d in D)-min(d[c] for d in D))/7.7)
+       for c in ('FLAVOR', 'COST')],
+    key=lambda r: -r['effect'])
+
+# does the ranking reward having published nutrition at all?
+_ord = sorted(D, key=lambda d: -d['overall'])
+_ver = [d for d in D if d['data'] in ('PUBLISHED', 'PARTIAL')]
+def _rank_without(drop):
+    ks = [c for c in CRIT if c not in drop]
+    t = sum(0.7 if c == 'SUG' else 1.0 for c in ks)
+    o = sorted(D, key=lambda d: -((sum((0.7 if c == 'SUG' else 1.0)*d[c] for c in ks)/t*t
+                                   + d['FLAVOR']*0.5 + d['COST']*0.5)))
+    return st.mean([o.index(d)+1 for d in _ver])
+F['verified_rank'] = dict(n=len(_ver), mean=st.mean([_ord.index(d)+1 for d in _ver]),
+                          without_kidney=_rank_without(('KID',)))
+
 # nobody publishes nutrition for food that meets fire
 _cooked = [d for d in D if d['prep'] in ('grilled', 'stewed', 'steamed')]
 _assembled = [d for d in D if d['prep'] in ('assembled', 'raw')]

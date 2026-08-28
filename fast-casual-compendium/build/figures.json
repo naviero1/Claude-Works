@@ -16675,6 +16675,132 @@
   "no_gut": -0.30635318201660383,
   "no_kidney_no_gut": -0.12489244216330522
  },
+ "gut_kid": {
+  "n_both7": 0,
+  "n_both6": 1,
+  "closest": {
+   "rank": 26,
+   "overall": 6.34,
+   "health": 6.44,
+   "restaurant": "Goorsha",
+   "data": "ESTIMATED",
+   "price": 19.55,
+   "dish": "Vegan vegetable combo",
+   "store": "245551",
+   "miles": 10,
+   "build": "Six vegetable stews on injera \u2014 kik alicha, tikil gomen, shiro, gomen, misir wot and salad \u00b7 ordered vegan, so no clarified butter",
+   "cal": 450,
+   "protein": 26,
+   "sodium": 850,
+   "satfat": 3.0,
+   "fiber": 12,
+   "sugar": 8,
+   "KID": 7.0,
+   "LIV": 9.6,
+   "MUS": 4.5,
+   "GUT": 6.2,
+   "ENE": 6.7,
+   "INF": 4.0,
+   "SUG": 7.4,
+   "FLAVOR": 6.8,
+   "COST": 4.6,
+   "cuisine": "Ethiopian",
+   "prep": "stewed",
+   "corrected": true,
+   "disputed": true,
+   "alternatives": [
+    {
+     "text": "Kik alicha and tikil gomen only The two mildest stews; much lighter",
+     "cal": 320,
+     "protein": 12,
+     "sodium": 620,
+     "score": 5.55,
+     "name": "Kik alicha and tikil gomen only",
+     "change": "The two mildest stews; much lighter",
+     "avoid": false,
+     "beats_flag": false
+    },
+    {
+     "text": "Add lean tibs Saut\u00e9ed beef for real protein",
+     "cal": 1000,
+     "protein": 56,
+     "sodium": 1750,
+     "score": 5.31,
+     "name": "Add lean tibs",
+     "change": "Saut\u00e9ed beef for real protein",
+     "avoid": false,
+     "beats_flag": false
+    },
+    {
+     "text": "Combo with clarified butter Richer; adds saturated fat",
+     "cal": 780,
+     "protein": 26,
+     "sodium": 1200,
+     "score": 5.13,
+     "name": "Combo with clarified butter",
+     "change": "Richer; adds saturated fat",
+     "avoid": false,
+     "beats_flag": false
+    }
+   ],
+   "hpd": 0.32941176470588235,
+   "dpp": 0.7519230769230769,
+   "na_p": 32.69230769230769,
+   "ppc": 5.777777777777778
+  }
+ },
+ "leverage": [
+  {
+   "crit": "KID",
+   "rng": 9.7,
+   "effect": 1.2597402597402596
+  },
+  {
+   "crit": "GUT",
+   "rng": 9.4,
+   "effect": 1.2207792207792207
+  },
+  {
+   "crit": "INF",
+   "rng": 9.4,
+   "effect": 1.2207792207792207
+  },
+  {
+   "crit": "MUS",
+   "rng": 8.7,
+   "effect": 1.1298701298701297
+  },
+  {
+   "crit": "LIV",
+   "rng": 8.6,
+   "effect": 1.1168831168831168
+  },
+  {
+   "crit": "ENE",
+   "rng": 7.500000000000001,
+   "effect": 0.9740259740259741
+  },
+  {
+   "crit": "SUG",
+   "rng": 10.0,
+   "effect": 0.9090909090909091
+  },
+  {
+   "crit": "COST",
+   "rng": 9.0,
+   "effect": 0.5844155844155844
+  },
+  {
+   "crit": "FLAVOR",
+   "rng": 6.3999999999999995,
+   "effect": 0.41558441558441556
+  }
+ ],
+ "verified_rank": {
+  "n": 9,
+  "mean": 19.444444444444443,
+  "without_kidney": 24.11111111111111
+ },
  "verified_by_prep": {
   "n_cooked": 36,
   "n_cooked_verified": 0,

@@ -386,6 +386,7 @@ def sec_flavor():
   <div class="callout">
     <h4>Why the set-level correlation is nearly zero</h4>
     <p style="margin-top:6px">It is not that health and flavor are unrelated. It is that two criteria pull in opposite directions and very nearly cancel. Decompose the covariance and <strong>kidney contributes {r2(F['cov_decomp'][0]['contrib'])} while gut contributes {r2(F['cov_decomp'][-1]['contrib'])}</strong> &mdash; the salty, fermented kitchens lose on one exactly as fast as they win on the other. Take the kidney criterion out and health correlates <span class="num">{r2(F['r_hf_variants']['no_kidney'])}</span> with flavor; take gut out instead and it goes to <span class="num">{r2(F['r_hf_variants']['no_gut'])}</span>. The flat headline number is an artifact of the model's own weighting, not a fact about food.</p>
+    <p style="margin-top:10px">The reason those two criteria fight is physical rather than statistical: almost every live ferment a restaurant can sell you is preserved in salt. Ask this list for a dish scoring 7 or better on <em>both</em> gut and kidney and it returns <strong>{F['gut_kid']['n_both7']} of {len(D)}</strong>. Only {e(F['gut_kid']['closest']['restaurant'])} clears 6 on both, at gut {F['gut_kid']['closest']['GUT']:.1f} and kidney {F['gut_kid']['closest']['KID']:.1f}. Yogurt is the one escape route in this data &mdash; labneh, cac&#305;k and raita carry live cultures without a brine &mdash; which is why the Levantine and Turkish entries come closest.</p>
   </div>
 
   <h3 style="margin-top:44px">The market rate for a flavor point</h3>
@@ -458,6 +459,8 @@ def sec_swaps():
 </section>'''
 
 def sec_criteria():
+    lev = ', '.join(f'<span class="num">{x["crit"].lower() if x["crit"] in ("FLAVOR", "COST") else x["crit"]} {x["effect"]:.2f}</span>'
+                    for x in F['leverage'])
     C = [
       ('Kidney', '×1.0', 'Sodium alone.', 'KID = clamp( 10 × (2000 − sodium_mg) / 1650 )',
        'Full marks at 350&#8202;mg, zero at 2,000. Linear between, which means a dish at 2,100&#8202;mg and one at 3,000&#8202;mg both score zero.', False),
@@ -497,7 +500,8 @@ def sec_criteria():
   <div class="measure stack" style="margin-top:16px">
     <p>The first edition described its criteria in prose. This one prints them as functions, because a scoring model you cannot recompute is an opinion wearing a number's clothes.</p>
     <p>Six of the nine are arithmetic on the six macros and the price, and are reproduced here exactly: feeding the first edition's own published macros back through them returns every one of its {len(D)} printed overall scores to within 0.10, with a mean deviation of 0.023. Three &mdash; gut, energy and inflammation &mdash; are human judgements on a rubric, and no formula recovers them. Where a shape can be inferred from the pattern of scores it is given with an approximation sign; where it cannot, the criterion is simply marked as judged.</p>
-    <p class="caption">Composite: <span class="num">health = (KID + LIV + MUS + GUT + ENE + INF + 0.7×SUG) / 6.7</span>, then <span class="num">overall = (health×6.7 + FLAVOR×0.5 + COST×0.5) / 7.7</span>. Flavor and cost at half weight cannot rescue an unhealthy dish; they reorder the middle of the list.</p>
+    <p class="caption">Composite: <span class="num">health = (KID + LIV + MUS + GUT + ENE + INF + 0.7×SUG) / 6.7</span>, then <span class="num">overall = (health×6.7 + FLAVOR×0.5 + COST×0.5) / 7.7</span>.</p>
+    <p>The first edition wrote that flavor and cost at half weight &ldquo;reorder the middle of the list without overturning it.&rdquo; That is checkable, and it holds. Multiply each column's weight by the range it actually spans across these {len(D)} dishes and you get the most it could ever move an overall score: {lev}. Flavor and cost are the two smallest levers in the model by some distance.</p>
   </div>
   <div class="criteria">{cards}</div>
 </section>'''
