@@ -581,7 +581,11 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
     than most of its competitors precisely <em>because</em> it had a risk-part database and multi-month buffers on
     specific critical components, a policy it adopted after the 2011 Tōhoku earthquake. That is not an abandonment
     of TPS. It is TPS applied to a risk that had been made visible. The lesson is not "lean was wrong." It is
-    <b>"lean was being measured with instruments that could not see supply-side risk."</b></div>
+    <b>"lean was being measured with instruments that could not see supply-side risk."</b> The sharpest academic
+    statement of this comes from Jiang, Rigobon and Rigobon, who argue that under a <em>systemic</em> shock — as
+    opposed to the idiosyncratic ones the models were built for — neither just-in-time nor just-in-case is the
+    right frame at all, and the optimal policy is closer to "just in worst case": diversify the sourcing network
+    rather than deepen the pile.</div>
 </section>
 
 <section id="ledger" class="wrap">
@@ -686,12 +690,13 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
     <div class="tag reg"><span class="no">07</span><span>Did it stick?</span><span class="rule"></span><span>2023 – 2026</span></div>
     <h2>What leaders say, and what the data says</h2>
     <p class="dek">Any honest version of this document has to answer the sceptic's question: was this a genuine
-      change of doctrine, or a crisis-era enthusiasm that faded when the cost programmes came back? The survey
-      evidence and the measured evidence disagree, and the disagreement is the most useful thing here.</p>
+      change of doctrine, or a crisis-era enthusiasm that faded when the cost programmes came back? Survey evidence
+      and measured evidence disagree sharply here, and the disagreement is the most useful thing in the document.
+      Where they conflict, this section believes the measured series.</p>
   </div>
 
   <div class="cards c2">
-    <div class="figure">
+    <figure class="figure">
       <div class="fhead">
         <div class="ftitle">What leaders say they are doing</div>
         <div class="fsub">Share of supply chain executives reporting each action, McKinsey pulse surveys by wave.</div>
@@ -715,38 +720,89 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
         <div class="brow"><span class="bl">2021</span><span class="btrack"><span class="bfill" style="width:80%;background:var(--era-3)"></span></span><span class="bv">80%</span></div>
         <div class="brow"><span class="bl">2023</span><span class="btrack"><span class="bfill" style="width:78%;background:var(--era-3)"></span></span><span class="bv">78%</span></div>
       </div>
-      <figcaption>Source: McKinsey supply chain pulse surveys, waves 2020–2024 (the 2023 wave: 101 respondents,
-        fieldwork April–May 2023). <b>Read with care:</b> these are separate waves with different samples and
-        question wording that shifts between years — the 2023 dual-sourcing figure is specific to critical raw
-        materials. Treat the shape as directional, not as a matched panel.</figcaption>
-    </div>
+      <div class="note" style="margin-top:12px"><b>Sourcing warning.</b> These figures reach this document through
+        secondary reporting of the McKinsey waves; repeated attempts to verify them against the primary
+        publications failed, because mckinsey.com refuses automated requests. Treat them as <b>reported intent,
+        second-hand</b> — indicative of direction only, from unmatched samples with question wording that shifts
+        between years. Nothing in this document's conclusions rests on them.</div>
+      <figcaption>Source: McKinsey supply chain pulse surveys, waves 2020–2024, via secondary reporting
+        (the 2023 wave: 101 respondents, fieldwork April–May 2023). Primary sources not verified.</figcaption>
+    </figure>
 
-    <div class="figure">
+    <figure class="figure">
       <div class="fhead">
-        <div class="ftitle">What the measured data says</div>
-        <div class="fsub">US Census MTIS inventories-to-sales, June 2026 against each sector's 2015–19 average.</div>
+        <div class="ftitle">What four independent measured series say</div>
+        <div class="fsub">Each is public, on a fixed schedule, and answers a question the surveys also answer.</div>
       </div>
-      <div class="bars" style="margin-top:6px">
-        <div class="brow"><span class="bl">Manufacturers</span><span class="btrack"><span class="bfill" style="width:80%;background:var(--era-3)"></span></span><span class="bv">+0.08</span></div>
-        <div class="brow"><span class="bl">Total business</span><span class="btrack"><span class="bfill" style="width:40%;background:var(--era-2)"></span></span><span class="bv">−0.10</span></div>
-        <div class="brow"><span class="bl">Wholesalers</span><span class="btrack"><span class="bfill" style="width:32%;background:var(--era-2)"></span></span><span class="bv">−0.13</span></div>
-        <div class="brow"><span class="bl">Retail trade</span><span class="btrack"><span class="bfill" style="width:20%;background:var(--era-2)"></span></span><span class="bv">−0.22</span></div>
+      <div class="stack stack-14" style="margin-top:4px">
+        <div>
+          <div class="reg" style="color:var(--era-2)">Aggregate inventory intensity — <em>fell</em></div>
+          <p style="font-size:14px;line-height:1.5;color:var(--ink-2);margin:6px 0 0">Real private inventories as a
+            share of real GDP were <span class="num">13.5%</span> in 2019 Q1 and <span class="num">12.7%</span> in
+            2026 Q1 — <b>below even the 2021 pandemic trough</b>. Real inventories grew 11% over that period while
+            real GDP grew 18%. The economy runs leaner relative to output than it did before COVID.</p>
+        </div>
+        <div>
+          <div class="reg" style="color:var(--era-2)">Corporate inventory days — <em>flat, but only on average</em></div>
+          <p style="font-size:14px;line-height:1.5;color:var(--ink-2);margin:6px 0 0">A balanced panel of 471 large
+            SEC filers shows dollar-weighted DIO of <span class="num">53.0</span> days in 2019 and
+            <span class="num">53.2</span> in 2025. Split by size, the answer splits too: the largest third went
+            48.7 → 47.7 days — <b>no change at all</b> — while the middle third went 81.5 → 90.6, <b>up 11% and it
+            stuck</b>. The median firm added 9 days. The biggest companies reverted completely; mid-size ones did
+            not, and the consultant narrative is drawn from the segment that least exhibits the behaviour.</p>
+        </div>
+        <div>
+          <div class="reg" style="color:var(--era-2)">"Dual sourcing" in 10-K filings — <em>unmoved</em></div>
+          <p style="font-size:14px;line-height:1.5;color:var(--ink-2);margin:6px 0 0">Annual reports mentioning
+            dual sourcing: <span class="num">20</span> in 2019, <span class="num">24</span> in 2025 — out of roughly
+            7,000 filers. Set against 81% of executives reporting dual-sourcing programmes, the gap is not subtle.
+            <em>Caveat: this measures disclosure language, not practice — a firm can dual-source without using the
+            phrase.</em></p>
+        </div>
+        <div>
+          <div class="reg" style="color:var(--era-3)">China import share — <em>moved, but not when resilience did</em></div>
+          <p style="font-size:14px;line-height:1.5;color:var(--ink-2);margin:6px 0 0">See the figure below. This one
+            genuinely changed — just not during the years everyone was talking about resilience.</p>
+        </div>
       </div>
-      <div class="note" style="margin-top:12px">Bar length is relative position, not the ratio itself. Three of
-        four sectors hold <b>less</b> inventory relative to sales than before COVID, on any baseline. Only
-        manufacturing holds more — and only 0.08 more, an increase that shrinks to 0.03 against the 2019 average
-        and reverses against December 2019 alone. See §03.</div>
-      <p style="font-size:14.5px;line-height:1.55;color:var(--ink-2);margin:0">Set the two panels beside each
-        other and the gap is stark. In 2023, 78% of executives reported increasing inventory buffers. In the same
-        period, the aggregate US inventories-to-sales ratio was falling back through its pre-COVID level, and it
-        has kept falling since. Both
-        can be true — a firm can add buffer on 200 critical parts while destocking everything else, and that is
-        precisely the segmented doctrine this document describes. But it means <b>survey answers about resilience
-        cannot be read as evidence that balance sheets changed</b>.</p>
-      <figcaption>Source: US Census Bureau MTIS via FRED, retrieved 28 Aug 2026. Change measured against each
-        sector's 2015–19 mean; the full three-baseline comparison is in §03.</figcaption>
-    </div>
+      <figcaption>Sources: US Bureau of Economic Analysis (real private inventories, real GDP); SEC XBRL company
+        facts and EDGAR full-text search, own analysis; US Census trade data. All retrieved August 2026. The DIO
+        result is sensitive to which XBRL cost tag a filer uses — a different tag population does show a rise — so
+        read it as "no large durable increase at the top", not "nothing changed anywhere".</figcaption>
+    </figure>
   </div>
+
+  <figure class="figure" style="margin-top:16px">
+    <div class="fhead">
+      <div class="ftitle">China's share of US goods imports, 2017 – 2026</div>
+      <div class="fsub">The test case for whether "China+1" was a resilience programme or a tariff response.</div>
+    </div>
+    <div class="bars" style="margin-top:6px">
+      <div class="brow"><span class="bl">2017</span><span class="btrack"><span class="bfill" style="width:100%;background:var(--era-1)"></span></span><span class="bv">21.4%</span></div>
+      <div class="brow"><span class="bl">2018</span><span class="btrack"><span class="bfill" style="width:99%;background:var(--era-1)"></span></span><span class="bv">21.1%</span></div>
+      <div class="brow"><span class="bl">2019</span><span class="btrack"><span class="bfill" style="width:84%;background:var(--era-1)"></span></span><span class="bv">17.9%</span></div>
+      <div class="brow"><span class="bl">2020</span><span class="btrack"><span class="bfill" style="width:86%;background:var(--era-2)"></span></span><span class="bv">18.4%</span></div>
+      <div class="brow"><span class="bl">2021</span><span class="btrack"><span class="bfill" style="width:83%;background:var(--era-2)"></span></span><span class="bv">17.7%</span></div>
+      <div class="brow"><span class="bl">2022</span><span class="btrack"><span class="bfill" style="width:77%;background:var(--era-2)"></span></span><span class="bv">16.4%</span></div>
+      <div class="brow"><span class="bl">2023</span><span class="btrack"><span class="bfill" style="width:64%;background:var(--era-3)"></span></span><span class="bv">13.8%</span></div>
+      <div class="brow"><span class="bl">2024</span><span class="btrack"><span class="bfill" style="width:63%;background:var(--era-3)"></span></span><span class="bv">13.4%</span></div>
+      <div class="brow"><span class="bl">2025</span><span class="btrack"><span class="bfill" style="width:42%;background:var(--era-3)"></span></span><span class="bv">8.9%</span></div>
+      <div class="brow"><span class="bl">2026 H1</span><span class="btrack"><span class="bfill" style="width:34%;background:var(--era-3)"></span></span><span class="bv">7.2%</span></div>
+    </div>
+    <div class="legend">
+      <div class="li"><span class="sw" style="background:var(--era-1)"></span>pre-COVID</div>
+      <div class="li"><span class="sw" style="background:var(--era-2)"></span>the resilience years</div>
+      <div class="li"><span class="sw" style="background:var(--era-3)"></span>the tariff years</div>
+    </div>
+    <div class="note acc" style="margin-top:12px"><b>Look at 2020–2022.</b> Those are the peak years of
+      supply-chain-resilience rhetoric, of China+1 strategy decks and of 81% of executives reporting dual-sourcing
+      programmes. China's share of US goods imports over those three years went from 17.9% to 16.4% — and in
+      absolute dollars it rose to an <b>all-time record $536bn in 2022</b>. The real move came afterwards, in
+      2023–2025, and it tracks tariff policy rather than resilience programmes. <b>Diversification happened. It was
+      substantially legislated, not chosen.</b></div>
+    <figcaption>Source: US Census Bureau trade data via FRED (IMPCH ÷ BOPGIMP), annual sums of monthly values,
+      retrieved 28 Aug 2026. 2026 is January–June. Bar length is share relative to the 2017 peak.</figcaption>
+  </figure>
 
   <div style="margin-top:30px">
     <h3 style="margin-bottom:8px">The honest verdict</h3>
@@ -770,6 +826,21 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
           increase. A dashboard showing an exposure you have not funded a response to is not resilience.</div>
       </div>
       <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-2)">Retreated · the largest firms reverted completely</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">The clearest single result in the measured evidence. Among
+          471 large SEC filers, the biggest third finished 2025 on <b>47.7</b> inventory days against
+          <b>48.7</b> in 2019. Whatever they added in 2021, they gave back. The firms that buy the most consulting
+          advice on resilience are the ones whose balance sheets show the least of it.</div>
+      </div>
+      <div class="card tight stack stack-6">
+        <div class="reg" style="color:var(--era-3)">Stuck · but in the middle of the distribution</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">The mid-size third of the same panel went from
+          <b>81.5</b> to <b>90.6</b> days and held it — an 11% increase that survived four years and two cost
+          cycles. Smaller firms have less pricing power with suppliers, fewer qualified alternates and thinner
+          logistics options, so for them the buffer is the only available instrument. That is a rational,
+          durable response, and the aggregate hides it completely.</div>
+      </div>
+      <div class="card tight stack stack-6">
         <div class="reg" style="color:var(--era-3)">Stuck · physical and legal facts</div>
         <div style="font-size:14.5px;color:var(--ink-2)">Fabs and plants that were built are still built.
           Industrial policy, export controls and origin rules are still law. Long-term capacity agreements still
@@ -784,10 +855,12 @@ lead-time uncertainty outweighs everything the demand term can contribute.</span
       </div>
       <div class="card tight stack stack-6" style="border-left:2px solid var(--accent)">
         <div class="reg" style="color:var(--accent-ink)">The live test, now</div>
-        <div style="font-size:14.5px;color:var(--ink-2)">Pressure is back at +1.84σ as of April 2026 on tariff
-          and re-sourcing effects. This is the first shock since 2020 to hit firms that claim to have built the
-          capability. Whether TTR and exposure figures were maintained — or quietly stopped being produced in
-          2024 — is about to be visible in who absorbs it.</div>
+        <div style="font-size:14.5px;color:var(--ink-2)">Pressure is back at +1.84σ as of April 2026. And the 2025
+          tariff front-run produced the most violent inventory swing in the US national accounts outside the
+          pandemic itself: the change in private inventories added <b>+2.58pp</b> to real GDP growth in Q1 2025 and
+          subtracted <b>−3.44pp</b> in Q2 — a 6.0-point reversal in two quarters. That is a bullwhip, in 2025, in
+          firms that had spent four years saying they had fixed the bullwhip. It is the clearest evidence in this
+          document that the measurement changes described in §05 have not yet changed behaviour at scale.</div>
       </div>
     </div>
   </div>

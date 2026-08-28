@@ -39,8 +39,16 @@ COVID broke, and why the KPIs and risk models changed.
    Old metric → what it optimised for → the failure mode COVID exposed → the new
    metric → why that replacement follows.
 6. **§06 Risk assessment.** The seven conceptual shifts underneath all of it.
-7. **§07 Did it stick?** What leaders *say* against what the data *shows*, and an
-   evidence-weighted verdict on what retreated and what held.
+7. **§07 Did it stick?** What leaders *say* against four independent measured
+   series, and an evidence-weighted verdict. The measured evidence wins: real
+   inventories as a share of GDP are below even the 2021 trough; the largest
+   third of 471 SEC filers finished 2025 on *fewer* inventory days than 2019
+   while the middle third kept an 11% increase; "dual sourcing" appears in
+   about two dozen 10-Ks a year, unchanged since 2019; and China's share of US
+   goods imports barely moved during the resilience years (17.9% → 16.4%,
+   2019–22, with absolute imports hitting a record) before collapsing to 8.9%
+   under tariffs. Diversification happened — but it was substantially
+   legislated, not chosen.
 8. **§08 Sources & method**, including four things a careful reader should hold
    against the document.
 
@@ -68,9 +76,17 @@ Built from eight parallel research passes across doctrine, evidence, KPIs and
 modelling, each put through an adversarial fact-checking pass, plus direct
 retrieval of the primary time series.
 
-Read the numbers carefully. Measured public series (Census MTIS, NY Fed GSCPI)
-carry the argument. Consultant forecasts and survey responses are labelled as
-such and are *not* treated as data — notably the AlixPartners chip-shortage
-figure, which is a forecast issued in September 2021, and the McKinsey pulse
-survey percentages, which come from unmatched waves with shifting question
-wording. Full caveats are in §08 of the report and in `data.json`.
+Read the numbers carefully. Measured public series carry the argument — Census
+MTIS, NY Fed GSCPI, BEA national accounts, Census trade data, and original
+analysis of SEC XBRL filings. Consultant forecasts and survey responses are
+labelled as such and are *not* treated as data.
+
+Two sourcing limitations are stated plainly rather than papered over. The
+**McKinsey survey percentages could not be verified at source** — mckinsey.com
+refuses automated requests — so they appear via secondary reporting, flagged as
+such, and no conclusion rests on them. The **Hackett working capital figures**
+were gated and unavailable, which is why the corporate-inventory question is
+answered instead by original SEC XBRL analysis whose own caveats (XBRL tag
+sensitivity; text search measures language, not practice) are stated with it.
+
+Full caveats are in §08 of the report and in `data.json`.
