@@ -86,6 +86,22 @@
   .tallies{grid-template-columns:repeat(4,1fr)}
   .fault{max-width:none}
 
+  /* score cells and entry blocks */
+  th.sc-h{font-size:5.2pt; padding-bottom:5px; width:2.2em}
+  th.sc-h abbr{border-bottom:0}    /* no hover on paper, so no affordance for it */
+  td.sc-td{padding:4px 1px 0 0; width:2.2em}
+  span.sc{font-size:6.2pt; padding:3px 0 2px}
+  .lg{margin-top:11px; padding-top:10px}
+  .lg-grid{grid-template-columns:1fr 1fr 1fr; gap:0 18px}
+  .lg-item{padding:3px 0}
+  .lg-n{font-size:.68rem}
+  .lg-w{font-size:.66rem}
+  .entry{padding:12px 0 13px}
+  .entry-head h3{font-size:10pt}
+  .entry-ovr{font-size:13pt}
+  .entry-note,.entry-build{max-width:none}
+  .entries{border-top-width:5px}
+
   .toc{display:none}                 /* the PDF has real page numbers instead */
   .finding .do{margin-top:8px}
   .findings{border-top-width:5px}

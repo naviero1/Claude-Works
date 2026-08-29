@@ -8,7 +8,7 @@ D  = json.load(open('details_corrected.json'))
 M  = {d['rank']: d for d in json.load(open('master.json'))}
 for d in D: d['alternatives'] = M[d['rank']]['alternatives']
 F  = json.load(open('figures.json'))
-CSS = open('style.css').read() + '\n' + open('print.css').read()
+CSS = open('style.css').read() + '\n' + charts.ramp_css() + '\n' + open('print.css').read()
 
 def load(name, default):
     return json.load(open(name)) if os.path.exists(name) else default
@@ -710,8 +710,7 @@ def sec_ranking():
       <td><span class="rest">{e(d['restaurant'])}{flag}</span><span class="sub">{e(d['dish'])}</span>{prov}</td>
       <td>{tier_badge(d)}</td>
       <td class="n score" style="font-weight:600">{d['overall']:.2f}</td>
-      <td class="n score">{d['health']:.1f}</td>
-      <td>{charts.crit_bars(d)}</td>
+      {charts.score_cells(d)}
       <td class="n money">{money(d['price'])}</td>
       <td class="n num">{d['cal']:,}</td>
       <td class="n num">{d['protein']}</td>
@@ -724,13 +723,14 @@ def sec_ranking():
   <h2>The ranking</h2>
   <div class="measure stack" style="margin-top:16px">
     <p>The first edition split this into two lists and ranked each separately, which buried good food: {F['n_promoted']} entries in the second list outscored the weakest entry in the first, and the highest of them would have placed tenth. The split tracked how much research each restaurant got, not how the food scored. Here everything sits in one order.</p>
-    <p class="caption">The nine bars are the criteria in the order kidney, liver, muscle, gut, energy, inflammation, sugar &mdash; then, set apart, flavor in amber and cost in slate. Tall is good. Each row carries where the first edition printed it. &#9873; marks an entry whose figures were corrected against a restaurant's published data; &#9888; marks one whose figures are disputed and could not be replaced.</p>
+    <p class="caption">Each row scores nine criteria, named in the key below and repeated as column headers. Deeper is better in every column, and every cell prints its own number, so a row can be read across for a dish's shape and a column read down to compare every dish on one criterion. Each row also carries where the first edition printed it. &#9873; marks an entry whose figures were corrected against a restaurant's published data; &#9888; marks one whose figures are disputed and could not be replaced.</p>
+  {charts.legend()}
   </div>
   <div class="tablewrap">
     <table class="rank-table">
       <thead><tr>
         <th class="n">#</th><th>Restaurant and dish</th><th>Data</th>
-        <th class="n">Overall</th><th class="n">Health</th><th>Profile</th>
+        <th class="n">Overall</th>{charts.score_headers()}
         <th class="n">Price</th><th class="n">Cal</th><th class="n">Pro</th><th class="n">Na mg</th><th class="n">Fib</th>
       </tr></thead>
       <tbody>{''.join(rows)}</tbody>
@@ -789,48 +789,45 @@ def sec_gap():
 
 def sec_additions():
     if not ADDS: return ''
-    entries = sorted(ADDS, key=lambda x: -x['overall'])
-
-    rows = ''
-    for d in entries:
-        sid = d.get('store') or ''
-        sid_html = (f'<span class="sub dimtd">DoorDash store {e(sid)}, reported but not independently confirmed</span>'
-                    if sid else '<span class="sub dimtd">no DoorDash store id established</span>')
-        na_cls = 'lo' if d['sodium'] >= 1500 else ''
-        rows += (
-            '<tr>'
-            f'<td><span class="rest">{e(d["restaurant"])}</span>'
-            f'<span class="sub">{e(d["dish"])} &middot; {e(d.get("city", ""))}</span>{sid_html}</td>'
-            f'<td class="dimtd">{e(d.get("cuisine", ""))}</td>'
-            f'<td class="n score" style="font-weight:600">{d["overall"]:.2f}</td>'
-            f'<td class="n score">{d["health"]:.1f}</td>'
-            f'<td class="n score" style="color:var(--flavor)">{d["FLAVOR"]:.1f}</td>'
-            f'<td class="n money">{money(d["price"])}</td>'
-            f'<td class="n num">{d["protein"]}</td>'
-            f'<td class="n num {na_cls}">{d["sodium"]:,}</td>'
-            '</tr>')
-
-    notes = ''
-    for d in entries:
-        flav = f'<p class="small" style="margin-top:7px">{e(d.get("on_flavor", ""))}</p>' if d.get('on_flavor') else ''
-        notes += (
-            '<div class="corr">'
-            f'<div class="corr-head"><span class="corr-who">{e(d.get("cuisine", ""))}</span></div>'
-            f'<h3 style="font-size:1.02rem;margin-bottom:7px">{e(d["restaurant"])} &mdash; {e(d["dish"])}</h3>'
-            f'<p class="small">{e(d.get("why_it_scores", ""))}</p>'
-            f'{flav}'
-            f'<p class="small" style="margin-top:9px;color:var(--ink-3)">'
-            f'<strong>Order it:</strong> {e(d.get("build", ""))}</p>'
-            '</div>')
-
-    absent = ''
-    if ABSENT:
-        absent = ('<div class="callout"><h4>Categories that really are empty here</h4>'
-                  f'<p style="margin-top:6px">Searched, and not padded to fill a row. {e(ABSENT)}</p></div>')
-
-    best = entries[0]
     A = F['added']
+    NOTES = load('addnotes.json', {})
+    entries = sorted(ADDS, key=lambda x: -x['overall'])
+    best = entries[0]
     place = ordinal(sum(1 for x in MERGED if x['overall'] > best['overall']) + 1)
+
+    def block(d):
+        pos = sum(1 for x in MERGED if x['overall'] > d['overall']) + 1
+        sid = (d.get('store') or '').strip()
+        prov = (f'DoorDash store {e(sid)}, reported but not independently confirmed'
+                if sid else 'no DoorDash store id established')
+        if d.get('price_note'): prov += f' &middot; {e(d["price_note"])}'
+        return f'''<article class="entry">
+      <div class="entry-head">
+        <div>
+          <h3>{e(d['restaurant'])}</h3>
+          <p class="entry-dish">{e(d['dish'])}</p>
+          <p class="entry-meta">{e(d['cuisine'])} &middot; {e(d.get('city',''))} &middot; {ordinal(pos)} of {len(MERGED)}</p>
+        </div>
+        <div class="entry-score">
+          <span class="entry-ovr num">{d['overall']:.2f}</span>
+          <span class="entry-ovr-l">overall</span>
+        </div>
+      </div>
+      <div class="tablewrap">
+        <table class="entry-tbl"><thead><tr>{charts.score_headers()}
+          <th class="n">Price</th><th class="n">Cal</th><th class="n">Pro</th>
+          <th class="n">Na mg</th><th class="n">Sat</th><th class="n">Fib</th></tr></thead>
+        <tbody><tr>{charts.score_cells(d)}
+          <td class="n money">{money(d['price'])}</td>
+          <td class="n num">{d['cal']:,}</td><td class="n num">{d['protein']}</td>
+          <td class="n num {'lo' if d['sodium'] >= 1500 else ''}">{d['sodium']:,}</td>
+          <td class="n num">{d['satfat']:g}</td><td class="n num">{d['fiber']:g}</td>
+        </tr></tbody></table>
+      </div>
+      <p class="entry-note">{e(NOTES.get(d['restaurant'], ''))}</p>
+      <p class="entry-build"><b>Order it</b>{e(d.get('build',''))}</p>
+      <p class="entry-prov">{prov}</p>
+    </article>'''
 
     return (
       '<section id="additions">\n'
@@ -838,42 +835,23 @@ def sec_additions():
       '  <span class="eyebrow">New in this edition</span>\n'
       '  <h2>The food the first edition missed</h2>\n'
       '  <div class="measure stack" style="margin-top:16px">\n'
-      f'    <p>These {len(entries)} entries close part of the gap the previous section describes. Each was found by asking what '
-      'actually delivers in the Research Triangle in a category the first edition skipped, each was independently checked for '
-      'whether the restaurant exists and the dish is really on its menu, and each was scored on the identical model &mdash; the '
-      'six computed criteria by formula, the three rubric criteria by the same judgement the original sixty got.</p>\n'
-      f'    <p>The best of them, {e(best["restaurant"])}&rsquo;s {e(best["dish"]).lower()} at {money(best["price"])}, scores '
-      f'{best["overall"]:.2f} &mdash; which would place it {place} in the main ranking.</p>\n'
-      '    <p class="caption">Every one of these is estimated from menu construction rather than published nutrition, and should '
-      'be read at the confidence the measurement chapter describes. Existence was established against county restaurant-inspection '
-      'registries and the restaurants&rsquo; own sites; <strong>no DoorDash store id in this group could be independently checked</strong>, '
-      'because DoorDash refuses automated requests, so the ids below are reported rather than verified and several entries carry '
-      'none at all.</p>\n'
+      f'    <p>These {len(ADDS)} entries close part of the gap the previous section describes. Each was found by asking '
+      f'what actually delivers in the Research Triangle in a category the first edition skipped, each was independently '
+      f'checked for whether the restaurant exists and the dish is really on its menu, and each was scored on the '
+      f'identical model. The best of them, {e(best["restaurant"])}&rsquo;s {e(best["dish"]).lower()} at '
+      f'{money(best["price"])}, would place {place} of {len(MERGED)}.</p>\n'
       '  </div>\n'
-      '  <div class="tablewrap"><table><thead><tr>'
-      '<th>Restaurant and dish</th><th>Cuisine</th><th class="n">Overall</th><th class="n">Health</th>'
-      '<th class="n">Flavor</th><th class="n">Price</th><th class="n">Pro</th><th class="n">Na mg</th>'
-      f'</tr></thead><tbody>{rows}</tbody></table></div>\n'
-      f'  {absent}\n'
       '  <div class="callout">\n'
-      '    <h4>How the new entries score against the same measures</h4>\n'
-      f'    <p style="margin-top:6px">They are worse food, on this model, and predictably so: mean health {A["health"]:.2f} '
-      f'against {A["orig_health"]:.2f} for the original sixty, on {A["sodium"]-A["orig_sodium"]:+,.0f}&#8202;mg more sodium at '
-      f'almost exactly the same price ({money(A["price"])} against {money(A["orig_price"])}). That is what filling the gaps '
-      f'costs: {A["n_grilled"]} of the {A["n"]} are grilled, smoked or fried, and the compendium&rsquo;s whole argument is that '
-      f'those formats buy their flavor with salt. Mean flavor is {A["flavor"]:.2f} against {A["orig_flavor"]:.2f} &mdash; lower, '
-      f'because the group also contains the steamed and diet-menu orders nobody chooses.</p>\n'
-      f'    <p style="margin-top:10px">The exceptions are the point. {e(A["best"]["restaurant"])}&rsquo;s '
-      f'{e(A["best"]["dish"]).lower()} would rank {ordinal(sum(1 for x in MERGED if x["overall"] > A["best"]["overall"]) + 1)} '
-      f'of {len(MERGED)}, and {e(A["cheapest_good"]["restaurant"])} clears health 6.0 at {money(A["cheapest_good"]["price"])} '
-      f'&mdash; cheaper than anything in the original set that does. Within these {A["n"]} the price&ndash;health correlation is '
-      f'{r2(A["r_price_health"])}, which is higher than the {r2(F["r_price_health"])} across the original sixty and still small '
-      f'enough to be worth nothing.</p>\n'
+      '    <h4>How they score against the same measures</h4>\n'
+      f'    <p style="margin-top:6px">Worse food, on this model, and predictably so: mean health {A["health"]:.2f} '
+      f'against {A["orig_health"]:.2f} for the original sixty, on {A["sodium"]-A["orig_sodium"]:+,.0f}&#8202;mg more '
+      f'sodium at almost exactly the same price. That is what filling the gaps costs &mdash; {A["n_grilled"]} of the '
+      f'{A["n"]} are grilled, smoked or fried, and this document&rsquo;s whole argument is that those formats buy their '
+      f'flavor with salt. The exceptions are the point: {e(A["cheapest_good"]["restaurant"])} clears health 6.0 at '
+      f'{money(A["cheapest_good"]["price"])}, cheaper than anything in the original set that does.</p>\n'
       '  </div>\n'
-      '  <h3 style="margin-top:40px">Why each one is here</h3>\n'
-      f'  <div style="margin-top:14px">{notes}</div>\n'
+      f'  <div class="entries">{"".join(block(d) for d in entries)}</div>\n'
       '</section>')
-
 
 def sec_corrections():
     if not CORR: return ''

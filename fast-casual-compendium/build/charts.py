@@ -100,16 +100,80 @@ def sodium_ladder(F, w=760):
     s.append('</svg>')
     return '\n'.join(s)
 
-def crit_bars(d, w=132, h=26):
-    """Compact nine-bar sparkline for one dish, in ranking rows."""
-    keys = [('KID','h'),('LIV','h'),('MUS','h'),('GUT','h'),('ENE','h'),('INF','h'),('SUG','h'),('FLAVOR','f'),('COST','c')]
-    bw, gap = 11, 2.6
-    s = [f'<svg viewBox="0 0 {w} {h}" class="bars" aria-hidden="true">']
-    x = 0
-    for k, kind in keys:
-        v = d[k]; bh = max(1.2, v/10*(h-4))
-        if kind == 'f': x += 5
-        s.append(f'<rect x="{x:.1f}" y="{h-2-bh:.1f}" width="{bw}" height="{bh:.1f}" class="b b-{kind}"/>')
-        x += bw+gap
-    s.append('</svg>')
-    return '\n'.join(s)
+# ---- score cells -------------------------------------------------------------
+# The nine criteria used to render as an unlabelled bar sparkline: it showed a
+# shape but the reader could not tell which bar was which. They are now nine real
+# table cells sitting under nine labelled column headers, each printing its score
+# on a tint from that criterion group's sequential ramp. That makes the row
+# self-labelling, makes the columns comparable down the table, and keeps the
+# number itself on the page. Ramps and their ink are generated and contrast-
+# checked in ramps.py.
+import json as _json, os as _os
+_RAMPS = _json.load(open(_os.path.join(_os.path.dirname(__file__), 'ramps.json'))) \
+    if _os.path.exists(_os.path.join(_os.path.dirname(__file__), 'ramps.json')) else None
+
+CRITERIA = [
+    ('KID', 'Kidney',       'health', 'Sodium alone'),
+    ('LIV', 'Liver',        'health', 'Saturated fat and calorie load'),
+    ('MUS', 'Muscle',       'health', 'Protein density and absolute protein'),
+    ('GUT', 'Gut',          'health', 'Live ferments and plant-type count'),
+    ('ENE', 'Energy',       'health', 'Refined-carb load, fiber, protein'),
+    ('INF', 'Inflammation', 'health', 'Omega-3 and plant diversity'),
+    ('SUG', 'Sugar',        'health', 'Total sugars, at 0.7 weight'),
+    ('FLAVOR', 'Flavor',    'flavor', 'Where the intensity comes from, at 0.5 weight'),
+    ('COST', 'Cost',        'cost',   'Price and price per gram of protein, at 0.5 weight'),
+]
+
+def score_cells(d, compact=False):
+    """Nine tinted, numbered cells - one per criterion, in header order."""
+    out = []
+    for i, (key, name, group, _) in enumerate(CRITERIA):
+        v = d[key]
+        step = min(6, max(0, int(round(v/10*6))))
+        gap = ' sc-gap' if key == 'FLAVOR' else ''
+        out.append(f'<td class="sc-td{gap}"><span class="sc sc-{group}" '
+                   f'data-step="{step}" title="{name}: {v:.1f} of 10">{v:.1f}</span></td>')
+    return ''.join(out)
+
+def score_headers():
+    """The nine column headers the cells sit under."""
+    out = []
+    for key, name, group, why in CRITERIA:
+        gap = ' sc-gap' if key == 'FLAVOR' else ''
+        out.append(f'<th class="sc-h sc-h-{group}{gap}" title="{name} - {why}">'
+                   f'<abbr>{key[:3]}</abbr></th>')
+    return ''.join(out)
+
+def ramp_css():
+    """Emit the tint and ink for every step of every ramp, both themes."""
+    if not _RAMPS: return ''
+    lines = [':root{']
+    for g, steps in _RAMPS['light'].items():
+        for i, (bg, ink) in enumerate(steps):
+            lines.append(f'  --sc-{g}-{i}:{bg}; --sc-{g}-{i}-ink:{ink};')
+    lines.append('}')
+    dark = []
+    for g, steps in _RAMPS['dark'].items():
+        for i, (bg, ink) in enumerate(steps):
+            dark.append(f'  --sc-{g}-{i}:{bg}; --sc-{g}-{i}-ink:{ink};')
+    body = '\n'.join(dark)
+    lines.append('@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){\n'
+                 + body + '\n}}')
+    lines.append(':root[data-theme="dark"]{\n' + body + '\n}')
+    rules = []
+    for g in _RAMPS['light']:
+        for i in range(7):
+            rules.append(f'.sc-{g}[data-step="{i}"]{{background:var(--sc-{g}-{i});'
+                         f'color:var(--sc-{g}-{i}-ink)}}')
+    return '\n'.join(lines + rules)
+
+def legend():
+    """A key naming every column, so the abbreviations never need decoding."""
+    items = ''.join(
+        f'<div class="lg-item lg-{g}"><span class="lg-k">{k[:3]}</span>'
+        f'<span class="lg-n">{n}</span><span class="lg-w">{w}</span></div>'
+        for k, n, g, w in CRITERIA)
+    return ('<div class="lg"><div class="lg-scale">'
+            + ''.join(f'<i class="sc-health" data-step="{i}"></i>' for i in range(7))
+            + '<span class="lg-scale-t">0 &rarr; 10, pale to deep</span></div>'
+            f'<div class="lg-grid">{items}</div></div>')
