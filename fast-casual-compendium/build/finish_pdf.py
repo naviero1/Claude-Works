@@ -7,7 +7,9 @@ SRC = 'The-Fast-Casual-Compendium.pdf'
 # locate each chapter by the heading text on its page
 MARKS = [
     ('87 named dishes',                   'The Fast-Casual Compendium'),
-    ('What sixty menus actually tell you','Seven findings'),
+    ('What the numbers actually tell you','The findings'),
+    ('all 87, in one sequence',           'The ranking'),
+    ('Why the ranking says what it says', 'The rest of the document'),
     ('What money does and does not buy',  'One · Money'),
     ('Sodium is the currency',            'Two · Sodium'),
     ('What flavor actually costs',        'Three · Flavor'),
@@ -17,14 +19,15 @@ MARKS = [
     ('Nine criteria, written out',        'The model'),
     ('How much of this is measured',      'Confidence'),
     ('Where this model misfires',         'Against interest'),
-    ('The ranking',                       'The ranking'),
+    ('What changed in this edition',      'What changed'),
     ('What was wrong',                    'Verification log'),
     ('What a score is',                   'Method and provenance'),
 ]
 
 doc = pdfium.PdfDocument(SRC)
-# headings are uppercased and letter-spaced by CSS, so normalise before matching
-def norm(t): return ' '.join(t.replace('\u2060', '').split()).lower()
+# headings are uppercased AND letter-spaced by CSS, and letter-spacing extracts as
+# "A L L 8 7" - so match on the whitespace-stripped, lowercased text
+def norm(t): return ''.join(t.split()).lower()
 pages = [norm(doc[i].get_textpage().get_text_range()) for i in range(len(doc))]
 # chapters appear in order, so each search starts where the last one landed;
 # without that, a phrase like "the ranking" matches prose long before its chapter

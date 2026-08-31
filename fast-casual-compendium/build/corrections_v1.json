@@ -335,7 +335,7 @@
   "action": "note",
   "claim": "Telba shiro's ground flaxseed is 'a genuine plant omega-3 source', scored as omega-3 in the inflammation criterion",
   "was": "Scored as an omega-3 source alongside oily fish.",
-  "now": "Flaxseed is a real source of ALA and not a functional source of EPA or DHA. A scoping review of 13 randomised trials found high-dose flaxseed and echium oil produced no increase in the omega-3 index, against reliable increases from fish oil; conversion of ALA to EPA runs at a few percent and to DHA below one percent. The model is treating several grams of ALA as interchangeable with about a gram of preformed EPA and DHA, and it should not.",
+  "now": "Flaxseed is a real source of ALA and not a functional source of EPA or DHA; the trial evidence and what it does to this entry's inflammation score are set out in the audit chapter, under the omega-3 ladder.",
   "source": "Lane et al., Critical Reviews in Food Science and Nutrition, 2022 (PMID 33576691).",
   "kind": "wrong"
  },
@@ -344,7 +344,7 @@
   "action": "note",
   "claim": "Salmon is 'one of few foods with trial evidence for reducing liver fat'",
   "was": "Given as the reason the salmon build scores well on the liver criterion.",
-  "now": "No randomised trial of salmon with liver fat as an outcome could be found. The 13 indexed salmon-intervention trials cover vitamin D status, cognition, ulcerative colitis and pollutant kinetics. The defensible version is that oily fish and long-chain omega-3s have trial evidence for improving some liver markers, with the effect on directly measured liver fat inconsistent across meta-analyses.",
+  "now": "No randomised trial of salmon with liver fat as an outcome could be found. The defensible version is that oily fish and long-chain omega-3s have trial evidence for improving some liver markers, with the effect on directly measured liver fat inconsistent across meta-analyses.",
   "source": "PubMed searches on salmon with hepatic steatosis and liver fat outcomes, 28 August 2026.",
   "kind": "wrong"
  },
@@ -487,7 +487,7 @@
   "action": "note",
   "claim": "Telba shiro - ground flaxseed and chickpea - is a real Ethiopian menu item and is the entry's omega-3 source",
   "was": "Scored as a flaxseed omega-3 source, driving an inflammation score of 8.0, the fourth-highest in the compendium.",
-  "now": "Could not be sourced at all. Standard references describe shiro as powdered chickpea or broad bean and name only shiro fit-fit and bozena shiro as variants; no flaxseed version surfaced, and the item could not be found on Abol's own menu. Combined with the separate finding that flaxseed ALA is not a functional EPA/DHA source, an inflammation score of 8.0 is resting on an ingredient that has not been shown to be in the order.",
+  "now": "Flaxseed is a real source of ALA and not a functional source of EPA or DHA; the trial evidence and what it does to this entry's inflammation score are set out in the audit chapter, under the omega-3 ladder.",
   "source": "Standard references on shiro; Abol's menu not retrievable, 28 August 2026.",
   "kind": "open"
  },

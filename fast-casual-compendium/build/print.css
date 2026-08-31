@@ -36,9 +36,9 @@
   figcaption{break-before:avoid}
 
   /* each chapter opens a page */
-  section#findings,section#money,section#sodium,section#flavor,section#swaps,
-  section#gap,section#additions,section#criteria,section#confidence,
-  section#audit,section#ranking,section#corrections{
+  section#findings,section#ranking,section#contents,section#money,section#sodium,
+  section#flavor,section#swaps,section#gap,section#additions,section#criteria,
+  section#confidence,section#audit,section#corrections{
     break-before:page; page-break-before:always; margin-top:0}
   section{margin-top:26px}
 
@@ -102,7 +102,13 @@
   .entry-note,.entry-build{max-width:none}
   .entries{border-top-width:5px}
 
-  .toc{display:none}                 /* the PDF has real page numbers instead */
+  /* the gateway list stays on paper - without it that page is a heading and one
+     line. It carries no page numbers, but the PDF has a bookmark outline and
+     running folios for that. */
+  .toc{grid-template-columns:1fr 1fr; margin-top:26px}
+  .toc a{padding:9px 18px 10px 0}
+  .toc .toc-t{font-size:.72rem}
+  .toc .toc-d{font-size:.78rem}
   .finding .do{margin-top:8px}
   .findings{border-top-width:5px}
   .finding{padding:14px 18px 16px 0}

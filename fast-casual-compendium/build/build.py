@@ -92,7 +92,6 @@ def sec_masthead():
 
 def sec_contents():
     items = [
-      ('findings', 'The findings', 'six results that should change your order'),
       ('money', 'One &middot; Money', 'what price does and does not buy'),
       ('sodium', 'Two &middot; Sodium', 'the currency everything is priced in'),
       ('flavor', 'Three &middot; Flavor', 'what taste actually costs'),
@@ -102,14 +101,20 @@ def sec_contents():
       ('criteria', 'The model', 'nine criteria, written out'),
       ('confidence', 'Confidence', 'how much of this is measured'),
       ('audit', 'Against interest', 'where the model misfires'),
-      ('ranking', 'The ranking', f'all {len(MERGED)} in one sequence'),
-      ('corrections', 'Verification log', 'what was wrong'),
+      ('changes', 'What changed', 'this edition against the first'),
+      ('corrections', 'Verification log', 'what was wrong, and what held'),
     ]
     if not ADDS:
         items = [i for i in items if i[0] != 'additions']
     links = ''.join(f'<a href="#{i}"><span class="toc-t">{t}</span>'
                     f'<span class="toc-d">{d}</span></a>' for i, t, d in items)
-    return f'<nav class="toc" aria-label="Contents">{links}</nav>'
+    return ('<section id="contents"><hr class="rule-heavy">'
+            '<span class="eyebrow">The rest of this document</span>'
+            '<h2>Why the ranking says what it says</h2>'
+            '<p class="lede measure" style="margin-top:14px">Everything above is the answer. '
+            'Everything below is the working: where the numbers came from, which of them turned '
+            'out to be wrong, and where the model that produced them breaks down.</p>'
+            f'<nav class="toc" aria-label="Contents">{links}</nav></section>')
 
 
 def sec_changes():
@@ -126,7 +131,7 @@ def sec_changes():
     movers += f"The largest single move was {_mv(_big)}."
     n_rescored = sum(1 for c in CORR if c['action'] == 'rescore') if CORR else 0
     items = [
-      ('The numbers were checked, and some were wrong.', f'Every nutrition figure the first edition attributed to a published document was re-read against that document. {n_rescored} entries had to be rescored, {movers} Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.'),
+      ('The numbers were checked, and some were wrong.', f'{n_rescored} entries had to be rescored against a restaurant&rsquo;s own published figures or current menu, {movers} Everything checked is listed in the verification log at the end, including what came back clean and what could not be settled.'),
       ('The front page is new.', 'The first edition opened with four findings, three of which were trivia about a single restaurant each and the fourth about research method rather than food. They have been replaced with findings drawn from the whole set, led by what the data says about money.'),
       ('The two lists are now one.', f'The first edition printed &ldquo;The Thirty&rdquo; and &ldquo;The Next Thirty&rdquo; as separate ranked lists, but the split tracked research depth rather than score: {F["n_promoted"]} entries in the second list outscored the weakest in the first. Everything is now ranked in one sequence.'),
       ('The scoring model is printed, not described.', 'Every criterion that can be computed from the macros is given as an actual function, recovered by fitting the first edition\'s own published scores. Anyone can recompute anything here, including the parts they disagree with.'),
@@ -228,16 +233,14 @@ def sec_findings():
       '<section id="findings">\n'
       '  <hr class="rule-heavy">\n'
       '  <span class="eyebrow">Seven findings that should change your order</span>\n'
-      '  <h2>What sixty menus actually tell you</h2>\n'
+      '  <h2>What the numbers actually tell you</h2>\n'
       '  <p class="lede measure" style="margin-top:14px">Each of these holds across the whole set rather than at one '
       'restaurant, each survived an attempt to disprove it, and each is recomputable from the ranking table below. Four are '
       'about money, because that is where the data turned out to be most surprising &mdash; and where it most contradicts the '
       'first edition.</p>\n'
-      f'  <p class="caption measure" style="margin-top:10px">Computed on the first edition\'s {F["n_orig"]} dishes, not on all '
-      f'{len(MERGED)}. The {len(ADDS)} entries added here were chosen to fill named gaps &mdash; the best available dish in a '
-      f'category that had none &mdash; so pooling them into a correlation would measure the choosing rather than the food. They '
-      f'are scored identically, they appear in the ranking, and they are summarised against these same measures where they are '
-      f'introduced.</p>\n'
+      f'  <p class="caption measure" style="margin-top:10px">Computed on the first edition\'s {F["n_orig"]} dishes rather than '
+      f'all {len(MERGED)}: the {len(ADDS)} added here were picked to fill named gaps, so pooling them into a correlation would '
+      f'measure the picking rather than the food. They are scored identically and ranked alongside everything else.</p>\n'
       f'  <div class="findings" style="margin-top:34px">{out}</div>\n'
       '</section>')
 
@@ -525,7 +528,7 @@ def sec_criteria():
        f'A glycemic proxy assembled by hand. It correlates with fiber at {F["r_fiber_ene"]:+.2f}, which is the closest thing to a check available on it.', True),
       ('Inflammation', '×1.0', 'Omega-3 60%, plant and herb diversity 40%.',
        'INF ≈ 0.6 × (omega-3 ladder, 0–3)\n    + 0.4 × (plant and herb diversity, 0–7)',
-       'Inferred, like the gut ladder, rather than recovered exactly. The omega-3 ladder does not distinguish plant ALA from marine EPA and DHA, which overstates flaxseed &mdash; see the audit.', True),
+       'Inferred, like the gut ladder, rather than recovered exactly. Its omega-3 ladder is the model\'s weakest link &mdash; see the audit.', True),
       ('Sugar', '×0.7', 'Total sugars.', 'SUG = clamp( 10 × (22 − sugar_g) / 19 )',
        'Full marks at 3&#8202;g, zero at 22. Uses <em>total</em> sugars, so fruit and plain dairy are penalised exactly like added sugar.', False),
       ('Flavor', '×0.5', 'Six components, minus what the health edit removes.',
@@ -722,7 +725,7 @@ def sec_ranking():
   <span class="eyebrow">All {len(MERGED)}, in one sequence</span>
   <h2>The ranking</h2>
   <div class="measure stack" style="margin-top:16px">
-    <p>The first edition split this into two lists and ranked each separately, which buried good food: {F['n_promoted']} entries in the second list outscored the weakest entry in the first, and the highest of them would have placed tenth. The split tracked how much research each restaurant got, not how the food scored. Here everything sits in one order.</p>
+    <p>Every dish in the set, in one sequence. The first edition split this into two separately-ranked lists and buried good food doing it; what that cost is set out in the changelog at the end.</p>
     <p class="caption">Each row scores nine criteria, named in the key below and repeated as column headers. Deeper is better in every column, and every cell prints its own number, so a row can be read across for a dish's shape and a column read down to compare every dish on one criterion. Each row also carries where the first edition printed it. &#9873; marks an entry whose figures were corrected against a restaurant's published data; &#9888; marks one whose figures are disputed and could not be replaced.</p>
   {charts.legend()}
   </div>
@@ -899,7 +902,7 @@ def sec_method():
       <h4 style="margin-top:20px">Prices</h4>
       <p class="small">DoorDash-listed. Published measurements put the delivery-app premium at roughly 10&ndash;20% above in-store, averaging about 15% &mdash; the first edition said 15&ndash;25%, which is high at both ends. Every cost score here is computed on the delivery price, so the cost column is systematically harsher than an in-store comparison would be.</p>
       <h4 style="margin-top:20px">Storefronts</h4>
-      <p class="small">57 of the 60 entries print a DoorDash store id; three print a brand-level business id or the word &ldquo;chain&rdquo;. Thirty-five restaurants were independently spot-checked for this edition and all thirty-five exist and appear to be trading, with 29 of the printed ids matched to the right restaurant and address. Distances are straight-line from Research Triangle Park, and an active storefront is not the same as delivery to a given address &mdash; radius is computed per address at checkout.</p>
+      <p class="small">Distances are straight-line from Research Triangle Park, and an active storefront is not the same as delivery to a given address &mdash; radius is computed per address at checkout. What was and was not confirmed about each storefront is in the verification log.</p>
     </div>
     <div class="stack-tight">
       <h4>What this is not</h4>
@@ -925,9 +928,9 @@ PAGE = f'''<title>The Fast-Casual Compendium</title>
 </style>
 <div class="wrap">
 {sec_masthead()}
-{sec_contents()}
-{sec_changes()}
 {sec_findings()}
+{sec_ranking()}
+{sec_contents()}
 {sec_money()}
 {sec_sodium()}
 {sec_flavor()}
@@ -937,7 +940,7 @@ PAGE = f'''<title>The Fast-Casual Compendium</title>
 {sec_criteria()}
 {sec_confidence()}
 {sec_audit()}
-{sec_ranking()}
+{sec_changes()}
 {sec_corrections()}
 {sec_method()}
 </div>
