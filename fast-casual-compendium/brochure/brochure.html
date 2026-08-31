@@ -1,0 +1,419 @@
+<title>What Delivery Costs You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
+<style>
+/* ============================================================
+   Market-stall vernacular: butcher paper, price-tag red, and
+   figures set like a menu board. Money is the thesis, so the
+   price tag is the motif.
+   ============================================================ */
+:root{
+  --paper:#FFFDF7; --paper-2:#F7F4E9; --paper-3:#EFEBDB;
+  --ink:#16171B; --ink-2:#565A66; --ink-3:#686C77;
+  --rule:#E2DECF; --rule-2:#BEB9A6;
+  --price:#C8102E; --price-soft:#FBE9EC; --on-price:#FFFDF7;
+  --good:#1F6F5C; --good-soft:#E4F0EC;
+  --band:#16171B; --band-ink:#FFFDF7;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131419; --paper-2:#1B1D24; --paper-3:#23262F;
+    --ink:#F2EFE4; --ink-2:#A9ADBA; --ink-3:#9499A6;
+    --rule:#2A2D36; --rule-2:#464A57;
+    --price:#FF6478; --price-soft:#2C1A20; --on-price:#16171B;
+    --good:#57C5A6; --good-soft:#16261F;
+    --band:#F2EFE4; --band-ink:#131419;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131419; --paper-2:#1B1D24; --paper-3:#23262F;
+  --ink:#F2EFE4; --ink-2:#A9ADBA; --ink-3:#9499A6;
+  --rule:#2A2D36; --rule-2:#464A57;
+  --price:#FF6478; --price-soft:#2C1A20; --on-price:#16171B;
+  --good:#57C5A6; --good-soft:#16261F;
+  --band:#F2EFE4; --band-ink:#131419;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:Newsreader,Charter,Georgia,serif; font-size:18px; line-height:1.6;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:0 26px 90px}
+@media(max-width:640px){ body{font-size:17px} .wrap{padding:0 18px 60px} }
+
+h1,h2,h3,.kick,.tag-l,.lbl,.num{font-family:"Bricolage Grotesque",Archivo,Helvetica,Arial,sans-serif}
+h1{font-size:clamp(2.9rem,8.4vw,6rem); font-weight:800; line-height:.92;
+   letter-spacing:-.03em; margin:0; text-wrap:balance;
+   font-variation-settings:"wdth" 92,"opsz" 40}
+h2{font-size:clamp(1.75rem,4.2vw,2.9rem); font-weight:800; line-height:1.03;
+   letter-spacing:-.022em; margin:0; text-wrap:balance}
+h3{font-size:1.2rem; font-weight:700; line-height:1.2; margin:0; letter-spacing:-.01em}
+p{margin:0}
+.kick{font-size:.72rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-3); display:block}
+.lbl{font-size:.66rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink-3)}
+.num{font-family:"DM Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum"}
+.lede{font-size:clamp(1.1rem,2vw,1.35rem); line-height:1.48; color:var(--ink-2)}
+.stack{display:flex; flex-direction:column; gap:1em}
+strong{font-weight:600}
+em{font-style:italic}
+a{color:var(--price)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--price); outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{padding:58px 0 0}
+.hero-grid{display:grid; grid-template-columns:1fr; gap:34px; align-items:center; margin-top:30px}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.25fr .75fr; gap:56px}}
+.hero .lede{margin-top:22px; max-width:34ch}
+
+/* the price tag - the one bold move, used twice on the page */
+.tag{position:relative; display:inline-flex; flex-direction:column; align-items:flex-start;
+  background:var(--price); color:var(--on-price); padding:20px 30px 18px 44px;
+  clip-path:polygon(26px 0,100% 0,100% 100%,26px 100%,0 50%)}
+.tag .tag-n{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:clamp(2.2rem,5.4vw,3.4rem); font-weight:500; line-height:1; letter-spacing:-.02em}
+.tag .tag-l{font-size:.68rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  opacity:.9; margin-top:8px; max-width:22ch; line-height:1.4}
+.tag::before{content:""; position:absolute; left:14px; top:50%; transform:translateY(-50%);
+  width:9px; height:9px; border-radius:50%; background:var(--paper)}
+
+/* ---------- dish drawings ---------- */
+.dish{width:100%; height:auto; display:block}
+.dish .pl{fill:var(--paper-3)}
+.dish .pl-in{fill:var(--paper-2)}
+.dish .f-tuna{fill:#C8102E}  .dish .f-salmon{fill:#E8734A}
+.dish .f-green{fill:#3E7F4E} .dish .f-rice{fill:#EFE7CE}
+.dish .f-avo{fill:#7FA457}   .dish .f-edam{fill:#5C9A4A}
+.dish .f-seed{fill:#8A8577}  .dish .f-char{fill:#8A5A34}
+.dish .f-grill{stroke:#5E3A20; stroke-width:2; fill:none; opacity:.55}
+.dish .f-skew{fill:#9A9486}  .dish .f-salad{fill:#4E8F55}
+.dish .f-tom{fill:#C8102E}   .dish .f-yog{fill:#F4F1E4}
+.dish .f-marb{stroke:#FFFDF7; stroke-width:2.5; fill:none; opacity:.6}
+.dish .f-lentil{fill:#8A6A3E} .dish .f-lentil-d{fill:#6E5230}
+.dish .f-broc{fill:#3E7F4E}  .dish .f-pork{fill:#9A5636}
+.dish .f-bark{fill:#5E3520}  .dish .f-collard{fill:#35663F}
+.dish .f-bean{fill:#7A5A38}  .dish .f-fish{fill:#B9C3CB}
+.dish .f-eye{fill:#16171B}   .dish .f-scale{stroke:#8E9AA6; stroke-width:2; fill:none}
+.dish .f-lemon{fill:#E8C24A} .dish .f-lemonw{stroke:#FFFDF7; stroke-width:2; fill:none}
+.dish .f-herb{fill:#3E7F4E}  .dish .f-crust{fill:#D8A657}
+.dish .f-sauce{fill:#C8102E} .dish .f-mozz{fill:#F4F1E4}
+.dish .f-basil{fill:#3E7F4E} .dish .f-cut{stroke:#B8893F; stroke-width:1.5; fill:none; opacity:.5}
+.dish .f-steam{fill:#EDE9DA} .dish .f-shrimp{fill:#E8734A}
+.dish .f-carrot{fill:#DD8A33}
+
+/* ---------- findings ---------- */
+.finds{margin-top:80px}
+.find{display:grid; grid-template-columns:1fr; gap:22px; align-items:center;
+  padding:44px 0; border-top:1px solid var(--rule)}
+@media(min-width:820px){
+  /* number stays narrow and body stays wide in both directions; only the side the
+     drawing sits on alternates. Assign columns explicitly - an `order` swap moves
+     the number into the wide track and squeezes the text. */
+  .find{grid-template-columns:172px 1fr 200px; gap:40px}
+  /* pin the row too - explicit columns alone let auto-placement give each child
+     its own row, which stacks the drawing under the text */
+  .find>*{grid-row:1}
+  .find .find-n{grid-column:1} .find .find-b{grid-column:2} .find .find-art{grid-column:3}
+  .find.flip{grid-template-columns:200px 1fr 172px}
+  .find.flip .find-art{grid-column:1} .find.flip .find-b{grid-column:2}
+  .find.flip .find-n{grid-column:3; text-align:right}
+  .find.flip .find-n small{text-align:right}
+  .find.flip .find-do{border-left:0; border-right:3px solid var(--price);
+    padding-left:0; padding-right:13px; text-align:right}
+}
+.find-n{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:clamp(2rem,4.6vw,2.9rem); font-weight:500; line-height:.95;
+  color:var(--price); letter-spacing:-.02em}
+.find-n small{display:block; font-family:"Bricolage Grotesque",sans-serif; font-size:.62rem;
+  font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3);
+  margin-top:9px; line-height:1.4}
+.find-b h3{margin-bottom:9px}
+.find-b p{color:var(--ink-2); font-size:1rem; line-height:1.55}
+.find-do{margin-top:12px; font-size:.92rem; color:var(--ink);
+  padding-left:13px; border-left:3px solid var(--price)}
+.find-art{max-width:200px; justify-self:center}
+
+/* ---------- inverted band ---------- */
+.band{background:var(--band); color:var(--band-ink); margin:78px -26px 0;
+  padding:52px 26px 56px; overflow:hidden}
+@media(max-width:640px){.band{margin-left:-18px; margin-right:-18px; padding:38px 18px 40px}}
+@media(min-width:1172px){.band{margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+  padding-left:calc(50vw - 534px); padding-right:calc(50vw - 534px)}}
+.band .kick,.band .lbl{color:var(--band-ink); opacity:.62}
+.band h2{color:var(--band-ink)}
+.band p{color:var(--band-ink); opacity:.82}
+
+/* ---------- the shortlist ---------- */
+.picks{display:grid; grid-template-columns:1fr; gap:0; margin-top:34px}
+@media(min-width:700px){.picks{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.picks{grid-template-columns:1fr 1fr 1fr}}
+.pick{padding:24px 24px 26px 0; border-top:1px solid var(--rule); display:flex; gap:18px}
+@media(min-width:700px){.pick{border-right:1px solid var(--rule); padding-right:24px}}
+.pick-art{width:78px; flex:0 0 78px}
+.pick-b{min-width:0}
+.pick h3{font-size:1.02rem}
+.pick .who{font-size:.85rem; color:var(--ink-2); margin-top:2px}
+.pick .why{font-size:.88rem; color:var(--ink-2); margin-top:9px; line-height:1.5}
+.pick-row{display:flex; align-items:baseline; gap:10px; margin-top:10px; flex-wrap:wrap}
+.pick-p{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:1.2rem; font-weight:500; color:var(--good)}
+.pick-m{font-family:"DM Mono",monospace; font-size:.74rem; color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+
+/* ---------- traps ---------- */
+.traps{margin-top:30px; border-top:3px solid var(--price)}
+.trap{display:flex; justify-content:space-between; gap:16px; align-items:baseline;
+  padding:13px 0; border-bottom:1px solid var(--rule); flex-wrap:wrap}
+.trap-n{flex:1 1 14rem; min-width:0}
+.trap-v{flex:0 1 auto; min-width:0}
+.trap-n{font-size:1rem}
+.trap-n span{display:block; font-size:.83rem; color:var(--ink-2); margin-top:2px}
+.trap-v{font-family:Newsreader,Georgia,serif; font-size:.87rem; color:var(--ink-2);
+  line-height:1.45; text-align:left; flex:1 1 18rem}
+@media(min-width:720px){.trap-v{text-align:right; flex:0 1 26rem}}
+
+/* ---------- the week ---------- */
+.week{display:grid; grid-template-columns:1fr; gap:0; margin-top:30px}
+@media(min-width:760px){.week{grid-template-columns:1fr 1fr}}
+.wk-side{padding:24px 26px 26px 0}
+.wk-side + .wk-side{border-left:0}
+@media(min-width:760px){.wk-side + .wk-side{border-left:1px solid var(--rule-2); padding-left:34px}}
+.wk-total{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:2.5rem; font-weight:500; line-height:1; display:block; margin:6px 0 4px}
+.wk-list{list-style:none; margin:16px 0 0; padding:0}
+.wk-list li{display:flex; justify-content:space-between; gap:12px; padding:7px 0;
+  border-bottom:1px solid var(--rule); font-size:.92rem}
+.wk-list .num{color:var(--ink-3)}
+
+/* ---------- method ---------- */
+.method{margin-top:70px; background:var(--paper-2); padding:30px 32px 32px;
+  border-top:3px solid var(--ink)}
+.method-grid{display:grid; grid-template-columns:1fr; gap:22px; margin-top:18px}
+@media(min-width:760px){.method-grid{grid-template-columns:1fr 1fr}}
+.method p{font-size:.92rem; color:var(--ink-2); line-height:1.55}
+.method h3{font-size:.94rem; margin-bottom:6px; color:var(--ink)}
+footer{margin-top:52px; padding-top:20px; border-top:1px solid var(--rule);
+  font-size:.82rem; color:var(--ink-3)}
+
+/* hero tallies */
+.tallies{display:grid; grid-template-columns:repeat(2,1fr); gap:0; margin-top:34px;
+  border-top:2px solid var(--ink)}
+@media(min-width:560px){.tallies{grid-template-columns:repeat(4,1fr)}}
+.tallies>div{padding:12px 14px 14px 0; border-bottom:1px solid var(--rule)}
+.t-n{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums; font-size:1.5rem;
+  font-weight:500; line-height:1; display:block; margin-bottom:7px}
+.tallies .lbl{display:block; line-height:1.35}
+
+</style>
+<div class="wrap">
+
+<header class="hero">
+  <span class="kick">Delivery menus &middot; Research Triangle, North Carolina</span>
+  <div class="hero-grid">
+    <div>
+      <h1>You are paying more to eat worse.</h1>
+      <p class="lede">One dish at each of 87 restaurants, across 43 cuisines, scored on
+      seven health measures plus how good it tastes and what it costs. The most consistent finding was the
+      one nobody wanted.</p>
+      <div class="tallies">
+        <div><span class="t-n num">87</span><span class="lbl">dishes scored</span></div>
+        <div><span class="t-n num">43</span><span class="lbl">cuisines</span></div>
+        <div><span class="t-n num">14</span><span class="lbl">good and under $16</span></div>
+        <div><span class="t-n num">+0.05</span><span class="lbl">price vs health</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="tag">
+        <span class="tag-n">+105<span style="font-size:.42em"> MG</span></span>
+        <span class="tag-l">of sodium arrives with every extra $5 you spend</span>
+      </div>
+      <p style="margin-top:18px;font-size:.88rem;color:var(--ink-2)">
+      And 1.1g less fibre. The health score moves +0.04 — which,
+      on a ten-point scale, is nothing at all.</p>
+    </div>
+  </div>
+</header>
+
+<section class="finds">
+  <span class="kick">Six things the menus will not tell you</span>
+  <article class="find">
+      <div class="find-n num">+105<small>milligrams of salt for every extra $5 you spend</small></div>
+      <div class="find-b"><h3>Spending more makes the meal worse</h3><p>Across sixty dishes, every additional $5 on the bill brings 105 more milligrams of sodium and 1.1g less fibre — and moves the health score by +0.04, which is nothing. Price and health correlate at +0.05. Money is not neutral here. It is mildly harmful.</p><p class="find-do">Stop treating the expensive option as the careful one.</p></div>
+      <div class="find-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A poke bowl seen from above"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M100 30 A70 70 0 0 1 170 100 L100 100 Z" class="f-green"/><rect x="118" y="58" width="15" height="15" rx="2" class="f-tuna"/><rect x="140" y="72" width="15" height="15" rx="2" class="f-tuna"/><rect x="126" y="84" width="15" height="15" rx="2" class="f-tuna"/><rect x="150" y="92" width="15" height="15" rx="2" class="f-tuna"/><rect x="132" y="104" width="15" height="15" rx="2" class="f-tuna"/><path d="M100 100 L100 170 A70 70 0 0 1 40 128 Z" class="f-rice"/><path d="M62 118 q14-9 27 0 q-13 9-27 0" class="f-avo"/><path d="M58 138 q17-11 33 0 q-16 11-33 0" class="f-avo"/><circle cx="150" cy="140" r="13" class="f-edam"/><circle cx="128" cy="152" r="9" class="f-edam"/><circle cx="72" cy="78" r="1.7" class="f-seed"/><circle cx="78" cy="83" r="1.7" class="f-seed"/><circle cx="84" cy="88" r="1.7" class="f-seed"/><circle cx="90" cy="78" r="1.7" class="f-seed"/><circle cx="96" cy="83" r="1.7" class="f-seed"/><circle cx="102" cy="88" r="1.7" class="f-seed"/><circle cx="108" cy="78" r="1.7" class="f-seed"/><circle cx="114" cy="83" r="1.7" class="f-seed"/><circle cx="120" cy="88" r="1.7" class="f-seed"/></svg></div>
+    </article><article class="find flip">
+      <div class="find-n num">$17.00<small>the price above which nothing is efficient</small></div>
+      <div class="find-b"><h3>Every dish over $17 is beaten by a cheaper one</h3><p>Only four dishes in the whole set are efficient — meaning nothing cheaper is also as healthy. All 30 priced above $17.00 are matched or beaten by something that costs less. Chengdu 7 charges $36.95 for a health score Chopt reaches at $10.79.</p><p class="find-do">Treat $17.00 as a ceiling, not a floor.</p></div>
+      <div class="find-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A whole grilled fish with lemon and herbs"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M42 100 q34-38 78-30 q34 6 40 30 q-6 24-40 30 q-44 8-78-30 Z" class="f-fish"/><path d="M42 100 l-18-20 v40 Z" class="f-fish"/><circle cx="140" cy="92" r="4.5" class="f-eye"/><path d="M74 86 q22 14 0 28 M96 82 q24 18 0 36 M118 84 q20 16 0 32" class="f-scale"/><circle cx="62" cy="146" r="15" class="f-lemon"/><path d="M62 131 v30 M47 146 h30" class="f-lemonw"/><path d="M104 142 q22-12 40 2 q-20 14-40-2" class="f-herb"/></svg></div>
+    </article><article class="find">
+      <div class="find-n num">+572<small>extra milligrams of salt in the food that tastes best</small></div>
+      <div class="find-b"><h3>Flavour is bought with salt, not fat</h3><p>The dishes that taste best carry +572mg more sodium than the blandest ones — but only +2.0g more saturated fat, which is statistical noise. A quarter of what money appears to buy in flavour is simply salt. Everyone is watching the wrong nutrient.</p><p class="find-do">Watch the sauce, the base and the cure. Stop watching the olive oil.</p></div>
+      <div class="find-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A grilled kebab plate with salad and yogurt"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><rect x="52" y="86" width="96" height="4" rx="2" class="f-skew"/><rect x="58" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M62 78 h12 M62 88 h12 M62 98 h12" class="f-grill"/><rect x="82" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M86 78 h12 M86 88 h12 M86 98 h12" class="f-grill"/><rect x="106" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M110 78 h12 M110 88 h12 M110 98 h12" class="f-grill"/><rect x="130" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M134 78 h12 M134 88 h12 M134 98 h12" class="f-grill"/><path d="M40 118 q30-14 60 0 q30 14 60 0 v34 a70 70 0 0 1-120 0 Z" class="f-salad"/><circle cx="72" cy="140" r="8" class="f-tom"/><circle cx="118" cy="148" r="7" class="f-tom"/><circle cx="146" cy="132" r="6" class="f-tom"/><circle cx="100" cy="52" r="17" class="f-yog"/></svg></div>
+    </article><article class="find flip">
+      <div class="find-n num">1.44<small>points between the best and worst order at one restaurant</small></div>
+      <div class="find-b"><h3>Which dish you order beats where you order it</h3><p>The gap between the best and worst thing on a single menu (1.44 points) is wider than the gap across the middle half of every restaurant in the set (1.25). One place spans 2.77 points on its own menu — from a dish that ranks near the top to one near the bottom.</p><p class="find-do">Picking the restaurant is the smaller half of the decision.</p></div>
+      <div class="find-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A lentil bowl with grilled chicken and vegetables"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M30 100 A70 70 0 0 1 100 30 L100 100 Z" class="f-lentil"/><ellipse cx="52" cy="62" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="66" cy="52" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="74" cy="70" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="58" cy="80" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="84" cy="60" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="46" cy="74" rx="5" ry="4" class="f-lentil-d"/><rect x="112" y="52" width="30" height="12" rx="6" class="f-char"/><rect x="134" y="62" width="30" height="12" rx="6" class="f-char"/><rect x="120" y="76" width="30" height="12" rx="6" class="f-char"/><circle cx="70" cy="140" r="20" class="f-broc"/><circle cx="112" cy="150" r="16" class="f-broc"/><path d="M138 124 q16-10 26 4 q-12 16-26-4" class="f-avo"/></svg></div>
+    </article><article class="find">
+      <div class="find-n num">$0.19<small>per gram of protein — the cheapest and the cleanest at once</small></div>
+      <div class="find-b"><h3>The cheapest protein here is also the cleanest</h3><p>DICED's lentil-base bowl with grilled chicken is $10.95 for 57g of protein, the best value in the set — and it carries 2.5mg of sodium per gram of that protein, also the best in the set. Cheap and clean are usually a trade. Here they are the same bowl.</p><p class="find-do">If you order one thing off this list, order that.</p></div>
+      <div class="find-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="Steamed shrimp with mixed vegetables"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M30 100 A70 70 0 0 1 170 100 Z" class="f-steam"/><path d="M74 74 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="94" cy="78" r="2" class="f-eye"/><path d="M110 66 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="130" cy="70" r="2" class="f-eye"/><path d="M140 86 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="160" cy="90" r="2" class="f-eye"/><path d="M90 96 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="110" cy="100" r="2" class="f-eye"/><path d="M126 102 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="146" cy="106" r="2" class="f-eye"/><circle cx="66" cy="134" r="14" class="f-broc"/><circle cx="104" cy="146" r="12" class="f-broc"/><rect x="126" y="126" width="26" height="9" rx="4" class="f-carrot"/><rect x="132" y="142" width="22" height="8" rx="4" class="f-carrot"/></svg></div>
+    </article><article class="find flip">
+      <div class="find-n num">$31.17<small>saved on a week of dinners, with better coverage</small></div>
+      <div class="find-b"><h3>The cheap week beats the expensive one</h3><p>Five dinners chosen by picking the top-ranked dishes cost $93.10 and leave their weakest nutritional gap at 7.3 out of 10. Five chosen as the cheapest that still clear that bar cost $61.93 — and close the gap to 7.9. Cheaper and better, not cheaper and worse.</p><p class="find-do">Rotate, do not climb the ranking.</p></div>
+      <div class="find-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A barbecue plate with greens and beans"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M46 92 q22-30 54-22 q34-10 54 22 q-16 26-54 24 q-38 2-54-24 Z" class="f-pork"/><ellipse cx="66" cy="86" rx="7" ry="5" class="f-bark"/><ellipse cx="88" cy="78" rx="7" ry="5" class="f-bark"/><ellipse cx="110" cy="84" rx="7" ry="5" class="f-bark"/><ellipse cx="132" cy="80" rx="7" ry="5" class="f-bark"/><ellipse cx="78" cy="96" rx="7" ry="5" class="f-bark"/><ellipse cx="104" cy="98" rx="7" ry="5" class="f-bark"/><ellipse cx="126" cy="94" rx="7" ry="5" class="f-bark"/><path d="M40 126 q30 22 60 0 v40 a70 70 0 0 1-60-40 Z" class="f-collard"/><path d="M100 126 q30 22 60 0 v6 a70 70 0 0 1-60 34 Z" class="f-bean"/></svg></div>
+    </article>
+</section>
+
+<section class="band">
+  <span class="kick">What to order</span>
+  <h2 style="margin-top:10px">Nine plates that survive the arithmetic</h2>
+  <p class="lede" style="margin-top:14px;max-width:60ch">Cheap, high in protein, low in salt, and — where
+  we could manage it — worth eating. Prices are what the delivery app charges, which runs about 15% above
+  the counter.</p>
+</section>
+<section class="picks"><article class="pick">
+      <div class="pick-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A lentil bowl with grilled chicken and vegetables"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M30 100 A70 70 0 0 1 100 30 L100 100 Z" class="f-lentil"/><ellipse cx="52" cy="62" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="66" cy="52" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="74" cy="70" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="58" cy="80" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="84" cy="60" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="46" cy="74" rx="5" ry="4" class="f-lentil-d"/><rect x="112" y="52" width="30" height="12" rx="6" class="f-char"/><rect x="134" y="62" width="30" height="12" rx="6" class="f-char"/><rect x="120" y="76" width="30" height="12" rx="6" class="f-char"/><circle cx="70" cy="140" r="20" class="f-broc"/><circle cx="112" cy="150" r="16" class="f-broc"/><path d="M138 124 q16-10 26 4 q-12 16-26-4" class="f-avo"/></svg></div>
+      <div class="pick-b">
+        <h3>Lentil-base bowl with grilled chicken</h3>
+        <p class="who">DICED</p>
+        <div class="pick-row"><span class="pick-p">$10.95</span>
+          <span class="pick-m">57g protein &middot; 144mg salt</span></div>
+        <p class="why">Lentils carry 20g of protein at 4mg of sodium, so the bowl lands at 144mg — the cleanest protein-to-salt ratio anywhere in the set.</p>
+      </div>
+    </article><article class="pick">
+      <div class="pick-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A lentil bowl with grilled chicken and vegetables"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M30 100 A70 70 0 0 1 100 30 L100 100 Z" class="f-lentil"/><ellipse cx="52" cy="62" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="66" cy="52" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="74" cy="70" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="58" cy="80" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="84" cy="60" rx="5" ry="4" class="f-lentil-d"/><ellipse cx="46" cy="74" rx="5" ry="4" class="f-lentil-d"/><rect x="112" y="52" width="30" height="12" rx="6" class="f-char"/><rect x="134" y="62" width="30" height="12" rx="6" class="f-char"/><rect x="120" y="76" width="30" height="12" rx="6" class="f-char"/><circle cx="70" cy="140" r="20" class="f-broc"/><circle cx="112" cy="150" r="16" class="f-broc"/><path d="M138 124 q16-10 26 4 q-12 16-26-4" class="f-avo"/></svg></div>
+      <div class="pick-b">
+        <h3>Craft Your Own salad, grilled chicken</h3>
+        <p class="who">Chopt</p>
+        <div class="pick-row"><span class="pick-p">$10.79</span>
+          <span class="pick-m">33g protein &middot; 735mg salt</span></div>
+        <p class="why">The cheapest dish in the whole set, and it still clears the health bar. Take the vinaigrette light; it is most of the sugar.</p>
+      </div>
+    </article><article class="pick">
+      <div class="pick-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A grilled kebab plate with salad and yogurt"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><rect x="52" y="86" width="96" height="4" rx="2" class="f-skew"/><rect x="58" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M62 78 h12 M62 88 h12 M62 98 h12" class="f-grill"/><rect x="82" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M86 78 h12 M86 88 h12 M86 98 h12" class="f-grill"/><rect x="106" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M110 78 h12 M110 88 h12 M110 98 h12" class="f-grill"/><rect x="130" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M134 78 h12 M134 88 h12 M134 98 h12" class="f-grill"/><path d="M40 118 q30-14 60 0 q30 14 60 0 v34 a70 70 0 0 1-120 0 Z" class="f-salad"/><circle cx="72" cy="140" r="8" class="f-tom"/><circle cx="118" cy="148" r="7" class="f-tom"/><circle cx="146" cy="132" r="6" class="f-tom"/><circle cx="100" cy="52" r="17" class="f-yog"/></svg></div>
+      <div class="pick-b">
+        <h3>Grilled chicken bowl</h3>
+        <p class="who">Guasaca</p>
+        <div class="pick-row"><span class="pick-p">$11.21</span>
+          <span class="pick-m">42g protein &middot; 1,050mg salt</span></div>
+        <p class="why">Order it as a bowl, never as an arepa — the arepa is refined corn flour and carries most of the calories.</p>
+      </div>
+    </article><article class="pick">
+      <div class="pick-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A barbecue plate with greens and beans"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M46 92 q22-30 54-22 q34-10 54 22 q-16 26-54 24 q-38 2-54-24 Z" class="f-pork"/><ellipse cx="66" cy="86" rx="7" ry="5" class="f-bark"/><ellipse cx="88" cy="78" rx="7" ry="5" class="f-bark"/><ellipse cx="110" cy="84" rx="7" ry="5" class="f-bark"/><ellipse cx="132" cy="80" rx="7" ry="5" class="f-bark"/><ellipse cx="78" cy="96" rx="7" ry="5" class="f-bark"/><ellipse cx="104" cy="98" rx="7" ry="5" class="f-bark"/><ellipse cx="126" cy="94" rx="7" ry="5" class="f-bark"/><path d="M40 126 q30 22 60 0 v40 a70 70 0 0 1-60-40 Z" class="f-collard"/><path d="M100 126 q30 22 60 0 v6 a70 70 0 0 1-60 34 Z" class="f-bean"/></svg></div>
+      <div class="pick-b">
+        <h3>¼ Chicken w/ White Combo</h3>
+        <p class="who">Alpaca Peruvian Charcoal Chicken</p>
+        <div class="pick-row"><span class="pick-p">$11.29</span>
+          <span class="pick-m">53g protein &middot; 1,310mg salt</span></div>
+        <p class="why">Two sides are included and the salad sits in the same tier as the fries. Taking them is the entire decision.</p>
+      </div>
+    </article><article class="pick">
+      <div class="pick-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A poke bowl seen from above"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M100 30 A70 70 0 0 1 170 100 L100 100 Z" class="f-green"/><rect x="118" y="58" width="15" height="15" rx="2" class="f-tuna"/><rect x="140" y="72" width="15" height="15" rx="2" class="f-tuna"/><rect x="126" y="84" width="15" height="15" rx="2" class="f-tuna"/><rect x="150" y="92" width="15" height="15" rx="2" class="f-tuna"/><rect x="132" y="104" width="15" height="15" rx="2" class="f-tuna"/><path d="M100 100 L100 170 A70 70 0 0 1 40 128 Z" class="f-rice"/><path d="M62 118 q14-9 27 0 q-13 9-27 0" class="f-avo"/><path d="M58 138 q17-11 33 0 q-16 11-33 0" class="f-avo"/><circle cx="150" cy="140" r="13" class="f-edam"/><circle cx="128" cy="152" r="9" class="f-edam"/><circle cx="72" cy="78" r="1.7" class="f-seed"/><circle cx="78" cy="83" r="1.7" class="f-seed"/><circle cx="84" cy="88" r="1.7" class="f-seed"/><circle cx="90" cy="78" r="1.7" class="f-seed"/><circle cx="96" cy="83" r="1.7" class="f-seed"/><circle cx="102" cy="88" r="1.7" class="f-seed"/><circle cx="108" cy="78" r="1.7" class="f-seed"/><circle cx="114" cy="83" r="1.7" class="f-seed"/><circle cx="120" cy="88" r="1.7" class="f-seed"/></svg></div>
+      <div class="pick-b">
+        <h3>Large chicken bowl on salad base</h3>
+        <p class="who">Pokeworks</p>
+        <div class="pick-row"><span class="pick-p">$16.00</span>
+          <span class="pick-m">43g protein &middot; 535mg salt</span></div>
+        <p class="why">Their chicken is 80mg of sodium a scoop against ahi tuna at 350. Almost nobody orders chicken at a poke restaurant.</p>
+      </div>
+    </article><article class="pick">
+      <div class="pick-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A poke bowl seen from above"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M100 30 A70 70 0 0 1 170 100 L100 100 Z" class="f-green"/><rect x="118" y="58" width="15" height="15" rx="2" class="f-tuna"/><rect x="140" y="72" width="15" height="15" rx="2" class="f-tuna"/><rect x="126" y="84" width="15" height="15" rx="2" class="f-tuna"/><rect x="150" y="92" width="15" height="15" rx="2" class="f-tuna"/><rect x="132" y="104" width="15" height="15" rx="2" class="f-tuna"/><path d="M100 100 L100 170 A70 70 0 0 1 40 128 Z" class="f-rice"/><path d="M62 118 q14-9 27 0 q-13 9-27 0" class="f-avo"/><path d="M58 138 q17-11 33 0 q-16 11-33 0" class="f-avo"/><circle cx="150" cy="140" r="13" class="f-edam"/><circle cx="128" cy="152" r="9" class="f-edam"/><circle cx="72" cy="78" r="1.7" class="f-seed"/><circle cx="78" cy="83" r="1.7" class="f-seed"/><circle cx="84" cy="88" r="1.7" class="f-seed"/><circle cx="90" cy="78" r="1.7" class="f-seed"/><circle cx="96" cy="83" r="1.7" class="f-seed"/><circle cx="102" cy="88" r="1.7" class="f-seed"/><circle cx="108" cy="78" r="1.7" class="f-seed"/><circle cx="114" cy="83" r="1.7" class="f-seed"/><circle cx="120" cy="88" r="1.7" class="f-seed"/></svg></div>
+      <div class="pick-b">
+        <h3>Double tuna salad bowl</h3>
+        <p class="who">Poke Bros.</p>
+        <div class="pick-row"><span class="pick-p">$17.00</span>
+          <span class="pick-m">51g protein &middot; 201mg salt</span></div>
+        <p class="why">Plain tuna is 40mg of sodium; their own marinated tuna is 820. The house sauce is added automatically unless you refuse it.</p>
+      </div>
+    </article><article class="pick">
+      <div class="pick-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A whole grilled fish with lemon and herbs"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M42 100 q34-38 78-30 q34 6 40 30 q-6 24-40 30 q-44 8-78-30 Z" class="f-fish"/><path d="M42 100 l-18-20 v40 Z" class="f-fish"/><circle cx="140" cy="92" r="4.5" class="f-eye"/><path d="M74 86 q22 14 0 28 M96 82 q24 18 0 36 M118 84 q20 16 0 32" class="f-scale"/><circle cx="62" cy="146" r="15" class="f-lemon"/><path d="M62 131 v30 M47 146 h30" class="f-lemonw"/><path d="M104 142 q22-12 40 2 q-20 14-40-2" class="f-herb"/></svg></div>
+      <div class="pick-b">
+        <h3>Sizzling fish with vermicelli and herbs</h3>
+        <p class="who">Taste Vietnamese</p>
+        <div class="pick-row"><span class="pick-p">$17.95</span>
+          <span class="pick-m">40g protein &middot; 1,300mg salt</span></div>
+        <p class="why">The best-tasting dish in the set that still scores well — grilled turmeric fish with a herb plate, sauce on the side.</p>
+      </div>
+    </article><article class="pick">
+      <div class="pick-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="A grilled kebab plate with salad and yogurt"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><rect x="52" y="86" width="96" height="4" rx="2" class="f-skew"/><rect x="58" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M62 78 h12 M62 88 h12 M62 98 h12" class="f-grill"/><rect x="82" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M86 78 h12 M86 88 h12 M86 98 h12" class="f-grill"/><rect x="106" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M110 78 h12 M110 88 h12 M110 98 h12" class="f-grill"/><rect x="130" y="72" width="20" height="32" rx="5" class="f-char"/><path d="M134 78 h12 M134 88 h12 M134 98 h12" class="f-grill"/><path d="M40 118 q30-14 60 0 q30 14 60 0 v34 a70 70 0 0 1-120 0 Z" class="f-salad"/><circle cx="72" cy="140" r="8" class="f-tom"/><circle cx="118" cy="148" r="7" class="f-tom"/><circle cx="146" cy="132" r="6" class="f-tom"/><circle cx="100" cy="52" r="17" class="f-yog"/></svg></div>
+      <div class="pick-b">
+        <h3>Chicken kebab plate with fattoush and tzatziki</h3>
+        <p class="who">Baba Ghannouj</p>
+        <div class="pick-row"><span class="pick-p">$15.99</span>
+          <span class="pick-m">44g protein &middot; 1,200mg salt</span></div>
+        <p class="why">Char, sumac and lemon do the work instead of fat. Swap the rice for extra salad and skip the fried pita chips.</p>
+      </div>
+    </article><article class="pick">
+      <div class="pick-art"><svg class="dish" viewBox="0 0 200 200" role="img" aria-label="Steamed shrimp with mixed vegetables"><circle cx="100" cy="100" r="92" class="pl"/><circle cx="100" cy="100" r="83" class="pl-in"/><path d="M30 100 A70 70 0 0 1 170 100 Z" class="f-steam"/><path d="M74 74 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="94" cy="78" r="2" class="f-eye"/><path d="M110 66 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="130" cy="70" r="2" class="f-eye"/><path d="M140 86 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="160" cy="90" r="2" class="f-eye"/><path d="M90 96 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="110" cy="100" r="2" class="f-eye"/><path d="M126 102 q16-12 22 4 q4 16-12 16 q-14-1-10-14" class="f-shrimp"/><circle cx="146" cy="106" r="2" class="f-eye"/><circle cx="66" cy="134" r="14" class="f-broc"/><circle cx="104" cy="146" r="12" class="f-broc"/><rect x="126" y="126" width="26" height="9" rx="4" class="f-carrot"/><rect x="132" y="142" width="22" height="8" rx="4" class="f-carrot"/></svg></div>
+      <div class="pick-b">
+        <h3>D6. Steamed Shrimp with Mixed Vegetables Diet</h3>
+        <p class="who">Golden Dragon</p>
+        <div class="pick-row"><span class="pick-p">$12.39</span>
+          <span class="pick-m">37g protein &middot; 940mg salt</span></div>
+        <p class="why">Every Chinese takeout prints a diet menu and nobody orders from it. Steamed, sauce on the side, no oil — for $12.39.</p>
+      </div>
+    </article></section>
+
+<section style="margin-top:70px">
+  <span class="kick">What to skip</span>
+  <h2 style="margin-top:10px">And six that do not</h2>
+  <p class="lede" style="margin-top:14px;max-width:62ch">Not because they are indulgent — because they cost
+  as much as the good ones and give nothing back.</p>
+  <div class="traps">
+    <div class="trap"><div class="trap-n">A margherita pizza<span>Pizzeria Toro</span></div><div class="trap-v">The dough alone is about 1,475mg of sodium at the standard salt ratio.</div></div><div class="trap"><div class="trap-n">Braised oxtail<span>Gifted Hand Cuisine</span></div><div class="trap-v">16g of saturated fat — most of a day, in one plate.</div></div><div class="trap"><div class="trap-n">Beef kobidah<span>Afghan Kebab</span></div><div class="trap-v">Ground meat, white rice and bread; 11g saturated fat before the sauce.</div></div><div class="trap"><div class="trap-n">Two beef empanadas<span>Makus Empanadas</span></div><div class="trap-v">Baked rather than fried, and still 905 calories for 31g of protein.</div></div><div class="trap"><div class="trap-n">Carne asada plate<span>MI CANCUN</span></div><div class="trap-v">13g saturated fat, 1,600mg sodium, and $24.99.</div></div><div class="trap"><div class="trap-n">A loaded poke bowl<span>Bul Box</span></div><div class="trap-v">Sauces and pickles push it to 1,951mg — more than a bowl of ramen.</div></div>
+  </div>
+</section>
+
+<section style="margin-top:70px">
+  <span class="kick">A week, two ways</span>
+  <h2 style="margin-top:10px">$31.17 is the price of following the ranking</h2>
+  <div class="week">
+    <div class="wk-side">
+      <span class="lbl">Five dinners, picked from the top</span>
+      <span class="wk-total num" style="color:var(--price)">$93.10</span>
+      <span class="lbl">weakest nutritional gap 7.3&#8202;/&#8202;10</span>
+      <ul class="wk-list"><li><span>M Sushi</span><span class="num">$31.20</span></li><li><span>Taste Vietnamese</span><span class="num">$17.95</span></li><li><span>Poke Bros.</span><span class="num">$17.00</span></li><li><span>Pokeworks</span><span class="num">$16.00</span></li><li><span>DICED</span><span class="num">$10.95</span></li></ul>
+    </div>
+    <div class="wk-side">
+      <span class="lbl">Five dinners, picked for value</span>
+      <span class="wk-total num" style="color:var(--good)">$61.93</span>
+      <span class="lbl">weakest nutritional gap 7.9&#8202;/&#8202;10 &mdash; better</span>
+      <ul class="wk-list"><li><span>Abol Ethiopian</span><span class="num">$16.99</span></li><li><span>Southern Spice</span><span class="num">$11.99</span></li><li><span>Guasaca</span><span class="num">$11.21</span></li><li><span>DICED</span><span class="num">$10.95</span></li><li><span>Chopt</span><span class="num">$10.79</span></li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="method">
+  <span class="kick">How this was put together</span>
+  <div class="method-grid">
+    <div>
+      <h3>What was measured</h3>
+      <p>Each entry is one specific dish, ordered one specific way. Seven health measures — sodium, saturated
+      fat and calories, protein, fermented food and plant variety, refined carbohydrate, omega-3, and sugar —
+      plus flavour and cost. Where the instruction says to refuse something, the figures assume you refused it.</p>
+      <h3 style="margin-top:20px">Where the numbers come from</h3>
+      <p>Nine dishes are built from figures the restaurant publishes. The rest are estimated from how the dish
+      is constructed, and the full document marks which is which.</p>
+    </div>
+    <div>
+      <h3>What it cannot tell you</h3>
+      <p>No restaurant that cooks to order over fire publishes nutrition data, so every grilled, stewed and
+      steamed dish here is an estimate. When we rebuilt dishes against a restaurant's own figures, eleven of
+      thirteen turned out worse than estimated — so read an estimate as roughly half a point generous.</p>
+      <h3 style="margin-top:20px">Not medical advice</h3>
+      <p>This compares restaurant meals with each other. It is not a diagnosis, and the thresholds behind the
+      scores are judgement calls, argued out in the full document.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>The illustrations are drawings of dish types, not photographs of any particular restaurant's food.
+  Prices and menus change constantly; every figure here has a shelf life measured in months.</p>
+</footer>
+
+</div>
