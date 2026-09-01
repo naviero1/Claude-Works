@@ -58,7 +58,9 @@ p strong,li strong{color:var(--ink);font-weight:600}
 .axis{stroke:var(--rule);stroke-width:1.5}
 .ytick{fill:var(--ink-3);font:500 12px "IBM Plex Mono",monospace;text-anchor:end}
 .xtick{fill:var(--ink-2);font:600 13.5px "IBM Plex Sans",sans-serif;text-anchor:middle}
-.vlab{fill:var(--ink);font:600 12px "IBM Plex Mono",monospace;text-anchor:middle;
+.vlab{fill:var(--ink);font:600 12.5px "IBM Plex Mono",monospace;text-anchor:middle;
+  font-variant-numeric:tabular-nums}
+.bandlab{fill:var(--s-cat);font:600 10.5px "IBM Plex Mono",monospace;text-anchor:end;
   font-variant-numeric:tabular-nums}
 .legend{display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin:2px 0 16px;
   font-size:13.5px;color:var(--ink-2)}
@@ -110,14 +112,14 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
   <p class="eyebrow">Packaging procurement · cost review</p>
   <h1>What our boxes cost, and what order size does to that</h1>
   <p class="standfirst">We pay <strong>$30.22</strong> for the medium box and <strong>$38.89</strong> for the large,
-  at 100 of each. Set against comparable published prices, one of those is fine and the other is not — but both
-  change character completely once the order gets bigger.</p>
+  at 100 of each. Measured against what comparable boxes actually sell for, the medium one is well outside the range
+  and the large one sits at the top of it — and both change character completely once the order gets bigger.</p>
 
   <div class="stats">
-    <div class="stat"><span class="k">Medium box today</span><span class="v">+58%</span>
-      <span class="n">above the catalogue price for a comparable stock box</span></div>
-    <div class="stat"><span class="k">Large box today</span><span class="v" style="color:var(--good)">−2%</span>
-      <span class="n">already below its catalogue equivalent</span></div>
+    <div class="stat"><span class="k">Medium box today</span><span class="v">+61—76%</span>
+      <span class="n">above the published range for comparable stock boxes</span></div>
+    <div class="stat"><span class="k">Large box today</span><span class="v">top of range</span>
+      <span class="n">inside the published range, but only just</span></div>
     <div class="stat"><span class="k">Crossover point</span><span class="v">250</span>
       <span class="n">units each — where the medium box stops being the expensive option</span></div>
     <div class="stat"><span class="k">Each extra set</span><span class="v">$24.86</span>
@@ -132,7 +134,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
     <span><i class="sw" style="background:var(--s-prov);border-color:var(--s-prov)"></i> Provider — real price</span>
     <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-prov) 0 3px,var(--panel) 3px 7px);border-color:var(--s-prov)"></i> Provider — deduced</span>
     <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-est) 0 3px,var(--panel) 3px 7px);border-color:var(--s-est)"></i> Estimate — modelled</span>
-    <span><i class="sw" style="background:var(--s-cat);border-color:var(--s-cat)"></i> Catalogue — published</span>
+    <span><i class="sw" style="background:color-mix(in srgb,var(--s-cat) 30%%,transparent);border-color:var(--s-cat);border-style:dashed"></i> Catalogue range — published</span>
   </div>
   <svg viewBox="0 0 760 360" role="img" aria-labelledby="c-med-t" class="chart">
 <title id="c-med-t">Medium box cost per box by order size</title>
@@ -146,31 +148,34 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <text x="66" y="95.0" class="ytick">$30</text>
 <line x1="78" y1="26.0" x2="736" y2="26.0" class="grid"/>
 <text x="66" y="30.0" class="ytick">$40</text>
-<rect x="99.7" y="89.6" width="52" height="196.4" rx="3" fill="var(--s-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
-<text x="125.7" y="80.6" class="vlab">$30.22</text>
-<rect x="161.7" y="195.1" width="52" height="90.9" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="187.7" y="186.1" class="vlab">$13.99</text>
-<rect x="223.7" y="161.7" width="52" height="124.3" rx="3" fill="var(--s-cat)" stroke="var(--s-cat)" stroke-width="1.5"/>
-<text x="249.7" y="152.7" class="vlab">$19.12</text>
+<rect x="88.0" y="163.7" width="199.3" height="10.7" fill="var(--s-cat)" opacity="0.16"/>
+<line x1="88.0" y1="163.7" x2="287.3" y2="163.7" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="88.0" y1="174.4" x2="287.3" y2="174.4" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="121.7" y="89.6" width="58" height="196.4" rx="3" fill="var(--s-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
+<text x="150.7" y="80.6" class="vlab">$30.22</text>
+<rect x="195.7" y="195.1" width="58" height="90.9" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
+<text x="224.7" y="186.1" class="vlab">$13.99</text>
 <text x="187.7" y="312" class="xtick">100 each</text>
-<rect x="319.0" y="175.9" width="52" height="110.1" rx="3" fill="url(#h-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
-<text x="345.0" y="166.9" class="vlab">$16.94</text>
-<rect x="381.0" y="212.1" width="52" height="73.9" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="407.0" y="203.1" class="vlab">$11.37</text>
-<rect x="443.0" y="173.8" width="52" height="112.2" rx="3" fill="var(--s-cat)" stroke="var(--s-cat)" stroke-width="1.5"/>
-<text x="469.0" y="164.8" class="vlab">$17.27</text>
+<rect x="307.3" y="169.8" width="199.3" height="9.3" fill="var(--s-cat)" opacity="0.16"/>
+<line x1="307.3" y1="169.8" x2="506.7" y2="169.8" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="307.3" y1="179.1" x2="506.7" y2="179.1" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="341.0" y="175.9" width="58" height="110.1" rx="3" fill="url(#h-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
+<text x="370.0" y="166.9" class="vlab">$16.94</text>
+<rect x="415.0" y="212.1" width="58" height="73.9" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
+<text x="444.0" y="203.1" class="vlab">$11.37</text>
 <text x="407.0" y="312" class="xtick">250 each</text>
-<rect x="538.3" y="219.0" width="52" height="67.0" rx="3" fill="url(#h-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
-<text x="564.3" y="210.0" class="vlab">$10.31</text>
-<rect x="600.3" y="234.6" width="52" height="51.4" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="626.3" y="225.6" class="vlab">$7.90</text>
-<rect x="662.3" y="181.9" width="52" height="104.1" rx="3" fill="var(--s-cat)" stroke="var(--s-cat)" stroke-width="1.5"/>
-<text x="688.3" y="172.9" class="vlab">$16.02</text>
+<rect x="526.7" y="177.9" width="199.3" height="9.3" fill="var(--s-cat)" opacity="0.16"/>
+<line x1="526.7" y1="177.9" x2="726.0" y2="177.9" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="526.7" y1="187.2" x2="726.0" y2="187.2" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="560.3" y="219.0" width="58" height="67.0" rx="3" fill="url(#h-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
+<text x="589.3" y="210.0" class="vlab">$10.31</text>
+<rect x="634.3" y="234.6" width="58" height="51.4" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
+<text x="663.3" y="225.6" class="vlab">$7.90</text>
 <text x="626.3" y="312" class="xtick">1,000 each</text>
 <line x1="78" y1="286" x2="736" y2="286" class="axis"/>
 </svg>
 </div>
-<div class="panel" style="padding-bottom:22px"><table><thead><tr><th scope="col">Cost per box</th><th>100 each</th><th>250 each</th><th>1,000 each</th><th>Basis</th></tr></thead><tbody><tr class="lead"><th scope="row">Provider — what we pay</th><td>$30.22</td><td>$16.94</td><td>$10.31</td><td class="basis">actual at 100, deduced after</td></tr><tr><th scope="row">Independent estimate</th><td>$13.99</td><td>$11.37</td><td>$7.90</td><td class="basis">modelled</td></tr><tr><th scope="row">Retail catalogue, same qty</th><td>$19.12</td><td>$17.27</td><td>$16.02</td><td class="basis">published</td></tr></tbody></table></div>
+<div class="panel" style="padding-bottom:22px"><table><thead><tr><th scope="col">Cost per box</th><th>100 each</th><th>250 each</th><th>1,000 each</th><th>Basis</th></tr></thead><tbody><tr class="lead"><th scope="row">Provider — what we pay</th><td>$30.22</td><td>$16.94</td><td>$10.31</td><td class="basis">actual at 100, deduced after</td></tr><tr><th scope="row">Independent estimate</th><td>$13.99</td><td>$11.37</td><td>$7.90</td><td class="basis">modelled</td></tr><tr><th scope="row">Retail catalogue range</th><td>$17.17 – $18.81</td><td>$16.45 – $17.88</td><td>$15.20 – $16.63</td><td class="basis">published</td></tr></tbody></table></div>
 
 <h2>Large box · 46 × 39 × 36 in</h2>
 <p class="sub">89.19 sq ft per box — 2.07× the medium. Same scale on both charts, so the two are directly comparable.</p>
@@ -187,55 +192,67 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <text x="66" y="95.0" class="ytick">$30</text>
 <line x1="78" y1="26.0" x2="736" y2="26.0" class="grid"/>
 <text x="66" y="30.0" class="ytick">$40</text>
-<rect x="99.7" y="33.2" width="52" height="252.8" rx="3" fill="var(--s-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
-<text x="125.7" y="24.2" class="vlab">$38.89</text>
-<rect x="161.7" y="84.9" width="52" height="201.1" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="187.7" y="75.9" class="vlab">$30.93</text>
-<rect x="223.7" y="28.6" width="52" height="257.4" rx="3" fill="var(--s-cat)" stroke="var(--s-cat)" stroke-width="1.5"/>
-<text x="249.7" y="19.6" class="vlab">$39.60</text>
+<rect x="88.0" y="32.8" width="199.3" height="22.1" fill="var(--s-cat)" opacity="0.16"/>
+<line x1="88.0" y1="32.8" x2="287.3" y2="32.8" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="88.0" y1="54.9" x2="287.3" y2="54.9" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="121.7" y="33.2" width="58" height="252.8" rx="3" fill="var(--s-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
+<text x="150.7" y="24.2" class="vlab">$38.89</text>
+<rect x="195.7" y="84.9" width="58" height="201.1" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
+<text x="224.7" y="75.9" class="vlab">$30.93</text>
 <text x="187.7" y="312" class="xtick">100 each</text>
-<rect x="319.0" y="119.5" width="52" height="166.5" rx="3" fill="url(#h-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
-<text x="345.0" y="110.5" class="vlab">$25.61</text>
-<rect x="381.0" y="116.9" width="52" height="169.1" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="407.0" y="107.9" class="vlab">$26.02</text>
-<rect x="443.0" y="53.5" width="52" height="232.5" rx="3" fill="var(--s-cat)" stroke="var(--s-cat)" stroke-width="1.5"/>
-<text x="469.0" y="44.5" class="vlab">$35.77</text>
+<rect x="307.3" y="45.2" width="199.3" height="19.3" fill="var(--s-cat)" opacity="0.16"/>
+<line x1="307.3" y1="45.2" x2="506.7" y2="45.2" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="307.3" y1="64.5" x2="506.7" y2="64.5" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="341.0" y="119.5" width="58" height="166.5" rx="3" fill="url(#h-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
+<text x="370.0" y="110.5" class="vlab">$25.61</text>
+<rect x="415.0" y="116.9" width="58" height="169.1" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
+<text x="444.0" y="107.9" class="vlab">$26.02</text>
 <text x="407.0" y="312" class="xtick">250 each</text>
-<rect x="538.3" y="162.7" width="52" height="123.3" rx="3" fill="url(#h-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
-<text x="564.3" y="153.7" class="vlab">$18.98</text>
-<rect x="600.3" y="166.2" width="52" height="119.8" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="626.3" y="157.2" class="vlab">$18.43</text>
-<rect x="662.3" y="70.3" width="52" height="215.7" rx="3" fill="var(--s-cat)" stroke="var(--s-cat)" stroke-width="1.5"/>
-<text x="688.3" y="61.3" class="vlab">$33.18</text>
+<rect x="526.7" y="62.1" width="199.3" height="19.3" fill="var(--s-cat)" opacity="0.16"/>
+<line x1="526.7" y1="62.1" x2="726.0" y2="62.1" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="526.7" y1="81.4" x2="726.0" y2="81.4" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="560.3" y="162.7" width="58" height="123.3" rx="3" fill="url(#h-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
+<text x="589.3" y="153.7" class="vlab">$18.98</text>
+<rect x="634.3" y="166.2" width="58" height="119.8" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
+<text x="663.3" y="157.2" class="vlab">$18.43</text>
 <text x="626.3" y="312" class="xtick">1,000 each</text>
 <line x1="78" y1="286" x2="736" y2="286" class="axis"/>
 </svg>
 </div>
-<div class="panel" style="padding-bottom:22px"><table><thead><tr><th scope="col">Cost per box</th><th>100 each</th><th>250 each</th><th>1,000 each</th><th>Basis</th></tr></thead><tbody><tr class="lead"><th scope="row">Provider — what we pay</th><td>$38.89</td><td>$25.61</td><td>$18.98</td><td class="basis">actual at 100, deduced after</td></tr><tr><th scope="row">Independent estimate</th><td>$30.93</td><td>$26.02</td><td>$18.43</td><td class="basis">modelled</td></tr><tr><th scope="row">Retail catalogue, same qty</th><td>$39.60</td><td>$35.77</td><td>$33.18</td><td class="basis">published</td></tr></tbody></table></div>
+<div class="panel" style="padding-bottom:22px"><table><thead><tr><th scope="col">Cost per box</th><th>100 each</th><th>250 each</th><th>1,000 each</th><th>Basis</th></tr></thead><tbody><tr class="lead"><th scope="row">Provider — what we pay</th><td>$38.89</td><td>$25.61</td><td>$18.98</td><td class="basis">actual at 100, deduced after</td></tr><tr><th scope="row">Independent estimate</th><td>$30.93</td><td>$26.02</td><td>$18.43</td><td class="basis">modelled</td></tr><tr><th scope="row">Retail catalogue range</th><td>$35.56 – $38.96</td><td>$34.07 – $37.04</td><td>$31.48 – $34.45</td><td class="basis">published</td></tr></tbody></table></div>
 
 <h2>What the three scenarios show</h2>
 <div class="findings">
   <div class="finding"><div class="q">100 each<br>today</div><div>
-    <h3>The medium box is the outlier<span class="verdict v-bad">act on this</span></h3>
-    <p>$30.22 against $19.12 for a comparable box off a catalogue shelf — we pay
-    <strong>$11.10 more per box than we could simply buy one for</strong>. The large box at
-    $38.89 is already a shade under its catalogue equivalent, so there is no case to answer there.</p></div></div>
+    <h3>The medium box is well outside the range<span class="verdict v-bad">act on this</span></h3>
+    <p>$30.22 against a published range of $17.17–$18.81 for comparable
+    stock boxes — <strong>61% to 76% above what the same board sells for</strong>. The large box at $38.89
+    lands inside its range of $35.56–$38.96, but at the very top of it.</p></div></div>
   <div class="finding"><div class="q">250 each<br>crossover</div><div>
-    <h3>The medium box turns the corner<span class="verdict v-ok">cheap to reach</span></h3>
-    <p>$16.94 against $17.27 — level, and it takes only 150 more units of each to get there.
-    Past this point our provider is the cheaper option on both boxes.</p></div></div>
+    <h3>Both boxes come good<span class="verdict v-ok">cheap to reach</span></h3>
+    <p>The medium box drops to $16.94, inside its $16.45–$17.88 range.
+    The large box at $25.61 falls clear below its $34.07–$37.04 range.
+    It takes only 150 more units of each to get here.</p></div></div>
   <div class="finding"><div class="q">1,000 each</div><div>
-    <h3>Clearly good value on both<span class="verdict v-ok">strong</span></h3>
-    <p>Medium $10.31 against $16.02; large $18.98 against $33.18.
-    Our price falls 66% and 51% from the
-    100-unit level while the catalogue barely moves — retail discounts very little for volume. That divergence is the
-    whole argument.</p></div></div>
+    <h3>Well below anything published<span class="verdict v-ok">strong</span></h3>
+    <p>Medium $10.31 against $15.20–$16.63; large
+    $18.98 against $31.48–$34.45. Our price falls
+    66% and 51% from the 100-unit
+    level while the published range moves only about 12% — retail discounts very little for volume, and that
+    divergence is the whole argument.</p></div></div>
   <div class="finding"><div class="q">Why</div><div>
     <h3>It is an order-size problem, not a supplier problem</h3>
     <p>Splitting the two prices we actually pay gives a board rate of about <strong>$188 per MSF</strong>, which is
     competitive, plus roughly <strong>$2,213 per box type</strong> of fixed cost. That fixed charge does not care how
     big the box is, so at 100 units it lands hardest on the smaller one. Our provider's underlying economics are sound;
     the order is simply too small to carry them.</p></div></div>
+  <div class="finding"><div class="q">Watch</div><div>
+    <h3>One published price sits below the whole range</h3>
+    <p>A 48 × 40 × 36 in box — 5% <em>larger</em> than our large one, same 275&nbsp;lb double-wall grade — is listed by one
+    retailer at <strong>$33.59</strong> in quantities of 20 or more, which works out below every box in our comparison
+    set. A second retailer lists the same box at $45.95. That ~37% spread between sellers of an identical item is a
+    reminder that no single catalogue price is <em>the</em> market price, which is why the range above is drawn as a
+    band rather than a line.</p></div></div>
 </div>
 
 <h2>Total spend, and what the extra boxes cost</h2>
@@ -253,8 +270,9 @@ the marginal boxes are cheap in a way the headline price hides completely.</p>
 
 <h2>What is real here, and what is not</h2>
 <p>Two figures on this page are prices we are actually charged: <strong>$30.22</strong> and
-<strong>$38.89</strong>, at 100 of each. Catalogue figures are published prices for 275&nbsp;lb test double wall —
-the equivalent grade to our 48ECT — at the matching quantity. Everything else is worked out.</p>
+<strong>$38.89</strong>, at 100 of each. The catalogue range is drawn from five comparable
+275&nbsp;lb test double-wall RSCs — the equivalent grade to our 48ECT — priced at the matching quantity, so it reflects
+the real spread in the market rather than a single point. Everything else is worked out.</p>
 <div class="note"><b>The 250 and 1,000 provider figures are deduced, not quoted.</b> They come from splitting our two
 actual prices into a board rate and a fixed charge, then re-spreading the fixed charge over a larger run. Fitting two
 unknowns to two data points reproduces our real prices exactly by construction — that is arithmetic, not evidence. The
@@ -266,5 +284,5 @@ works out at roughly $3.27 per medium box and $6.78 per large. Worth confirming 
 includes delivery — if it does, they are better value than shown here.</div>
 
 <footer>Cost per box, ex-freight · 48ECT kraft double wall, plain, knocked down flat · medium 39 × 20 × 32 in,
-large 46 × 39 × 36 in · catalogue medians drawn from 21 published prices at 100 units, 7 at 250, 6 at 1,000</footer>
+large 46 × 39 × 36 in · catalogue range from five comparable 275 lb double-wall RSCs at each quantity tier</footer>
 </div>
