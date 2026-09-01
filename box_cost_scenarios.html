@@ -77,7 +77,18 @@ p strong,li strong{color:var(--ink);font-weight:600}
   font-variant-numeric:tabular-nums}
 .zkey{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 14px;font-size:13px;color:var(--ink-2)}
 .zkey span{display:inline-flex;align-items:center;gap:7px}
-.zsw{width:22px;height:12px;border-radius:2px;display:inline-block}
+.zsw{width:24px;height:13px;border-radius:2px;display:inline-block;
+  border:1px solid color-mix(in srgb,var(--ink-3) 35%,transparent)}
+.zsw-imp{background:color-mix(in srgb,var(--ink-3) 16%,transparent)}
+.zsw-good{background:color-mix(in srgb,var(--good) 28%,transparent)}
+.zsw-ok{background:color-mix(in srgb,var(--warn) 30%,transparent)}
+.zsw-bad{background:color-mix(in srgb,var(--bad) 26%,transparent)}
+.zsw-pay{background:var(--ink);border-color:var(--ink)}
+.zsw-tgt{width:4px;height:17px;border-radius:1px;background:var(--ink);border-color:var(--ink)}
+.sw.sw-cat{background:color-mix(in srgb,var(--s-cat) 28%,transparent);
+  border:1.5px dashed var(--s-cat)}
+.sw.sw-ceil{background:none;border:0;border-top:2.5px dashed var(--bad);height:0;
+  border-radius:0;align-self:center;width:28px}
 .bandlab{fill:var(--s-cat);font:600 10.5px "IBM Plex Mono",monospace;text-anchor:end;
   font-variant-numeric:tabular-nums}
 .legend{display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin:2px 0 16px;
@@ -152,8 +163,8 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
     <span><i class="sw" style="background:var(--s-prov);border-color:var(--s-prov)"></i> Provider — real price</span>
     <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-prov) 0 3px,var(--panel) 3px 7px);border-color:var(--s-prov)"></i> Provider — deduced</span>
     <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-est) 0 3px,var(--panel) 3px 7px);border-color:var(--s-est)"></i> Estimate — modelled</span>
-    <span><i class="sw" style="background:color-mix(in srgb,var(--s-cat) 30%%,transparent);border-color:var(--s-cat);border-style:dashed"></i> Catalogue range — published</span>
-    <span><i class="sw" style="background:none;border:0;border-top:2px dashed var(--bad);height:0;border-radius:0"></i> Max defensible at 100</span>
+    <span><i class="sw sw-cat"></i> Catalogue range — published</span>
+    <span><i class="sw sw-ceil"></i> Max defensible at 100</span>
   </div>
   <svg viewBox="0 0 760 360" role="img" aria-labelledby="c-med-t" class="chart">
 <title id="c-med-t">Medium box cost per box by order size</title>
@@ -249,12 +260,12 @@ The <strong>floor</strong> is the independent converter-direct estimate — belo
 retail for a custom job, which is never defensible. The <strong>target</strong> is the midpoint.</p>
 <div class="panel">
   <div class="zkey">
-    <span><i class="zsw" style="background:color-mix(in srgb,var(--ink-3) 13%%,transparent)"></i> below plausible</span>
-    <span><i class="zsw" style="background:color-mix(in srgb,var(--good) 24%%,transparent)"></i> good</span>
-    <span><i class="zsw" style="background:color-mix(in srgb,var(--warn) 26%%,transparent)"></i> acceptable</span>
-    <span><i class="zsw" style="background:color-mix(in srgb,var(--bad) 22%%,transparent)"></i> too high</span>
-    <span><i class="zsw" style="background:var(--ink)"></i> what we pay</span>
-    <span>│ target</span>
+    <span><i class="zsw zsw-imp"></i> Below plausible</span>
+    <span><i class="zsw zsw-good"></i> Good</span>
+    <span><i class="zsw zsw-ok"></i> Acceptable</span>
+    <span><i class="zsw zsw-bad"></i> Too high</span>
+    <span><i class="zsw zsw-pay"></i> What we pay</span>
+    <span><i class="zsw zsw-tgt"></i> Target</span>
   </div>
   <svg viewBox="0 0 760 214" role="img" aria-labelledby="b-t" class="chart bullet">
 <title id="b-t">Acceptable price range at 100 units, against what we pay</title>
