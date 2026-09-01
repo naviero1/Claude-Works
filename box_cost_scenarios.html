@@ -7,7 +7,7 @@
   --bg:#f6f8fa; --panel:#ffffff; --ink:#12161b; --ink-2:#4a5560; --ink-3:#78838f;
   --rule:#dde3e9; --rule-2:#eef2f6;
   --s-prov:#2a78d6; --s-est:#eb6834; --s-cat:#1baf7a;
-  --good:#137a52; --warn:#8a4b12;
+  --good:#137a52; --warn:#8a4b12; --bad:#b3341f;
   --shadow:0 1px 2px rgba(16,24,32,.05),0 8px 24px rgba(16,24,32,.05);
 }
 @media (prefers-color-scheme:dark){
@@ -15,7 +15,7 @@
     --bg:#12161b; --panel:#191f26; --ink:#eef2f6; --ink-2:#aab4bf; --ink-3:#7d8894;
     --rule:#2b333c; --rule-2:#222a32;
     --s-prov:#3987e5; --s-est:#d95926; --s-cat:#199e70;
-    --good:#4fbf8f; --warn:#d9a05b;
+    --good:#4fbf8f; --warn:#d9a05b; --bad:#ef7a63;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
   }
 }
@@ -23,7 +23,7 @@
   --bg:#12161b; --panel:#191f26; --ink:#eef2f6; --ink-2:#aab4bf; --ink-3:#7d8894;
   --rule:#2b333c; --rule-2:#222a32;
   --s-prov:#3987e5; --s-est:#d95926; --s-cat:#199e70;
-  --good:#4fbf8f; --warn:#d9a05b;
+  --good:#4fbf8f; --warn:#d9a05b; --bad:#ef7a63;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
 }
 *{box-sizing:border-box}
@@ -60,6 +60,24 @@ p strong,li strong{color:var(--ink);font-weight:600}
 .xtick{fill:var(--ink-2);font:600 13.5px "IBM Plex Sans",sans-serif;text-anchor:middle}
 .vlab{fill:var(--ink);font:600 12.5px "IBM Plex Mono",monospace;text-anchor:middle;
   font-variant-numeric:tabular-nums}
+.ceillab{fill:var(--bad);font:600 11px "IBM Plex Mono",monospace;
+  font-variant-numeric:tabular-nums}
+.bullet{min-width:660px}
+.z-imp{fill:var(--ink-3);opacity:.13}
+.z-good{fill:var(--good);opacity:.24}
+.z-ok{fill:var(--warn);opacity:.26}
+.z-bad{fill:var(--bad);opacity:.22}
+.actual{fill:var(--ink);rx:2}
+.tick-t{stroke:var(--ink);stroke-width:2.5}
+.blab{fill:var(--ink);font:600 15px "IBM Plex Sans",sans-serif;text-anchor:end}
+.alab{font:600 13.5px "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.alab.over{fill:var(--bad)}
+.alab.under{fill:var(--good)}
+.clab{fill:var(--bad);font:600 10.5px "IBM Plex Mono",monospace;text-anchor:middle;
+  font-variant-numeric:tabular-nums}
+.zkey{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 14px;font-size:13px;color:var(--ink-2)}
+.zkey span{display:inline-flex;align-items:center;gap:7px}
+.zsw{width:22px;height:12px;border-radius:2px;display:inline-block}
 .bandlab{fill:var(--s-cat);font:600 10.5px "IBM Plex Mono",monospace;text-anchor:end;
   font-variant-numeric:tabular-nums}
 .legend{display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin:2px 0 16px;
@@ -135,6 +153,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
     <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-prov) 0 3px,var(--panel) 3px 7px);border-color:var(--s-prov)"></i> Provider — deduced</span>
     <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-est) 0 3px,var(--panel) 3px 7px);border-color:var(--s-est)"></i> Estimate — modelled</span>
     <span><i class="sw" style="background:color-mix(in srgb,var(--s-cat) 30%%,transparent);border-color:var(--s-cat);border-style:dashed"></i> Catalogue range — published</span>
+    <span><i class="sw" style="background:none;border:0;border-top:2px dashed var(--bad);height:0;border-radius:0"></i> Max defensible at 100</span>
   </div>
   <svg viewBox="0 0 760 360" role="img" aria-labelledby="c-med-t" class="chart">
 <title id="c-med-t">Medium box cost per box by order size</title>
@@ -151,6 +170,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <rect x="88.0" y="163.7" width="199.3" height="10.7" fill="var(--s-cat)" opacity="0.16"/>
 <line x1="88.0" y1="163.7" x2="287.3" y2="163.7" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
 <line x1="88.0" y1="174.4" x2="287.3" y2="174.4" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="82.0" y1="163.7" x2="293.3" y2="163.7" stroke="var(--bad)" stroke-width="2" stroke-dasharray="7 4"/>
 <rect x="121.7" y="89.6" width="58" height="196.4" rx="3" fill="var(--s-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
 <text x="150.7" y="80.6" class="vlab">$30.22</text>
 <rect x="195.7" y="195.1" width="58" height="90.9" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
@@ -195,6 +215,7 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <rect x="88.0" y="32.8" width="199.3" height="22.1" fill="var(--s-cat)" opacity="0.16"/>
 <line x1="88.0" y1="32.8" x2="287.3" y2="32.8" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
 <line x1="88.0" y1="54.9" x2="287.3" y2="54.9" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
+<line x1="82.0" y1="32.8" x2="293.3" y2="32.8" stroke="var(--bad)" stroke-width="2" stroke-dasharray="7 4"/>
 <rect x="121.7" y="33.2" width="58" height="252.8" rx="3" fill="var(--s-prov)" stroke="var(--s-prov)" stroke-width="1.5"/>
 <text x="150.7" y="24.2" class="vlab">$38.89</text>
 <rect x="195.7" y="84.9" width="58" height="201.1" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
@@ -220,6 +241,66 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 </svg>
 </div>
 <div class="panel" style="padding-bottom:22px"><table><thead><tr><th scope="col">Cost per box</th><th>100 each</th><th>250 each</th><th>1,000 each</th><th>Basis</th></tr></thead><tbody><tr class="lead"><th scope="row">Provider — what we pay</th><td>$38.89</td><td>$25.61</td><td>$18.98</td><td class="basis">actual at 100, deduced after</td></tr><tr><th scope="row">Independent estimate</th><td>$30.93</td><td>$26.02</td><td>$18.43</td><td class="basis">modelled</td></tr><tr><th scope="row">Retail catalogue range</th><td>$35.56 – $38.96</td><td>$34.07 – $37.04</td><td>$31.48 – $34.45</td><td class="basis">published</td></tr></tbody></table></div>
+
+<h2>What we should be paying at 100</h2>
+<p class="sub">An acceptable range needs a defensible definition, so both ends come from evidence already on this page.
+The <strong>floor</strong> is the independent converter-direct estimate — below it is implausible for custom work. The
+<strong>ceiling</strong> is the dearest comparable box anyone publishes: pay more than that and we are paying above
+retail for a custom job, which is never defensible. The <strong>target</strong> is the midpoint.</p>
+<div class="panel">
+  <div class="zkey">
+    <span><i class="zsw" style="background:color-mix(in srgb,var(--ink-3) 13%%,transparent)"></i> below plausible</span>
+    <span><i class="zsw" style="background:color-mix(in srgb,var(--good) 24%%,transparent)"></i> good</span>
+    <span><i class="zsw" style="background:color-mix(in srgb,var(--warn) 26%%,transparent)"></i> acceptable</span>
+    <span><i class="zsw" style="background:color-mix(in srgb,var(--bad) 22%%,transparent)"></i> too high</span>
+    <span><i class="zsw" style="background:var(--ink)"></i> what we pay</span>
+    <span>│ target</span>
+  </div>
+  <svg viewBox="0 0 760 214" role="img" aria-labelledby="b-t" class="chart bullet">
+<title id="b-t">Acceptable price range at 100 units, against what we pay</title>
+<line x1="118.0" y1="24" x2="118.0" y2="164" class="grid"/>
+<text x="118.0" y="184" class="xtick">$0</text>
+<line x1="266.6" y1="24" x2="266.6" y2="164" class="grid"/>
+<text x="266.6" y="184" class="xtick">$10</text>
+<line x1="415.1" y1="24" x2="415.1" y2="164" class="grid"/>
+<text x="415.1" y="184" class="xtick">$20</text>
+<line x1="563.7" y1="24" x2="563.7" y2="164" class="grid"/>
+<text x="563.7" y="184" class="xtick">$30</text>
+<line x1="712.3" y1="24" x2="712.3" y2="164" class="grid"/>
+<text x="712.3" y="184" class="xtick">$40</text>
+<text x="104" y="63" class="blab">Medium</text>
+<rect x="118.0" y="36" width="207.8" height="42" class="z-imp"/>
+<rect x="325.8" y="36" width="35.8" height="42" class="z-good"/>
+<rect x="361.6" y="36" width="35.8" height="42" class="z-ok"/>
+<rect x="397.4" y="36" width="344.6" height="42" class="z-bad"/>
+<line x1="361.6" y1="32" x2="361.6" y2="82" class="tick-t"/>
+<rect x="118.0" y="49" width="449.0" height="16" class="actual"/>
+<text x="576.0" y="62" class="alab over">$30.22 — over</text>
+<text x="397.4" y="28" class="clab">ceiling $18.81</text>
+<text x="104" y="135" class="blab">Large</text>
+<rect x="118.0" y="108" width="459.6" height="42" class="z-imp"/>
+<rect x="577.6" y="108" width="59.6" height="42" class="z-good"/>
+<rect x="637.2" y="108" width="59.6" height="42" class="z-ok"/>
+<rect x="696.8" y="108" width="45.2" height="42" class="z-bad"/>
+<line x1="637.2" y1="104" x2="637.2" y2="154" class="tick-t"/>
+<rect x="118.0" y="121" width="577.8" height="16" class="actual"/>
+<text x="704.8" y="134" class="alab under">$38.89 — inside, just</text>
+<text x="696.8" y="100" class="clab">ceiling $38.96</text>
+</svg>
+</div>
+<div class="panel" style="padding-bottom:22px">
+<table>
+<thead><tr><th scope="col">At 100 each</th><th>Floor</th><th>Target</th><th>Ceiling</th><th>We pay</th><th>vs ceiling</th><th>vs target</th></tr></thead>
+<tbody>
+<tr class="lead"><th scope="row">Medium 39 × 20 × 32</th><td>$13.99</td><td>$16.40</td><td>$18.81</td><td>$30.22</td><td style="color:var(--bad)">+11.41</td><td>+13.82</td></tr><tr class="lead"><th scope="row">Large 46 × 39 × 36</th><td>$30.93</td><td>$34.94</td><td>$38.96</td><td>$38.89</td><td style="color:var(--good)">-0.07</td><td>+3.95</td></tr>
+</tbody></table>
+</div>
+<p><strong>The medium box is $11.41 over its ceiling</strong> — 61% above the most
+expensive comparable box on the open market. The large box lands $0.07 <em>under</em>
+its ceiling: inside the acceptable range, but by seven cents, which is not a margin worth defending.</p>
+<p>Bringing both to the ceiling saves <strong>$1,141</strong> on the current order
+(17%). Bringing both to target saves <strong>$1,777</strong>
+(26%). Nearly all of it is the medium box.</p>
 
 <h2>What the three scenarios show</h2>
 <div class="findings">
