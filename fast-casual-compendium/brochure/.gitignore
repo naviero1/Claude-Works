@@ -2,3 +2,5 @@ node_modules/
 __pycache__/
 preview.html
 *.png
+gf.css
+!What-Delivery-Costs-You.pdf

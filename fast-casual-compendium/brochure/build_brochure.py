@@ -17,7 +17,8 @@ n_quad = sum(1 for d in ALL if d['price'] <= 16 and d['health'] >= 6.0)
 by = {d['restaurant']: d for d in ALL}
 e = lambda s: html.escape(str(s), quote=False)
 mny = lambda v: f"${v:,.2f}"
-CSS = open('brochure.css').read()
+FONTS = open('fonts.css').read()   # latin woff2 inlined as data URIs
+CSS = FONTS + '\n' + open('brochure.css').read() + '\n' + open('print.css').read()
 
 # ---------------------------------------------------------------- findings
 per5, fr, wn, wc = F['per5'], F['frontier'], F['week_naive'], F['week_cheap']
@@ -131,9 +132,6 @@ TRAPS = [
 
 # ---------------------------------------------------------------- page
 PAGE = f'''<title>What Delivery Costs You</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
 <style>
 {CSS}
 </style>
@@ -242,4 +240,17 @@ PAGE = f'''<title>What Delivery Costs You</title>
 </div>
 '''
 open('brochure.html', 'w').write(PAGE)
+
+STANDALONE = ('<!doctype html>\n<html lang="en">\n<head>\n'
+  '<meta charset="utf-8">\n'
+  '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+  '<meta name="description" content="What delivery food actually costs you, across 87 dishes '
+  'in the Research Triangle - and why the expensive option is usually the worse one.">\n'
+  '<meta name="color-scheme" content="light dark">\n'
+  '<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n'
+  + PAGE.split('<style>')[0].replace('<title>', '<title>').rstrip() + '\n</head>\n<body>\n'
+  + '<style>' + PAGE.split('<style>', 1)[1]
+  + '\n</body>\n</html>\n')
+open('What-Delivery-Costs-You.html', 'w').write(STANDALONE)
 print(f'wrote brochure.html — {len(PAGE):,} bytes')
+print(f'wrote What-Delivery-Costs-You.html — {len(STANDALONE):,} bytes (standalone)')
