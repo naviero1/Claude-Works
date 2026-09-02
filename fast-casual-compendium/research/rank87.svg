@@ -1,0 +1,907 @@
+<svg viewBox="0 0 740 1518" class="rank87" role="img" aria-label="All 87 dishes ranked by overall score, with each dish's price shown on a separate scale alongside; the scores fall steadily while the prices stay scattered">
+<text x="30" y="19" class="rk-head">RANK &amp; DISH</text>
+<text x="292" y="19" class="rk-head">OVERALL SCORE &#183; 0 TO 10</text>
+<text x="540" y="19" class="rk-head">WHAT IT COSTS</text>
+<line x1="548.8" y1="24" x2="548.8" y2="1504" class="rk-pgrid"/>
+<text x="548.8" y="35" class="rk-ptick" text-anchor="middle">$10</text>
+<line x1="592.9" y1="24" x2="592.9" y2="1504" class="rk-pgrid"/>
+<text x="592.9" y="35" class="rk-ptick" text-anchor="middle">$20</text>
+<line x1="637.1" y1="24" x2="637.1" y2="1504" class="rk-pgrid"/>
+<text x="637.1" y="35" class="rk-ptick" text-anchor="middle">$30</text>
+<line x1="681.2" y1="24" x2="681.2" y2="1504" class="rk-pgrid"/>
+<text x="681.2" y="35" class="rk-ptick" text-anchor="middle">$40</text>
+<line x1="334.0" y1="24" x2="334.0" y2="1504" class="rk-sgrid"/>
+<text x="334.0" y="35" class="rk-ptick" text-anchor="middle">2</text>
+<line x1="376.0" y1="24" x2="376.0" y2="1504" class="rk-sgrid"/>
+<text x="376.0" y="35" class="rk-ptick" text-anchor="middle">4</text>
+<line x1="418.0" y1="24" x2="418.0" y2="1504" class="rk-sgrid"/>
+<text x="418.0" y="35" class="rk-ptick" text-anchor="middle">6</text>
+<line x1="460.0" y1="24" x2="460.0" y2="1504" class="rk-sgrid"/>
+<text x="460.0" y="35" class="rk-ptick" text-anchor="middle">8</text>
+<line x1="502.0" y1="24" x2="502.0" y2="1504" class="rk-sgrid"/>
+<text x="502.0" y="35" class="rk-ptick" text-anchor="middle">10</text>
+<text x="30" y="63.0" class="rk-tier">ORDER THESE <tspan class="rk-tier-n">18</tspan></text>
+<text x="292" y="63.0" class="rk-tier-note">strong overall, and nothing collapses on the four criteria that are plain arithmetic</text>
+<line x1="30" y1="68.0" x2="718" y2="68.0" class="rk-rule"/>
+<g class="rk-row"><title>Double tuna salad bowl at Poke Bros. &#183; $17.00 &#183; overall 7.9, health 8.2</title>
+<rect x="22" y="75.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="86.1" class="rk-n" text-anchor="end">1</text>
+<text x="51" y="86.1" class="rk-d">Double tuna salad bowl<tspan class="rk-r"> Poke Bros.</tspan></text>
+<rect x="292" y="78.1" width="165.1" height="9.2" rx="1" fill="#285D3F" class="rk-bar"/>
+<text x="462.1" y="86.1" class="rk-v">7.9</text>
+<line x1="540" y1="82.7" x2="579.7" y2="82.7" class="rk-pstem"/>
+<circle cx="579.7" cy="82.7" r="3.2" class="rk-pdot"/>
+<text x="585.7" y="86.1" class="rk-p">$17</text>
+</g>
+<g class="rk-row"><title>Oily-cut sashimi selection at M Sushi &#183; $31.20 &#183; overall 7.3, health 7.9</title>
+<rect x="22" y="90.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="101.5" class="rk-n" text-anchor="end">2</text>
+<text x="51" y="101.5" class="rk-d">Oily-cut sashimi selection<tspan class="rk-r"> M Sushi</tspan></text>
+<rect x="292" y="93.5" width="153.5" height="9.2" rx="1" fill="#3E805B" class="rk-bar"/>
+<text x="450.5" y="101.5" class="rk-v">7.3</text>
+<line x1="540" y1="98.1" x2="642.4" y2="98.1" class="rk-pstem"/>
+<circle cx="642.4" cy="98.1" r="3.2" class="rk-pdot"/>
+<text x="648.4" y="101.5" class="rk-p">$31</text>
+</g>
+<g class="rk-row"><title>Balık Şiş at Talullas &#183; $31.00 &#183; overall 7.3, health 7.6</title>
+<rect x="22" y="105.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="116.9" class="rk-n" text-anchor="end">3</text>
+<text x="51" y="116.9" class="rk-d">Balık Şiş<tspan class="rk-r"> Talullas</tspan></text>
+<rect x="292" y="108.9" width="152.5" height="9.2" rx="1" fill="#3E805B" class="rk-bar"/>
+<text x="449.5" y="116.9" class="rk-v">7.3</text>
+<line x1="540" y1="113.5" x2="641.5" y2="113.5" class="rk-pstem"/>
+<circle cx="641.5" cy="113.5" r="3.2" class="rk-pdot"/>
+<text x="647.5" y="116.9" class="rk-p">$31</text>
+</g>
+<g class="rk-row"><title>Large chicken bowl on salad base at Pokeworks &#183; $16.00 &#183; overall 7.1, health 7.2</title>
+<rect x="22" y="121.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="132.3" class="rk-n" text-anchor="end">4</text>
+<text x="51" y="132.3" class="rk-d">Large chicken bowl on salad…<tspan class="rk-r"> Pokeworks</tspan></text>
+<rect x="292" y="124.3" width="149.9" height="9.2" rx="1" fill="#3E805B" class="rk-bar"/>
+<text x="446.9" y="132.3" class="rk-v">7.1</text>
+<line x1="540" y1="128.9" x2="575.3" y2="128.9" class="rk-pstem"/>
+<circle cx="575.3" cy="128.9" r="3.2" class="rk-pdot"/>
+<text x="581.3" y="132.3" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Lentil-base bowl with grilled chicken at DICED &#183; $10.95 &#183; overall 7.1, health 7.0</title>
+<rect x="22" y="136.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="147.7" class="rk-n" text-anchor="end">5</text>
+<text x="51" y="147.7" class="rk-d">Lentil-base bowl with grilled…<tspan class="rk-r"> DICED</tspan></text>
+<rect x="292" y="139.7" width="149.3" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="446.3" y="147.7" class="rk-v">7.1</text>
+<line x1="540" y1="144.3" x2="553.0" y2="144.3" class="rk-pstem"/>
+<circle cx="553.0" cy="144.3" r="3.2" class="rk-pdot"/>
+<text x="559.0" y="147.7" class="rk-p">$11</text>
+</g>
+<g class="rk-row"><title>Sizzling fish with vermicelli and herbs at Taste Vietnamese &#183; $17.95 &#183; overall 7.0, health 6.9</title>
+<rect x="22" y="152.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="163.1" class="rk-n" text-anchor="end">6</text>
+<text x="51" y="163.1" class="rk-d">Sizzling fish with vermicelli a…<tspan class="rk-r"> Taste Vietna…</tspan></text>
+<rect x="292" y="155.1" width="148.0" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="445.0" y="163.1" class="rk-v">7.0</text>
+<line x1="540" y1="159.7" x2="583.9" y2="159.7" class="rk-pstem"/>
+<circle cx="583.9" cy="159.7" r="3.2" class="rk-pdot"/>
+<text x="589.9" y="163.1" class="rk-p">$18</text>
+</g>
+<g class="rk-row"><title>Tuscan Kale Salad with salmon, dressing declined at True Food Kitchen &#183; $26.00 &#183; overall 7.0, health 7.5</title>
+<rect x="22" y="167.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="178.5" class="rk-n" text-anchor="end">7</text>
+<text x="51" y="178.5" class="rk-d">Tuscan Kale Salad with salm…<tspan class="rk-r"> True Food Ki…</tspan></text>
+<rect x="292" y="170.5" width="147.8" height="9.2" rx="1" fill="#3E805B" class="rk-bar"/>
+<text x="444.8" y="178.5" class="rk-v">7.0</text>
+<line x1="540" y1="175.1" x2="619.4" y2="175.1" class="rk-pstem"/>
+<circle cx="619.4" cy="175.1" r="3.2" class="rk-pdot"/>
+<text x="625.4" y="178.5" class="rk-p">$26</text>
+</g>
+<g class="rk-row"><title>Tiradito at M Izakaya &#183; $20.40 &#183; overall 7.0, health 7.2</title>
+<rect x="22" y="182.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="193.9" class="rk-n" text-anchor="end">8</text>
+<text x="51" y="193.9" class="rk-d">Tiradito<tspan class="rk-r"> M Izakaya</tspan></text>
+<rect x="292" y="185.9" width="146.8" height="9.2" rx="1" fill="#3E805B" class="rk-bar"/>
+<text x="443.8" y="193.9" class="rk-v">7.0</text>
+<line x1="540" y1="190.5" x2="594.7" y2="190.5" class="rk-pstem"/>
+<circle cx="594.7" cy="190.5" r="3.2" class="rk-pdot"/>
+<text x="600.7" y="193.9" class="rk-p">$20</text>
+</g>
+<g class="rk-row"><title>Chicken kebab plate with fattoush and tzatziki at Baba Ghannouj &#183; $15.99 &#183; overall 6.8, health 6.7</title>
+<rect x="22" y="198.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="209.3" class="rk-n" text-anchor="end">9</text>
+<text x="51" y="209.3" class="rk-d">Chicken kebab plate with fatt…<tspan class="rk-r"> Baba Ghanno…</tspan></text>
+<rect x="292" y="201.3" width="143.8" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="440.9" y="209.3" class="rk-v">6.8</text>
+<line x1="540" y1="205.9" x2="575.2" y2="205.9" class="rk-pstem"/>
+<circle cx="575.2" cy="205.9" r="3.2" class="rk-pdot"/>
+<text x="581.2" y="209.3" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Sashimi bowl at Peony Asian Bistro &#183; $22.00 &#183; overall 6.8, health 7.1</title>
+<rect x="22" y="213.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="224.7" class="rk-n" text-anchor="end">10</text>
+<text x="51" y="224.7" class="rk-d">Sashimi bowl<tspan class="rk-r"> Peony Asian Bistro</tspan></text>
+<rect x="292" y="216.7" width="143.2" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="440.2" y="224.7" class="rk-v">6.8</text>
+<line x1="540" y1="221.3" x2="601.8" y2="221.3" class="rk-pstem"/>
+<circle cx="601.8" cy="221.3" r="3.2" class="rk-pdot"/>
+<text x="607.8" y="224.7" class="rk-p">$22</text>
+</g>
+<g class="rk-row"><title>Chicken shish kebab with cacık at Bosphorus &#183; $16.50 &#183; overall 6.8, health 6.6</title>
+<rect x="22" y="229.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="240.1" class="rk-n" text-anchor="end">11</text>
+<text x="51" y="240.1" class="rk-d">Chicken shish kebab with cac…<tspan class="rk-r"> Bosphorus</tspan></text>
+<rect x="292" y="232.1" width="143.2" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="440.2" y="240.1" class="rk-v">6.8</text>
+<line x1="540" y1="236.7" x2="577.5" y2="236.7" class="rk-pstem"/>
+<circle cx="577.5" cy="236.7" r="3.2" class="rk-pdot"/>
+<text x="583.5" y="240.1" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Chicken choila with dal at Kathmandu Kitchen &#183; $21.99 &#183; overall 6.8, health 6.8</title>
+<rect x="22" y="244.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="255.5" class="rk-n" text-anchor="end">12</text>
+<text x="51" y="255.5" class="rk-d">Chicken choila with dal<tspan class="rk-r"> Kathmandu Kitchen</tspan></text>
+<rect x="292" y="247.5" width="142.8" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="439.8" y="255.5" class="rk-v">6.8</text>
+<line x1="540" y1="252.1" x2="601.7" y2="252.1" class="rk-pstem"/>
+<circle cx="601.7" cy="252.1" r="3.2" class="rk-pdot"/>
+<text x="607.7" y="255.5" class="rk-p">$22</text>
+</g>
+<g class="rk-row"><title>Grilled salmon with house salad and green beans at Canastas Chicken &#183; $25.50 &#183; overall 6.7, health 6.8</title>
+<rect x="22" y="259.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="270.9" class="rk-n" text-anchor="end">14</text>
+<text x="51" y="270.9" class="rk-d">Grilled salmon with house sal…<tspan class="rk-r"> Canastas Ch…</tspan></text>
+<rect x="292" y="262.9" width="139.9" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="436.9" y="270.9" class="rk-v">6.7</text>
+<line x1="540" y1="267.5" x2="617.2" y2="267.5" class="rk-pstem"/>
+<circle cx="617.2" cy="267.5" r="3.2" class="rk-pdot"/>
+<text x="623.2" y="270.9" class="rk-p">$26</text>
+</g>
+<g class="rk-row"><title>¼ Chicken w/ White Combo at Alpaca Peruvian Charcoal Chicken &#183; $11.29 &#183; overall 6.6, health 6.5</title>
+<rect x="22" y="275.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="286.3" class="rk-n" text-anchor="end">16</text>
+<text x="51" y="286.3" class="rk-d">¼ Chicken w/ White Combo<tspan class="rk-r"> Alpaca Peruvian…</tspan></text>
+<rect x="292" y="278.3" width="139.0" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="436.0" y="286.3" class="rk-v">6.6</text>
+<line x1="540" y1="282.9" x2="554.5" y2="282.9" class="rk-pstem"/>
+<circle cx="554.5" cy="282.9" r="3.2" class="rk-pdot"/>
+<text x="560.5" y="286.3" class="rk-p">$11</text>
+</g>
+<g class="rk-row"><title>Ceviche de tilapia at Mi Perú &#183; $24.22 &#183; overall 6.6, health 6.8</title>
+<rect x="22" y="290.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="301.7" class="rk-n" text-anchor="end">17</text>
+<text x="51" y="301.7" class="rk-d">Ceviche de tilapia<tspan class="rk-r"> Mi Perú</tspan></text>
+<rect x="292" y="293.7" width="138.6" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="435.6" y="301.7" class="rk-v">6.6</text>
+<line x1="540" y1="298.3" x2="611.6" y2="298.3" class="rk-pstem"/>
+<circle cx="611.6" cy="298.3" r="3.2" class="rk-pdot"/>
+<text x="617.6" y="301.7" class="rk-p">$24</text>
+</g>
+<g class="rk-row"><title>Grilled chicken bowl at Guasaca &#183; $11.21 &#183; overall 6.6, health 6.3</title>
+<rect x="22" y="306.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="317.1" class="rk-n" text-anchor="end">18</text>
+<text x="51" y="317.1" class="rk-d">Grilled chicken bowl<tspan class="rk-r"> Guasaca</tspan></text>
+<rect x="292" y="309.1" width="137.8" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="434.8" y="317.1" class="rk-v">6.6</text>
+<line x1="540" y1="313.7" x2="554.2" y2="313.7" class="rk-pstem"/>
+<circle cx="554.2" cy="313.7" r="3.2" class="rk-pdot"/>
+<text x="560.2" y="317.1" class="rk-p">$11</text>
+</g>
+<g class="rk-row"><title>Quarter rotisserie chicken with two salads at Luna Rotisserie &#183; $18.70 &#183; overall 6.5, health 6.6</title>
+<rect x="22" y="321.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="332.5" class="rk-n" text-anchor="end">19</text>
+<text x="51" y="332.5" class="rk-d">Quarter rotisserie chicken wit…<tspan class="rk-r"> Luna Rotiss…</tspan></text>
+<rect x="292" y="324.5" width="137.1" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="434.1" y="332.5" class="rk-v">6.5</text>
+<line x1="540" y1="329.1" x2="587.2" y2="329.1" class="rk-pstem"/>
+<circle cx="587.2" cy="329.1" r="3.2" class="rk-pdot"/>
+<text x="593.2" y="332.5" class="rk-p">$19</text>
+</g>
+<g class="rk-row"><title>Ceviche Salad at Carmen's Cuban Cafe &amp; Lounge &#183; $18.95 &#183; overall 6.5, health 6.8</title>
+<rect x="22" y="336.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="347.9" class="rk-n" text-anchor="end">20</text>
+<text x="51" y="347.9" class="rk-d">Ceviche Salad<tspan class="rk-r"> Carmen's Cuban Cafe &amp; Lounge</tspan></text>
+<rect x="292" y="339.9" width="136.9" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="433.9" y="347.9" class="rk-v">6.5</text>
+<line x1="540" y1="344.5" x2="588.3" y2="344.5" class="rk-pstem"/>
+<circle cx="588.3" cy="344.5" r="3.2" class="rk-pdot"/>
+<text x="594.3" y="347.9" class="rk-p">$19</text>
+</g>
+<text x="30" y="382.2" class="rk-tier">WORTH ORDERING <tspan class="rk-tier-n">21</tspan></text>
+<text x="292" y="382.2" class="rk-tier-note">a good plate with one number worth knowing about</text>
+<line x1="30" y1="387.2" x2="718" y2="387.2" class="rk-rule"/>
+<g class="rk-row"><title>Nam tok beef with spicy papaya salad at Thai 54 &#183; $30.90 &#183; overall 6.8, health 6.9</title>
+<rect x="22" y="394.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="405.3" class="rk-n" text-anchor="end">13</text>
+<text x="51" y="405.3" class="rk-d">Nam tok beef with spic…<tspan class="rk-r"> Thai 54</tspan></text>
+<text x="286.0" y="405.3" class="rk-flag" text-anchor="end">KID 3.3</text>
+<rect x="292" y="397.3" width="141.8" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="438.8" y="405.3" class="rk-v">6.8</text>
+<line x1="540" y1="401.9" x2="641.0" y2="401.9" class="rk-pstem"/>
+<circle cx="641.0" cy="401.9" r="3.2" class="rk-pdot"/>
+<text x="647.0" y="405.3" class="rk-p">$31</text>
+</g>
+<g class="rk-row"><title>Craft Your Own salad, grilled chicken at Chopt &#183; $10.79 &#183; overall 6.6, health 6.5</title>
+<rect x="22" y="409.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="420.7" class="rk-n" text-anchor="end">15</text>
+<text x="51" y="420.7" class="rk-d">Craft Your Own salad…<tspan class="rk-r"> Chopt</tspan></text>
+<text x="286.0" y="420.7" class="rk-flag" text-anchor="end">SUG 3.7</text>
+<rect x="292" y="412.7" width="139.4" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="436.4" y="420.7" class="rk-v">6.6</text>
+<line x1="540" y1="417.3" x2="552.3" y2="417.3" class="rk-pstem"/>
+<circle cx="552.3" cy="417.3" r="3.2" class="rk-pdot"/>
+<text x="558.3" y="420.7" class="rk-p">$11</text>
+</g>
+<g class="rk-row"><title>Chicken Breast (Boneless) kabob at Flame Kabob &#183; $24.98 &#183; overall 6.4, health 6.5</title>
+<rect x="22" y="425.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="436.1" class="rk-n" text-anchor="end">21</text>
+<text x="51" y="436.1" class="rk-d">Chicken Breast (Boneless) ka…<tspan class="rk-r"> Flame Kabob</tspan></text>
+<rect x="292" y="428.1" width="135.2" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="432.2" y="436.1" class="rk-v">6.4</text>
+<line x1="540" y1="432.7" x2="614.9" y2="432.7" class="rk-pstem"/>
+<circle cx="614.9" cy="432.7" r="3.2" class="rk-pdot"/>
+<text x="620.9" y="436.1" class="rk-p">$25</text>
+</g>
+<g class="rk-row"><title>Vegetarian combo with telba shiro at Abol Ethiopian &#183; $16.99 &#183; overall 6.4, health 6.4</title>
+<rect x="22" y="440.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="451.5" class="rk-n" text-anchor="end">22</text>
+<text x="51" y="451.5" class="rk-d">Vegetarian combo with telba…<tspan class="rk-r"> Abol Ethiopian</tspan></text>
+<rect x="292" y="443.5" width="134.8" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="431.8" y="451.5" class="rk-v">6.4</text>
+<line x1="540" y1="448.1" x2="579.7" y2="448.1" class="rk-pstem"/>
+<circle cx="579.7" cy="448.1" r="3.2" class="rk-pdot"/>
+<text x="585.7" y="451.5" class="rk-p">$17</text>
+</g>
+<g class="rk-row"><title>Build Your Own bowl at Mahana Fresh &#183; $14.00 &#183; overall 6.4, health 6.3</title>
+<rect x="22" y="455.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="466.9" class="rk-n" text-anchor="end">23</text>
+<text x="51" y="466.9" class="rk-d">Build Your Own bowl<tspan class="rk-r"> Mahana Fresh</tspan></text>
+<rect x="292" y="458.9" width="134.4" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="431.4" y="466.9" class="rk-v">6.4</text>
+<line x1="540" y1="463.5" x2="566.5" y2="463.5" class="rk-pstem"/>
+<circle cx="566.5" cy="463.5" r="3.2" class="rk-pdot"/>
+<text x="572.5" y="466.9" class="rk-p">$14</text>
+</g>
+<g class="rk-row"><title>Filete de pescado with curtido at El Cuscatleco &#183; $15.95 &#183; overall 6.4, health 6.2</title>
+<rect x="22" y="471.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="482.3" class="rk-n" text-anchor="end">24</text>
+<text x="51" y="482.3" class="rk-d">Filete de pescado with curtido<tspan class="rk-r"> El Cuscatleco</tspan></text>
+<rect x="292" y="474.3" width="134.4" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="431.4" y="482.3" class="rk-v">6.4</text>
+<line x1="540" y1="478.9" x2="575.1" y2="478.9" class="rk-pstem"/>
+<circle cx="575.1" cy="478.9" r="3.2" class="rk-pdot"/>
+<text x="581.1" y="482.3" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Create Your Own bowl at Happy + Hale &#183; $14.58 &#183; overall 6.4, health 6.4</title>
+<rect x="22" y="486.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="497.7" class="rk-n" text-anchor="end">25</text>
+<text x="51" y="497.7" class="rk-d">Create Your Own bowl<tspan class="rk-r"> Happy + Hale</tspan></text>
+<rect x="292" y="489.7" width="134.2" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="431.2" y="497.7" class="rk-v">6.4</text>
+<line x1="540" y1="494.3" x2="569.0" y2="494.3" class="rk-pstem"/>
+<circle cx="569.0" cy="494.3" r="3.2" class="rk-pdot"/>
+<text x="575.0" y="497.7" class="rk-p">$15</text>
+</g>
+<g class="rk-row"><title>SuperGreens and lentil bowl with grilled steak at CAVA &#183; $15.50 &#183; overall 6.4, health 6.2</title>
+<rect x="22" y="502.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="513.1" class="rk-n" text-anchor="end">26</text>
+<text x="51" y="513.1" class="rk-d">SuperGreens and lentil bowl…<tspan class="rk-r"> CAVA</tspan></text>
+<rect x="292" y="505.1" width="134.0" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="431.0" y="513.1" class="rk-v">6.4</text>
+<line x1="540" y1="509.7" x2="573.1" y2="509.7" class="rk-pstem"/>
+<circle cx="573.1" cy="509.7" r="3.2" class="rk-pdot"/>
+<text x="579.1" y="513.1" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Vegan vegetable combo at Goorsha &#183; $19.55 &#183; overall 6.3, health 6.4</title>
+<rect x="22" y="517.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="528.5" class="rk-n" text-anchor="end">27</text>
+<text x="51" y="528.5" class="rk-d">Vegan vegetable combo<tspan class="rk-r"> Goorsha</tspan></text>
+<rect x="292" y="520.5" width="133.1" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="430.1" y="528.5" class="rk-v">6.3</text>
+<line x1="540" y1="525.1" x2="591.0" y2="525.1" class="rk-pstem"/>
+<circle cx="591.0" cy="525.1" r="3.2" class="rk-pdot"/>
+<text x="597.0" y="528.5" class="rk-p">$20</text>
+</g>
+<g class="rk-row"><title>Build A Bowl at Neomonde &#183; $15.99 &#183; overall 6.3, health 6.2</title>
+<rect x="22" y="532.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="543.9" class="rk-n" text-anchor="end">28</text>
+<text x="51" y="543.9" class="rk-d">Build A Bowl<tspan class="rk-r"> Neomonde</tspan></text>
+<rect x="292" y="535.9" width="132.3" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="429.3" y="543.9" class="rk-v">6.3</text>
+<line x1="540" y1="540.5" x2="575.2" y2="540.5" class="rk-pstem"/>
+<circle cx="575.2" cy="540.5" r="3.2" class="rk-pdot"/>
+<text x="581.2" y="543.9" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Pechuga a la Planca at Pupuseria Doña Laura &#183; $17.00 &#183; overall 6.3, health 6.4</title>
+<rect x="22" y="548.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="559.3" class="rk-n" text-anchor="end">29</text>
+<text x="51" y="559.3" class="rk-d">Pechuga a la Planca<tspan class="rk-r"> Pupuseria Doña Laura</tspan></text>
+<rect x="292" y="551.3" width="132.1" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="429.1" y="559.3" class="rk-v">6.3</text>
+<line x1="540" y1="555.9" x2="579.7" y2="555.9" class="rk-pstem"/>
+<circle cx="579.7" cy="555.9" r="3.2" class="rk-pdot"/>
+<text x="585.7" y="559.3" class="rk-p">$17</text>
+</g>
+<g class="rk-row"><title>Create Your Own bowl with a kimchi side at Bulkogi &#183; $18.60 &#183; overall 6.3, health 6.1</title>
+<rect x="22" y="563.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="574.7" class="rk-n" text-anchor="end">30</text>
+<text x="51" y="574.7" class="rk-d">Create Your Own bowl with a…<tspan class="rk-r"> Bulkogi</tspan></text>
+<rect x="292" y="566.7" width="131.9" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="428.9" y="574.7" class="rk-v">6.3</text>
+<line x1="540" y1="571.3" x2="586.8" y2="571.3" class="rk-pstem"/>
+<circle cx="586.8" cy="571.3" r="3.2" class="rk-pdot"/>
+<text x="592.8" y="574.7" class="rk-p">$19</text>
+</g>
+<g class="rk-row"><title>Build A Bowl, large at Clean Eatz &#183; $16.79 &#183; overall 6.3, health 6.4</title>
+<rect x="22" y="579.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="590.1" class="rk-n" text-anchor="end">31</text>
+<text x="51" y="590.1" class="rk-d">Build A Bowl, large<tspan class="rk-r"> Clean Eatz</tspan></text>
+<rect x="292" y="582.1" width="131.5" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="428.5" y="590.1" class="rk-v">6.3</text>
+<line x1="540" y1="586.7" x2="578.8" y2="586.7" class="rk-pstem"/>
+<circle cx="578.8" cy="586.7" r="3.2" class="rk-pdot"/>
+<text x="584.8" y="590.1" class="rk-p">$17</text>
+</g>
+<g class="rk-row"><title>Tandoori fish tikka with raita and vegetable jalfrezi at Urban Turban &#183; $27.00 &#183; overall 6.2, health 6.2</title>
+<rect x="22" y="594.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="605.5" class="rk-n" text-anchor="end">32</text>
+<text x="51" y="605.5" class="rk-d">Tandoori fish tikka with raita…<tspan class="rk-r"> Urban Turban</tspan></text>
+<rect x="292" y="597.5" width="130.6" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="427.6" y="605.5" class="rk-v">6.2</text>
+<line x1="540" y1="602.1" x2="623.8" y2="602.1" class="rk-pstem"/>
+<circle cx="623.8" cy="602.1" r="3.2" class="rk-pdot"/>
+<text x="629.8" y="605.5" class="rk-p">$27</text>
+</g>
+<g class="rk-row"><title>SL6. Grilled Nam-Tok Salad at Twisted Noodles &#183; $17.00 &#183; overall 6.2, health 6.0</title>
+<rect x="22" y="609.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="620.9" class="rk-n" text-anchor="end">33</text>
+<text x="51" y="620.9" class="rk-d">SL6. Grilled Nam-Tok Salad<tspan class="rk-r"> Twisted Noodles</tspan></text>
+<rect x="292" y="612.9" width="130.0" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="427.0" y="620.9" class="rk-v">6.2</text>
+<line x1="540" y1="617.5" x2="579.7" y2="617.5" class="rk-pstem"/>
+<circle cx="579.7" cy="617.5" r="3.2" class="rk-pdot"/>
+<text x="585.7" y="620.9" class="rk-p">$17</text>
+</g>
+<g class="rk-row"><title>Chicken salad with pinto beans and guacamole at Chipotle &#183; $12.00 &#183; overall 6.1, health 6.0</title>
+<rect x="22" y="625.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="636.3" class="rk-n" text-anchor="end">34</text>
+<text x="51" y="636.3" class="rk-d">Chicken salad with pinto bean…<tspan class="rk-r"> Chipotle</tspan></text>
+<rect x="292" y="628.3" width="128.7" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="425.7" y="636.3" class="rk-v">6.1</text>
+<line x1="540" y1="632.9" x2="557.6" y2="632.9" class="rk-pstem"/>
+<circle cx="557.6" cy="632.9" r="3.2" class="rk-pdot"/>
+<text x="563.6" y="636.3" class="rk-p">$12</text>
+</g>
+<g class="rk-row"><title>Hot honey chicken salad at Village Juice &amp; Kitchen &#183; $16.45 &#183; overall 6.1, health 6.0</title>
+<rect x="22" y="640.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="651.7" class="rk-n" text-anchor="end">35</text>
+<text x="51" y="651.7" class="rk-d">Hot honey chicken salad<tspan class="rk-r"> Village Juice &amp; Kitch…</tspan></text>
+<rect x="292" y="643.7" width="127.9" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="424.9" y="651.7" class="rk-v">6.1</text>
+<line x1="540" y1="648.3" x2="577.3" y2="648.3" class="rk-pstem"/>
+<circle cx="577.3" cy="648.3" r="3.2" class="rk-pdot"/>
+<text x="583.3" y="651.7" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Steam Fish (large) at Mum's Jamaican Restaurant &#183; $28.48 &#183; overall 6.1, health 6.3</title>
+<rect x="22" y="656.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="667.1" class="rk-n" text-anchor="end">36</text>
+<text x="51" y="667.1" class="rk-d">Steam Fish (large)<tspan class="rk-r"> Mum's Jamaican Restaurant</tspan></text>
+<rect x="292" y="659.1" width="127.7" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="424.7" y="667.1" class="rk-v">6.1</text>
+<line x1="540" y1="663.7" x2="630.4" y2="663.7" class="rk-pstem"/>
+<circle cx="630.4" cy="663.7" r="3.2" class="rk-pdot"/>
+<text x="636.4" y="667.1" class="rk-p">$28</text>
+</g>
+<g class="rk-row"><title>D6. Steamed Shrimp with Mixed Vegetables Diet at Golden Dragon &#183; $12.39 &#183; overall 6.1, health 6.2</title>
+<rect x="22" y="671.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="682.5" class="rk-n" text-anchor="end">37</text>
+<text x="51" y="682.5" class="rk-d">D6. Steamed Shrimp with Mix…<tspan class="rk-r"> Golden Drag…</tspan></text>
+<rect x="292" y="674.5" width="127.7" height="9.2" rx="1" fill="#58A178" class="rk-bar"/>
+<text x="424.7" y="682.5" class="rk-v">6.1</text>
+<line x1="540" y1="679.1" x2="559.4" y2="679.1" class="rk-pstem"/>
+<circle cx="559.4" cy="679.1" r="3.2" class="rk-pdot"/>
+<text x="565.4" y="682.5" class="rk-p">$12</text>
+</g>
+<g class="rk-row"><title>Souvlaki, chicken at Kipos Greek Taverna &#183; $22.00 &#183; overall 6.1, health 5.9</title>
+<rect x="22" y="686.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="697.9" class="rk-n" text-anchor="end">38</text>
+<text x="51" y="697.9" class="rk-d">Souvlaki, chicken<tspan class="rk-r"> Kipos Greek Taverna</tspan></text>
+<rect x="292" y="689.9" width="127.5" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="424.5" y="697.9" class="rk-v">6.1</text>
+<line x1="540" y1="694.5" x2="601.8" y2="694.5" class="rk-pstem"/>
+<circle cx="601.8" cy="694.5" r="3.2" class="rk-pdot"/>
+<text x="607.8" y="697.9" class="rk-p">$22</text>
+</g>
+<g class="rk-row"><title>Regular Chicken Platter at The Halal Guys &#183; $14.75 &#183; overall 6.0, health 6.0</title>
+<rect x="22" y="702.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="713.3" class="rk-n" text-anchor="end">39</text>
+<text x="51" y="713.3" class="rk-d">Regular Chicken Platter<tspan class="rk-r"> The Halal Guys</tspan></text>
+<rect x="292" y="705.3" width="126.2" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="423.2" y="713.3" class="rk-v">6.0</text>
+<line x1="540" y1="709.9" x2="569.8" y2="709.9" class="rk-pstem"/>
+<circle cx="569.8" cy="709.9" r="3.2" class="rk-pdot"/>
+<text x="575.8" y="713.3" class="rk-p">$15</text>
+</g>
+<text x="30" y="747.6" class="rk-tier">WITH RESERVATIONS <tspan class="rk-tier-n">35</tspan></text>
+<text x="292" y="747.6" class="rk-tier-note">edible, unremarkable, or carrying a real cost somewhere</text>
+<line x1="30" y1="752.6" x2="718" y2="752.6" class="rk-rule"/>
+<g class="rk-row"><title>Build Your Own bowl with chicken and quinoa at Farmside Kitchen &#183; $13.14 &#183; overall 6.0, health 5.9</title>
+<rect x="22" y="759.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="770.7" class="rk-n" text-anchor="end">40</text>
+<text x="51" y="770.7" class="rk-d">Build Your Own bowl with chic…<tspan class="rk-r"> Farmside Ki…</tspan></text>
+<rect x="292" y="762.7" width="125.6" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="422.6" y="770.7" class="rk-v">6.0</text>
+<line x1="540" y1="767.3" x2="562.7" y2="767.3" class="rk-pstem"/>
+<circle cx="562.7" cy="767.3" r="3.2" class="rk-pdot"/>
+<text x="568.7" y="770.7" class="rk-p">$13</text>
+</g>
+<g class="rk-row"><title>Laphet Thoke (Green tea Salad) at Road To Myanmar Asian Cuisine &#183; $14.99 &#183; overall 6.0, health 5.8</title>
+<rect x="22" y="775.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="786.1" class="rk-n" text-anchor="end">41</text>
+<text x="51" y="786.1" class="rk-d">Laphet Thoke (Green tea Sala…<tspan class="rk-r"> Road To My…</tspan></text>
+<rect x="292" y="778.1" width="125.6" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="422.6" y="786.1" class="rk-v">6.0</text>
+<line x1="540" y1="782.7" x2="570.8" y2="782.7" class="rk-pstem"/>
+<circle cx="570.8" cy="782.7" r="3.2" class="rk-pdot"/>
+<text x="576.8" y="786.1" class="rk-p">$15</text>
+</g>
+<g class="rk-row"><title>Smoked Turkey (Smokehouse Plate) at Sam Jones BBQ &#183; $20.90 &#183; overall 6.0, health 6.0</title>
+<rect x="22" y="790.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="801.5" class="rk-n" text-anchor="end">42</text>
+<text x="51" y="801.5" class="rk-d">Smoked Turkey (Smokehous…<tspan class="rk-r"> Sam Jones B…</tspan></text>
+<rect x="292" y="793.5" width="125.2" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="422.2" y="801.5" class="rk-v">6.0</text>
+<line x1="540" y1="798.1" x2="596.9" y2="798.1" class="rk-pstem"/>
+<circle cx="596.9" cy="798.1" r="3.2" class="rk-pdot"/>
+<text x="602.9" y="801.5" class="rk-p">$21</text>
+</g>
+<g class="rk-row"><title>Chicken kabob with labneh and three cold salads at Sassool &#183; $16.37 &#183; overall 6.0, health 5.6</title>
+<rect x="22" y="805.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="816.9" class="rk-n" text-anchor="end">43</text>
+<text x="51" y="816.9" class="rk-d">Chicken kabob with labneh an…<tspan class="rk-r"> Sassool</tspan></text>
+<rect x="292" y="808.9" width="125.2" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="422.2" y="816.9" class="rk-v">6.0</text>
+<line x1="540" y1="813.5" x2="576.9" y2="813.5" class="rk-pstem"/>
+<circle cx="576.9" cy="813.5" r="3.2" class="rk-pdot"/>
+<text x="582.9" y="816.9" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Curd rice with idli and sambar at Naga's South Indian &#183; $19.00 &#183; overall 6.0, health 6.0</title>
+<rect x="22" y="821.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="832.3" class="rk-n" text-anchor="end">44</text>
+<text x="51" y="832.3" class="rk-d">Curd rice with idli and sambar<tspan class="rk-r"> Naga's South…</tspan></text>
+<rect x="292" y="824.3" width="124.9" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="421.9" y="832.3" class="rk-v">6.0</text>
+<line x1="540" y1="828.9" x2="588.5" y2="828.9" class="rk-pstem"/>
+<circle cx="588.5" cy="828.9" r="3.2" class="rk-pdot"/>
+<text x="594.5" y="832.3" class="rk-p">$19</text>
+</g>
+<g class="rk-row"><title>Seafood soondubu with a kimchi side at Chosun Ok &#183; $18.39 &#183; overall 6.0, health 5.7</title>
+<rect x="22" y="836.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="847.7" class="rk-n" text-anchor="end">45</text>
+<text x="51" y="847.7" class="rk-d">Seafood soondubu with a kim…<tspan class="rk-r"> Chosun Ok</tspan></text>
+<rect x="292" y="839.7" width="124.9" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="421.9" y="847.7" class="rk-v">6.0</text>
+<line x1="540" y1="844.3" x2="585.8" y2="844.3" class="rk-pstem"/>
+<circle cx="585.8" cy="844.3" r="3.2" class="rk-pdot"/>
+<text x="591.8" y="847.7" class="rk-p">$18</text>
+</g>
+<g class="rk-row"><title>Tandoori mixed grill at Swagat Indian &#183; $22.00 &#183; overall 5.9, health 5.8</title>
+<rect x="22" y="852.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="863.1" class="rk-n" text-anchor="end">46</text>
+<text x="51" y="863.1" class="rk-d">Tandoori mixed grill<tspan class="rk-r"> Swagat Indian</tspan></text>
+<rect x="292" y="855.1" width="124.5" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="421.5" y="863.1" class="rk-v">5.9</text>
+<line x1="540" y1="859.7" x2="601.8" y2="859.7" class="rk-pstem"/>
+<circle cx="601.8" cy="859.7" r="3.2" class="rk-pdot"/>
+<text x="607.8" y="863.1" class="rk-p">$22</text>
+</g>
+<g class="rk-row"><title>Salad-bar build with grilled chicken at Jason's Deli &#183; $12.89 &#183; overall 5.9, health 5.8</title>
+<rect x="22" y="867.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="878.5" class="rk-n" text-anchor="end">47</text>
+<text x="51" y="878.5" class="rk-d">Salad-bar build with grilled ch…<tspan class="rk-r"> Jason's Deli</tspan></text>
+<rect x="292" y="870.5" width="123.9" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="420.9" y="878.5" class="rk-v">5.9</text>
+<line x1="540" y1="875.1" x2="561.6" y2="875.1" class="rk-pstem"/>
+<circle cx="561.6" cy="875.1" r="3.2" class="rk-pdot"/>
+<text x="567.6" y="878.5" class="rk-p">$13</text>
+</g>
+<g class="rk-row"><title>Create Your Own bowl at Roots Natural Kitchen &#183; $14.00 &#183; overall 5.9, health 5.7</title>
+<rect x="22" y="882.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="893.9" class="rk-n" text-anchor="end">48</text>
+<text x="51" y="893.9" class="rk-d">Create Your Own bowl<tspan class="rk-r"> Roots Natural Kitchen</tspan></text>
+<rect x="292" y="885.9" width="123.7" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="420.7" y="893.9" class="rk-v">5.9</text>
+<line x1="540" y1="890.5" x2="566.5" y2="890.5" class="rk-pstem"/>
+<circle cx="566.5" cy="890.5" r="3.2" class="rk-pdot"/>
+<text x="572.5" y="893.9" class="rk-p">$14</text>
+</g>
+<g class="rk-row"><title>Chicken kebab plate at Quick Meal Mediterranean &#183; $12.99 &#183; overall 5.9, health 5.6</title>
+<rect x="22" y="898.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="909.3" class="rk-n" text-anchor="end">49</text>
+<text x="51" y="909.3" class="rk-d">Chicken kebab plate<tspan class="rk-r"> Quick Meal Mediterranean</tspan></text>
+<rect x="292" y="901.3" width="123.1" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="420.1" y="909.3" class="rk-v">5.9</text>
+<line x1="540" y1="905.9" x2="562.0" y2="905.9" class="rk-pstem"/>
+<circle cx="562.0" cy="905.9" r="3.2" class="rk-pdot"/>
+<text x="568.0" y="909.3" class="rk-p">$13</text>
+</g>
+<g class="rk-row"><title>Chicken kabob plate at Mediterra Grill &#183; $15.99 &#183; overall 5.8, health 5.5</title>
+<rect x="22" y="913.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="924.7" class="rk-n" text-anchor="end">50</text>
+<text x="51" y="924.7" class="rk-d">Chicken kabob plate<tspan class="rk-r"> Mediterra Grill</tspan></text>
+<rect x="292" y="916.7" width="121.0" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="418.0" y="924.7" class="rk-v">5.8</text>
+<line x1="540" y1="921.3" x2="575.2" y2="921.3" class="rk-pstem"/>
+<circle cx="575.2" cy="921.3" r="3.2" class="rk-pdot"/>
+<text x="581.2" y="924.7" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Salmon bento at Shinmai Shokudo &#183; $27.00 &#183; overall 5.7, health 5.7</title>
+<rect x="22" y="929.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="940.1" class="rk-n" text-anchor="end">51</text>
+<text x="51" y="940.1" class="rk-d">Salmon bento<tspan class="rk-r"> Shinmai Shokudo</tspan></text>
+<rect x="292" y="932.1" width="120.5" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="417.5" y="940.1" class="rk-v">5.7</text>
+<line x1="540" y1="936.7" x2="623.8" y2="936.7" class="rk-pstem"/>
+<circle cx="623.8" cy="936.7" r="3.2" class="rk-pdot"/>
+<text x="629.8" y="940.1" class="rk-p">$27</text>
+</g>
+<g class="rk-row"><title>Smoked Party Wings, 10 pc at Lawrence Barbecue &#183; $17.00 &#183; overall 5.7, health 5.5</title>
+<rect x="22" y="944.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="955.5" class="rk-n" text-anchor="end">52</text>
+<text x="51" y="955.5" class="rk-d">Smoked Party Wings, 10 pc<tspan class="rk-r"> Lawrence Barb…</tspan></text>
+<rect x="292" y="947.5" width="119.9" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="416.9" y="955.5" class="rk-v">5.7</text>
+<line x1="540" y1="952.1" x2="579.7" y2="952.1" class="rk-pstem"/>
+<circle cx="579.7" cy="952.1" r="3.2" class="rk-pdot"/>
+<text x="585.7" y="955.5" class="rk-p">$17</text>
+</g>
+<g class="rk-row"><title>Miso Glazed Salmon bowl at Sweetgreen &#183; $18.75 &#183; overall 5.7, health 5.5</title>
+<rect x="22" y="959.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="970.9" class="rk-n" text-anchor="end">53</text>
+<text x="51" y="970.9" class="rk-d">Miso Glazed Salmon bowl<tspan class="rk-r"> Sweetgreen</tspan></text>
+<rect x="292" y="962.9" width="119.5" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="416.5" y="970.9" class="rk-v">5.7</text>
+<line x1="540" y1="967.5" x2="587.4" y2="967.5" class="rk-pstem"/>
+<circle cx="587.4" cy="967.5" r="3.2" class="rk-pdot"/>
+<text x="593.4" y="970.9" class="rk-p">$19</text>
+</g>
+<g class="rk-row"><title>Bibimbap with banchan ordered separately at Namu &#183; $26.00 &#183; overall 5.6, health 5.6</title>
+<rect x="22" y="975.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="986.3" class="rk-n" text-anchor="end">54</text>
+<text x="51" y="986.3" class="rk-d">Bibimbap with banchan order…<tspan class="rk-r"> Namu</tspan></text>
+<rect x="292" y="978.3" width="117.2" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="414.2" y="986.3" class="rk-v">5.6</text>
+<line x1="540" y1="982.9" x2="619.4" y2="982.9" class="rk-pstem"/>
+<circle cx="619.4" cy="982.9" r="3.2" class="rk-pdot"/>
+<text x="625.4" y="986.3" class="rk-p">$26</text>
+</g>
+<g class="rk-row"><title>House Salad with Sliced Picanha at Boteco do Brazil &#183; $21.00 &#183; overall 5.5, health 5.4</title>
+<rect x="22" y="990.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1001.7" class="rk-n" text-anchor="end">55</text>
+<text x="51" y="1001.7" class="rk-d">House Salad with Sliced Pica…<tspan class="rk-r"> Boteco do Br…</tspan></text>
+<rect x="292" y="993.7" width="115.3" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="412.3" y="1001.7" class="rk-v">5.5</text>
+<line x1="540" y1="998.3" x2="597.4" y2="998.3" class="rk-pstem"/>
+<circle cx="597.4" cy="998.3" r="3.2" class="rk-pdot"/>
+<text x="603.4" y="1001.7" class="rk-p">$21</text>
+</g>
+<g class="rk-row"><title>Baja bowl at Tazza Kitchen &#183; $19.38 &#183; overall 5.5, health 5.3</title>
+<rect x="22" y="1006.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1017.1" class="rk-n" text-anchor="end">56</text>
+<text x="51" y="1017.1" class="rk-d">Baja bowl<tspan class="rk-r"> Tazza Kitchen</tspan></text>
+<rect x="292" y="1009.1" width="114.7" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="411.7" y="1017.1" class="rk-v">5.5</text>
+<line x1="540" y1="1013.7" x2="590.2" y2="1013.7" class="rk-pstem"/>
+<circle cx="590.2" cy="1013.7" r="3.2" class="rk-pdot"/>
+<text x="596.2" y="1017.1" class="rk-p">$19</text>
+</g>
+<g class="rk-row"><title>Szechuan boiled bean curd at Szechuan Mansion Hotpot &#183; $21.00 &#183; overall 5.4, health 5.4</title>
+<rect x="22" y="1021.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1032.5" class="rk-n" text-anchor="end">57</text>
+<text x="51" y="1032.5" class="rk-d">Szechuan boiled bean curd<tspan class="rk-r"> Szechuan Mansi…</tspan></text>
+<rect x="292" y="1024.5" width="113.8" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="410.8" y="1032.5" class="rk-v">5.4</text>
+<line x1="540" y1="1029.1" x2="597.4" y2="1029.1" class="rk-pstem"/>
+<circle cx="597.4" cy="1029.1" r="3.2" class="rk-pdot"/>
+<text x="603.4" y="1032.5" class="rk-p">$21</text>
+</g>
+<g class="rk-row"><title>Pollo rostizado at Esmeralda Grill &#183; $13.99 &#183; overall 5.4, health 5.1</title>
+<rect x="22" y="1036.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1047.9" class="rk-n" text-anchor="end">58</text>
+<text x="51" y="1047.9" class="rk-d">Pollo rostizado<tspan class="rk-r"> Esmeralda Grill</tspan></text>
+<rect x="292" y="1039.9" width="113.4" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="410.4" y="1047.9" class="rk-v">5.4</text>
+<line x1="540" y1="1044.5" x2="566.4" y2="1044.5" class="rk-pstem"/>
+<circle cx="566.4" cy="1044.5" r="3.2" class="rk-pdot"/>
+<text x="572.4" y="1047.9" class="rk-p">$14</text>
+</g>
+<g class="rk-row"><title>Tri-Fecta at First Watch &#183; $16.81 &#183; overall 5.3, health 5.3</title>
+<rect x="22" y="1052.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1063.3" class="rk-n" text-anchor="end">59</text>
+<text x="51" y="1063.3" class="rk-d">Tri-Fecta<tspan class="rk-r"> First Watch</tspan></text>
+<rect x="292" y="1055.3" width="112.3" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="409.3" y="1063.3" class="rk-v">5.3</text>
+<line x1="540" y1="1059.9" x2="578.9" y2="1059.9" class="rk-pstem"/>
+<circle cx="578.9" cy="1059.9" r="3.2" class="rk-pdot"/>
+<text x="584.9" y="1063.3" class="rk-p">$17</text>
+</g>
+<g class="rk-row"><title>Braised fish fillets with green Sichuan peppercorn at Chengdu 7 &#183; $36.95 &#183; overall 5.3, health 5.4</title>
+<rect x="22" y="1067.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1078.7" class="rk-n" text-anchor="end">60</text>
+<text x="51" y="1078.7" class="rk-d">Braised fish fillets with green…<tspan class="rk-r"> Chengdu 7</tspan></text>
+<rect x="292" y="1070.7" width="112.1" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="409.1" y="1078.7" class="rk-v">5.3</text>
+<line x1="540" y1="1075.3" x2="667.7" y2="1075.3" class="rk-pstem"/>
+<circle cx="667.7" cy="1075.3" r="3.2" class="rk-pdot"/>
+<text x="673.7" y="1078.7" class="rk-p">$37</text>
+</g>
+<g class="rk-row"><title>Jerk chicken at Jamaica Jamaica &#183; $14.00 &#183; overall 5.3, health 4.9</title>
+<rect x="22" y="1083.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1094.1" class="rk-n" text-anchor="end">61</text>
+<text x="51" y="1094.1" class="rk-d">Jerk chicken<tspan class="rk-r"> Jamaica Jamaica</tspan></text>
+<rect x="292" y="1086.1" width="111.7" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="408.7" y="1094.1" class="rk-v">5.3</text>
+<line x1="540" y1="1090.7" x2="566.5" y2="1090.7" class="rk-pstem"/>
+<circle cx="566.5" cy="1090.7" r="3.2" class="rk-pdot"/>
+<text x="572.5" y="1094.1" class="rk-p">$14</text>
+</g>
+<g class="rk-row"><title>Sambar idli with chutneys at Southern Spice &#183; $11.99 &#183; overall 5.3, health 5.2</title>
+<rect x="22" y="1098.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1109.5" class="rk-n" text-anchor="end">62</text>
+<text x="51" y="1109.5" class="rk-d">Sambar idli with chutneys<tspan class="rk-r"> Southern Spice</tspan></text>
+<rect x="292" y="1101.5" width="111.3" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="408.3" y="1109.5" class="rk-v">5.3</text>
+<line x1="540" y1="1106.1" x2="557.6" y2="1106.1" class="rk-pstem"/>
+<circle cx="557.6" cy="1106.1" r="3.2" class="rk-pdot"/>
+<text x="563.6" y="1109.5" class="rk-p">$12</text>
+</g>
+<g class="rk-row"><title>Royal South Indian thali at Udupi Cafe &#183; $24.99 &#183; overall 5.3, health 5.3</title>
+<rect x="22" y="1113.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1124.9" class="rk-n" text-anchor="end">63</text>
+<text x="51" y="1124.9" class="rk-d">Royal South Indian thali<tspan class="rk-r"> Udupi Cafe</tspan></text>
+<rect x="292" y="1116.9" width="111.1" height="9.2" rx="1" fill="#81B297" class="rk-bar"/>
+<text x="408.1" y="1124.9" class="rk-v">5.3</text>
+<line x1="540" y1="1121.5" x2="615.0" y2="1121.5" class="rk-pstem"/>
+<circle cx="615.0" cy="1121.5" r="3.2" class="rk-pdot"/>
+<text x="621.0" y="1124.9" class="rk-p">$25</text>
+</g>
+<g class="rk-row"><title>Grilled chicken vermicelli plate at Bonjour Banh Mi &#183; $17.90 &#183; overall 5.3, health 5.1</title>
+<rect x="22" y="1129.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1140.3" class="rk-n" text-anchor="end">64</text>
+<text x="51" y="1140.3" class="rk-d">Grilled chicken vermicelli plate<tspan class="rk-r"> Bonjour Ban…</tspan></text>
+<rect x="292" y="1132.3" width="111.1" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="408.1" y="1140.3" class="rk-v">5.3</text>
+<line x1="540" y1="1136.9" x2="583.7" y2="1136.9" class="rk-pstem"/>
+<circle cx="583.7" cy="1136.9" r="3.2" class="rk-pdot"/>
+<text x="589.7" y="1140.3" class="rk-p">$18</text>
+</g>
+<g class="rk-row"><title>Beef Suya at Hady's Restaurant International Cuisine &#183; $27.29 &#183; overall 5.2, health 5.2</title>
+<rect x="22" y="1144.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1155.7" class="rk-n" text-anchor="end">65</text>
+<text x="51" y="1155.7" class="rk-d">Beef Suya<tspan class="rk-r"> Hady's Restaurant International Cuisi…</tspan></text>
+<rect x="292" y="1147.7" width="110.2" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="407.2" y="1155.7" class="rk-v">5.2</text>
+<line x1="540" y1="1152.3" x2="625.1" y2="1152.3" class="rk-pstem"/>
+<circle cx="625.1" cy="1152.3" r="3.2" class="rk-pdot"/>
+<text x="631.1" y="1155.7" class="rk-p">$27</text>
+</g>
+<g class="rk-row"><title>Mediterranean grain bowl at Panera Bread &#183; $13.00 &#183; overall 5.2, health 5.1</title>
+<rect x="22" y="1160.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1171.1" class="rk-n" text-anchor="end">66</text>
+<text x="51" y="1171.1" class="rk-d">Mediterranean grain bowl<tspan class="rk-r"> Panera Bread</tspan></text>
+<rect x="292" y="1163.1" width="109.6" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="406.6" y="1171.1" class="rk-v">5.2</text>
+<line x1="540" y1="1167.7" x2="562.1" y2="1167.7" class="rk-pstem"/>
+<circle cx="562.1" cy="1167.7" r="3.2" class="rk-pdot"/>
+<text x="568.1" y="1171.1" class="rk-p">$13</text>
+</g>
+<g class="rk-row"><title>Vegetable Soup at Chop Naija Kitchen &#183; $20.00 &#183; overall 5.2, health 5.1</title>
+<rect x="22" y="1175.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1186.5" class="rk-n" text-anchor="end">67</text>
+<text x="51" y="1186.5" class="rk-d">Vegetable Soup<tspan class="rk-r"> Chop Naija Kitchen</tspan></text>
+<rect x="292" y="1178.5" width="108.2" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="405.1" y="1186.5" class="rk-v">5.2</text>
+<line x1="540" y1="1183.1" x2="592.9" y2="1183.1" class="rk-pstem"/>
+<circle cx="592.9" cy="1183.1" r="3.2" class="rk-pdot"/>
+<text x="598.9" y="1186.5" class="rk-p">$20</text>
+</g>
+<g class="rk-row"><title>Street carne asada tacos at Los Tres &#183; $17.99 &#183; overall 5.2, health 4.9</title>
+<rect x="22" y="1190.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1201.9" class="rk-n" text-anchor="end">68</text>
+<text x="51" y="1201.9" class="rk-d">Street carne asada tacos<tspan class="rk-r"> Los Tres</tspan></text>
+<rect x="292" y="1193.9" width="108.2" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="405.1" y="1201.9" class="rk-v">5.2</text>
+<line x1="540" y1="1198.5" x2="584.1" y2="1198.5" class="rk-pstem"/>
+<circle cx="584.1" cy="1198.5" r="3.2" class="rk-pdot"/>
+<text x="590.1" y="1201.9" class="rk-p">$18</text>
+</g>
+<g class="rk-row"><title>Bun thit heo nuong at No 1 Pho &#183; $20.50 &#183; overall 5.2, health 4.8</title>
+<rect x="22" y="1206.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1217.3" class="rk-n" text-anchor="end">69</text>
+<text x="51" y="1217.3" class="rk-d">Bun thit heo nuong<tspan class="rk-r"> No 1 Pho</tspan></text>
+<rect x="292" y="1209.3" width="108.2" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="405.1" y="1217.3" class="rk-v">5.2</text>
+<line x1="540" y1="1213.9" x2="595.1" y2="1213.9" class="rk-pstem"/>
+<circle cx="595.1" cy="1213.9" r="3.2" class="rk-pdot"/>
+<text x="601.1" y="1217.3" class="rk-p">$20</text>
+</g>
+<g class="rk-row"><title>Connie at Al's Burger Shack &#183; $10.45 &#183; overall 5.1, health 4.8</title>
+<rect x="22" y="1221.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1232.7" class="rk-n" text-anchor="end">70</text>
+<text x="51" y="1232.7" class="rk-d">Connie<tspan class="rk-r"> Al's Burger Shack</tspan></text>
+<rect x="292" y="1224.7" width="107.7" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="404.7" y="1232.7" class="rk-v">5.1</text>
+<line x1="540" y1="1229.3" x2="550.8" y2="1229.3" class="rk-pstem"/>
+<circle cx="550.8" cy="1229.3" r="3.2" class="rk-pdot"/>
+<text x="556.8" y="1232.7" class="rk-p">$10</text>
+</g>
+<g class="rk-row"><title>Berbere Half Chicken at Zweli's Ekhaya &#183; $30.00 &#183; overall 5.1, health 5.2</title>
+<rect x="22" y="1237.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1248.1" class="rk-n" text-anchor="end">71</text>
+<text x="51" y="1248.1" class="rk-d">Berbere Half Chicken<tspan class="rk-r"> Zweli's Ekhaya</tspan></text>
+<rect x="292" y="1240.1" width="107.5" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="404.5" y="1248.1" class="rk-v">5.1</text>
+<line x1="540" y1="1244.7" x2="637.1" y2="1244.7" class="rk-pstem"/>
+<circle cx="637.1" cy="1244.7" r="3.2" class="rk-pdot"/>
+<text x="643.1" y="1248.1" class="rk-p">$30</text>
+</g>
+<g class="rk-row"><title>Chopped BBQ (barbecue plate) at The Pit Authentic Barbecue &#183; $17.50 &#183; overall 5.1, health 4.9</title>
+<rect x="22" y="1252.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1263.5" class="rk-n" text-anchor="end">72</text>
+<text x="51" y="1263.5" class="rk-d">Chopped BBQ (barbecue plate)<tspan class="rk-r"> The Pit Auth…</tspan></text>
+<rect x="292" y="1255.5" width="107.5" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="404.5" y="1263.5" class="rk-v">5.1</text>
+<line x1="540" y1="1260.1" x2="581.9" y2="1260.1" class="rk-pstem"/>
+<circle cx="581.9" cy="1260.1" r="3.2" class="rk-pdot"/>
+<text x="587.9" y="1263.5" class="rk-p">$18</text>
+</g>
+<g class="rk-row"><title>Well-done brisket pho at Pho 919 &#183; $18.34 &#183; overall 5.1, health 4.8</title>
+<rect x="22" y="1267.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1278.9" class="rk-n" text-anchor="end">73</text>
+<text x="51" y="1278.9" class="rk-d">Well-done brisket pho<tspan class="rk-r"> Pho 919</tspan></text>
+<rect x="292" y="1270.9" width="107.5" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="404.5" y="1278.9" class="rk-v">5.1</text>
+<line x1="540" y1="1275.5" x2="585.6" y2="1275.5" class="rk-pstem"/>
+<circle cx="585.6" cy="1275.5" r="3.2" class="rk-pdot"/>
+<text x="591.6" y="1278.9" class="rk-p">$18</text>
+</g>
+<g class="rk-row"><title>Veggie Delight Omelette at Another Broken Egg Cafe &#183; $16.99 &#183; overall 5.1, health 5.1</title>
+<rect x="22" y="1283.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1294.3" class="rk-n" text-anchor="end">74</text>
+<text x="51" y="1294.3" class="rk-d">Veggie Delight Omelette<tspan class="rk-r"> Another Broken Egg…</tspan></text>
+<rect x="292" y="1286.3" width="106.9" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="403.9" y="1294.3" class="rk-v">5.1</text>
+<line x1="540" y1="1290.9" x2="579.7" y2="1290.9" class="rk-pstem"/>
+<circle cx="579.7" cy="1290.9" r="3.2" class="rk-pdot"/>
+<text x="585.7" y="1294.3" class="rk-p">$17</text>
+</g>
+<text x="30" y="1328.6" class="rk-tier">NOT RECOMMENDED <tspan class="rk-tier-n">13</tspan></text>
+<text x="292" y="1328.6" class="rk-tier-note">the money is better spent almost anywhere else on this list</text>
+<line x1="30" y1="1333.6" x2="718" y2="1333.6" class="rk-rule"/>
+<g class="rk-row"><title>Kappa &amp; Meen Curry at Grand Malabar Indian Cuisine &#183; $18.99 &#183; overall 4.9, health 4.8</title>
+<rect x="22" y="1340.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1351.7" class="rk-n" text-anchor="end">75</text>
+<text x="51" y="1351.7" class="rk-d">Kappa &amp; Meen Curry<tspan class="rk-r"> Grand Malabar Indian Cui…</tspan></text>
+<rect x="292" y="1343.7" width="103.7" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="400.7" y="1351.7" class="rk-v">4.9</text>
+<line x1="540" y1="1348.3" x2="588.5" y2="1348.3" class="rk-pstem"/>
+<circle cx="588.5" cy="1348.3" r="3.2" class="rk-pdot"/>
+<text x="594.5" y="1351.7" class="rk-p">$19</text>
+</g>
+<g class="rk-row"><title>37. Slice Fish Congee at Dim Sum House &#183; $19.75 &#183; overall 4.9, health 4.9</title>
+<rect x="22" y="1356.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1367.1" class="rk-n" text-anchor="end">76</text>
+<text x="51" y="1367.1" class="rk-d">37. Slice Fish Congee<tspan class="rk-r"> Dim Sum House</tspan></text>
+<rect x="292" y="1359.1" width="103.1" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="400.1" y="1367.1" class="rk-v">4.9</text>
+<line x1="540" y1="1363.7" x2="591.8" y2="1363.7" class="rk-pstem"/>
+<circle cx="591.8" cy="1363.7" r="3.2" class="rk-pdot"/>
+<text x="597.8" y="1367.1" class="rk-p">$20</text>
+</g>
+<g class="rk-row"><title>Eastern NC Style BBQ Sandwich at The Fiction Kitchen &#183; $17.00 &#183; overall 4.9, health 4.6</title>
+<rect x="22" y="1371.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1382.5" class="rk-n" text-anchor="end">77</text>
+<text x="51" y="1382.5" class="rk-d">Eastern NC Style BBQ Sandwi…<tspan class="rk-r"> The Fiction…</tspan></text>
+<rect x="292" y="1374.5" width="102.5" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="399.5" y="1382.5" class="rk-v">4.9</text>
+<line x1="540" y1="1379.1" x2="579.7" y2="1379.1" class="rk-pstem"/>
+<circle cx="579.7" cy="1379.1" r="3.2" class="rk-pdot"/>
+<text x="585.7" y="1382.5" class="rk-p">$17</text>
+</g>
+<g class="rk-row"><title>Baked Chicken Wings Combo with 2 Sides at Let's Eat Soul Food &#183; $18.11 &#183; overall 4.8, health 4.7</title>
+<rect x="22" y="1386.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1397.9" class="rk-n" text-anchor="end">78</text>
+<text x="51" y="1397.9" class="rk-d">Baked Chicken Wings Combo…<tspan class="rk-r"> Let's Eat So…</tspan></text>
+<rect x="292" y="1389.9" width="101.4" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="398.4" y="1397.9" class="rk-v">4.8</text>
+<line x1="540" y1="1394.5" x2="584.6" y2="1394.5" class="rk-pstem"/>
+<circle cx="584.6" cy="1394.5" r="3.2" class="rk-pdot"/>
+<text x="590.6" y="1397.9" class="rk-p">$18</text>
+</g>
+<g class="rk-row"><title>Brown stew chicken at Rese's Caribbean Kitchen &#183; $14.49 &#183; overall 4.7, health 4.4</title>
+<rect x="22" y="1402.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1413.3" class="rk-n" text-anchor="end">79</text>
+<text x="51" y="1413.3" class="rk-d">Brown stew chicken<tspan class="rk-r"> Rese's Caribbean Kitchen</tspan></text>
+<rect x="292" y="1405.3" width="99.5" height="9.2" rx="1" fill="#A9C5B5" class="rk-bar"/>
+<text x="396.5" y="1413.3" class="rk-v">4.7</text>
+<line x1="540" y1="1409.9" x2="568.6" y2="1409.9" class="rk-pstem"/>
+<circle cx="568.6" cy="1409.9" r="3.2" class="rk-pdot"/>
+<text x="574.6" y="1413.3" class="rk-p">$14</text>
+</g>
+<g class="rk-row"><title>Carne asada plate at MI CANCUN &#183; $24.99 &#183; overall 4.5, health 4.2</title>
+<rect x="22" y="1417.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1428.7" class="rk-n" text-anchor="end">80</text>
+<text x="51" y="1428.7" class="rk-d">Carne asada plate<tspan class="rk-r"> MI CANCUN</tspan></text>
+<rect x="292" y="1420.7" width="93.7" height="9.2" rx="1" fill="#CEDAD3" class="rk-bar"/>
+<text x="390.7" y="1428.7" class="rk-v">4.5</text>
+<line x1="540" y1="1425.3" x2="615.0" y2="1425.3" class="rk-pstem"/>
+<circle cx="615.0" cy="1425.3" r="3.2" class="rk-pdot"/>
+<text x="621.0" y="1428.7" class="rk-p">$25</text>
+</g>
+<g class="rk-row"><title>Aloo Paneer Tikki Chaat at BLR Food Street &#183; $10.00 &#183; overall 4.4, health 4.0</title>
+<rect x="22" y="1433.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1444.1" class="rk-n" text-anchor="end">81</text>
+<text x="51" y="1444.1" class="rk-d">Aloo Paneer Tikki Chaat<tspan class="rk-r"> BLR Food Street</tspan></text>
+<rect x="292" y="1436.1" width="91.6" height="9.2" rx="1" fill="#CEDAD3" class="rk-bar"/>
+<text x="388.6" y="1444.1" class="rk-v">4.4</text>
+<line x1="540" y1="1440.7" x2="548.8" y2="1440.7" class="rk-pstem"/>
+<circle cx="548.8" cy="1440.7" r="3.2" class="rk-pdot"/>
+<text x="554.8" y="1444.1" class="rk-p">$10</text>
+</g>
+<g class="rk-row"><title>Malibu Poke with salmon at Bul Box &#183; $15.89 &#183; overall 4.3, health 4.2</title>
+<rect x="22" y="1448.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1459.5" class="rk-n" text-anchor="end">82</text>
+<text x="51" y="1459.5" class="rk-d">Malibu Poke with salmon<tspan class="rk-r"> Bul Box</tspan></text>
+<rect x="292" y="1451.5" width="91.3" height="9.2" rx="1" fill="#CEDAD3" class="rk-bar"/>
+<text x="388.4" y="1459.5" class="rk-v">4.3</text>
+<line x1="540" y1="1456.1" x2="574.8" y2="1456.1" class="rk-pstem"/>
+<circle cx="574.8" cy="1456.1" r="3.2" class="rk-pdot"/>
+<text x="580.8" y="1459.5" class="rk-p">$16</text>
+</g>
+<g class="rk-row"><title>Braised oxtail at Gifted Hand Cuisine &#183; $32.79 &#183; overall 4.2, health 4.1</title>
+<rect x="22" y="1463.8" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1474.9" class="rk-n" text-anchor="end">83</text>
+<text x="51" y="1474.9" class="rk-d">Braised oxtail<tspan class="rk-r"> Gifted Hand Cuisine</tspan></text>
+<rect x="292" y="1466.9" width="87.6" height="9.2" rx="1" fill="#CEDAD3" class="rk-bar"/>
+<text x="384.6" y="1474.9" class="rk-v">4.2</text>
+<line x1="540" y1="1471.5" x2="649.4" y2="1471.5" class="rk-pstem"/>
+<circle cx="649.4" cy="1471.5" r="3.2" class="rk-pdot"/>
+<text x="655.4" y="1474.9" class="rk-p">$33</text>
+</g>
+<g class="rk-row"><title>Beef kobidah at Afghan Kebab &#183; $19.79 &#183; overall 4.2, health 3.8</title>
+<rect x="22" y="1479.2" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1490.3" class="rk-n" text-anchor="end">84</text>
+<text x="51" y="1490.3" class="rk-d">Beef kobidah<tspan class="rk-r"> Afghan Kebab</tspan></text>
+<rect x="292" y="1482.3" width="87.6" height="9.2" rx="1" fill="#CEDAD3" class="rk-bar"/>
+<text x="384.6" y="1490.3" class="rk-v">4.2</text>
+<line x1="540" y1="1486.9" x2="592.0" y2="1486.9" class="rk-pstem"/>
+<circle cx="592.0" cy="1486.9" r="3.2" class="rk-pdot"/>
+<text x="598.0" y="1490.3" class="rk-p">$20</text>
+</g>
+<g class="rk-row"><title>Manti, four pieces at Silk Road Uzbek &#183; $16.99 &#183; overall 4.0, health 3.8</title>
+<rect x="22" y="1494.6" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1505.7" class="rk-n" text-anchor="end">85</text>
+<text x="51" y="1505.7" class="rk-d">Manti, four pieces<tspan class="rk-r"> Silk Road Uzbek</tspan></text>
+<rect x="292" y="1497.7" width="85.0" height="9.2" rx="1" fill="#CEDAD3" class="rk-bar"/>
+<text x="382.1" y="1505.7" class="rk-v">4.0</text>
+<line x1="540" y1="1502.3" x2="579.7" y2="1502.3" class="rk-pstem"/>
+<circle cx="579.7" cy="1502.3" r="3.2" class="rk-pdot"/>
+<text x="585.7" y="1505.7" class="rk-p">$17</text>
+</g>
+<g class="rk-row"><title>Beef empanadas (two), with sides at Makus Empanadas &#183; $15.25 &#183; overall 3.8, health 3.5</title>
+<rect x="22" y="1510.0" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1521.1" class="rk-n" text-anchor="end">86</text>
+<text x="51" y="1521.1" class="rk-d">Beef empanadas (two), with s…<tspan class="rk-r"> Makus Emp…</tspan></text>
+<rect x="292" y="1513.1" width="78.8" height="9.2" rx="1" fill="#F0F2F1" class="rk-bar"/>
+<text x="375.8" y="1521.1" class="rk-v">3.8</text>
+<line x1="540" y1="1517.7" x2="572.0" y2="1517.7" class="rk-pstem"/>
+<circle cx="572.0" cy="1517.7" r="3.2" class="rk-pdot"/>
+<text x="578.0" y="1521.1" class="rk-p">$15</text>
+</g>
+<g class="rk-row"><title>san marzano tomatoes, basil, buffalo mozzarella (the red margherita) at Pizzeria Toro &#183; $24.00 &#183; overall 3.1, health 2.6</title>
+<rect x="22" y="1525.4" width="696" height="15.4" class="rk-stripe"/>
+<text x="43" y="1536.5" class="rk-n" text-anchor="end">87</text>
+<text x="51" y="1536.5" class="rk-d">san marzano tomatoes, basil…<tspan class="rk-r"> Pizzeria Toro</tspan></text>
+<rect x="292" y="1528.5" width="65.1" height="9.2" rx="1" fill="#F0F2F1" class="rk-bar"/>
+<text x="362.1" y="1536.5" class="rk-v">3.1</text>
+<line x1="540" y1="1533.1" x2="610.6" y2="1533.1" class="rk-pstem"/>
+<circle cx="610.6" cy="1533.1" r="3.2" class="rk-pdot"/>
+<text x="616.6" y="1536.5" class="rk-p">$24</text>
+</g>
+</svg>
