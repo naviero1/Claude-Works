@@ -115,6 +115,41 @@ def opt_chart():
             'score in each price band. The bars are flat &mdash; that is the finding, drawn rather than '
             'asserted. Hover a dot for its name.</p>' + ''.join(s))
 
+def opt_zagat():
+    """Zagat's split: ranked leaderboards up front, browsable body behind.
+    The food-guide tradition almost never makes a 1-to-N countdown the spine."""
+    def board(title, sub, rows, val):
+        r = ''.join(f'<li><span class="lr">{i+1}</span>'
+                    f'<span class="ln"><b>{e(d["restaurant"])}</b><i>{e(d["dish"])}</i></span>'
+                    f'<span class="lv">{val(d)}</span></li>' for i, d in enumerate(rows))
+        return f'<div class="bd"><h5>{title}<span>{sub}</span></h5><ol>{r}</ol></div>'
+
+    # each board shows the figure it is actually ranked on - otherwise the order looks arbitrary
+    top   = sorted(ALL, key=lambda x: -x['overall'])[:6]
+    val   = sorted([d for d in ALL if d['health'] >= 6.0], key=lambda x: x['price'])[:6]
+    lean  = sorted([d for d in ALL if d['protein'] >= 30], key=lambda x: x['sodium'])[:6]
+    tasty = sorted([d for d in ALL if d['health'] >= 6.0], key=lambda x: -x['FLAVOR'])[:6]
+    boards = (board('Top scoring', 'overall score', top, lambda d: f'{d["overall"]:.2f}')
+              + board('Best value', 'cheapest clearing health 6.0', val, lambda d: mny(d['price']))
+              + board('Lowest salt', 'mg, at 30g protein or more', lean, lambda d: f'{d["sodium"]:,}')
+              + board('Best eating', 'flavour, among those that score', tasty, lambda d: f'{d["FLAVOR"]:.1f}'))
+
+    body = ''
+    for d in sorted(ALL, key=lambda x: x['restaurant'])[:5]:
+        body += (f'<div class="ze"><div class="zh"><b>{e(d["restaurant"])}</b>'
+                 f'<span class="zf">{d["overall"]:.2f} &nbsp;{d["health"]:.1f} &nbsp;'
+                 f'{d["FLAVOR"]:.1f} &nbsp;{mny(d["price"])}</span></div>'
+                 f'<p>{e(d["dish"])} &mdash; {e(d.get("cuisine",""))}. '
+                 f'{d["protein"]}g protein, {d["sodium"]:,}mg salt.</p></div>')
+    return ('<h3>F &middot; Leaderboards up front, browsable body behind</h3>'
+            '<p class="cap">The structure Zagat, the Good Food Guide and Gault&amp;Millau all use: short '
+            'ranked lists in the front matter, then a body ordered for lookup rather than merit. Each board '
+            'shows the figure it is ranked on. Four figures sit at the right margin of every body entry, '
+            'the way Zagat printed Food / Decor / Service / Cost. Shown: four boards, five body entries.</p>'
+            f'<div class="bds">{boards}</div>'
+            '<h5 class="bh">The body &mdash; alphabetical, four figures at the margin</h5>'
+            f'<div class="zb"><div class="zk">SCORE &nbsp; HEALTH &nbsp; FLAVOUR &nbsp; PRICE</div>{body}</div>')
+
 CSS = '''
 body{font:15px/1.55 Georgia,serif;color:#16171B;background:#FFFDF7;margin:0;padding:34px}
 .wrap{max-width:900px;margin:0 auto}
@@ -138,10 +173,31 @@ td.p,th.p{font:500 13px ui-monospace,monospace;text-align:right;width:4.6em}
 td.n,th.n{font:500 12px ui-monospace,monospace;text-align:right;width:3.6em;color:#565A66}
 td.dt,th.dt{width:5em;white-space:nowrap}
 .d{display:inline-block}
-i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:2px;
-  border:1.2px solid #1F6F5C}
-i.df{background:#1F6F5C}
-i.de{background:transparent}
+td.dt i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:2px;
+  border:1.2px solid #1F6F5C;vertical-align:middle}
+td.dt i.df{background:#1F6F5C}
+td.dt i.de{background:transparent}
+.bds{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+.bd h5{font:700 10px/1.4 Helvetica,Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+  margin:16px 0 6px;border-bottom:2px solid #16171B;padding-bottom:4px}
+.bd h5 span{float:right;font-weight:400;text-transform:none;letter-spacing:.02em;color:#7E8290}
+.bd ol{list-style:none;margin:0;padding:0}
+.bd li{display:flex;gap:9px;align-items:flex-start;padding:5px 0;border-bottom:1px solid #E2DECF;font-size:12.5px}
+.lr{font:500 11px ui-monospace,monospace;color:#9A9EAA;width:1.3em}
+.ln{flex:1 1 auto;min-width:0;padding-right:6px}
+.ln b{display:block;font-weight:600;line-height:1.3}
+.ln i{display:block;width:auto;height:auto;border:0;border-radius:0;margin:0;
+  font-style:normal;font-size:11.5px;color:#7E8290;line-height:1.3}
+.lv{font:500 12px ui-monospace,monospace;color:#1F6F5C;white-space:nowrap;padding-top:1px}
+.bh{font:700 10px/1.4 Helvetica,Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+  margin:26px 0 4px;color:#7E8290}
+.zb{border-top:2px solid #16171B}
+.zk{font:500 8.5px ui-monospace,monospace;color:#9A9EAA;text-align:right;padding:4px 0;letter-spacing:.04em}
+.ze{padding:7px 0;border-bottom:1px solid #E2DECF}
+.zh{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.zh b{font-size:13.5px}
+.zf{font:500 12px ui-monospace,monospace;white-space:nowrap}
+.ze p{margin:2px 0 0;font-size:12px;color:#565A66}
 .chart{width:100%;height:auto;margin-top:8px}
 .chart .g{stroke:#E2DECF;stroke-width:1}
 .chart .ty{font:500 10px ui-monospace,monospace;fill:#7E8290;text-anchor:end}
@@ -155,9 +211,9 @@ i.de{background:transparent}
 
 HTML = f'''<!doctype html><html><head><meta charset="utf-8">
 <title>Ranking display options</title><style>{CSS}</style></head><body><div class="wrap">
-<h1>Four ways to show 87 ranked dishes</h1>
-<h2>Sketches, not finished pages &middot; the five-dot mark is the Consumer Reports convention</h2>
-{opt_full()}{opt_price()}{opt_family()}{opt_short()}{opt_chart()}
+<h1>Six ways to show 87 ranked dishes</h1>
+<h2>Working sketches &middot; the five-dot mark follows Consumer Reports; F follows Zagat</h2>
+{opt_full()}{opt_price()}{opt_family()}{opt_short()}{opt_chart()}{opt_zagat()}
 </div></body></html>'''
 open('mockups.html','w').write(HTML)
 print(f'wrote mockups.html — {len(HTML):,} bytes')
