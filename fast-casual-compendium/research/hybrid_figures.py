@@ -65,9 +65,15 @@ for b in BANDS:
         hi=round(max(d['health'] for d in g), 1)))
 
 # --- the badge. Bib Gourmand: a published price cap plus a quality floor.
-CAP, FLOOR = 13.0, 6.0
-F['cap'], F['floor'] = CAP, FLOOR
-F['badged'] = sorted([d for d in R if d['price'] < CAP and d['health'] >= FLOOR],
+# Bib Gourmand: a published price cap plus a quality floor. The floor is the
+# same compound rule the tiers use - a good health score AND no collapse on any
+# criterion that is plain arithmetic on the macros - so a dish cannot be badged
+# on a strong average while carrying most of a day's sodium.
+CAP, FLOOR, SOUND_MIN = 13.0, 6.0, 4.0
+SOUND = ['KID', 'LIV', 'MUS', 'SUG']
+F['cap'], F['floor'], F['sound_min'] = CAP, FLOOR, SOUND_MIN
+F['badged'] = sorted([d for d in R if d['price'] < CAP and d['health'] >= FLOOR
+                      and min(d[c] for c in SOUND) >= SOUND_MIN],
                      key=lambda d: -d['overall'])
 F['n_under_cap'] = sum(1 for d in R if d['price'] < CAP)
 
