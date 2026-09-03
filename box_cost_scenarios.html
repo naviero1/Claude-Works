@@ -6,7 +6,7 @@
 :root{
   --bg:#f6f8fa; --panel:#ffffff; --ink:#12161b; --ink-2:#4a5560; --ink-3:#78838f;
   --rule:#dde3e9; --rule-2:#eef2f6;
-  --s-prov:#2a78d6; --s-est:#eb6834; --s-cat:#1baf7a; --s-orc:#4a3aa7;
+  --s-prov:#2a78d6; --s-est:#eb6834; --s-cat:#1baf7a; --s-orc:#4a3aa7; --s-atl:#eb6834;
   --good:#137a52; --warn:#8a4b12; --bad:#b3341f;
   --shadow:0 1px 2px rgba(16,24,32,.05),0 8px 24px rgba(16,24,32,.05);
 }
@@ -14,7 +14,7 @@
   :root:not([data-theme="light"]){
     --bg:#12161b; --panel:#191f26; --ink:#eef2f6; --ink-2:#aab4bf; --ink-3:#7d8894;
     --rule:#2b333c; --rule-2:#222a32;
-    --s-prov:#3987e5; --s-est:#d95926; --s-cat:#199e70; --s-orc:#9085e9;
+    --s-prov:#3987e5; --s-est:#d95926; --s-cat:#199e70; --s-orc:#9085e9; --s-atl:#d95926;
     --good:#4fbf8f; --warn:#d9a05b; --bad:#ef7a63;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
   }
@@ -22,7 +22,7 @@
 :root[data-theme="dark"]{
   --bg:#12161b; --panel:#191f26; --ink:#eef2f6; --ink-2:#aab4bf; --ink-3:#7d8894;
   --rule:#2b333c; --rule-2:#222a32;
-  --s-prov:#3987e5; --s-est:#d95926; --s-cat:#199e70; --s-orc:#9085e9;
+  --s-prov:#3987e5; --s-est:#d95926; --s-cat:#199e70; --s-orc:#9085e9; --s-atl:#d95926;
   --good:#4fbf8f; --warn:#d9a05b; --bad:#ef7a63;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
 }
@@ -86,7 +86,11 @@ p strong,li strong{color:var(--ink);font-weight:600}
 .zsw-pay{background:var(--ink);border-color:var(--ink)}
 .zsw-tgt{width:4px;height:17px;border-radius:1px;background:var(--ink);border-color:var(--ink)}
 .zsw-orc{background:var(--s-orc);border-color:var(--s-orc)}
+.zsw-atl{background:var(--s-atl);border-color:var(--s-atl)}
 .orcmark{fill:var(--s-orc)}
+.atlmark{fill:var(--s-atl)}
+.atllab{fill:var(--s-atl);font:600 11.5px "IBM Plex Mono",monospace;text-anchor:middle;
+  font-variant-numeric:tabular-nums}
 .orclab{fill:var(--s-orc);font:600 11.5px "IBM Plex Mono",monospace;text-anchor:middle;
   font-variant-numeric:tabular-nums}
 .sw.sw-cat{background:color-mix(in srgb,var(--s-cat) 28%,transparent);
@@ -110,6 +114,8 @@ tr.lead th[scope=row],tr.lead td{font-weight:600;color:var(--ink)}
 tr.lead{background:color-mix(in srgb,var(--s-prov) 7%,transparent)}
 tr.alt{background:color-mix(in srgb,var(--s-orc) 8%,transparent)}
 tr.alt th[scope=row],tr.alt td{font-weight:600;color:var(--ink)}
+tr.alt2{background:color-mix(in srgb,var(--s-atl) 9%,transparent)}
+tr.alt2 th[scope=row],tr.alt2 td{font-weight:600;color:var(--ink)}
 td.basis{text-align:left;font-size:12.5px;color:var(--ink-3);white-space:nowrap}
 .note{border-left:2.5px solid var(--rule);padding:2px 0 2px 18px;margin:24px 0;
   font-size:14.5px;color:var(--ink-2)}
@@ -138,6 +144,8 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <rect width="7" height="7" fill="var(--panel)"/><line x1="0" y1="0" x2="0" y2="7" stroke="var(--s-prov)" stroke-width="3.4"/></pattern>
 <pattern id="h-est" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)">
 <rect width="7" height="7" fill="var(--panel)"/><line x1="0" y1="0" x2="0" y2="7" stroke="var(--s-est)" stroke-width="3.4"/></pattern>
+<pattern id="h-atl" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)">
+<rect width="7" height="7" fill="var(--panel)"/><line x1="0" y1="0" x2="0" y2="7" stroke="var(--s-atl)" stroke-width="3.4"/></pattern>
 <pattern id="h-orc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)">
 <rect width="7" height="7" fill="var(--panel)"/><line x1="0" y1="0" x2="0" y2="7" stroke="var(--s-orc)" stroke-width="3.4"/></pattern>
 <pattern id="h-cat" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)">
@@ -148,20 +156,20 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <header>
   <p class="eyebrow">Packaging procurement · cost review</p>
   <h1>What our boxes cost, and what order size does to that</h1>
-  <p class="standfirst">We pay <strong>$30.22</strong> for the medium box and <strong>$38.89</strong> for the large,
-  at 100 of each. OrCon has now quoted the same two boxes at <strong>$14.94</strong> and <strong>$30.70</strong> —
-  <strong>$2,347 less</strong> on the current order. But the two quotes are built completely differently,
-  and which one wins depends entirely on how many boxes we buy.</p>
+  <p class="standfirst">We pay <strong>$30.22</strong> and <strong>$38.89</strong> at 100 of each. Two competitors have
+  now quoted the identical spec: OrCon at <strong>$14.94</strong> / <strong>$30.70</strong> for 100, and Atlas at
+  <strong>$9.32</strong> / <strong>$18.00</strong> — but only at 250, which is their minimum. Atlas is the cheapest
+  by a wide margin on rate, and buying their minimum costs <em>less than we spend today on 100</em>.</p>
 
   <div class="stats">
-    <div class="stat"><span class="k">OrCon saves, at 100</span><span class="v" style="color:var(--good)">$2,347</span>
-      <span class="n">34% of the current order — $1,528 of it on the medium box alone</span></div>
-    <div class="stat"><span class="k">Medium box, us vs OrCon</span><span class="v">−51%</span>
-      <span class="n">$30.22 against $14.94 for the identical spec</span></div>
-    <div class="stat"><span class="k">But they cross over at</span><span class="v">~215</span>
-      <span class="n">units each — above that our incumbent is cheaper, if OrCon holds its rate</span></div>
-    <div class="stat"><span class="k">Each extra set from us</span><span class="v">$24.86</span>
-      <span class="n">versus $45.18 from OrCon — the whole story in two numbers</span></div>
+    <div class="stat"><span class="k">Atlas, 250 of each</span><span class="v" style="color:var(--good)">$6,830</span>
+      <span class="n">$81 less than we spend today — for 2.5× the boxes</span></div>
+    <div class="stat"><span class="k">Same rate, on a level field</span><span class="v">$30.97</span>
+      <span class="n">Atlas projected to 100, against our $69.11 and OrCon's $45.64</span></div>
+    <div class="stat"><span class="k">Board rate: us vs Atlas</span><span class="v">$188 / $188</span>
+      <span class="n">per MSF — effectively identical. The whole gap is setup</span></div>
+    <div class="stat"><span class="k">Setup: us vs Atlas</span><span class="v">$2,213 / $304</span>
+      <span class="n">per box type. That difference is the entire story</span></div>
   </div>
 </header>
 
@@ -173,7 +181,8 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
     <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-prov) 0 3px,var(--panel) 3px 7px);border-color:var(--s-prov)"></i> Provider — deduced</span>
     <span><i class="sw" style="background:var(--s-orc);border-color:var(--s-orc)"></i> OrCon — real quote</span>
     <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-orc) 0 3px,var(--panel) 3px 7px);border-color:var(--s-orc)"></i> OrCon — extrapolated</span>
-    <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-est) 0 3px,var(--panel) 3px 7px);border-color:var(--s-est)"></i> Estimate — modelled</span>
+    <span><i class="sw" style="background:var(--s-atl);border-color:var(--s-atl)"></i> Atlas — real quote (250)</span>
+    <span><i class="sw" style="background:repeating-linear-gradient(45deg,var(--s-atl) 0 3px,var(--panel) 3px 7px);border-color:var(--s-atl)"></i> Atlas — projected</span>
     <span><i class="sw sw-cat"></i> Catalogue range — published</span>
     <span><i class="sw sw-ceil"></i> Max defensible at 100</span>
   </div>
@@ -197,8 +206,8 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <text x="131.7" y="80.6" class="vlab">$30.22</text>
 <rect x="165.7" y="188.9" width="44" height="97.1" rx="3" fill="var(--s-orc)" stroke="var(--s-orc)" stroke-width="1.5"/>
 <text x="187.7" y="179.9" class="vlab">$14.94</text>
-<rect x="221.7" y="195.1" width="44" height="90.9" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="243.7" y="186.1" class="vlab">$13.99</text>
+<rect x="221.7" y="213.6" width="44" height="72.4" rx="3" fill="url(#h-atl)" stroke="var(--s-atl)" stroke-width="1.5"/>
+<text x="243.7" y="204.6" class="vlab">$11.15</text>
 <text x="187.7" y="312" class="xtick">100 each</text>
 <rect x="307.3" y="169.8" width="199.3" height="9.3" fill="var(--s-cat)" opacity="0.16"/>
 <line x1="307.3" y1="169.8" x2="506.7" y2="169.8" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -207,8 +216,8 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <text x="351.0" y="166.9" class="vlab">$16.94</text>
 <rect x="385.0" y="189.8" width="44" height="96.2" rx="3" fill="url(#h-orc)" stroke="var(--s-orc)" stroke-width="1.5"/>
 <text x="407.0" y="180.8" class="vlab">$14.80</text>
-<rect x="441.0" y="212.1" width="44" height="73.9" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="463.0" y="203.1" class="vlab">$11.37</text>
+<rect x="441.0" y="225.4" width="44" height="60.6" rx="3" fill="var(--s-atl)" stroke="var(--s-atl)" stroke-width="1.5"/>
+<text x="463.0" y="216.4" class="vlab">$9.32</text>
 <text x="407.0" y="312" class="xtick">250 each</text>
 <rect x="526.7" y="177.9" width="199.3" height="9.3" fill="var(--s-cat)" opacity="0.16"/>
 <line x1="526.7" y1="177.9" x2="726.0" y2="177.9" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -217,13 +226,13 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <text x="570.3" y="210.0" class="vlab">$10.31</text>
 <rect x="604.3" y="190.2" width="44" height="95.8" rx="3" fill="url(#h-orc)" stroke="var(--s-orc)" stroke-width="1.5"/>
 <text x="626.3" y="181.2" class="vlab">$14.73</text>
-<rect x="660.3" y="234.6" width="44" height="51.4" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="682.3" y="225.6" class="vlab">$7.90</text>
+<rect x="660.3" y="231.4" width="44" height="54.6" rx="3" fill="url(#h-atl)" stroke="var(--s-atl)" stroke-width="1.5"/>
+<text x="682.3" y="222.4" class="vlab">$8.41</text>
 <text x="626.3" y="312" class="xtick">1,000 each</text>
 <line x1="78" y1="286" x2="736" y2="286" class="axis"/>
 </svg>
 </div>
-<div class="panel" style="padding-bottom:22px"><table><thead><tr><th scope="col">Cost per box</th><th>100 each</th><th>250 each</th><th>1,000 each</th><th>Basis</th></tr></thead><tbody><tr class="lead"><th scope="row">Provider — what we pay</th><td>$30.22</td><td>$16.94</td><td>$10.31</td><td class="basis">actual at 100, deduced after</td></tr><tr class="alt"><th scope="row">OrCon — competing quote</th><td>$14.94</td><td>$14.80</td><td>$14.73</td><td class="basis">actual at 100, extrapolated after</td></tr><tr><th scope="row">Independent estimate</th><td>$13.99</td><td>$11.37</td><td>$7.90</td><td class="basis">modelled</td></tr><tr><th scope="row">Retail catalogue range</th><td>$17.17 – $18.81</td><td>$16.45 – $17.88</td><td>$15.20 – $16.63</td><td class="basis">published</td></tr></tbody></table></div>
+<div class="panel" style="padding-bottom:22px"><table><thead><tr><th scope="col">Cost per box</th><th>100 each</th><th>250 each</th><th>1,000 each</th><th>Basis</th></tr></thead><tbody><tr class="lead"><th scope="row">Provider — what we pay</th><td>$30.22</td><td>$16.94</td><td>$10.31</td><td class="basis">actual at 100, deduced after</td></tr><tr class="alt"><th scope="row">OrCon — competing quote</th><td>$14.94</td><td>$14.80</td><td>$14.73</td><td class="basis">actual at 100, extrapolated after</td></tr><tr class="alt2"><th scope="row">Atlas — competing quote</th><td>$11.15</td><td>$9.32</td><td>$8.41</td><td class="basis">actual at 250, projected either side</td></tr><tr><th scope="row">Independent estimate</th><td>$13.99</td><td>$11.37</td><td>$7.90</td><td class="basis">modelled</td></tr><tr><th scope="row">Retail catalogue range</th><td>$17.17 – $18.81</td><td>$16.45 – $17.88</td><td>$15.20 – $16.63</td><td class="basis">published</td></tr></tbody></table></div>
 
 <h2>Large box · 46 × 39 × 36 in</h2>
 <p class="sub">89.19 sq ft per box — 2.07× the medium. Same scale on both charts, so the two are directly comparable.</p>
@@ -248,8 +257,8 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <text x="131.7" y="24.2" class="vlab">$38.89</text>
 <rect x="165.7" y="86.4" width="44" height="199.6" rx="3" fill="var(--s-orc)" stroke="var(--s-orc)" stroke-width="1.5"/>
 <text x="187.7" y="77.4" class="vlab">$30.70</text>
-<rect x="221.7" y="84.9" width="44" height="201.1" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="243.7" y="75.9" class="vlab">$30.93</text>
+<rect x="221.7" y="157.1" width="44" height="128.9" rx="3" fill="url(#h-atl)" stroke="var(--s-atl)" stroke-width="1.5"/>
+<text x="243.7" y="148.1" class="vlab">$19.83</text>
 <text x="187.7" y="312" class="xtick">100 each</text>
 <rect x="307.3" y="45.2" width="199.3" height="19.3" fill="var(--s-cat)" opacity="0.16"/>
 <line x1="307.3" y1="45.2" x2="506.7" y2="45.2" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -258,8 +267,8 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <text x="351.0" y="110.5" class="vlab">$25.61</text>
 <rect x="385.0" y="87.3" width="44" height="198.7" rx="3" fill="url(#h-orc)" stroke="var(--s-orc)" stroke-width="1.5"/>
 <text x="407.0" y="78.3" class="vlab">$30.56</text>
-<rect x="441.0" y="116.9" width="44" height="169.1" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="463.0" y="107.9" class="vlab">$26.02</text>
+<rect x="441.0" y="169.0" width="44" height="117.0" rx="3" fill="var(--s-atl)" stroke="var(--s-atl)" stroke-width="1.5"/>
+<text x="463.0" y="160.0" class="vlab">$18.00</text>
 <text x="407.0" y="312" class="xtick">250 each</text>
 <rect x="526.7" y="62.1" width="199.3" height="19.3" fill="var(--s-cat)" opacity="0.16"/>
 <line x1="526.7" y1="62.1" x2="726.0" y2="62.1" stroke="var(--s-cat)" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -268,13 +277,13 @@ footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);
 <text x="570.3" y="153.7" class="vlab">$18.98</text>
 <rect x="604.3" y="87.8" width="44" height="198.2" rx="3" fill="url(#h-orc)" stroke="var(--s-orc)" stroke-width="1.5"/>
 <text x="626.3" y="78.8" class="vlab">$30.49</text>
-<rect x="660.3" y="166.2" width="44" height="119.8" rx="3" fill="url(#h-est)" stroke="var(--s-est)" stroke-width="1.5"/>
-<text x="682.3" y="157.2" class="vlab">$18.43</text>
+<rect x="660.3" y="174.9" width="44" height="111.1" rx="3" fill="url(#h-atl)" stroke="var(--s-atl)" stroke-width="1.5"/>
+<text x="682.3" y="165.9" class="vlab">$17.09</text>
 <text x="626.3" y="312" class="xtick">1,000 each</text>
 <line x1="78" y1="286" x2="736" y2="286" class="axis"/>
 </svg>
 </div>
-<div class="panel" style="padding-bottom:22px"><table><thead><tr><th scope="col">Cost per box</th><th>100 each</th><th>250 each</th><th>1,000 each</th><th>Basis</th></tr></thead><tbody><tr class="lead"><th scope="row">Provider — what we pay</th><td>$38.89</td><td>$25.61</td><td>$18.98</td><td class="basis">actual at 100, deduced after</td></tr><tr class="alt"><th scope="row">OrCon — competing quote</th><td>$30.70</td><td>$30.56</td><td>$30.49</td><td class="basis">actual at 100, extrapolated after</td></tr><tr><th scope="row">Independent estimate</th><td>$30.93</td><td>$26.02</td><td>$18.43</td><td class="basis">modelled</td></tr><tr><th scope="row">Retail catalogue range</th><td>$35.56 – $38.96</td><td>$34.07 – $37.04</td><td>$31.48 – $34.45</td><td class="basis">published</td></tr></tbody></table></div>
+<div class="panel" style="padding-bottom:22px"><table><thead><tr><th scope="col">Cost per box</th><th>100 each</th><th>250 each</th><th>1,000 each</th><th>Basis</th></tr></thead><tbody><tr class="lead"><th scope="row">Provider — what we pay</th><td>$38.89</td><td>$25.61</td><td>$18.98</td><td class="basis">actual at 100, deduced after</td></tr><tr class="alt"><th scope="row">OrCon — competing quote</th><td>$30.70</td><td>$30.56</td><td>$30.49</td><td class="basis">actual at 100, extrapolated after</td></tr><tr class="alt2"><th scope="row">Atlas — competing quote</th><td>$19.83</td><td>$18.00</td><td>$17.09</td><td class="basis">actual at 250, projected either side</td></tr><tr><th scope="row">Independent estimate</th><td>$30.93</td><td>$26.02</td><td>$18.43</td><td class="basis">modelled</td></tr><tr><th scope="row">Retail catalogue range</th><td>$35.56 – $38.96</td><td>$34.07 – $37.04</td><td>$31.48 – $34.45</td><td class="basis">published</td></tr></tbody></table></div>
 
 <h2>What we should be paying at 100</h2>
 <p class="sub">An acceptable range needs a defensible definition, so both ends come from evidence already on this page.
@@ -290,41 +299,46 @@ retail for a custom job, which is never defensible. The <strong>target</strong> 
     <span><i class="zsw zsw-pay"></i> What we pay</span>
     <span><i class="zsw zsw-tgt"></i> Target</span>
     <span><i class="zsw zsw-orc"></i> OrCon quote</span>
+    <span><i class="zsw zsw-atl"></i> Atlas, projected to 100*</span>
   </div>
-  <svg viewBox="0 0 760 244" role="img" aria-labelledby="b-t" class="chart bullet">
+  <svg viewBox="0 0 760 272" role="img" aria-labelledby="b-t" class="chart bullet">
 <title id="b-t">Acceptable price range at 100 units, against what we pay</title>
-<line x1="118.0" y1="24" x2="118.0" y2="196" class="grid"/>
-<text x="118.0" y="216" class="xtick">$0</text>
-<line x1="266.6" y1="24" x2="266.6" y2="196" class="grid"/>
-<text x="266.6" y="216" class="xtick">$10</text>
-<line x1="415.1" y1="24" x2="415.1" y2="196" class="grid"/>
-<text x="415.1" y="216" class="xtick">$20</text>
-<line x1="563.7" y1="24" x2="563.7" y2="196" class="grid"/>
-<text x="563.7" y="216" class="xtick">$30</text>
-<line x1="712.3" y1="24" x2="712.3" y2="196" class="grid"/>
-<text x="712.3" y="216" class="xtick">$40</text>
-<text x="104" y="63" class="blab">Medium</text>
-<rect x="118.0" y="36" width="207.8" height="42" class="z-imp"/>
-<rect x="325.8" y="36" width="35.8" height="42" class="z-good"/>
-<rect x="361.6" y="36" width="35.8" height="42" class="z-ok"/>
-<rect x="397.4" y="36" width="344.6" height="42" class="z-bad"/>
-<line x1="361.6" y1="32" x2="361.6" y2="82" class="tick-t"/>
-<rect x="118.0" y="49" width="449.0" height="16" class="actual"/>
-<text x="576.0" y="62" class="alab over">$30.22 — over</text>
-<text x="397.4" y="28" class="clab">ceiling $18.81</text>
-<polygon points="340.0,81 334.0,93 346.0,93" class="orcmark"/>
-<text x="340.0" y="105" class="orclab">OrCon $14.94</text>
-<text x="104" y="135" class="blab">Large</text>
-<rect x="118.0" y="108" width="459.6" height="42" class="z-imp"/>
-<rect x="577.6" y="108" width="59.6" height="42" class="z-good"/>
-<rect x="637.2" y="108" width="59.6" height="42" class="z-ok"/>
-<rect x="696.8" y="108" width="45.2" height="42" class="z-bad"/>
-<line x1="637.2" y1="104" x2="637.2" y2="154" class="tick-t"/>
-<rect x="118.0" y="121" width="577.8" height="16" class="actual"/>
-<text x="704.8" y="134" class="alab under">$38.89 — inside, just</text>
-<text x="696.8" y="100" class="clab">ceiling $38.96</text>
-<polygon points="574.1,153 568.1,165 580.1,165" class="orcmark"/>
-<text x="574.1" y="177" class="orclab">OrCon $30.70</text>
+<line x1="118.0" y1="30" x2="118.0" y2="222" class="grid"/>
+<text x="118.0" y="242" class="xtick">$0</text>
+<line x1="266.6" y1="30" x2="266.6" y2="222" class="grid"/>
+<text x="266.6" y="242" class="xtick">$10</text>
+<line x1="415.1" y1="30" x2="415.1" y2="222" class="grid"/>
+<text x="415.1" y="242" class="xtick">$20</text>
+<line x1="563.7" y1="30" x2="563.7" y2="222" class="grid"/>
+<text x="563.7" y="242" class="xtick">$30</text>
+<line x1="712.3" y1="30" x2="712.3" y2="222" class="grid"/>
+<text x="712.3" y="242" class="xtick">$40</text>
+<text x="104" y="79" class="blab">Medium</text>
+<rect x="118.0" y="52" width="207.8" height="42" class="z-imp"/>
+<rect x="325.8" y="52" width="35.8" height="42" class="z-good"/>
+<rect x="361.6" y="52" width="35.8" height="42" class="z-ok"/>
+<rect x="397.4" y="52" width="344.6" height="42" class="z-bad"/>
+<line x1="361.6" y1="48" x2="361.6" y2="98" class="tick-t"/>
+<rect x="118.0" y="65" width="449.0" height="16" class="actual"/>
+<text x="576.0" y="78" class="alab over">$30.22 — over</text>
+<text x="397.4" y="44" class="clab">ceiling $18.81</text>
+<polygon points="340.0,97 334.0,109 346.0,109" class="orcmark"/>
+<text x="340.0" y="121" class="orclab">OrCon $14.94</text>
+<polygon points="283.6,49 277.6,37 289.6,37" class="atlmark"/>
+<text x="283.6" y="33" class="atllab">Atlas $11.15*</text>
+<text x="104" y="161" class="blab">Large</text>
+<rect x="118.0" y="134" width="459.6" height="42" class="z-imp"/>
+<rect x="577.6" y="134" width="59.6" height="42" class="z-good"/>
+<rect x="637.2" y="134" width="59.6" height="42" class="z-ok"/>
+<rect x="696.8" y="134" width="45.2" height="42" class="z-bad"/>
+<line x1="637.2" y1="130" x2="637.2" y2="180" class="tick-t"/>
+<rect x="118.0" y="147" width="577.8" height="16" class="actual"/>
+<text x="704.8" y="160" class="alab under">$38.89 — inside, just</text>
+<text x="696.8" y="126" class="clab">ceiling $38.96</text>
+<polygon points="574.1,179 568.1,191 580.1,191" class="orcmark"/>
+<text x="574.1" y="203" class="orclab">OrCon $30.70</text>
+<polygon points="412.6,131 406.6,119 418.6,119" class="atlmark"/>
+<text x="412.6" y="115" class="atllab">Atlas $19.83*</text>
 </svg>
 </div>
 <div class="panel" style="padding-bottom:22px">
@@ -339,48 +353,53 @@ expensive comparable box on the open market. The large box lands $0.07 <em>under
 its ceiling: inside the acceptable range, but by seven cents, which is not a margin worth defending.</p>
 <p><strong>OrCon lands where the range says it should.</strong> Their medium box at $14.94 sits in the good zone,
 between floor and target. Their large box at $30.70 comes in $0.23 <em>below</em> the
-modelled floor — so the floor was, if anything, slightly conservative. Either way it confirms the band is set at a
-realistic level rather than an aspirational one.</p>
+modelled floor.</p>
+<p><strong>Atlas is below the floor on both</strong> — $11.15 and $19.83 projected to
+100, against floors of $13.99 and $30.93. That is worth saying plainly: the
+acceptable range I built was too generous. Real competition came in under the floor I modelled from published data,
+which means the band should now be read as a ceiling test rather than a fair-price estimate.</p>
+<p class="sub">* Atlas is marked with an asterisk throughout because they will not sell 100. Their figure at that
+quantity is projected from a 250-unit quote so the three can be compared on one basis — it is not a price anyone can
+buy.</p>
 <p>Bringing both to the ceiling saves <strong>$1,141</strong> on the current order
 (17%). Bringing both to target saves <strong>$1,777</strong>
 (26%). Nearly all of it is the medium box.</p>
 
 <h2>What the three scenarios show</h2>
 <div class="findings">
-  <div class="finding"><div class="q">The gap<br>at 100</div><div>
-    <h3>OrCon is $2,347 cheaper on the order we are placing<span class="verdict v-ok">act on this</span></h3>
-    <p>Medium $14.94 against our $30.22 — <strong>51% less</strong>. Large $30.70 against $38.89 —
-    21% less. Same spec, same quantity, same 48ECT kraft double wall. On the medium box alone the difference is
-    $1,528.</p></div></div>
+  <div class="finding"><div class="q">On rate</div><div>
+    <h3>Atlas is the cheapest of the three, by a distance<span class="verdict v-ok">act on this</span></h3>
+    <p>Projected to a common 100 units so all three can be read against each other, a set costs
+    <strong>$30.97</strong> from Atlas, $45.64 from
+    OrCon and <strong>$69.11</strong> from us. Atlas is
+    55% below what we pay now.</p></div></div>
+  <div class="finding"><div class="q">On the<br>real order</div><div>
+    <h3>Their minimum costs less than our current order<span class="verdict v-ok">strong</span></h3>
+    <p>Atlas will not sell fewer than 250. That is fine: 250 of each comes to
+    <strong>$6,830</strong>, against the
+    <strong>$6,911</strong> we spend today on 100 of each. We would pay
+    <strong>$81 less and receive 2.5× the
+    boxes.</strong> The MOQ is not an obstacle here — it is the reason the price is good.</p></div></div>
   <div class="finding"><div class="q">Why the<br>gap exists</div><div>
-    <h3>OrCon charges one rate; we are charged a rate plus a setup</h3>
-    <p>OrCon prices both boxes at almost exactly the same rate — <strong>$347 and
-    $344 per MSF</strong> — which is what a quote looks like when it is simply board times area.
-    Ours works out at <strong>$702 and $436 per MSF</strong>: a 61% swing between
-    two boxes made of the same material on the same machine. That swing is the fixed charge showing through, and it
-    falls hardest on the smaller box.</p></div></div>
-  <div class="finding"><div class="q">The catch</div><div>
-    <h3>The two structures cross over around 215 units<span class="verdict v-bad">confirm before deciding</span></h3>
-    <p>Stripped down, our incumbent is <strong>$188/MSF plus $2,213 setup per box type</strong>, while
-    OrCon is <strong>$342/MSF with essentially no setup</strong>. Low volume favours no setup; high volume
-    favours the cheaper board. On those figures they meet near 215 units each, and above that our incumbent
-    is cheaper — at 1,000 each it would be $29.28 a set against
-    $45.23.</p>
-    <p><strong>Do not act on that without checking.</strong> OrCon quoted one quantity. A converter with no setup
-    charge at 100 almost certainly discounts at volume, and their extrapolated line here assumes they never do — so it
-    flatters us. Ask OrCon for 250, 500 and 1,000 before drawing any conclusion beyond 100.</p></div></div>
-  <div class="finding"><div class="q">Validation</div><div>
-    <h3>The independent estimate was right</h3>
-    <p>Before this quote existed, the modelled converter-direct price was $13.99 for the medium box and
-    $30.93 for the large. OrCon came in at $14.94 and $30.70 — within 7% and
-    <strong>within 1%</strong>. That is a real check on the method, and it means the acceptable range below can be
-    trusted rather than taken on faith.</p></div></div>
-  <div class="finding"><div class="q">Watch</div><div>
-    <h3>One published price sits below the whole range</h3>
-    <p>A 48 × 40 × 36 in box — 5% <em>larger</em> than our large one, same 275&nbsp;lb double-wall grade — is listed by one
-    retailer at <strong>$33.59</strong> in quantities of 20 or more. A second retailer lists the same box at $45.95.
-    That ~37% spread between sellers of an identical item is why the catalogue reference above is drawn as a band
-    rather than a line.</p></div></div>
+    <h3>Same board rate as ours. The difference is setup.</h3>
+    <p>Split each quote into a board rate and a fixed charge and the result is striking: Atlas runs at
+    <strong>$188/MSF</strong> and we are charged <strong>$188/MSF</strong> — the same board
+    economics to within a fifth of a percent. But Atlas carries <strong>$304</strong> of setup per box type
+    and we carry <strong>$2,213</strong>. That $1,908 gap, spread over a small order, is the
+    entire difference. OrCon is the mirror image: barely any setup but a much dearer board rate at
+    $342/MSF.</p></div></div>
+  <div class="finding"><div class="q">Where each<br>one wins</div><div>
+    <h3>Volume decides between OrCon and the other two</h3>
+    <p>OrCon's no-setup structure is built for small runs; Atlas and our incumbent both price board keenly and
+    recover it through setup. Atlas wins at every quantity here because it combines the low board rate with a setup
+    charge 7× smaller than ours. OrCon only becomes competitive if the order stays genuinely tiny —
+    and below 250 they are the only one of the two who will take it.</p></div></div>
+  <div class="finding"><div class="q">Before<br>deciding</div><div>
+    <h3>Three things to confirm<span class="verdict v-bad">open</span></h3>
+    <p><strong>Atlas quoted ECT48 BC flute</strong> — confirm BC double wall meets the spec, since our drawing says
+    48ECT double wall without naming the flute combination. <strong>Ask Atlas for 500 and 1,000</strong>, and
+    <strong>OrCon for 250 and above</strong>; each quoted a single quantity and everything either side of it on these
+    charts is projected, not quoted. And check whether any of the three prices include delivery to Sterling.</p></div></div>
 </div>
 
 <h2>Total spend, and what the extra boxes cost</h2>
