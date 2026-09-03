@@ -68,15 +68,25 @@ p strong,li strong{color:var(--ink);font-weight:600}
 .z-ok{fill:var(--warn);opacity:.26}
 .z-bad{fill:var(--bad);opacity:.22}
 .actual{fill:var(--ink);rx:2}
-.tick-t{stroke:var(--ink);stroke-width:2.5}
-.blab{fill:var(--ink);font:600 15px "IBM Plex Sans",sans-serif;text-anchor:end}
-.alab{font:600 13.5px "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
-.alab.over{fill:var(--bad)}
-.alab.under{fill:var(--good)}
+.tick-t{stroke:var(--ink);stroke-width:2.5;opacity:.55}
+.blab{fill:var(--ink);font:600 16px "IBM Plex Sans",sans-serif;text-anchor:end}
+.bgap{fill:var(--bad);font:600 12px "IBM Plex Mono",monospace;text-anchor:end;
+  font-variant-numeric:tabular-nums}
+.pinline{stroke-width:1.5;stroke-dasharray:3 2;opacity:.75}
+.pinlab{font:600 11.5px "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.pin-ceil.pinline{stroke:var(--bad)} .pin-ceil.pindot{fill:var(--bad)} .pin-ceil.pinlab{fill:var(--bad)}
+.pin-orc.pinline{stroke:var(--s-orc)} .pin-orc.pindot{fill:var(--s-orc)} .pin-orc.pinlab{fill:var(--s-orc)}
+.pin-atl.pinline{stroke:var(--s-atl)} .pin-atl.pindot{fill:var(--s-atl)} .pin-atl.pinlab{fill:var(--s-atl)}
+.alab{font:700 14px "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+  fill:var(--panel)}
 .clab{fill:var(--bad);font:600 10.5px "IBM Plex Mono",monospace;text-anchor:middle;
   font-variant-numeric:tabular-nums}
-.zkey{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 14px;font-size:13px;color:var(--ink-2)}
-.zkey span{display:inline-flex;align-items:center;gap:7px}
+.zkey{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0 0 18px;
+  font-size:13px;color:var(--ink-2);align-items:center}
+.zkey .kcap{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);white-space:nowrap}
+.zkey .krow{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.zkey span.it{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
 .zsw{width:24px;height:13px;border-radius:2px;display:inline-block;
   border:1px solid color-mix(in srgb,var(--ink-3) 35%,transparent)}
 .zsw-imp{background:color-mix(in srgb,var(--ink-3) 16%,transparent)}
@@ -87,6 +97,7 @@ p strong,li strong{color:var(--ink);font-weight:600}
 .zsw-tgt{width:4px;height:17px;border-radius:1px;background:var(--ink);border-color:var(--ink)}
 .zsw-orc{background:var(--s-orc);border-color:var(--s-orc)}
 .zsw-atl{background:var(--s-atl);border-color:var(--s-atl)}
+.zsw-ceil{background:none;border:0;border-top:2.5px dashed var(--bad);height:0;border-radius:0;width:24px}
 .orcmark{fill:var(--s-orc)}
 .atlmark{fill:var(--s-atl)}
 .atllab{fill:var(--s-atl);font:600 11.5px "IBM Plex Mono",monospace;text-anchor:middle;
@@ -292,53 +303,70 @@ The <strong>floor</strong> is the independent converter-direct estimate — belo
 retail for a custom job, which is never defensible. The <strong>target</strong> is the midpoint.</p>
 <div class="panel">
   <div class="zkey">
-    <span><i class="zsw zsw-imp"></i> Below plausible</span>
-    <span><i class="zsw zsw-good"></i> Good</span>
-    <span><i class="zsw zsw-ok"></i> Acceptable</span>
-    <span><i class="zsw zsw-bad"></i> Too high</span>
-    <span><i class="zsw zsw-pay"></i> What we pay</span>
-    <span><i class="zsw zsw-tgt"></i> Target</span>
-    <span><i class="zsw zsw-orc"></i> OrCon quote</span>
-    <span><i class="zsw zsw-atl"></i> Atlas, projected to 100*</span>
+    <div class="kcap">Zones</div>
+    <div class="krow">
+      <span class="it"><i class="zsw zsw-imp"></i> Below plausible</span>
+      <span class="it"><i class="zsw zsw-good"></i> Good</span>
+      <span class="it"><i class="zsw zsw-ok"></i> Acceptable</span>
+      <span class="it"><i class="zsw zsw-bad"></i> Too high</span>
+      <span class="it"><i class="zsw zsw-tgt"></i> Target</span>
+    </div>
+    <div class="kcap">Prices</div>
+    <div class="krow">
+      <span class="it"><i class="zsw zsw-pay"></i> What we pay</span>
+      <span class="it"><i class="zsw zsw-orc"></i> OrCon, quoted at 100</span>
+      <span class="it"><i class="zsw zsw-atl"></i> Atlas, projected to 100*</span>
+      <span class="it"><i class="zsw zsw-ceil"></i> Ceiling — max defensible</span>
+    </div>
   </div>
-  <svg viewBox="0 0 760 272" role="img" aria-labelledby="b-t" class="chart bullet">
-<title id="b-t">Acceptable price range at 100 units, against what we pay</title>
-<line x1="118.0" y1="30" x2="118.0" y2="222" class="grid"/>
-<text x="118.0" y="242" class="xtick">$0</text>
-<line x1="266.6" y1="30" x2="266.6" y2="222" class="grid"/>
-<text x="266.6" y="242" class="xtick">$10</text>
-<line x1="415.1" y1="30" x2="415.1" y2="222" class="grid"/>
-<text x="415.1" y="242" class="xtick">$20</text>
-<line x1="563.7" y1="30" x2="563.7" y2="222" class="grid"/>
-<text x="563.7" y="242" class="xtick">$30</text>
-<line x1="712.3" y1="30" x2="712.3" y2="222" class="grid"/>
-<text x="712.3" y="242" class="xtick">$40</text>
-<text x="104" y="79" class="blab">Medium</text>
-<rect x="118.0" y="52" width="207.8" height="42" class="z-imp"/>
-<rect x="325.8" y="52" width="35.8" height="42" class="z-good"/>
-<rect x="361.6" y="52" width="35.8" height="42" class="z-ok"/>
-<rect x="397.4" y="52" width="344.6" height="42" class="z-bad"/>
-<line x1="361.6" y1="48" x2="361.6" y2="98" class="tick-t"/>
-<rect x="118.0" y="65" width="449.0" height="16" class="actual"/>
-<text x="576.0" y="78" class="alab over">$30.22 — over</text>
-<text x="397.4" y="44" class="clab">ceiling $18.81</text>
-<polygon points="340.0,97 334.0,109 346.0,109" class="orcmark"/>
-<text x="340.0" y="121" class="orclab">OrCon $14.94</text>
-<polygon points="283.6,49 277.6,37 289.6,37" class="atlmark"/>
-<text x="283.6" y="33" class="atllab">Atlas $11.15*</text>
-<text x="104" y="161" class="blab">Large</text>
-<rect x="118.0" y="134" width="459.6" height="42" class="z-imp"/>
-<rect x="577.6" y="134" width="59.6" height="42" class="z-good"/>
-<rect x="637.2" y="134" width="59.6" height="42" class="z-ok"/>
-<rect x="696.8" y="134" width="45.2" height="42" class="z-bad"/>
-<line x1="637.2" y1="130" x2="637.2" y2="180" class="tick-t"/>
-<rect x="118.0" y="147" width="577.8" height="16" class="actual"/>
-<text x="704.8" y="160" class="alab under">$38.89 — inside, just</text>
-<text x="696.8" y="126" class="clab">ceiling $38.96</text>
-<polygon points="574.1,179 568.1,191 580.1,191" class="orcmark"/>
-<text x="574.1" y="203" class="orclab">OrCon $30.70</text>
-<polygon points="412.6,131 406.6,119 418.6,119" class="atlmark"/>
-<text x="412.6" y="115" class="atllab">Atlas $19.83*</text>
+  <svg viewBox="0 0 780 328" role="img" aria-labelledby="b-t" class="chart bullet">
+<title id="b-t">Acceptable price range at 100 units, with what we pay and both competing quotes</title>
+<line x1="150.0" y1="48" x2="150.0" y2="298" class="grid"/>
+<text x="150.0" y="320" class="xtick">$0</text>
+<line x1="292.4" y1="48" x2="292.4" y2="298" class="grid"/>
+<text x="292.4" y="320" class="xtick">$10</text>
+<line x1="434.8" y1="48" x2="434.8" y2="298" class="grid"/>
+<text x="434.8" y="320" class="xtick">$20</text>
+<line x1="577.1" y1="48" x2="577.1" y2="298" class="grid"/>
+<text x="577.1" y="320" class="xtick">$30</text>
+<line x1="719.5" y1="48" x2="719.5" y2="298" class="grid"/>
+<text x="719.5" y="320" class="xtick">$40</text>
+<text x="134" y="114" class="blab">Medium</text>
+<text x="134" y="132" class="bgap">$19.07 over Atlas</text>
+<rect x="150.0" y="92" width="199.2" height="40" class="z-imp"/>
+<rect x="349.2" y="92" width="34.3" height="40" class="z-good"/>
+<rect x="383.5" y="92" width="34.3" height="40" class="z-ok"/>
+<rect x="417.8" y="92" width="330.2" height="40" class="z-bad"/>
+<rect x="150.0" y="103" width="430.3" height="18" class="actual"/>
+<text x="570.3" y="117" class="alab over" text-anchor="end">$30.22</text>
+<line x1="308.7" y1="87.0" x2="308.7" y2="132.0" class="pin-atl pinline"/>
+<circle cx="308.7" cy="85.0" r="3.5" class="pin-atl pindot"/>
+<text x="308.7" y="83.0" class="pin-atl pinlab" text-anchor="middle">Atlas $11.15*</text>
+<line x1="362.7" y1="68.0" x2="362.7" y2="132.0" class="pin-orc pinline"/>
+<circle cx="362.7" cy="66.0" r="3.5" class="pin-orc pindot"/>
+<text x="362.7" y="64.0" class="pin-orc pinlab" text-anchor="middle">OrCon $14.94</text>
+<line x1="417.8" y1="87.0" x2="417.8" y2="132.0" class="pin-ceil pinline"/>
+<circle cx="417.8" cy="85.0" r="3.5" class="pin-ceil pindot"/>
+<text x="417.8" y="83.0" class="pin-ceil pinlab" text-anchor="middle">Ceiling $18.81</text>
+<line x1="383.5" y1="90" x2="383.5" y2="134" class="tick-t"/>
+<text x="134" y="230" class="blab">Large</text>
+<text x="134" y="248" class="bgap">$19.06 over Atlas</text>
+<rect x="150.0" y="208" width="440.4" height="40" class="z-imp"/>
+<rect x="590.4" y="208" width="57.1" height="40" class="z-good"/>
+<rect x="647.5" y="208" width="57.1" height="40" class="z-ok"/>
+<rect x="704.7" y="208" width="43.3" height="40" class="z-bad"/>
+<rect x="150.0" y="219" width="553.7" height="18" class="actual"/>
+<text x="693.7" y="233" class="alab under" text-anchor="end">$38.89</text>
+<line x1="432.3" y1="203.0" x2="432.3" y2="248.0" class="pin-atl pinline"/>
+<circle cx="432.3" cy="201.0" r="3.5" class="pin-atl pindot"/>
+<text x="432.3" y="199.0" class="pin-atl pinlab" text-anchor="middle">Atlas $19.83*</text>
+<line x1="587.1" y1="203.0" x2="587.1" y2="248.0" class="pin-orc pinline"/>
+<circle cx="587.1" cy="201.0" r="3.5" class="pin-orc pindot"/>
+<text x="587.1" y="199.0" class="pin-orc pinlab" text-anchor="middle">OrCon $30.70</text>
+<line x1="704.7" y1="184.0" x2="704.7" y2="248.0" class="pin-ceil pinline"/>
+<circle cx="704.7" cy="182.0" r="3.5" class="pin-ceil pindot"/>
+<text x="696.7" y="180.0" class="pin-ceil pinlab" text-anchor="end">Ceiling $38.96</text>
+<line x1="647.5" y1="206" x2="647.5" y2="250" class="tick-t"/>
 </svg>
 </div>
 <div class="panel" style="padding-bottom:22px">
