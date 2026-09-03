@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+package-lock.json
+preview.html
+*.png
+!The-Fast-Casual-Compendium.pdf
+shot*.js
+doc.txt
+absent_raw.txt
+widen_notes.json
+build/The-Fast-Casual-Compendium.pdf

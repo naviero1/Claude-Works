@@ -1,0 +1,205 @@
+/* ============================================================
+   Market-stall vernacular: butcher paper, price-tag red, and
+   figures set like a menu board. Money is the thesis, so the
+   price tag is the motif.
+   ============================================================ */
+:root{
+  --paper:#FFFDF7; --paper-2:#F7F4E9; --paper-3:#EFEBDB;
+  --ink:#16171B; --ink-2:#565A66; --ink-3:#686C77;
+  --rule:#E2DECF; --rule-2:#BEB9A6;
+  --price:#C8102E; --price-soft:#FBE9EC; --on-price:#FFFDF7;
+  --good:#1F6F5C; --good-soft:#E4F0EC;
+  --band:#16171B; --band-ink:#FFFDF7;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131419; --paper-2:#1B1D24; --paper-3:#23262F;
+    --ink:#F2EFE4; --ink-2:#A9ADBA; --ink-3:#9499A6;
+    --rule:#2A2D36; --rule-2:#464A57;
+    --price:#FF6478; --price-soft:#2C1A20; --on-price:#16171B;
+    --good:#57C5A6; --good-soft:#16261F;
+    --band:#F2EFE4; --band-ink:#131419;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131419; --paper-2:#1B1D24; --paper-3:#23262F;
+  --ink:#F2EFE4; --ink-2:#A9ADBA; --ink-3:#9499A6;
+  --rule:#2A2D36; --rule-2:#464A57;
+  --price:#FF6478; --price-soft:#2C1A20; --on-price:#16171B;
+  --good:#57C5A6; --good-soft:#16261F;
+  --band:#F2EFE4; --band-ink:#131419;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:Newsreader,Charter,Georgia,serif; font-size:18px; line-height:1.6;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:0 26px 90px}
+@media(max-width:640px){ body{font-size:17px} .wrap{padding:0 18px 60px} }
+
+h1,h2,h3,.kick,.tag-l,.lbl,.num{font-family:"Bricolage Grotesque",Archivo,Helvetica,Arial,sans-serif}
+h1{font-size:clamp(2.9rem,8.4vw,6rem); font-weight:800; line-height:.92;
+   letter-spacing:-.03em; margin:0; text-wrap:balance;
+   font-variation-settings:"wdth" 92,"opsz" 40}
+h2{font-size:clamp(1.75rem,4.2vw,2.9rem); font-weight:800; line-height:1.03;
+   letter-spacing:-.022em; margin:0; text-wrap:balance}
+h3{font-size:1.2rem; font-weight:700; line-height:1.2; margin:0; letter-spacing:-.01em}
+p{margin:0}
+.kick{font-size:.72rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-3); display:block}
+.lbl{font-size:.66rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink-3)}
+.num{font-family:"DM Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum"}
+.lede{font-size:clamp(1.1rem,2vw,1.35rem); line-height:1.48; color:var(--ink-2)}
+.stack{display:flex; flex-direction:column; gap:1em}
+strong{font-weight:600}
+em{font-style:italic}
+a{color:var(--price)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--price); outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{padding:58px 0 0}
+.hero-grid{display:grid; grid-template-columns:1fr; gap:34px; align-items:center; margin-top:30px}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.25fr .75fr; gap:56px}}
+.hero .lede{margin-top:22px; max-width:34ch}
+
+/* the price tag - the one bold move, used twice on the page */
+.tag{position:relative; display:inline-flex; flex-direction:column; align-items:flex-start;
+  background:var(--price); color:var(--on-price); padding:20px 30px 18px 44px;
+  clip-path:polygon(26px 0,100% 0,100% 100%,26px 100%,0 50%)}
+.tag .tag-n{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:clamp(2.2rem,5.4vw,3.4rem); font-weight:500; line-height:1; letter-spacing:-.02em}
+.tag .tag-l{font-size:.68rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  opacity:.9; margin-top:8px; max-width:22ch; line-height:1.4}
+.tag::before{content:""; position:absolute; left:14px; top:50%; transform:translateY(-50%);
+  width:9px; height:9px; border-radius:50%; background:var(--paper)}
+
+/* ---------- dish drawings ---------- */
+.dish{width:100%; height:auto; display:block}
+.dish .pl{fill:var(--paper-3)}
+.dish .pl-in{fill:var(--paper-2)}
+.dish .f-tuna{fill:#C8102E}  .dish .f-salmon{fill:#E8734A}
+.dish .f-green{fill:#3E7F4E} .dish .f-rice{fill:#EFE7CE}
+.dish .f-avo{fill:#7FA457}   .dish .f-edam{fill:#5C9A4A}
+.dish .f-seed{fill:#8A8577}  .dish .f-char{fill:#8A5A34}
+.dish .f-grill{stroke:#5E3A20; stroke-width:2; fill:none; opacity:.55}
+.dish .f-skew{fill:#9A9486}  .dish .f-salad{fill:#4E8F55}
+.dish .f-tom{fill:#C8102E}   .dish .f-yog{fill:#F4F1E4}
+.dish .f-marb{stroke:#FFFDF7; stroke-width:2.5; fill:none; opacity:.6}
+.dish .f-lentil{fill:#8A6A3E} .dish .f-lentil-d{fill:#6E5230}
+.dish .f-broc{fill:#3E7F4E}  .dish .f-pork{fill:#9A5636}
+.dish .f-bark{fill:#5E3520}  .dish .f-collard{fill:#35663F}
+.dish .f-bean{fill:#7A5A38}  .dish .f-fish{fill:#B9C3CB}
+.dish .f-eye{fill:#16171B}   .dish .f-scale{stroke:#8E9AA6; stroke-width:2; fill:none}
+.dish .f-lemon{fill:#E8C24A} .dish .f-lemonw{stroke:#FFFDF7; stroke-width:2; fill:none}
+.dish .f-herb{fill:#3E7F4E}  .dish .f-crust{fill:#D8A657}
+.dish .f-sauce{fill:#C8102E} .dish .f-mozz{fill:#F4F1E4}
+.dish .f-basil{fill:#3E7F4E} .dish .f-cut{stroke:#B8893F; stroke-width:1.5; fill:none; opacity:.5}
+.dish .f-steam{fill:#EDE9DA} .dish .f-shrimp{fill:#E8734A}
+.dish .f-carrot{fill:#DD8A33}
+
+/* ---------- findings ---------- */
+.finds{margin-top:80px}
+.find{display:grid; grid-template-columns:1fr; gap:22px; align-items:center;
+  padding:44px 0; border-top:1px solid var(--rule)}
+@media(min-width:820px){
+  /* number stays narrow and body stays wide in both directions; only the side the
+     drawing sits on alternates. Assign columns explicitly - an `order` swap moves
+     the number into the wide track and squeezes the text. */
+  .find{grid-template-columns:172px 1fr 200px; gap:40px}
+  /* pin the row too - explicit columns alone let auto-placement give each child
+     its own row, which stacks the drawing under the text */
+  .find>*{grid-row:1}
+  .find .find-n{grid-column:1} .find .find-b{grid-column:2} .find .find-art{grid-column:3}
+  .find.flip{grid-template-columns:200px 1fr 172px}
+  .find.flip .find-art{grid-column:1} .find.flip .find-b{grid-column:2}
+  .find.flip .find-n{grid-column:3; text-align:right}
+  .find.flip .find-n small{text-align:right}
+  .find.flip .find-do{border-left:0; border-right:3px solid var(--price);
+    padding-left:0; padding-right:13px; text-align:right}
+}
+.find-n{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:clamp(2rem,4.6vw,2.9rem); font-weight:500; line-height:.95;
+  color:var(--price); letter-spacing:-.02em}
+.find-n small{display:block; font-family:"Bricolage Grotesque",sans-serif; font-size:.62rem;
+  font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3);
+  margin-top:9px; line-height:1.4}
+.find-b h3{margin-bottom:9px}
+.find-b p{color:var(--ink-2); font-size:1rem; line-height:1.55}
+.find-do{margin-top:12px; font-size:.92rem; color:var(--ink);
+  padding-left:13px; border-left:3px solid var(--price)}
+.find-art{max-width:200px; justify-self:center}
+
+/* ---------- inverted band ---------- */
+.band{background:var(--band); color:var(--band-ink); margin:78px -26px 0;
+  padding:52px 26px 56px; overflow:hidden}
+@media(max-width:640px){.band{margin-left:-18px; margin-right:-18px; padding:38px 18px 40px}}
+@media(min-width:1172px){.band{margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+  padding-left:calc(50vw - 534px); padding-right:calc(50vw - 534px)}}
+.band .kick,.band .lbl{color:var(--band-ink); opacity:.62}
+.band h2{color:var(--band-ink)}
+.band p{color:var(--band-ink); opacity:.82}
+
+/* ---------- the shortlist ---------- */
+.picks{display:grid; grid-template-columns:1fr; gap:0; margin-top:34px}
+@media(min-width:700px){.picks{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.picks{grid-template-columns:1fr 1fr 1fr}}
+.pick{padding:24px 24px 26px 0; border-top:1px solid var(--rule); display:flex; gap:18px}
+@media(min-width:700px){.pick{border-right:1px solid var(--rule); padding-right:24px}}
+.pick-art{width:78px; flex:0 0 78px}
+.pick-b{min-width:0}
+.pick h3{font-size:1.02rem}
+.pick .who{font-size:.85rem; color:var(--ink-2); margin-top:2px}
+.pick .why{font-size:.88rem; color:var(--ink-2); margin-top:9px; line-height:1.5}
+.pick-row{display:flex; align-items:baseline; gap:10px; margin-top:10px; flex-wrap:wrap}
+.pick-p{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:1.2rem; font-weight:500; color:var(--good)}
+.pick-m{font-family:"DM Mono",monospace; font-size:.74rem; color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+
+/* ---------- traps ---------- */
+.traps{margin-top:30px; border-top:3px solid var(--price)}
+.trap{display:flex; justify-content:space-between; gap:16px; align-items:baseline;
+  padding:13px 0; border-bottom:1px solid var(--rule); flex-wrap:wrap}
+.trap-n{flex:1 1 14rem; min-width:0}
+.trap-v{flex:0 1 auto; min-width:0}
+.trap-n{font-size:1rem}
+.trap-n span{display:block; font-size:.83rem; color:var(--ink-2); margin-top:2px}
+.trap-v{font-family:Newsreader,Georgia,serif; font-size:.87rem; color:var(--ink-2);
+  line-height:1.45; text-align:left; flex:1 1 18rem}
+@media(min-width:720px){.trap-v{text-align:right; flex:0 1 26rem}}
+
+/* ---------- the week ---------- */
+.week{display:grid; grid-template-columns:1fr; gap:0; margin-top:30px}
+@media(min-width:760px){.week{grid-template-columns:1fr 1fr}}
+.wk-side{padding:24px 26px 26px 0}
+.wk-side + .wk-side{border-left:0}
+@media(min-width:760px){.wk-side + .wk-side{border-left:1px solid var(--rule-2); padding-left:34px}}
+.wk-total{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:2.5rem; font-weight:500; line-height:1; display:block; margin:6px 0 4px}
+.wk-list{list-style:none; margin:16px 0 0; padding:0}
+.wk-list li{display:flex; justify-content:space-between; gap:12px; padding:7px 0;
+  border-bottom:1px solid var(--rule); font-size:.92rem}
+.wk-list .num{color:var(--ink-3)}
+
+/* ---------- method ---------- */
+.method{margin-top:70px; background:var(--paper-2); padding:30px 32px 32px;
+  border-top:3px solid var(--ink)}
+.method-grid{display:grid; grid-template-columns:1fr; gap:22px; margin-top:18px}
+@media(min-width:760px){.method-grid{grid-template-columns:1fr 1fr}}
+.method p{font-size:.92rem; color:var(--ink-2); line-height:1.55}
+.method h3{font-size:.94rem; margin-bottom:6px; color:var(--ink)}
+footer{margin-top:52px; padding-top:20px; border-top:1px solid var(--rule);
+  font-size:.82rem; color:var(--ink-3)}
+
+/* hero tallies */
+.tallies{display:grid; grid-template-columns:repeat(2,1fr); gap:0; margin-top:34px;
+  border-top:2px solid var(--ink)}
+@media(min-width:560px){.tallies{grid-template-columns:repeat(4,1fr)}}
+.tallies>div{padding:12px 14px 14px 0; border-bottom:1px solid var(--rule)}
+.t-n{font-family:"DM Mono",monospace; font-variant-numeric:tabular-nums; font-size:1.5rem;
+  font-weight:500; line-height:1; display:block; margin-bottom:7px}
+.tallies .lbl{display:block; line-height:1.35}

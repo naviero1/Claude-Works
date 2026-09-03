@@ -1,0 +1,3179 @@
+===== PAGE 1 =====
+FA S T- C A S U A L D E L I V E RY M E N U S · R E S E A R C H T R I A N G L E , N O RT H C A R O L I N A · A U G U S T 2 0 2 6
+The Thirty
+Thirty named dishes across thirty restaurants, ranked on seven health criteria
+plus flavor and cost. Each entry is one specific dish whose figures describe
+exactly that dish, followed by 116 alternative orders that each carry their own
+score. Every restaurant was verified to have a live DoorDash storefront; its store
+ID is printed with the dish.
+Dishes 30 Restaurants 30 Scored alternatives 116 DoorDash-verified 30 / 30 Convenience excluded
+Four findings that drive this ranking
+Each is a sourcing, portioning or ordering detail the menu does not tell you.
+The healthiest builds are the ones nobody orders
+3.9 / 10
+The top-ranked dish scores 8.1 on health and 3.9 on flavor.
+Both poke chains' enthusiasm is sauce-mediated, and the
+plain builds are undocumented in reviews because
+essentially nobody orders them. This is the central tension of
+the whole document, and flavor was added to the model to
+stop it hiding.
+Poke Bros. does not marinate its fish
+40 mg
+Plain tuna is 40 mg of sodium per 85 g portion, salmon 50
+mg. The same proteins at Pokeworks are 350 and 380; Poke
+Bros.' own marinated tuna is 820 mg. But OG Sauce is auto￾added to every bowl at 730 mg and must be affirmatively
+refused.
+Only one chain lets you order restraint
+1 pump
+Pokeworks portions every sauce Light / Medium / Heavy at 1 /
+2 / 3 pumps; signature bowls default to Medium. Nowhere
+else here is "on the side" a real selectable option —
+Farmside's "No dressing + Extra Dressing $0.75" and
+Bonjour's $0.50 sauce SKUs are the only buildable
+equivalents.
+A dead DoorDash store looks exactly like a live
+one
+2
+Two restaurants were cut after verification. DoorDash
+renames deactivated storefronts to "Graveyard" or "[DNU]"
+while keeping the original URL, star rating and opening hours
+rendering normally — so a listing can look healthy and still
+refuse every order. One restaurant here also had two store
+IDs, one of them flagged do-not-use.
+How the recommended dish is chosen
+Each entry leads with one dish. That dish is the highest-scoring option at the restaurant that also works as a
+complete meal — roughly 380 calories and 30 g of protein or more, and orderable from the standard menu.
+Alternatives are scored on the identical model, so where one beats the recommendation it is marked ▲ and
+the reason the recommendation stands anyway is stated. Nothing is hidden behind a judgement call that is
+not written down.
+The Thirty · A Fast-Casual Nutrition Compendium 1
+===== PAGE 2 =====
+The Nine Criteria
+Seven health criteria carry equal weight; sugar carries 0.7, and flavor and cost carry 0.5 each. Neither flavor nor
+cost can rescue an unhealthy dish — at half weight they reorder the middle of the list without overturning it.
+Kidney ×1.0
+Sodium alone. Full marks at 350 mg, zero at
+2,000.
+Liver ×1.0
+Saturated fat 65%, calorie load 35%.
+Muscle ×1.0
+Protein per 100 kcal 70%, absolute protein
+30%.
+Gut ×1.0
+Live ferments 60%, plant-type count 40%.
+Vinegar pickles score zero.
+Energy ×1.0
+Refined-carb load, fiber, protein presence —
+a glycemic proxy.
+Inflammation ×1.0
+Omega-3 60%, plant and herb diversity
+40%.
+Sugar ×0.7
+Total sugars. Full marks at 3 g, zero at 22 g.
+Flavor ×0.5
+Char, acid, ferment, aromatics, surviving
+richness and texture — minus a penalty for
+flavor the health edit removes.
+Cost ×0.5
+DoorDash-listed price at 60%, price per
+gram of protein at 40%. Rewards both a
+cheap meal and good protein value.
+How Flavor Is Scored
+Not a taste opinion and not a star rating. Flavor here measures where a dish's intensity comes from, and how
+much of it survives being ordered the healthy way. Six positive components and one penalty, scaled to 0–10.
+Char 0–3
+Grill, charcoal, tandoor,
+rotisserie, wok, hard sear.
+Maillard flavor is free — it costs
+no sodium and no fat, and no
+health edit removes it.
+Acid 0–2
+Lime, vinegar, tamarind, sumac.
+The single most underrated
+substitute for salt.
+Ferment 0–2
+Fermented flavor — kimchi,
+doenjang, fish sauce, miso,
+yogurt. Scored separately from
+the gut criterion, which cares
+whether cultures are alive.
+Aromatics 0–3
+Herbs, whole spice, alliums,
+chili, ginger, lemongrass.
+Weighted highest because it is
+the largest reservoir of flavor
+that carries no nutritional cost
+at all.
+Richness 0–2
+Fat that survives the healthy
+build: avocado, tahini, olive oil,
+oily fish. Cheese and
+mayonnaise usually do not
+survive and so do not count.
+Texture 0–2
+Contrast. A bowl of uniformly
+soft things scores low however
+well seasoned it is.
+Strip penalty −0–3
+How much flavor the health edit
+actually removes. Declining a
+vinaigrette, skipping cheese,
+choosing greens over rice. This
+is what separates a Chipotle
+salad from a plate of larb.
+The pattern —
+Cuisines built on char, acid and
+aromatics keep their flavor
+when you strip salt and fat.
+Cuisines built on sauce, cheese
+and frying do not. That is why
+Thai, Vietnamese, Korean,
+Turkish and Ethiopian dishes
+cluster at the top of the flavor
+column and American bowl
+chains cluster at the bottom.
+The Thirty, Ranked
+Bars show where each dish earns its score — tall is good, short is the weak point. The seven dark bars are health;
+the two separated bars are flavor (amber) and cost (slate). Beneath each dish sit the alternative orders at that
+restaurant, each scored on the same model, so the trade-off in swapping a protein or a base is a number rather
+than an assertion.
+The Thirty · A Fast-Casual Nutrition Compendium 2
+===== PAGE 3 =====
+1
+7.78
+health 8.1
+Poke Bros. PUBLISHED $17.00
+Double tuna salad bowl
+DoorDash store biz 44556 · ~9 mi from RTP
+Salad base · 2 scoops plain tuna (170 g) · cucumber, sweet onion, carrot, jalapeño, green onion · edamame · avocado
+· sesame · wasabi aioli · REFUSE the OG sauce
+CAL
+542
+PROTEIN
+52g
+SODIUM
+210mg
+SAT FAT
+2.2g
+FIBER
+10g
+SUGAR
+9g
+KID
+10.0
+LIV
+9.4
+MUS
+10.0
+GUT
+2.9
+ENE
+8.1
+INF
+8.9
+SUG
+6.8
+FLAVOR
+3.9
+COST
+7.8
+Why it scores. Plain tuna is 40 mg of sodium per 85 g
+portion. Poke Bros. sells unmarinated and marinated fish
+as separate first-class selections, and their own marinated
+tuna is 820 mg — twenty times the plain. Mix-ins are
+explicitly unlimited, so plant diversity costs nothing.
+On flavor. OG Sauce is added to every bowl
+automatically at 730 mg and must be affirmatively
+refused; there is a documented case of that refusal
+being ignored. Without it the bowl is clean fish, acid and
+aromatics — good, but sparse. Almost nobody orders it
+this way, which is why no review describes how it
+tastes.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Spicy tuna salad bowl Mayo is already in the mix — add
+no sauce
+377 cal · 32 g · 185 mg 7.62
+Tuna + salmon salad bowl One scoop each; adds fattier fish 632 cal · 48 g · 220 mg 7.33
+Chicken + tuna, brown rice, no sauce Their grilled chicken is 29 g protein
+for 63 mg
+810 cal · 66 g · 144 mg 7.11
+Salmon only, salad base Single portion keeps calories down 542 cal · 27 g · 180 mg 6.60
+Tuna + salmon, brown rice Real carbohydrate, zero added
+sodium
+964 cal · 54 g · 171 mg 6.56
+2
+7.77
+health 7.7
+El Cuscatleco ESTIMATED $15.95
+Filete de pescado with curtido
+DoorDash store 33589395 · ~8 mi from RTP
+Grilled fish fillet · salad · beans · extra curtido on the side
+CAL
+500
+PROTEIN
+42g
+SODIUM
+1,000mg
+SAT FAT
+3.5g
+FIBER
+9g
+SUGAR
+6g
+KID
+6.1
+LIV
+9.4
+MUS
+9.1
+GUT
+6.8
+ENE
+7.8
+INF
+6.9
+SUG
+8.4
+FLAVOR
+8.2
+COST
+7.8
+Why it scores. Curtido — the cabbage, carrot and
+oregano relish served alongside pupusas — is a genuine
+live lacto-ferment in traditional preparation, and there is
+essentially nothing else like it available by delivery in this
+radius. One honest caveat: many pupuserías outside El
+Salvador shortcut it with vinegar, and this could not be
+confirmed from published sources.
+On flavor. Grilled fish against a sharp fermented slaw is
+a complete flavor structure with no sauce involved —
+the curtido supplies the acid and the salt that the fish
+does not. Worth one phone call to establish whether it is
+fermented or vinegared before relying on it for the gut
+criterion.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Pollo a la plancha Griddled chicken; no omega-3 560 cal · 46 g · 1,050 mg 7.08
+Ceviche Raw, lime-cured; much lower
+saturated fat
+400 cal · 34 g · 980 mg 7.06
+Add a bean and cheese pupusa Masa and cheese; adds roughly
+250 cal
+760 cal · 50 g · 1,370 mg 6.47
+The Thirty · A Fast-Casual Nutrition Compendium 3
+===== PAGE 4 =====
+3
+7.48
+health 7.3
+Sassool ESTIMATED $16.37
+Chicken kabob with labneh and three cold salads
+DoorDash store 208618 · ~8 mi from RTP
+Grilled chicken kabob · labneh · lentil salad · kale salad · tabouli · no pita
+CAL
+620
+PROTEIN
+46g
+SODIUM
+980mg
+SAT FAT
+7g
+FIBER
+12g
+SUGAR
+6g
+KID
+6.2
+LIV
+6.9
+MUS
+8.3
+GUT
+7.9
+ENE
+8.0
+INF
+6.0
+SUG
+8.4
+FLAVOR
+8.9
+COST
+7.8
+Why it scores. Twelve distinct plant species in one order,
+the highest diversity available anywhere in this set.
+Labneh is strained yogurt eaten cold, so the cultures are
+live — one of only a handful of genuine live ferments
+obtainable by delivery in this region.
+On flavor. Nothing needs stripping. A cold-salad-case
+model means flavor comes from lemon, olive oil,
+parsley, mint, sumac and garlic rather than from sauce,
+so the healthy order and the good-tasting order are the
+same order.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Kabob, labneh, tabouli only ▲ Lighter, fewer species 470 cal · 42 g · 760 mg 7.74
+Baked salmon instead of kabob ▲ Trades some protein for omega-3 700 cal · 44 g · 1,050 mg 7.52
+Labneh plus four cold salads, no meat Vegetarian; drops protein sharply 450 cal · 20 g · 820 mg 6.78
+Add mjadarah to the kabob plate Rice and lentils — a complete
+protein pairing
+850 cal · 54 g · 1,180 mg 6.71
+▲ scores above the recommended dish — kept for plant diversity — the three-salad version carries twelve species against eight.
+4
+7.33
+health 7.3
+DICED PARTIAL $10.95
+Lentil-base bowl with grilled chicken
+DoorDash store 208871 · ~8 mi from RTP
+Lentil base · grilled chicken · avocado · edamame · roasted broccoli · brussels sprouts · beets · red pepper ·
+fresh lemon squeeze and olive oil, no house dressing
+CAL
+680
+PROTEIN
+60g
+SODIUM
+220mg
+SAT FAT
+4g
+FIBER
+14g
+SUGAR
+8g
+KID
+10.0
+LIV
+8.0
+MUS
+9.8
+GUT
+3.4
+ENE
+8.8
+INF
+3.4
+SUG
+7.4
+FLAVOR
+5.7
+COST
+9.8
+Why it scores. Two remarkable component figures: their
+grilled chicken is 26 g of protein for 69 mg of sodium, and
+their lentil base is 20 g of protein for 4 mg. Built this way
+the whole bowl lands near 220 mg — comparable to the
+best poke build with far more fiber. DICED publishes no
+saturated fat or fiber, so those two figures are estimated.
+On flavor. Dressed with lemon and olive oil rather than
+a house dressing, which is exactly what keeps sodium at
+220 mg. Every creamy dressing on their list adds 90–
+185 mg and about 100 calories. Carrot ginger at 42 mg
+is the cleanest of the made dressings.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Kale base instead of lentils ▲ Lighter; costs 20 g of protein 470 cal · 43 g · 250 mg 7.47
+Crispy tofu instead of chicken Plant protein at 2 mg of sodium 610 cal · 42 g · 153 mg 7.08
+Grass-fed steak instead of chicken 19 g protein at 44 mg 675 cal · 53 g · 195 mg 7.03
+Add carrot ginger dressing The cleanest made dressing at 42
+mg
+779 cal · 60 g · 262 mg 6.89
+Add feta and kalamata olives Salt and fat, but real flavor 850 cal · 66 g · 1,050 mg 6.21
+▲ scores above the recommended dish — kept for protein — the lentil base adds 17 g that the kale base does not.
+The Thirty · A Fast-Casual Nutrition Compendium 4
+===== PAGE 5 =====
+5
+7.31
+health 7.9
+M Sushi ESTIMATED $31.20
+Oily-cut sashimi selection
+DoorDash store 245583 · ~10 mi from RTP
+6–8 pieces weighted to salmon, salmon belly, sea trout, mackerel and chutoro · edamame · miso soup · à la carte,
+not the specialty rolls
+CAL
+430
+PROTEIN
+46g
+SODIUM
+620mg
+SAT FAT
+4.5g
+FIBER
+4g
+SUGAR
+2g
+KID
+8.4
+LIV
+9.2
+MUS
+10.0
+GUT
+4.5
+ENE
+7.0
+INF
+6.6
+SUG
+10.0
+FLAVOR
+5.0
+COST
+2.3
+Why it scores. The fat-rich cuts are where omega-3
+actually lives — salmon belly and chutoro carry several
+times the EPA and DHA of lean loin. Nothing is added: no
+sugar, no sauce, no cooking fat. The most nutritionally
+concentrated protein in this compendium.
+On flavor. Loses almost nothing to health editing
+because there is nothing to strip — the flavor is the fish.
+The only edit is ordering à la carte rather than the
+mayonnaise-and-eel-sauce specialty rolls. Cost per
+calorie is the real constraint.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Lean cuts only (tuna, yellowtail, bream) Less omega-3, less fat, cheaper 310 cal · 44 g · 560 mg 7.17
+Add uni or ikura Roe is nutrient-dense but salty 550 cal · 50 g · 860 mg 6.96
+Chirashi combo Assorted sashimi over sushi rice,
+with miso
+640 cal · 44 g · 900 mg 6.15
+6
+7.19
+health 7.3
+Pokeworks PUBLISHED $16.00
+Large chicken bowl on salad base
+DoorDash store 429492 · ~10 mi from RTP
+Large · salad mix base · 3 chicken scoops (6 oz) · cucumber, cabbage, cilantro, serrano, kale, sweet onion ·
+edamame · avocado · sesame · shredded nori · Ponzu Fresh at LIGHT
+CAL
+420
+PROTEIN
+44g
+SODIUM
+550mg
+SAT FAT
+3.5g
+FIBER
+8g
+SUGAR
+3g
+KID
+8.8
+LIV
+9.8
+MUS
+9.9
+GUT
+2.9
+ENE
+7.8
+INF
+2.9
+SUG
+10.0
+FLAVOR
+5.0
+COST
+7.9
+Why it scores. Their chicken is 80 mg of sodium per 2 oz
+scoop against ahi's 350. Three scoops of chicken is 240 mg
+where three of ahi is 1,050 — an 810 mg swing on an
+otherwise identical bowl. Almost nobody orders chicken at
+a poke restaurant.
+On flavor. The only chain here where restraint is a
+native selection rather than a request: every sauce is
+portioned Light, Medium or Heavy at one, two or three
+pumps, and signature bowls default to Medium. Ponzu
+Fresh at Light is 5 calories and 220 mg — enough acid
+to make the bowl read as seasoned rather than naked.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Three ahi scoops, brown rice 0 g sugar, 1 g sat fat — but the
+sodium is structural
+630 cal · 54 g · 1,175 mg 7.14
+Two chicken scoops + one ahi, brown rice Buys omega-3 for a third of the ahi
+sodium
+630 cal · 50 g · 795 mg 7.06
+Same, brown rice base Adds 250 cal and 4 g fiber, no
+sodium
+650 cal · 48 g · 525 mg 6.59
+Three tofu scoops, brown rice Plant protein, 9 g extra fiber 560 cal · 27 g · 765 mg 6.09
+The Thirty · A Fast-Casual Nutrition Compendium 5
+===== PAGE 6 =====
+7
+7.05
+health 6.9
+Taste Vietnamese ESTIMATED $17.95
+Sizzling fish with vermicelli and herbs
+DoorDash store 208408 · ~5 mi from RTP
+Chả cá — turmeric-marinated grilled fish · vermicelli · dill, onion, lettuce and the herb plate · nước chấm on the
+side
+CAL
+600
+PROTEIN
+40g
+SODIUM
+1,300mg
+SAT FAT
+4g
+FIBER
+7g
+SUGAR
+10g
+KID
+4.2
+LIV
+8.5
+MUS
+7.0
+GUT
+7.3
+ENE
+5.1
+INF
+9.4
+SUG
+6.3
+FLAVOR
+9.6
+COST
+6.9
+Why it scores. Grilled turmeric-marinated fish with a
+herb plate running to five or more species — mint, dill,
+cilantro, perilla and Thai basil. Omega-3 from the fish plus
+curcumin from the turmeric, grilled rather than fried.
+On flavor. Vietnamese herb-plate cooking is the model
+case for flavor that survives health editing: each bite is
+assembled from grilled protein, raw herbs and a small
+amount of dressing. Asking for the nước chấm on the
+side barely changes the eating experience. Their pickled
+daikon is a vinegar quick-pickle, not a ferment.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Fresh spring rolls Steamed rice paper, not fried 260 cal · 16 g · 780 mg 6.36
+Grilled chicken vermicelli plate Cheaper; no omega-3 580 cal · 38 g · 1,250 mg 6.23
+Lemongrass pork chops over rice Grilled; higher saturated fat 680 cal · 44 g · 1,400 mg 5.52
+Pho ga Simmered; broth runs sweet here 520 cal · 34 g · 1,700 mg 5.43
+8
+7.04
+health 7.5
+True Food Kitchen PUBLISHED $26.00
+Tuscan Kale Salad with salmon, dressing declined
+DoorDash store 32228511 · ~17 mi from RTP
+Organic Tuscan Kale Salad ordered without dressing · sustainably-raised salmon added
+CAL
+380
+PROTEIN
+36g
+SODIUM
+330mg
+SAT FAT
+6g
+FIBER
+4g
+SUGAR
+2g
+KID
+10.0
+LIV
+8.5
+MUS
+9.1
+GUT
+1.1
+ENE
+7.0
+INF
+7.1
+SUG
+10.0
+FLAVOR
+5.4
+COST
+3.3
+Why it scores. 330 mg of sodium for 36 g of protein —
+the salmon add-on alone is 29 g of protein at 90 mg, one
+of the cleanest single proteins published anywhere in this
+compendium. The undressed kale salad is published as its
+own line, and the dressing it omits accounts for 340
+calories and 630 mg.
+On flavor. Undressed kale is the blandest starting point
+on this page; the salmon and the lemon are carrying it.
+This scores well because the numbers are exceptional,
+not because it is a pleasure to eat.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Chinese Chicken Salad, no dressing 45 g protein, more texture and
+more flavor
+550 cal · 45 g · 560 mg 6.63
+Chopped Salad, no dressing, plus chicken Lowest sodium on their menu 670 cal · 57 g · 700 mg 6.01
+Teriyaki Quinoa Bowl with salmon 13 g fiber, but 29 g of sugar 800 cal · 41 g · 940 mg 4.71
+Ancient Grain Bowl with tofu Hemp seeds and turmeric; high
+sodium
+760 cal · 27 g · 1,400 mg 4.27
+The Thirty · A Fast-Casual Nutrition Compendium 6
+===== PAGE 7 =====
+9
+7.02
+health 6.9
+Thai 54 ESTIMATED $21.90
+Nam tok beef with spicy papaya salad
+DoorDash store 24800584 · ~5 mi from RTP
+Nam tok — char-grilled sirloin with toasted rice powder, chili, mint and shallot · spicy green papaya salad · ask
+for reduced fish sauce and palm sugar
+CAL
+470
+PROTEIN
+42g
+SODIUM
+1,450mg
+SAT FAT
+4.5g
+FIBER
+8g
+SUGAR
+9g
+KID
+3.3
+LIV
+9.1
+MUS
+9.6
+GUT
+7.9
+ENE
+7.7
+INF
+4.0
+SUG
+6.8
+FLAVOR
+9.6
+COST
+5.5
+Why it scores. Nam tok and larb are among the highest
+protein-per-calorie restaurant dishes that exist — grilled or
+minced protein dressed in lime, chili, shallot and toasted
+rice powder, with essentially no added fat. The papaya
+salad is raw and pounded, contributing several more plant
+species.
+On flavor. The best flavor-to-calorie ratio in this
+compendium. Isaan cooking derives its intensity from
+acid, chili, herbs and fermented fish rather than from
+fat, so there is literally nothing to remove.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Larb chicken ▲ Poached, no oil at all; catering
+menu only
+380 cal · 38 g · 1,250 mg 7.25
+Tom yum seafood soup Clear broth, not the coconut tom
+kha
+320 cal · 34 g · 1,500 mg 6.97
+Nam sod Ground pork with ginger, lime and
+peanut
+420 cal · 34 g · 1,300 mg 6.32
+Lao papaya salad on its own Contains pla ra — genuine
+fermented fish, served cold
+180 cal · 6 g · 1,100 mg 5.77
+Tom kha AVOID — coconut cream base 560 cal · 28 g · 1,600 mg 4.86
+▲ scores above the recommended dish — kept for availability — larb appears only on the catering menu.
+10
+6.85
+health 6.7
+Baba Ghannouj ESTIMATED $15.99
+Chicken kebab plate with fattoush and tzatziki
+DoorDash store 208879 · ~2 mi from RTP
+Grilled chicken kebab · fattoush salad · tzatziki · extra salad in place of the rice · no pita chips
+CAL
+560
+PROTEIN
+44g
+SODIUM
+1,200mg
+SAT FAT
+5g
+FIBER
+8g
+SUGAR
+6g
+KID
+4.8
+LIV
+8.3
+MUS
+8.7
+GUT
+6.8
+ENE
+7.4
+INF
+2.9
+SUG
+8.4
+FLAVOR
+8.2
+COST
+7.9
+Why it scores. Two miles from the centre of the research
+park, the closest Mediterranean option in the set. Fattoush
+is romaine, tomato, cucumber, pepper and sumac —
+genuine plant diversity with negligible saturated fat once
+the fried pita chips are omitted.
+On flavor. Sumac and lemon carry this rather than fat.
+The pita chips are the one omission that costs
+something, since they are the textural element.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Add baba ghanouj Tahini fat and smoke; watch the
+sodium
+690 cal · 46 g · 1,480 mg 6.26
+Stuffed grape leaves with tzatziki Vegetarian; protein drops sharply 380 cal · 10 g · 980 mg 5.71
+With rice instead of extra salad Adds roughly 200 cal and refined
+starch
+760 cal · 46 g · 1,350 mg 5.69
+The Thirty · A Fast-Casual Nutrition Compendium 7
+===== PAGE 8 =====
+11
+6.82
+health 6.6
+Bosphorus ESTIMATED $16.50
+Chicken shish kebab with cacık
+DoorDash store 24135356 · ~7 mi from RTP
+Chicken shish (lunch portion) · bulgur pilaf · salad · cacık · skip the pide bread
+CAL
+580
+PROTEIN
+48g
+SODIUM
+1,150mg
+SAT FAT
+6g
+FIBER
+9g
+SUGAR
+5g
+KID
+5.2
+LIV
+7.7
+MUS
+9.2
+GUT
+6.2
+ENE
+7.7
+INF
+2.3
+SUG
+8.9
+FLAVOR
+8.2
+COST
+7.8
+Why it scores. Charcoal-grilled whole-muscle cubes
+rather than ground meat, which is a real saturated-fat
+difference from the Adana. Bulgur is a whole grain and
+arrives as the default starch — one of very few places here
+where the standard base is not white rice. Cacık is cold
+yogurt, so the cultures are live.
+On flavor. Turkish grill cooking is char-and-yogurt
+architecture: smoke, sumac, dill and garlic, none of
+which is removed to make it healthy. Order shish rather
+than Ali Nazik, Beyti or İskender — those arrive under
+sauce over bread.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Add ezme or shepherd salad ▲ Raw chopped salad; more plant
+species
+660 cal · 49 g · 1,330 mg 6.83
+Add a separate cacık order $4.50 — more live culture,
+negligible cost
+670 cal · 50 g · 1,290 mg 6.35
+Lamb shish instead of chicken Whole-muscle, richer, higher
+saturated fat
+680 cal · 46 g · 1,200 mg 6.16
+Kofta or Adana kebab Ground meat — meaningfully
+higher saturated fat
+760 cal · 44 g · 1,420 mg 5.47
+▲ scores above the recommended dish — an addition to the primary rather than a substitute for it.
+12
+6.80
+health 6.8
+Kathmandu Kitchen ESTIMATED $21.99
+Chicken choila with dal
+DoorDash store 455557 · ~9 mi from RTP
+Chicken choila — oven-baked chicken tossed with mustard oil, green onion and spice · dal · no momo, no rice
+CAL
+460
+PROTEIN
+42g
+SODIUM
+1,100mg
+SAT FAT
+4g
+FIBER
+7g
+SUGAR
+4g
+KID
+5.5
+LIV
+9.4
+MUS
+9.7
+GUT
+2.3
+ENE
+7.6
+INF
+4.3
+SUG
+9.5
+FLAVOR
+8.6
+COST
+5.4
+Why it scores. Choila is dry-heat baked chicken tossed
+with mustard oil, green onion and spice — no cream, no
+ghee, no sugar. One of the leanest restaurant chicken
+preparations available locally, and Nepali cooking
+generally uses far less dairy fat than North Indian.
+On flavor. Mustard oil is pungent enough to carry a dish
+on its own, and choila is aggressively spiced by design,
+so nothing is stripped to make it healthy. If the momo is
+added, order it steamed rather than fried. Worth asking
+whether gundruk — fermented mustard greens, a true
+Nepali lacto-ferment — is available, which would move
+this several places up.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Tandoori chicken Yogurt-marinated, clay oven 580 cal · 50 g · 1,450 mg 6.32
+Add steamed vegetable momo Steamed dumplings; more starch 620 cal · 48 g · 1,350 mg 6.17
+Steamed vegetable momo alone Vegetarian, steamed 380 cal · 16 g · 900 mg 5.48
+Butter chicken or tikka masala AVOID — cream-based 880 cal · 46 g · 1,800 mg 4.04
+The Thirty · A Fast-Casual Nutrition Compendium 8
+===== PAGE 9 =====
+13
+6.66
+health 6.8
+Canastas Chicken ESTIMATED $25.50
+Grilled salmon with house salad and green beans
+DoorDash store 26142494 · ~8 mi from RTP
+Anticuchera-marinated grilled salmon · house side salad · green beans · explicitly hold the fries
+CAL
+560
+PROTEIN
+45g
+SODIUM
+1,150mg
+SAT FAT
+5g
+FIBER
+6g
+SUGAR
+4g
+KID
+5.2
+LIV
+8.3
+MUS
+9.0
+GUT
+1.7
+ENE
+7.1
+INF
+7.7
+SUG
+9.5
+FLAVOR
+7.1
+COST
+4.3
+Why it scores. The only cooked oily fish in the
+compendium — omega-3 without the raw-fish question.
+Both included sides are free choice from a list containing
+two salads, mixed vegetables and green beans; most
+people take the fries by default, and that substitution is
+the whole difference between a good and a bad order
+here.
+On flavor. Anticuchera marinade is ají panca, garlic,
+cumin and vinegar, applied before the grill — so the
+seasoning is inside the fish rather than in a sauce you
+have to decline.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Ceviche de pescado Raw, lime-cured; lowest saturated
+fat here
+400 cal · 36 g · 1,050 mg 6.49
+Camarones al grill Charbroiled shrimp skewers 420 cal · 40 g · 1,450 mg 6.18
+Half charcoal chicken with salad and mixed
+vegetables
+58 g of protein at $18.75 700 cal · 58 g · 1,400 mg 5.42
+Carne asada with salad Grilled skirt steak 640 cal · 48 g · 1,300 mg 5.22
+14
+6.63
+health 6.5
+CAVA PUBLISHED $15.50
+SuperGreens and lentil bowl with grilled steak
+DoorDash store chain · ~6 mi from RTP
+SuperGreens + black lentils · grilled STEAK · hummus · tzatziki · avocado · tomato+cucumber · fiery broccoli ·
+lemon herb tahini · NO rice base
+CAL
+740
+PROTEIN
+50g
+SODIUM
+1,125mg
+SAT FAT
+8g
+FIBER
+27g
+SUGAR
+6g
+KID
+5.3
+LIV
+5.7
+MUS
+7.6
+GUT
+6.8
+ENE
+9.3
+INF
+2.9
+SUG
+8.4
+FLAVOR
+7.1
+COST
+8.3
+Why it scores. 27 g of fiber, the most of any dish here,
+nearly all from the black lentils. And the counterintuitive
+protein call: grilled steak is 23 g for 280 mg of sodium
+where grilled chicken is 28 g for 670 mg — five extra
+grams of protein cost 390 mg.
+On flavor. Tzatziki does double duty as the live ferment
+and as the thing stopping the bowl from tasting like a
+salad. Both rice bases are 770 mg, the single largest
+sodium item on the menu, so skipping them is the main
+edit — and greens instead of rice is a real flavor loss.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Double tzatziki, no dips or dressing The lowest-sodium build possible
+at CAVA
+600 cal · 36 g · 745 mg 6.59
+Same build without lentils Saves 520 mg and 270 cal; costs
+15 g fiber
+520 cal · 34 g · 885 mg 6.51
+Grilled chicken instead of steak 28 g protein, but 670 mg against
+280
+820 cal · 55 g · 1,515 mg 6.26
+Braised lamb instead of steak 450 mg for 24 g; higher saturated
+fat
+780 cal · 51 g · 1,295 mg 6.23
+Lentils, hummus and eggplant, no meat Vegetarian; 27 g fiber stays 640 cal · 27 g · 1,225 mg 6.09
+The Thirty · A Fast-Casual Nutrition Compendium 9
+===== PAGE 10 =====
+15
+6.60
+health 6.8
+Mi Perú ESTIMATED $24.22
+Ceviche de tilapia
+DoorDash store 833300 · ~8 mi from RTP
+Raw lime-cured tilapia · lettuce · Peruvian corn · sweet potato · red onion · decline the huacatay and huancaína,
+which are mayonnaise and evaporated milk
+CAL
+420
+PROTEIN
+38g
+SODIUM
+1,100mg
+SAT FAT
+2g
+FIBER
+6g
+SUGAR
+8g
+KID
+5.5
+LIV
+10.0
+MUS
+9.3
+GUT
+2.3
+ENE
+7.4
+INF
+6.3
+SUG
+7.4
+FLAVOR
+5.7
+COST
+4.2
+Why it scores. Lime-cured raw fish is about as clean as
+restaurant protein gets: no cooking fat, no breading, no
+sauce. 2 g of saturated fat is the lowest of any full dish in
+this compendium.
+On flavor. Acid is the entire flavor engine, and acid is
+free — nothing is stripped to make this healthy because
+it is already built that way.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Quarter pollo a la brasa with the same
+sides
+Halves the sodium and saturated
+fat
+430 cal · 33 g · 850 mg 6.55
+Ceviche mixto Adds shrimp and squid; more
+sodium
+470 cal · 44 g · 1,350 mg 6.50
+Sudado de tilapia Braised in ají amarillo broth; no
+cream
+480 cal · 40 g · 1,250 mg 6.42
+Half pollo a la brasa with salad and
+steamed vegetables
+60 g of protein for $15.99 700 cal · 60 g · 1,400 mg 6.09
+16
+6.56
+health 6.3
+Guasaca ESTIMATED $11.21
+Grilled chicken bowl
+DoorDash store 33404071 · ~4 mi from RTP
+Ordered as a BOWL, not an arepa · grilled chicken · black beans · avocado · guasaca sauce · pico de gallo · no
+fried plantain
+CAL
+540
+PROTEIN
+42g
+SODIUM
+1,050mg
+SAT FAT
+4.5g
+FIBER
+11g
+SUGAR
+7g
+KID
+5.8
+LIV
+8.7
+MUS
+8.4
+GUT
+2.9
+ENE
+7.9
+INF
+2.9
+SUG
+7.9
+FLAVOR
+7.5
+COST
+9.6
+Why it scores. Ordered as a bowl rather than an arepa
+this is grilled protein, black beans and avocado at roughly
+11 g of fiber. The arepa is refined precooked corn flour and
+carries most of the calories in the alternative version.
+On flavor. Guasaca is avocado, cilantro, garlic and
+vinegar blended cold — a sauce that is mostly
+unsaturated fat and herbs, so it adds flavor without the
+usual cost. Skipping the fried plantains is the only real
+omission.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Grilled steak bowl Slightly higher saturated fat 580 cal · 40 g · 1,100 mg 6.14
+Vegetarian: beans, avocado and vegetables No meat; protein drops sharply 420 cal · 16 g · 900 mg 5.78
+Reina pepiada arepa Refined corn — treat it as a treat 860 cal · 46 g · 1,450 mg 4.84
+The Thirty · A Fast-Casual Nutrition Compendium 10
+===== PAGE 11 =====
+17
+6.53
+health 6.6
+Luna Rotisserie ESTIMATED $18.70
+Quarter rotisserie chicken with two salads
+DoorDash store 28826084 · ~10 mi from RTP
+Quarter rotisserie chicken · two house salads in place of the starchy sides · skip the empanadas and the fries
+CAL
+420
+PROTEIN
+34g
+SODIUM
+820mg
+SAT FAT
+4g
+FIBER
+9g
+SUGAR
+5g
+KID
+7.2
+LIV
+9.5
+MUS
+7.9
+GUT
+2.9
+ENE
+7.7
+INF
+2.9
+SUG
+8.9
+FLAVOR
+6.1
+COST
+6.1
+Why it scores. Rotisserie chicken cooked by dry heat,
+with the fat rendering out rather than being added. The
+quarter bird with two salads in place of the starchy sides
+lands at 34 g of protein for 820 mg of sodium; the half bird
+is available and pushes protein to 56 g, but takes sodium
+past 1,200 mg.
+On flavor. Rotisserie char and a citrus-garlic marinade
+carry it without sauce. The empanadas are the
+restaurant's signature and are fried, which is the reason
+to be disciplined here.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Half chicken with salad and black beans 56 g protein; heavier 640 cal · 56 g · 1,200 mg 5.90
+Add chimichurri Herb and oil, no dairy 730 cal · 56 g · 1,290 mg 5.89
+18
+6.42
+health 6.4
+Abol Ethiopian ESTIMATED $16.99
+Vegetarian combo with telba shiro
+DoorDash store 35410175 · ~10 mi from RTP
+Veggie Combo — misir wot, kek alecha, tikil gomen, gomen and house salad · plus a telba shiro, which is ground
+flaxseed and chickpea
+CAL
+720
+PROTEIN
+28g
+SODIUM
+1,250mg
+SAT FAT
+3.5g
+FIBER
+22g
+SUGAR
+9g
+KID
+4.5
+LIV
+8.0
+MUS
+2.8
+GUT
+7.9
+ENE
+6.7
+INF
+8.0
+SUG
+6.8
+FLAVOR
+7.1
+COST
+6.2
+Why it scores. The highest plant-type diversity available
+by delivery in this region — four separate stews plus salad
+is eight to twelve species in one order, at roughly 22 g of
+fiber. Telba shiro is built on ground flaxseed, a genuine
+plant omega-3 source and an unusual thing to find on a
+restaurant menu.
+On flavor. Berbere is fifteen-odd spices and does all the
+work; there is no cream, no cheese and no sauce to
+remove. Injera is a multi-day teff sourdough —
+genuinely fermented, though griddle-cooked, so the
+flavor survives and the cultures do not.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Veggie Combo alone Four stews and salad; no flaxseed 480 cal · 18 g · 900 mg 6.12
+Telba shiro alone Flaxseed and chickpea; the
+omega-3 pick
+420 cal · 14 g · 720 mg 5.90
+Veggie Combo plus lega tibs Adds the leanest meat preparation 820 cal · 48 g · 1,600 mg 5.83
+Shiro wot alone Ground chickpea stew; high plant
+protein
+380 cal · 16 g · 780 mg 5.48
+The Thirty · A Fast-Casual Nutrition Compendium 11
+===== PAGE 12 =====
+19
+6.38
+health 6.4
+Chosun Ok ESTIMATED $24.98
+Seafood soondubu with a kimchi side
+DoorDash store 904879 · ~4 mi from RTP
+Seafood soft-tofu stew · complimentary banchan · one 1 lb kimchi ordered as a side
+CAL
+540
+PROTEIN
+40g
+SODIUM
+2,100mg
+SAT FAT
+3.5g
+FIBER
+7g
+SUGAR
+6g
+KID
+0.0
+LIV
+9.2
+MUS
+7.8
+GUT
+9.4
+ENE
+3.1
+INF
+7.4
+SUG
+8.4
+FLAVOR
+8.6
+COST
+4.1
+Why it scores. The closest thing to a real Korean
+banchan house near the research park, and the banchan
+are complimentary and unlimited. Kimchi is orderable as
+an actual purchasable side, which makes this the most
+reliable live lacto-ferment source in the region.
+On flavor. Nothing needs stripping. Korean stew flavor
+is built entirely on fermented paste, chili and aromatics,
+so the low-fat order and the delicious order are
+identical. The unavoidable cost is sodium — this is the
+highest-sodium dish in the compendium, and it earns its
+place on flavor and ferments in spite of that.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Grilled mackerel with a stew High omega-3; a large plate 700 cal · 48 g · 1,950 mg 6.32
+Doenjang jjigae Fermented soybean paste stew;
+tofu and vegetables
+460 cal · 28 g · 1,850 mg 6.08
+Vegetable soondubu with kimchi Lower sodium; no omega-3 480 cal · 32 g · 1,900 mg 5.73
+LA galbi Direct-fire grilled short rib; no
+sugar marinade
+820 cal · 52 g · 1,600 mg 4.72
+20
+6.28
+health 6.1
+Bulkogi ESTIMATED $18.60
+Create Your Own bowl with a kimchi side
+DoorDash store 37659749 · ~1 mi from RTP
+Spring mix base, NO rice · chicken bulgogi · carrot, zucchini, bean sprouts · one 6 oz fresh kimchi
+CAL
+500
+PROTEIN
+35g
+SODIUM
+1,800mg
+SAT FAT
+5g
+FIBER
+8g
+SUGAR
+10g
+KID
+1.2
+LIV
+8.7
+MUS
+6.8
+GUT
+9.4
+ENE
+7.1
+INF
+3.4
+SUG
+6.3
+FLAVOR
+8.2
+COST
+6.2
+Why it scores. Their 6 oz kimchi side is described on
+their own menu as salted and fermented. Everything else
+labelled 'pickled' across this entire compendium — Bul
+Box's carrots and onions, Bonjour's do chua, CAVA's
+onions, Bulkogi's own daikon and slaw — is a vinegar
+quick-pickle carrying no live cultures.
+On flavor. Highest gut score and lowest kidney score in
+the document. That tension is real rather than a scoring
+artifact: the same fermentation that makes kimchi worth
+eating is what makes it a salt delivery vehicle.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Tofu bulgogi, spring mix base ▲ Plant protein 380 cal · 24 g · 1,600 mg 6.33
+Bibimbap with a kimchi side White rice drags the energy score
+to 2.3
+750 cal · 32 g · 2,100 mg 4.69
+Just Meat and Rice with kimchi The leanest by-the-book order 620 cal · 32 g · 1,750 mg 4.52
+Kimchi Bul-Fries AVOID — waffle fries 880 cal · 28 g · 2,200 mg 3.96
+▲ scores above the recommended dish — kept as a complete meal — the tofu build is 24 g of protein.
+The Thirty · A Fast-Casual Nutrition Compendium 12
+===== PAGE 13 =====
+21
+6.22
+health 6.2
+Urban Turban ESTIMATED $27.00
+Tandoori fish tikka with raita and vegetable jalfrezi
+DoorDash store 27782450 · ~5 mi from RTP
+Tandoori fish tikka · raita · vegetable jalfrezi · NO naan, NO rice
+CAL
+650
+PROTEIN
+50g
+SODIUM
+1,600mg
+SAT FAT
+7g
+FIBER
+8g
+SUGAR
+8g
+KID
+2.4
+LIV
+6.7
+MUS
+8.6
+GUT
+5.6
+ENE
+7.3
+INF
+5.7
+SUG
+7.4
+FLAVOR
+8.6
+COST
+4.1
+Why it scores. The tandoor section is genuinely clean —
+dry-heat grilled, no breading, no cream. Raita is live yogurt
+culture. The real weakness is that no salad exists
+anywhere on this menu, so vegetables have to come from
+ordering a curry alongside, which is why the price lands
+where it does.
+On flavor. Tandoor char plus a yogurt marinade plus
+whole spice is about as flavor-dense as grilled protein
+gets, and none of it is stripped by eating healthily. Avoid
+anything with malai, makhni or korma in the name —
+including Tandoori Malai Broccoli, the one cream item
+hiding in an otherwise clean section.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Tandoori chicken tikka with raita and chana
+saag
+More fiber from the chickpeas 680 cal · 52 g · 1,550 mg 5.96
+Paneer or mushroom tikka with raita Vegetarian tandoor 520 cal · 24 g · 1,350 mg 4.92
+Lamb seekh kebab with raita Ground meat — higher saturated
+fat
+740 cal · 48 g · 1,700 mg 4.60
+Butter chicken AVOID — the cream-based contrast
+case
+920 cal · 44 g · 1,900 mg 4.23
+22
+6.13
+health 6.0
+Chipotle PUBLISHED $12.00
+Chicken salad with pinto beans and guacamole
+DoorDash store chain · ~1 mi from RTP
+Romaine · chicken (4 oz) · pinto beans · fajita vegetables · guacamole · DECLINE the chipotle-honey vinaigrette and
+the salsa
+CAL
+575
+PROTEIN
+44g
+SODIUM
+1,055mg
+SAT FAT
+6.5g
+FIBER
+17g
+SUGAR
+5g
+KID
+5.7
+LIV
+7.5
+MUS
+8.4
+GUT
+1.7
+ENE
+9.0
+INF
+1.7
+SUG
+8.9
+FLAVOR
+4.3
+COST
+9.4
+Why it scores. Chipotle chicken is 32 g of protein for 310
+mg of sodium — the most sodium-efficient protein at any
+restaurant in this compendium. Pinto beans beat black on
+fiber, 8 g to 7, and their brown rice is lower in sodium than
+white, 190 mg against 350.
+On flavor. The weakest flavor case in the document,
+and honestly so. Declining the vinaigrette removes 850
+mg of sodium and 12 g of sugar, and it also removes
+most of what makes the salad taste like anything.
+Guacamole is doing the work. Order in the first-party
+app, where light / standard / extra portioning is
+confirmed to function.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Same salad without guacamole ▲ 240 cal and 385 mg lighter;
+blander still
+335 cal · 41 g · 670 mg 6.62
+Cauliflower rice bowl 4 g fiber for 60 cal, keeps the bowl
+format
+600 cal · 44 g · 1,285 mg 5.95
+Double chicken with black beans Extra protein is a flat multiplier:
++310 mg
+530 cal · 73 g · 1,240 mg 5.92
+Brown rice bowl instead of salad Real carbohydrate at 190 mg 785 cal · 47 g · 1,490 mg 5.01
+Sofritas instead of chicken Plant protein; 560 mg and 5 g
+sugar
+545 cal · 20 g · 1,305 mg 4.88
+▲ scores above the recommended dish — kept as a complete meal — 335 calories is a light lunch.
+The Thirty · A Fast-Casual Nutrition Compendium 13
+===== PAGE 14 =====
+23
+6.03
+health 6.1
+Bul Box PARTIAL $15.89
+Malibu Poke with salmon
+DoorDash store 890461 · ~4 mi from RTP
+Salmon · kale mix · edamame · corn · pickled red onion · avocado · cherry tomato · rice puffs · take ONE sauce,
+sriracha, of the two allowed
+CAL
+440
+PROTEIN
+25g
+SODIUM
+900mg
+SAT FAT
+3g
+FIBER
+8g
+SUGAR
+8g
+KID
+6.7
+LIV
+10.0
+MUS
+4.4
+GUT
+2.9
+ENE
+5.0
+INF
+6.9
+SUG
+7.4
+FLAVOR
+4.6
+COST
+6.3
+Why it scores. The lightest item on their menu at 440
+calories, and salmon is one of few foods with trial evidence
+for reducing liver fat. No masago exists anywhere in their
+system, so that constraint is automatically satisfied. Their
+nutrition page was returning a server error, so sodium is
+inferred from construction.
+On flavor. A hard two-sauce cap you cannot exceed,
+and the spread between them is wide: sriracha is 28
+calories where spicy mayo is 178 and yum yum is 150.
+Taking one sriracha instead of two creamy sauces is the
+entire health edit.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Seoul Box AVOID — kimchi, slaw, pickles and
+gochujang stack
+540 cal · 32 g · 1,700 mg 5.61
+Kona Poke Three sauces by default — decline
+two
+550 cal · 26 g · 1,150 mg 5.35
+Shanghai Box Ginger chicken, broccoli, green
+beans
+550 cal · 30 g · 1,050 mg 5.26
+California Box Tofu; the only box with a single
+default sauce
+550 cal · 22 g · 900 mg 5.01
+24
+5.98
+health 5.9
+Farmside Kitchen ESTIMATED $13.14
+Build Your Own bowl with chicken and quinoa
+DoorDash store 1616801 · ~1 mi from RTP
+Greens + quinoa · grilled chicken · black beans · half cheese · order NO DRESSING, then add Extra Dressing as a
+separate paid item
+CAL
+600
+PROTEIN
+35g
+SODIUM
+620mg
+SAT FAT
+6g
+FIBER
+11g
+SUGAR
+5g
+KID
+8.4
+LIV
+7.5
+MUS
+5.6
+GUT
+2.3
+ENE
+7.3
+INF
+2.3
+SUG
+8.9
+FLAVOR
+4.3
+COST
+8.5
+Why it scores. Sodium at Farmside lives in the dressing
+and the cheese rather than the produce. Building the bowl
+manually roughly halves it against any signature bowl —
+The Rancher, for contrast, is 1,760 mg.
+On flavor. The only restaurant in this set with true first￾class omission toggles: No greens, No grain and No
+dressing are actual selectable options. Better still,
+ordering No Dressing plus Extra Dressing at $0.75 is the
+one buildable sauce-on-the-side mechanism anywhere
+on this list.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+The Farm Caesar Signature bowl; best protein
+density there
+510 cal · 36 g · 1,130 mg 5.23
+Kale & Quinoa Beets and sweet potato; more
+polyphenols
+650 cal · 33 g · 1,220 mg 4.98
+The Pitchfork Tofu and lentils, 12 g fiber 800 cal · 29 g · 950 mg 4.60
+The Root Veggie Bowl Lowest saturated fat there; low
+protein
+640 cal · 14 g · 880 mg 4.22
+The Rancher AVOID — 1,760 mg, the sodium
+ceiling
+1030 cal · 39 g · 1,760 mg 3.63
+The Thirty · A Fast-Casual Nutrition Compendium 14
+===== PAGE 15 =====
+25
+5.95
+health 6.0
+Naga's South Indian ESTIMATED $19.00
+Curd rice with idli and sambar
+DoorDash store 23245017 · ~4 mi from RTP
+Curd rice · two idli · sambar · the four chutneys · no vada, no ghee roast
+CAL
+560
+PROTEIN
+20g
+SODIUM
+1,150mg
+SAT FAT
+3g
+FIBER
+10g
+SUGAR
+7g
+KID
+5.2
+LIV
+9.3
+MUS
+1.7
+GUT
+10.0
+ENE
+4.7
+INF
+4.0
+SUG
+7.9
+FLAVOR
+7.1
+COST
+3.8
+Why it scores. Curd rice is set yogurt stirred into cooled
+rice and served cold — a genuine live-culture item, and
+one of only three in this compendium. Idli is steamed with
+no oil at all, which makes it close to the lowest-fat
+restaurant preparation that exists. Sambar contributes
+toor dal protein plus four to six vegetables.
+On flavor. South Indian cooking solves the flavor
+problem the way this whole document wants it solved:
+mustard seed, curry leaf, asafoetida, tamarind and chili,
+with almost no fat. The idli batter ferments overnight,
+which is where the sourness comes from — the cultures
+die in the steamer but the flavor and the phytate
+reduction survive.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Sambar idly only Very low fat; low protein 380 cal · 14 g · 980 mg 5.90
+Curd rice with chicken curry added Real protein, considerably more
+sodium
+840 cal · 46 g · 1,750 mg 5.78
+Plain dosa, asking for less ghee Griddled; fermented batter 520 cal · 14 g · 1,050 mg 5.43
+Masala dosa Potato filling; more starch 680 cal · 16 g · 1,250 mg 4.67
+26
+5.84
+health 6.0
+Goorsha ESTIMATED $24.00
+Vegan vegetable combo
+DoorDash store 245551 · ~10 mi from RTP
+Six vegetable stews on injera — kik alicha, tikil gomen, shiro, gomen, misir wot and salad · ordered vegan, so no
+clarified butter
+CAL
+660
+PROTEIN
+26g
+SODIUM
+1,150mg
+SAT FAT
+3g
+FIBER
+20g
+SUGAR
+8g
+KID
+5.2
+LIV
+8.7
+MUS
+2.7
+GUT
+7.9
+ENE
+6.7
+INF
+4.0
+SUG
+7.4
+FLAVOR
+6.8
+COST
+2.7
+Why it scores. Eight to twelve plant species and roughly
+20 g of fiber in a single order, from a kitchen with a deeper
+review base and a stated commitment to local and organic
+sourcing. Kik alicha in particular is turmeric, onion, garlic
+and ginger at relatively low sodium.
+On flavor. Berbere and the spice blends do the work.
+Ordering vegan removes the niter kibbeh, which costs
+some richness but very little flavor, since the spice is
+the point.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Kik alicha and tikil gomen only The two mildest stews; much
+lighter
+320 cal · 12 g · 620 mg 5.55
+Add lean tibs Sautéed beef for real protein 1000 cal · 56 g · 1,750 mg 5.31
+Combo with clarified butter Richer; adds saturated fat 780 cal · 26 g · 1,200 mg 5.13
+The Thirty · A Fast-Casual Nutrition Compendium 15
+===== PAGE 16 =====
+27
+5.58
+health 5.6
+Namu ESTIMATED $26.00
+Bibimbap with banchan ordered separately
+DoorDash store 27798771 · ~7 mi from RTP
+Bibimbap with light rice · gochujang on the side · kimchi and namul ordered from the Ban Chan menu
+CAL
+640
+PROTEIN
+34g
+SODIUM
+1,500mg
+SAT FAT
+5g
+FIBER
+9g
+SUGAR
+9g
+KID
+3.0
+LIV
+7.8
+MUS
+4.9
+GUT
+10.0
+ENE
+2.8
+INF
+4.0
+SUG
+6.8
+FLAVOR
+8.2
+COST
+3.1
+Why it scores. Unusually, the fermented sides form their
+own menu category rather than only arriving bundled with
+entrées — which means kimchi and namul are orderable à
+la carte on a delivery order. Bibimbap itself carries seven
+or more vegetable types in one bowl.
+On flavor. The best-textured dish in the compendium:
+crisp namul, soft rice, runny egg, raw greens. Asking for
+less rice and gochujang on the side costs almost
+nothing, because the sesame oil and the ferments are
+what you actually taste.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Ban chan plates only ▲ Kimchi and namul; vegetarian,
+very light
+220 cal · 8 g · 900 mg 6.39
+Bibimbap with steamed mandoo added Steamed dumplings, not fried 940 cal · 48 g · 2,000 mg 4.91
+Bibimbap, standard rice, sauce mixed in The default preparation 820 cal · 34 g · 1,900 mg 4.60
+▲ scores above the recommended dish — kept as a complete meal — banchan alone is 220 calories.
+28
+5.30
+health 5.2
+Southern Spice ESTIMATED $11.99
+Sambar idli with chutneys
+DoorDash store 34487911 · ~5 mi from RTP
+Three steamed idli · sambar · coconut, tomato, mint and coriander chutneys · no vada, no ghee roast
+CAL
+380
+PROTEIN
+14g
+SODIUM
+980mg
+SAT FAT
+1.5g
+FIBER
+8g
+SUGAR
+5g
+KID
+6.2
+LIV
+10.0
+MUS
+1.3
+GUT
+3.4
+ENE
+4.4
+INF
+3.4
+SUG
+8.9
+FLAVOR
+5.7
+COST
+6.0
+Why it scores. Idli is steamed with no oil whatsoever,
+which makes it close to the lowest-fat restaurant
+preparation that exists — 1.5 g of saturated fat for a full
+plate. Sambar contributes toor dal protein plus four to six
+vegetables, and the four chutneys add coconut, tomato,
+mint and coriander on top. The weakness is protein: 14 g
+is low for a main.
+On flavor. Mustard seed, curry leaf, asafoetida,
+tamarind and chili, with almost no fat carrying any of it
+— the clearest demonstration in this compendium that
+flavor and fat are separable. The idli batter is fermented
+overnight, which is where the sourness comes from; the
+cultures die in the steamer but the flavor and the
+phytate reduction survive. Texture is the weak point,
+since everything on the plate is soft.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Add chicken curry to the plate Fixes the protein problem; costs
+sodium
+660 cal · 40 g · 1,680 mg 5.13
+Idli alone, no sambar Very low sodium; nutritionally thin 210 cal · 7 g · 420 mg 4.78
+Parotta with kurma Layered flatbread — refined and
+oil-laminated
+620 cal · 14 g · 1,250 mg 3.93
+The Thirty · A Fast-Casual Nutrition Compendium 16
+===== PAGE 17 =====
+29
+5.29
+health 5.1
+Bonjour Banh Mi ESTIMATED $17.90
+Grilled chicken vermicelli plate
+DoorDash store 22957718 · ~3 mi from RTP
+Grilled chicken · vermicelli · lettuce, cucumber, carrot, pickled daikon · extra vegetables added · nước chấm
+ordered separately as its own $0.50 item
+CAL
+600
+PROTEIN
+35g
+SODIUM
+1,250mg
+SAT FAT
+4g
+FIBER
+6g
+SUGAR
+12g
+KID
+4.5
+LIV
+8.5
+MUS
+5.6
+GUT
+3.4
+ENE
+4.7
+INF
+3.4
+SUG
+5.3
+FLAVOR
+7.1
+COST
+6.5
+Why it scores. Grilled rather than fried, on a genuinely
+vegetable-heavy plate. Vermicelli is the built-in alternative
+to white rice — every protein is orderable over either.
+On flavor. The only restaurant in this compendium with
+a true native sauce-on-the-side mechanism: sauces are
+sold as separate $0.50 line items, so the plate is
+ordered plain and the nước chấm added as its own SKU.
+That is a real structural advantage over asking in a
+notes field. Their do chua is a vinegar pickle, so it earns
+no gut credit.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Grilled pork rolls ▲ Steamed rice paper, not fried 320 cal · 22 g · 780 mg 5.65
+Grilled shrimp and pork vermicelli More protein, more sodium 700 cal · 42 g · 1,500 mg 5.10
+Pho ga Simmered with a raw herb plate;
+sweet broth
+520 cal · 34 g · 1,750 mg 4.78
+Any banh mi AVOID — baguette plus house
+mayonnaise
+700 cal · 30 g · 1,600 mg 3.98
+▲ scores above the recommended dish — kept as a complete meal — rolls alone are an appetizer.
+30
+5.29
+health 5.3
+Udupi Cafe ESTIMATED $24.99
+Royal South Indian thali
+DoorDash store 208333 · ~9 mi from RTP
+Full thali — sambar, rasam, two vegetable curries, curd, rice, chapati, pickle · the curd is the live-culture
+component
+CAL
+750
+PROTEIN
+24g
+SODIUM
+1,500mg
+SAT FAT
+5g
+FIBER
+14g
+SUGAR
+10g
+KID
+3.0
+LIV
+7.1
+MUS
+1.7
+GUT
+10.0
+ENE
+5.3
+INF
+4.0
+SUG
+6.3
+FLAVOR
+8.2
+COST
+2.3
+Why it scores. A thali is structurally the highest-plant￾diversity format in this compendium — twelve or more
+species across the sambar, rasam, two curries and the
+pickle, at roughly 14 g of fiber. The curd is plain set yogurt
+served cold, so unlike the idli and dosai batters the
+cultures are still alive.
+On flavor. Six or seven separate preparations on one
+tray, each seasoned differently, which solves the
+texture-and-monotony problem that the single-dish
+entries here struggle with. Nothing needs to be
+removed; the format is already built around vegetables,
+legumes and spice rather than fat.
+ALTERNATIVE ORDER WHAT CHANGES CAL · PROTEIN · SODIUM SCORE
+Plain dosai with sambar Less starch, less protein 520 cal · 14 g · 1,050 mg 5.27
+Uthappam with onion and chilli Thicker pancake; more vegetables
+on top
+600 cal · 16 g · 1,180 mg 5.26
+Masala dosai Griddled; potato filling adds starch 680 cal · 16 g · 1,250 mg 4.35
+The Thirty · A Fast-Casual Nutrition Compendium 17
+===== PAGE 18 =====
+The Next Thirty
+Thirty further dishes from thirty more DoorDash-verified restaurants, scored on the identical nine criteria. These
+carry the data only — no commentary, and no alternative orders. Every figure here is estimated from menu
+construction: none of these thirty publishes nutrition in a form that could be read directly, though eight of the
+brands publish it on their own sites, which a later pass could substitute.
+31
+6.99
+health 7.2
+M Izakaya ESTIMATED $20.40
+Tiradito
+DoorDash store 29675138 · ~10 mi from RTP
+Thin-sliced raw white fish · yuzu and lime · ají chili · oil · no fry, no cream
+CAL
+320
+PROTEIN
+30g
+SODIUM
+750mg
+SAT FAT
+2g
+FIBER
+3g
+SUGAR
+4g
+KID
+7.6
+LIV
+10.0
+MUS
+8.5
+GUT
+1.1
+ENE
+7.0
+INF
+7.1
+SUG
+9.5
+FLAVOR
+6.8
+COST
+4.9
+32
+6.94
+health 6.8
+Chopt ESTIMATED $10.79
+Craft Your Own salad, grilled chicken
+DoorDash store 309280 · ~13 mi from RTP
+Chopped base · grilled chicken · full vegetable selection · vinaigrette light
+CAL
+480
+PROTEIN
+38g
+SODIUM
+900mg
+SAT FAT
+4g
+FIBER
+10g
+SUGAR
+6g
+KID
+6.7
+LIV
+9.3
+MUS
+8.1
+GUT
+4.0
+ENE
+7.8
+INF
+4.0
+SUG
+8.4
+FLAVOR
+5.7
+COST
+9.6
+33
+6.82
+health 7.1
+Peony Asian Bistro ESTIMATED $22.00
+Sashimi bowl
+DoorDash store 245447 · ~9 mi from RTP
+Assorted raw fish over rice · seaweed · cucumber · no tempura, no mayonnaise sauces
+CAL
+420
+PROTEIN
+40g
+SODIUM
+800mg
+SAT FAT
+3g
+FIBER
+4g
+SUGAR
+6g
+KID
+7.3
+LIV
+10.0
+MUS
+9.5
+GUT
+1.7
+ENE
+5.2
+INF
+7.7
+SUG
+8.4
+FLAVOR
+5.0
+COST
+5.3
+34
+6.40
+health 6.3
+Mahana Fresh ESTIMATED $14.00
+Build Your Own bowl
+DoorDash store 36763971 · ~7 mi from RTP
+Base · grilled protein · vegetable selection · sauce light
+CAL
+560
+PROTEIN
+38g
+SODIUM
+950mg
+SAT FAT
+5g
+FIBER
+9g
+SUGAR
+8g
+KID
+6.4
+LIV
+8.3
+MUS
+6.9
+GUT
+4.0
+ENE
+5.5
+INF
+6.0
+SUG
+7.4
+FLAVOR
+5.7
+COST
+8.3
+The Thirty · A Fast-Casual Nutrition Compendium 18
+===== PAGE 19 =====
+35
+6.39
+health 6.4
+Happy + Hale ESTIMATED $14.58
+Create Your Own bowl
+DoorDash store 642743 · ~15 mi from RTP
+Greens and grain base · grilled protein · roasted vegetables · dressing on the side
+CAL
+550
+PROTEIN
+35g
+SODIUM
+850mg
+SAT FAT
+4.5g
+FIBER
+11g
+SUGAR
+7g
+KID
+7.0
+LIV
+8.6
+MUS
+6.2
+GUT
+4.0
+ENE
+7.5
+INF
+4.0
+SUG
+7.9
+FLAVOR
+5.0
+COST
+7.9
+36
+6.36
+health 6.3
+Sweetgreen ESTIMATED $18.75
+Miso Glazed Salmon bowl
+DoorDash store 36879035 · ~13 mi from RTP
+Roasted salmon · warm grain and green base · seasonal vegetables
+CAL
+620
+PROTEIN
+33g
+SODIUM
+1,100mg
+SAT FAT
+4g
+FIBER
+9g
+SUGAR
+10g
+KID
+5.5
+LIV
+8.4
+MUS
+4.8
+GUT
+4.0
+ENE
+5.1
+INF
+10.0
+SUG
+6.3
+FLAVOR
+7.5
+COST
+6.0
+37
+6.30
+health 6.2
+Neomonde ESTIMATED $15.99
+Build A Bowl
+DoorDash store 1858365 · ~4 mi from RTP
+Grain or green base · grilled protein · Mediterranean vegetable selection · no pita
+CAL
+580
+PROTEIN
+38g
+SODIUM
+1,050mg
+SAT FAT
+6g
+FIBER
+10g
+SUGAR
+6g
+KID
+5.8
+LIV
+7.7
+MUS
+6.7
+GUT
+4.0
+ENE
+7.4
+INF
+4.0
+SUG
+8.4
+FLAVOR
+6.8
+COST
+7.5
+38
+6.28
+health 6.5
+Chengdu 7 ESTIMATED $36.95
+Braised fish fillets with green Sichuan peppercorn
+DoorDash store 208964 · ~10 mi from RTP
+Fish poached in broth · green peppercorn · chili · scallion · bean sprout base · not fried, not breaded
+CAL
+620
+PROTEIN
+48g
+SODIUM
+1,900mg
+SAT FAT
+6g
+FIBER
+6g
+SUGAR
+5g
+KID
+0.6
+LIV
+7.4
+MUS
+8.6
+GUT
+6.8
+ENE
+7.0
+INF
+6.9
+SUG
+8.9
+FLAVOR
+8.6
+COST
+1.0
+39
+6.26
+health 6.4
+Clean Eatz ESTIMATED $16.79
+Build A Bowl, large
+DoorDash store 538567 · ~7 mi from RTP
+Grilled protein · greens or grain base · vegetable selection
+CAL
+520
+PROTEIN
+42g
+SODIUM
+780mg
+SAT FAT
+4g
+FIBER
+8g
+SUGAR
+5g
+KID
+7.4
+LIV
+9.1
+MUS
+8.7
+GUT
+2.9
+ENE
+5.7
+INF
+2.9
+SUG
+8.9
+FLAVOR
+3.2
+COST
+7.4
+The Thirty · A Fast-Casual Nutrition Compendium 19
+===== PAGE 20 =====
+40
+6.09
+health 6.0
+Village Juice & Kitchen ESTIMATED $16.45
+Hot honey chicken salad
+DoorDash store 34429611 · ~15 mi from RTP
+Grilled chicken · greens · vegetable selection · hot honey dressing light
+CAL
+540
+PROTEIN
+36g
+SODIUM
+950mg
+SAT FAT
+5g
+FIBER
+9g
+SUGAR
+12g
+KID
+6.4
+LIV
+8.4
+MUS
+6.6
+GUT
+4.0
+ENE
+7.2
+INF
+4.0
+SUG
+5.3
+FLAVOR
+6.1
+COST
+7.2
+41
+5.93
+health 5.8
+Swagat Indian ESTIMATED $22.00
+Tandoori mixed grill
+DoorDash store 226402 · ~4 mi from RTP
+Clay-oven grilled chicken and lamb · onion and lemon · raita · no naan, no rice
+CAL
+620
+PROTEIN
+50g
+SODIUM
+1,500mg
+SAT FAT
+8g
+FIBER
+5g
+SUGAR
+6g
+KID
+3.0
+LIV
+6.4
+MUS
+9.0
+GUT
+5.6
+ENE
+6.9
+INF
+1.7
+SUG
+8.4
+FLAVOR
+8.2
+COST
+5.9
+42
+5.90
+health 5.8
+Jason's Deli ESTIMATED $12.89
+Salad-bar build with grilled chicken
+DoorDash store 843725 · ~11 mi from RTP
+Build from the salad bar · grilled chicken added · vinaigrette rather than creamy dressing
+CAL
+560
+PROTEIN
+40g
+SODIUM
+1,200mg
+SAT FAT
+8g
+FIBER
+7g
+SUGAR
+6g
+KID
+4.8
+LIV
+6.8
+MUS
+7.5
+GUT
+3.4
+ENE
+7.0
+INF
+3.4
+SUG
+8.4
+FLAVOR
+4.3
+COST
+8.9
+43
+5.89
+health 5.7
+Roots Natural Kitchen ESTIMATED $14.00
+Create Your Own bowl
+DoorDash store 2473595 · ~13 mi from RTP
+Grain and green base · roasted vegetables · grilled protein · light dressing
+CAL
+580
+PROTEIN
+32g
+SODIUM
+950mg
+SAT FAT
+5g
+FIBER
+12g
+SUGAR
+8g
+KID
+6.4
+LIV
+8.2
+MUS
+4.9
+GUT
+4.0
+ENE
+5.7
+INF
+4.0
+SUG
+7.4
+FLAVOR
+6.1
+COST
+7.9
+44
+5.86
+health 5.6
+Quick Meal Mediterranean ESTIMATED $12.99
+Chicken kebab plate
+DoorDash store 245402 · ~11 mi from RTP
+Grilled chicken kebab · rice · salad
+CAL
+540
+PROTEIN
+44g
+SODIUM
+1,100mg
+SAT FAT
+6g
+FIBER
+6g
+SUGAR
+5g
+KID
+5.5
+LIV
+7.9
+MUS
+9.0
+GUT
+1.7
+ENE
+5.4
+INF
+1.7
+SUG
+8.9
+FLAVOR
+6.4
+COST
+9.0
+The Thirty · A Fast-Casual Nutrition Compendium 20
+===== PAGE 21 =====
+45
+5.76
+health 5.5
+Mediterra Grill ESTIMATED $15.99
+Chicken kabob plate
+DoorDash store 245427 · ~11 mi from RTP
+Grilled chicken kabob · rice · salad · no pita
+CAL
+560
+PROTEIN
+46g
+SODIUM
+1,150mg
+SAT FAT
+6g
+FIBER
+6g
+SUGAR
+5g
+KID
+5.2
+LIV
+7.8
+MUS
+9.2
+GUT
+1.7
+ENE
+5.4
+INF
+1.7
+SUG
+8.9
+FLAVOR
+6.4
+COST
+7.9
+46
+5.74
+health 5.7
+Shinmai Shokudo ESTIMATED $27.00
+Salmon bento
+DoorDash store 35360369 · ~9 mi from RTP
+Grilled salmon · rice · pickles · miso soup · vegetable sides
+CAL
+680
+PROTEIN
+40g
+SODIUM
+1,350mg
+SAT FAT
+6g
+FIBER
+6g
+SUGAR
+10g
+KID
+3.9
+LIV
+7.0
+MUS
+6.1
+GUT
+6.2
+ENE
+2.4
+INF
+8.3
+SUG
+6.3
+FLAVOR
+8.2
+COST
+3.3
+47
+5.46
+health 5.3
+Tazza Kitchen ESTIMATED $19.38
+Baja bowl
+DoorDash store 24878700 · ~7 mi from RTP
+Wood-fired protein · grains · black beans · cabbage · avocado · salsa
+CAL
+640
+PROTEIN
+36g
+SODIUM
+1,250mg
+SAT FAT
+7g
+FIBER
+11g
+SUGAR
+8g
+KID
+4.5
+LIV
+6.8
+MUS
+5.5
+GUT
+4.0
+ENE
+5.5
+INF
+4.0
+SUG
+7.4
+FLAVOR
+7.1
+COST
+6.0
+48
+5.42
+health 5.4
+Szechuan Mansion Hotpot ESTIMATED $21.00
+Szechuan boiled bean curd
+DoorDash store 871259 · ~11 mi from RTP
+Boiled tofu and vegetables in broth · per-person share of the for-two portion
+CAL
+480
+PROTEIN
+30g
+SODIUM
+1,800mg
+SAT FAT
+5g
+FIBER
+7g
+SUGAR
+6g
+KID
+1.2
+LIV
+8.8
+MUS
+5.5
+GUT
+6.8
+ENE
+5.0
+INF
+2.9
+SUG
+8.4
+FLAVOR
+6.8
+COST
+4.7
+49
+5.40
+health 5.1
+Esmeralda Grill ESTIMATED $13.99
+Pollo rostizado
+DoorDash store 208527 · ~10 mi from RTP
+Roasted chicken · rice · beans · handmade tortillas · skin removed
+CAL
+620
+PROTEIN
+52g
+SODIUM
+1,200mg
+SAT FAT
+9g
+FIBER
+5g
+SUGAR
+4g
+KID
+4.8
+LIV
+5.9
+MUS
+9.3
+GUT
+1.1
+ENE
+5.2
+INF
+1.1
+SUG
+9.5
+FLAVOR
+5.7
+COST
+8.9
+The Thirty · A Fast-Casual Nutrition Compendium 21
+===== PAGE 22 =====
+50
+5.35
+health 5.3
+First Watch ESTIMATED $16.81
+Tri-Fecta
+DoorDash store 2804813 · ~10 mi from RTP
+Eggs · avocado · seasonal fruit · whole-grain toast
+CAL
+540
+PROTEIN
+28g
+SODIUM
+900mg
+SAT FAT
+5g
+FIBER
+9g
+SUGAR
+12g
+KID
+6.7
+LIV
+8.4
+MUS
+4.2
+GUT
+2.9
+ENE
+5.0
+INF
+4.9
+SUG
+5.3
+FLAVOR
+4.6
+COST
+6.3
+51
+5.32
+health 4.9
+Jamaica Jamaica ESTIMATED $14.00
+Jerk chicken
+DoorDash store 208434 · ~4 mi from RTP
+Grilled jerk chicken · rice and peas · steamed cabbage · skip the fried plantain
+CAL
+620
+PROTEIN
+46g
+SODIUM
+1,500mg
+SAT FAT
+8g
+FIBER
+5g
+SUGAR
+7g
+KID
+3.0
+LIV
+6.4
+MUS
+8.3
+GUT
+3.4
+ENE
+2.7
+INF
+3.4
+SUG
+7.9
+FLAVOR
+7.5
+COST
+8.7
+52
+5.22
+health 5.1
+Panera Bread ESTIMATED $13.00
+Mediterranean grain bowl
+DoorDash store 554203 · ~11 mi from RTP
+Whole grains · chickpeas · greens · lemon tahini · no bread side
+CAL
+550
+PROTEIN
+24g
+SODIUM
+1,250mg
+SAT FAT
+5g
+FIBER
+10g
+SUGAR
+8g
+KID
+4.5
+LIV
+8.4
+MUS
+2.9
+GUT
+4.0
+ENE
+4.9
+INF
+4.0
+SUG
+7.4
+FLAVOR
+5.0
+COST
+7.6
+53
+5.15
+health 4.8
+No 1 Pho ESTIMATED $20.50
+Bun thit heo nuong
+DoorDash store 209020 · ~7 mi from RTP
+Grilled pork over cold rice vermicelli · lettuce, cucumber, bean sprout, mint · peanut · nuoc cham on the side
+CAL
+640
+PROTEIN
+38g
+SODIUM
+1,450mg
+SAT FAT
+7g
+FIBER
+6g
+SUGAR
+12g
+KID
+3.3
+LIV
+6.8
+MUS
+6.0
+GUT
+4.0
+ENE
+4.7
+INF
+4.0
+SUG
+5.3
+FLAVOR
+8.6
+COST
+5.7
+54
+5.15
+health 4.9
+Los Tres ESTIMATED $17.99
+Street carne asada tacos
+DoorDash store 208838 · ~5 mi from RTP
+Five tacos · grilled skirt steak · corn tortillas · onion, cilantro, lime · no cheese, no crema
+CAL
+680
+PROTEIN
+46g
+SODIUM
+1,300mg
+SAT FAT
+10g
+FIBER
+7g
+SUGAR
+4g
+KID
+4.2
+LIV
+5.0
+MUS
+7.6
+GUT
+1.1
+ENE
+6.9
+INF
+1.1
+SUG
+9.5
+FLAVOR
+6.8
+COST
+7.2
+The Thirty · A Fast-Casual Nutrition Compendium 22
+===== PAGE 23 =====
+55
+5.12
+health 4.8
+Pho 919 ESTIMATED $18.34
+Well-done brisket pho
+DoorDash store 29716328 · ~2 mi from RTP
+Rice noodles · brisket · beef broth · raw herb plate: bean sprout, Thai basil, culantro, lime, jalapeño
+CAL
+520
+PROTEIN
+36g
+SODIUM
+1,750mg
+SAT FAT
+5g
+FIBER
+4g
+SUGAR
+8g
+KID
+1.5
+LIV
+8.6
+MUS
+6.9
+GUT
+4.0
+ENE
+2.4
+INF
+4.0
+SUG
+7.4
+FLAVOR
+7.5
+COST
+6.4
+56
+4.74
+health 4.4
+Rese's Caribbean Kitchen ESTIMATED $14.49
+Brown stew chicken
+DoorDash store 2669228 · ~9 mi from RTP
+Braised chicken in browning and thyme · rice and peas · steamed vegetables
+CAL
+640
+PROTEIN
+42g
+SODIUM
+1,400mg
+SAT FAT
+9g
+FIBER
+5g
+SUGAR
+9g
+KID
+3.6
+LIV
+5.8
+MUS
+7.1
+GUT
+2.9
+ENE
+2.4
+INF
+2.9
+SUG
+6.8
+FLAVOR
+5.7
+COST
+8.3
+57
+4.46
+health 4.2
+MI CANCUN ESTIMATED $24.99
+Carne asada plate
+DoorDash store 23613090 · ~7 mi from RTP
+Grilled steak · rice · beans · pico de gallo · guacamole · corn tortillas
+CAL
+780
+PROTEIN
+50g
+SODIUM
+1,600mg
+SAT FAT
+13g
+FIBER
+9g
+SUGAR
+6g
+KID
+2.4
+LIV
+2.9
+MUS
+7.2
+GUT
+2.3
+ENE
+5.4
+INF
+2.3
+SUG
+8.4
+FLAVOR
+7.1
+COST
+4.8
+58
+4.17
+health 3.8
+Afghan Kebab ESTIMATED $19.79
+Beef kobidah
+DoorDash store 28602853 · ~9 mi from RTP
+Charcoal-grilled ground beef skewer · white rice · salad · tandoori bread · Afghan sauce
+CAL
+780
+PROTEIN
+44g
+SODIUM
+1,450mg
+SAT FAT
+11g
+FIBER
+6g
+SUGAR
+6g
+KID
+3.3
+LIV
+3.9
+MUS
+6.3
+GUT
+1.7
+ENE
+2.3
+INF
+1.7
+SUG
+8.4
+FLAVOR
+7.5
+COST
+6.4
+59
+4.17
+health 4.1
+Gifted Hand Cuisine ESTIMATED $32.79
+Braised oxtail
+DoorDash store 31910051 · ~14 mi from RTP
+Slow-braised oxtail · vegetables · rice · not fried
+CAL
+780
+PROTEIN
+52g
+SODIUM
+1,500mg
+SAT FAT
+16g
+FIBER
+6g
+SUGAR
+6g
+KID
+3.0
+LIV
+1.4
+MUS
+7.5
+GUT
+2.3
+ENE
+4.9
+INF
+2.3
+SUG
+8.4
+FLAVOR
+7.5
+COST
+2.1
+The Thirty · A Fast-Casual Nutrition Compendium 23
+===== PAGE 24 =====
+60
+4.05
+health 3.8
+Silk Road Uzbek ESTIMATED $16.99
+Manti, four pieces
+DoorDash store 25557474 · ~8 mi from RTP
+Steamed lamb-and-onion dumplings · no fry, no cream
+CAL
+560
+PROTEIN
+28g
+SODIUM
+1,100mg
+SAT FAT
+8g
+FIBER
+4g
+SUGAR
+5g
+KID
+5.5
+LIV
+6.8
+MUS
+4.0
+GUT
+0.6
+ENE
+1.8
+INF
+0.6
+SUG
+8.9
+FLAVOR
+5.4
+COST
+6.2
+The Thirty · A Fast-Casual Nutrition Compendium 24
+===== PAGE 25 =====
+All Sixty at a Glance
+Overall score, the health-only score, and flavor and cost separated out — so the list can be read by whichever
+column matters. Overall is the health composite plus flavor and cost, each at half weight.
+# OVERALL HEALTH FLAVOR COST RESTAURANT DISH CAL PRO SODIUM SAT FIB SUG DATA
+1 7.78 8.07 3.9 7.8 Poke Bros. Double tuna salad bowl 542 52 210 2.2 10 9 Pub
+2 7.77 7.73 8.2 7.8 El Cuscatleco Filete de pescado with curtido 500 42 1,000 3.5 9 6 Est
+3 7.48 7.34 8.9 7.8 Sassool
+Chicken kabob with labneh and
+three cold salads
+620 46 980 7 12 6 Est
+4 7.33 7.27 5.7 9.8 DICED
+Lentil-base bowl with grilled
+chicken
+680 60 220 4 14 8 Part
+5 7.31 7.86 5.0 2.3 M Sushi Oily-cut sashimi selection 430 46 620 4.5 4 2 Est
+6 7.19 7.30 5.0 7.9 Pokeworks Large chicken bowl on salad base 420 44 550 3.5 8 3 Pub
+7 7.05 6.87 9.6 6.9 Taste Vietnamese
+Sizzling fish with vermicelli and
+herbs
+600 40 1,300 4 7 10 Est
+8 7.04 7.45 5.4 3.3 True Food Kitchen
+Tuscan Kale Salad with salmon,
+dressing declined
+380 36 330 6 4 2 Pub
+9 7.02 6.94 9.6 5.5 Thai 54
+Nam tok beef with spicy papaya
+salad
+470 42 1,450 4.5 8 9 Est
+10 6.85 6.68 8.2 7.9 Baba Ghannouj
+Chicken kebab plate with fattoush
+and tzatziki
+560 44 1,200 5 8 6 Est
+11 6.82 6.64 8.2 7.8 Bosphorus Chicken shish kebab with cacık 580 48 1,150 6 9 5 Est
+12 6.80 6.77 8.6 5.4 Kathmandu Kitchen Chicken choila with dal 460 42 1,100 4 7 4 Est
+13 6.66 6.80 7.1 4.3 Canastas Chicken
+Grilled salmon with house salad
+and green beans
+560 45 1,150 5 6 4 Est
+14 6.63 6.47 7.1 8.3 CAVA
+SuperGreens and lentil bowl with
+grilled steak
+740 50 1,125 8 27 6 Pub
+15 6.60 6.84 5.7 4.2 Mi Perú Ceviche de tilapia 420 38 1,100 2 6 8 Est
+16 6.56 6.27 7.5 9.6 Guasaca Grilled chicken bowl 540 42 1,050 4.5 11 7 Est
+17 6.53 6.60 6.1 6.1 Luna Rotisserie
+Quarter rotisserie chicken with two
+salads
+420 34 820 4 9 5 Est
+18 6.42 6.38 7.1 6.2 Abol Ethiopian Vegetarian combo with telba shiro 720 28 1,250 3.5 22 9 Est
+19 6.38 6.39 8.6 4.1 Chosun Ok
+Seafood soondubu with a kimchi
+side
+540 40 2,100 3.5 7 6 Est
+20 6.28 6.14 8.2 6.2 Bulkogi
+Create Your Own bowl with a
+kimchi side
+500 35 1,800 5 8 10 Est
+21 6.22 6.21 8.6 4.1 Urban Turban
+Tandoori fish tikka with raita and
+vegetable jalfrezi
+650 50 1,600 7 8 8 Est
+22 6.13 6.02 4.3 9.4 Chipotle
+Chicken salad with pinto beans
+and guacamole
+575 44 1,055 6.5 17 5 Pub
+23 6.03 6.11 4.6 6.3 Bul Box Malibu Poke with salmon 440 25 900 3 8 8 Part
+24 5.98 5.92 4.3 8.5 Farmside Kitchen
+Build Your Own bowl with chicken
+and quinoa
+600 35 620 6 11 5 Est
+25 5.95 6.02 7.1 3.8 Naga's South Indian Curd rice with idli and sambar 560 20 1,150 3 10 7 Est
+26 5.84 6.00 6.8 2.7 Goorsha Vegan vegetable combo 660 26 1,150 3 20 8 Est
+27 5.58 5.57 8.2 3.1 Namu
+Bibimbap with banchan ordered
+separately
+640 34 1,500 5 9 9 Est
+28 5.30 5.22 5.7 6.0 Southern Spice Sambar idli with chutneys 380 14 980 1.5 8 5 Est
+29 5.29 5.06 7.1 6.5 Bonjour Banh Mi Grilled chicken vermicelli plate 600 35 1,250 4 6 12 Est
+The Thirty · A Fast-Casual Nutrition Compendium 25
+===== PAGE 26 =====
+# OVERALL HEALTH FLAVOR COST RESTAURANT DISH CAL PRO SODIUM SAT FIB SUG DATA
+30 5.29 5.30 8.2 2.3 Udupi Cafe Royal South Indian thali 750 24 1,500 5 14 10 Est
+31 6.99 7.16 6.8 4.9 M Izakaya Tiradito 320 30 750 2 3 4 Est
+32 6.94 6.84 5.7 9.6 Chopt
+Craft Your Own salad, grilled
+chicken
+480 38 900 4 10 6 Est
+33 6.82 7.07 5.0 5.3 Peony Asian Bistro Sashimi bowl 420 40 800 3 4 6 Est
+34 6.40 6.30 5.7 8.3 Mahana Fresh Build Your Own bowl 560 38 950 5 9 8 Est
+35 6.39 6.38 5.0 7.9 Happy + Hale Create Your Own bowl 550 35 850 4.5 11 7 Est
+36 6.36 6.30 7.5 6.0 Sweetgreen Miso Glazed Salmon bowl 620 33 1,100 4 9 10 Est
+37 6.30 6.17 6.8 7.5 Neomonde Build A Bowl 580 38 1,050 6 10 6 Est
+38 6.28 6.50 8.6 1.0 Chengdu 7
+Braised fish fillets with green
+Sichuan peppercorn
+620 48 1,900 6 6 5 Est
+39 6.26 6.40 3.2 7.4 Clean Eatz Build A Bowl, large 520 42 780 4 8 5 Est
+40 6.09 6.01 6.1 7.2
+Village Juice &
+Kitchen
+Hot honey chicken salad 540 36 950 5 9 12 Est
+41 5.93 5.76 8.2 5.9 Swagat Indian Tandoori mixed grill 620 50 1,500 8 5 6 Est
+42 5.90 5.80 4.3 8.9 Jason's Deli Salad-bar build with grilled chicken 560 40 1,200 8 7 6 Est
+43 5.89 5.72 6.1 7.9
+Roots Natural
+Kitchen
+Create Your Own bowl 580 32 950 5 12 8 Est
+44 5.86 5.58 6.4 9.0
+Quick Meal
+Mediterranean
+Chicken kebab plate 540 44 1,100 6 6 5 Est
+45 5.76 5.55 6.4 7.9 Mediterra Grill Chicken kabob plate 560 46 1,150 6 6 5 Est
+46 5.74 5.74 8.2 3.3 Shinmai Shokudo Salmon bento 680 40 1,350 6 6 10 Est
+47 5.46 5.30 7.1 6.0 Tazza Kitchen Baja bowl 640 36 1,250 7 11 8 Est
+48 5.42 5.38 6.8 4.7
+Szechuan Mansion
+Hotpot
+Szechuan boiled bean curd 480 30 1,800 5 7 6 Est
+49 5.40 5.12 5.7 8.9 Esmeralda Grill Pollo rostizado 620 52 1,200 9 5 4 Est
+50 5.35 5.33 4.6 6.3 First Watch Tri-Fecta 540 28 900 5 9 12 Est
+51 5.32 4.90 7.5 8.7 Jamaica Jamaica Jerk chicken 620 46 1,500 8 5 7 Est
+52 5.22 5.06 5.0 7.6 Panera Bread Mediterranean grain bowl 550 24 1,250 5 10 8 Est
+53 5.15 4.85 8.6 5.7 No 1 Pho Bun thit heo nuong 640 38 1,450 7 6 12 Est
+54 5.15 4.88 6.8 7.2 Los Tres Street carne asada tacos 680 46 1,300 10 7 4 Est
+55 5.12 4.84 7.5 6.4 Pho 919 Well-done brisket pho 520 36 1,750 5 4 8 Est
+56 4.74 4.39 5.7 8.3
+Rese's Caribbean
+Kitchen
+Brown stew chicken 640 42 1,400 9 5 9 Est
+57 4.46 4.24 7.1 4.8 MI CANCUN Carne asada plate 780 50 1,600 13 9 6 Est
+58 4.17 3.76 7.5 6.4 Afghan Kebab Beef kobidah 780 44 1,450 11 6 6 Est
+59 4.17 4.07 7.5 2.1 Gifted Hand Cuisine Braised oxtail 780 52 1,500 16 6 6 Est
+60 4.05 3.79 5.4 6.2 Silk Road Uzbek Manti, four pieces 560 28 1,100 8 4 5 Est
+Data confidence. "Published" entries are assembled from each chain's own current nutrition documents — CAVA's allergen guide
+(March 2026), Chipotle's live nutrition feed, Pokeworks' Nutrition Guide v2.0, Poke Bros.' nutritionals, True Food Kitchen's Summer
+2026 guide, and Farmside Kitchen's panel — by summing components rather than estimating. "Partial" means some fields are
+published and some are not: DICED publishes calories, protein, fat, carbohydrate and sodium but no saturated fat and no fiber, so
+those two fields are estimated for that entry. "Estimated" entries are reasoned from menu construction for the independents, which
+publish nothing, and are directional rather than precise.
+Sassool is the one real gap. They publish a July 2024 nutrition PDF at a 6 oz serving basis, but it sits behind Cloudflare and could
+not be retrieved. It opens in an ordinary browser. Given Sassool ranks fourth on estimated figures, replacing those estimates is the
+The Thirty · A Fast-Casual Nutrition Compendium 26
+===== PAGE 27 =====
+highest-value single correction available to this document.
+On DoorDash verification. Every restaurant here was confirmed to have an active DoorDash storefront with delivery enabled, and
+the store ID is printed with each dish. Two candidates were cut at this stage: one Peruvian charcoal-chicken restaurant that operates
+only on Uber Eats, and one Mediterranean chain whose nearest storefront is deactivated on DoorDash while still rendering a 4.5-star
+page with plausible hours. An active storefront is not the same as delivery to a specific address — radius is computed per address at
+checkout — so distance from the research park is printed alongside. Prices shown are DoorDash-listed, which run roughly 15–25%
+above in-store.
+Two things worth confirming by phone. Whether El Cuscatleco's curtido is lacto-fermented or vinegared — it is scored as a live
+ferment, and that is the assumption most likely to be wrong. And whether Kathmandu Kitchen serves gundruk, which would move it
+several places up.
+Ordering mechanics, verified. "On the side" is not a selectable option at any restaurant here. Omission is native at the build-your￾own formats, since they assemble additively from empty. Chipotle's light / standard / extra portioning is confirmed only in their first￾party app, not on delivery platforms. Poke Bros.' OG Sauce is the one auto-added item on this list.
+Compiled 25 August 2026. Menus and formulations change; this is re-scanned every other month.
+The Thirty · A Fast-Casual Nutrition Compendium 27

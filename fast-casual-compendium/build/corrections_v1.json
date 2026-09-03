@@ -1,0 +1,593 @@
+[
+ {
+  "rank": 1,
+  "restaurant": "Poke Bros.",
+  "action": "rescore",
+  "macros": {
+   "cal": 542,
+   "protein": 51,
+   "sodium": 201,
+   "satfat": 2.2,
+   "fiber": 9,
+   "sugar": 8
+  },
+  "claim": "The Poke Bros. double tuna salad bowl's headline figures",
+  "was": "542 cal / 52 g protein / 210 mg sodium / 10 g fiber / 9 g sugar.",
+  "now": "542 cal / 51 g protein / 201 mg sodium / 9 g fiber / 8 g sugar, by summing Poke Bros.' own component table. The headline calorie and saturated-fat figures reproduce exactly; protein, sodium, fiber and sugar were each rounded up by one unit.",
+  "source": "Poke Bros. Nutritionals PDF, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 6,
+  "restaurant": "Pokeworks",
+  "action": "rescore",
+  "macros": {
+   "cal": 400,
+   "protein": 43,
+   "sodium": 535,
+   "satfat": 3.5,
+   "fiber": 6,
+   "sugar": 3
+  },
+  "claim": "The Pokeworks large chicken bowl's totals",
+  "was": "420 cal / 44 g protein / 550 mg sodium / 8 g fiber.",
+  "now": "400 cal / 43 g protein / 535 mg sodium / about 6 g fiber, summing the printed build from the Pokeworks Nutrition Guide v2.0.",
+  "source": "Pokeworks Nutrition Guide v.2.0 (May 2026), retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 4,
+  "restaurant": "DICED",
+  "action": "rescore",
+  "macros": {
+   "cal": 709,
+   "protein": 57,
+   "sodium": 144,
+   "satfat": 4,
+   "fiber": 14,
+   "sugar": 9
+  },
+  "claim": "The DICED lentil bowl 'lands near 220 mg' of sodium at 680 cal and 60 g protein",
+  "was": "680 cal / 60 g protein / 220 mg sodium / 8 g sugar.",
+  "now": "709 cal / 57 g protein / 144 mg sodium / 9 g sugar, summed from DICED's own per-ingredient nutrition calculator. The sodium claim was pessimistic: the bowl is cleaner than the first edition said, and remains the lowest sodium-per-gram-of-protein dish in the set. Saturated fat and fiber stay estimated because DICED publishes neither.",
+  "source": "eatdiced.com/nutrition per-ingredient values, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 23,
+  "restaurant": "Bul Box",
+  "action": "rescore",
+  "macros": {
+   "cal": 445,
+   "protein": 23,
+   "sodium": 1951,
+   "satfat": 3,
+   "fiber": 10,
+   "sugar": 25
+  },
+  "claim": "Bul Box Malibu Poke with salmon is 440 cal / 25 g protein / 900 mg sodium / 8 g sugar",
+  "was": "440 cal / 25 g protein / 900 mg sodium / 8 g sugar, with sodium inferred from construction because the nutrition page returned a server error.",
+  "now": "445 cal / 23 g protein / about 1,950 mg sodium / 25 g sugar. The nutrition page resolves normally now and publishes the full component table; summing the printed build more than doubles the sodium and triples the sugar. This is the largest single error in the first edition and it moves the entry a long way down.",
+  "source": "Bul Box nutrition PDF (bulboxgrill.com/nutrition-allergens), retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 24,
+  "restaurant": "Farmside Kitchen",
+  "action": "dispute",
+  "claim": "'Sodium at Farmside lives in the dressing and the cheese rather than the produce', so building the bowl manually roughly halves it to 620 mg",
+  "was": "620 mg sodium for the build-your-own bowl, on the theory that the dressing and cheese carry the salt.",
+  "now": "Farmside's own nutrition table puts the sodium in the grains and the seasoned protein: seasoned quinoa is 900 mg per 8 oz, seasoned black beans 700 mg, brown rice 660 mg, and the Signature Grilled Chicken 660 mg against 190 mg for a plain grilled breast. A bowl of greens, quinoa, chicken and black beans cannot land at 620 mg. The entry is held as disputed rather than rescored, because the component portions used in a built bowl could not be established.",
+  "source": "Farmside Kitchen nutrition PDF; their ordering platform returns HTTP 403 to automated retrieval.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Bul Box",
+  "action": "note",
+  "claim": "'Taking one sriracha instead of two creamy sauces is the entire health edit' at Bul Box",
+  "was": "Sriracha at 28 calories was recommended over spicy mayo at 178 and yum yum at 150.",
+  "now": "Sriracha is 30 cal but 454 mg of sodium per ounce; yum yum sauce is 150 cal and 115 mg. The calorie-cheapest sauce on the board is the salt-heaviest by a factor of four. Which one to take depends entirely on which number you are managing, and the first edition only looked at one of them.",
+  "source": "Bul Box nutrition PDF, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Bul Box",
+  "action": "note",
+  "claim": "Bul Box enforces a hard two-sauce cap you cannot exceed",
+  "was": "Described as a hard cap that cannot be exceeded.",
+  "now": "The two-sauce limit appears only on DoorDash's Build Your Own Box. Bul Box's own menu states no sauce cap at all, and signature boxes such as the Kona Poke carry three by default.",
+  "source": "bulboxgrill.com/menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "DICED",
+  "action": "note",
+  "claim": "DICED's creamy dressings add 90-185 mg of sodium",
+  "was": "90-185 mg and about 100 calories.",
+  "now": "90-280 mg. The 185 mg figure is blue cheese; Caesar at 280 mg is the real ceiling. The calorie range, 94-129, was fair.",
+  "source": "eatdiced.com/nutrition, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "DICED",
+  "action": "note",
+  "claim": "The DICED bowl costs $10.95",
+  "was": "Printed as a DoorDash-listed price.",
+  "now": "Could not be verified. DICED publishes no prices in first-party sources at all - the build-your-own carries only a pricing rule, and no delivery platform could be retrieved. The price is carried forward unchanged and flagged.",
+  "source": "eatdiced.com/menu, retrieved 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Farmside Kitchen",
+  "action": "note",
+  "claim": "Farmside's 'No dressing' plus 'Extra Dressing $0.75' is a buildable sauce-on-the-side mechanism, and the only one on the list",
+  "was": "Presented as verified ordering mechanics.",
+  "now": "Not verifiable. Farmside's ordering platform returns HTTP 403 to automated retrieval on every path, their public menu prices nothing, and no snapshot exists. The claim may well be true; nothing in reach establishes it.",
+  "source": "order.farmsidekitchen.com, inaccessible 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Poke Bros.",
+  "action": "note",
+  "claim": "OG Sauce is auto-added to every bowl at 730 mg and must be affirmatively refused",
+  "was": "Stated as a fact about every bowl.",
+  "now": "Confirmed, and it does apply to build-your-own bowls rather than only signature ones. Poke Bros.' own menu carries the line 'OG SAUCE ADDED TO ALL BOWLS UNLESS REQUESTED OTHERWISE' inside the build-your-own block.",
+  "source": "Poke Bros. General Handheld Menu and eatpokebros.com/menu, retrieved 28 August 2026.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "Poke Bros.",
+  "action": "note",
+  "claim": "Without the OG sauce the bowl is 'clean fish, acid and aromatics'",
+  "was": "Described as a sauceless bowl.",
+  "now": "The first edition's own build keeps the wasabi aioli, which is 125 cal and 2 g of sugar per 14 g. The bowl refuses one sauce and keeps another; it is not sauceless, and about 2 g of its sugar comes from the aioli rather than from produce.",
+  "source": "Poke Bros. Nutritionals PDF, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 36,
+  "restaurant": "Sweetgreen",
+  "action": "rescore",
+  "retier": "PUBLISHED",
+  "macros": {
+   "cal": 880,
+   "protein": 34,
+   "sodium": 1092,
+   "satfat": 9,
+   "fiber": 12,
+   "sugar": 9
+  },
+  "claim": "Sweetgreen's Miso Glazed Salmon was estimated at 620 cal / 33 g protein / 1,100 mg sodium / 4 g saturated fat",
+  "was": "Estimated from menu construction, and marked as such.",
+  "now": "Sweetgreen publishes a complete per-item nutrition table, updated August 2026, which the first edition did not consult. The real figures are 880 cal / 34 g protein / 1,092 mg sodium / 9 g saturated fat / 12 g fiber. Calories were understated by 42% and saturated fat by more than half. The entry is re-tiered to published and falls accordingly.",
+  "source": "sweetgreen.com/nutrition, updated August 2026, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 32,
+  "restaurant": "Chopt",
+  "action": "rescore",
+  "retier": "PUBLISHED",
+  "macros": {
+   "cal": 415,
+   "protein": 33,
+   "sodium": 735,
+   "satfat": 2,
+   "fiber": 12,
+   "sugar": 15
+  },
+  "claim": "Chopt's Craft Your Own salad was estimated at 480 cal / 38 g protein / 900 mg sodium / 6 g sugar",
+  "was": "Estimated from menu construction, and marked as such.",
+  "now": "Chopt publishes a Craft Your Own nutrition breakdown, updated Spring 2026. Reconstructed from it, the build is 415 cal / 33 g protein / 735 mg sodium / 12 g fiber - cleaner on sodium and calories than estimated, but 15 g of sugar rather than 6, most of it from the vinaigrette and the corn. Re-tiered to published.",
+  "source": "Chopt Nutrition & Allergen Information, Spring 2026, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 14,
+  "restaurant": "CAVA",
+  "action": "rescore",
+  "macros": {
+   "cal": 775,
+   "protein": 50,
+   "sodium": 1295,
+   "satfat": 8,
+   "fiber": 27,
+   "sugar": 8
+  },
+  "claim": "The CAVA bowl totals 740 cal / 50 g protein / 1,125 mg sodium / 6 g sugar",
+  "was": "740 cal / 1,125 mg sodium / 6 g sugar.",
+  "now": "About 775 cal / 1,295 mg sodium / 8 g sugar, summing CAVA's own catering nutrition guide at retail portions. The 27 g of fiber and the steak-versus-chicken finding both survive; the sodium total was understated by roughly 170 mg.",
+  "source": "CAVA Nutrition and Allergen Guide, last modified July 2026, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "CAVA",
+  "action": "note",
+  "claim": "CAVA's rice bases are 'the single largest sodium item on the menu' at 770 mg",
+  "was": "Stated as the menu's sodium ceiling.",
+  "now": "The 770 mg figure is right, and both rice bases really are identical. The superlative is not: falafel is higher at about 810 mg, and grilled chicken, harissa honey chicken and the lamb meatballs all sit in the same 650-680 mg band. The rices are the largest sodium item among the bases.",
+  "source": "CAVA Nutrition and Allergen Guide, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Chipotle",
+  "action": "note",
+  "claim": "Chipotle's guacamole is 'roughly 230-240 cal and 370-385 mg sodium'",
+  "was": "Given as a range, and the no-guacamole alternative was scored at 240 cal and 385 mg lighter.",
+  "now": "Chipotle publishes one figure, not a range: 230 cal and 370 mg for 4 oz. The no-guacamole alternative should read 345 cal / 42 g protein / 685 mg, not 335 / 41 / 670.",
+  "source": "Chipotle US nutrition facts chart, revision OCT-2024-US-CK, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Chipotle",
+  "action": "note",
+  "claim": "Light / standard / extra portioning is confirmed only in Chipotle's first-party app, not on delivery platforms",
+  "was": "Asserted as verified ordering mechanics.",
+  "now": "Half of that is documented: Chipotle announced Complete Customization - making any ingredient light, standard or extra - as an app feature in May 2020. Whether delivery platforms pass it through is addressed in no Chipotle document that could be found, so the second half of the sentence was an assumption, not a finding.",
+  "source": "Chipotle newsroom, 19 May 2020.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "True Food Kitchen",
+  "action": "note",
+  "claim": "The undressed Tuscan Kale Salad with salmon is 380 cal / 36 g protein / 330 mg sodium, and the dressing it omits is 340 cal and 630 mg",
+  "was": "Presented as assembled from published data.",
+  "now": "Confirmed exactly, component by component, against True Food Kitchen's Summer 2026 guide. The salmon add-on really is 29 g of protein at 90 mg of sodium, the lowest-sodium meaningful protein add-on on their menu.",
+  "source": "True Food Kitchen Summer 2026 Nutritional Guide, retrieved 28 August 2026.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "Chipotle",
+  "action": "note",
+  "claim": "Chipotle chicken is 32 g protein for 310 mg sodium; pinto beats black on fiber; brown rice is lower-sodium than white; the vinaigrette is 850 mg and 12 g sugar",
+  "was": "Four component claims underpinning the Chipotle entry.",
+  "now": "All four confirmed exactly against Chipotle's own chart, and the assembled dish total of 575 cal / 44 g protein / 1,055 mg sodium reproduces component by component. Worth adding: declining the vinaigrette also removes 220 calories and 2.5 g of saturated fat.",
+  "source": "Chipotle US nutrition facts chart, revision OCT-2024-US-CK, retrieved 28 August 2026.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "CAVA",
+  "action": "note",
+  "claim": "Braised lamb at CAVA is 450 mg sodium for 24 g protein",
+  "was": "Printed as an alternative order with figures.",
+  "now": "Could not be verified. Braised lamb does not appear in CAVA's catering nutrition guide at all; the only lamb item there is spicy lamb meatballs at roughly 674 mg per serving, a different preparation with about 50% more sodium.",
+  "source": "CAVA Nutrition and Allergen Guide, retrieved 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "rank": 3,
+  "restaurant": "Sassool",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "cal": 850,
+   "protein": 44,
+   "sodium": 1700,
+   "satfat": 13,
+   "fiber": 3,
+   "sugar": 8
+  },
+  "claim": "The Sassool plate - ranked third in the first edition - at 620 cal / 46 g protein / 980 mg sodium / 7 g saturated fat / 12 g fiber / 6 g sugar",
+  "was": "620 cal / 46 g protein / 980 mg sodium / 7 g saturated fat / 12 g fiber / 6 g sugar, estimated from menu construction, with the first edition calling Sassool's blocked nutrition PDF 'the highest-value single correction available to this document'.",
+  "now": "Sassool's published figures were recovered from the search index even though the PDF itself is still Cloudflare-blocked, and they refute the entry. At Sassool's own serving basis the four cold components alone come to 603 calories and 1,068 mg of sodium BEFORE any chicken: labneh 4 oz is 258 cal and 370 mg, lentil salad 6 oz is 144 cal and 355 mg, tabouli 6 oz is 130 cal and 240 mg, kale salad 6 oz is 71 cal and 103 mg. Their published fiber for those four items totals 3 g, not 12 - no portion scaling reaches 12. Labneh is full-fat strained yogurt blended with olive oil and carries most of the plate's saturated fat on its own. The entry is rescored to a mid-portion central estimate of 850 cal / 1,700 mg / 13 g saturated fat / 3 g fiber, which drops it out of the top ten. It stays flagged as disputed because the true figures depend on scoop size, which could not be established: the defensible range runs from roughly 780 to 950 calories and 1,600 to 2,200 mg.",
+  "source": "Sassool nutrition facts, updated July 2024 (salads at 6 oz, dips at 4 oz), recovered via search-index extraction 28 August 2026; the PDF itself returns HTTP 403 behind Cloudflare.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Sassool",
+  "action": "note",
+  "claim": "'Baked salmon instead of kabob' is a Sassool alternative order at 700 cal / 44 g protein / 1,050 mg sodium",
+  "was": "Printed as a scored alternative that outranks the recommendation.",
+  "now": "Baked salmon is a call-ahead special at Sassool, not a standard-menu item - the restaurant's own bariatric handout stars it with 'call restaurant for availability'. The compendium's own rule requires alternatives to be orderable from the standard menu, and no nutrition row for it exists anywhere. The figures were invented.",
+  "source": "Sassool bariatric handout, November 2025, sourced from the restaurant.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 18,
+  "restaurant": "Abol Ethiopian",
+  "action": "fix_field",
+  "field": "miles",
+  "value": 3,
+  "claim": "Abol Ethiopian is ~10 miles from Research Triangle Park",
+  "was": "~10 mi from RTP.",
+  "now": "About 2-3 miles. Abol is at 2945 South Miami Boulevard in Durham, which is close to the park, not ten miles from it. The restaurant, its hours and its DoorDash store id all check out; only the distance was wrong.",
+  "source": "Yelp listing updated July 2026; DoorDash store 35410175.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "'Every restaurant was verified to have a live DoorDash storefront; its store ID is printed with the dish'",
+  "was": "Printed on the masthead alongside a 'DoorDash-verified 30 / 30' badge.",
+  "now": "57 of the 60 entries print a store id. Poke Bros. prints a DoorDash business id, which identifies the brand rather than any one storefront and so cannot establish that a particular location is live; CAVA and Chipotle print the literal word 'chain'. Independently, 35 restaurants were spot-checked in this edition and all 35 exist and appear to be trading, with 29 of the printed store ids matched to the right restaurant and address.",
+  "source": "Spot-check of 35 entries against Yelp, OpenTable, Discover Durham, visitRaleigh and first-party sites, 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "DoorDash prices run roughly 15-25% above in-store",
+  "was": "Stated in the methodology note.",
+  "now": "The published measurements land lower: Gordon Haskett found about 20% across 25 major brands, and later analyses put the typical spread nearer 10-15%. Roughly 10-20%, averaging about 15%, is better supported. This matters, because every cost score in the document is computed on a DoorDash-listed price.",
+  "source": "Gordon Haskett Research Advisors delivery-price tracking; subsequent published analyses.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "DoorDash renames deactivated storefronts to 'Graveyard' or '[DNU]' while keeping the URL, rating and hours rendering normally",
+  "was": "Given as one of the first edition's four headline findings.",
+  "now": "Confirmed. The convention is observable on live public DoorDash store pages across several states, with titles of the form 'GRAVEYARD DNU DO NOT REACTIVATE!!'. It is a real trap for anyone verifying a storefront - it just is not a finding about food, which is why it has moved to the method notes.",
+  "source": "Live DoorDash store pages, retrieved 28 August 2026.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "Internal inconsistency: the first edition's endnote says Sassool ranks fourth",
+  "was": "'Given Sassool ranks fourth on estimated figures...' while the ranking table and the entry header both place it third.",
+  "now": "The table is right and the endnote is wrong. Noted because it is the kind of small inconsistency that signals a document assembled from more than one pass.",
+  "source": "The first edition, pages 4 and 26.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Abol Ethiopian",
+  "action": "note",
+  "claim": "Telba shiro's ground flaxseed is 'a genuine plant omega-3 source', scored as omega-3 in the inflammation criterion",
+  "was": "Scored as an omega-3 source alongside oily fish.",
+  "now": "Flaxseed is a real source of ALA and not a functional source of EPA or DHA; the trial evidence and what it does to this entry's inflammation score are set out in the audit chapter, under the omega-3 ladder.",
+  "source": "Lane et al., Critical Reviews in Food Science and Nutrition, 2022 (PMID 33576691).",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Bul Box",
+  "action": "note",
+  "claim": "Salmon is 'one of few foods with trial evidence for reducing liver fat'",
+  "was": "Given as the reason the salmon build scores well on the liver criterion.",
+  "now": "No randomised trial of salmon with liver fat as an outcome could be found. The defensible version is that oily fish and long-chain omega-3s have trial evidence for improving some liver markers, with the effect on directly measured liver fat inconsistent across meta-analyses.",
+  "source": "PubMed searches on salmon with hepatic steatosis and liver fat outcomes, 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "M Sushi",
+  "action": "note",
+  "claim": "Salmon belly and chutoro 'carry several times the EPA and DHA of lean loin'",
+  "was": "Given as the reason to order the oily cuts.",
+  "now": "Half right, and the right half is understated. Japan's standard food composition tables put fatty bluefin tuna at 4,600 mg of EPA plus DHA per 100 g against akami's roughly 150 - about thirty times, not several. Salmon does not work the same way: belly flap runs 18.5% lipid against 2.4% in the tail, so it is modestly richer in absolute omega-3 but slightly poorer as a proportion of its fatty acids. The advice is right for the tuna and overstated for the salmon.",
+  "source": "MEXT Standard Tables of Food Composition, 8th edition; Katikou, Hughes & Robb, Aquaculture 202 (2001).",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Naga's South Indian",
+  "action": "note",
+  "claim": "Curd rice is a live-culture item because it is 'set yogurt stirred into cooled rice and served cold', scoring a perfect 10.0 on gut",
+  "was": "Scored as an established live ferment, the highest gut score in the document.",
+  "now": "The yogurt carries live cultures; the word doing the work is 'cooled', and it is not reliably true in restaurant practice. Curd rice is commonly assembled with warm rice and very often finished with a hot tadka poured over it, either of which kills vegetative lactobacilli. A gut score of 10.0 is the strongest claim in that column and it rests on an assumption a menu cannot settle.",
+  "source": "21 CFR 131.200 on yogurt cultures; standard preparation practice.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "El Cuscatleco",
+  "action": "note",
+  "claim": "El Cuscatleco's curtido is scored as a live lacto-ferment",
+  "was": "Scored optimistically, with the first edition noting the assumption was the one most likely to be wrong.",
+  "now": "Traditionally-made curtido is a genuine live ferment - salted submerged brassica follows the same lactic succession as sauerkraut and kimchi, reaching around 9 to 10 log CFU per gram. But no survey exists of how many US pupuserias ferment rather than vinegar-pickle, and the vinegar version is the dominant published recipe outside El Salvador. The first edition scored the optimistic case as the base case. Still worth the phone call it recommended.",
+  "source": "Park et al., Critical Reviews in Food Science and Nutrition, 2024 (PMID 36718547); no survey data located.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Abol Ethiopian",
+  "action": "note",
+  "claim": "Injera's fermentation reduces phytate even though griddling kills the cultures",
+  "was": "Stated without qualification.",
+  "now": "Partly, and strain-dependently. Teff's phytic acid is only partly degraded during fermentation, and of 76 isolates from thirteen household fermentations only 13 were phytase-positive. Directionally right, overstated as written.",
+  "source": "Fischer et al., International Journal of Food Microbiology, 2014 (PMID 25180667).",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "the whole set",
+  "action": "note",
+  "claim": "Vinegar quick-pickles carry no live cultures and score zero on the gut criterion",
+  "was": "Applied as a rule across the document - Vietnamese do chua, pickled red onion, CAVA's onions, Bulkogi's daikon.",
+  "now": "Confirmed, and it is one of the model's better calls. Quick-process pickles are brined briefly then covered in vinegar and seasonings, with no fermentation step at all, as distinct from cured fermented pickles and sauerkraut. Labneh, cacik and raita are correspondingly confirmed as live-culture items, subject only to the yogurt not having been heat-treated after culturing - which a menu cannot tell you.",
+  "source": "National Center for Home Food Preservation, University of Georgia; 21 CFR 131.200.",
+  "kind": "confirmed"
+ },
+ {
+  "restaurant": "Kathmandu Kitchen",
+  "action": "note",
+  "claim": "Gundruk, if available, is a true Nepali lacto-ferment that would move the entry up",
+  "was": "Suggested as an upside worth asking about.",
+  "now": "Gundruk is a genuine lacto-ferment - viable counts rise from about 6 x 10^4 to 9.6 x 10^8 CFU per gram over fermentation, driven by Lactobacillus brevis, Pediococcus pentosaceus and finally Lb. plantarum. But it is dried and then cooked before serving, so as it reaches the table it earns fermented-flavour credit rather than live-culture credit. Worth ordering; not worth the gut points the first edition implied.",
+  "source": "Tamang et al., Indian Journal of Microbiology, October 2010 (PMID 22815579).",
+  "kind": "wrong"
+ },
+ {
+  "rank": 2,
+  "restaurant": "El Cuscatleco",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "GUT": 2.3,
+   "cal": 720,
+   "satfat": 5,
+   "sodium": 1200
+  },
+  "claim": "The second-ranked dish is a grilled fish fillet served with salad, beans and 'extra curtido on the side', scoring 6.8 on gut for the curtido's live cultures",
+  "was": "500 cal / 3.5 g saturated fat / 1,000 mg sodium, gut 6.8, ranked second of sixty. The first edition called the curtido 'the assumption most likely to be wrong' and recommended a phone call.",
+  "now": "Three separate problems, all readable off the restaurant's own current menu. The word 'curtido' does not appear anywhere on it - not as an item, not as a side, not in any dish description - so the gut score, which rested entirely on curtido being a live ferment, falls from 6.8 to 2.3. The seafood section is headed 'All entrees served with rice and beans', not salad, so the build has to either decline the rice or count it. And the menu states no cooking method for the fillet at all, so 'grilled' was an assumption: at USDA's figures the grilled and fried versions differ by roughly 250 calories. Rescored on the grilled reading with the real default sides, and flagged disputed because the fried reading would take it lower still. The restaurant also bills itself as Mexican with a Salvadoran section, and this dish sits in the Mexican seafood section, not a pupuseria plate.",
+  "source": "El Cuscatleco Cary's own food menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 19,
+  "restaurant": "Chosun Ok",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "GUT": 3.2,
+   "sodium": 1700,
+   "price": 18.39
+  },
+  "claim": "Seafood soondubu with a 1 lb kimchi side at $24.98 is 2,100 mg of sodium, 'the highest-sodium dish in the compendium', and Chosun Ok is 'the most reliable live lacto-ferment source in the region'",
+  "was": "2,100 mg with a 1 lb kimchi side included, gut 9.4, $24.98, and banchan described as complimentary and unlimited.",
+  "now": "This entry was corrected twice, in opposite directions, and the sequence is worth printing. First: at USDA's figure of 498 mg of sodium per 100 g, a 1 lb kimchi side is about 2,300 mg on its own, so the dish as described should have read roughly 4,000 mg rather than 2,100. Then: no standalone kimchi item of any size exists on Chosun Ok's own ordering menu. Every kimchi entry there is a cooked dish - kimchi pancake, kimchi stew, kimchi fried rice. The side the entry is built on is not purchasable, which removes the live-ferment claim, removes the 2,300 mg with it, and breaks the price: their seafood soft-tofu stew lists at $15.99 with no side to make up the difference. The delivery menu also has no banchan category at all, so 'complimentary and unlimited' is a dine-in claim applied to a delivery document. The entry now stands at 1,700 mg without kimchi or banchan credit.",
+  "source": "order.chosunoknc.com, all 14 menu categories enumerated 28 August 2026; USDA FoodData Central, kimchi, food code 75502520.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 9,
+  "restaurant": "Thai 54",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "price": 30.9
+  },
+  "claim": "Nam tok beef with spicy papaya salad at $21.90, with larb available only on the catering menu",
+  "was": "$21.90 for the pair, 470 cal, and a footnote saying the higher-scoring larb chicken 'appears only on the catering menu'.",
+  "now": "Thai 54's own menu prices nam tok beef at $17.95 and either papaya salad at $12.95 - $30.90 for the two items the dish name describes. The $21.90 is nam tok alone with a delivery markup. The menu also states nam tok is 'served with sticky rice or jasmine rice', so the rice arrives by default and has to be actively declined for the 470-calorie figure to hold. And the catering-menu footnote is simply wrong: larb chicken is a standard $15.95 item in the Thai salad section, which matters because the compendium scores it above the recommendation.",
+  "source": "Thai 54's own PDF menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 26,
+  "restaurant": "Goorsha",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "GUT": 6.2,
+   "cal": 450,
+   "fiber": 12,
+   "sodium": 850,
+   "price": 19.55
+  },
+  "claim": "The vegan combo is 'six vegetable stews on injera' at $24.00, giving 20 g of fiber and eight to twelve plant species",
+  "was": "Six stews, 660 cal, 20 g fiber, gut 7.9, $24.00.",
+  "now": "Goorsha's own menu offers 'Choose three options' for $17.00, not six. That roughly halves the plant-type count driving the gut and inflammation scores and the fiber figure with it, and it breaks the price against the restaurant's own $17.00. Rescored for a three-stew plate.",
+  "source": "goorshadurham.com food menu, vegan section, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "rank": 38,
+  "restaurant": "Chengdu 7",
+  "action": "rescore",
+  "dispute": true,
+  "macros": {
+   "cal": 950,
+   "satfat": 11
+  },
+  "claim": "Braised fish fillets with green Sichuan peppercorn is 'fish poached in broth, not fried, not breaded' at 620 cal and 6 g saturated fat",
+  "was": "620 cal / 6 g saturated fat, characterised as a poached dish.",
+  "now": "It is a shui zhu dish. The fish is velveted and poached rather than battered, so 'not fried, not breaded' is fair - but the preparation is finished at the pass by pouring a ladle of near-smoking chili-and-peppercorn oil over the top, and recipes for it call for half to three-quarters of a cup of oil. 620 cal and 6 g of saturated fat is a poached-fish assumption that the dish's own method contradicts; 800 to 1,100 calories is the defensible band and it is carried here at 950. The price is also mismatched: the restaurant lists the fillet version at $24.95 and the whole-fish version at $32.95, and the printed $36.95 corresponds to the whole fish with delivery markup, which is a shared dish.",
+  "source": "Chengdu 7's live menu via qMenu, retrieved 28 August 2026; recipe oil quantities from standard published preparations.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Abol Ethiopian",
+  "action": "note",
+  "claim": "Telba shiro - ground flaxseed and chickpea - is a real Ethiopian menu item and is the entry's omega-3 source",
+  "was": "Scored as a flaxseed omega-3 source, driving an inflammation score of 8.0, the fourth-highest in the compendium.",
+  "now": "Flaxseed is a real source of ALA and not a functional source of EPA or DHA; the trial evidence and what it does to this entry's inflammation score are set out in the audit chapter, under the omega-3 ladder.",
+  "source": "Standard references on shiro; Abol's menu not retrievable, 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Luna Rotisserie",
+  "action": "note",
+  "claim": "Two house salads can be substituted for the starchy sides",
+  "was": "The build specifies 'two house salads in place of the starchy sides'.",
+  "now": "Luna's current Durham menu offers rotisserie meats with a choice of two sides from a fixed list of eight, of which two are leafy - sauteed garlic kale and cilantro kale slaw. A low-starch order is possible; 'two house salads' is not an orderable configuration as printed. Their menu also prices the quarter chicken at $16 against the $18.70 shown.",
+  "source": "Luna Rotisserie Durham food menu, Spring 2026, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Guasaca",
+  "action": "note",
+  "claim": "The bowl is grilled chicken, black beans, avocado, guasaca sauce and pico de gallo",
+  "was": "Printed as the build.",
+  "now": "Guasaca's fillings list contains no plain avocado - the nearest item is an avocado ranch salad - and the guasaca sauce itself carries an upcharge rather than being included. The bowl format is confirmed orderable, and the sauce is closer to avocado, bell pepper, onion, garlic and herbs than to the avocado-cilantro-garlic-vinegar described. The 'mostly unsaturated fat and herbs' reading survives.",
+  "source": "Guasaca's own food menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Canastas Chicken",
+  "action": "note",
+  "claim": "Anticuchera-marinated grilled salmon at $25.50",
+  "was": "Described as anticuchera-marinated - aji panca, garlic, cumin and vinegar applied before the grill.",
+  "now": "Canastas' own menu says 'Salmon marinated in special sauce', and reserves the anticucho description for its anticucho items. The free choice of two sides is confirmed, including two salads, mixed vegetables and green beans - which is the part of the entry that matters. Their menu price is $19.95; $25.50 is a delivery-marked figure, which the entry does not say.",
+  "source": "Canastas Chicken's own printed menu, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Taste Vietnamese",
+  "action": "note",
+  "claim": "Cha ca is grilled rather than fried, at 4 g of saturated fat",
+  "was": "Framed as a purely grilled preparation.",
+  "now": "The description is otherwise sound - turmeric marinade, grilled, dill, herb plate, nuoc cham on the side are all correct. But the canonical service finishes the grilled fish in a hot pan coated with oil, and in a delivery container that oil travels with the dish. Treat 4 g of saturated fat as a floor rather than an estimate.",
+  "source": "Standard references on cha ca La Vong, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Bosphorus",
+  "action": "note",
+  "claim": "Order shish rather than Ali Nazik, Beyti or Iskender - 'those arrive under sauce over bread'",
+  "was": "All three grouped together as sauce-over-bread dishes.",
+  "now": "True of two. Iskender is sliced meat over pita under tomato sauce and melted butter, and Beyti is wrapped in lavash under sauce. Ali Nazik is a different problem: no bread, but a smoked-eggplant-and-yogurt base finished with melted butter. The advice to order shish stands; the reason differs.",
+  "source": "Standard references, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Thai 54",
+  "action": "note",
+  "claim": "Nam tok and larb are 'among the highest protein-per-calorie restaurant dishes that exist'",
+  "was": "Stated as a general claim about the dishes.",
+  "now": "On the compendium's own figures the nam tok is 8.9 g of protein per 100 kcal, which ranks ninth of the sixty - behind M Sushi's sashimi, both poke bowls, the Peony sashimi bowl and True Food's kale salad. 'Among the leanest hot-protein dishes here' is defensible; the superlative is not, and the document contradicts it four entries above.",
+  "source": "The compendium's own data.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Krill",
+  "action": "note",
+  "claim": "A Filipino seafood sinigang at $28 in Durham, proposed for this edition's new entries",
+  "was": "Proposed with a full construction estimate - 372 cal, 37 g protein, 1,850 mg sodium for a no-rice sour seafood broth - read off a live website carrying a complete, dated menu.",
+  "now": "The restaurant is closed. Its website is still up and still serving that menu; the homepage footer reads 'Thank You for Dining with Krill'. Cut before publication. This is the same failure the first edition identified in DoorDash's deactivated storefronts, arriving through a different door: a restaurant's own site outliving the restaurant, with numbers that look entirely reasonable attached to food nobody can order. It is also why Filipino is one of the four categories this edition still cannot fill.",
+  "source": "krillrestaurant.com, retrieved 28 August 2026.",
+  "kind": "wrong"
+ },
+ {
+  "restaurant": "Yemen Arabic Restaurant",
+  "action": "note",
+  "claim": "A Yemeni charcoal-grilled half chicken at $29.50 in Raleigh, proposed for this edition",
+  "was": "Proposed on the strength of a review listing at 3933 Western Blvd.",
+  "now": "Cut. Wake County's environmental-health register has no establishment of that name anywhere in the county; a search returns a differently-named Yemeni restaurant at a different address. The name could not be reconciled with the authoritative record, so the entry was not published rather than published with a hedge.",
+  "source": "Wake County Environmental Health establishment register, 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Backyard BBQ Pit",
+  "action": "note",
+  "claim": "A chopped turkey barbecue plate at $16.79 in Durham, proposed for this edition",
+  "was": "Proposed with sound internal arithmetic and a well-reasoned fatback accounting.",
+  "now": "Cut, because current operation could not be established. Durham is outside Wake County, so the inspection register that cleared ten other candidates does not cover it, and nothing else reachable confirmed the business is trading. The reasoning was among the best in the batch, which is exactly why it should not be printed against a dish nobody could confirm is on sale.",
+  "source": "No authoritative register available for Durham County establishments, 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "Mariscos Los Cabos",
+  "action": "note",
+  "claim": "A green aguachile at $13.99 in Durham, proposed to fill the seafood and raw-bar gap",
+  "was": "Proposed at 378 cal, 42 g protein and 1,280 mg sodium.",
+  "now": "Cut on the same rule: the dish is real and confirmed on an aggregator menu, but current operation could not be established. Had it survived, two figures needed work anyway - 200 g of edible shrimp is the generous end for a $13.99 plate, and 1,280 mg understates a lime-and-salt cure served with two salted tostadas.",
+  "source": "Aggregator menu confirmed; operation unconfirmed, 28 August 2026.",
+  "kind": "open"
+ },
+ {
+  "restaurant": "the new entries",
+  "action": "note",
+  "claim": "DoorDash store ids for the entries added in this edition",
+  "was": "Several were reported by the sweeps that found the restaurants.",
+  "now": "None of them could be independently checked, because DoorDash returns an error to every automated request. Existence was established instead against county restaurant-inspection registers, which carry dated scores and addresses and are a better source for whether a business is trading - ten of the new entries were confirmed that way with 2026 inspections. The store ids are printed as reported, not as verified, and the entries that carry none say so.",
+  "source": "Wake, Durham and Orange County environmental-health registers, 28 August 2026.",
+  "kind": "open"
+ }
+]

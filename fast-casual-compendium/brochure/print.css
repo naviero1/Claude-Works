@@ -1,0 +1,70 @@
+/* ============================================================
+   Print. Letter, light palette forced, each movement on its own
+   sheet. The inverted band survives as a real ink block - it is
+   the one place the brochure raises its voice.
+   ============================================================ */
+@media print{
+  :root,:root[data-theme="dark"]{
+    --paper:#FFFFFF; --paper-2:#F6F3E8; --paper-3:#EDE9D9;
+    --ink:#131418; --ink-2:#4B4F5A; --ink-3:#5F636E;
+    --rule:#DCD8C9; --rule-2:#B4AF9C;
+    --price:#B60E29; --price-soft:#FBE9EC; --on-price:#FFFFFF;
+    --good:#1A6151; --good-soft:#E4F0EC;
+    --band:#131418; --band-ink:#FFFFFF;
+  }
+  @page{ size:Letter; margin:14mm 14mm 16mm; }
+  html,body{background:#fff !important}
+  body{font-size:9.6pt; line-height:1.5}
+  .wrap{max-width:none; padding:0}
+
+  h1{font-size:40pt; line-height:.94}
+  h2{font-size:20pt}
+  h3{font-size:11pt}
+  .lede{font-size:11pt}
+
+  /* keep every composed unit whole */
+  .find,.pick,.trap,.wk-side,.method-grid>div,.tallies>div,.tag{
+    break-inside:avoid; page-break-inside:avoid}
+  h1,h2,h3,.kick{break-after:avoid; page-break-after:avoid}
+  svg{break-inside:avoid}
+
+  /* one movement per sheet */
+  /* the band is the picks' header - breaking between them strands a near-empty
+     sheet, so they travel together */
+  .finds,.band,.method{break-before:page; page-break-before:always}
+  section.picks{break-before:avoid}
+  .hero{padding-top:0}
+  .finds{margin-top:0}
+  .band{margin:0 0 0; padding:26px 28px 28px; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  section.picks{margin-top:22px}
+
+  /* the grid breakpoints key off viewport width, which on Letter is ~700px of
+     content - under every min-width the screen layout uses. Restate them. */
+  .hero-grid{grid-template-columns:1.2fr .8fr; gap:34px}
+  .tallies{grid-template-columns:repeat(4,1fr)}
+  .find{grid-template-columns:150px 1fr 150px; gap:26px; padding:26px 0}
+  .find>*{grid-row:1}
+  .find .find-n{grid-column:1} .find .find-b{grid-column:2} .find .find-art{grid-column:3}
+  .find.flip{grid-template-columns:150px 1fr 150px}
+  .find.flip .find-art{grid-column:1} .find.flip .find-b{grid-column:2}
+  .find.flip .find-n{grid-column:3; text-align:right}
+  .find.flip .find-do{border-left:0; border-right:3px solid var(--price);
+    padding-left:0; padding-right:11px; text-align:right}
+  .find-art{max-width:150px}
+  .find-n{font-size:22pt}
+  .picks{grid-template-columns:1fr 1fr 1fr}
+  .pick{padding:12px 13px 13px 0; border-right:1px solid var(--rule); gap:11px}
+  .pick-art{width:46px; flex:0 0 46px}
+  .pick h3{font-size:9.4pt} .pick .who{font-size:8.2pt}
+  .pick .why{font-size:8.3pt; margin-top:6px; line-height:1.42}
+  .pick-p{font-size:11pt} .pick-m{font-size:7.2pt}
+  .pick-row{margin-top:6px; gap:8px}
+  .week{grid-template-columns:1fr 1fr}
+  .wk-side + .wk-side{border-left:1px solid var(--rule-2); padding-left:26px}
+  .wk-total{font-size:20pt}
+  .method-grid{grid-template-columns:1fr 1fr}
+  .trap-v{text-align:right; flex:0 1 26rem}
+  .tag{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .dish{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  footer{margin-top:30px}
+}

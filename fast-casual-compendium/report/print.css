@@ -1,0 +1,30 @@
+@page{size:letter;margin:15mm 14mm 16mm}
+:root{--paper:#fff;--card:#fff;--ink:#171A14;--ink-2:#3F4A44;--ink-3:#5C6169;
+  --rule:#CFCFC6;--rule-2:#E6E6DE;--shadow:none}
+body{font-size:9.6pt;background:#fff}
+main{max-width:none;padding:0}
+section{padding:14pt 0;break-inside:auto}
+h1{font-size:27pt} h2{font-size:15pt} h3{font-size:11.5pt}
+h2,h3{break-after:avoid} .band-hd{break-after:avoid}
+.entry,.hk,.dl,.week,.honest,.band-hd{break-inside:avoid}
+.entry{box-shadow:none}
+.grid{grid-template-columns:repeat(2,1fr);gap:7pt}
+.deltas{grid-template-columns:repeat(5,1fr)}
+.pull{font-size:13pt}
+.lede{font-size:11pt}
+svg.rank87{max-width:100%}
+#all87{break-before:page}
+#bands{break-before:page}
+#picks{break-before:page}
+.cell i{font-size:5.6pt}
+.raw{font-size:7.4pt}
+.sw{font-size:8.2pt}
+.legend{break-inside:avoid}
+.lg-row{grid-template-columns:1fr 1fr 1fr;gap:11pt}
+.lg-part p{font-size:8pt}
+/* Chromium's print engine reflows grid children out of document order, which
+   pushed the two hook cards below the paragraph that refers to them. Flex
+   keeps them in place and still fits two to a row on Letter. */
+.hk-pair{display:grid;grid-template-columns:1fr 1fr;gap:9pt}
+.hk-pair>*{min-width:0}
+.hook{break-inside:avoid}
