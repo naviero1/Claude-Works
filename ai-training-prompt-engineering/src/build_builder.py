@@ -41,6 +41,10 @@ for e in tax['elements']:
         for ch in a.get('children', []):
             paths[e['mode']][f"{e['id']}.{a['id']}.{ch['id']}"] = ch
 
+for mode_paths in paths.values():
+    for path, a in mode_paths.items():
+        assert a.get('why'), f'attribute {path} is missing its "why it matters" note'
+
 for p in tax['presets']:
     mp = paths.get(p['mode'], {})
     for el in p.get('elements', []):

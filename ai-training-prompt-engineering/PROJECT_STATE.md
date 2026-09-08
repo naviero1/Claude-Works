@@ -154,6 +154,29 @@ rewritten (same data pipeline, byte-identical assembly logic):
   19 elements · 78 attributes · 286 options · 18 presets — deck slide 26, README, and this
   file updated (the v1.2/v1.3 "70/~250" figures were top-level-only undercounts).
 
+## v1.4 (2026-08-24) — the "why it matters" evidence layer (owner request)
+
+Owner asked to explain, per criteria class (attribute level, not just element level), WHY
+each prompting attribute matters and how it affects output — research-grounded.
+
+- **Taxonomy v1.0 → v1.1:** every one of the 78 attributes (incl. nested sub-attributes)
+  now carries a `why` field — the effect on output plus compact evidence, drawn from the
+  verified research base in `notes/research/` (r3_techniques, t1_prompt_report,
+  t6_agentic_attrs) and vendor guidance. `build_builder.py` now FAILS the build if any
+  attribute lacks its why, so the layer can't silently erode.
+- **Rendered everywhere:** Taxonomy Reference PDF (shaded "Why it matters" band under
+  every attribute; now 30 pp), Template Creator (teal why-note under every slot; help
+  overlay updated), Configurator (why appended to each guidance cell; recalc clean,
+  159 formulas, 0 errors).
+- **Deck 57 → 59 slides:** two REFERENCE evidence-map slides after the glossary — "Why
+  each dial matters" for the generative criteria (slide 55) and the agentic criteria
+  (slide 56), ten criteria classes each with effect-on-output + evidence columns. Slide
+  26's tree caption and notes now name the layer.
+- Citation style: compact tags on-slide/in-handout (e.g., "Sclar, ICLR 2024"); full URLs
+  and as-of dates remain in notes/research/. Claims marked "practitioner consensus" or
+  "field practice" where no strong study exists — nothing is dressed up as research that
+  isn't.
+
 ## Open intake (waiting on owner; see INTAKE.md)
 
 Curated prompt doc (first) · Berryman & Huyen books as EPUB/split-PDF (<10MB parts; Drive

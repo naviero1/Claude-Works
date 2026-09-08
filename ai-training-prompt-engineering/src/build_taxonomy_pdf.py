@@ -51,6 +51,7 @@ S = {
     'cellm': ParagraphStyle('cm', fontName='Mono', fontSize=7.0, leading=9.6, textColor=SLATE),
     'celli': ParagraphStyle('ci', fontName='DV', fontSize=7.2, leading=9.6, textColor=TEAL_D),
     'anti': ParagraphStyle('a', fontName='DV', fontSize=8.0, leading=10.5, textColor=RED, spaceBefore=2),
+    'why': ParagraphStyle('w', fontName='DV', fontSize=8.2, leading=11, textColor=TEAL_D, spaceAfter=4, backColor=TEAL_T, borderPadding=(3, 5, 3, 5)),
     'tech': ParagraphStyle('t', fontName='DV', fontSize=8.0, leading=10.8, textColor=SLATE, spaceBefore=1.5),
 }
 
@@ -64,7 +65,7 @@ def hf(cv, doc):
         cv.setFillColor(colors.white); cv.setFont('DVSer-B', 20)
         cv.drawString(M, H - 0.66 * inch, 'The Prompt Element Taxonomy')
         cv.setFillColor(colors.HexColor('#A9BBC4')); cv.setFont('DV', 8.3)
-        cv.drawString(M, H - 0.88 * inch, 'Every element, attribute, and option behind the Template Creator — the full class hierarchy, reference edition.')
+        cv.drawString(M, H - 0.88 * inch, 'Every element, attribute, and option behind the Template Creator — with the research-backed why on every slot.')
     else:
         cv.setFillColor(MUTE); cv.setFont('DV', 6.8)
         cv.drawString(M, H - 0.4 * inch, 'PROMPT ELEMENT TAXONOMY · REFERENCE')
@@ -85,6 +86,8 @@ E = []
 # ---------- intro + legend ----------
 E.append(Paragraph('This reference prints the complete ontology behind the Prompt Template Creator: '
                    '<b>19 elements</b> (7 generative, 12 agentic), their <b>attributes</b>, and every vetted <b>option</b> with its guidance. '
+                   'New in v1.1: every attribute carries a shaded <b>Why it matters</b> note — what that dial actually does to the output, '
+                   'with the study or vendor guidance it traces to (full citations: notes/research/ in the training repo). '
                    'Solid rows are core picks; rows marked ◇ are the extended menu. Everything here is editable in '
                    '<font face="Mono">prompt-library/taxonomy/</font> — the HTML builder, this PDF, and the XLSX configurator all regenerate from the same files.', S['body']))
 leg = [[Paragraph('Term', S['cellb']), Paragraph('OOP reading', S['cellb'])]]
@@ -123,11 +126,15 @@ def emit_attr(attr, depth=0):
     flow = [head]
     if attr.get('guidance'):
         flow.append(Paragraph(ind + '<i>' + attr['guidance'] + '</i>', S['body']))
-    if attr.get('options') or attr.get('custom', True):
-        flow.append(opt_table(attr))
-    E.append(KeepTogether(flow[:2] + ([flow[2]] if len(flow) > 2 and len(attr.get('options', [])) <= 6 else [])))
-    if len(flow) > 2 and len(attr.get('options', [])) > 6:
-        E.append(flow[2])
+    if attr.get('why'):
+        flow.append(Paragraph(ind + '<b>Why it matters —</b> ' + attr['why'], S['why']))
+    table = opt_table(attr) if (attr.get('options') or attr.get('custom', True)) else None
+    if table is not None and len(attr.get('options', [])) <= 6:
+        E.append(KeepTogether(flow + [table]))
+    else:
+        E.append(KeepTogether(flow))
+        if table is not None:
+            E.append(table)
     for ch in attr.get('children', []):
         emit_attr(ch, depth + 1)
 

@@ -87,6 +87,57 @@ module.exports = function buildClose(pres, H) {
     'ACRONYMS — RAG and MCP are expanded on the slide itself; nothing else to define.\n' +
     'CONTENT — Print-friendly reference. All seventeen were used in context during the training (taxonomy added in v1.2).');
 
+  // ---------- EVIDENCE MAPS (v1.4 — why each dial matters, per criteria class) ----------
+  const evTable = (s2, rows) => {
+    s2.addText('Criteria class', { x: 0.75, y: 1.58, w: 2.3, h: 0.3, fontFace: F.body, fontSize: 10.5, bold: true, color: C.SLATE, margin: 0 });
+    s2.addText('What it does to your output', { x: 3.15, y: 1.58, w: 6.0, h: 0.3, fontFace: F.body, fontSize: 10.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+    s2.addText('Evidence', { x: 9.3, y: 1.58, w: 3.25, h: 0.3, fontFace: F.body, fontSize: 10.5, bold: true, color: C.INK, margin: 0 });
+    rows.forEach((r, i) => {
+      const y = 1.92 + i * 0.5;
+      H.card(s2, 0.55, y, 12.2, 0.44, i % 2 ? 'FFFFFF' : C.PANEL, i % 2 ? C.LINE : null);
+      s2.addText(r[0], { x: 0.75, y: y + 0.02, w: 2.3, h: 0.4, fontFace: F.body, fontSize: 9.3, bold: true, color: C.INK, margin: 0, valign: 'middle', lineSpacingMultiple: 0.92 });
+      s2.addText(r[1], { x: 3.15, y: y + 0.02, w: 6.0, h: 0.4, fontFace: F.body, fontSize: 8.8, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.92 });
+      s2.addText(r[2], { x: 9.3, y: y + 0.02, w: 3.25, h: 0.4, fontFace: F.body, fontSize: 8.2, italic: true, color: C.MUTE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.92 });
+    });
+  };
+  s = H.slide('REFERENCE · EVIDENCE MAP 1 OF 2', 45);
+  H.title(s, 'Reference', 'Why each dial matters — the generative criteria');
+  evTable(s, [
+    ['Identity & role', 'Sets voice, vocabulary, and caution level — which region of training answers. Titles add no accuracy: 162-persona testing found no gain.', 'Zheng 2024 · Salewski 2023'],
+    ['Behavioral rules', 'Turn “be careful” into rules checkable line-by-line in the output; grounding rules drastically cut invented content.', 'Anthropic hallucination docs'],
+    ['Stance & blinding', 'Models affirm users ~49% more than humans and mirror any side you reveal — a declared neutral or critic stance pre-empts the mirror.', 'Cheng, Science 2026 · Sharma 2023'],
+    ['Task verb & question', 'The verb selects the operation; a precise question carries its own completion test. Ambiguity burns thinking tokens on reconciliation.', 'Google guide · OpenAI GPT-5 guide'],
+    ['Purpose — the why', 'Models generalize from reasons: an explained rule gets applied in spirit to cases you never listed.', 'Anthropic best practices'],
+    ['Context & glossary', 'Replaces the model’s most-plausible guess with your facts; every unstated quirk becomes an invented “fix.”', 'OpenAI 2025, why LMs hallucinate'],
+    ['Material placement', 'Documents at the top, question at the end: up to ~30% better answers; content buried mid-context sags.', 'Anthropic long-context · Liu 2023'],
+    ['Format & length', 'Tiny format changes swing accuracy up to 76 points — a tested shape removes that variance. Numeric caps are enforceable; adjectives are moods.', 'Sclar, ICLR 2024'],
+    ['Examples', 'The model imitates format, tone, AND edge-case behavior; exemplar choice and order alone can swing accuracy from chance to 90%+. Zero-shot first on thinking models.', 'Brown 2020 · Lu 2021 · DeepSeek-R1'],
+    ['The Out & the Stop', 'Permission to say “I don’t know” drastically cuts invented answers — training rewards guessing; numbered scope plus a stop rule bound the sprawl.', 'Anthropic docs · OpenAI 2025'],
+  ]);
+  s.addNotes(
+    'HOW TO PRESENT — 1) This is a reference slide — don’t walk all ten rows. Say what it IS: “every dial you met in Part 3, what it does to your output, and the evidence — the same notes now sit on every slot of your Taxonomy Reference.” 2) If time allows, read TWO rows aloud as proof of depth: Format & length (the 76-point swing) and Stance (the ~49% number). 3) Point them to the handout: “when you wonder whether a slot is worth filling, the why is printed next to it.”\n' +
+    'ACRONYMS — ICLR = International Conference on Learning Representations (a top AI research venue).\n' +
+    'CONTENT — v1.4 layer (owner request): the per-attribute “why it matters” notes. Full citations with URLs live in notes/research/ (r3_techniques.md, t1_prompt_report.md). Every row compresses the whys stamped on the taxonomy attributes; the agentic half is the next slide.');
+
+  s = H.slide('REFERENCE · EVIDENCE MAP 2 OF 2', 46);
+  H.title(s, 'Reference', 'Why each dial matters — the agentic criteria');
+  evTable(s, [
+    ['Posture & standing rules', 'Conduct that must survive hour three of an unsupervised run — rules live in re-read files, not in fading conversation context.', 'Anthropic harness guidance'],
+    ['Done + verifiable-by', 'The loop needs an exit it can TEST: mark work complete “only after end-to-end verification — not when the code is written.”', 'Anthropic memory-tool (verbatim)'],
+    ['Environment boundaries', 'Immutable inputs and versioned outputs engineer reversibility in before the first action — blast radius is a design choice.', 'Claude Code protected paths'],
+    ['Least-privilege tools', 'Name what exists, forbid the rest; risk-rate each tool low/medium/high by write access, reversibility, and impact.', 'OpenAI practical guide · NCSC'],
+    ['Input register & trust', 'Trust level dictates validation depth; UNKNOWN beats a plausible guess — a guessed grain propagates through the whole run.', 'pipeline/register discipline'],
+    ['Plan steps & methods', 'Named inputs and outputs per step keep intermediates inspectable; boring methods re-run identically; math runs as code.', 'Anthropic chaining · Faith & Fate 2023'],
+    ['Checks: anchor · hard · soft', 'Rules-based feedback is “the best form of feedback” an agent gets; one outside anchor catches whole-pipeline errors in a single comparison.', 'Anthropic Agent SDK'],
+    ['Gates & autonomy', 'Approval sits where errors are cheapest — plan, pre-irreversible, failure thresholds; autonomy is a design choice named by the role YOU keep.', 'OpenAI guide · Feng et al. 2025'],
+    ['Logs & reproducibility', 'Structured updates and descriptive commits make a run auditable and recoverable; same inputs → same outputs is engineered, not hoped.', 'Anthropic harness guidance'],
+    ['Report shape & discipline', 'A fixed status shape reads in 30 seconds; “done” means the check it ran, the output it got, the file re-opened — evidence, not assertion.', 'SDK status enums · harness docs'],
+  ]);
+  s.addNotes(
+    'HOW TO PRESENT — 1) Same treatment as the previous slide: name it, read TWO rows (Done + verifiable-by — the verbatim vendor rule — and Gates & autonomy), then point to the handout. 2) The line to land: “none of the twelve blocks is bureaucracy — each one exists because a documented failure taught someone to add it.”\n' +
+    'ACRONYMS — SDK = Software Development Kit. NCSC = (UK) National Cyber Security Centre.\n' +
+    'CONTENT — v1.4 layer, agentic half. Feng et al. 2025 = “Levels of Autonomy for AI Agents” (operator → observer). Full citations: notes/research/t6_agentic_attrs.md.');
+
   // ---------- 45. SOURCES ----------
   s = H.slide('REFERENCE', 45);
   H.title(s, 'Reference', 'Sources this training is built on');

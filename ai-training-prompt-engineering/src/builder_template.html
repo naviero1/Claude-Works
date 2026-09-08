@@ -76,7 +76,9 @@
   .attr h4{font-size:13px; color:var(--ink); display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
   .attr h4 .path{font-family:Consolas, monospace; font-size:10px; color:var(--mute); font-weight:400;}
   .attr h4 .pickhint{font-size:9.5px; font-weight:700; letter-spacing:.6px; color:var(--teal-d); background:var(--teal-t); border-radius:9px; padding:1.5px 8px;}
-  .attr .guide{font-size:11.8px; color:var(--mute); margin:3px 0 8px;}
+  .attr .guide{font-size:11.8px; color:var(--mute); margin:3px 0 6px;}
+  .attr .why{font-size:11px; color:var(--teal-d); background:var(--teal-t); border-radius:7px; padding:6px 10px; margin:0 0 8px; line-height:1.45;}
+  .attr .why b{font-weight:700;}
   .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:7px;}
   .chip{position:relative; border:1px solid var(--line); background:var(--panel); color:var(--ink); border-radius:14px; padding:4.5px 12px; font-size:12px; cursor:pointer; user-select:none;}
   .chip:hover{border-color:var(--teal); background:#fff;}
@@ -248,7 +250,7 @@
       A strong prompt is built from named pieces — Role, Task, Context, Format, Examples (plus safety valves; agentic briefs add more). This tool holds the team’s vetted menu for every piece, so you assemble instead of composing from a blank page. It is the interactive twin of the <b>Prompt Element Taxonomy</b> handout.
       <h3>The flow</h3>
       <b>1 · Start.</b> Pick one of the 18 templates (📋 Templates) — it switches on the right pieces and pre-fills proven choices. Or start blank.<br>
-      <b>2 · Adjust.</b> Every piece is a card. Click option chips to add or remove them (hover a chip to see when to use it and the exact text it inserts). Type your own wording in any box — it goes into the prompt verbatim.<br>
+      <b>2 · Adjust.</b> Every piece is a card. Click option chips to add or remove them (hover a chip to see when to use it and the exact text it inserts). The teal <b>Why it matters</b> note under each slot explains what that dial does to your output — and the research behind it. Type your own wording in any box — it goes into the prompt verbatim.<br>
       <b>3 · Finish.</b> Anything like <code>{{this}}</code> is a placeholder for your specifics — the amber bar counts them and <b>Find next</b> jumps to each. When none remain, copy and paste into your AI tool.
       <h3>Generative vs Agentic</h3>
       <b>Generative</b> prompts ask for text — they run in any chat assistant. <b>Agentic</b> briefs hand over a job — goal, environment, checks, and when to stop and ask you — for tools like Claude Code or Cowork.
@@ -416,6 +418,7 @@ function renderAttr(container, elem, attr, parent){
     + (hasOpts?(' <span class="pickhint">'+(one?'PICK ONE':'PICK ANY')+'</span>'):'')
     + (S.tech&&attr.oop?(' <span class="path">'+esc(attr.oop)+'</span>'):'')));
   if(attr.guidance) box.appendChild(el('div','guide',esc(attr.guidance)));
+  if(attr.why) box.appendChild(el('div','why','<b>Why it matters</b> — '+esc(attr.why)));
   const opts=attr.options||[];
   const core=opts.filter(o=>o.tier!=='extended');
   const ext=opts.filter(o=>o.tier==='extended');

@@ -46,7 +46,8 @@
               "tier": "extended",
               "when": "code and script work"
             }
-          ]
+          ],
+          "why": "An agent's posture persists across hundreds of unsupervised decisions, so it must be job-shaped, not title-shaped. Compound postures (engineer + analyst + writer) prevent the single-lens failure where every problem gets one discipline's answer. (agent-design practice; Anthropic agent guidance)"
         },
         {
           "id": "standing_behaviors",
@@ -86,7 +87,8 @@
               "phrase": "You show evidence for claims of success — the command run, the output, the re-opened file.",
               "when": "always"
             }
-          ]
+          ],
+          "why": "Long runs outlive their own context — what was said in minute one has faded by hour three. Standing behaviors are the conduct that must hold when nothing recent reinforces it, which is why harness guidance bakes rules into re-read files rather than conversation. (Anthropic long-running-agents harness)"
         }
       ],
       "techniques": [],
@@ -117,7 +119,8 @@
           "emit_label": "Goal",
           "guidance": "One sentence: the question to answer or the thing to produce.",
           "placeholder": "e.g., 'What is {{metric}} by {{group}} for {{period}}, and where is the gap?'",
-          "options": []
+          "options": [],
+          "why": "One goal sentence is the loop's objective function: gather → act → verify → repeat runs 'until the goal is met.' Two goals in one brief make every prioritization a coin-flip you never see. (Anthropic agent-loop framing)"
         },
         {
           "id": "decision",
@@ -127,7 +130,8 @@
           "emit_label": "Decision it supports",
           "guidance": "What someone will do differently depending on the answer — filters everything downstream.",
           "placeholder": "e.g., 'where to focus {{resource}} next quarter'",
-          "options": []
+          "options": [],
+          "why": "Naming the decision the work supports filters everything downstream — which findings matter, what precision suffices, what is noise. It is the brief-level relevance guardrail: scope drift dies here. (OpenAI relevance-guardrail concept; mission-brief practice)"
         },
         {
           "id": "audience_deadline",
@@ -137,7 +141,8 @@
           "emit_label": "Audience & deadline",
           "guidance": "Who sees it, how long they'll give it, and when it's due.",
           "placeholder": "e.g., 'review-meeting attendees, ~3 minutes on this; due 2 business days before the review'",
-          "options": []
+          "options": [],
+          "why": "Audience and deadline set the depth-versus-speed tradeoffs the agent will otherwise make for you, silently. A 30-second executive read and a hard due date change method choices all the way down the pipeline. (practitioner consensus)"
         },
         {
           "id": "cadence",
@@ -157,7 +162,8 @@
               "phrase": "Cadence: recurring — between cycles, only input paths and dates change; keep this brief in the repo and reuse by diff.",
               "when": "weekly/monthly/quarterly jobs"
             }
-          ]
+          ],
+          "why": "One-off versus recurring changes the economics of the whole brief: recurring jobs justify standing briefs, delta reporting, and versioned definitions — where agentic prompting pays compound interest. (reuse-by-diff pattern; AGENTS.md practice)"
         },
         {
           "id": "done",
@@ -168,7 +174,8 @@
           "emit_label": "Done looks like",
           "guidance": "The deliverables in one line — exact and countable.",
           "placeholder": "e.g., '2 slides + updated master workbook + CSV snapshot, all in deliverables/'",
-          "options": []
+          "options": [],
+          "why": "The loop needs an exit condition it can evaluate. 'Done looks like: three files, named thus' is countable; without it agents stop early or run forever — the documented failure that structured task lists with pass flags exist to prevent. (Anthropic harness: feature-list pattern)"
         },
         {
           "id": "verification",
@@ -205,7 +212,8 @@
               "tier": "extended",
               "when": "slides, documents, dashboards"
             }
-          ]
+          ],
+          "why": "The single highest-leverage line in a brief. The vendor's own rule for long-running agents: mark work complete 'only after end-to-end verification confirms it works, not when the code is written.' A done-check the agent can run converts 'I finished' into 'it passed.' (Anthropic memory-tool guidance, verbatim)"
         }
       ],
       "techniques": [],
@@ -235,7 +243,8 @@
           "emit_label": "Domain",
           "guidance": "The process, the actors, what 'good' means.",
           "placeholder": "What this process is, who's involved, and what good looks like…",
-          "options": []
+          "options": [],
+          "why": "Three sentences of process, actors, and what 'good' means give every downstream judgment a frame. Without them the agent optimizes for generic best practice — generically right, specifically wrong for your operation. (context-element mechanics)"
         },
         {
           "id": "glossary",
@@ -252,7 +261,8 @@
               "phrase": "{{METRIC}} = {{numerator}} ÷ {{denominator}} at {{grain}}; include {{…}}; exclude {{…}}; zero denominator → NULL, excluded from averages; target {{…}}.",
               "when": "every presented metric"
             }
-          ]
+          ],
+          "why": "An agent touches every source repeatedly: a guessed denominator doesn't make one wrong sentence — it propagates through every transformation, chart, and slide of the run. Metric cards make definitions load-bearing once and correct everywhere. (source-register discipline; pipeline field practice)"
         },
         {
           "id": "entities",
@@ -263,7 +273,8 @@
           "emit_label": "Entities & identifiers",
           "guidance": "Part numbers, site names, aliases, vendor codes — spelled the way the audience spells them.",
           "placeholder": "e.g., '{{id}} = {{meaning}}; {{alias}} → {{canonical}}'",
-          "options": []
+          "options": [],
+          "why": "Exact identifiers, spelled the way the audience spells them, prevent silent fuzzy matching — the join on 'almost the same part number' that poisons a dataset without raising an error. Enumerated entities turn matching into lookup. (data-pipeline practice)"
         },
         {
           "id": "quirks",
@@ -296,7 +307,8 @@
               "tier": "extended",
               "when": "mixed-grain sources"
             }
-          ]
+          ],
+          "why": "Each known quirk with its disarming rule converts institutional scar tissue into instructions. Undocumented, the same quirk gets 'fixed' differently every run — plausibly, silently, and sometimes destructively. (hallucination mechanics applied to data)"
         },
         {
           "id": "targets_prior",
@@ -307,7 +319,8 @@
           "emit_label": "Targets / prior work",
           "guidance": "Thresholds that matter, and files or decisions the output must stay consistent with.",
           "placeholder": "targets: … · stay consistent with: {{file/page}} (definitions, colors, names)",
-          "options": []
+          "options": [],
+          "why": "Thresholds and previously-published numbers are the run's consistency constraints: they anchor new output to figures the organization already trusts and make drift a detectable event instead of a surprise in a meeting. (reconciliation-anchor family)"
         }
       ],
       "techniques": [],
@@ -337,7 +350,8 @@
           "emit_label": "Workspace",
           "guidance": "Repo/folder and branch. One initiative, one folder.",
           "placeholder": "e.g., '{{owner/repo}} · branch {{claude/slug}} · folder {{initiative}}/'",
-          "options": []
+          "options": [],
+          "why": "One initiative, one folder is blast-radius design: everything the run touches is enumerable, backupable, revertable. It also makes sessions reproducible — harness practice starts every session by re-reading the same workspace. (Anthropic harness: per-session ritual)"
         },
         {
           "id": "boundaries",
@@ -364,7 +378,8 @@
               "phrase": "Intermediates go to {{work/}} — everything there may be regenerated at any time.",
               "when": "multi-step jobs"
             }
-          ]
+          ],
+          "why": "The three-zone layout engineers reversibility in before any action runs: immutable inputs can't be corrupted, versioned outputs can't be silently overwritten, scratch is disposable by contract. Vendor tooling enforces the same idea as protected paths and blocked destructive commands. (Claude Code permission modes; git-revert harness practice)"
         },
         {
           "id": "tools_allowed",
@@ -401,7 +416,8 @@
               "tier": "extended",
               "when": "integrations in scope"
             }
-          ]
+          ],
+          "why": "Least privilege starts with naming what exists — anything unnamed is a guess the agent may make for you. Published guidance risk-rates every tool (low/medium/high) by write access, reversibility, and impact; the allowed list is where that rating lives. (OpenAI practical guide, tool safeguards)"
         },
         {
           "id": "tools_forbidden",
@@ -443,7 +459,8 @@
               "tier": "extended",
               "when": "enterprise systems exist"
             }
-          ]
+          ],
+          "why": "An explicit denylist beats an implied one because evaluation order is deny-first: what is forbidden stays forbidden regardless of what else allows it. Name what would otherwise be assumed available — email, deletion, posting. (permission-rule precedence: deny > ask > allow)"
         },
         {
           "id": "confidentiality",
@@ -469,7 +486,8 @@
               "phrase": "No personal data appears in any output, including examples.",
               "when": "people data touched"
             }
-          ]
+          ],
+          "why": "The documented exfiltration pattern needs three legs at once: private data, untrusted content, and an outbound channel. The confidentiality clause removes or narrows the outbound leg — say what may leave the workspace, and in what form. (lethal-trifecta analysis; PII-filter guardrails)"
         },
         {
           "id": "risk_policy",
@@ -495,7 +513,8 @@
               "tier": "extended",
               "when": "sandboxed runs"
             }
-          ]
+          ],
+          "why": "Triaging actions by consequence is the published pattern on both major stacks: reversible proceeds, irreversible asks — operationalized as low/medium/high tool ratings and never/maybe/always-irreversible action classes. (OpenAI practical guide; Magentic-UI action guards)"
         }
       ],
       "techniques": [
@@ -531,7 +550,8 @@
           "multiline": true,
           "guidance": "One block per source. The skeleton below is the discipline — fill every line or write UNKNOWN.",
           "placeholder": "S1 — {{name}} · location {{path}} · format {{xlsx sheet 'X', header row N}} · one row = {{grain}} · key {{cols}} · coverage {{dates/sites}} · owner {{who}} · known issues {{…}}",
-          "options": []
+          "options": [],
+          "why": "A source register makes every input's location, format, grain, and meaning explicit before anything is computed — profiling before processing. Skipped, the first wrong assumption about what one row means propagates through the entire run. (ETL discipline)"
         },
         {
           "id": "trust",
@@ -557,7 +577,8 @@
               "phrase": "{{source}}: manual entry — re-derive every total from rows; expect typos; reconcile everything.",
               "when": "hand-filled sheets"
             }
-          ]
+          ],
+          "why": "Trust level dictates validation depth — the data-side version of tool risk ratings: a system export and a hand-typed tracker must not get the same scrutiny. Declaring it routes checking effort to where errors actually live. (risk-rating pattern applied to sources)"
         },
         {
           "id": "unknown_rule",
@@ -572,7 +593,8 @@
               "phrase": "Any fact about an input you cannot establish: write UNKNOWN and raise it as an open item before Phase 1 ends — never guess.",
               "when": "always on"
             }
-          ]
+          ],
+          "why": "'Write UNKNOWN, never guess' turns the model's strongest failure mode — plausible gap-filling — into a logged, owned item. An UNKNOWN is a work item; a guess is a landmine with a delay. (abstention research applied to pipelines)"
         }
       ],
       "techniques": [
@@ -609,7 +631,8 @@
           "emit_label": "Steps, in order",
           "guidance": "Each step: what it consumes, what it produces.",
           "placeholder": "1. {{step}} → {{produces}}  2. {{step}} → {{produces}} …",
-          "options": []
+          "options": [],
+          "why": "Steps with named inputs and outputs make intermediates inspectable — the documented reason explicit pipelines still matter: 'useful when you need to inspect intermediate outputs or enforce a specific pipeline structure.' Audit trails are built here. (Anthropic chaining guidance)"
         },
         {
           "id": "methods_allowed",
@@ -645,7 +668,8 @@
               "phrase": "simple proportions, always with n",
               "when": "rates"
             }
-          ]
+          ],
+          "why": "Boring, reproducible methods are a feature: descriptive stats and run charts re-run identically and survive challenge; clever one-offs don't. Compute-via-code is non-negotiable — model arithmetic degrades sharply as the numbers grow. (Faith & Fate, NeurIPS 2023)"
         },
         {
           "id": "methods_forbidden",
@@ -676,7 +700,8 @@
               "phrase": "adding analyses beyond the numbered questions",
               "when": "always"
             }
-          ]
+          ],
+          "why": "'Propose at a gate, never just use' routes method escalation through a human — the high-risk and failure-threshold triggers vendors place on agent actions, applied to analysis choices that would change what the numbers mean. (OpenAI escalation guidance)"
         }
       ],
       "techniques": [],
@@ -706,7 +731,8 @@
           "emit_label": "Anchor",
           "guidance": "One number from OUTSIDE the run that the results must tie to. The most important single check.",
           "placeholder": "e.g., 'total units = {{n}} per {{last cycle's master / system report}}'",
-          "options": []
+          "options": [],
+          "why": "One number from outside the run that the results must tie to catches whole-pipeline errors — wrong filters, dropped rows, doubled joins — with a single comparison. Recalculate, scan for errors, tie out: the pattern vendor tooling mandates before delivery. (reconciliation/recalc practice)"
         },
         {
           "id": "hard",
@@ -772,7 +798,8 @@
               "tier": "extended",
               "when": "apps, dashboards, documents"
             }
-          ]
+          ],
+          "why": "Rules-based feedback is 'the best form of feedback' an agent gets — clear rules, plus which rule failed and why. HARD checks make the run fail loudly at the failure point instead of finishing wrong politely; showing the offending rows makes the failure debuggable. (Anthropic Agent SDK verify-work)"
         },
         {
           "id": "soft",
@@ -804,7 +831,8 @@
               "phrase": "any metric moving > {{x}} vs. the prior cycle gets a one-line explanation or a flag",
               "when": "recurring reports"
             }
-          ]
+          ],
+          "why": "SOFT separates suspicion from failure so the run neither ignores anomalies nor cries wolf: flagged items land in open items with evidence attached, and a human triages them at review instead of mid-run. (check-type taxonomy; open-items discipline)"
         }
       ],
       "techniques": [
@@ -847,7 +875,8 @@
           "emit_label": "Deliverables (exact names)",
           "guidance": "Numbered, with the _MMDDYY convention and what each contains.",
           "placeholder": "1. deliverables/{{NAME}}_MMDDYY.{{ext}} — {{contents}}  2. …",
-          "options": []
+          "options": [],
+          "why": "Numbered deliverables with exact names make 'done' countable — the reason harness guidance tracks work as a structured list with pass flags rather than prose: it prevents premature completion and orphaned extras alike. (Anthropic harness: feature-list pattern)"
         },
         {
           "id": "logs",
@@ -873,7 +902,8 @@
               "phrase": "maintain OPEN_ITEMS.md: assumptions, exclusions, questions — each with an owner and status",
               "when": "always"
             }
-          ]
+          ],
+          "why": "CHANGES, FINDINGS, and OPEN_ITEMS make a run auditable after the fact — the 'structured updates' long-running-agent guidance requires every session to leave. Without logs there is no way to distinguish what the agent did from what it says it did. (Anthropic harness guidance)"
         },
         {
           "id": "repro",
@@ -900,7 +930,8 @@
               "tier": "extended",
               "when": "governed reporting"
             }
-          ]
+          ],
+          "why": "The regeneration guarantee — same inputs, same command, same outputs — turns a deliverable into evidence. It is why outputs carry formulas rather than pasted values and why environments get an init script: reproducibility is engineered, not hoped for. (harness init-script pattern; workbook discipline)"
         }
       ],
       "techniques": [],
@@ -931,7 +962,8 @@
           "emit_label": "Phases",
           "guidance": "Phase 0 is always intake: the agent restates the mission and its assumptions in its own words.",
           "placeholder": "Phase 0 intake → Phase 1 {{…}} → Phase 2 {{…}} → final QA phase",
-          "options": []
+          "options": [],
+          "why": "Phase 0 — the agent restates the mission and its assumptions in its own words — is the cheapest error catch in the run: a misread brief costs pennies here and a full rerun later. Plan-then-approve is the documented pattern across vendor tooling. (Claude Code plan mode; Magentic-UI co-planning)"
         },
         {
           "id": "gates",
@@ -967,7 +999,8 @@
               "tier": "extended",
               "when": "bulk pipelines"
             }
-          ]
+          ],
+          "why": "Gates put human judgment where published guidance puts it: before edits (plan approval), before irreversible or high-stakes actions, at failure thresholds, and at final review — each gate catching its error class at its cheapest point. (OpenAI practical guide; gate-placement survey)"
         },
         {
           "id": "autonomy",
@@ -1014,7 +1047,8 @@
               "tier": "extended",
               "when": "network/flaky tooling"
             }
-          ]
+          ],
+          "why": "Both halves are load-bearing: without proceed rules you built a slow chatbot that asks about everything; without stop rules you built a liability that asks about nothing. The published stop triggers are high-risk actions and exceeded failure thresholds. (OpenAI human-intervention guidance)"
         },
         {
           "id": "autonomy_level",
@@ -1050,7 +1084,8 @@
               "tier": "extended",
               "when": "only with sandboxing + proven track record"
             }
-          ]
+          ],
+          "why": "Autonomy is 'a deliberate design decision, separate from capability' — the published levels are named by the role the human keeps: operator, collaborator, consultant, approver, observer. Pick the lowest level that gets the job done; capability never obliges autonomy. (Feng et al. 2025)"
         }
       ],
       "techniques": [],
@@ -1109,7 +1144,8 @@
               "phrase": "Conventions: dates {{ISO in files, MM/DD/YY in prose}}; units {{…}}; language {{…}}.",
               "when": "org standards exist"
             }
-          ]
+          ],
+          "why": "Invariants are the deterministic guardrail class — rules enforced as rules, not judgment calls: never invent data, never overwrite inputs, version everything. Deterministic protections are their own category in vendor guardrail taxonomies precisely because they don't degrade under pressure. (OpenAI rules-based protections)"
         }
       ],
       "techniques": [],
@@ -1171,7 +1207,8 @@
               "tier": "extended",
               "when": "chart deliverables"
             }
-          ]
+          ],
+          "why": "A definition of done as tick-able, evidence-able items is the anti-premature-completion device: 'passes' flips only on verification, and the checks themselves are out of bounds to edit — 'it is unacceptable to remove or edit tests.' (Anthropic harness, verbatim)"
         }
       ],
       "techniques": [],
@@ -1229,7 +1266,8 @@
               "phrase": "6. What I'd check next / risks to the conclusion — at most 3 bullets.",
               "when": "always"
             }
-          ]
+          ],
+          "why": "A fixed report shape is why status reads in 30 seconds: the same lines in the same order every run, skimmable by humans and parseable by tools. Every agent SDK ships fixed result-status enums for the same reason — variable-shape reports hide failures. (SDK result/status enums)"
         },
         {
           "id": "discipline",
@@ -1249,7 +1287,8 @@
               "phrase": "Claims of success carry evidence: the command run and its output, or the re-opened file.",
               "when": "always"
             }
-          ]
+          ],
+          "why": "Evidence over assertion: 'done' means the check it ran, the output it got, and the file re-opened and verified — not the claim. Reports that cite their evidence convert trust from personality to track record, which is what agent oversight is supposed to run on. (harness verification guidance; NCSC oversight principle)"
         }
       ],
       "techniques": [],

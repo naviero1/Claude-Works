@@ -108,6 +108,8 @@ def build_builder(ws_name, data, mode):
                 ws.cell(row, 2).alignment = WRAP
                 if i == 0:
                     g = attr.get('guidance', '')
+                    if attr.get('why'):
+                        g = (g + '\n' if g else '') + 'WHY IT MATTERS: ' + attr['why']
                     ws.cell(row, 3, g).font = F_BODY_I
                     ws.cell(row, 3).alignment = WRAP
                 dcell = ws.cell(row, 4, '')

@@ -8,10 +8,10 @@ write) and **agentic AI** (prompts that work). Built August 2026 as the companio
 
 | Path | What it is |
 |---|---|
-| `deliverables/From_Prompts_to_Agents_Training.pptx` | The training deck (57 slides). Every slide's speaker notes carry three sections: HOW TO PRESENT (the numbered reading/pointing sequence), ACRONYMS (every acronym on the slide, expanded), and CONTENT (facts, sources, refresh markers). Runs as one 2-hour session or two 1-hour halves (split after Part 4). |
+| `deliverables/From_Prompts_to_Agents_Training.pptx` | The training deck (59 slides, incl. two "why each dial matters" evidence-map reference slides). Every slide's speaker notes carry three sections: HOW TO PRESENT (the numbered reading/pointing sequence), ACRONYMS (every acronym on the slide, expanded), and CONTENT (facts, sources, refresh markers). Runs as one 2-hour session or two 1-hour halves (split after Part 4). |
 | `deliverables/Prompt_Anatomy_Cheat_Sheet.pdf` | One-page printable: generative anatomy + agentic mission brief side by side. |
 | `prompt-library/` | 13 copy-ready templates — 8 generative (G1–G8), 5 agentic (A1–A5) — plus `ELEMENTS.md` (the element field guide) and the library's management conventions in its README. |
-| `prompt-library/taxonomy/` | The machine-readable element ontology (19 elements · 78 attributes · 286 options · 18 presets — counted including nested sub-attributes, as the tools count) — source of truth for the three tools below. Introduced in the deck as the Part 3 "field map" handout slide. |
+| `prompt-library/taxonomy/` | The machine-readable element ontology (19 elements · 78 attributes · 286 options · 18 presets — counted including nested sub-attributes, as the tools count). v1.1: every attribute carries a research-backed `why` — what that dial does to the output, with its evidence (citations in `notes/research/`). Source of truth for the three tools below; introduced in the deck as the Part 3 "field map" handout slide. |
 | `deliverables/Prompt_Template_Creator.html` | Interactive template builder: toggle elements, pick options, watch the prompt assemble; loads any library template as a starting instance. Single file, works offline. |
 | `deliverables/Prompt_Element_Taxonomy_Reference.pdf` | The full ontology in print: every element, attribute, and option with guidance (25 pp). |
 | `deliverables/Prompt_Template_Configurator.xlsx` | Spreadsheet version: dropdown pickers per attribute, prompt assembles by formula. |

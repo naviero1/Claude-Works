@@ -126,7 +126,8 @@
               "tier": "extended",
               "when": "text-to-table jobs"
             }
-          ]
+          ],
+          "why": "Sets the register the answer is written in — vocabulary, caution level, what gets foregrounded. Expert personas measurably improve domain description tasks, but a 162-persona study found no accuracy gain on factual questions: identity buys voice and focus, not IQ. (Salewski et al. 2023; Zheng et al. 2024)"
         },
         {
           "id": "expertise",
@@ -135,7 +136,8 @@
           "pick": "text",
           "guidance": "Name the field so the right vocabulary and priorities surface. This foregrounds knowledge — it does not create it.",
           "placeholder": "e.g., 'Your domain: supplier quality engineering in medical devices.'",
-          "options": []
+          "options": [],
+          "why": "Naming the field surfaces its vocabulary, defaults, and priorities — the answer starts from the right corner of the model's training instead of the generic middle. It foregrounds knowledge the model already has; it cannot create knowledge it lacks. (Salewski et al. 2023; vendor role guidance)"
         },
         {
           "id": "behaviors",
@@ -178,7 +180,8 @@
                   "phrase": "You say \"the data can't answer that\" when it can't, and name what data would.",
                   "when": "analysis with imperfect data"
                 }
-              ]
+              ],
+              "why": "Training rewards a confident guess over an honest blank, so guessing is the default; accuracy rules re-open the abstain option. Compute-via-code exists because model arithmetic degrades sharply as numbers grow. (OpenAI 2025, why LMs hallucinate; Faith & Fate, NeurIPS 2023)"
             },
             {
               "id": "transparency",
@@ -212,7 +215,8 @@
                   "phrase": "You list what you changed and why, so I can accept or reject each change.",
                   "when": "edits and rewrites"
                 }
-              ]
+              ],
+              "why": "Stated assumptions and shown work convert an answer you must trust into one you can audit — errors surface at review, not downstream. Self-checking works only against concrete criteria like these; a bare 'are you sure?' can make answers worse. (Anthropic self-check guidance; Huang et al. 2024)"
             },
             {
               "id": "style_behaviors",
@@ -241,9 +245,11 @@
                   "phrase": "You match the voice of the writing samples I provide.",
                   "when": "when a STYLE CARD or samples are included"
                 }
-              ]
+              ],
+              "why": "Style stated as rules survives; style stated as adjectives drifts. 'One idea per sentence' is enforceable and checkable in the output — 'write clearly' is re-interpreted on every run. (vendor format guidance; prompt-sensitivity research)"
             }
-          ]
+          ],
+          "why": "The part of Role that measurably changes output: a behavioral rule is checkable line-by-line in the result, where a title is a vibe. Grounding-style rules are the documented lever for drastically reducing invented content. (Anthropic reduce-hallucinations guidance)"
         },
         {
           "id": "stance",
@@ -278,7 +284,8 @@
               "tier": "extended",
               "when": "decisions with factions"
             }
-          ]
+          ],
+          "why": "Models affirm users ~49% more than humans do and mirror whichever side you reveal — a single flattering exchange measurably raises the user's conviction. Declaring a neutral or adversarial stance up front pre-empts the mirror before it engages. (Cheng et al., Science 2026; Sharma et al. 2023)"
         }
       ],
       "techniques": [
@@ -408,7 +415,8 @@
               "tier": "extended",
               "when": "troubleshooting"
             }
-          ]
+          ],
+          "why": "The verb is the operation: it selects what transformation runs on your material and what 'done' looks like. Google's guidance calls the task verb 'the most important component of a prompt' — vague verbs produce exploration instead of answers. (Google Workspace prompting guide)"
         },
         {
           "id": "statement",
@@ -418,7 +426,8 @@
           "multiline": true,
           "guidance": "Or write the ask yourself — one task, one sentence if you can manage it.",
           "placeholder": "The ask in your words. One task per prompt; several → number them under Scope.",
-          "options": []
+          "options": [],
+          "why": "One task in one sentence is the highest-leverage clarity move: current reasoning models pay a real cost for ambiguity — they burn thinking tokens trying to reconcile vague or conflicting instructions instead of answering. (OpenAI GPT-5 guide; Anthropic 'be clear and direct')"
         },
         {
           "id": "audience",
@@ -485,7 +494,8 @@
                   "phrase": "They will study this carefully — completeness beats brevity here.",
                   "when": "reference material, appendices"
                 }
-              ]
+              ],
+              "why": "The honest constraint that forces compression: a 30-second reader gets the number and the ask; a 10-minute reader gets the reasoning. Left uncapped, models default to thorough — which the reader experiences as long. (practitioner consensus; length is a vendor API dial for this reason)"
             },
             {
               "id": "reading_level",
@@ -522,9 +532,11 @@
                   "tier": "extended",
                   "when": "genuinely new concepts"
                 }
-              ]
+              ],
+              "why": "Vocabulary altitude is a dial the model follows reliably — and its default sits well above general-audience reading. Plain-language practice targets 6th–8th grade for mixed audiences; say the level and it lands there. (plain-language standards; style-prompting research)"
             }
-          ]
+          ],
+          "why": "Audience re-ranks and re-words the same content: what leads, what gets cut, which terms need expansion. Without one, the model writes for nobody in particular — the mid-distribution reader who doesn't exist in your building. (vendor Persona/Context frameworks)"
         },
         {
           "id": "success",
@@ -555,7 +567,8 @@
               "phrase": "a skeptical reviewer finds no unsupported claim.",
               "when": "high-stakes documents"
             }
-          ]
+          ],
+          "why": "A stated completion test gives the model a target to optimize toward and gives you a check to run afterward — the same mechanism that makes self-verification work: concrete criteria catch errors reliably; vague quality asks don't. (Anthropic self-check guidance)"
         },
         {
           "id": "purpose",
@@ -565,7 +578,8 @@
           "emit_label": "Why",
           "guidance": "The decision or event this feeds. Models generalize from reasons — and it filters what matters.",
           "placeholder": "e.g., 'feeds the Q3 sourcing decision on {{supplier}}'",
-          "options": []
+          "options": [],
+          "why": "Models generalize from reasons: 'no ellipses — this will be read aloud by text-to-speech' outperforms the bare rule, because the model extends the spirit to cases you didn't list. Purpose also filters relevance — it now knows what matters to the decision. (Anthropic explain-why guidance)"
         },
         {
           "id": "sense_check",
@@ -591,7 +605,8 @@
               "when": "you have the answers, the model has the structure",
               "tier": "extended"
             }
-          ]
+          ],
+          "why": "A restate-before-work step catches a misread task at the cheapest possible point — before any output exists. It is the generative version of the agentic Phase-0 intake gate: pennies to fix here, a full redo after a polished wrong answer. (plan-approval gate pattern)"
         }
       ],
       "techniques": [
@@ -656,7 +671,8 @@
               "phrase": "Use only the conversation above as source material.",
               "when": "continuing a chat"
             }
-          ]
+          ],
+          "why": "Placement measurably matters: long documents at the TOP with the question at the END improved answers by up to ~30% in vendor testing, and accuracy sags for content buried in the middle of a long context. (Anthropic long-context guidance; Liu et al. 2023, lost in the middle)"
         },
         {
           "id": "glossary",
@@ -673,7 +689,8 @@
               "phrase": "{{METRIC}} = {{numerator}} ÷ {{denominator}}, at {{grain}}; include {{…}}; exclude {{…}}; target {{…}}.",
               "when": "any computed metric"
             }
-          ]
+          ],
+          "why": "The model resolves every undefined term to its most common global meaning — not your local one. A metric card (numerator, denominator, grain, exclusions) replaces the single biggest source of wrong analytical answers: a guessed denominator. (hallucination mechanics; data-analysis field practice)"
         },
         {
           "id": "quirks",
@@ -722,7 +739,8 @@
               "tier": "extended",
               "when": "formatted reports as data"
             }
-          ]
+          ],
+          "why": "Every quirk you don't write down becomes a silent 'fix' the model invents — plausibility fills the gap, fluently. A quirk paired with its rule converts a hidden landmine into a followed instruction. (OpenAI 2025, why LMs hallucinate)"
         },
         {
           "id": "constraints",
@@ -759,7 +777,8 @@
               "tier": "extended",
               "when": "org conventions"
             }
-          ]
+          ],
+          "why": "Positively-phrased constraints are followed more reliably than prohibitions — earlier models showed inverse scaling on negated instructions, and current vendor guidance remains 'tell it what TO do.' When you must forbid, attach the reason. (Anthropic guidance; Jang et al. 2022)"
         },
         {
           "id": "rationale",
@@ -769,7 +788,8 @@
           "emit_label": "Why these rules",
           "guidance": "Explain any non-obvious rule — \"this will be read aloud, so no ellipses\" outperforms \"no ellipses.\" Models generalize from reasons.",
           "placeholder": "e.g., 'this goes into a validated record, so wording must match the source exactly'",
-          "options": []
+          "options": [],
+          "why": "The reason behind a rule is itself an instruction: models apply explained rules in spirit, not just letter, extending them to cases you didn't enumerate — the vendor docs state this generalization effect verbatim. (Anthropic best practices)"
         }
       ],
       "techniques": [
@@ -893,7 +913,8 @@
               "tier": "extended",
               "when": "verbal delivery"
             }
-          ]
+          ],
+          "why": "Naming the deliverable's shape — a table with these columns, a memo with these sections — removes the largest degree of freedom the model would otherwise spend guessing, and makes output land ready to use instead of ready to reformat. (all four vendor frameworks: Format / Expectations)"
         },
         {
           "id": "structure",
@@ -934,7 +955,8 @@
               "tier": "extended",
               "when": "reports, decks"
             }
-          ]
+          ],
+          "why": "Trivial format differences swing measured accuracy by up to 76 points across phrasings — structure is not cosmetic. A fixed, tested skeleton removes that variance and puts the answer where the reader looks first. (Sclar et al., ICLR 2024)"
         },
         {
           "id": "length",
@@ -1001,7 +1023,8 @@
               "tier": "extended",
               "when": "social posts, SMS, UI strings"
             }
-          ]
+          ],
+          "why": "A numeric cap is enforceable; 'brief' is a mood. Uncapped, models run two to three times longer than the reader needs — length is so real a dial that vendors expose it as an API parameter. The famous $200-tip stunt produced ~11% longer answers, not better ones. (OpenAI verbosity; tip-experiment analyses)"
         },
         {
           "id": "tone",
@@ -1051,7 +1074,8 @@
                   "tier": "extended",
                   "when": "papers, formal reviews"
                 }
-              ]
+              ],
+              "why": "Formality sets the social distance of the prose — hallway versus boardroom. Models default to mid-formal; one explicit pick lands it where you need it. (style-prompting research)"
             },
             {
               "id": "directness",
@@ -1086,7 +1110,8 @@
                   "tier": "extended",
                   "when": "early findings"
                 }
-              ]
+              ],
+              "why": "Directness decides whether the ask or the courtesy leads. Models hedge by default — caution is trained in — so 'lead with the ask' has to be said to happen. (practitioner consensus; headline-first practice)"
             },
             {
               "id": "warmth",
@@ -1122,9 +1147,11 @@
                   "tier": "extended",
                   "when": "celebrations, social"
                 }
-              ]
+              ],
+              "why": "Warmth calibrates the relationship signals in the text. Unmanaged, it drifts toward affirmation — the same preference-training pressure behind sycophancy — so the dial keeps warmth a choice rather than a bias. (Sharma et al. 2023, sycophancy origins)"
             }
-          ]
+          ],
+          "why": "Tone is where role prompting genuinely pays: models imitate a specified register reliably, and register changes how the human reader receives the work. Compose it from dials rather than adjectives — one pick per dial reads best. (vendor role-for-tone position; style-prompting research)"
         },
         {
           "id": "language_level",
@@ -1153,7 +1180,8 @@
               "phrase": "Expert-to-expert — shorthand and standard abbreviations are fine.",
               "when": "peer specialists"
             }
-          ]
+          ],
+          "why": "Jargon policy decides who can act on the output without a translator. Models also mirror the prompt's own vocabulary — write at the altitude you want back. (Anthropic: match your prompt's style to the desired output)"
         },
         {
           "id": "musts",
@@ -1195,7 +1223,8 @@
               "tier": "extended",
               "when": "house style"
             }
-          ]
+          ],
+          "why": "An explicit include/exclude list turns review into a checklist — presence and absence verified in seconds instead of re-reading for feel. It is the format-level version of checkable behavioral rules. (self-check-against-criteria guidance)"
         },
         {
           "id": "variations",
@@ -1226,7 +1255,8 @@
               "tier": "extended",
               "when": "you want a default with escape hatches"
             }
-          ]
+          ],
+          "why": "Asking for N alternatives converts sampling variance from a bug into a menu — the insight behind self-consistency, where several sampled answers beat any single one. You become the selector, which is where your judgment belongs. (Wang et al. 2023, self-consistency)"
         }
       ],
       "techniques": [
@@ -1284,7 +1314,8 @@
               "phrase": "Here are two examples — one GOOD and one BAD, labeled, with why:",
               "when": "teaching a quality bar"
             }
-          ]
+          ],
+          "why": "Few-shot examples were the original prompt-engineering discovery: task performance from demonstrations alone, no retraining. 3–5 diverse examples steer format and tone most reliably — but start zero-shot on thinking models; few-shot measurably degrades some of them. (Brown et al. 2020; Anthropic guidance; DeepSeek-R1 paper)"
         },
         {
           "id": "coverage",
@@ -1309,7 +1340,8 @@
               "phrase": "(One example shows when to REJECT or escalate instead of answering.)",
               "when": "judgment tasks"
             }
-          ]
+          ],
+          "why": "The model copies your examples' boundary behavior, not just their shape: exemplar choice and order alone can swing accuracy from near-chance to over 90%. All-happy-path examples teach it to treat every case as happy — one typical + one edge + one reject teaches the standard. (Lu et al. 2021; Prompt Report design decisions)"
         },
         {
           "id": "packaging",
@@ -1329,7 +1361,8 @@
               "phrase": "Examples are shown as Input: / Output: pairs.",
               "when": "transformations"
             }
-          ]
+          ],
+          "why": "Fencing examples in tags keeps them from being read as live input or instructions — unambiguous parsing is the documented reason vendors recommend tag structure, and unfenced examples are the classic source of example text leaking into output. (Anthropic XML-tags guidance)"
         },
         {
           "id": "paste",
@@ -1339,7 +1372,8 @@
           "multiline": true,
           "guidance": "Paste them. Real (redacted) beats invented; lightly-genericized real beats both.",
           "placeholder": "Paste example(s) here…",
-          "options": []
+          "options": [],
+          "why": "Models imitate surface detail as much as structure — a real (redacted) example carries your house style's actual distribution; an invented one carries what the model guesses your style is. Exemplar quality and similarity are measured few-shot design decisions. (Prompt Report §2.2)"
         }
       ],
       "techniques": [
@@ -1414,7 +1448,8 @@
               "tier": "extended",
               "when": "grounded Q&A, compliance"
             }
-          ]
+          ],
+          "why": "Standard training rewards a confident guess over 'I don't know' — benchmarks score the guess, so guessing is the default. Naming the exact situations where not-knowing must surface re-opens the abstain option precisely where it matters. (OpenAI 2025, why LMs hallucinate)"
         },
         {
           "id": "behavior",
@@ -1438,7 +1473,8 @@
               "phrase": "When uncertain: ask me up to {{3}} clarifying questions before proceeding.",
               "when": "interactive sessions"
             }
-          ]
+          ],
+          "why": "Explicitly permitting 'I don't know' 'can drastically reduce false information' — the vendor's own wording. Giving the escape hatch a shape (say so, ask, or flag and continue) converts invisible guesses into visible, handleable items. (Anthropic reduce-hallucinations, verbatim)"
         }
       ],
       "techniques": [
@@ -1480,7 +1516,8 @@
           "emit_label": "Scope, in priority order",
           "guidance": "Numbered, in priority order — the model works down the list.",
           "placeholder": "1. {{primary question}}  2. {{secondary}}  3. {{optional if room}}",
-          "options": []
+          "options": [],
+          "why": "A numbered scope list is an execution order: the model works down it instead of wandering sideways. Explicit scope and stop criteria are how vendors now control model 'eagerness' — the same dial, applied to text work. (OpenAI GPT-5 guidance)"
         },
         {
           "id": "stop_rule",
@@ -1509,7 +1546,8 @@
               "phrase": "If you believe something outside this scope matters, name it in one line at the end — do not pursue it.",
               "when": "letting good ideas surface without sprawl"
             }
-          ]
+          ],
+          "why": "An explicit end condition prevents both default failures: stopping early with a partial answer, and padding on past the answer. For anything loop-like, stopping conditions are a control requirement, not a nicety. (Anthropic building-effective-agents)"
         },
         {
           "id": "out_of_scope",
@@ -1519,7 +1557,8 @@
           "emit_label": "Out of scope",
           "guidance": "Name the adjacent things NOT to touch.",
           "placeholder": "e.g., 'root-cause analysis — this pass is descriptive only'",
-          "options": []
+          "options": [],
+          "why": "Models err toward helpful overreach — adjacent questions get answered because they can be. Naming the not-asked keeps output on the question you actually have: the manual version of a relevance guardrail. (OpenAI guardrail categories)"
         }
       ],
       "techniques": [],
