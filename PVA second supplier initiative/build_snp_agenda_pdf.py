@@ -148,7 +148,7 @@ A(Spacer(1, 8))
 ref = [[Paragraph("<b>OUR NUMBERS — quick reference</b>", S_BOXB), ""],
        [Paragraph(esc("Volume: ~1,300 lb/week · 450 lb/drum · ~150 drums/yr"), S_BOX),
         Paragraph(esc("Price: $0.75/lb delivered ≈ $337.50/drum ≈ $50,700/yr"), S_BOX)],
-       [Paragraph(esc("Spec: 10–12% solids · <2,500 cps (#3, 10 rpm, 25 °C)"), S_BOX),
+       [Paragraph(esc("Spec: 10–12% solids · <2,500 cps centipoise (#3, 10 rpm, 25 °C)"), S_BOX),
         Paragraph(esc("Shelf life: 18 days · fresh material typically <1,000 cps"), S_BOX)],
        [Paragraph("<b>Open gaps we can close today:</b> pH target &#183; viscosity lower bound &#183; colour standard &#183; "
                   "exact resin grade &#183; cleanup procedure &#183; hazard classification &#183; drum spec &#183; test method", S_BOX), ""]]
@@ -179,7 +179,7 @@ A(Spacer(1, 5))
 
 A(block("1 \u00b7 Drum recycling", [
  "Do you run a returnable / reconditioned drum program? Could empties go back on the SAME truck that delivers (backhaul, no added freight)?",
- "Who owns cleaning, and does our residue qualify as RCRA-empty?",
+ "Who owns cleaning, and does our residue qualify as RCRA-empty? (RCRA = Resource Conservation and Recovery Act, the US rule that defines when a container counts as 'empty'.)",
  "Does returning drums reduce our per-drum price — and by how much?",
  "Do you offer recycled-content or reconditioned drums as an option?",
  "What drum do you use for us today — poly or steel, open or tight head?",
@@ -189,9 +189,9 @@ A(block("1 \u00b7 Drum recycling", [
 ], 4))
 
 A(block("2 \u00b7 CoA vs CoC — Tom's item   \u2605 highest-value item of the visit", [
- "Move us from Certificate of CONFORMANCE to Certificate of ANALYSIS. Fields: lot #, production date, % total solids, final pH, viscosity.",
- "\u2605 Your exact viscosity METHOD: instrument series (LV / RV / HA / HB), spindle designation, RPM, temperature + tolerance, and reading time.",
- "Can we get 12–24 months of historical CoA data?",
+ "Move us from Certificate of CONFORMANCE (CoC \u2014 asserts it passed) to Certificate of ANALYSIS (CoA \u2014 gives the measured numbers). Fields: lot #, production date, % total solids (%TS), final pH, viscosity.",
+ "\u2605 Your exact viscosity METHOD: instrument series (LV / RV / HA / HB \u2014 the four Brookfield torque-spring ranges, from Low to High Viscosity), spindle designation, RPM (revolutions per minute), temperature + tolerance, and reading time.",
+ "Can we get 12–24 months of historical CoA (Certificate of Analysis) data?",
  "Do you keep retained samples, and for how long?",
 ], [
  "Why the method matters: 'spindle #3, 10 rpm, 25 \u00b0C' is NOT a complete method. LV-3 and RV-3 are different geometries and impose "
@@ -202,9 +202,9 @@ A(block("2 \u00b7 CoA vs CoC — Tom's item   \u2605 highest-value item of the v
 ], 6))
 
 A(block("3 \u00b7 Other hydrogels — the engineers' interest", [
- "What other water-soluble polymer solutions do you make? (PVP, PEG, cellulosics — HEC/HPMC, alginate, polyacrylamide, gelatin, carbomer)",
- "Can you formulate blends — PVA/PVP, PVA/gelatin? Do you have R&D / formulation support to help develop variants?",
- "To tune mechanical properties, what levers do you see: PVA molecular weight and hydrolysis grade, solids loading, blends, or chemical "
+ "What other water-soluble polymer solutions do you make? PVP (polyvinylpyrrolidone), PEG (polyethylene glycol), cellulosics — HEC (hydroxyethyl cellulose) / HPMC (hydroxypropyl methylcellulose), alginate, polyacrylamide, gelatin, carbomer.",
+ "Can you formulate blends — PVA (polyvinyl alcohol) / PVP, PVA/gelatin? Do you have R&D (research and development) / formulation support to help develop variants?",
+ "To tune mechanical properties, what levers do you see: PVA molecular weight (MW) and hydrolysis grade, solids loading, blends, or chemical "
  "crosslinking (borate, glutaraldehyde) vs our physical freeze/thaw route?",
  "Do you have freeze/thaw cryogel experience? Cycle count, freeze rate and solids all tune stiffness — they may know things we don't.",
 ], [
@@ -230,7 +230,7 @@ A(Band("PART B  —  MY ADDITIONS"))
 A(Spacer(1, 5))
 
 A(block("5 \u00b7 Business continuity  (the strategic one)", [
- "Do you have a documented BCP? A second line or second site that could run our product?",
+ "Do you have a documented BCP (business continuity plan)? A second line or second site that could run our product?",
  "Could you pre-stage or hold safety stock of our resin, so an upstream disruption doesn't stop our drums?",
  "Would you support us holding a buffer — and what actually limits that?",
 ], (), 4))
@@ -249,11 +249,12 @@ A(block("7 \u00b7 Close our open spec gaps — they can answer every one of thes
  "Exact resin grade and manufacturer. Our notes say 'Selvol S-1551F-D or equivalent' but that code doesn't match Sekisui's usual "
  "catalogue numbering. (May be treated as proprietary — frame as continuity documentation.)",
  "pH target and tolerance — currently missing entirely from our spec.",
- "Colour standard — is there an L*a*b* target with a \u0394E tolerance, or is a retain used as the visual standard?",
+ "Colour standard — is there an L*a*b* target (the CIE colour-space coordinates: Lightness, red\u2013green, blue\u2013yellow) with a "
+ "Delta-E tolerance (the single-number total colour difference), or is a retain used as the visual standard?",
  "Cleanup procedure — theirs, in writing.",
  "Hazard classification: flammable / corrosive / toxic / MARINE POLLUTANT? (The biocide is aquatic-toxic; whether the diluted product "
- "trips the threshold is a real question and their SDS answers it.)",
- "Who authors the SDS, and can we have the current version?",
+ "trips the threshold is a real question and their SDS \u2014 Safety Data Sheet \u2014 answers it.)",
+ "Who authors the SDS (Safety Data Sheet), and can we have the current version?",
 ], (), 6))
 
 A(block("8 \u00b7 Commercial — light touch", [
@@ -263,7 +264,7 @@ A(block("8 \u00b7 Commercial — light touch", [
 ], ["Frame as budgeting and forecasting, not negotiation."], 4))
 
 A(block("9 \u00b7 People", [
- "Named technical contact + their backup. QA contact for CoA questions.",
+ "Named technical contact + their backup. QA (quality assurance) contact for CoA questions.",
 ], ["Single-point-of-contact risk is real for a small account."], 3))
 
 A(PageBreak())
@@ -294,6 +295,55 @@ rows=[[ "", "", "" ] for _ in range(9)]
 tt=Table(rows, colWidths=[(W-LM-RM)*0.62,(W-LM-RM)*0.19,(W-LM-RM)*0.19], rowHeights=[21]*9)
 tt.setStyle(TableStyle([("BOX",(0,0),(-1,-1),0.5,RULE),("INNERGRID",(0,0),(-1,-1),0.5,RULE)]))
 A(tt)
+
+A(PageBreak())
+A(Band("ACRONYMS USED IN THIS DOCUMENT"))
+A(Spacer(1, 8))
+GLOSS = [
+ ("BCP", "Business Continuity Plan"),
+ ("cGMP", "current Good Manufacturing Practice (FDA rules for drugs/some devices)"),
+ ("CoA", "Certificate of Analysis \u2014 the measured test results for that lot"),
+ ("CoC", "Certificate of Conformance \u2014 asserts it met spec, without the numbers"),
+ ("cps / cP", "centipoise \u2014 the unit of viscosity (water \u2248 1 cps)"),
+ ("Delta-E", "the single-number total colour difference between two samples"),
+ ("FDA", "US Food and Drug Administration"),
+ ("HEC / HPMC", "hydroxyethyl cellulose / hydroxypropyl methylcellulose"),
+ ("HMW", "high molecular weight"),
+ ("IBC", "Intermediate Bulk Container \u2014 a 275\u2013330 gallon tote"),
+ ("ISO 9001", "the general quality-management standard (not industry-specific)"),
+ ("ISO 13485", "the medical-device quality standard \u2014 NOT required for us"),
+ ("L*a*b*", "CIE colour-space coordinates: Lightness, red\u2013green, blue\u2013yellow"),
+ ("LV / RV / HA / HB", "the four Brookfield viscometer torque-spring ranges"),
+ ("MOQ", "Minimum Order Quantity (differs from minimum BATCH size)"),
+ ("MW", "molecular weight"),
+ ("NDA", "Non-Disclosure Agreement"),
+ ("PEG", "polyethylene glycol"),
+ ("PVA / PVOH", "polyvinyl alcohol \u2014 both abbreviations mean the same polymer"),
+ ("PVP", "polyvinylpyrrolidone"),
+ ("QA", "Quality Assurance"),
+ ("R&amp;D", "research and development"),
+ ("RCRA", "Resource Conservation and Recovery Act \u2014 defines an 'empty' container"),
+ ("RPM", "revolutions per minute \u2014 the viscometer spindle speed"),
+ ("SDS", "Safety Data Sheet"),
+ ("%TS", "percent total solids \u2014 the non-water fraction"),
+ ("316L / 304", "stainless steel grades; 316L resists chloride pitting (we have salt)"),
+]
+rows=[]
+for i in range(0, len(GLOSS), 2):
+    pair=GLOSS[i:i+2]
+    cells=[]
+    for term, definition in pair:
+        cells.append(Paragraph("<b>%s</b>  \u2014  %s" % (term, definition), S_BOX))
+    while len(cells) < 2: cells.append("")
+    rows.append(cells)
+gt = Table(rows, colWidths=[(W-LM-RM)/2]*2)
+gt.setStyle(TableStyle([
+    ("VALIGN",(0,0),(-1,-1),"TOP"),
+    ("LEFTPADDING",(0,0),(-1,-1),4), ("RIGHTPADDING",(0,0),(-1,-1),10),
+    ("TOPPADDING",(0,0),(-1,-1),4), ("BOTTOMPADDING",(0,0),(-1,-1),4),
+    ("LINEBELOW",(0,0),(-1,-2),0.3,RULE),
+]))
+A(gt)
 
 A(PageBreak())
 A(Band("NOTES"))
