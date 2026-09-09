@@ -760,3 +760,21 @@ token-explainer research; judge lightly at update)
   ever goes external.
 - Pending: design-research results (S16 layout patterns + big-number treatments) fold
   into this section when the agent reports.
+
+## ROUND 3 addendum (2026-09-09) — design research landed; S16/S17 specs FINAL
+
+Research file: notes/research/r19_slide_design.md (assertion-evidence · Duarte glance
+test · Knaflic single-accent · F/Z scanning · big-number practice).
+- **S16 FINAL:** "identity trading cards," 2×3 kept — card = logo chip + name (16pt,
+  vendor as 8pt suffix) → 2–4 word identity phrase in Cambria ~26–28pt teal (the card's
+  only large/teal element) → one evidence sentence (≤11pt) → caveat as a 9pt amber
+  footer pill. Z-path order: ChatGPT top-left → Claude → Gemini / Copilot → Perplexity
+  → Grok. Title becomes an assertion: "Six assistants, six different jobs — pick by
+  task, not habit." Variant B (six F-pattern rows) documented if the owner wants a
+  bigger change.
+- **S17 bill FINAL:** split versus block — "$2.19" (teal, ~120pt+) vs "$60" (charcoal,
+  same size), one "/M output tokens" label, TRUE-proportion 1:27.4 bars beneath, "27×"
+  hero badge (teal circle, white numerals) + "a $100 job for $3.60" sub-line. Single
+  accent color; eye path badge → cheap number → bars. MoE hospital drawing per Round 3
+  spec shares the slide; the five-benchmark chart compresses if space demands (owner
+  can veto at QA).
