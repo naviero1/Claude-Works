@@ -722,3 +722,41 @@ token-explainer research; judge lightly at update)
 - **Audit H1 partially resolved in advance:** the missing mode-name paper trail now
   exists as notes/research/r18_mode_names.md; at update, slide-12's provenance line
   cites r18, and H2's consumer-vs-M365 clarification comes from r18's Copilot note.
+
+---
+
+# ROUND 3 — owner audit intake, slides 16–20 (2026-09-09 · HELD, apply on "update")
+
+- **S16 (assistants) · REDESIGN for scannability.** Owner: boring, too small; the eye
+  must catch what each LLM is known for. Direction (to be refined by the running design
+  research): "player card" hierarchy — 1st: brand logo, 2nd: a 2–4 word IDENTITY PHRASE
+  in display type (Claude "The agentic leader" · ChatGPT "The everything assistant" ·
+  Gemini "The multimodal giant" · Copilot "The enterprise default" · Perplexity
+  "Research with receipts" · Grok "Blunt on purpose"), 3rd: one compact evidence line,
+  4th (smallest): the caveat. Bigger type throughout; the evidence facts stay r13-backed.
+- **S17 (DeepSeek) · the bill must SHOUT + fun MoE drawing.** (a) Replace the text-run
+  bill line with a big-stat block: "$2.19 vs $60" in oversized numerals, "27× cheaper"
+  as a badge, one sub-line ("per million output tokens · a $100 job for $3.60").
+  (b) Replace/augment the MoE text card with a DRAWN hospital: a building of ~9 small
+  department boxes, 2–3 lit teal ("cardiology · imaging" awake) and the rest dimmed, a
+  question arriving by arrow, a price tag reading "you pay for the lit rooms only" —
+  house palette, labeled plainly.
+- **S18 (trust) · add the DATA-TYPE dimension.** Owner: "the type of data matters — is
+  it confidential, does it contain PII?" Add a compact data×tier decision matrix
+  replacing/joining the closing callout — rows: Public · Internal · Confidential ·
+  PII / regulated; columns: GREEN tenant / YELLOW personal / RED China-hosted; cells:
+  ✓ / "policy approval first" / ✗ (RED row = ✗ across; PII row: even GREEN requires
+  explicit policy + privacy-team approval). ACRONYMS gains PII = Personally
+  Identifiable Information. Closing line: "when PII or confidential data is involved,
+  your privacy/compliance team outranks this slide."
+- **S19 + S20 + DECK-WIDE · real brand logos.** Owner: add actual logos of the
+  LLMs/tools, "everywhere needed in the slides, all presentation." Plan at update:
+  source official, unmodified marks (vendor press/brand pages; Wikimedia Commons SVGs),
+  convert to sized PNGs in src/assets/logos/ with a sources list in notes; add an
+  H.logo helper; place on S16 vendor cards, S12 mode-names rows, S17 (DeepSeek), S18
+  server rows, S19/S20 tool cards, and anywhere else a brand is a card anchor.
+  Note for the record: unmodified marks used referentially in an internal training deck
+  is standard practice; org brand/legal policy outranks — flag to owner if the deck
+  ever goes external.
+- Pending: design-research results (S16 layout patterns + big-number treatments) fold
+  into this section when the agent reports.
