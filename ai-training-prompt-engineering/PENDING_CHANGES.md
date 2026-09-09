@@ -778,3 +778,60 @@ test · Knaflic single-accent · F/Z scanning · big-number practice).
   accent color; eye path badge → cheap number → bars. MoE hospital drawing per Round 3
   spec shares the slide; the five-benchmark chart compresses if space demands (owner
   can veto at QA).
+
+---
+
+# ROUND 4 — owner audit intake, slides 22–32 (2026-09-09 · HELD, apply on "update")
+
+- **S22 (anatomy) · REDESIGN as "the body of a prompt".** Owner: vendor-translation
+  panel is redundant — omit it (survives as one CONTENT-notes line); introduce a LARGER
+  list of criteria as parts of a whole; get creative — "a good drawing of a body with
+  its parts." Adopted concept: a stylized human figure (house palette, drawn line-art,
+  generated as an asset for quality) with labeled leader lines mapping ALL SEVEN
+  elements as anatomy —
+  HEAD = Role (who is speaking) · HEART = Task (the point of it all) · BLOODSTREAM =
+  Context (what gives every word its meaning) · SKELETON = Format (the structure that
+  holds its shape) · HANDS = Examples (show, don't tell) · IMMUNE SYSTEM = The Out
+  (rejects invented answers) · SKIN = The Stop (the boundary where the job ends).
+  Right column keeps the compact 5-tag worked example (the corrected returns prompt) so
+  the whole and the instance share the slide. Title stays assertion-style.
+- **S22/S24 · Context deepened (owner's insight):** context is not only formulas —
+  INDUSTRY gives words their meaning. Add the teaching line: "'Yield' means one thing
+  on a farm, another on a factory floor, another in finance — your industry is context
+  the model doesn't have until you say it." Keep the formula example alongside.
+- **S23–25:** owner: very good — no changes.
+- **S26 (taxonomy) · add PURPOSE + ORIGIN framing.** New mini-card/lines: WHERE IT CAME
+  FROM — "distilled from every major vendor's prompting guide, the research literature
+  (the same studies on these slides), and this course's own template library — one
+  catalog instead of scattered advice." WHAT YOU'RE GETTING — "you never start from a
+  blank page again: a vetted menu, with the why behind every choice, in three forms
+  (print, interactive Creator, spreadsheet)."
+- **S27–28 (toolkit) · add PURPOSE line:** "The elements are what a prompt IS; the
+  techniques are what you DO when the output isn't right yet. Seven moves cover ~90% of
+  daily fixes." (One framing band on S27; S28 keeps flow.)
+- **S29 (evidence corner) · aesthetic pass:** bigger fonts (bullets ≥13pt), fewer words
+  per bullet, the ~49% sycophancy figure promoted to a big-stat treatment (r19 rules:
+  one accent, oversized numeral), assertion title. No content change — same facts.
+- **S30 (expired advice) · ENHANCE into the three-column playbook:** TO DO · NOT TO DO ·
+  NO LONGER TO DO (EXPIRED), 5–8 entries each with anchors — research agent compiling
+  now from the repo evidence base + fresh vendor-doc check; folds in when it reports.
+  Layout: three color-coded columns (green/red/gray), R19 hierarchy.
+- **S31 (PDCA) · owner: golden. Add visual credentials:** Toyota logo + a W. Edwards
+  Deming photograph + PDCA wheel mini-graphic. Asset plan at update: official Toyota
+  mark (referential use, same logo-pipeline caution); Deming photo ONLY from a source
+  with verified license (Wikimedia Commons — check the specific file's license; if none
+  is clearly usable, fall back to a named silhouette card "W. Edwards Deming,
+  1900–1993"); document licenses in notes.
+- **S32 (rep) · fix the missing material + R10 instructions.** Owner: "summarize WHAT
+  report?" — the exercise referenced a report that doesn't exist. Fix: put a 4–5 line
+  fictional "Q2 Returns Report — excerpt" ON the slide (gray panel; also in the PROMPTS
+  sheet for copy-paste), and rewrite the exercise as numbered R10 steps:
+  1 · COPY the weak line + the excerpt into your course log ("Summarize this report:
+  [excerpt]"). Run it — note what you get.
+  2 · UPGRADE the prompt: add a Role, a reader, a word cap, and an Out. Run it again.
+  3 · COMPARE with a neighbor: which ELEMENT made the difference?
+  WHY → you just felt the anatomy work — same report, same AI, better brief.
+  Excerpt draft (fictional): "Q2 returns totaled 412 units against 28,400 shipped
+  (1.45%), up from 1.1% in Q1. Site B drove the rise; supplier packaging changes are
+  the suspected cause. A corrective plan is in draft. Costs are within budget. Customer
+  escalations: two, both closed."
