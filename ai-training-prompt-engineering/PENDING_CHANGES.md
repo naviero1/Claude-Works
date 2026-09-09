@@ -1,9 +1,13 @@
-# PENDING CHANGES — v1.5 ledger (brainstorm phase, NOT yet applied)
+# PENDING CHANGES — v1.5 ledger
 
-**Status:** the owner is reviewing the deck slide by slide. Nothing below is applied to any
-deliverable — this file is the complete, detailed holding pen. When the owner says
-**"update"**, execute the checklist at the bottom. Owner review completed through Part 2
-(physical slides 1–20) as of 2026-09-09; Part 3 review is in progress and will append here.
+**Status: ✅ APPLIED 2026-09-09** (owner said "update"). Sections A–C, D, F and H are
+executed — deck rebuilt at 67 slides, render-QA'd, docs refreshed; see PROJECT_STATE.md
+v1.5 entry. Additions applied beyond this ledger (owner's mid-update requests): the Part 3
+importance-first rebuild (owner comments on slides 23–31), the Part 4 worked-example packs
+(data analytics ×4 slides + exercise files, email summarization ×2 slides, future-plays
+menu), evidence refresh r15, email research r16. **Section G below remains the live list
+of open questions.** Fresh-research items in Section E were resolved (mode names verified
+Sep 9, 2026 — see slide 12 notes; Haiku $1/$5 confirmed on anthropic.com).
 
 **Owner's standing rules gathered during this review (bind every change below):**
 - R1. No edits to deck/deliverables until the owner says "update". This ledger is the record.

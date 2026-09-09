@@ -286,7 +286,7 @@ module.exports = function buildPartFour(pres, H) {
     'ACRONYMS — none on this slide.');
 
   // ---------- 41. THE LADDER ----------
-  s = H.slide('PART 6 · THE LADDER', 41);
+  s = H.slide('PART 6 · THE PROMOTION LADDER', 41);
   H.title(s, 'From retyping to asset', 'The promotion ladder — and when to climb it');
   const ladder = [
     ['edit', '1 · One-off prompt', 'Typed, used, gone. Fine for genuinely one-time asks.'],
@@ -310,7 +310,7 @@ module.exports = function buildPartFour(pres, H) {
   s.addNotes(
     'HOW TO PRESENT — 1) Walk the rungs 1→5 down the left side: one line on what each is, one on when to climb. 2) Right top card: the promotion trigger — say Anthropic’s rule: “explained the same task more than once? Package it.” 3) Right bottom card: the familiar discipline — controlled work instructions, lighter weight. 4) Land the expectation: “most of you should live at rungs 2–3 within a month; rung 5 is where Part 5’s briefs live.” 5) Bridge: “so WHERE exactly do these live, tool by tool?”\n' +
     'ACRONYMS — CLAUDE.md / AGENTS.md = standing-instruction files (rung 5). SOP (notes only) = Standard Operating Procedure.\n' +
-    'CONTENT — The ladder maps effort to value. Rung 4 is where consistency stops depending on people remembering. The SOP analogy is a process analogy — don’t imply regulatory equivalence.');
+    'CONTENT — The promotion ladder maps effort to value (a different ladder from Part 1’s escalation ladder — name them fully if anyone conflates them). Rung 4 is where consistency stops depending on people remembering. The SOP analogy is a process analogy — don’t imply regulatory equivalence.');
 
   // ---------- 42. WHERE TO STORE ----------
   s = H.slide('PART 6 · WHERE THINGS LIVE', 42);
@@ -375,7 +375,7 @@ module.exports = function buildPartFour(pres, H) {
   H.repTimer(s);
   H.card(s, 0.55, 1.75, 12.2, 3.2, C.TEAL_TINT);
   H.bullets(s, 0.9, 2.1, 11.4, 2.2, [
-    { t: 'Which rung of the ladder are you on today — one-off typing, personal doc, team library, packaged, as-code?', b: true },
+    { t: 'Which rung of the promotion ladder are you on today — one-off typing, personal doc, team library, packaged, as-code?', b: true },
     { t: 'Name the ONE prompt you already reuse from memory. That is your first library entry.' },
     { t: 'Write where it will live and its v1.0 line — you have just started your prompt library.' },
   ], { size: 13.5, gap: 11 });

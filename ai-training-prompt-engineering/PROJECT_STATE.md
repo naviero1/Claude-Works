@@ -177,18 +177,49 @@ each prompting attribute matters and how it affects output — research-grounded
   "field practice" where no strong study exists — nothing is dressed up as research that
   isn't.
 
-## v1.5 — IN BRAINSTORM (2026-09-09) — owner slide-by-slide review; NOTHING APPLIED YET
+## v1.5 (2026-09-09) — APPLIED: the review-cycle rebuild + worked-example packs
 
-The owner is reviewing the whole deck under a strict protocol: discuss first, apply only
-when they say **"update"**. Every agreed change is held, in full detail, in
-**`PENDING_CHANGES.md`** (repo root) — per-slide specs, the eight final guiding-prompt
-texts, note patches, slide-count arithmetic, open questions, and the execution checklist.
-New verified research behind those changes: `notes/research/r11_vendor_trust.md` (vendor
-servers/trust tiers), `r12_tool_landscape.md` (2026 tool gallery), `r13_reputations_r1.md`
-(assistant "known for" evidence + R1-vs-o1 chart data), `r14_hallucination_incidents.md`
-(13 verified public incidents). Review complete through physical slide 20; Part 3 in
-progress. Do not edit deck sources or deliverables until the owner says "update" — then
-follow PENDING_CHANGES.md Section H.
+Owner said "update" after a full slide-by-slide review of Parts 1–3 (protocol: brainstorm
+first, apply on "update"). Everything in `PENDING_CHANGES.md` Sections A–C was applied,
+plus a mid-update owner request for two worked-example packs. Deck: 59 → **67 slides**,
+render-QA'd. Highlights:
+
+- **Part 1 (14 slides):** welcome retitled ("Ask, or delegate"), three-block map, no
+  durations, multimodal aside; era cards with schematic mini-diagrams + named techs;
+  time-to-100M chart; "deletes wrong guesses" thesis; LEGO token bricks; RAG
+  "you already use this" strip; ladder + triage diagnostic; reasoning slide split into
+  fast-vs-thinking + the feature menu (verified Sep-2026 mode names per vendor);
+  hallucination split into four-kinds + hall of shame (4 locked incidents); P1 rep
+  deleted. Eight PROMPT n/8 course-log chips (H.promptChip in deck_lib.js).
+- **Part 2 (6 slides):** evidence-backed "known for" layer (ChatGPT-writes-better
+  corrected); DeepSeek slide with MoE-on-slide + R1-vs-o1 chart (five pairs + 27× bill);
+  servers/tiers/trust redesign (trust the tier, not the logo); gallery split into
+  doers + specialist shelf (Manus, Notion Agents, Gemini Notebook, Granola, Gamma/Canva,
+  Firefly, Lovable, ElevenLabs/DeepL; Stable Diffusion demoted with rationale); matrix
+  and test-set slides retired.
+- **Part 3 (12 slides):** elements rebuilt importance-first (what-you-get / why /
+  evidence / weak→strong; Out + Stop are elements 6–7); taxonomy slide pulls forward;
+  techniques split with a verbatim line to steal per card; evidence corner in plain
+  terms; "Advice that expired" reframe; iteration = PDCA (Deming/Toyota; LEI's
+  "Prompt-Do-Check-Act" cited) with the diagnosis grid as the Check step; rep rebuilt
+  to explain itself.
+- **Part 4 (12 slides):** untouched originals + owner-requested walkthroughs: AI data
+  analysis end-to-end (4 slides: profile-first, correlations/comparisons, quotation
+  normalization, ship-the-artifact) on a generated practice pack
+  (`src/build_exercise_pack.py` → `deliverables/exercise-data/`: seeded 144-row dataset
+  with planted TOTAL-row + "n/a" quirks; three trap-laden quotation PDFs; a 10-message
+  email thread with four planted traps); email-summarization walkthrough (2 slides:
+  five shapes + Copilot mechanics/sequence); future-plays menu.
+- **Ripples only in Parts 5–6/close:** promotion-ladder qualifiers; glossary 17 → 19
+  (both ladders defined).
+- All speaker notes on touched slides use the spaced template (HOW TO PRESENT / BRIDGE /
+  TRY IT / ACRONYMS / CONTENT, one item per line).
+- New research: r11–r16 (trust/servers · tools · reputations+R1 · incidents ·
+  per-element evidence · email summarization), all dated 2026-09-09.
+- Still open (PENDING_CHANGES.md Section G): Parts 5–6 owner review; reps in 3/5/6
+  survive until reviewed; triage drill has six problems (trim to four if asked); final
+  prompt numbering confirmed n/8; Part-4 pointer notes still say the old session split
+  (owner froze Part 4 content mid-review).
 
 ## Open intake (waiting on owner; see INTAKE.md)
 

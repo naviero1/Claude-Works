@@ -1,0 +1,93 @@
+FICTIONAL EMAIL THREAD — generated for the "From Prompts to Agents" training. No real people or companies.
+====================================================================================================
+
+From: Maya Chen (Packaging Engineering)
+Sent: Tue Sep 8, 2026 09:14
+To: All
+Subject: Q3 packaging change — approval needed by Fri
+
+Team — proposing we switch the EN-450 line from foam inserts to molded pulp trays. Drop-test v1 passed at 1.2 m. Cost per unit drops ~9%, and it clears the plastic-reduction target. Full proposal attached (packaging_proposal_v3.pdf). I need sign-offs by Friday.
+
+----------------------------------------------------------------------------------------------------
+
+From: Tom Alvarez (Procurement)
+Sent: Tue Sep 8, 2026 11:02
+To: All
+Subject: RE: Q3 packaging change
+
+Supportive. One flag: our current quote from the tray vendor is 90 days old. I will request an updated quotation and confirm the 9% figure by Wed Sep 17.
+
+----------------------------------------------------------------------------------------------------
+
+From: Jonas Weber (Operations, Berlin)
+Sent: Tue Sep 8, 2026 11:40
+To: All
+Subject: RE: Q3 packaging change
+
+Berlin can host the pilot run. Also — anyone else going to the canteen thing Thursday? They said there will be pretzels.
+
+----------------------------------------------------------------------------------------------------
+
+From: Priya Nair (Quality)
+Sent: Wed Sep 9, 2026 08:55
+To: All
+Subject: RE: Q3 packaging change
+
+Before sign-off I need the v2 drop-test at 1.5 m per the updated spec, not 1.2. Maya, can you rerun and share the report? Also the incoming-inspection checklist will need a molded-pulp section — I can draft it once the pilot is confirmed.
+
+----------------------------------------------------------------------------------------------------
+
+From: Maya Chen (Packaging Engineering)
+Sent: Wed Sep 9, 2026 13:21
+To: All
+Subject: RE: RE: Q3 packaging change
+
+Fair. Rerunning at 1.5 m — drop_test_v2.xlsx to follow by Fri Sep 19. If it passes, no design change needed.
+
+----------------------------------------------------------------------------------------------------
+
+From: Dan Brooks (Finance)
+Sent: Wed Sep 9, 2026 16:47
+To: All
+Subject: RE: Q3 packaging change
+
+Approved from my side WITH a cap: total transition spend (tooling + obsolete foam write-off) must stay under USD 18,000. Above that it goes to the quarterly review board.
+
+----------------------------------------------------------------------------------------------------
+
+From: Sofia Ruiz (Customer Success)
+Sent: Thu Sep 10, 2026 10:05
+To: All
+Subject: RE: Q3 packaging change
+
+Two customers audit our packaging annually. Do we need to send a change-notification letter before the switch, or after the pilot? Genuinely unsure of the requirement here.
+
+----------------------------------------------------------------------------------------------------
+
+From: Jonas Weber (Operations, Berlin)
+Sent: Thu Sep 10, 2026 10:22
+To: All
+Subject: RE: Q3 packaging change
+
+Pilot logistics: we can start the week of Sep 22. Reserving line 2 for two shifts. (I am out Fri.)
+
+----------------------------------------------------------------------------------------------------
+
+From: Maya Chen (Packaging Engineering)
+Sent: Mon Sep 14, 2026 09:31
+To: All
+Subject: RE: RE: FW: Q3 packaging change
+
+Update: the 1.5 m rig is booked next week, so drop-test v2 slips to Wed Sep 23 — which moves the Berlin pilot start to Mon Oct 6. Jonas, please rebook line 2. Everything else stands: Tom’s quote check Sep 17, Dan’s 18k cap, pilot at Berlin.
+
+----------------------------------------------------------------------------------------------------
+
+From: Tom Alvarez (Procurement)
+Sent: Mon Sep 14, 2026 15:58
+To: All
+Subject: RE: Q3 packaging change
+
+Noted on the new dates. Vendor confirmed they are re-quoting against RFQ-2026-114 quantities; expecting the document tomorrow. Will circulate.
+
+----------------------------------------------------------------------------------------------------
+

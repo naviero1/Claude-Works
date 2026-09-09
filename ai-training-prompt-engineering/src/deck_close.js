@@ -54,8 +54,10 @@ module.exports = function buildClose(pres, H) {
 
   // ---------- 44. GLOSSARY ----------
   s = H.slide('REFERENCE', 44);
-  H.title(s, 'Reference', 'Glossary — seventeen terms that matter');
+  H.title(s, 'Reference', 'Glossary — nineteen terms that matter');
   const glossary = [
+    ['Escalation ladder', 'prompt first, retrieve second, fine-tune last — capability triage (Part 1)'],
+    ['Promotion ladder', 'one-off → personal → team → packaged → as-code — where a prompt lives (Part 6)'],
     ['Token', 'the text chunk a model actually reads (~¾ of a word); pricing and limits count these'],
     ['Context window', 'working memory per conversation — everything must fit; cleared when the chat ends'],
     ['Knowledge cutoff', 'where training data stops; anything after needs search or your documents'],
@@ -76,7 +78,7 @@ module.exports = function buildClose(pres, H) {
   ];
   glossary.forEach((g, i) => {
     const x = 0.55 + (i % 2) * 6.2;
-    const y = 1.55 + Math.floor(i / 2) * 0.6;
+    const y = 1.55 + Math.floor(i / 2) * 0.54;
     s.addText([
       { text: g[0] + ' — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.5 } },
       { text: g[1], options: { color: C.SLATE, fontSize: 10 } },
@@ -85,7 +87,7 @@ module.exports = function buildClose(pres, H) {
   s.addNotes(
     'HOW TO PRESENT — 1) Do not read it. One sentence: “print-friendly glossary — every term on it was used in context today.” 2) Point at two entries only: sycophancy (the one that changes behavior) and gate (the one that makes agents safe). 3) Advance.\n' +
     'ACRONYMS — RAG and MCP are expanded on the slide itself; nothing else to define.\n' +
-    'CONTENT — Print-friendly reference. All seventeen were used in context during the training (taxonomy added in v1.2).');
+    'CONTENT — Print-friendly reference. All nineteen were used in context during the training (taxonomy added in v1.2; the two ladders added in v1.5 to disambiguate them).');
 
   // ---------- EVIDENCE MAPS (v1.4 — why each dial matters, per criteria class) ----------
   const evTable = (s2, rows) => {

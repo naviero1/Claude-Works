@@ -125,6 +125,26 @@ function makeHelpers(pres) {
     s.addText('3:00', { x: 11.78, y: 0.44, w: 0.95, h: 0.36, fontFace: F.head, fontSize: 16, bold: true, color: C.TEAL, margin: 0, valign: 'middle' });
   };
 
+  // Guiding-prompt band — the consistent chip treatment for the eight course-log prompts:
+  // teal-tinted card, robot icon, solid "PROMPT n/8" chip, optional short label, Consolas body.
+  H.promptChip = (s, x, y, w, h, n, text, opts = {}) => {
+    H.card(s, x, y, w, h, C.TEAL_TINT);
+    H.iconCircle(s, x + 0.16, y + 0.13, 0.4, 'robot', C.TEAL);
+    s.addShape('roundRect', { x: x + 0.66, y: y + 0.16, w: 1.3, h: 0.34, rectRadius: 0.08, fill: { color: C.TEAL }, line: { type: 'none' } });
+    s.addText(`PROMPT ${n}/8`, { x: x + 0.66, y: y + 0.17, w: 1.3, h: 0.32, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9.5, bold: true, charSpacing: 1, color: 'FFFFFF', margin: 0 });
+    if (opts.label) s.addText(opts.label, { x: x + 2.08, y: y + 0.17, w: w - 2.35, h: 0.32, fontFace: F.body, fontSize: 10.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+    s.addText(text, { x: x + 0.2, y: y + 0.58, w: w - 0.4, h: h - 0.72, fontFace: 'Consolas', fontSize: opts.size || 9.5, color: C.INK, margin: 0, lineSpacingMultiple: 1.1, valign: 'top' });
+  };
+
+  // Horizontal bar row for small hand-drawn charts: label | bar (scaled) | value
+  H.hbar = (s, x, y, w, label, frac, value, color, opts = {}) => {
+    const labW = opts.labW || 1.7, valW = opts.valW || 1.1, barH = opts.h || 0.3;
+    const barMax = w - labW - valW - 0.2;
+    s.addText(label, { x, y: y - 0.02, w: labW, h: barH + 0.06, fontFace: F.body, fontSize: opts.size || 9.5, bold: !!opts.b, color: opts.labColor || C.SLATE, margin: 0, valign: 'middle' });
+    s.addShape('roundRect', { x: x + labW, y, w: Math.max(0.12, barMax * frac), h: barH, rectRadius: 0.04, fill: { color }, line: { type: 'none' } });
+    s.addText(value, { x: x + labW + Math.max(0.12, barMax * frac) + 0.08, y: y - 0.02, w: valW, h: barH + 0.06, fontFace: F.body, fontSize: opts.size || 9.5, bold: true, color: opts.valColor || C.INK, margin: 0, valign: 'middle' });
+  };
+
   // Callout band (tinted, with optional icon)
   H.callout = (s, x, y, w, h, fill, textRuns, opts = {}) => {
     H.card(s, x, y, w, h, fill, opts.line);
