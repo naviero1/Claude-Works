@@ -705,3 +705,20 @@ token-explainer research; judge lightly at update)
 4. Kickers/titles: strip series counters per R13.
 5. Fold the token-explainer research (r17 candidate) into P3's final wording and S7
    notes.
+
+## ROUND 2 addendum (2026-09-09) — research landed; P3 finalized
+
+- **R10 refined by research (r17):** every TYPE text follows the 4-part shape — concept
+  named precisely · audience anchor (a person) · HARD numeric cap · one analogy + end
+  with why-it-matters-at-work.
+- **P3 FINAL (S7):** TYPE → "Explain AI tokens to a busy office worker in under 80
+  words: use a LEGO-brick analogy, show one word splitting into tokens, and end with why
+  tokens set my AI's cost and limits." WHY → the definition lands in your course log —
+  and the brick analogy is the one the best explainers use. (LEGO framing validated as
+  the dominant popular analogy — r17.)
+- **S7 notes add** the research-backed live demo: paste attendees' own names/company
+  jargon into a live tokenizer (colored chunks; personal, reliable, not the memorized
+  letter-counting trick) — r17.
+- **Audit H1 partially resolved in advance:** the missing mode-name paper trail now
+  exists as notes/research/r18_mode_names.md; at update, slide-12's provenance line
+  cites r18, and H2's consumer-vs-M365 clarification comes from r18's Copilot note.
