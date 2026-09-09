@@ -177,6 +177,19 @@ each prompting attribute matters and how it affects output — research-grounded
   "field practice" where no strong study exists — nothing is dressed up as research that
   isn't.
 
+## v1.5 — IN BRAINSTORM (2026-09-09) — owner slide-by-slide review; NOTHING APPLIED YET
+
+The owner is reviewing the whole deck under a strict protocol: discuss first, apply only
+when they say **"update"**. Every agreed change is held, in full detail, in
+**`PENDING_CHANGES.md`** (repo root) — per-slide specs, the eight final guiding-prompt
+texts, note patches, slide-count arithmetic, open questions, and the execution checklist.
+New verified research behind those changes: `notes/research/r11_vendor_trust.md` (vendor
+servers/trust tiers), `r12_tool_landscape.md` (2026 tool gallery), `r13_reputations_r1.md`
+(assistant "known for" evidence + R1-vs-o1 chart data), `r14_hallucination_incidents.md`
+(13 verified public incidents). Review complete through physical slide 20; Part 3 in
+progress. Do not edit deck sources or deliverables until the owner says "update" — then
+follow PENDING_CHANGES.md Section H.
+
 ## Open intake (waiting on owner; see INTAKE.md)
 
 Curated prompt doc (first) · Berryman & Huyen books as EPUB/split-PDF (<10MB parts; Drive
