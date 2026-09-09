@@ -589,3 +589,119 @@ reference:
    refresh stale absolute numbers).
 6. Commit with a clear message; push to `claude/training-course-polish-oxohwj` only.
 7. Keep this file: mark applied sections ✅ and leave Section G open items visible.
+
+---
+
+# ROUND 2 — owner audit intake, slides 2–14 (2026-09-09 · HELD, apply on "update")
+
+The owner's own audit pass. Verdict on the prompt-chip layer: **failed usability** — too
+long, format unclear, trainee has to guess. New standing rules (R10–R13) and per-slide
+changes below. The 22 findings in AUDIT_v1.5_parts1-3.md ALSO apply at the same update.
+
+## New standing rules
+
+- **R10 · One fixed prompt template, everywhere.** Every chip = numbered STEP rows; each
+  row is exactly: **TYPE THIS →** (copy-paste text, target ≤35 words, Consolas) +
+  **WHY →** (one plain sentence). Multi-step sequences always visibly numbered. A prompt
+  may never reference a concept not yet taught (S2's "checks" violated this).
+- **R11 · Copy-paste prompt sheet.** All course prompts live in a PROMPTS tab added to
+  the practice workbook (columns: # · Where · Name · Copy this prompt · Why) — short
+  versions AND extended versions. Slides carry the short version + "copy it from your
+  PROMPTS sheet" footer. (Owner said "add in the spreadsheet"; a printable one-pager can
+  be generated from the same data — offer both.)
+- **R12 · Informative prompts are first-class.** "Explain X like I'm a 5th grader, under
+  100 words" style beats staged exercises whenever the goal is understanding a concept.
+  Not everything is a parable; point trainees at the definition directly.
+- **R13 · Series labels.** Drop every "(1 of 2)/(2 of 2)/(n of 3)" from titles (owner:
+  doesn't work aesthetically). Scheme: first slide plain title; follow-on slide keeps the
+  same kicker and gets "· continued" in the subtitle. Applies to slides 11/12, 13/14, and
+  Part 3's elements trio + toolkit pair (their titles already differ, so just delete the
+  counters).
+
+## The eight prompts, rewritten to R10 (drafts — final S7 wording pends the
+token-explainer research; judge lightly at update)
+
+- **P1 · S2 (two modes — jargon removed, sequence explicit):**
+  STEP 1 TYPE → "Write a short farewell card for a coworker who is leaving."
+  WHY → generative mode: it writes instantly — and guesses every detail it doesn't know.
+  STEP 2 TYPE → "Now don't write it. Ask me everything you'd need to know to do this
+  perfectly, then wait for my answers."
+  WHY → the seed of delegate mode: the AI turns around and interviews YOU. (Notes: "the
+  full delegation toolkit — briefs, checks, gates — is Part 5"; no agentic vocabulary on
+  the slide.)
+- **P2 · S6 (unchanged content, R10 format):**
+  STEP 1 TYPE → "Finish this sentence 5 different ways: We should move the launch date
+  because" · WHY → no facts yet: watch it scatter across guesses.
+  STEP 2 TYPE → "Now 5 more ways, knowing: B2B software firm, competitor launches May 3,
+  our beta ends April 20." · WHY → your facts didn't make it smarter — they deleted
+  wrong guesses.
+- **P3 · S7 (informative; wording to be finalized from research):**
+  TYPE → "Explain tokens to me like I'm a 5th grader, using LEGO bricks. Under 100
+  words. End with the one thing tokens change about my daily AI use."
+  WHY → the definition lands in your course log — plain, short, yours to keep.
+  (Full teaching version → PROMPTS sheet, extended section.)
+- **P4 · S8 (informative + optional homework step):**
+  STEP 1 TYPE → "Explain your context window like I'm a 5th grader: the desk, what fits
+  on it, and what happens when I close this chat. Under 100 words."
+  WHY → the AI describes its own working memory.
+  STEP 2 (homework) TYPE → "Summarize our chat so far in under 80 words, titled
+  HANDOFF." · WHY → tonight, paste it into a fresh chat and watch it pick up your course.
+- **P5 · S10 (concept-first; six-problem triage drill → PROMPTS sheet as EXTENDED):**
+  TYPE → "Give me three everyday AI problems: one fixed by a better prompt, one by
+  giving it the right documents, one only fixable by retraining. One line each on why."
+  WHY → the ladder, sorted live by the AI in front of you.
+- **P6 · S11 (informative; schedule puzzle → sheet as EXTENDED):**
+  TYPE → "Describe your fast mode vs your thinking mode like I'm choosing between them
+  for real work: when is each worth it, and roughly how much more does thinking cost?
+  Under 120 words." · WHY → the model explains its own two speeds — and its own bill.
+- **P7 · S12 (shortened; table version → sheet):**
+  TYPE → "List the modes this app gives me — quick answer, thinking, web search, deep
+  research, agent — one line each on what it does differently and its rough effort. Say
+  'unsure' rather than guess." · WHY → your own product hands you its menu; ask again
+  the day it changes.
+- **P8 · S17 (shortened):**
+  TYPE → "Explain 'Mixture of Experts' like a hospital of specialist departments, and
+  why it made powerful AI cheaper in 2025. Under 100 words." · WHY → MoE in your log,
+  plainly.
+
+## Per-slide content changes (round 2)
+
+- **S4 · eras:** add a "what came out of it" line per card — Rules: expert systems doing
+  real work (MYCIN diagnosing infections, XCON configuring computers) [Deep Blue 1997 —
+  VERIFY in r1 or drop]; Learning: spam filters, recommendations, image recognition
+  [AlphaGo 2016 — VERIFY]; Generative: ChatGPT, image generators; Agentic: coding
+  agents, office agents, deep-research modes.
+- **S5 · "Attention Is All You Need":** notes gain the explainer — attention = the
+  mechanism that lets the model weigh which earlier words matter most when predicting
+  the next; the paper's claim: attention ALONE suffices (drop the older
+  recurrence/convolution machinery); the title is widely reported as a playful nod to
+  "All You Need Is Love" [VERIFY at update]. Plus a notes-only prompt in R10 format
+  (does not consume chip numbering): TYPE → "Explain the 2017 AI paper 'Attention Is
+  All You Need' like I'm new to AI: what is attention, why did the title claim it's ALL
+  you need, and what did it replace? Under 120 words."
+- **S6 · cutoff + RLHF depth:** cutoff callout gains "…but many assistants compensate:
+  live web search / grounded modes pull today's pages into the prompt (the feature menu,
+  later this part), and open infrastructures plug in your own documents (RAG, concept
+  3)." RLHF card/notes gain the after-ship story: preference tuning doesn't end at
+  launch — your thumbs-up/down and (on consumer tiers) your chats become the preference
+  data that trains the NEXT model; ties to the trust-tier slide (that is exactly what
+  "trains on your data by default" means).
+- **S13 · hallucination kinds, engagement:** give the four kind-cards nicknames + icons
+  so they land as characters, not a list — 1 "The confident guess" · 2 "The fake
+  receipt" · 3 "The joke taken seriously" · 4 "Garbage in, gospel out" — bigger type,
+  one incident teaser each, left column trimmed to three bullets; the improv-actor line
+  becomes the slide's spoken opener rather than a bullet.
+- **S14 · labels:** apply R13 ("· continued"); also carries audit finding M6 (Deloitte
+  "partially refunded", EY "didn't check out").
+- **S9:** owner: fine — no change.
+
+## Execution additions for the next "update"
+
+1. Apply AUDIT findings H1–L13 + this round together.
+2. build_exercise_pack.py: add the PROMPTS tab (short + extended versions, walkthrough
+   steps included); regenerate workbook.
+3. deck_lib.js: rework H.promptChip to the R10 TYPE/WHY row format; re-lay each prompt
+   slide (chips get shorter — space relaxes everywhere).
+4. Kickers/titles: strip series counters per R13.
+5. Fold the token-explainer research (r17 candidate) into P3's final wording and S7
+   notes.
