@@ -2,12 +2,130 @@
 const { C, F } = require('./deck_lib');
 
 module.exports = function buildClose(pres, H) {
+  // ---------- CONCLUSION A · REQUIREMENTS = THE SISTER SKILL (v1.6) ----------
+  let s = H.slide('CONCLUSION · THE SISTER SKILL', 48);
+  H.title(s, 'You already write prompts for a living — same skill, new audience', 'They’re called requirements');
+  H.card(s, 0.55, 1.58, 12.2, 0.78, C.TEAL_TINT);
+  s.addText([
+    { text: '“Prompt engineering and requirements engineering are literally the same skill — using clarity, context, and intentionality to communicate your intent.”', options: { italic: true, color: C.TEAL_DARK, fontSize: 13 } },
+    { text: '   — Andrew Stellman, O’Reilly, 2025', options: { color: C.MUTE, fontSize: 10 } },
+  ], { x: 0.85, y: 1.66, w: 11.6, h: 0.62, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
+  H.card(s, 0.55, 2.5, 6.9, 3.3, C.PANEL);
+  s.addText('Same structure, three ways', { x: 0.85, y: 2.66, w: 6.2, h: 0.35, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  const reqMap = [
+    ['User story', '“As a [role], I want [goal], so that [benefit]”', 'ROLE + TASK — the so-that is the Task’s purpose clause'],
+    ['Acceptance criteria', 'Given [state] · When [action] · Then [result]', 'Given = CONTEXT · When = TASK · Then = FORMAT + checks'],
+    ['ISO 29148 standard', 'unambiguous · complete · singular · verifiable', 'TASK precision · CONTEXT · THE STOP · FORMAT + self-check'],
+  ];
+  reqMap.forEach((r, i) => {
+    const y = 3.12 + i * 0.9;
+    H.card(s, 0.8, y, 3.3, 0.8, 'FFFFFF', C.LINE);
+    s.addText([
+      { text: r[0], options: { bold: true, color: C.INK, fontSize: 9.5, breakLine: true } },
+      { text: r[1], options: { color: C.SLATE, fontSize: 8, italic: true } },
+    ], { x: 0.94, y: y + 0.05, w: 3.05, h: 0.7, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
+    H.arrow(s, 4.16, y + 0.3, 0.22, C.TEAL);
+    s.addText(r[2], { x: 4.5, y: y + 0.03, w: 2.8, h: 0.75, fontFace: F.body, fontSize: 8.4, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 0.98 });
+  });
+  H.card(s, 7.6, 2.5, 5.15, 3.3, C.PANEL);
+  s.addText('Why it wins', { x: 7.88, y: 2.66, w: 4.6, h: 0.35, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  s.addText([
+    { text: '41.1%', options: { bold: true, color: C.RED, fontSize: 22, fontFace: F.head } },
+    { text: '  — how often a model guesses an UNSTATED requirement right. A spec deletes the guessing.', options: { color: C.SLATE, fontSize: 10 } },
+  ], { x: 7.88, y: 3.06, w: 4.6, h: 0.75, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.02 });
+  s.addText([
+    { text: 'The software world moved first: ', options: { bold: true, color: C.INK, fontSize: 10, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'GitHub’s Spec Kit (2025) makes the written spec “the source of truth” AI agents build from — spec-driven development is requirements writing, industrialized.', options: { color: C.SLATE, fontSize: 9.6 } },
+  ], { x: 7.88, y: 3.9, w: 4.6, h: 0.95, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
+  s.addText([
+    { text: '“Whoever writes the spec… is now the programmer.”', options: { italic: true, color: C.TEAL_DARK, fontSize: 10.5, breakLine: true } },
+    { text: '— Sean Grove, OpenAI, 2025', options: { color: C.MUTE, fontSize: 8.5 } },
+  ], { x: 7.88, y: 4.92, w: 4.6, h: 0.75, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.04 });
+  H.callout(s, 0.55, 6.0, 12.2, 0.95, C.AMBER_TINT, [
+    { text: 'What this means for this room: ', options: { bold: true, color: C.INK, fontSize: 12, breakLine: true } },
+    { text: 'if you can write an SOP, a test protocol, or an acceptance criterion, you already own the hardest 80% of prompt engineering — the seven elements are a requirements document in miniature.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { iconName: 'key', iconFill: C.AMBER, size: 11.5 });
+  s.addNotes(
+    'HOW TO PRESENT —\n' +
+    '1) The reveal, plainly: “you didn’t learn a NEW skill today — you learned a new audience for one you already have. Writing a prompt IS writing a requirement.” Then the Stellman quote, verbatim.\n' +
+    '2) LEFT card: three requirements forms this room may already write — user stories, Given-When-Then, the ISO characteristics — and each maps ONTO the anatomy. Read one mapping aloud (Given = Context, When = Task, Then = Format + checks is the cleanest).\n' +
+    '3) RIGHT card: the callback number — 41.1% — and the software world’s move: spec-driven development (GitHub Spec Kit), then Grove’s line: whoever writes the spec is now the programmer. His stronger line if the room is technical: “code is 10–20% of the value; the other 80–90% is structured communication.”\n' +
+    '4) Amber band — the point of the slide: SOPs, test protocols, acceptance criteria = the hardest 80%, already owned.\n' +
+    '5) One caution to respect (R7): the evidence is structural + measured on clarified PROMPTS (ClarifyGPT +7 pts; Yang +4.8%) — there is no study of requirements-trained PEOPLE prompting better; don’t claim one.\n' +
+    '\n' +
+    'BRIDGE —\n' +
+    '“And when you can’t fill an element in — that gap has a name too: a question.”\n' +
+    '\n' +
+    'ACRONYMS —\n' +
+    'SOP = Standard Operating Procedure. ISO 29148 = the international requirements-engineering standard (ISO/IEC/IEEE). BDD (if asked) = Behavior-Driven Development, home of Given-When-Then. PM = product manager (in Grove’s quote).\n' +
+    '\n' +
+    'CONTENT —\n' +
+    'v1.6 new slide (owner request). All quotes verified verbatim, all forms traced to origin — notes/research/r21_requirements_questions.md: Stellman O’Reilly Sep 2025; Grove “The New Code” June 2025 (transcript-checked); Spec Kit github.blog Sep 2025; user story Connextra 2001; Given-When-Then Dan North mid-2000s; INVEST Bill Wake 2003; ISO 29148:2018 nine characteristics; ClarifyGPT ACM FSE 2024.\n' +
+    'DO NOT USE (misattributions people expect): Einstein’s “55 minutes on the problem” (apocryphal) and Voltaire’s “judge a man by his questions” (actually de Lévis, 1808).');
+
+  // ---------- CONCLUSION B · THE CRAFT OF ASKING (v1.6) ----------
+  s = H.slide('CONCLUSION · ASK BETTER QUESTIONS', 49);
+  H.title(s, 'The best prompt is a question', 'Sometimes theirs — let the AI interview you');
+  H.card(s, 0.55, 1.58, 6.2, 3.4, C.TEAL_TINT);
+  s.addText('The flip — one line you can paste today', { x: 0.85, y: 1.74, w: 5.6, h: 0.35, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+  H.card(s, 0.82, 2.16, 5.65, 0.85, 'FFFFFF', C.LINE);
+  s.addText('“Before answering, ask me clarifying questions until you’re 95% confident you understand what I need.”', { x: 0.98, y: 2.24, w: 5.35, h: 0.7, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 1.06 });
+  s.addText([
+    { text: 'Why it works: ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
+    { text: 'unstated needs get guessed right 41.1% of the time — but when the model asks FIRST, accuracy jumps ~7–14 points (ClarifyGPT, FSE 2024). Answering its questions isn’t politeness; it’s quality control.', options: { color: C.SLATE, fontSize: 10 } },
+  ], { x: 0.85, y: 3.14, w: 5.6, h: 1.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
+  s.addText('You’ve run this before — it was Prompt 1/8, step 2, on slide two. The course opened and closes on the same move.', { x: 0.85, y: 4.2, w: 5.6, h: 0.65, fontFace: F.body, fontSize: 9.5, italic: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.05 });
+  H.card(s, 6.95, 1.58, 5.8, 3.4, C.PANEL);
+  s.addText('The question toolkit — for you, not the AI', { x: 7.22, y: 1.74, w: 5.3, h: 0.35, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
+  const qkit = [
+    ['Five Whys', 'Ohno, Toyota: “by repeating why five times… the solution becomes clear.” Same factory as our PDCA loop.'],
+    ['Open → closed funnel', 'Open questions to explore (“what’s driving this?”), closed to verify (“so the cap is 18k — yes or no?”).'],
+    ['The Socratic check', 'Interrogate any AI answer: what’s assumed? what’s the evidence? what if we’re wrong?'],
+  ];
+  qkit.forEach((q, i) => {
+    const y = 2.18 + i * 0.94;
+    H.iconCircle(s, 7.22, y + 0.08, 0.4, ['refresh', 'branch', 'help'][i], C.TEAL);
+    s.addText([
+      { text: q[0] + ' — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.5 } },
+      { text: q[1], options: { color: C.SLATE, fontSize: 9.6 } },
+    ], { x: 7.74, y, w: 4.8, h: 0.9, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.03 });
+  });
+  H.card(s, 0.55, 5.12, 12.2, 1.0, C.PANEL);
+  s.addText([
+    { text: '“Figuring out what questions to ask will be more important than figuring out the answer.”', options: { italic: true, color: C.INK, fontSize: 12.5 } },
+    { text: '  — Sam Altman, 2025', options: { color: C.MUTE, fontSize: 9.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: '“[Computers] are useless. They can only give you answers.”', options: { italic: true, color: C.SLATE, fontSize: 10.5 } },
+    { text: '  — Pablo Picasso, 1964. Sixty years apart, same conclusion.', options: { color: C.MUTE, fontSize: 9 } },
+  ], { x: 0.85, y: 5.22, w: 11.6, h: 0.82, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.08 });
+  H.callout(s, 0.55, 6.28, 12.2, 0.72, C.TEAL_TINT, [
+    { text: 'The two skills are one: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
+    { text: 'the seven elements are a requirements spec in miniature — and the element you CAN’T fill in yet is the exact question to ask, or to let the AI ask you.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { iconName: 'zap', iconFill: C.TEAL, size: 11.5 });
+  s.addNotes(
+    'HOW TO PRESENT —\n' +
+    '1) Open with the flip: all course long they wrote prompts; the last skill is making the AI interview THEM. Read the paste-line; note the callback — it was Prompt 1/8 step 2, the very first exercise. Full circle, on purpose.\n' +
+    '2) The numbers, in one breath: 41.1% guessed right unstated → asking first recovers ~7–14 points → “answer its questions” is quality control.\n' +
+    '3) RIGHT toolkit — for HUMANS: Five Whys (say the Toyota tie: same factory as the PDCA slide) · open→closed funnel · the Socratic check for interrogating any AI answer.\n' +
+    '4) Quote band: Altman, then the Picasso echo — sixty years apart, same conclusion. (Picasso wording verified to the 1964 Paris Review interview; the popular “computers are useless” phrasing is a later smoothing.)\n' +
+    '5) Teal band is the course’s closing thesis — read it verbatim, then advance to the ten things.\n' +
+    '\n' +
+    'BRIDGE —\n' +
+    '“Ten things worth remembering — the photograph slide.”\n' +
+    '\n' +
+    'ACRONYMS —\n' +
+    'FSE = the ACM Foundations of Software Engineering conference (ClarifyGPT’s venue). HBR (if cited aloud) = Harvard Business Review.\n' +
+    '\n' +
+    'CONTENT —\n' +
+    'v1.6 new slide (owner request). Sources verified in notes/research/r21_requirements_questions.md: ClarifyGPT (GPT-4 62.43→69.60 mean Pass@1; +13.87 with human answers) · CLAM 2022 (qualitative) · Ohno, Toyota Production System · Altman via ReThinking/CNBC Jan 2025 · Picasso via Quote Investigator.\n' +
+    'Extra toolkit for questions, if the room wants more: HBR’s five leader questions (investigative what’s known · speculative what if · productive now what · interpretive so what · subjective what’s unsaid), May–Jun 2024.\n' +
+    'DO NOT attribute: Einstein 55-minutes (apocryphal) · Voltaire judge-by-questions (de Lévis, 1808).');
+
   // ---------- 42. TEN THINGS ----------
-  let s = H.slide('WRAP-UP', 42);
+  s = H.slide('WRAP-UP', 42);
   H.title(s, 'Wrap-up', 'Ten things worth remembering');
   const ten = [
     ['1', 'The prompt is the whole steering wheel — everything the model knows about your task must be in it (or in files it can read).'],
-    ['2', 'Anatomy beats inspiration: Role · Task · Context · Format · Examples. Every vendor teaches the same recipe.'],
+    ['2', 'Anatomy beats inspiration: Role · Task · Context · Format · Examples — plus the Out and the Stop. A prompt is a requirement with a new audience.'],
     ['3', 'The context window is a desk, not a filing cabinet: long documents at the top, question at the end, fresh chat per topic.'],
     ['4', 'Numbers come from code execution, quotes come from documents, current facts come from search — never from free recall.'],
     ['5', 'Fluency is not evidence. Uncited claims are drafts. Give the model an out and demand citations.'],

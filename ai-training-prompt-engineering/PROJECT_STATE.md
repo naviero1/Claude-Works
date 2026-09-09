@@ -3,7 +3,9 @@
 **Project:** "From Prompts to Agents" — prompt-engineering training + template system
 **Owner:** Oscar Penny (owns all content and the quarterly refresh)
 **Branch:** v1.1 merged to `main`; v1.2 developed on `claude/training-course-polish-oxohwj`
-**Last updated:** 2026-08-24 — v1.2 (presenter polish + taxonomy handout slide)
+**Last updated:** 2026-09-09 — v1.6 (five-round audit pass applied: R10 prompt system,
+Course_Workbook.xlsx, trading cards + logos, playbook, body anatomy, closing
+requirements/questions slides; see the v1.6 entry below)
 
 ## What this project is
 
@@ -220,6 +222,52 @@ render-QA'd. Highlights:
   survive until reviewed; triage drill has six problems (trim to four if asked); final
   prompt numbering confirmed n/8; Part-4 pointer notes still say the old session split
   (owner froze Part 4 content mid-review).
+
+## v1.6 (2026-09-09) — APPLIED: the five-round audit-and-polish pass + closing slides
+
+Owner reviewed the v1.5 deck slide-by-slide in five rounds (all held in PENDING_CHANGES.md
+per protocol), then triggered: "Slide 44: Delete… Slide 45: Update… Then update all the
+changes. Go ahead with the defaults." Deck stays at **67 slides** (two deleted, two new),
+render-QA'd. Highlights:
+
+- **Prompt system rebuilt (R10/R11):** `H.promptChip` v2 renders numbered STEP rows —
+  "TYPE THIS →" (Consolas) + "WHY →" (one italic line) — and a "✂ copy-paste, don't
+  retype: tab X of your Course Workbook" footer. Every chip call site rewritten with the
+  final Round-2 texts. The exercise pack output is now **Course_Workbook.xlsx**
+  (README + Data + tabs EX1-TwoModes…EX8-MoE, G2-DataAnalysis, EX-Quotes, EX-Email,
+  EX-Rebuild + PLAYBOOK with the full 8+8+8) plus **Playbook_One_Pager.pdf**.
+- **Part 1:** S4 era "gave us" outcome lines (verified only); S5 Attention-title
+  explainer in notes; S6 web-search/RAG escape hatches + after-ship RLHF; S13 rebuilt as
+  four named character cards; counters dropped deck-wide (R13: "· continued").
+- **Part 2:** S16 rebuilt as 2×3 identity trading cards with real product logos
+  (assertion-evidence, r19; Perplexity leads with CJR 37%-vs-67% per audit H3); S17 big
+  bill ($60 vs $2.19, true-proportion bars, 27× badge) + drawn MoE hospital + compressed
+  3-row benchmark chart; S18 data-type × tier matrix (PII row) + logos; S19/20 logos +
+  Manus/Sora dates. Logo pipeline: `src/fetch_logos.py` → `src/assets/logos/` (favicons;
+  `H.logo` falls back to a drawn monogram).
+- **Part 3:** S22 rebuilt around the drawn "body of a prompt" figure (7 organs; vendor
+  panel to notes; industry-as-context flagged); S26 purpose/origin; S27/28 purpose
+  frames; S29 aesthetic pass + hero +49%; S30 rebuilt as the three-column Do/Don't/
+  Expired playbook (top-5 each; full lists in the PLAYBOOK tab; r20); S31 drawn PDCA
+  wheel + Toyota mark + Deming named card; S32 rep now carries the 60-word report
+  excerpt + two R10 steps (tab EX-Rebuild).
+- **Part 4:** S34 rebuilt as a document mock with side-car whys; S35 vertical ①②③ flow;
+  S36–38 numbered-banner family (`H.stepBig`); blind-critique demo slide DELETED (salvage
+  → S29 notes); dashboard demo + capability strip (Claude/ChatGPT/Gemini canvas tools,
+  typically paid; Copilot chat can't; fallback spec→IT/Excel); S41 gains a stylized
+  3-panel Outlook mockup strip (labeled illustration); playbook-pointer slide DELETED
+  (pack rundown + handoff homework → future-plays notes, which now closes Block 2).
+- **Part 5 opener** rebuilt as "Block 3 · where we left off" (body anatomy, playbook,
+  evidence rules, Course-Workbook take-home; homework = the handoff move).
+- **Close:** two new conclusion slides (owner request): "They're called requirements"
+  (Stellman/Grove/Spec Kit; user story · Given-When-Then · ISO 29148 mapped onto the
+  anatomy; 41.1% callback) and "The best prompt is a question" (95%-confidence flip +
+  ClarifyGPT numbers; Five Whys/funnel/Socratic toolkit; Altman + Picasso-1964 quotes,
+  attribution-checked). Einstein/Voltaire misattributions explicitly barred in notes.
+- **All 22 audit findings fixed** (see AUDIT_v1.5_parts1-3.md status header).
+- New research: r17–r21 (explainer prompts · mode names · slide design · do/don't/
+  expired · requirements↔prompts + questions), all dated 2026-09-09.
+- Still open: Parts 5–6 + close owner review (slides 44–67); Section G open questions.
 
 ## Open intake (waiting on owner; see INTAKE.md)
 

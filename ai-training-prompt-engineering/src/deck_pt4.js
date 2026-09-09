@@ -2,14 +2,14 @@
 const { C, F } = require('./deck_lib');
 
 module.exports = function buildPartFour(pres, H) {
-  // ---------- SESSION 2 OPENER (v1.1) ----------
-  let s0 = H.slide('SESSION 2 · WHERE WE LEFT OFF', 33);
-  H.title(s0, 'Session 2', 'Sixty seconds of where we left off');
+  // ---------- BLOCK 3 RE-ENTRY (v1.6) ----------
+  let s0 = H.slide('BLOCK 3 · WHERE WE LEFT OFF', 33);
+  H.title(s0, 'Block 3', 'Sixty seconds of where we left off');
   const rc = [
-    ['layers', 'The anatomy', 'Role · Task · Context · Format · Examples — plus the Out and the Stop. Every vendor teaches the same recipe.'],
-    ['zap', 'Seven techniques', 'specificity-with-why, examples, tags, the out, chaining, self-check, metaprompting.'],
-    ['shield', 'The evidence rules', 'numbers via code · citations or it didn’t happen · never reveal your preference when asking for judgment.'],
-    ['download', 'The take-home', 'eight templates + the Template Creator — the blind critique was homework; who ran it?'],
+    ['layers', 'The anatomy — a body with 7 organs', 'Role · Task · Context · Format · Examples — plus the Out and the Stop. Miss an organ and it fails predictably.'],
+    ['zap', 'The techniques & the playbook', 'specificity-with-why · examples · tags · the out · chaining · self-check · metaprompting — and the Do / Don’t / Expired columns (PLAYBOOK tab).'],
+    ['shield', 'The evidence rules', 'numbers via code · citations or it didn’t happen · the AI mirrors you (+49%) — never reveal your preference when asking for judgment.'],
+    ['download', 'The take-home', '13 templates + the Course Workbook, every prompt in a named tab — the HANDOFF move was homework; who ran it?'],
   ];
   rc.forEach((r, i) => {
     const x = 0.55 + (i % 2) * 6.2;
@@ -17,18 +17,18 @@ module.exports = function buildPartFour(pres, H) {
     H.card(s0, x, y, 5.95, 1.45, C.PANEL);
     H.iconCircle(s0, x + 0.2, y + 0.42, 0.55, r[0], C.TEAL);
     s0.addText([
-      { text: r[1], options: { bold: true, color: C.INK, fontSize: 13, breakLine: true, paraSpaceAfter: 2 } },
-      { text: r[2], options: { color: C.SLATE, fontSize: 10.8 } },
-    ], { x: x + 0.9, y: y + 0.1, w: 4.9, h: 1.25, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.06 });
+      { text: r[1], options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 2 } },
+      { text: r[2], options: { color: C.SLATE, fontSize: 10.2 } },
+    ], { x: x + 0.9, y: y + 0.1, w: 4.9, h: 1.25, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
   });
   H.callout(s0, 0.55, 5.15, 12.2, 1.0, C.TEAL_TINT, [
     { text: 'Today: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 13 } },
     { text: 'the leap from asking to delegating — the mission brief, gates and guardrails — then how a team keeps its prompts as assets.', options: { color: C.SLATE, fontSize: 13 } },
   ], { iconName: 'robot', iconFill: C.TEAL, size: 13 });
   s0.addNotes(
-    'HOW TO PRESENT — 1) Two minutes MAXIMUM. Walk the four cards in reading order: anatomy → techniques → evidence rules → take-home. One line each — this is re-entry, not re-teaching. 2) At the take-home card, ask the homework question: “who ran the blind critique?” Take ONE volunteer story — it beats any recap. 3) Teal band: frame today — the leap from asking to delegating, then prompts as assets. 4) Advance.\n' +
+    'HOW TO PRESENT — 1) Two minutes MAXIMUM. Walk the four cards in reading order: anatomy → techniques + playbook → evidence rules → take-home. One line each — this is re-entry, not re-teaching. 2) At the take-home card, ask the homework question: “who ran the HANDOFF move — pasted their summary into a fresh chat and picked the course back up?” Take ONE volunteer story — it beats any recap; if their fresh chat knew things they never pasted, that is today’s topic (standing memory) arriving early. 3) Teal band: frame today — the leap from asking to delegating, then prompts as assets. 4) Advance.\n' +
     'ACRONYMS — none new on this slide.\n' +
-    'CONTENT — v1.1: session-2 opener. One volunteer story beats any recap. Keep to 2 minutes total.');
+    'CONTENT — v1.6: rebuilt as the Block 3 re-entry to match the updated Parts 3–4 (body anatomy, Do/Don’t/Expired playbook, Course Workbook take-home; homework is the handoff move — the blind-critique demo was cut). One volunteer story beats any recap. Keep to 2 minutes total.');
 
   // ---------- 33. PART 5 DIVIDER ----------
   let s = H.slide(null, 33, { dark: true });

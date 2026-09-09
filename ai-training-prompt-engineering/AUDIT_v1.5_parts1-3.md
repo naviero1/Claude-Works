@@ -1,5 +1,17 @@
 # AUDIT — v1.5 deck, slides 1–32 (Parts 1–3) · 2026-09-09
 
+**Status: ✅ ALL 22 FINDINGS FIXED in the v1.6 update (2026-09-09).** H1 → r18 written
+and cited from slide-12 notes; H2 → consumer-vs-M365 clarification in slide-12 notes;
+H3 → S16 Perplexity card leads with the CJR 37%-vs-67% comparison; M1/L21 → Sora line
+carries the Apr-2026 date, no duration; M2 → Bard cue removed (S13 rebuilt as character
+cards); M3 → "later this part"; M4 → "the major vendors"; M5 → "measurably" dropped;
+M6 → Deloitte "partially refunded" / EY "didn't check out" wording on S14; L1 → S22
+retitled (body-anatomy rebuild); L2 → "~300K+" Grok chats; L3/L4 → kept verified
+phrasings; L5 → GDPval "220 tasks" in S16 notes; L6 → CSQA collapse attributed to
+GPT-3.5-Turbo; L7 → "formatted differently"; L8 → OpenClaw maintainer quote verbatim
+in notes; L9 → "paid plans include" indemnification; L10–L12 → notes corrected;
+L13 → Manus dates on card. Kept below unchanged as the audit record.
+
 Full factual-integrity + visual audit of everything through the end of Part 3.
 **Nothing is applied** — this is the findings ledger; fixes execute on the owner's
 "update". Method: every on-slide claim and speaker note cross-checked against

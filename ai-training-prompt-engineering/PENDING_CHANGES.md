@@ -1,6 +1,19 @@
-# PENDING CHANGES — v1.5 ledger
+# PENDING CHANGES — v1.5 ledger (+v1.6 addendum)
 
-**Status: ✅ APPLIED 2026-09-09** (owner said "update"). Sections A–C, D, F and H are
+**v1.6 Status: ✅ APPLIED 2026-09-09** (owner: "Slide 44: Delete… Slide 45: Update…
+Then update all the changes. Go ahead with the defaults."). Everything held in this
+ledger's Round 2–5 sections, the 22 audit findings (AUDIT_v1.5_parts1-3.md), the S39+S44
+deletions, the slide-45 Block-3 re-entry rebuild, and the two new requirements/questions
+closing slides is now executed — deck rebuilt at 67 slides, render-QA'd; the exercise
+pack is now **Course_Workbook.xlsx** (README + Data + 12 named exercise tabs + PLAYBOOK)
+plus Playbook_One_Pager.pdf. New research: r20 (playbook), r21 (requirements/questions).
+Defaults exercised: S16 trading cards 2×3 · S17 chart compressed to 3 rows · S30 top-5
+per column on-slide (full 8+8+8 in PLAYBOOK tab) · S39-dashboard kept as presenter demo
++ capability strip · Outlook panels as stylized house-style mockups (labeled) · Deming
+as a named card (no license-cleared photo) · prompts numbered 1/8–8/8 with EX tabs.
+See PROJECT_STATE.md v1.6 entry. **Section G below remains the live open-questions list.**
+
+**v1.5 Status: ✅ APPLIED 2026-09-09** (owner said "update"). Sections A–C, D, F and H are
 executed — deck rebuilt at 67 slides, render-QA'd, docs refreshed; see PROJECT_STATE.md
 v1.5 entry. Additions applied beyond this ledger (owner's mid-update requests): the Part 3
 importance-first rebuild (owner comments on slides 23–31), the Part 4 worked-example packs

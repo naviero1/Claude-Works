@@ -125,15 +125,48 @@ function makeHelpers(pres) {
     s.addText('3:00', { x: 11.78, y: 0.44, w: 0.95, h: 0.36, fontFace: F.head, fontSize: 16, bold: true, color: C.TEAL, margin: 0, valign: 'middle' });
   };
 
-  // Guiding-prompt band — the consistent chip treatment for the eight course-log prompts:
-  // teal-tinted card, robot icon, solid "PROMPT n/8" chip, optional short label, Consolas body.
-  H.promptChip = (s, x, y, w, h, n, text, opts = {}) => {
+  // Guiding-prompt band, R10 format (v1.6) — the consistent chip treatment for the eight
+  // course-log prompts: teal card, robot icon, solid "PROMPT n/8" chip, then numbered
+  // STEP rows, each exactly TYPE THIS → (copy-paste, Consolas) + WHY → (one plain line),
+  // and a workbook-tab pointer so nothing is ever retyped.
+  H.promptChip = (s, x, y, w, h, n, steps, opts = {}) => {
     H.card(s, x, y, w, h, C.TEAL_TINT);
     H.iconCircle(s, x + 0.16, y + 0.13, 0.4, 'robot', C.TEAL);
     s.addShape('roundRect', { x: x + 0.66, y: y + 0.16, w: 1.3, h: 0.34, rectRadius: 0.08, fill: { color: C.TEAL }, line: { type: 'none' } });
     s.addText(`PROMPT ${n}/8`, { x: x + 0.66, y: y + 0.17, w: 1.3, h: 0.32, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9.5, bold: true, charSpacing: 1, color: 'FFFFFF', margin: 0 });
     if (opts.label) s.addText(opts.label, { x: x + 2.08, y: y + 0.17, w: w - 2.35, h: 0.32, fontFace: F.body, fontSize: 10.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
-    s.addText(text, { x: x + 0.2, y: y + 0.58, w: w - 0.4, h: h - 0.72, fontFace: 'Consolas', fontSize: opts.size || 9.5, color: C.INK, margin: 0, lineSpacingMultiple: 1.1, valign: 'top' });
+    const runs = [];
+    steps.forEach((st, i) => {
+      if (steps.length > 1) runs.push({ text: `STEP ${i + 1} · `, options: { bold: true, color: C.AMBER, fontSize: opts.size || 9.5, fontFace: F.body } });
+      runs.push({ text: 'TYPE THIS → ', options: { bold: true, color: C.TEAL_DARK, fontSize: opts.size || 9.5, fontFace: F.body } });
+      runs.push({ text: st.type, options: { color: C.INK, fontSize: opts.size || 9.5, fontFace: 'Consolas', breakLine: true } });
+      runs.push({ text: 'WHY → ', options: { bold: true, color: C.SLATE, fontSize: (opts.size || 9.5) - 0.5, fontFace: F.body } });
+      runs.push({ text: st.why, options: { color: C.SLATE, fontSize: (opts.size || 9.5) - 0.5, fontFace: F.body, italic: true, breakLine: true, paraSpaceAfter: i < steps.length - 1 ? 6 : 0 } });
+    });
+    const footH = opts.tab ? 0.26 : 0;
+    s.addText(runs, { x: x + 0.2, y: y + 0.56, w: w - 0.4, h: h - 0.7 - footH, margin: 0, lineSpacingMultiple: 1.08, valign: 'top' });
+    if (opts.tab) s.addText(`✂ copy-paste, don’t retype: tab ${opts.tab} of your Course Workbook`, { x: x + 0.2, y: y + h - 0.32, w: w - 0.4, h: 0.26, fontFace: F.body, fontSize: 8, italic: true, color: C.TEAL_DARK, margin: 0 });
+  };
+
+  // Brand logo chip: real favicon PNG if fetched (assets/logos/<name>.png), else a drawn
+  // monogram — a failed fetch never breaks the build. Referential use, internal deck.
+  H.logo = (s, x, y, d, name, fallbackLetter) => {
+    const p = path.join(__dirname, 'assets', 'logos', `${name}.png`);
+    s.addShape('roundRect', { x, y, w: d, h: d, rectRadius: 0.09, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
+    if (require('fs').existsSync(p)) {
+      const inset = d * 0.14;
+      s.addImage({ path: p, x: x + inset, y: y + inset, w: d - 2 * inset, h: d - 2 * inset });
+    } else {
+      s.addText(fallbackLetter || (name[0] || '?').toUpperCase(), { x, y, w: d, h: d, align: 'center', valign: 'middle', fontFace: F.head, fontSize: d * 28, bold: true, color: C.TEAL_DARK, margin: 0 });
+    }
+  };
+
+  // Walkthrough step banner (v1.6 family style): big numbered teal circle + title strip.
+  H.stepBig = (s, x, y, w, num, title, tint) => {
+    H.card(s, x, y, w, 0.52, tint || C.TEAL_TINT);
+    s.addShape('ellipse', { x: x + 0.08, y: y + 0.05, w: 0.42, h: 0.42, fill: { color: C.TEAL }, line: { type: 'none' } });
+    s.addText(String(num), { x: x + 0.08, y: y + 0.05, w: 0.42, h: 0.42, align: 'center', valign: 'middle', fontFace: F.head, fontSize: 18, bold: true, color: 'FFFFFF', margin: 0 });
+    s.addText(title, { x: x + 0.62, y: y + 0.05, w: w - 0.75, h: 0.42, fontFace: F.body, fontSize: 12, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
   };
 
   // Horizontal bar row for small hand-drawn charts: label | bar (scaled) | value
