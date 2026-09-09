@@ -856,3 +856,48 @@ the EmotionPrompt replication-crisis recalc, and the GPT-4.1/5.1/5.5 + Gemini 3 
   revealing your preferred answer / "are you sure?", rule-piles. EXPIRED — think-step-
   by-step, example piles, expert-personas-for-accuracy, magic phrases ("take a deep
   breath"), emotional appeals.
+
+---
+
+# ROUND 5 — owner audit intake, slides 34–42 (2026-09-09 · HELD, apply on "update")
+
+- **R11 UPGRADED (owner): one named tab per exercise.** The prompts workbook gets a tab
+  PER exercise, the exercise name IN the tab name (e.g., EX1-TwoModes · EX2-Guesses ·
+  EX3-Tokens · EX4-Handoff · EX5-Ladder · EX6-TwoSpeeds · EX7-FeatureMenu · EX8-MoE ·
+  G2-DataAnalysis · EX-Quotes · EX-Email · EX-Rebuild), each tab: the copy-paste
+  prompt(s) in order + WHY + any material (report excerpt, six problems, puzzle).
+  EVERY slide prompt must be copyable from the Excel — slides carry the short prompt +
+  "copy: tab EX-…" pointer. Applies across the whole deck.
+- **S34 (G2 anatomy) · more visual:** the five rows become a drawn "prompt document"
+  mock — a page-shaped panel with the five tag blocks color-coded and stacked as they'd
+  appear in a real prompt, why-notes as side callouts with leader lines; tab pointer
+  "ready to copy: tab G2-DataAnalysis."
+- **S35 (setup) · de-confuse the sequence:** replace the left/right split with ONE
+  numbered vertical flow — ① Get the file (pack card, compact) → ② TYPE THIS (profile
+  prompt) → ③ WHAT COMES BACK (the two traps) — arrows between, single column of
+  action; the "profile first" rule becomes the assertion title.
+- **S36–S38 · aesthetic family pass (owner: dull):** apply R19 to the walkthrough
+  family — big numbered step chips (oversized numerals in teal circles), one icon per
+  step, alternating tint panels instead of banner+box monotony, assertion titles,
+  expected-result thumbnails (mini table/file glyphs); prompts stay Consolas but capped
+  short with the tab pointer.
+- **S39 (blind-critique demo) · DELETE** (owner: don't care about this example). Salvage:
+  one line in S29's notes ("live option: run a blind critique on a volunteer's draft")
+  and the Part-4 homework line moves to the pointer slide notes. The former "Part 4
+  rep" role is covered by the walkthrough exercises.
+- **S40 (dashboard demo) · capability honesty (owner question answered: correct).**
+  Keep as PRESENTER demo; add a "who can run this" strip: needs a code/canvas-capable
+  tool — Claude Artifacts, ChatGPT Canvas, Gemini Canvas (typically paid tiers);
+  Copilot chat in-tenant generally can't produce single-file HTML. Fallback prompt for
+  everyone: "write the full spec + build the same thing as an Excel sheet." Notes get
+  the tier caveat verbatim.
+- **S41–42 (email) · execution upgrade:** keep as the model example. Add a 3-panel
+  Outlook picture strip showing where things happen: ① the open thread with the
+  "Summary by Copilot" banner at top → ② the summary's numbered citations (click to
+  jump) → ③ the Copilot pane with OUR structured-brief prompt pasted. Panels are
+  clearly-labeled stylized UI mockups drawn in house style (or official Microsoft
+  support-page captures if licensing allows at update — verify; tenant look may differ,
+  say so). THEN the prompt instruction follows (R10 chip + tab EX-Email pointer).
+- **"Update the rest accordingly":** the how-to-picture + copy-from-tab pattern becomes
+  the standard for every exercise slide (data walkthrough gets a mini "upload here"
+  panel for chat upload vs Copilot-in-Excel vs company assistant).
