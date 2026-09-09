@@ -835,3 +835,24 @@ test · Knaflic single-accent · F/Z scanning · big-number practice).
   (1.45%), up from 1.1% in Q1. Site B drove the rise; supplier packaging changes are
   the suspected cause. A corrective plan is in draft. Costs are within budget. Customer
   escalations: two, both closed."
+
+## ROUND 4 addendum (2026-09-09) — S30 playbook research landed; spec FINAL
+
+Research file: notes/research/r20_do_dont_expired.md (8 TO DO · 8 NOT TO DO · 8 EXPIRED
+with anchors; contested list; coherence seams; new 2025–26 anchors incl. the "Safety
+Tax" of bare don't-hallucinate commands, the ~150-instruction degradation threshold,
+the EmotionPrompt replication-crisis recalc, and the GPT-4.1/5.1/5.5 + Gemini 3 guides).
+- **S30 FINAL:** becomes "The 2026 prompting playbook — do · don't · expired." Three
+  color-coded columns (green/red/gray) with the TOP FIVE entries each at readable size
+  (R19 hierarchy: entry line bold, anchor tiny); assertion title; the full 8+8+8 +
+  contested list ships as a printable one-pager handout generated from r20 (added to
+  the handout pack + PROMPTS-sheet build) and lives in speaker notes.
+- Coherence seams from r20 go in CONTENT notes verbatim so no column ever reads as
+  contradicting another (incl. CoT's dual status: expired for frontier assistants,
+  still valid for small/local models and thinking-off modes).
+- Slide-picks for the five per column (owner may veto at QA): TO DO — precise task+why,
+  delimiters+one template, zero-shot-then-3–5, docs-top/question-end, give an out.
+  NOT TO DO — contradictions, tips/threats, bare "don't hallucinate" (Safety Tax),
+  revealing your preferred answer / "are you sure?", rule-piles. EXPIRED — think-step-
+  by-step, example piles, expert-personas-for-accuracy, magic phrases ("take a deep
+  breath"), emotional appeals.
