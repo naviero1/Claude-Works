@@ -1230,3 +1230,36 @@ mission-brief slide (A-template blocks = these four sections); alt placement:
 Block 3 bridge — owner picks at Part 5 review. Owner: "I want to be able to
 bring this clarification in a slide for sure… indicate that indeed it works best
 for agentic prompting."
+
+### 9B · Grok review triage (5 edits + observations) · ⏸ HELD, citations under verification (→ r26)
+Overall: validates load-bearing choices by name (the Out, blind review,
+profile-first, the Stop); critiques concentrate in Parts 5–6 (not yet
+owner-reviewed). Four factual claims sent to verification before any slide use:
+Anthropic Jul-2026 "cut >80% of Claude Code system prompt" + lean-prompting
+principles · Chroma "Context Rot" (18 models) · OWASP agentic Top 10 + IMDA
+OpenClaw note · GPT-5.6-era guide "conflicts hurt more than missing detail".
+1. Primer-vs-workshop split / pre-work packet — OWNER'S CALL, held as open
+   question; current three-block delivery already works (no forced change).
+2. Name CONTEXT ENGINEERING on the desk slide — AGREE: one line ("the prompt is
+   the briefing; context is everything allowed on the desk — including things
+   nobody typed") + glossary entry + Part 5 callback; adopt Grok's framing:
+   anatomy = user-facing skill, context engineering = the parent once files/
+   tools/memory enter. (Karpathy/Gartner already in r25.)
+3. A1 = design canvas + ship A1-LEAN — AGREE pending verification; converges
+   with owner's embedded-PDCA canonical structure (9C): design thick (12-block
+   canvas), ship lean (4-block PLAN/DO/CHECK/ACT brief: mission+done · sequence ·
+   two HARD checks + ask-first · deliverables). Anchor = Anthropic note if it
+   verifies, else IFScale. → Part 5 review round.
+4. EVAL LITE — AGREE for Part 6: three gold cases + G3 rubric + beats-baseline +
+   re-run on every model upgrade = the concrete test inside Standardize (gauge
+   R&R made real).
+5. Safety sentence — AGREE, verbatim on the Part 5 guardrails slide: "a gate in
+   the prompt is a suggestion; a gate in the harness is a control" + eagerness
+   dial (persist on reversible, ask before irreversible); OWASP-agentic/IMDA
+   cites pending r26.
+Also held: Grok's "from this side of the desk" self-report as a speaker-note
+device (every line matches an already-cited study — corroboration, not
+evidence). NOTE: its offered run-of-show artifact conflicts with the owner's
+v1.3 retirement of the Run of Show — only revisit if the owner knowingly
+reverses. Fuller Grok document (kill-order/timetables/90-day plan) NOT provided
+— owner may share for triage.
