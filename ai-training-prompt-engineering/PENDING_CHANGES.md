@@ -1259,12 +1259,10 @@ Mapping by filename infix → target (name at embed):
 | fc2r3b | S15 gallery wall — duotone halftone, 7 empty frames + rope, 16:9 | ✓ → `shame_gallery.jpg`; USE decided at render: headline text set inside frames if geometry allows, else side/backdrop art |
 | ng02ac | Literal fake receipt — flat vector, teal line-bars, amber seal, pixel dissolve, 1:1 | ✓ spec-valid; REOPENS emblem-2 choice (below) |
 
-- **Emblem 2 choice reopened by the owner's own generation:** the standing
-  ruling is (a) certificate + retitle "The fake credential". The owner then
-  generated the literal receipt anyway (ng02ac), which also passes and matches
-  the emblem set. RECOMMENDATION: use the RECEIPT and keep the existing card
-  title "The fake receipt" (zero copy ripple); certificate benched to intake.
-  Standing ruling (a) applies unless the owner says "receipt".
+- **Emblem 2 — FINAL RULING (owner, 2026-09-10): the RECEIPT (ng02ac).**
+  Card title stays "The fake receipt" — no copy changes. Embed name
+  `emblem_fake_receipt.jpg`. The earlier certificate render (kdrwim) is
+  benched unused in notes/intake; the prior (a) retitle ruling is superseded.
 - Design-soundness notes for the render: blueprint + gallery are intentional
   accent-background images (deep teal / busy salon wall) — both sit inside
   H.card frames; bench scene and poster have painterly/print edge borders —
