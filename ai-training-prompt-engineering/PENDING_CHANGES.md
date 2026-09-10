@@ -1309,12 +1309,19 @@ BLIND SPOTS NOTED: didn't know the three-block delivery model (its P0 = current
 practice) · several "missing" items live in speaker notes (recoveries,
 magnitudes-said-aloud, ladder naming, reveal discipline — its deputy-scaling
 point stands).
-VERIFICATION (→ r26, agent running): Anthropic 2026-07-24 lean-context note
-(>80% cut) · Chroma Context Rot 2025-07-14 (18 models; shuffled>coherent;
-LongMemEval 300 vs 113k) · OWASP Agentic Top 10 (Dec 2025/2026) + IMDA agentic
-framework v1.5 / OpenClaw note · GPT-5.5/5.6 outcome-first + "10–15% better,
-41–66% fewer tokens" claim · Cheng Science 391(6792) full citation cross-check ·
-Salesforce 2026 earned-autonomy · Forbes Fitzpatrick 2026-06-05.
+VERIFICATION COMPLETE (2026-09-10) → notes/research/r26_grok_citations_verified.md:
+all four clusters CONFIRMED with corrections — Anthropic post has SIX rules
+(rule 6 = RICHER specs, not less of everything; "over 80%" verbatim, claude.com
+2026-07-24) · Chroma Context Rot confirmed (18 models, 2025-07-14; shuffled>
+coherent verified; 2025-era caveat) · OWASP "Top 10 for Agentic Applications
+for 2026" (2025-12-09) + IMDA CASE STUDY 2026-05-14 + CSA advisory AD-2026-005
+(new numbers: 400+ CVEs, 824 malicious skills; "prompt-layer guardrails are not
+fail-safe" verbatim) · GPT-5.6 guide's conflicts-vs-missing-detail sentence is
+PRIMARY (lean-prompt 10–15%/41–66% = vendor-internal, flag always). Claim 5
+("12 blocks risks flagships") NOT established — teach design-thick/ship-lean as
+economy + conflict-avoidance, not model fragility (Instruction Stacking
+Collapse preprint: conflicts degrade, stronger models robust). All Part 5/6
+holds may now build on these with r26's slide-safe wordings.
 
 ### 9D · Owner rulings on the Round-9 conflicts (2026-09-10)
 - KEEP, settled: hardware slide · era slides · DeepSeek hero (bill + hospital) ·
