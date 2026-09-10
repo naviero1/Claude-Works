@@ -1124,3 +1124,14 @@ that part is reviewed. → also log in r26 when drafted.
 **Still owed to the owner:** his answers to the five Round-6/7 questions (toolkit
 purpose · PDCA umbrella shape · tool/handout priority · S22 stop interpretation ·
 renumber confirmation — renumber applied as default).
+
+### Round 7 addendum — owner's answers (2026-09-10, applied same night)
+Q1=C + Q2: toolkit folded ENTIRELY into PDCA — PDCA is the main structure, methods
+distinguished per phase, each phase delegable to AI ("Act sometimes will be
+delegated to AI, same with planning, same with verifying"). APPLIED: toolkit
+slides 1+2 merged into "The toolkit is a loop" (P/D/C/A quadrants, methods +
+delegate-it line each); PDCA slide retitled "PDCA in practice" as its deep-dive.
+Deck 69→68. Q3: ALL THREE handouts (Template Creator + taxonomy reference + cheat
+sheet) to mirror the PDCA framing — next-session job, queued. Q4: stop-as-action
+confirmed; owner may regenerate the body figure with the new Stop wording (prompt
+handed over) or the current image stands. Q5: renumbering confirmed fine.

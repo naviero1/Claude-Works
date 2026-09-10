@@ -269,6 +269,25 @@ render-QA'd. Highlights:
   expired · requirements↔prompts + questions), all dated 2026-09-09.
 - Still open: Parts 5–6 + close owner review (slides 44–67); Section G open questions.
 
+## v1.7 (2026-09-10) — APPLIED: Rounds 6–7 + the PDCA-toolkit decision (68 slides)
+
+Owner reviewed Parts 1–3 again ahead of presenting; trigger: "fix formats and take
+the feedback… focus on the ones I'm presenting tomorrow." Applied same-day: new
+hardware slide (r22); S7 letter-counting currency fix + Grok mode row + abstain-vs-
+guess chart (r23); prompts renumbered 1/7–7/7 (ladder chip cut; tabs renamed,
+BONUS-Ladder added); S10 three-big-steps redesign; S18 server-geography map
+(data-type matrix removed — company-policy territory); S20 → "what people actually
+use" (r24); S22 stop-as-action; S23–25 two weak→strong pairs per element (Role as
+personality requirements, Task + sequence); evidence corner split into proven-vs-
+myth + the mirror/sycophancy slide (r25); R14 font floor pass. OWNER DECISION: the
+toolkit is now STRUCTURED AS PDCA — one "toolkit is a loop" quadrant slide (methods
+per phase, each with a delegate-it line) + "PDCA in practice" deep-dive; Template
+Creator + taxonomy reference + cheat sheet all queued to mirror this framing next
+session. Owner supplies generated imagery via notes/intake/ (R16); first batch
+received in chat (map, body, one character) — awaiting files. New standing intent:
+document this human+agent collaboration method as Part 5 teaching material (r26,
+future). Rounds recorded in PENDING_CHANGES.md.
+
 ## Open intake (waiting on owner; see INTAKE.md)
 
 Curated prompt doc (first) · Berryman & Huyen books as EPUB/split-PDF (<10MB parts; Drive

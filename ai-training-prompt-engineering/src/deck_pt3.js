@@ -266,7 +266,7 @@ module.exports = function buildPartThree(pres, H) {
     '5) Bottom band: sweep the four numbers (19 · 78 · ~290 · 18), then the pack.\n' +
     '\n' +
     'BRIDGE —\n' +
-    '“With the map in hand — seven techniques that cover almost everything.”\n' +
+    '“With the map in hand — the toolkit: one loop, four phases.”\n' +
     '\n' +
     'ACRONYMS —\n' +
     'HTML = HyperText Markup Language (the Template Creator runs offline as one file). XLSX = Excel format (the Configurator). PDF = the printed reference.\n' +
@@ -277,97 +277,74 @@ module.exports = function buildPartThree(pres, H) {
     'Source of truth is prompt-library/taxonomy/*.json — 19 elements, 78 attributes, 286 options, 18 presets; regenerate, never hand-edit.\n' +
     'If an engineer asks about the structure: element = class, attribute = property, option = allowed value, template = saved instance (keep this in reserve — jargon off-slide).');
 
-  // ---------- 27. TOOLKIT 1 of 2 ----------
-  s = H.slide('PART 3 · TECHNIQUES', 27);
-  H.title(s, 'The toolkit · 1 of 2', 'The elements, turned into moves — each with a line to steal');
-  const tech1 = [
-    ['edit', '1 · Be specific — and say why', 'Name the audience, length, constraints — and the reason behind a rule; stated reasons improve compliance.',
-      '“Two paragraphs for the plant manager, no jargon — this will be read aloud, so no bullet lists.”'],
-    ['copy', '2 · Show 3–5 examples', 'The most reliable way to control format, tone, and structure. Diverse and realistic — it imitates what it sees.',
-      '“Here are two summaries the team liked, and one we rejected — match the first two.”'],
-    ['layers', '3 · Separate ask from material', 'Instructions first, pasted material below a clear divider — plain language, no code. The model never confuses your orders with the material.',
-      '“Here’s what I need: … . The material starts below the line. ─────”'],
-    ['help', '4 · Give it an out', 'Permission to admit uncertainty — cuts invented answers by half or more (the numbers were two slides back).',
-      '“If the spec doesn’t cover it, say ‘not specified’ — don’t guess.”'],
+  // ---------- 27+28 MERGED · THE TOOLKIT IS A LOOP (v1.7b, owner: PDCA is the structure) ----------
+  s = H.slide('PART 3 · THE TOOLKIT', 27);
+  H.title(s, 'The toolkit · Plan · Do · Check · Act', 'The toolkit is a loop');
+  const pdcaKit = [
+    ['P', 'PLAN — design the ask', C.TEAL, C.TEAL_TINT, [
+      'The anatomy: all seven elements, filled',
+      'Be specific — and say WHY behind each rule',
+      'Separate your ask from the pasted material',
+      'Show 2–3 examples, one edge case included',
+    ], '“I need [X] for [audience], with [constraints]. Draft me a strong prompt, then wait.”'],
+    ['D', 'DO — run it, in order', C.TEAL, C.PANEL, [
+      'Bullet the process as NUMBERED steps — order stated is order followed',
+      'Add “wait for my OK” where you want control',
+      'Documents at the top, ask at the end · fresh chat per topic',
+    ], '“1) Outline only. 2) Wait for my OK. 3) Draft section by section.”'],
+    ['C', 'CHECK — verify before you trust', C.AMBER, C.AMBER_TINT, [
+      'Name the failed element (the grid — later this part)',
+      'Self-check against NAMED criteria — never “are you sure?”',
+      'Blind review: paste it as “a colleague’s draft”',
+      'Numbers reconcile to a known total · citations + the out',
+    ], '“Verify against these three criteria and list exactly what fails.”'],
+    ['A', 'ACT — improve & standardize', C.GREEN, C.GREEN_TINT, [
+      'Fix ONE element, rerun — never reword at random',
+      'Metaprompt: have the AI rewrite the prompt itself',
+      'Works twice? Name it, version it, library (Part 6)',
+      'Re-baseline on every model upgrade',
+    ], '“Rewrite this prompt so it more consistently produces X.”'],
   ];
-  tech1.forEach((t, i) => {
+  pdcaKit.forEach((q, i) => {
     const x = 0.55 + (i % 2) * 6.2;
-    const y = 1.62 + Math.floor(i / 2) * 2.28;
-    H.card(s, x, y, 5.95, 2.14, C.PANEL);
-    H.iconCircle(s, x + 0.2, y + 0.2, 0.46, t[0], C.TEAL);
+    const y = 1.58 + Math.floor(i / 2) * 2.5;
+    H.card(s, x, y, 5.95, 2.38, q[3]);
+    s.addShape('ellipse', { x: x + 0.16, y: y + 0.12, w: 0.44, h: 0.44, fill: { color: q[2] }, line: { type: 'none' } });
+    s.addText(q[0], { x: x + 0.16, y: y + 0.11, w: 0.44, h: 0.44, align: 'center', valign: 'middle', fontFace: F.head, fontSize: 17, bold: true, color: 'FFFFFF', margin: 0 });
+    s.addText(q[1], { x: x + 0.72, y: y + 0.16, w: 5.1, h: 0.36, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
+    const runs = [];
+    q[4].forEach(m => {
+      runs.push({ text: '· ' + m, options: { color: C.SLATE, fontSize: 9.6, breakLine: true } });
+    });
+    s.addText(runs, { x: x + 0.3, y: y + 0.56, w: 5.45, h: q[4].length * 0.24 + 0.08, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
+    s.addShape('roundRect', { x: x + 0.24, y: y + 1.82, w: 5.5, h: 0.44, rectRadius: 0.05, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
     s.addText([
-      { text: t[1], options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
-      { text: t[2], options: { color: C.SLATE, fontSize: 10 } },
-    ], { x: x + 0.8, y: y + 0.12, w: 5.0, h: 1.1, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
-    s.addShape('roundRect', { x: x + 0.24, y: y + 1.38, w: 5.5, h: 0.62, rectRadius: 0.05, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
-    s.addText(t[3], { x: x + 0.38, y: y + 1.42, w: 5.25, h: 0.54, fontFace: 'Consolas', fontSize: 8.8, color: C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 1.02 });
+      { text: 'delegate it → ', options: { bold: true, color: C.TEAL_DARK, fontSize: 8.2 } },
+      { text: q[5], options: { color: C.TEAL_DARK, fontSize: 8.2, fontFace: 'Consolas' } },
+    ], { x: x + 0.36, y: y + 1.85, w: 5.28, h: 0.38, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
   });
-  H.callout(s, 0.55, 6.12, 12.2, 0.55, C.TEAL_TINT, [
-    { text: 'Nothing new here: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
-    { text: 'techniques 1–4 are the seven elements, applied — you met every one of them this part.', options: { color: C.SLATE, fontSize: 11 } },
-  ], { iconName: 'check', iconFill: C.TEAL, size: 11 });
+  H.callout(s, 0.55, 6.68, 12.2, 0.5, C.TEAL_TINT, [
+    { text: 'Every phase can itself be delegated to the AI — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
+    { text: 'the white lines show how. The methods are how YOU stay in charge of the loop.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { iconName: 'refresh', iconFill: C.TEAL, size: 11 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
-    '1) Frame — say the purpose plainly (owner request): “the elements are what a prompt IS; the techniques are what you DO with them. Seven techniques cover almost everything — four now, three process moves next slide. Each card has a line you can steal verbatim.”\n' +
-    '2) Per card: name the technique, then read the Consolas example line ALOUD — the examples are the teaching (owner request: a concrete line for each).\n' +
-    '3) On 4, remind: the Out’s numbers were two slides back — half the invented answers, one sentence.\n' +
-    '4) Teal band: nothing new — these are the elements applied.\n' +
+    '1) The frame is the owner’s design — say it plainly: “there is no separate list of techniques. The toolkit IS the improvement loop you already know from the factory floor: Plan, Do, Check, Act — with the right prompting method for each phase.”\n' +
+    '2) Walk the four quadrants P → D → C → A. Per quadrant: read the methods fast, then the WHITE LINE slowly — it is the copy-paste move, and it is also the delegation move: planning can be delegated (the AI drafts the prompt), checking can be delegated (against YOUR named criteria), acting can be delegated (metaprompt). You keep judgment; it does the labor.\n' +
+    '3) CHECK is the quadrant to slow on — four different verification methods, one per failure type: wrong element → the grid; quality → named criteria; bias → blind review; numbers → reconcile to an anchor. “Are you sure?” appears in none of them, on purpose (the mirror, two slides ahead).\n' +
+    '4) Teal band: every phase delegable; the methods are how you stay in charge.\n' +
     '\n' +
     'BRIDGE —\n' +
-    '“Three process moves — and one famous retirement.”\n' +
+    '“Which of these methods survive scientific scrutiny — and which famous tricks don’t? The evidence corner.”\n' +
     '\n' +
     'ACRONYMS —\n' +
-    'none new on this slide.\n' +
+    'PDCA = Plan-Do-Check-Act — the Deming/Toyota improvement cycle (its full story comes later this part).\n' +
     '\n' +
     'CONTENT —\n' +
-    'v1.5: split into two slides with a verbatim example per technique (owner request).\n' +
-    'v1.7: technique 3 de-programmed (owner: “they should be prompting, not programming”) — the XML/tag idiom moved to notes as the power-user variant: same principle, angle-bracket fences, favored by vendor guides for heavy documents; a plain divider does the everyday job. Evidence: same-content different-wrapper swings up to 40% (He et al. 2024) — separation is a real variable.');
+    'v1.7b: the two technique slides merged into this PDCA-structured toolkit (owner decision, 2026-09-10: “folded entirely into the PDCA loop… PDCA is the main structure; Act sometimes will be delegated to AI, same with planning, same with verifying — it’s all about having the right methods for each”).\n' +
+    'Every method keeps its evidence (r15/r20/r25): specificity+why (Yang 41.1%; the WHY is vendor guidance) · examples (Brown/Min; order matters) · separation (He 2024 ~40% wrapper swings; XML/tags = power-user variant in heavy documents) · placement (Anthropic ~30%/GPT-4.1) · sequence-following (vendor guidance; chaining evidence) · named-criteria self-check (CoVe 55.9→71.4; “are you sure” HARMS — Huang ICLR 2024, SycEval) · blind review (Cheng Science 2026) · reconciliation (G2 practice) · metaprompting (OPRO +50% BBH; GEPA; official vendor improvers) · re-baseline (GPT-5.5 guide via Willison).\n' +
+    'The Template Creator, taxonomy reference AND cheat sheet are queued to mirror this framing (owner: all three matter) — next session, not tonight.');
 
-  // ---------- 28. TOOLKIT 2 of 2 ----------
-  s = H.slide('PART 3 · TECHNIQUES', 28);
-  H.title(s, 'The toolkit · 2 of 2', 'Bullet the process · check it · let AI draft it');
-  const tech2 = [
-    ['branch', '5 · Bullet your process, in order', 'Big job? List the steps as numbers, in the sequence you want — add “wait for my OK” where you want control. Order stated is order followed.',
-      '“1) Outline only. 2) Wait for my OK. 3) Draft section by section.”'],
-    ['eye', '6 · Self-check against criteria', 'A named checklist works; “are you sure?” alone makes models WORSE (it flips correct answers).',
-      '“Before finishing, verify: every number has a source · sections under 120 words · no recommendation without a risk.”'],
-    ['zap', '7 · Or: ask the AI to write the prompt', 'The simplest power move — describe what you want in plain bullets and let it draft the prompt. Official tooling at every vendor; measured gains.',
-      '“I need [X] for [audience], with [constraints]. Write me a strong prompt for this, then run it.”'],
-  ];
-  tech2.forEach((t, i) => {
-    const x = 0.55 + (i % 2) * 6.2;
-    const y = 1.62 + Math.floor(i / 2) * 2.28;
-    H.card(s, x, y, 5.95, 2.14, C.PANEL);
-    H.iconCircle(s, x + 0.2, y + 0.2, 0.46, t[0], C.TEAL);
-    s.addText([
-      { text: t[1], options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
-      { text: t[2], options: { color: C.SLATE, fontSize: 10 } },
-    ], { x: x + 0.8, y: y + 0.12, w: 5.0, h: 1.1, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
-    s.addShape('roundRect', { x: x + 0.24, y: y + 1.38, w: 5.5, h: 0.62, rectRadius: 0.05, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
-    s.addText(t[3], { x: x + 0.38, y: y + 1.42, w: 5.25, h: 0.54, fontFace: 'Consolas', fontSize: 8.8, color: C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 1.02 });
-  });
-  H.card(s, 6.75, 3.9, 5.95, 2.14, C.AMBER_TINT);
-  H.iconCircle(s, 6.95, 4.1, 0.46, 'clock', C.AMBER);
-  s.addText([
-    { text: 'Where’s “think step by step”? ', options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'Retired to the bench — today’s models reason by default, and boilerplate step-by-step can even hurt. The playbook slide, later this part, settles it.', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { x: 7.55, y: 4.05, w: 5.0, h: 1.85, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.08 });
-  s.addNotes(
-    'HOW TO PRESENT —\n' +
-    '1) Frame the purpose first: “techniques 1–4 improved one prompt; these three manage a whole JOB — splitting it, checking it, and improving the prompt itself.” Then same rhythm: name the move, read the Consolas line aloud.\n' +
-    '2) On 6, say the hazard number: asking “are you sure?” with no criteria made GPT-4 DROP from 95.5% to 89% — a named checklist is what works.\n' +
-    '3) On 7 — the owner’s point, say it plainly: sometimes the simplest solution is not writing the prompt at all — bullet what you want and let the AI draft it. Every vendor ships an official prompt improver; optimizer-written prompts beat human ones by up to 50% on hard benchmarks. Draft with it, approve with judgment.\n' +
-    '4) Amber card: the famous retirement — “think step by step” — resolved two slides ahead.\n' +
-    '\n' +
-    'BRIDGE —\n' +
-    '“Which of these survive scrutiny? The evidence corner.”\n' +
-    '\n' +
-    'ACRONYMS —\n' +
-    'none new on this slide.\n' +
-    '\n' +
-    'CONTENT —\n' +
-    'Evidence (r15): self-correction without external signal degrades (Huang et al. ICLR 2024: GPT-4 GSM8K 95.5→89.0; the CommonSenseQA 75.8→38.1 collapse was GPT-3.5-Turbo — cite it to that model); criteria-anchored verification works (CoVe, ACL 2024: precision 0.17→0.32); metaprompting gains (OPRO ICLR 2024: up to +8% GSM8K, +50% BBH; GEPA 2025 beats RL fine-tuning).\n' +
-    'Chaining = Anthropic guidance (“still useful when you need to inspect intermediate outputs”).');
 
   // ---------- 29a. PROVEN VS MYTH — FULL SLIDE (v1.7, r25) ----------
   s = H.slide('PART 3 · WHAT THE EVIDENCE SAYS', 29);
@@ -544,11 +521,11 @@ module.exports = function buildPartThree(pres, H) {
 
   // ---------- 31. THE HABIT · PDCA + DIAGNOSIS GRID ----------
   s = H.slide('PART 3 · ITERATION', 31);
-  H.title(s, 'The habit', 'Draft → Inspect → Refine → Standardize (PDCA)');
+  H.title(s, 'Running the loop · Draft → Inspect → Refine → Standardize', 'PDCA in practice');
   const iter = [
-    ['edit', '1 · Draft', 'PLAN + DO', 'Write the prompt with the anatomy — or bullet what you want and let the AI draft it (toolkit moves 1–4, 7).'],
-    ['eye', '2 · Inspect', 'CHECK', 'Don’t reword at random: name the failed element with the grid → or run a self-check against named criteria (move 6).'],
-    ['refresh', '3 · Refine', 'ACT', 'Fix that ONE element — or metaprompt: “rewrite this prompt so it more consistently produces X” (move 7).'],
+    ['edit', '1 · Draft', 'PLAN + DO', 'Write the prompt with the anatomy — or bullet what you want and let the AI draft it (the PLAN methods).'],
+    ['eye', '2 · Inspect', 'CHECK', 'Don’t reword at random: name the failed element with the grid → or self-check against named criteria (CHECK).'],
+    ['refresh', '3 · Refine', 'ACT', 'Fix that ONE element — or metaprompt: “rewrite this prompt so it more consistently produces X” (ACT).'],
     ['save', '4 · Standardize', 'STANDARD WORK', 'Works twice? Name it, version it, put it in the library (Part 6). Improve the standard, not the improvisation.'],
   ];
   iter.forEach((it, i) => {
@@ -600,7 +577,7 @@ module.exports = function buildPartThree(pres, H) {
   ], { x: 10.78, y: 6.17, w: 1.74, h: 0.7, fontFace: F.body, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
-    '1) Walk the four step cards: draft → inspect → refine → standardize — and point at the PDCA tags: this is Plan-Do-Check-Act wearing prompt clothes. NEW: each card now names which toolkit moves live inside it — the toolkit isn’t a separate list; it’s what each PDCA step is DONE WITH. (A fuller toolkit-under-PDCA redesign is queued with the owner.)\n' +
+    '1) Callback first: “this is the toolkit loop from earlier this part, IN PRACTICE — draft, inspect, refine, standardize on a real prompt.” Each card names which loop methods it runs on; the grid on the right is CHECK’s first method, in full.\n' +
     '2) At INSPECT, gesture right: the diagnosis grid is the Check step — name the failed element, fix that one; iteration stops being random retyping.\n' +
     '3) At STANDARDIZE, say the Toyota phrase: standardized work — lock in the better way, then improve the standard. That is Part 6’s whole story.\n' +
     '4) Amber band — point at the WHEEL (P→D→C→A, forever), the Toyota mark, and the Deming card: Deming is the American quality pioneer whose cycle Toyota built its production system around — this room already runs PDCA on processes; now run it on prompts. The credential: the Lean Enterprise Institute (the Deming/Toyota home turf) published “Prompt, Do, Check, Act: the new PDCA” in May 2026. Their line: the people who get the most from these tools are the ones willing to run the loop a few more times.\n' +
