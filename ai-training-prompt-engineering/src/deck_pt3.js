@@ -21,37 +21,9 @@ module.exports = function buildPartThree(pres, H) {
   // ---------- 22. THE ANATOMY, SHOWN ----------
   s = H.slide('PART 3 · THE ANATOMY', 22);
   H.title(s, 'The universal anatomy', 'Seven parts, one body — what good looks like');
-  // — the body of a prompt, drawn —
-  H.card(s, 0.55, 1.58, 5.55, 4.92, C.PANEL);
-  const bcx = 3.32;
-  s.addShape('ellipse', { x: bcx - 0.42, y: 1.84, w: 0.84, h: 0.84, fill: { color: 'FFFFFF' }, line: { color: C.TEAL_DARK, width: 2 } });
-  s.addShape('roundRect', { x: bcx - 0.55, y: 2.74, w: 1.1, h: 1.62, rectRadius: 0.28, fill: { color: 'FFFFFF' }, line: { color: C.TEAL_DARK, width: 2 } });
-  s.addShape('roundRect', { x: bcx - 1.3, y: 2.92, w: 0.78, h: 0.22, rectRadius: 0.11, fill: { color: 'FFFFFF' }, line: { color: C.TEAL_DARK, width: 1.5 }, rotate: 20 });
-  s.addShape('roundRect', { x: bcx + 0.52, y: 2.92, w: 0.78, h: 0.22, rectRadius: 0.11, fill: { color: 'FFFFFF' }, line: { color: C.TEAL_DARK, width: 1.5 }, rotate: -20 });
-  s.addShape('ellipse', { x: bcx - 1.5, y: 3.14, w: 0.27, h: 0.27, fill: { color: C.TEAL }, line: { type: 'none' } });
-  s.addShape('ellipse', { x: bcx + 1.23, y: 3.14, w: 0.27, h: 0.27, fill: { color: C.TEAL }, line: { type: 'none' } });
-  s.addShape('roundRect', { x: bcx - 0.44, y: 4.38, w: 0.32, h: 1.12, rectRadius: 0.16, fill: { color: 'FFFFFF' }, line: { color: C.TEAL_DARK, width: 1.5 } });
-  s.addShape('roundRect', { x: bcx + 0.12, y: 4.38, w: 0.32, h: 1.12, rectRadius: 0.16, fill: { color: 'FFFFFF' }, line: { color: C.TEAL_DARK, width: 1.5 } });
-  s.addShape('ellipse', { x: bcx - 0.32, y: 2.96, w: 0.3, h: 0.3, fill: { color: C.RED }, line: { type: 'none' } });
-  s.addShape('line', { x: bcx - 0.17, y: 3.28, w: 0.3, h: 0.95, line: { color: C.RED, width: 1.5, dashType: 'dash' } });
-  const bodyLab = [
-    [0.68, 1.86, 'ROLE', 'the head — the posture it thinks in', bcx - 0.44, 2.2, 'L'],
-    [0.68, 2.86, 'TASK', 'the heart — why it beats', bcx - 0.34, 3.1, 'L'],
-    [0.68, 3.86, 'CONTEXT', 'the bloodstream — feeds every organ', bcx - 0.19, 3.9, 'L'],
-    [4.82, 1.86, 'FORMAT', 'the skeleton — holds the shape', bcx + 0.42, 2.2, 'R'],
-    [4.82, 2.86, 'EXAMPLES', 'the hands — show how it’s done', bcx + 1.45, 3.27, 'R'],
-    [4.82, 3.86, 'THE OUT', 'the immune system — rejects invented facts', bcx + 0.5, 3.7, 'R'],
-    [4.82, 4.82, 'THE STOP', 'the skin — where the action ends', bcx + 0.4, 4.9, 'R'],
-  ];
-  bodyLab.forEach(l => {
-    s.addText([
-      { text: l[2], options: { bold: true, color: C.TEAL_DARK, fontSize: 9.5, breakLine: true } },
-      { text: l[3], options: { color: C.SLATE, fontSize: 7.4, italic: true } },
-    ], { x: l[0], y: l[1], w: 1.24, h: 0.85, fontFace: F.body, margin: 0, lineSpacingMultiple: 0.95, align: l[6] === 'L' ? 'right' : 'left' });
-    const lx = l[6] === 'L' ? l[0] + 1.28 : l[0] - 0.04;
-    s.addShape('line', { x: Math.min(lx, l[4]), y: Math.min(l[1] + 0.12, l[5]), w: Math.abs(l[4] - lx), h: Math.abs(l[5] - (l[1] + 0.12)), line: { color: C.MUTE, width: 0.75, dashType: 'sysDot' }, flipV: l[5] < l[1] + 0.12 });
-  });
-  s.addText('A prompt is a body: miss an organ and it still walks — it just fails in a predictable way.', { x: 0.8, y: 5.72, w: 5.05, h: 0.6, fontFace: F.body, fontSize: 9.5, italic: true, color: C.TEAL_DARK, margin: 0, align: 'center', lineSpacingMultiple: 1.02 });
+  // — the body of a prompt (owner-generated image, R16; labels baked in) —
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'body_anatomy.jpg'), x: 0.58, y: 1.58, w: 5.5, h: 4.92 });
+  s.addShape('roundRect', { x: 0.58, y: 1.58, w: 5.5, h: 4.92, rectRadius: 0.04, fill: { type: 'none' }, line: { color: C.LINE, width: 0.75 } });
   // — the same body, written out —
   H.card(s, 6.28, 1.58, 6.47, 4.92, 'FFFFFF', C.LINE);
   const anatEx = [
@@ -77,7 +49,7 @@ module.exports = function buildPartThree(pres, H) {
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “one prompt, seven parts — and the parts make a BODY. Everything in Part 3 is refinements of this picture.”\n' +
-    '2) Walk the FIGURE first, top to bottom, naming each organ: the head thinks in the right posture (Role) · the heart is why it beats at all (Task) · the bloodstream feeds every organ (Context) · the skeleton holds the shape (Format) · the hands show how it’s done (Examples) · the immune system rejects invented facts (the Out) · the skin is where the ACTION ends (the Stop — perform exactly the named action, then stop). Then the caption: miss an organ and it still walks — it just fails in a predictable way. That predictability is the diagnosis grid later this part.\n' +
+    '2) Walk the FIGURE (owner-generated art) top to bottom, naming each organ: the head thinks in the right posture (Role) · the heart is why it beats at all (Task) · the bloodstream feeds every organ (Context) · the skeleton holds the shape (Format) · the hands show how it’s done (Examples) · the immune system rejects invented facts (the Out) · the skin is where the ACTION ends (the Stop — perform exactly the named action, then stop). Then the caption: miss an organ and it still walks — it just fails in a predictable way. That predictability is the diagnosis grid later this part. (The image caption says the Stop is “where the job ends” — SAY it the owner’s way: where the ACTION ends.)\n' +
     '3) RIGHT card: the same body written out — read it top to bottom as ONE continuous prompt (~85 words, under two minutes to write).\n' +
     '4) The amber line — owner-requested and worth saying twice: YOUR INDUSTRY IS CONTEXT. “We’re a mid-size electronics manufacturer” changes every answer downstream; people constantly assume the AI knows their world. It doesn’t until you say so.\n' +
     '5) Teal band: ~21 words vs the nine people type.\n' +

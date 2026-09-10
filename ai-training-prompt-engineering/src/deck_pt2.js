@@ -167,8 +167,9 @@ module.exports = function buildPartTwo(pres, H) {
   // ---------- 18. SERVERS — THE GEOGRAPHY (v1.7: matrix removed at owner request) ----------
   s = H.slide('PART 2 · TRUST & DATA', 18);
   H.title(s, 'Where your words go', 'Whose servers, in which country — Sep 2026');
-  // — schematic world band (swap in the owner's generated map backdrop when it lands) —
-  s.addShape('roundRect', { x: 0.55, y: 1.58, w: 12.2, h: 4.15, rectRadius: 0.08, fill: { color: 'EAF3F5' }, line: { color: C.LINE, width: 0.75 } });
+  // — owner-generated world-map backdrop (R16; src/assets/images/map_world.jpg) —
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'map_world.jpg'), x: 0.55, y: 1.58, w: 12.2, h: 4.15, sizing: { type: 'cover', w: 12.2, h: 4.15 } });
+  s.addShape('roundRect', { x: 0.55, y: 1.58, w: 12.2, h: 4.15, rectRadius: 0.02, fill: { type: 'none' }, line: { color: C.LINE, width: 1 } });
   const regions = [
     ['UNITED STATES', C.TEAL_DARK, 0.85, [
       ['claude', 'Anthropic', 'stored in the US'],
