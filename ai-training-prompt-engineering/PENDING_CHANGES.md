@@ -914,3 +914,122 @@ the EmotionPrompt replication-crisis recalc, and the GPT-4.1/5.1/5.5 + Gemini 3 
 - **"Update the rest accordingly":** the how-to-picture + copy-from-tab pattern becomes
   the standard for every exercise slide (data walkthrough gets a mini "upload here"
   panel for chat upload vs Copilot-in-Excel vs company assistant).
+
+---
+
+## ROUND 6 — v1.7 ledger · owner's second pass on Part 1 (slides 2–14) · 2026-09-10
+
+**Status: ⏸ HELD.** Nothing below touches the deck until the owner says "update".
+Research in flight: (a) hardware/Moore's-law/Nvidia/data-centers slide → will become
+r22; (b) letter-counting currency check + Grok mode names + chartable hallucination
+data → will become r23. Ledger entries marked [needs r22]/[needs r23] finalize when
+those land.
+
+### New standing rules (from this round's generic instructions)
+
+- **R14 — Font floor & density pass (whole deck).** No long sentences in small fonts.
+  Working floors: body/bullet text ≥ 11pt; card body ≥ 10pt; nothing below 9pt except
+  one-line captions/attributions; if text doesn't fit at the floor, CUT WORDS, never
+  the size. At update: sweep every slide (owner flagged S8 "what's on the desk" items
+  and S9 as first offenders); prefer fewer, bigger statements per card; move overflow
+  to speaker notes.
+- **R15 — Currency & tier labeling (whole deck).** Examples always reflect the latest
+  tech at build date. Every taught concept and every TRY-IT must work on (a) free-tier
+  consumer AI and (b) the company AI (multi-model + RAG). When an example depends on a
+  premium/paid capability, the slide SAYS SO inline ("paid tier") — never silently.
+  No outdated capability claims: anything capability-shaped gets re-verified at each
+  update (the strawberry rule — see S7 below).
+- **R16 — Owner-generated imagery workflow.** When a slide would benefit from an
+  illustration/photo-style graphic, we hand the owner a ready-to-run image prompt
+  (Gemini "Nano Banana"), he generates and drops the PNGs into notes/intake/, and we
+  embed them (src/assets/images/, referenced like logos). House style baked into every
+  prompt: flat vector, minimal, off-white bg, teal #0E7C7B + ink #232A31 + one amber
+  accent, NO TEXT in the image (text stays native on the slide). Data charts stay
+  drawn natively from verified numbers — generated images are for illustration only,
+  never for data.
+
+### Per-slide holds
+
+- **S2 (Welcome) · "You leave with" → itemized bullets, material only.** Replace the
+  run-on amber card with a bulleted list of tangible take-homes ONLY (no skills talk):
+  • Course_Workbook.xlsx — every exercise prompt in a named tab, copy-paste ready
+  • 13-template prompt library (G1–G8 + A1–A5) + interactive Template Creator
+  • Prompt Element Taxonomy reference + one-page cheat sheet
+  • The Do/Don't/Expired playbook one-pager
+  • Team conventions for storing & versioning prompts (Part 6)
+  Keep the card scannable at all times — this is the "what do I get" anchor.
+- **S4–S5 (history) + NEW HARDWARE SLIDE [needs r22].** Owner: the story is incomplete
+  without the chip side — Moore's law ("how they get better every two years"), Nvidia's
+  role, how chip tech and AI models have interacted, and why so many data centers.
+  Intro-level only, ONE slide. Proposed placement: directly after S5 (closes the
+  history arc: eras → decade → the hardware that made it possible), before "Under the
+  hood". Draft shape (finalize from r22): title ~"The hardware behind the magic";
+  blocks: ① Moore's law in one sentence + its 2026 status ② why GPUs/Nvidia (parallel
+  math; CUDA; AlexNet moment; market-cap milestone strip) ③ the feedback loop (bigger
+  models ⇄ bigger chips) ④ why data centers (training vs inference + power anchor,
+  announced-vs-built kept honest). One honest mini-chart if r22 yields a clean dataset.
+  Ripple: slide count 67→68; Part-1 divider subtitle gains "the hardware"; S17's
+  Nvidia $589B line gets a back-reference.
+- **S7 (Tokens) · strawberry-claim currency fix [needs r23].** Owner challenged
+  "letter-counting and character-exact edits fail" — right instinct: the famous
+  strawberry failure is largely FIXED on 2025+ reasoning models (memorized + spell-out
+  reasoning), so the bold bullet as written violates R15. Direction (pending r23
+  verification): reframe from "fails" to "reads bricks, not letters — and here's the
+  live proof": (a) keep the LEGO/brick teaching; (b) swap the bold bullet to the honest
+  2026 version: reasoning modes now count letters by spelling words out (premium fix —
+  label it), but character-exact work stays unreliable where it can't brute-force
+  (r23 to confirm which tasks still fail live: paragraph-level character counts,
+  exact-position edits, token counts); (c) the live-safe demo becomes the tokenizer
+  webpage with attendees' names (never a trick the model may have memorized);
+  (d) notes get the story ARC: "2024: strawberry broke models → 2025: vendors fixed it
+  → the lesson that didn't change: it reads tokens." Fully dated per R7.
+- **S8 (Context window) · fonts + one confusing bullet.** Keep everything (owner likes
+  the slide). Raise "What's on the desk right now" item fonts (9.8 → ≥11) per R14.
+  Replace the bold bullet «"Fits on the desk" ≠ "gets read carefully"» (confusing) with
+  plain wording: "In very long chats the middle gets skimmed — accuracy is highest at
+  the start and the end ('lost in the middle')."
+- **S9 (RAG) · proportion/font pass.** Content stays; apply R14 (step-card text and
+  green/red card body up; fewer words where needed). Check the four step cards read at
+  distance.
+- **S10 (Escalation ladder) · REDESIGN: three big steps + one worked topic.** Owner:
+  keep the 3 steps, show them as the three icons in SEQUENCE, better explained; OMIT
+  the rest; give a better example on one topic. New shape: hero horizontal ①→②→③ strip
+  (pencil PROMPT IT · book FEED IT DOCUMENTS · chip RETRAIN IT — each: what it fixes +
+  cost/effort one-liner). Below: ONE topic walked up the ladder — "warranty questions
+  assistant": ① prompt it ("answer plainly, cite the clause") → behavior improves, but
+  it doesn't KNOW our policy → ② give it the policy documents (RAG) → current, cited
+  answers — this is where most real cases END → ③ retrain — only for a deep habit at
+  huge volume; rare. Footer keeps the one-question triage as a single line: "Missing
+  knowledge → feed documents. Misbehaving → prompt." OMITTED: the PROMPT 5/8 chip and
+  the extended-drill card. RIPPLE (default, confirm at update): prompts renumber to
+  n/7 across chips; workbook tabs renumber to stay aligned (EX5-TwoSpeeds,
+  EX6-FeatureMenu, EX7-MoE); the ladder drill tab survives as BONUS-Ladder
+  (self-study, not referenced on the slide).
+- **S11 (Fast vs thinking) · cut "Feel the bill".** Remove the extended-puzzle card
+  entirely from the slide (chip + ON/OFF cards + bullets stay); reflow right column
+  and upsize fonts per R14. Default: the puzzle survives only as the extended section
+  of its workbook tab (now EX5-TwoSpeeds) for self-study; presenter answer key moves
+  fully to notes.
+- **S12 (Feature menu) · ADD GROK ROW [needs r23].** Owner wants Grok in the
+  what-it's-called card (he values its less-filtered directness — that framing already
+  lives on the S16 trading card; S12 just adds the mode names). Sixth row with grok
+  logo + current mode/tier names once r23 verifies them; card compresses to 6 rows.
+- **S13 (Hallucination) · add a strong visual [needs r23 + R16].** Two-track:
+  (a) DATA: one honest chart drawn natively if r23 finds a current verifiable dataset
+  (candidates: Vectara grounded-hallucination leaderboard; OpenAI abstain-vs-guess
+  numbers) — metric explained in one sentence, caveat on the slide;
+  (b) ILLUSTRATION: four character images via R16 workflow — Nano Banana prompts
+  already handed to the owner (see chat 2026-09-10): the Confident Guess (blank cue
+  card), the Fake Receipt (dissolving receipt), the Joke Taken Seriously (rubber
+  chicken on an evidence tray), Garbage In Gospel Out (crumpled note in → gilded frame
+  out). Embed as card art at update; text stays native.
+- **S14 (Hall of shame):** no change (owner: very good).
+
+### Open questions for the owner (answer any time; defaults in parentheses)
+
+- Q-R6a: With the ladder chip cut, prompts renumber 1/7–7/7 and tabs rename to match
+  (default: yes, renumber both; ladder drill becomes BONUS-Ladder).
+- Q-R6b: Hardware slide placement after S5 (default: yes; alternative was end of deck —
+  owner said "introduction only", so after S5 it is unless he objects).
+- Q-R6c: S13 — chart, character images, or both (default: both — chart on-slide if r23
+  data is clean, images as the card art).
