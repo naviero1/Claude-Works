@@ -22,7 +22,7 @@ module.exports = function buildPartTwo(pres, H) {
   H.title(s, 'Six assistants, six different jobs', 'Pick by task, not habit — September 2026');
   const vendors = [
     ['openai', 'ChatGPT', 'OpenAI · GPT-5.6 family (Sol / Terra / Luna)', 'The everything assistant', 'Largest user base; fastest at drafts, options and marketing copy; images, voice, agent mode.', 'Fast model churn and renaming; check data settings before regulated content.'],
-    ['gemini', 'Gemini', 'Google · Gemini 3 / 3.1 Pro / 3.6 Flash', 'Everywhere Google is', 'Multimodal breadth (video, images, audio) + the deepest Workspace integration — 1B+ monthly users; default AI in Gmail, Docs, Meet.', 'Model-name sprawl; the best reasoning (Deep Think) sits behind the Ultra tier.'],
+    ['gemini', 'Gemini', 'Google · Gemini 3 / 3.1 Pro / 3.6 Flash', 'Everywhere Google is', 'Multimodal breadth + the deepest Workspace integration — 1B+ monthly users; default AI in Gmail, Docs, Meet.', 'Model-name sprawl; the best reasoning (Deep Think) sits behind the Ultra tier.'],
     ['copilot', 'Copilot', 'Microsoft · GPT-5.6 preferred + Claude selectable', 'The governed one — inside your tenant', '30M+ paid seats inside the M365 compliance boundary IT already audits; its Cowork agent runs on Claude technology.', 'Licenses others’ models; admin flags mean colleagues get different capabilities.'],
     ['claude', 'Claude', 'Anthropic · Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5', 'Best-in-class coding & agentic work', 'Tops SWE-bench AND OpenAI’s own real-work eval (GDPval); 2026 writing evals rank its prose #1; 1M-token documents.', 'Premium pricing at the top tier; the flagship can refuse high-risk domains by design.'],
     ['perplexity', 'Perplexity', 'Perplexity · own stack + Model Council (GPT+Claude+Gemini)', 'Research with receipts', 'Inline citations by default; the lowest citation-error rate in CJR’s AI-search testing — 37%, vs 67% for ChatGPT Search.', 'A citation isn’t proof — click through before quoting anywhere formal.'],
@@ -35,12 +35,12 @@ module.exports = function buildPartTwo(pres, H) {
     s.addShape('roundRect', { x, y, w: 3.95, h: 0.62, rectRadius: 0.06, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
     H.logo(s, x + 0.14, y + 0.11, 0.4, v[0], v[1][0]);
     s.addText(v[1], { x: x + 0.64, y: y + 0.05, w: 2.1, h: 0.34, fontFace: F.head, fontSize: 15, bold: true, color: C.INK, margin: 0 });
-    s.addText(v[2], { x: x + 0.64, y: y + 0.36, w: 3.2, h: 0.24, fontFace: F.body, fontSize: 7.4, bold: true, charSpacing: 0.3, color: C.MUTE, margin: 0 });
-    s.addText(v[3], { x: x + 0.2, y: y + 0.7, w: 3.55, h: 0.52, fontFace: F.head, fontSize: 12.5, bold: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 0.98 });
-    s.addText(v[4], { x: x + 0.2, y: y + 1.24, w: 3.58, h: 0.78, fontFace: F.body, fontSize: 8.8, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
-    s.addText(v[5], { x: x + 0.2, y: y + 2.0, w: 3.58, h: 0.4, fontFace: F.body, fontSize: 7.8, italic: true, color: C.AMBER, margin: 0, lineSpacingMultiple: 0.95 });
+    s.addText(v[2], { x: x + 0.64, y: y + 0.36, w: 3.2, h: 0.24, fontFace: F.body, fontSize: 7.8, bold: true, charSpacing: 0.3, color: C.MUTE, margin: 0 });
+    s.addText(v[3], { x: x + 0.2, y: y + 0.7, w: 3.55, h: 0.52, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 0.96 });
+    s.addText(v[4], { x: x + 0.2, y: y + 1.24, w: 3.58, h: 0.78, fontFace: F.body, fontSize: 9.4, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
+    s.addText(v[5], { x: x + 0.2, y: y + 2.02, w: 3.58, h: 0.38, fontFace: F.body, fontSize: 8.2, italic: true, color: C.AMBER, margin: 0, lineSpacingMultiple: 0.95 });
   });
-  s.addText('Which of these can see company data? Two slides ahead — trust is about the account tier, not the logo. Fortes verified Sep 9, 2026 — they will have moved; the habits in Parts 3–5 don’t move at all.', { x: 0.55, y: 6.72, w: 12.2, h: 0.4, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.02 });
+  s.addText('Whose servers hold your words? Two slides ahead — the account tier decides, not the logo. Fortes verified Sep 9, 2026 — they will have moved; the habits in Parts 3–5 don’t move at all.', { x: 0.55, y: 6.72, w: 12.2, h: 0.4, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.02 });
   s.addNotes(
     '[REFRESH QUARTERLY — owner: Oscar]\n' +
     '\n' +
@@ -80,7 +80,7 @@ module.exports = function buildPartTwo(pres, H) {
     { t: 'DeepSeek-R1: open-weights reasoning rivaling OpenAI’s o1 — MIT-licensed, free to download' },
     { t: 'Nvidia lost $589B in one day (Jan 27) — the largest single-day market loss in history at the time' },
     { t: 'The “$5.6M training cost”? Fuel for the final winning race — not the racing team. Real efficiency, oversold headline.', b: true },
-  ], { size: 8.9, gap: 3 });
+  ], { size: 9.2, gap: 3 });
   H.card(s, 0.55, 3.3, 5.6, 2.52, C.TEAL_TINT);
   s.addText('The trick has a name: MoE — Mixture of Experts', { x: 0.82, y: 3.44, w: 5.1, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.TEAL_DARK, margin: 0 });
   // — the specialist hospital, drawn —
@@ -97,7 +97,7 @@ module.exports = function buildPartTwo(pres, H) {
   }
   s.addShape('roundRect', { x: hx + hw / 2 - 0.13, y: hy + hh - 0.32, w: 0.26, h: 0.32, rectRadius: 0.02, fill: { color: C.TEAL_DARK }, line: { type: 'none' } });
   s.addText('671B params — the building · ~37B — the lit departments', { x: hx - 0.05, y: hy + hh + 0.03, w: 2.25, h: 0.34, fontFace: F.body, fontSize: 7.2, italic: true, color: C.TEAL_DARK, margin: 0, align: 'center', lineSpacingMultiple: 0.95 });
-  s.addText('Built like a huge specialist hospital: 671 billion parameters on the books, but only ~37 billion — the relevant departments — wake up for any one question. You pay for the specialists consulted, not the whole building. Add distillation (big models teaching small ones) and frontier ability stops being luxury-priced.', { x: 3.0, y: 3.88, w: 3.0, h: 1.85, fontFace: F.body, fontSize: 9.4, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.06 });
+  s.addText('Built like a huge specialist hospital: 671 billion parameters on the books, but only ~37 billion — the relevant departments — wake up per question. You pay for the specialists consulted, not the whole building. Distillation (big models teaching small ones) finishes the job.', { x: 3.0, y: 3.88, w: 3.0, h: 1.85, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.08 });
   // — the bill, hero —
   H.card(s, 6.35, 1.58, 6.4, 2.15, C.PANEL);
   s.addText('The bill, per million output tokens', { x: 6.62, y: 1.72, w: 5.9, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
@@ -112,7 +112,7 @@ module.exports = function buildPartTwo(pres, H) {
     { text: '27×', options: { fontSize: 19, bold: true, breakLine: true } },
     { text: 'cheaper', options: { fontSize: 7.5, bold: true } },
   ], { x: 11.55, y: 2.08, w: 1.0, h: 1.0, align: 'center', valign: 'middle', fontFace: F.head, color: 'FFFFFF', margin: 0, lineSpacingMultiple: 0.9 });
-  s.addText('A $100 o1 workload cost ~$3.60 on R1 — this is why the thinking and deep-research modes from Part 1 didn’t stay luxury-priced.', { x: 6.62, y: 3.14, w: 4.8, h: 0.55, fontFace: F.body, fontSize: 9.6, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.03 });
+  s.addText('A $100 o1 workload cost ~$3.60 on R1 — this is why the thinking and deep-research modes from Part 1 didn’t stay luxury-priced.', { x: 6.62, y: 3.14, w: 4.8, h: 0.55, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.03 });
   // — benchmarks, compressed —
   H.card(s, 6.35, 3.82, 6.4, 1.86, C.PANEL);
   s.addText('Same league on the hard benchmarks — R1 paper, Jan 2025', { x: 6.62, y: 3.94, w: 5.9, h: 0.3, fontFace: F.head, fontSize: 12, bold: true, color: C.INK, margin: 0 });
@@ -123,7 +123,7 @@ module.exports = function buildPartTwo(pres, H) {
   ];
   bench.forEach((b, i) => {
     const y = 4.28 + i * 0.34;
-    s.addText(b[0], { x: 6.62, y, w: 2.35, h: 0.32, fontFace: F.body, fontSize: 8.6, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
+    s.addText(b[0], { x: 6.62, y, w: 2.35, h: 0.32, fontFace: F.body, fontSize: 9, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
     const barMax = 2.5;
     s.addShape('roundRect', { x: 9.05, y: y + 0.03, w: barMax * (b[1] / 100), h: 0.11, rectRadius: 0.02, fill: { color: C.TEAL }, line: { type: 'none' } });
     s.addText(String(b[1]), { x: 9.08 + barMax * (b[1] / 100), y: y - 0.02, w: 0.5, h: 0.2, fontFace: F.body, fontSize: 7.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
@@ -136,7 +136,7 @@ module.exports = function buildPartTwo(pres, H) {
   ], { x: 6.62, y: 5.32, w: 5.9, h: 0.3, fontFace: F.body, margin: 0 });
   H.promptChip(s, 0.55, 5.8, 12.2, 1.32, 8, [
     { type: '“Explain Mixture of Experts like a colleague: a specialist hospital where only the relevant departments wake up per question — and why that made AI dramatically cheaper in 2025. Under 120 words.”', why: 'the MoE cheat-note lands in your course log, told by your own assistant.' },
-  ], { label: 'The specialist hospital, explained', size: 8.6, tab: 'EX8-MoE' });
+  ], { label: 'The specialist hospital, explained', size: 8.6, tab: 'EX7-MoE' });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Anchor the moment, LEFT top card: January 2025 — an open model rivals o1; Nvidia’s $589B day; and keep the cost claim honest — the famous $5.6M is the fuel bill for the final winning race, not the cost of the racing team (total hardware spend was estimated well over $500M).\n' +
@@ -145,7 +145,7 @@ module.exports = function buildPartTwo(pres, H) {
     '4) RIGHT bottom: three benchmark pairs — matched on math and coding, behind on PhD science (be honest: not a clean sweep).\n' +
     '5) Close the loop to Part 1: THIS is why thinking modes and deep research became affordable for everyone.\n' +
     '\n' +
-    'TRY IT — PROMPT 8/8 (copy from tab EX8-MoE)\n' +
+    'TRY IT — PROMPT 7/7 (copy from tab EX7-MoE)\n' +
     'Optional if time is tight; the answer doubles as their MoE cheat-note in the log.\n' +
     '\n' +
     'BRIDGE —\n' +
@@ -164,89 +164,75 @@ module.exports = function buildPartTwo(pres, H) {
     'What the wave brought beyond DeepSeek (spoken if useful): open weights with permissive licenses to self-host (Qwen the most-downloaded family; famously self-hosted by Airbnb) · price pressure that pushed OpenAI to ship its first open-weight models since GPT-2 (gpt-oss, Aug 2025) · trillion-parameter open agentic models (Kimi).\n' +
     'US–China top-model gap: ~3% (Stanford AI Index 2026), down from 18–32 points in 2023.');
 
-  // ---------- 18. SERVERS, TIERS, TRUST ----------
+  // ---------- 18. SERVERS — THE GEOGRAPHY (v1.7: matrix removed at owner request) ----------
   s = H.slide('PART 2 · TRUST & DATA', 18);
-  H.title(s, 'Where your words go', 'Trust the tier, not the logo — Sep 2026');
-  const servers = [
-    ['claude', 'Anthropic', 'stored in the US · EU via cloud partners (Bedrock / Vertex / Foundry)'],
-    ['openai', 'OpenAI', 'EU residency (2025) + in-region processing (2026) — business tiers only'],
-    ['google', 'Google', 'enterprise: residency by region · consumer: reviewed chats kept up to 3 yrs'],
-    ['microsoft', 'Microsoft', 'EU Data Boundary — but Claude models inside Copilot sit outside it'],
-    ['grok', 'xAI', 'own US data centers (Memphis) · no residency options published'],
-    ['perplexity', 'Perplexity', 'AWS, worldwide · no residency options published'],
-    ['deepseek', 'DeepSeek', '“stored in the People’s Republic of China” — its own privacy policy'],
-    ['kimi', 'Kimi (Moonshot)', 'PRC storage · training opt-out only via customer service'],
-    [null, 'Z.ai (Zhipu)', 'Singapore processing · parent on the US Entity List'],
+  H.title(s, 'Where your words go', 'Whose servers, in which country — Sep 2026');
+  // — schematic world band (swap in the owner's generated map backdrop when it lands) —
+  s.addShape('roundRect', { x: 0.55, y: 1.58, w: 12.2, h: 4.15, rectRadius: 0.08, fill: { color: 'EAF3F5' }, line: { color: C.LINE, width: 0.75 } });
+  const regions = [
+    ['UNITED STATES', C.TEAL_DARK, 0.85, [
+      ['claude', 'Anthropic', 'stored in the US'],
+      ['openai', 'OpenAI', 'US by default'],
+      ['grok', 'xAI', 'own Memphis data centers'],
+      ['perplexity', 'Perplexity', 'AWS cloud, worldwide'],
+    ]],
+    ['EUROPE — residency on business tiers', C.TEAL_DARK, 4.85, [
+      ['openai', 'OpenAI', 'EU residency (2025) + in-region processing (2026)'],
+      ['microsoft', 'Microsoft', 'EU Data Boundary — Claude-in-Copilot sits outside it'],
+      ['google', 'Google', 'enterprise residency by region'],
+      ['claude', 'Anthropic', 'EU via cloud partners (Bedrock · Vertex · Foundry)'],
+    ]],
+    ['CHINA & ASIA', C.RED, 8.85, [
+      ['deepseek', 'DeepSeek', '“stored in the People’s Republic of China” — its own policy'],
+      ['kimi', 'Kimi (Moonshot)', 'PRC storage'],
+      [null, 'Z.ai (Zhipu)', 'Singapore processing · US Entity-List parent'],
+    ]],
   ];
-  s.addText('Whose servers, where', { x: 0.55, y: 1.5, w: 5.9, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
-  servers.forEach((r, i) => {
-    const y = 1.9 + i * 0.47;
-    H.card(s, 0.55, y, 5.9, 0.42, i % 2 ? 'FFFFFF' : C.PANEL, i % 2 ? C.LINE : null);
-    H.logo(s, 0.64, y + 0.05, 0.32, r[0], r[1][0]);
-    s.addText(r[1], { x: 1.05, y: y + 0.01, w: 1.4, h: 0.4, fontFace: F.body, fontSize: 9.2, bold: true, color: i > 5 ? C.RED : C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 0.9 });
-    s.addText(r[2], { x: 2.48, y: y + 0.01, w: 3.9, h: 0.4, fontFace: F.body, fontSize: 8.2, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
-  });
-  // — data-type × tier matrix —
-  H.card(s, 6.65, 1.5, 6.1, 4.62, C.PANEL);
-  s.addText('What data can go where?', { x: 6.92, y: 1.62, w: 5.6, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
-  s.addText('Company tenants: the major vendors don’t train on your data by default. Personal accounts: they do.', { x: 6.92, y: 1.94, w: 5.6, h: 0.3, fontFace: F.body, fontSize: 8.6, italic: true, color: C.SLATE, margin: 0 });
-  const colX = [9.15, 10.45, 11.75], colW = 1.22;
-  const heads = [['GREEN', 'Company tenant', C.GREEN], ['YELLOW', 'Personal account', C.AMBER], ['RED', 'China-hosted app', C.RED]];
-  heads.forEach((hd, i) => {
-    s.addText([
-      { text: hd[0], options: { bold: true, color: hd[2], fontSize: 8.5, breakLine: true } },
-      { text: hd[1], options: { color: C.SLATE, fontSize: 7 } },
-    ], { x: colX[i], y: 2.28, w: colW, h: 0.44, align: 'center', fontFace: F.body, margin: 0, lineSpacingMultiple: 0.92 });
-  });
-  const rows = [
-    ['Public material (already on the internet)', '✓', '✓', '✓'],
-    ['Internal, non-confidential', '✓', '✗', '✗'],
-    ['Confidential business data', '✓*', '✗', '✗'],
-    ['Personal data (PII)', '✓*', '✗', '✗'],
-    ['Client & regulated data', '✓*', '✗', '✗'],
-  ];
-  rows.forEach((r, i) => {
-    const y = 2.76 + i * 0.44;
-    if (i % 2 === 0) s.addShape('roundRect', { x: 6.85, y, w: 5.75, h: 0.4, rectRadius: 0.04, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.5 } });
-    s.addText(r[0], { x: 6.98, y, w: 2.1, h: 0.4, fontFace: F.body, fontSize: 8.4, bold: true, color: C.INK, margin: 0, valign: 'middle', lineSpacingMultiple: 0.9 });
-    [1, 2, 3].forEach(ci => {
-      const mark = r[ci];
-      const col = mark[0] === '✓' ? (mark.length > 1 ? C.AMBER : C.GREEN) : C.RED;
-      s.addText(mark, { x: colX[ci - 1], y, w: colW, h: 0.4, align: 'center', valign: 'middle', fontFace: F.body, fontSize: mark[0] === '✓' ? 12 : 11, bold: true, color: col, margin: 0 });
+  regions.forEach(rg => {
+    const x = rg[2];
+    s.addShape('roundRect', { x, y: 1.82, w: 3.72, h: 3.7, rectRadius: 0.08, fill: { color: 'FFFFFF' }, line: { color: rg[1], width: 1, dashType: 'dash' } });
+    s.addText(rg[0], { x: x + 0.18, y: 1.94, w: 3.4, h: 0.3, fontFace: F.body, fontSize: 10.5, bold: true, charSpacing: 0.8, color: rg[1], margin: 0 });
+    rg[3].forEach((r, i) => {
+      const y = 2.36 + i * 0.79;
+      H.logo(s, x + 0.18, y + 0.02, 0.36, r[0], r[1][0]);
+      s.addText([
+        { text: r[1], options: { bold: true, color: C.INK, fontSize: 10.5, breakLine: true } },
+        { text: r[2], options: { color: C.SLATE, fontSize: 8.8 } },
+      ], { x: x + 0.64, y, w: 3.0, h: 0.76, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
     });
   });
+  s.addText('same logo, different homes — the ACCOUNT TIER decides which one yours is', { x: 0.85, y: 5.51, w: 11.6, h: 0.22, align: 'center', fontFace: F.body, fontSize: 9.5, bold: true, italic: true, color: C.TEAL_DARK, margin: 0 });
+  H.card(s, 0.55, 5.95, 6.0, 1.15, C.TEAL_TINT);
   s.addText([
-    { text: '✓* = only where your AI policy explicitly allows it — and only the minimum needed. ', options: { color: C.SLATE, fontSize: 8.2, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'The 2025 leaks all happened in the YELLOW column: ~300K+ Grok chats indexed by Google; “deleted” ChatGPT chats preserved for court. ', options: { color: C.AMBER, fontSize: 8.2, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'RED = the APP sends data to China, under Chinese law (Italy blocked DeepSeek). The open-weight MODELS, self-hosted by IT on approved servers, are a different object — the app, not the model, is the risk.', options: { color: C.SLATE, fontSize: 8.2 } },
-  ], { x: 6.92, y: 5.02, w: 5.6, h: 1.05, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.02 });
-  H.callout(s, 0.55, 6.5, 12.2, 0.6, C.TEAL_TINT, [
-    { text: 'One question decides: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
-    { text: 'does company data leave your network — and whose account is it on? Company tenant → work, within policy. Personal → public material only. China-hosted app → never.', options: { color: C.SLATE, fontSize: 11 } },
-  ], { iconName: 'key', iconFill: C.TEAL, size: 11 });
+    { text: 'Residency = choosing where it lives. ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12, breakLine: true } },
+    { text: 'An enterprise feature: the same vendor can host your company tenant in the EU while its consumer app stores chats in the US.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { x: 0.85, y: 6.06, w: 5.5, h: 0.95, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
+  H.card(s, 6.75, 5.95, 6.0, 1.15, C.AMBER_TINT);
+  s.addText([
+    { text: 'The one question that settles it: ', options: { bold: true, color: C.INK, fontSize: 12, breakLine: true } },
+    { text: 'ask IT which region and tier YOUR account runs on — your organization’s AI policy has the answer for everything else.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { x: 7.05, y: 6.06, w: 5.5, h: 0.95, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
   s.addNotes(
     '[REFRESH QUARTERLY — owner: Oscar]\n' +
     '\n' +
     'HOW TO PRESENT —\n' +
-    '1) Open with the finding that organizes this slide: the major Western vendors train on CONSUMER chats by default, and none of them trains on enterprise-tier data — so trust tracks the account tier, not the company logo. The same logo appears in green and yellow.\n' +
-    '2) LEFT table, fast: whose servers, where. Two rows to slow on: Microsoft (EU Data Boundary — but the Claude models inside Copilot sit OUTSIDE it; your IT team cares) and DeepSeek (its own policy says data is stored in the People’s Republic of China).\n' +
-    '3) RIGHT matrix — the new heart of the slide. Read it BY ROW: public material goes anywhere; everything below that line goes only into the company tenant; and the starred rows — confidential, personal data, client data — need the policy to say yes explicitly, minimum necessary. PII = personally identifiable information: names, emails, IDs, anything that points at a person.\n' +
-    '4) The amber footnote line: every famous 2025 leak happened in the yellow column — personal accounts.\n' +
-    '5) The red story, plainly: using the app is eating at their restaurant (they see your order); downloaded open weights are a cookbook IT can cook from at home (nothing is sent anywhere).\n' +
-    '6) Teal band: the one deciding question, verbatim.\n' +
+    '1) Frame: “one geography question — whose servers, in which country — and one account question. That’s the whole trust topic at our level.”\n' +
+    '2) Walk the three region panels LEFT TO RIGHT. US: where the consumer apps live by default. EUROPE: the residency panel — these are BUSINESS-TIER features; slow on Microsoft (EU Data Boundary — but the Claude models inside Copilot sit OUTSIDE it; your IT team cares). CHINA & ASIA: read DeepSeek’s line verbatim — its own privacy policy says data is “stored in the People’s Republic of China”; Italy blocked the app over it (Jan 2025, not lifted).\n' +
+    '3) The italic map line: SAME LOGO, DIFFERENT HOMES — the account tier decides which one yours is. That is the entire lesson.\n' +
+    '4) Teal card: residency, defined once.\n' +
+    '5) Amber card: the handoff — which region and tier YOUR account runs on is an IT question; the org’s AI policy answers everything else. (Deliberately NOT on this slide: any what-data-goes-where guidance — that is company policy’s territory, not this training’s.)\n' +
+    '6) The restaurant-vs-cookbook aside if China comes up: using the app is eating at their restaurant (they see your order); downloaded open-weight MODELS are a cookbook IT can cook from at home — the app, not the model, is the risk.\n' +
     '\n' +
     'BRIDGE —\n' +
     '“From models to the tools that DO things — the gallery.”\n' +
     '\n' +
     'ACRONYMS —\n' +
-    'PII = Personally Identifiable Information — data that identifies a person (names, emails, ID numbers).\n' +
     'PRC = People’s Republic of China. EU Data Boundary = Microsoft’s commitment to process EU data inside the EU.\n' +
     'AWS = Amazon Web Services. Entity List = the US federal trade-restriction list — a procurement red flag.\n' +
     '\n' +
     'CONTENT —\n' +
-    'v1.6: right side rebuilt as a data-type × tier matrix (owner request); Grok leak count stated as ~300K+ (reported figures vary 300–370K — audit L2).\n' +
-    'Every row and tier claim sourced in notes/research/r11_vendor_trust.md (researched Sep 9, 2026), incl.: consumer-training defaults; OpenAI court-ordered retention of “deleted” chats (2025, enterprise excluded); Italy’s DeepSeek block (Jan 2025, not lifted); DeepSeek’s exposed chat-log database (Jan 2025); Kimi PRC storage; Z.ai Entity-List parent.\n' +
-    'Green ≠ invulnerable: EchoLeak (CVE-2025-32711, Jun 2025) was a zero-click prompt-injection exfiltration hole in enterprise Copilot — patched, but proof that novel attack surface exists even in green.\n' +
+    'v1.7: rebuilt as the server-geography map (owner: focus on where servers are; no data-type guidance — that belongs to company policy). Swap the schematic band for the owner’s generated world-map backdrop when it lands in notes/intake/ (R16).\n' +
+    'Presenter background (kept OFF-slide by design, from r11, researched Sep 9 2026): the major Western vendors train on CONSUMER chats by default and none train on enterprise-tier data · the famous 2025 leaks were all personal-account: ~300K+ Grok chats indexed by Google; “deleted” ChatGPT chats preserved for court (enterprise excluded) · Google consumer: reviewed chats kept up to 3 yrs · Kimi PRC storage; Z.ai Singapore processing, Entity-List parent · EchoLeak (CVE-2025-32711, Jun 2025): even enterprise Copilot had a zero-click exfiltration hole — patched.\n' +
     'Defaults drift (Anthropic flipped consumer training Aug 2025; Microsoft Oct 2024) — re-verify quarterly.\n' +
     'Standing rule, always said aloud: your organization’s AI policy and approved-tool list outrank everything on this slide.');
 
@@ -270,9 +256,9 @@ module.exports = function buildPartTwo(pres, H) {
     if (i === 7) H.iconCircle(s, x + 0.18, y + 0.32, 0.5, 'alert', C.AMBER);
     else H.logo(s, x + 0.18, y + 0.32, 0.5, g[0], g[1]);
     s.addText([
-      { text: g[2] + '  ', options: { bold: true, color: C.INK, fontSize: 12 } },
-      { text: g[3], options: { color: C.MUTE, fontSize: 9, breakLine: true, paraSpaceAfter: 2 } },
-      { text: g[4], options: { color: C.SLATE, fontSize: 9.2 } },
+      { text: g[2] + '  ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
+      { text: g[3], options: { color: C.MUTE, fontSize: 9.4, breakLine: true, paraSpaceAfter: 2 } },
+      { text: g[4], options: { color: C.SLATE, fontSize: 9.7 } },
     ], { x: x + 0.8, y: y + 0.06, w: 5.0, h: 1.05, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.0 });
   });
   s.addText('Coding IDEs (Cursor · GitHub Copilot · Devin) and browser agents (Comet · Claude in Chrome) exist too — engineering and power-user tools; ask IT before either.', { x: 0.55, y: 6.75, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
@@ -300,54 +286,77 @@ module.exports = function buildPartTwo(pres, H) {
     'Notion: Custom Agents (Feb 2026) run on triggers with scoped permissions; Business/Enterprise plans; usage billed in credits.\n' +
     'OpenClaw: maintainer’s own warning, verbatim — “if you can’t run a command line, this is far too dangerous to use safely”; CVE-2026-25253 (1-click RCE); a malicious #1-ranked community skill (Cisco).');
 
-  // ---------- 20. SPECIALIST SHELF — THE MAKERS ----------
-  s = H.slide('PART 2 · AGENTIC TOOLS', 20);
-  H.title(s, 'The specialist shelf · the makers', 'One great tool per job — September 2026');
-  const shelf = [
-    ['google', 'G', 'Gemini Notebook (was NotebookLM)', 'Google', 'Upload YOUR documents, get cited answers, audio overviews, mind maps. Grounded in your sources = low hallucination. The most useful new tool for this room.'],
-    [null, null, 'Meeting notes', 'Teams / Zoom native · Granola', 'Check your native tool first (IT-sanctioned). Granola is the bot-free best-in-class — but recording consent policy applies either way.'],
-    ['gamma', 'G', 'Decks & design', 'Gamma · Canva AI', 'Gamma: a full deck from a prompt (70M users). Canva: the design suite marketing already licenses, now with conversational AI.'],
-    ['adobe', 'A', 'Images — the safe lane', 'Adobe Firefly', 'Trained only on licensed content; paid plans include legal indemnification — the corporate pick. ChatGPT Images 2.0 / Nano Banana 2 are already in your chatbot for internal drafts.'],
-    ['lovable', 'L', 'Apps without code', 'Lovable', 'Describe an app in plain language → working web app with database and login (Adidas, NVIDIA use it). Security review before real company data.'],
-    ['deepl', 'D', 'Voice & language', 'ElevenLabs · DeepL', 'ElevenLabs: narrated training modules, dubbing (consent rules for voice cloning). DeepL: real-time spoken translation + document-grade language work.'],
-    ['gemini', 'V', 'Video', 'Veo 3.1 (in Google tools)', 'Good enough for internal video today. Cautionary tale: OpenAI’s famous Sora app was shut down (Apr 2026) — never build a process on a consumer app.'],
-    [null, null, 'Find more, forever', 'your own assistant', 'Tools change monthly. Ask your approved AI: “Search the web: what are the best current tools for [my task], and which are enterprise-safe?” That answer never goes stale.'],
+  // ---------- 20. WHAT PEOPLE ACTUALLY USE (v1.7, r24) ----------
+  s = H.slide('PART 2 · THE TOOLS IN REAL LIFE', 20);
+  H.title(s, 'What people actually use', 'Usage data, not hype — and the why · mid-2026');
+  const tiers = [
+    ['The defaults — billion-user scale', 'chosen once, or already installed', [
+      ['openai', 'ChatGPT', '900M weekly users — chose it first, stayed'],
+      ['gemini', 'Gemini', '900M+ monthly — inside Gmail, Docs, Android'],
+      ['copilot', 'Copilot', 'the work default — already in Word, Outlook, Teams'],
+      [null, 'Meta AI', 'the button inside WhatsApp & Instagram'],
+    ]],
+    ['Chosen for the job', 'smaller — picked on quality, growing fastest', [
+      ['claude', 'Claude', 'writing & coding — visits up ~9× in a year'],
+      ['perplexity', 'Perplexity', 'answers with sources — the search replacement'],
+      ['google', 'Gemini Notebook', 'answers from YOUR documents only'],
+      ['deepseek', 'DeepSeek', 'free, capable, open — huge in Asia'],
+    ]],
+    ['AI came to tools you already had', 'you may be an AI user without noticing', [
+      ['canva', 'Canva', 'the design suite grew an AI brain'],
+      [null, 'CapCut', '736M users — video editing, AI inside'],
+      ['notion', 'Notion', 'notes & docs that draft themselves'],
+      [null, 'Grammarly', 'the quiet writing fixer, everywhere'],
+    ]],
   ];
-  shelf.forEach((g, i) => {
-    const x = 0.55 + (i % 2) * 6.2;
-    const y = 1.6 + Math.floor(i / 2) * 1.24;
-    H.card(s, x, y, 5.95, 1.12, i === 7 ? C.TEAL_TINT : C.PANEL);
-    if (g[0] === null) H.iconCircle(s, x + 0.18, y + 0.3, 0.5, i === 1 ? 'mic' : 'search', C.TEAL);
-    else H.logo(s, x + 0.18, y + 0.3, 0.5, g[0], g[1]);
+  tiers.forEach((t, ti) => {
+    const y = 1.58 + ti * 1.42;
+    H.card(s, 0.55, y, 12.2, 1.3, ti === 1 ? C.TEAL_TINT : C.PANEL);
     s.addText([
-      { text: g[2] + '  ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
-      { text: g[3], options: { color: C.MUTE, fontSize: 8.8, breakLine: true, paraSpaceAfter: 2 } },
-      { text: g[4], options: { color: C.SLATE, fontSize: 9 } },
-    ], { x: x + 0.8, y: y + 0.05, w: 5.0, h: 1.02, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.0 });
+      { text: t[0], options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true } },
+      { text: t[1], options: { italic: true, color: C.MUTE, fontSize: 8.8 } },
+    ], { x: 0.8, y: y + 0.1, w: 2.35, h: 1.1, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.02 });
+    t[2].forEach((tool, i) => {
+      const x = 3.3 + i * 2.38;
+      if (tool[0]) H.logo(s, x, y + 0.16, 0.4, tool[0], tool[1][0]);
+      else H.logo(s, x, y + 0.16, 0.4, 'none', tool[1][0]);
+      s.addText(tool[1], { x, y: y + 0.6, w: 2.25, h: 0.26, fontFace: F.body, fontSize: 10.5, bold: true, color: C.INK, margin: 0 });
+      s.addText(tool[2], { x, y: y + 0.85, w: 2.25, h: 0.42, fontFace: F.body, fontSize: 8.4, color: C.SLATE, margin: 0, lineSpacingMultiple: 0.96 });
+    });
   });
-  H.callout(s, 0.55, 6.6, 12.2, 0.52, C.AMBER_TINT, [
+  H.card(s, 0.55, 5.9, 12.2, 0.62, C.PANEL);
+  s.addText([
+    { text: '52% of US employees use AI at work — 15% daily (Gallup, May ’26)   ·   ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
+    { text: 'top jobs: writing 51% · research 49%   ·   86% treat AI output as a first draft, not a final product (Microsoft, 2026)', options: { color: C.SLATE, fontSize: 10.5 } },
+  ], { x: 0.85, y: 5.98, w: 11.6, h: 0.48, fontFace: F.body, valign: 'middle', margin: 0 });
+  H.callout(s, 0.55, 6.62, 12.2, 0.52, C.AMBER_TINT, [
     { text: 'Standing rule: ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
-    { text: 'your organization’s AI policy and approved-tool list outrank every name on these two slides.', options: { color: C.SLATE, fontSize: 10.5 } },
+    { text: 'your organization’s AI policy and approved-tool list outrank every name on this slide.', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { iconName: 'shield', iconFill: C.AMBER, size: 10.5 });
   s.addNotes(
     '[REFRESH QUARTERLY — owner: Oscar]\n' +
     '\n' +
     'HOW TO PRESENT —\n' +
-    '1) Frame: “the makers — one great tool per job. Sweep, don’t dwell: this slide is a reference card.”\n' +
-    '2) Slow on two: Gemini Notebook (say the rename out loud — it was NotebookLM until July 2026, people know the old name; grounded in YOUR documents = the anti-hallucination tool) and Firefly (trained only on licensed content, and paid plans include legal indemnification — the one your legal team will like).\n' +
-    '3) The Sora line, plainly: a world-famous video app, shut down in April 2026 — the lesson is never to build a business process on a consumer app.\n' +
-    '4) Teal card (bottom right): the find-more move — don’t bookmark tool lists; ask your own assistant, fresh, when you need one.\n' +
-    '5) Amber band VERBATIM: org policy and the approved-tool list outrank everything here.\n' +
+    '1) Frame: “not the hype list — the USAGE list. Three tiers, and the tier names are the insight.”\n' +
+    '2) Tier 1 — the defaults: ChatGPT is the one people CHOSE (900M weekly users, ~54% of all chatbot visits); Gemini, Copilot and Meta AI are enormous partly because they are already INSIDE Gmail, Office, and WhatsApp. Usage ≠ preference — Copilot is #3 with US adults yet a rounding error in destination-site traffic: people use what IT already approved.\n' +
+    '3) Tier 2 — chosen for the job (the teal row): Claude for writing and coding (fastest growth of the majors — visits up ~9× in a year); Perplexity for answers with receipts; Gemini Notebook when the answers must come from YOUR documents; DeepSeek free/open with a heavy Asia skew.\n' +
+    '4) Tier 3 — the sleeper tier: Canva, CapCut, Notion, Grammarly — a chunk of “AI adoption” is tools people already had growing AI features. Some of this room are AI users who never called it that.\n' +
+    '5) Stats band: a majority of US employees now use AI at work; the jobs are writing and research; and 86% treat the output as a FIRST DRAFT — the healthiest one-line usage policy ever measured.\n' +
+    '6) The Reddit wisdom, clearly labeled as anecdotal: heavy users don’t pick ONE tool — they run a small STACK (daily driver + a writer + a searcher). Direction, not data.\n' +
+    '\n' +
+    'TRY IT (spoken, not numbered) —\n' +
+    'The find-more move never goes stale: “Search the web: what are the best current tools for [my task], and which are enterprise-safe?”\n' +
     '\n' +
     'BRIDGE —\n' +
     '“That’s the landscape. Part 3 — the craft itself.”\n' +
     '\n' +
     'ACRONYMS —\n' +
-    'none needing expansion on this slide (product names throughout).\n' +
+    'MAU/WAU = monthly/weekly active users. Gemini Notebook = the renamed NotebookLM (Jul 2026).\n' +
     '\n' +
     'CONTENT —\n' +
-    'v1.6: brand logos on cards; Firefly indemnification scoped to paid plans (audit L9); Sora line carries the date and no duration claim (audit M1/L21).\n' +
-    'Evidence per tool in notes/research/r12_tool_landscape.md, incl.: NotebookLM→Gemini Notebook rename (Jul 16, 2026); Granola $1.5B valuation (Mar 2026) + the consent caveat; Gamma $100M ARR/70M users (Nov 2025); Firefly licensed-training + paid-plan indemnification (Adobe business terms); Lovable enterprise users; DeepL Voice-to-Voice (Apr 2026); Sora app shutdown (Apr 2026).\n' +
-    'Deliberately NOT on the slide: Stable Diffusion (open-source image generation — now an IT/developer tool: local installs, no indemnification; say “the open-source option IT might run privately” if asked) and Midjourney (artists’ favorite; active studio copyright litigation — legal-risk caveat).\n' +
-    'If someone wants a directory anyway: There’s An AI For That — browse by task, verify with IT before use.');
+    'v1.7: replaces the specialist shelf (owner request: most-used tools + why, researched via Reddit signals AND measured sources). All numbers sourced in notes/research/r24_most_used_tools.md (researched Sep 10, 2026): a16z Top-100 6th ed. (Mar 2026, Jan-2026 data) · Similarweb shares May 2026 (ChatGPT 53.9%, Gemini 27.9%, Claude 9.2% +855% YoY, DeepSeek 4.1%, Copilot/Perplexity 1.3%) · Sensor Tower Jun 2026 · Pew Feb 2026 (ChatGPT 44% of US adults, Gemini 24%, Copilot 17%) · Gallup May 2026 (52% work use, 15% daily; writing 51%, research 49%) · Microsoft Work Trend Index 2026 (86% first-draft) · Edison/SSRS May 2026 (65% of Americans weekly).\n' +
+    'Hype-vs-usage gaps for questions: Perplexity = famous but 1.3% of visits · Midjourney fell to #46 mobile · companion apps are quietly huge (Character.AI #7 web, 15+ minute sessions) · China’s Doubao/Quark/Kimi are enormous and invisible to US offices.\n' +
+    'Meta AI: ~1B monthly (Meta, May 2025 — its last hard number); lives inside WhatsApp/Instagram rather than as an app people choose.\n' +
+    'Displaced specialist-shelf answers (kept for questions, evidence in r12): images-for-work safe lane = Adobe Firefly (licensed training; paid plans include indemnification) · meetings = native Teams/Zoom first, Granola best-in-class (consent policy applies) · decks = Gamma · apps-without-code = Lovable · voice/translation = ElevenLabs · DeepL · video = Veo 3.1 (Sora app shut down Apr 2026 — never build a process on a consumer app).\n' +
+    'Reddit signal is SECONDARY-SOURCED (Reddit blocks crawlers; roundups of subreddit consensus, Aug–Sep 2026) — always label it anecdotal.');
 };

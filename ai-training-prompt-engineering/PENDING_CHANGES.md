@@ -1061,3 +1061,66 @@ modes · hallucination chart data). All entries below are finalized against them
   owner said "introduction only", so after S5 it is unless he objects).
 - Q-R6c: S13 — chart, character images, or both (default: both — chart on-slide if r23
   data is clean, images as the card art).
+
+---
+
+## ROUND 7 — slides 16–32 review + "presenting tomorrow" trigger · 2026-09-10
+
+**Status: ✅ APPLIED (v1.7, with Round 6) — owner: "I want you to still fix formats
+and take the feedback you get from me in these sessions to refine the rest, but
+focus on the ones I'm presenting tomorrow."** Deck now 69 slides. New research:
+r24 (most-used tools), r25 (proven/myth + sycophancy dossier). Applied:
+
+- Round 6 in full: S2 itemized take-homes · NEW hardware slide after S5 (r22) ·
+  S7 letter-counting reframe (r23) · S8 fonts + plain "lost in the middle" ·
+  S9 fonts · S10 three-big-steps + warranty topic (chip cut → prompts renumbered
+  1/7–7/7; workbook tabs EX5-TwoSpeeds/EX6-FeatureMenu/EX7-MoE; drill → BONUS-Ladder)
+  · S11 "feel the bill" cut, fast/thinking side-by-side added · S12 Grok row (r23)
+  · S13 abstain-vs-guess chart (r23).
+- R14 font pass across slides 1–32 (S8/S9/S16/S17/S19 flagged examples done).
+- S18 → server-GEOGRAPHY slide: three region panels (US · Europe-residency ·
+  China/Asia), residency defined, "ask IT which region and tier" handoff. The
+  data-type matrix REMOVED (owner: don't interfere with company policy) — its
+  facts survive as presenter background in notes only.
+- S20 → "What people actually use" (r24): three tiers (billion-user defaults /
+  chosen-for-the-job / AI-came-to-your-tools) + Gallup/Microsoft usage stats band;
+  specialist-shelf answers preserved in notes; Reddit signal labeled anecdotal.
+- S22: THE STOP reframed as "where the action ends" + example "Deliver the summary,
+  then stop — nothing beyond" (owner: "the stop would be the action performed" —
+  interpretation flagged for confirmation).
+- S23–25: TWO weak→strong pairs per element; Role = decomposed personality
+  statements (testable requirements); Task = + SEQUENCE; Out gains the
+  "do not hallucinate" weak example.
+- S26: font pass; tool/handout update QUEUED behind the owner's toolkit answers.
+- S27: technique 3 de-programmed — "separate ask from material" with a plain
+  divider (XML/tags → notes as power-user variant). S28: technique 5 → "bullet
+  your process, in order"; technique 7 promoted → "ask the AI to write the prompt."
+- S29 SPLIT: (a) full proven-vs-myth slide, 6+6 with evidence one-liners (r25);
+  (b) dedicated mirror/sycophancy slide: +49% hero, news timeline (OpenAI rollback
+  Apr 2025 · NYT Jun 2025 · Suleyman Aug 2025 · Science/regulators 2026),
+  countermeasures, see-it-yourself two-chat demo + read-more search prompt.
+- S30 (playbook): de-jargoned "separate instructions from material". S31 (PDCA):
+  each step card now names its toolkit moves (umbrella planted; full redesign
+  awaits owner answers). S32: report box removed — instructions only, everything
+  in tab EX-Rebuild.
+
+**Owner images received in chat 2026-09-10 (not yet on disk — need the PNG files
+in notes/intake/ to embed):** world map (S18 backdrop — good, drop-in ready) ·
+body anatomy with labels (S22 — good) · robot-with-receipt (S13 "fake receipt" —
+photoreal style clashes with the flat deck + baked text; regenerate all four
+characters in the flat no-text style, or go photoreal for all four consistently) ·
+office scene (no assigned slot — candidate for the title/welcome slide).
+
+**NEW HOLD — Part 5 case study (owner request, 2026-09-10):** record THIS working
+method as agentic-AI teaching material — "how this deck was built": owner supplies
+judgment, decisions, review rounds, and generated imagery; the agent researches
+(verified, dated), builds, QA-renders, and holds changes for approval in a ledger.
+It is a live example of Part 5's whole syllabus: mission briefs (review rounds as
+briefs), gates (the "update" protocol), standing memory (PENDING_CHANGES.md +
+standing rules R1–R16), human-in-the-loop delegation (images on request), and
+verification discipline (R7). Build as 1 slide or a worked example in Part 5 when
+that part is reviewed. → also log in r26 when drafted.
+
+**Still owed to the owner:** his answers to the five Round-6/7 questions (toolkit
+purpose · PDCA umbrella shape · tool/handout priority · S22 stop interpretation ·
+renumber confirmation — renumber applied as default).

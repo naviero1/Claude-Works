@@ -126,14 +126,14 @@ function makeHelpers(pres) {
   };
 
   // Guiding-prompt band, R10 format (v1.6) — the consistent chip treatment for the eight
-  // course-log prompts: teal card, robot icon, solid "PROMPT n/8" chip, then numbered
+  // course-log prompts: teal card, robot icon, solid "PROMPT n/7" chip, then numbered
   // STEP rows, each exactly TYPE THIS → (copy-paste, Consolas) + WHY → (one plain line),
   // and a workbook-tab pointer so nothing is ever retyped.
   H.promptChip = (s, x, y, w, h, n, steps, opts = {}) => {
     H.card(s, x, y, w, h, C.TEAL_TINT);
     H.iconCircle(s, x + 0.16, y + 0.13, 0.4, 'robot', C.TEAL);
     s.addShape('roundRect', { x: x + 0.66, y: y + 0.16, w: 1.3, h: 0.34, rectRadius: 0.08, fill: { color: C.TEAL }, line: { type: 'none' } });
-    s.addText(`PROMPT ${n}/8`, { x: x + 0.66, y: y + 0.17, w: 1.3, h: 0.32, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9.5, bold: true, charSpacing: 1, color: 'FFFFFF', margin: 0 });
+    s.addText(`PROMPT ${n}/7`, { x: x + 0.66, y: y + 0.17, w: 1.3, h: 0.32, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9.5, bold: true, charSpacing: 1, color: 'FFFFFF', margin: 0 });
     if (opts.label) s.addText(opts.label, { x: x + 2.08, y: y + 0.17, w: w - 2.35, h: 0.32, fontFace: F.body, fontSize: 10.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
     const runs = [];
     steps.forEach((st, i) => {

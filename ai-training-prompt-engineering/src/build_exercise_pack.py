@@ -44,7 +44,7 @@ readme = [
     ['WHAT THIS IS', 'Your one take-home workbook: every exercise prompt from the course in a named tab (copy-paste, don\'t retype), the practice dataset for the Part 4 data walkthrough, and the full 2026 prompting playbook.'],
     ['HOW TO USE IT', 'During the course: when a slide points at a tab (e.g. "tab EX3-Tokens"), open it and copy the prompt. For the data walkthrough: upload this whole workbook to your AI and follow tab G2-DataAnalysis - profile first, then numbered questions.'],
     [''],
-    ['THE TABS', 'EX1-TwoModes .. EX8-MoE = the eight numbered course prompts · G2-DataAnalysis = the data walkthrough (uses the Data tab) · EX-Quotes = the three-quotations exercise (PDFs in the pack) · EX-Email = the inbox play (thread file in the pack) · EX-Rebuild = the Part 3 rep · PLAYBOOK = Do / Don\'t / Expired, with sources.'],
+    ['THE TABS', 'EX1-TwoModes .. EX7-MoE = the seven numbered course prompts · G2-DataAnalysis = the data walkthrough (uses the Data tab) · EX-Quotes = the three-quotations exercise (PDFs in the pack) · EX-Email = the inbox play (thread file in the pack) · EX-Rebuild = the Part 3 rep · BONUS-Ladder = a self-study triage drill · PLAYBOOK = Do / Don\'t / Expired, with sources.'],
     [''],
     ['THE DATA TAB', 'Twelve months of fictional supplier-delivery data across four sites and three suppliers, for practicing AI data analysis (Copilot, chat assistants with file upload, or a company RAG assistant).'],
     [''],
@@ -258,40 +258,40 @@ def prompt_tab(name, title, rows, note=None):
             c.alignment = Alignment(vertical='top', wrap_text=True)
     t.freeze_panes = 'A4'
 
-prompt_tab('EX1-TwoModes', 'Prompt 1/8 · Two modes, felt — this chat becomes your course log', [
+prompt_tab('EX1-TwoModes', 'Prompt 1/7 · Two modes, felt — this chat becomes your course log', [
     ('STEP 1', 'Write a short farewell card for a coworker who is leaving.',
      'Generative mode — it writes instantly, guessing every detail it doesn\'t know.'),
     ('STEP 2', 'Now don\'t write it. Ask me everything you\'d need to know to do this perfectly, then wait for my answers.',
      'The seed of delegate mode — the AI turns around and interviews YOU.'),
 ], note='Run both steps in ONE chat and keep that chat all course — it is your course log.')
 
-prompt_tab('EX2-Guesses', 'Prompt 2/8 · Narrowing the guesses — two separate sends', [
+prompt_tab('EX2-Guesses', 'Prompt 2/7 · Narrowing the guesses — two separate sends', [
     ('SEND 1', 'Finish this sentence 5 different ways: We should move the launch date because',
      'No facts yet — watch it scatter across guesses (budget, staffing, quality...).'),
     ('SEND 2', 'Now 5 more ways, knowing: B2B software firm, competitor launches May 3, our beta ends April 20.',
      'Your facts didn\'t make it smarter — they deleted wrong guesses. Grade the directions, not the sentences.'),
 ])
 
-prompt_tab('EX3-Tokens', 'Prompt 3/8 · Bricks, not letters', [
+prompt_tab('EX3-Tokens', 'Prompt 3/7 · Bricks, not letters', [
     ('STEP 1', 'Explain AI tokens to a busy office worker in under 80 words: use a LEGO-brick analogy, show one word splitting into tokens, and end with why tokens set my AI\'s cost and limits.',
      'The definition lands in your course log — and the brick analogy is the one the best explainers use.'),
 ])
 
-prompt_tab('EX4-Handoff', 'Prompt 4/8 · The desk — explained, then carried', [
+prompt_tab('EX4-Handoff', 'Prompt 4/7 · The desk — explained, then carried', [
     ('STEP 1', 'Explain your context window like I\'m a 5th grader: the desk, what fits on it, and what happens when I close this chat. Under 100 words.',
      'The AI describes its own working memory, plainly.'),
     ('STEP 2 (homework)', 'Summarize our chat so far in under 80 words, titled HANDOFF.',
      'Tonight: paste the HANDOFF into a fresh chat, ask "where was I?" — and watch it pick up your course.'),
 ])
 
-prompt_tab('EX5-Ladder', 'Prompt 5/8 · See the rungs sort themselves', [
+prompt_tab('BONUS-Ladder', 'Bonus drill · The escalation ladder — see the rungs sort themselves (self-study)', [
     ('STEP 1', 'Give me three everyday AI problems: one fixed by a better prompt, one by giving it the right documents, one only fixable by retraining it. One line each on why.',
-     'The escalation ladder — prompt, retrieve, fine-tune — sorted live by the AI in front of you.'),
+     'The escalation ladder — prompt it, feed it documents, retrain it — sorted live by the AI in front of you.'),
     ('EXTENDED', 'Here are six workplace AI problems. I will sort each as P (better prompt), R (give it the right documents) or F (retrain the model) — then you grade me. The diagnostic: is the AI missing knowledge (R), or misbehaving with knowledge it already has (P)? Only a deep habit needed at huge volume justifies F. Problems: 1) Its summaries are always too long and chatty. 2) It doesn\'t know our returns policy. 3) Its answers are right but in the wrong format for our tracker. 4) It can\'t answer questions about last week\'s customer complaints. 5) A support bot must answer in our house style across millions of chats, with no room to paste instructions each time. 6) It keeps writing formal English when our team writes casual Spanish. Wait for my six answers before grading.',
      'The stretch drill. Problem 6 is deliberately arguable — the argument is the lesson.'),
 ])
 
-prompt_tab('EX6-TwoSpeeds', 'Prompt 6/8 · Same brain, two speeds', [
+prompt_tab('EX5-TwoSpeeds', 'Prompt 5/7 · Same brain, two speeds', [
     ('STEP 1', 'Describe your fast mode vs your thinking mode like I\'m choosing between them for real work: when is each worth it, and roughly how much more does thinking cost? Under 120 words.',
      'The model explains its own two speeds — and its own bill.'),
     ('EXTENDED 1', 'Answer instantly, in one line: Five colleagues (Ana, Ben, Chloe, Dev, Ema) each present on a different weekday. Ben presents Monday. Dev presents Friday. Chloe can\'t do Monday or Wednesday. Ema presents the day after Chloe. Ana presents later in the week than Chloe. Who presents when?',
@@ -302,14 +302,14 @@ prompt_tab('EX6-TwoSpeeds', 'Prompt 6/8 · Same brain, two speeds', [
      'Most rooms land on 10-20x — the bill, felt.'),
 ])
 
-prompt_tab('EX7-FeatureMenu', 'Prompt 7/8 · Ask your own product for its menu', [
+prompt_tab('EX6-FeatureMenu', 'Prompt 6/7 · Ask your own product for its menu', [
     ('STEP 1', 'List the modes this app gives me — quick answer, thinking, web search, deep research, agent — one line each on what it does differently and its rough effort. Say \'unsure\' rather than guess.',
      'Your own product hands you its menu; ask again the day it changes.'),
     ('EXTENDED', 'Build a table of every mode and toggle this app offers: name · what it does differently · when to use it · relative cost or effort · does it work with uploaded files? · does it need a paid tier? Say \'unsure\' where you don\'t know.',
      'The six-column version — a personal reference card that never goes stale.'),
 ])
 
-prompt_tab('EX8-MoE', 'Prompt 8/8 · The specialist hospital, explained', [
+prompt_tab('EX7-MoE', 'Prompt 7/7 · The specialist hospital, explained', [
     ('STEP 1', 'Explain Mixture of Experts like a colleague: a specialist hospital where only the relevant departments wake up per question — and why that made AI dramatically cheaper in 2025. Under 120 words.',
      'The MoE cheat-note lands in your course log, told by your own assistant.'),
 ])

@@ -74,7 +74,7 @@ module.exports = function buildClose(pres, H) {
     { text: 'Why it works: ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
     { text: 'unstated needs get guessed right 41.1% of the time — but when the model asks FIRST, accuracy jumps ~7–14 points (ClarifyGPT, FSE 2024). Answering its questions isn’t politeness; it’s quality control.', options: { color: C.SLATE, fontSize: 10 } },
   ], { x: 0.85, y: 3.14, w: 5.6, h: 1.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
-  s.addText('You’ve run this before — it was Prompt 1/8, step 2, on slide two. The course opened and closes on the same move.', { x: 0.85, y: 4.2, w: 5.6, h: 0.65, fontFace: F.body, fontSize: 9.5, italic: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.05 });
+  s.addText('You’ve run this before — it was Prompt 1/7, step 2, on slide two. The course opened and closes on the same move.', { x: 0.85, y: 4.2, w: 5.6, h: 0.65, fontFace: F.body, fontSize: 9.5, italic: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.05 });
   H.card(s, 6.95, 1.58, 5.8, 3.4, C.PANEL);
   s.addText('The question toolkit — for you, not the AI', { x: 7.22, y: 1.74, w: 5.3, h: 0.35, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
   const qkit = [
@@ -103,7 +103,7 @@ module.exports = function buildClose(pres, H) {
   ], { iconName: 'zap', iconFill: C.TEAL, size: 11.5 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
-    '1) Open with the flip: all course long they wrote prompts; the last skill is making the AI interview THEM. Read the paste-line; note the callback — it was Prompt 1/8 step 2, the very first exercise. Full circle, on purpose.\n' +
+    '1) Open with the flip: all course long they wrote prompts; the last skill is making the AI interview THEM. Read the paste-line; note the callback — it was Prompt 1/7 step 2, the very first exercise. Full circle, on purpose.\n' +
     '2) The numbers, in one breath: 41.1% guessed right unstated → asking first recovers ~7–14 points → “answer its questions” is quality control.\n' +
     '3) RIGHT toolkit — for HUMANS: Five Whys (say the Toyota tie: same factory as the PDCA slide) · open→closed funnel · the Socratic check for interrogating any AI answer.\n' +
     '4) Quote band: Altman, then the Picasso echo — sixty years apart, same conclusion. (Picasso wording verified to the 1964 Paris Review interview; the popular “computers are useless” phrasing is a later smoothing.)\n' +

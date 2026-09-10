@@ -66,10 +66,16 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'BLOCK 3 · DELEGATION', options: { bold: true, color: C.TEAL_DARK, fontSize: 11, breakLine: true, paraSpaceAfter: 2 } },
     { text: '5 · Agentic prompting — the mission brief\n6 · Prompts as assets · wrap-up', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { x: 7.3, y: 2.2, w: 5.2, h: 2.25, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.08 });
-  H.callout(s, 7.0, 4.66, 5.75, 1.7, C.AMBER_TINT, [
-    { text: 'You leave with: ', options: { bold: true, color: C.INK, fontSize: 11.5, breakLine: true } },
-    { text: 'a working AI vocabulary · a tool map · the universal prompt anatomy + seven techniques · your Course Workbook (every exercise, copy-paste ready) · a 13-template library with the interactive Template Creator · the Prompt Element Taxonomy reference · team conventions for storing and versioning prompts.', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { iconName: 'download', iconFill: C.AMBER, size: 11 });
+  H.card(s, 7.0, 4.66, 5.75, 1.78, C.AMBER_TINT);
+  H.iconCircle(s, 7.2, 4.8, 0.4, 'download', C.AMBER);
+  s.addText('You leave with:', { x: 7.72, y: 4.8, w: 4.8, h: 0.34, fontFace: F.head, fontSize: 12.5, bold: true, color: C.INK, margin: 0, valign: 'middle' });
+  s.addText([
+    { text: '•  Course Workbook — every exercise, copy-paste ready', options: { breakLine: true } },
+    { text: '•  13-template prompt library + Template Creator', options: { breakLine: true } },
+    { text: '•  Taxonomy reference + one-page cheat sheet', options: { breakLine: true } },
+    { text: '•  The Do / Don’t / Expired playbook one-pager', options: { breakLine: true } },
+    { text: '•  Team conventions for storing & versioning prompts', options: {} },
+  ], { x: 7.28, y: 5.18, w: 5.3, h: 1.2, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.1 });
   s.addText('This course teaches the text wing. Image, video and audio prompting have their own dials — same discipline, different controls; with enough interest, that becomes its own training.', { x: 7.0, y: 6.48, w: 5.75, h: 0.5, fontFace: F.body, fontSize: 9, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.05 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
@@ -80,7 +86,7 @@ module.exports = function buildPartOne(pres, H) {
     '5) Amber card: the take-homes; hold up the handout pack and the Course Workbook.\n' +
     '6) Footer aside, one sentence: this is the TEXT wing; image/video/audio could become their own training.\n' +
     '\n' +
-    'TRY IT — PROMPT 1/8 (opens the course log; copy both steps from tab EX1-TwoModes)\n' +
+    'TRY IT — PROMPT 1/7 (opens the course log; copy both steps from tab EX1-TwoModes)\n' +
     'Everyone runs both steps in ONE chat they keep all course — their course log.\n' +
     'Sequence: open your AI → paste STEP 1 → read what it invented → paste STEP 2 → watch it interview you.\n' +
     'Debrief line: step 1 ran on guesses (invented names, blanks); step 2 asked YOU.\n' +
@@ -100,12 +106,12 @@ module.exports = function buildPartOne(pres, H) {
   H.partMarker(s, 1);
   s.addText('PART 1 · THE PRIMER', { x: 0.55, y: 2.3, w: 12, h: 0.5, fontFace: F.body, fontSize: 16, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
   s.addText('Where this came from,\nand how it actually works', { x: 0.55, y: 2.8, w: 11.5, h: 1.9, fontFace: F.head, fontSize: 44, bold: true, color: C.ON_DARK, margin: 0, lineSpacingMultiple: 1.05 });
-  s.addText('Seventy years in two slides, then the six concepts that make you fluent: tokens, context, RAG, the escalation ladder, the token economy, hallucination.', { x: 0.55, y: 4.85, w: 11, h: 0.8, fontFace: F.body, fontSize: 15, color: C.ON_DARK_MUTE, margin: 0, lineSpacingMultiple: 1.15 });
+  s.addText('A short history — the eras, the decade, the hardware — then the six concepts that make you fluent: tokens, context, RAG, the escalation ladder, the token economy, hallucination.', { x: 0.55, y: 4.85, w: 11, h: 0.8, fontFace: F.body, fontSize: 15, color: C.ON_DARK_MUTE, margin: 0, lineSpacingMultiple: 1.15 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Dividers are pacing: breathe. Read the two-line title, nothing more.\n' +
     '2) Point at the progress bar: “six parts — this is where we are.”\n' +
-    '3) One sentence: “Two history slides, then six concepts — the vocabulary for everything after.”\n' +
+    '3) One sentence: “Three history slides — the eras, the decade, the hardware — then six concepts: the vocabulary for everything after.”\n' +
     '4) Under 30 seconds, advance.\n' +
     '\n' +
     'ACRONYMS —\n' +
@@ -229,6 +235,95 @@ module.exports = function buildPartOne(pres, H) {
     'Kept for questions: 88% of organizations use AI somewhere (Stanford AI Index 2026), but agent deployment is still single-digit % — everyone chats, almost nobody delegates. That gap is this course.\n' +
     'Vendor adoption numbers are marketing until independently reproduced.');
 
+  // ---------- 5b. THE HARDWARE STORY (v1.7, r22) ----------
+  s = H.slide('PART 1 · A SHORT HISTORY', 6);
+  H.title(s, 'Why AI happened now', 'The hardware story — chips, Nvidia, data centers');
+  H.card(s, 0.55, 1.62, 3.6, 2.28, C.PANEL);
+  s.addText('① A 60-year tailwind', { x: 0.8, y: 1.76, w: 3.1, h: 0.32, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+  s.addText([
+    { text: 'Moore’s law (1965): ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
+    { text: 'chips double their transistors every ~2 years.', options: { color: C.SLATE, fontSize: 10.5, breakLine: true, paraSpaceAfter: 4 } },
+    { text: '1971: 2,300 → 2024: 208 billion', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 4 } },
+    { text: '2026 status: slowing to ~3-year doublings — not dead, but no longer enough on its own.', options: { color: C.SLATE, fontSize: 9.5, italic: true } },
+  ], { x: 0.8, y: 2.12, w: 3.1, h: 1.7, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
+  H.card(s, 0.55, 4.02, 3.6, 2.28, C.TEAL_TINT);
+  s.addText('② The accident', { x: 0.8, y: 4.16, w: 3.1, h: 0.32, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+  s.addText([
+    { text: 'Gaming chips WERE AI chips: ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
+    { text: 'both need millions of tiny calculations at once.', options: { color: C.SLATE, fontSize: 10.5, breakLine: true, paraSpaceAfter: 4 } },
+    { text: '2006 — Nvidia’s CUDA lets anyone program a graphics card.', options: { color: C.SLATE, fontSize: 10, breakLine: true, paraSpaceAfter: 4 } },
+    { text: '2012 — AlexNet: two consumer gaming cards, six days, beats 30 years of hand-built AI.', options: { bold: true, color: C.INK, fontSize: 10 } },
+  ], { x: 0.8, y: 4.52, w: 3.1, h: 1.7, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
+  // — chart: Moore's pace vs AI's appetite (log scale; Epoch AI data, r22) —
+  H.card(s, 4.3, 1.62, 4.55, 4.68, C.PANEL);
+  s.addText('③ Moore’s pace vs AI’s appetite', { x: 4.55, y: 1.76, w: 4.1, h: 0.32, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
+  s.addText('Compute used to train notable AI models (log scale)', { x: 4.55, y: 2.08, w: 4.1, h: 0.26, fontFace: F.body, fontSize: 9, color: C.SLATE, margin: 0 });
+  const hwPts = [[2012, 17.67, 'AlexNet'], [2019, 21.28, 'GPT-2'], [2020, 23.49, 'GPT-3'], [2023, 25.32, 'GPT-4 (est.)']];
+  const hwX = yr => 4.78 + (yr - 2012) / 11 * 3.5;
+  const hwY = lg => 5.42 - (lg - 17) / 9 * 2.85;
+  s.addShape('line', { x: hwX(2012), y: hwY(19.33), w: hwX(2023) - hwX(2012), h: hwY(17.67) - hwY(19.33), line: { color: C.MUTE, width: 1.5, dashType: 'dash' }, flipV: true });
+  for (let i = 0; i < hwPts.length - 1; i++) {
+    const [x1, y1] = [hwX(hwPts[i][0]), hwY(hwPts[i][1])];
+    const [x2, y2] = [hwX(hwPts[i + 1][0]), hwY(hwPts[i + 1][1])];
+    s.addShape('line', { x: x1, y: y2, w: x2 - x1, h: y1 - y2, line: { color: C.TEAL, width: 2 }, flipV: true });
+  }
+  hwPts.forEach(p => {
+    s.addShape('ellipse', { x: hwX(p[0]) - 0.06, y: hwY(p[1]) - 0.06, w: 0.12, h: 0.12, fill: { color: C.TEAL_DARK }, line: { type: 'none' } });
+    s.addText(p[2], { x: hwX(p[0]) - 0.95, y: hwY(p[1]) - 0.3, w: 1.0, h: 0.22, align: 'right', fontFace: F.body, fontSize: 8, bold: true, color: C.TEAL_DARK, margin: 0 });
+  });
+  s.addText('Moore’s pace', { x: hwX(2023) - 1.0, y: hwY(19.33) + 0.05, w: 1.1, h: 0.2, align: 'right', fontFace: F.body, fontSize: 8, italic: true, color: C.MUTE, margin: 0 });
+  s.addText('2012', { x: hwX(2012) - 0.2, y: 5.5, w: 0.5, h: 0.2, fontFace: F.body, fontSize: 8, color: C.MUTE, margin: 0 });
+  s.addText('2023', { x: hwX(2023) - 0.25, y: 5.5, w: 0.5, h: 0.2, fontFace: F.body, fontSize: 8, color: C.MUTE, margin: 0 });
+  s.addText([
+    { text: 'At Moore’s pace since 2012: ×45. ', options: { color: C.SLATE, fontSize: 10 } },
+    { text: 'Actual: ×45,000,000', options: { bold: true, color: C.RED, fontSize: 11.5 } },
+    { text: ' — bought with chips, clusters and electricity.', options: { color: C.SLATE, fontSize: 10 } },
+  ], { x: 4.55, y: 5.72, w: 4.1, h: 0.5, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.04 });
+  H.card(s, 9.1, 1.62, 3.65, 4.68, C.PANEL);
+  s.addText('④ Why the data centers', { x: 9.35, y: 1.76, w: 3.2, h: 0.32, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+  const dcTiles = [
+    ['cpu', 'TRAIN', 'One frontier model: 16,000+ GPUs running for months (Llama 3.1, 2024).'],
+    ['users', 'SERVE', 'Then a billion people use it — around the clock, every day.'],
+    ['zap', 'POWER', 'One large AI data center ≈ the electricity of 100,000 homes; the biggest under construction ≈ 2 million (IEA).'],
+  ];
+  dcTiles.forEach((t, i) => {
+    const y = 2.2 + i * 1.28;
+    H.iconCircle(s, 9.35, y, 0.46, t[0], C.TEAL);
+    s.addText([
+      { text: t[1] + ' — ', options: { bold: true, color: C.INK, fontSize: 11 } },
+      { text: t[2], options: { color: C.SLATE, fontSize: 10 } },
+    ], { x: 9.93, y: y - 0.1, w: 2.7, h: 1.2, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
+  });
+  s.addText('~$700B of build-out planned for 2026 alone — much of it announced, not yet built.', { x: 9.35, y: 5.9, w: 3.2, h: 0.5, fontFace: F.body, fontSize: 9, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.02 });
+  H.card(s, 0.55, 6.42, 12.2, 0.68, C.AMBER_TINT);
+  H.logo(s, 0.72, 6.55, 0.42, 'nvidia', 'N');
+  s.addText([
+    { text: 'The shovel-seller: ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
+    { text: 'Nvidia — first reached $1T May 2023 · $4T Jul 2025 · $5T Oct 2025 · ~$5.6T today: the world’s most valuable company, and 92% of its revenue is now AI data centers.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { x: 1.28, y: 6.5, w: 11.3, h: 0.52, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.02 });
+  s.addNotes(
+    'HOW TO PRESENT —\n' +
+    '1) Frame: “software got the headlines — hardware made it possible. Four beats, left to right.”\n' +
+    '2) ① Moore’s law in one sentence: chips doubled their transistors every ~2 years for 50 years — 1971: 2,300; 2024: 208 billion, ~90 million times more. Status 2026: slowing to ~3-year doublings, not dead.\n' +
+    '3) ② The accident story, told plainly: in 2012 three university researchers couldn’t afford a supercomputer, so they trained their network on TWO consumer gaming cards. Six days later it beat 30 years of hand-built AI. Every AI company today is still scaling up that trick. (CUDA, 2006, is why it was even possible — Nvidia had let anyone program a graphics card, and had a five-year head start when AI came calling.)\n' +
+    '4) ③ The chart — the punchline of the slide: if AI compute had grown at Moore’s pace since 2012 it would be ~45× bigger. It is ~45 MILLION times bigger. The gap was bought with chips, clusters, and electricity — that gap IS the data-center boom.\n' +
+    '5) ④ Train / serve / power — and the honest caveat aloud: a lot of what you read about is ANNOUNCED, not built.\n' +
+    '6) Amber band — the shovel-seller: the most valuable company on Earth makes no chatbot, no phone, no search engine. It sells the shovels. Ten years ago it was “the video-game graphics company.” (This tees up Part 2: when one cheap Chinese model made investors doubt how many shovels are needed, Nvidia lost $589B in a day.)\n' +
+    '\n' +
+    'BRIDGE —\n' +
+    '“That’s the machinery. Now — what is the model itself actually doing? Under the hood.”\n' +
+    '\n' +
+    'ACRONYMS —\n' +
+    'GPU = Graphics Processing Unit — thousands of simple cores doing the same math at once (a CPU: a few smart cores, one task at a time).\n' +
+    'CUDA = Nvidia’s software for running ANY computation on its graphics chips (2006) — the moat is the software, not just the chips.\n' +
+    'IEA = International Energy Agency. FLOP = floating-point operation (the compute unit behind the chart).\n' +
+    '\n' +
+    'CONTENT —\n' +
+    'v1.7 new slide (owner request: Moore’s law, Nvidia’s role, chips⇄AI, why data centers — intro level). Every fact sourced in notes/research/r22_hardware_story.md: Moore 1965/1975 · Intel-CEO 3-year cadence · Blackwell 208B transistors (Mar 2024) · CUDA 2006 · AlexNet two GTX 580s (NeurIPS 2012 paper) · chart = Epoch AI database (GPT-4 point is an ESTIMATE — labeled) · Llama 3.1 16,000+ H100s (Meta, Jul 2024) · IEA Apr 2025 (415 TWh 2024 → ~945 TWh 2030; 100K-homes comparison) · capex ~$700B+ 2026 (CNBC Feb 2026, analyst tallies vary) · Nvidia milestones $1T–$5T with dates + ~$5.56T and 92% data-center revenue (Q2 FY2027, Aug 2026).\n' +
+    'If asked about “Huang’s law” (AI chips beating Moore’s law): Nvidia’s claim for whole SYSTEMS; independent measurement (Epoch) puts GPU price-performance doubling at ~2.5 years — say “the marketing outruns the measurement.”\n' +
+    'Stargate, if asked: announced Jan 2025 at “up to $500B”; by mid-2026 ~7 GW PLANNED across 7 US sites, first campus (Abilene, TX) partially live — announced ≠ built.\n' +
+    'US–China chip angle, one line if asked: US export restrictions since Oct 2022; an Apr 2025 license rule forced Nvidia to write down $5.5B on its China-market chip.');
+
   // ---------- 6. HOW AN LLM WORKS ----------
   s = H.slide('PART 1 · HOW LLMS WORK', 6);
   H.title(s, 'Under the hood', 'A prediction engine, sent to finishing school');
@@ -264,7 +359,7 @@ module.exports = function buildPartOne(pres, H) {
     '3) LEFT callout: the cutoff — AND its two escape hatches: live web search, and RAG for your own documents.\n' +
     '4) RIGHT callout, slowly — the thesis of the course: the prompt is the only steering wheel; a complete prompt DELETES WRONG GUESSES.\n' +
     '\n' +
-    'TRY IT — PROMPT 2/8 (two sends; copy from tab EX2-Guesses)\n' +
+    'TRY IT — PROMPT 2/7 (two sends; copy from tab EX2-Guesses)\n' +
     'Send 1 scatters: budget, staffing, quality. Send 2 orbits May 3 and April 20.\n' +
     'Debrief line: “Grade the directions, not the sentences.”\n' +
     '\n' +
@@ -285,7 +380,7 @@ module.exports = function buildPartOne(pres, H) {
   H.bullets(s, 0.55, 1.66, 6.2, 2.95, [
     { t: 'Text is chopped into tokens — word chunks from a fixed vocabulary. Common words are one token; rare ones get built from pieces (“ham·bur·ger”).' },
     { t: 'Rules of thumb (English): 1 token ≈ 4 characters ≈ ¾ of a word. A 50-page document ≈ 25–35K tokens.' },
-    { t: 'The model never sees letters — “strawberry” arrives as one or two IDs. That’s why letter-counting and character-exact edits fail: it’s working from hearing, not spelling.', b: true },
+    { t: 'The model never sees letters — “strawberry” arrives as one or two IDs. The famous letter-counting fails of 2024 are patched now; what still breaks: exact word counts and “count your own tokens” (every tier), character-precise edits (free/fast tiers).', b: true },
     { t: 'Everything is priced and limited in tokens — input and output. Output tokens cost ~5× input, because generation is serial.' },
   ], { size: 11.8, gap: 8 });
   H.card(s, 7.0, 1.66, 5.75, 2.55, C.PANEL);
@@ -315,12 +410,13 @@ module.exports = function buildPartOne(pres, H) {
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Title first: “the model reads bricks, not letters.”\n' +
-    '2) Left bullets; STOP on the bold third and tell the strawberry story — models famously miscounted the r’s because they never see letters. (Tell it as a story — current models have memorized that one; don’t run it live.)\n' +
+    '2) Left bullets; STOP on the bold third and tell the story ARC: 2024 — models famously miscounted the r’s in “strawberry” and the internet laughed; 2025 — vendors patched it (partly memorization: days after GPT-5 launched, its FAST path insisted “blueberry” has three b’s while its thinking path got it right); 2026 — the lesson that never changed: it reads bricks, not letters. NEVER run strawberry or blueberry live — both are famous now.\n' +
     '3) Right card: the brick strip — “this is exactly how your sentence arrives: eight bricks, eight numbers.”\n' +
-    '4) Best live demo if you have two minutes: open a live tokenizer page and paste attendees’ NAMES and company jargon — common words stay whole, rare words shatter into colored chunks. Personal and reliable.\n' +
-    '5) Teal card: the three daily-work consequences.\n' +
+    '4) THE live demo (safe — it shows the bricks, it can’t “get it right”): open platform.openai.com/tokenizer (PRELOAD it; backup: tiktokenizer.vercel.app) and paste attendees’ NAMES and company jargon — common words stay whole, rare words shatter into colored chunks.\n' +
+    '5) Near-safe live model variant if the room wants proof from the AI itself: ask “how many tokens is this paragraph?” then show the real count on the tokenizer page — models cannot count their own tokens, on ANY tier, and the reveal is exactly the lesson.\n' +
+    '6) Teal card: the three daily-work consequences.\n' +
     '\n' +
-    'TRY IT — PROMPT 3/8 (copy from tab EX3-Tokens)\n' +
+    'TRY IT — PROMPT 3/7 (copy from tab EX3-Tokens)\n' +
     'One send; the AI teaches the concept into their log.\n' +
     'Recovery (answers differ across the room): “every vendor has its own brick set — the bricks are always there, the letters never are.”\n' +
     '\n' +
@@ -331,6 +427,7 @@ module.exports = function buildPartOne(pres, H) {
     'ID = identifier — to the model each token is just a number. K = thousand.\n' +
     '\n' +
     'CONTENT —\n' +
+    'v1.7: capability claim re-verified 2026-09-10 (r23_tokens_grok_hallucination.md, owner challenge): strawberry-class counting is fixed on current frontier models (partly memorized — the Aug-2025 blueberry incident); still failing with evidence: character-position edits ~33–44% accuracy on non-reasoning tiers (CharBench 2025/26) · paragraph-scale letter counts on fast tiers · exact word counts on ALL tiers · counting own tokens on ALL tiers (arXiv:2502.06258). Reasoning modes pass letter tasks by spelling out — a paid, token-burning workaround, not letter-vision. Re-verify at every refresh; this claim ages fast.\n' +
     'v1.6: prompt finalized from the explainer research (r17) — LEGO validated as the dominant popular analogy; tokenizer-page demo recommended over any word trick.\n' +
     'Token math preview: tokens also explain context windows (next slide) and the bill (later this part).');
 
@@ -341,15 +438,15 @@ module.exports = function buildPartOne(pres, H) {
     { t: 'The context window is working memory for one conversation: your question, the system prompt, chat history, attached files, and search results must all fit on the desk.' },
     { t: 'Close the chat and the desk is swept clean. Nothing persists unless a memory feature or a saved file re-loads it.' },
     { t: 'By 2026, ~1M tokens (≈750,000 words) is the flagship standard. Consumer apps often enforce smaller limits than the raw model.' },
-    { t: '“Fits on the desk” ≠ “gets read carefully”: accuracy is highest at the start and end of a long context and sags in the middle (“lost in the middle”).', b: true },
-  ], { size: 11.5, gap: 7 });
+    { t: 'In very long chats the middle gets skimmed — accuracy is highest at the start and the end (“lost in the middle”).', b: true },
+  ], { size: 12, gap: 7 });
   H.card(s, 7.0, 1.62, 5.75, 2.4, C.PANEL);
   s.addText('What’s on the desk right now', { x: 7.3, y: 1.8, w: 5.2, h: 0.4, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
   const deskItems = [['file', 'System prompt & instructions'], ['chat', 'Every prior turn — both sides'], ['paperclip', 'Attached documents'], ['search', 'Tool & search results']];
   deskItems.forEach((d, i) => {
     const x = 7.3 + (i % 2) * 2.75; const y = 2.28 + Math.floor(i / 2) * 0.82;
-    H.iconCircle(s, x, y, 0.38, d[0], C.SLATE);
-    s.addText(d[1], { x: x + 0.5, y: y + 0.01, w: 2.2, h: 0.72, fontFace: F.body, fontSize: 9.8, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
+    H.iconCircle(s, x, y + 0.06, 0.42, d[0], C.SLATE);
+    s.addText(d[1], { x: x + 0.54, y, w: 2.2, h: 0.76, fontFace: F.body, fontSize: 11, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
   });
   H.callout(s, 7.0, 4.16, 5.75, 1.28, C.TEAL_TINT, [
     { text: 'Habits that exploit the desk: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11, breakLine: true } },
@@ -372,7 +469,7 @@ module.exports = function buildPartOne(pres, H) {
     '4) Teal card: the four habits — habit ④ is about to be performed.\n' +
     '5) Amber card: one sentence — the filing-cabinet teaser for Part 5. Plant the seed, move on.\n' +
     '\n' +
-    'TRY IT — PROMPT 4/8 (copy from tab EX4-Handoff)\n' +
+    'TRY IT — PROMPT 4/7 (copy from tab EX4-Handoff)\n' +
     'Step 1 in class; step 2 is homework in the same thread.\n' +
     'Recovery (someone’s fresh chat knows unpasted things): “your tool has a filing cabinet bolted to the desk — hold that thought for Part 5.”\n' +
     '\n' +
@@ -389,7 +486,7 @@ module.exports = function buildPartOne(pres, H) {
   // ---------- 9. RAG ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 9);
   H.title(s, 'Concept 3 · RAG', 'An open-book exam — audit the librarian');
-  s.addText('The problem RAG solves: the model’s knowledge is frozen and public; your work runs on private documents it has never seen — and must never be trained on.', { x: 0.55, y: 1.42, w: 12.2, h: 0.42, fontFace: F.body, fontSize: 12.5, color: C.SLATE, margin: 0 });
+  s.addText('The problem RAG solves: the model’s knowledge is frozen and public; your work runs on private documents it has never seen — and must never be trained on.', { x: 0.55, y: 1.42, w: 12.2, h: 0.42, fontFace: F.body, fontSize: 13, color: C.SLATE, margin: 0 });
   const rag = [
     ['chat', '1 · Ask', 'Plain question: “What does the supplier agreement say about re-inspection?”'],
     ['search', '2 · Retrieve', 'Semantic search finds the most relevant passages — by meaning, not keywords.'],
@@ -400,19 +497,19 @@ module.exports = function buildPartOne(pres, H) {
     const x = 0.55 + i * 3.19;
     H.card(s, x, 1.98, 2.85, 2.3, C.PANEL);
     H.iconCircle(s, x + 0.24, 2.18, 0.48, st[0], C.TEAL);
-    s.addText(st[1], { x: x + 0.24, y: 2.76, w: 2.4, h: 0.35, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
-    s.addText(st[2], { x: x + 0.24, y: 3.12, w: 2.42, h: 1.1, fontFace: F.body, fontSize: 9.8, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.04 });
+    s.addText(st[1], { x: x + 0.24, y: 2.76, w: 2.4, h: 0.35, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
+    s.addText(st[2], { x: x + 0.24, y: 3.12, w: 2.42, h: 1.1, fontFace: F.body, fontSize: 10.4, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.04 });
     if (i < 3) H.arrow(s, x + 2.87, 3.0, 0.3, C.TEAL);
   });
   H.card(s, 0.55, 4.48, 6.0, 1.8, C.GREEN_TINT);
   s.addText([
-    { text: 'Why enterprises build on it: ', options: { bold: true, color: C.INK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'current (re-index a doc in minutes, no retraining) · checkable (citations to the exact passage) · private (retrieval feeds one answer; it teaches the model nothing) · access-aware (you only retrieve what you’re allowed to see).', options: { color: C.SLATE, fontSize: 10.5 } },
+    { text: 'Why enterprises build on it: ', options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'current (re-index a doc in minutes, no retraining) · checkable (citations to the exact passage) · private (retrieval feeds one answer; it teaches the model nothing) · access-aware (you only see what you’re allowed to see).', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 0.85, y: 4.66, w: 5.5, h: 1.5, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
   H.card(s, 6.75, 4.48, 6.0, 1.8, C.RED_TINT);
   s.addText([
-    { text: 'The failure mode to respect: ', options: { bold: true, color: C.RED, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'if retrieval fetches the wrong page — an outdated revision, a near-miss document — the model still writes a fluent, confident, cited answer from it. Bad retrieval = confident wrong answer. So: check the citation, not just the prose.', options: { color: C.SLATE, fontSize: 10.5 } },
+    { text: 'The failure mode to respect: ', options: { bold: true, color: C.RED, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'if retrieval fetches the wrong page — an outdated revision, a near-miss document — the model still writes a fluent, confident, CITED answer from it. Check the citation, not just the prose.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 7.05, y: 4.66, w: 5.5, h: 1.5, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
   H.callout(s, 0.55, 6.42, 12.2, 0.62, C.TEAL_TINT, [
     { text: 'You already use this. ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
@@ -436,91 +533,101 @@ module.exports = function buildPartOne(pres, H) {
     'Retrieval ≠ training is the privacy point to repeat.\n' +
     'This is the engine behind internal document assistants and Copilot-over-SharePoint.');
 
-  // ---------- 10. ESCALATION LADDER ----------
+  // ---------- 10. ESCALATION LADDER — THREE STEPS, ONE WORKED TOPIC ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 10);
-  H.title(s, 'Concept 4 · The escalation ladder', 'Prompt first, retrieve second, fine-tune last');
+  H.title(s, 'Concept 4 · The escalation ladder', 'Prompt it → feed it documents → retrain it');
   const ladder = [
-    ['edit', 'Prompting', 'instructions to a skilled temp', 'Free, instant, works on every model. Style, format, framing, examples. 90% of the value — this course.', C.TEAL_TINT],
-    ['book', 'RAG / retrieval', 'hand the temp your binder', 'Adds knowledge: current, private, citable. For facts the model can’t know.', C.PANEL],
-    ['cpu', 'Fine-tuning', 'send them to a training course', 'Changes the model’s habits permanently. Slow, per-model, high maintenance. Rarely the answer.', C.PANEL],
+    ['edit', '1 · PROMPT IT', 'instructions to a skilled temp', 'Fixes BEHAVIOR — tone, format, focus, approach.', 'Free · instant · every model. 90% of the value — this course.'],
+    ['book', '2 · FEED IT DOCUMENTS', 'hand the temp your binder (RAG)', 'Fixes MISSING KNOWLEDGE — your policies, your data, current facts.', 'Minutes to set up · citable · private. Most real cases end here.'],
+    ['cpu', '3 · RETRAIN IT', 'send it back to school (fine-tuning)', 'Changes deep HABITS — permanently.', 'Slow · expensive · per-model. Rare: an IT project, not a prompt.'],
   ];
   ladder.forEach((l, i) => {
-    const y = 1.62 + i * 1.08;
-    H.card(s, 0.55, y, 6.0, 0.96, l[4]);
-    H.iconCircle(s, 0.78, y + 0.24, 0.48, l[0], C.TEAL);
-    s.addText([
-      { text: l[1] + ' — ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
-      { text: l[2], options: { italic: true, color: C.TEAL_DARK, fontSize: 11, breakLine: true, paraSpaceAfter: 2 } },
-      { text: l[3], options: { color: C.SLATE, fontSize: 9.8 } },
-    ], { x: 1.42, y: y + 0.08, w: 5.0, h: 0.82, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.03 });
+    const x = 0.55 + i * 4.18;
+    H.card(s, x, 1.62, 3.95, 2.55, i === 0 ? C.TEAL_TINT : C.PANEL);
+    H.iconCircle(s, x + 0.26, 1.84, 0.6, l[0], C.TEAL);
+    s.addText(l[1], { x: x + 1.0, y: 1.92, w: 2.85, h: 0.42, fontFace: F.head, fontSize: 15.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+    s.addText(l[2], { x: x + 0.26, y: 2.56, w: 3.45, h: 0.34, fontFace: F.body, fontSize: 11, italic: true, color: C.INK, margin: 0 });
+    s.addText(l[3], { x: x + 0.26, y: 2.94, w: 3.45, h: 0.6, fontFace: F.body, fontSize: 11.5, bold: true, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.04 });
+    s.addText(l[4], { x: x + 0.26, y: 3.58, w: 3.45, h: 0.52, fontFace: F.body, fontSize: 10, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.02 });
+    if (i < 2) H.arrow(s, x + 3.97, 2.75, 0.2, C.TEAL);
   });
-  H.callout(s, 0.55, 5.0, 6.0, 1.6, C.AMBER_TINT, [
-    { text: 'One question triages everything: ', options: { bold: true, color: C.INK, fontSize: 12, breakLine: true } },
-    { text: 'is the AI missing knowledge, or misbehaving with knowledge it already has? Missing → retrieve. Misbehaving → prompt. A deep habit that must hold at huge volume, with no room to paste instructions → fine-tune (rare).', options: { color: C.SLATE, fontSize: 11 } },
-  ], { iconName: 'help', iconFill: C.AMBER, size: 11.5 });
-  H.promptChip(s, 6.75, 1.62, 6.0, 2.1, 5, [
-    { type: '“Give me three everyday AI problems: one fixed by a better prompt, one by giving it the right documents, one only fixable by retraining it. One line each on why.”', why: 'the ladder, sorted live by the AI in front of you.' },
-  ], { label: 'See the rungs sort themselves', size: 8.8, tab: 'EX5-Ladder' });
-  H.card(s, 6.75, 3.88, 6.0, 2.72, C.PANEL);
-  s.addText([
-    { text: 'Want the full drill? ', options: { bold: true, color: C.INK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 4 } },
-    { text: 'Tab EX5-Ladder also holds the EXTENDED triage drill: six realistic workplace AI problems — you sort each as P (prompt), R (retrieve) or F (fine-tune) BEFORE the AI grades you against the one-question diagnostic. Problem 6 is deliberately arguable — that argument is the lesson.\n\nRun it tonight, or as the room’s stretch exercise if time allows.', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { x: 7.02, y: 4.08, w: 5.45, h: 2.35, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.1 });
+  H.card(s, 0.55, 4.42, 12.2, 1.78, C.PANEL);
+  s.addText('One topic, up the ladder — “answer customer questions about our warranty policy”', { x: 0.85, y: 4.56, w: 11.6, h: 0.35, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  const rungEx = [
+    ['①', '“Answer in plain language and quote the exact clause.” Answers get clear and consistent — but it doesn’t KNOW our policy, so the details are guesses.'],
+    ['②', 'Upload the warranty documents (or use the company assistant). Now: current, cited answers from the real text. This is where you stop.'],
+    ['③', 'Retrain — only if millions of chats must carry a deep habit with no room for instructions. An IT decision, not a prompt.'],
+  ];
+  rungEx.forEach((r, i) => {
+    const x = 0.85 + i * 4.0;
+    s.addText([
+      { text: r[0] + '  ', options: { bold: true, color: C.TEAL, fontSize: 15 } },
+      { text: r[1], options: { color: C.SLATE, fontSize: 10.5 } },
+    ], { x, y: 4.98, w: 3.8, h: 1.15, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
+  });
+  H.callout(s, 0.55, 6.4, 12.2, 0.68, C.AMBER_TINT, [
+    { text: 'One question picks the rung: ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
+    { text: 'is the AI missing knowledge → feed it documents. Misbehaving with knowledge it has → prompt it. Retraining stays rare.', options: { color: C.SLATE, fontSize: 12.5 } },
+  ], { iconName: 'help', iconFill: C.AMBER, size: 12.5 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
-    '1) The rule IS the title: “prompt first, retrieve second, fine-tune last.”\n' +
-    '2) Three rungs TOP TO BOTTOM; the temp analogies carry it: instructions → binder → training course.\n' +
-    '3) Amber card — the generic power: ONE question triages any AI disappointment. The next concept is all about the bill.\n' +
-    '\n' +
-    'TRY IT — PROMPT 5/8 (copy from tab EX5-Ladder)\n' +
-    'One send; concept-first — nobody gets lost in an exercise.\n' +
-    'The EXTENDED six-problem drill lives in the same tab (answers in your notes: 1 P · 2 R · 3 P · 4 R · 5 F · 6 defensible either way — the debrief centerpiece).\n' +
+    '1) The three big cards LEFT TO RIGHT — say the verbs: prompt it, feed it documents, retrain it. The temp analogies carry it: instructions → binder → back to school.\n' +
+    '2) Then the worked topic, ① → ② → ③, warranty questions: prompting fixes the HOW, documents fix the WHAT, and step ② is where almost every real workplace case ends. Step ③ exists so the room knows what it is — and that it isn’t their job.\n' +
+    '3) Amber band — the takeaway question, verbatim: missing knowledge → documents; misbehaving → prompt.\n' +
     '\n' +
     'BRIDGE —\n' +
     '“Two concepts left — the next one is all about the bill.”\n' +
     '\n' +
     'ACRONYMS —\n' +
-    'RAG = Retrieval-Augmented Generation (rung 2).\n' +
+    'RAG = Retrieval-Augmented Generation (rung 2 — the open-book exam from the previous slide).\n' +
     '\n' +
     'CONTENT —\n' +
-    '“Let’s fine-tune on our procedures” → first ask: knowledge problem (→RAG) or behavior problem (→prompt)? Most enterprise cases are knowledge problems.\n' +
+    'v1.7: rebuilt as three big sequential steps + one worked topic (owner request); the guided-prompt chip and on-slide drill were cut — the six-problem triage drill survives in workbook tab BONUS-Ladder for self-study (answers: 1 P · 2 R · 3 P · 4 R · 5 F · 6 defensible either way).\n' +
+    '“Let’s fine-tune on our procedures” → first ask: knowledge problem (→documents) or behavior problem (→prompt)? Most enterprise cases are knowledge problems.\n' +
     'Frontier flagships mostly aren’t fine-tunable (2026); open-weight models are.\n' +
     'NOTE: this is the ESCALATION ladder (capability). Part 6’s PROMOTION ladder (where prompts live) is a different ladder — name them fully.');
 
   // ---------- 11. FAST vs THINKING ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 11);
   H.title(s, 'Concept 5 · Fast models vs thinking models', 'Two speeds, one bill');
-  H.bullets(s, 0.55, 1.66, 6.2, 2.85, [
-    { t: 'Every vendor ships a fast tier — one pass, instant, cheap — and a thinking tier that drafts, checks and revises internally before answering (compute spent at answer time).' },
+  H.bullets(s, 0.55, 1.66, 6.2, 2.9, [
+    { t: 'Every vendor ships a fast tier — one pass, instant, cheap — and a thinking tier that drafts, checks and revises internally before answering.' },
     { t: 'System 1 vs System 2 (Kahneman’s Thinking, Fast and Slow): fast intuition for routine asks; slow deliberation where being wrong is expensive.' },
-    { t: 'The bill: thinking tokens are charged as output tokens — the expensive kind. A hard question can quietly cost 5–20× a simple one.', b: true },
-    { t: 'Why the fast tier got so good: models built huge but waking only a fraction per question (MoE — Part 2 tells that story), and big models teaching small ones (distillation).' },
-  ], { size: 11.5, gap: 7 });
-  H.card(s, 0.55, 4.68, 6.2, 0.9, C.GREEN_TINT);
+    { t: 'The bill: thinking is charged as output tokens — the expensive kind. A hard question can quietly cost 5–20× a simple one.', b: true },
+    { t: 'Why the fast tier got so good: MoE (Part 2 tells that story) and big models teaching small ones (distillation).' },
+  ], { size: 12, gap: 8 });
+  H.card(s, 0.55, 4.75, 6.2, 0.88, C.GREEN_TINT);
   s.addText([
-    { text: 'Think ON: ', options: { bold: true, color: C.INK, fontSize: 11 } },
-    { text: 'multi-step analysis · math · root-cause work · code · tradeoffs across a long document · planning an agent’s job.', options: { color: C.SLATE, fontSize: 10.2 } },
-  ], { x: 0.85, y: 4.78, w: 5.7, h: 0.72, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
-  H.card(s, 0.55, 5.68, 6.2, 0.9, C.AMBER_TINT);
+    { text: 'Think ON: ', options: { bold: true, color: C.INK, fontSize: 12 } },
+    { text: 'multi-step analysis · math · root-cause work · code · tradeoffs across a long document.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { x: 0.85, y: 4.85, w: 5.7, h: 0.7, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
+  H.card(s, 0.55, 5.75, 6.2, 0.88, C.AMBER_TINT);
   s.addText([
-    { text: 'Think OFF: ', options: { bold: true, color: C.INK, fontSize: 11 } },
-    { text: 'lookups · reformatting · summaries · routine drafting — you’d pay time and tokens for deliberation you don’t need.', options: { color: C.SLATE, fontSize: 10.2 } },
-  ], { x: 0.85, y: 5.78, w: 5.7, h: 0.72, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
-  H.promptChip(s, 7.0, 1.66, 5.75, 2.15, 6, [
+    { text: 'Think OFF: ', options: { bold: true, color: C.INK, fontSize: 12 } },
+    { text: 'lookups · reformatting · summaries · routine drafting — deliberation you don’t need.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { x: 0.85, y: 5.85, w: 5.7, h: 0.7, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
+  H.promptChip(s, 7.0, 1.66, 5.75, 2.3, 5, [
     { type: '“Describe your fast mode vs your thinking mode like I’m choosing between them for real work: when is each worth it, and roughly how much more does thinking cost? Under 120 words.”', why: 'the model explains its own two speeds — and its own bill.' },
-  ], { label: 'Same brain, two speeds', size: 8.8, tab: 'EX6-TwoSpeeds' });
-  H.card(s, 7.0, 3.95, 5.75, 2.63, C.PANEL);
+  ], { label: 'Same brain, two speeds', size: 9.2, tab: 'EX5-TwoSpeeds' });
+  H.card(s, 7.0, 4.12, 5.75, 2.5, C.PANEL);
+  s.addText('The two speeds, side by side', { x: 7.28, y: 4.28, w: 5.2, h: 0.36, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  H.iconCircle(s, 7.28, 4.78, 0.5, 'zap', C.GREEN);
   s.addText([
-    { text: 'Feel the bill (extended, tab EX6): ', options: { bold: true, color: C.INK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 4 } },
-    { text: 'a five-colleague scheduling puzzle you run TWICE — once as an instant one-liner, once carefully with every rule checked — then the AI estimates the word count of each and computes the multiple. Most rooms land on 10–20×: exactly how the thinking tier bills you.\n\nUnique solution (your answer key): Ben Mon · Chloe Tue · Ema Wed · Ana Thu · Dev Fri.', options: { color: C.SLATE, fontSize: 10.2 } },
-  ], { x: 7.28, y: 4.15, w: 5.2, h: 2.3, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.1 });
+    { text: 'FAST — ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
+    { text: 'one pass, instant, cheap. Great until the question has traps.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { x: 7.92, y: 4.72, w: 4.6, h: 0.62, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
+  H.iconCircle(s, 7.28, 5.62, 0.5, 'brain', C.TEAL);
+  s.addText([
+    { text: 'THINKING — ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
+    { text: 'drafts, checks, revises. Slower, 5–20× the cost — worth it when wrong is expensive.', options: { color: C.SLATE, fontSize: 11.5 } },
+  ], { x: 7.92, y: 5.56, w: 4.6, h: 0.8, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “every AI app sells you two speeds — when is the slow one worth its bill?” Name the book once: Kahneman’s Thinking, Fast and Slow — the owner-favorite narrative of this slide.\n' +
     '2) The BILL bullet is the slow-down: thinking is billed like output — 5–20× a simple ask.\n' +
     '3) Green/amber cards: on for, off for. Escalate on failure, not by default.\n' +
     '\n' +
-    'TRY IT — PROMPT 6/8 (copy from tab EX6-TwoSpeeds)\n' +
+    'TRY IT — PROMPT 5/7 (copy from tab EX5-TwoSpeeds)\n' +
     'One send, informative. The extended puzzle version lives in the same tab for stretch time or homework.\n' +
     'Recovery (a model claims one mode): “ask it what the thinking toggle in its own interface does, then — that’s tomorrow’s exercise anyway.”\n' +
     '\n' +
@@ -532,6 +639,7 @@ module.exports = function buildPartOne(pres, H) {
     'System 1 / System 2 = Kahneman’s fast-intuition vs slow-deliberation framing.\n' +
     '\n' +
     'CONTENT —\n' +
+    'v1.7: the on-slide extended-puzzle card was cut (owner: too much); the puzzle survives in the workbook tab’s EXTENDED rows for self-study (answer key: Ben Mon · Chloe Tue · Ema Wed · Ana Thu · Dev Fri).\n' +
     'Thinking tokens billed as output even when you only see a summary; output ≈ 5× input across vendors; effort adaptive/dial-able by 2026 (t4 §5, primary-sourced).\n' +
     'Honest caveat: the model isn’t literally “thinking” — it generates intermediate tokens that improve the final answer.');
 
@@ -559,30 +667,30 @@ module.exports = function buildPartOne(pres, H) {
   H.card(s, 6.6, 1.62, 6.15, 3.3, C.PANEL);
   s.addText('What it’s called where you are (Sep 2026)', { x: 6.88, y: 1.8, w: 5.6, h: 0.38, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
   const modeNames = [
-    ['claude', 'ChatGPT', 'deep research · thinking slider (paid) · “Think” button (free)'],
+    ['openai', 'ChatGPT', 'deep research · thinking slider (paid) · “Think” button (free)'],
     ['gemini', 'Gemini', 'Deep Research (all tiers) · Deep Think = separate hard-reasoning mode (Ultra)'],
-    ['openai', 'Claude', 'Research (paid plans) · extended thinking'],
+    ['claude', 'Claude', 'Research (paid plans) · extended thinking'],
     ['copilot', 'Copilot', 'Quick response · Think Deeper · Smart (GPT-5) · Researcher agent'],
     ['perplexity', 'Perplexity', 'Search · Research · Create files and apps'],
+    ['grok', 'Grok', 'Auto · Fast · Expert · Heavy (multi-agent, $300 tier) — old Think/DeepSearch buttons retired'],
   ];
-  const modeLogos = { ChatGPT: 'openai', Gemini: 'gemini', Claude: 'claude', Copilot: 'copilot', Perplexity: 'perplexity' };
   modeNames.forEach((m, i) => {
-    const y = 2.3 + i * 0.52;
-    H.logo(s, 6.88, y + 0.03, 0.38, modeLogos[m[1]], m[1][0]);
-    s.addText(m[1], { x: 7.36, y, w: 1.05, h: 0.46, fontFace: F.body, fontSize: 10.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
-    s.addText(m[2], { x: 8.45, y, w: 4.15, h: 0.46, fontFace: F.body, fontSize: 8.8, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.98 });
+    const y = 2.22 + i * 0.44;
+    H.logo(s, 6.88, y + 0.03, 0.36, m[0], m[1][0]);
+    s.addText(m[1], { x: 7.34, y, w: 1.07, h: 0.42, fontFace: F.body, fontSize: 10.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+    s.addText(m[2], { x: 8.45, y, w: 4.15, h: 0.42, fontFace: F.body, fontSize: 8.8, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
   });
   s.addText('Deep research, demystified: a reasoning model given a browser and time — it plans, reads sources for minutes, and synthesizes a cited report. The MoE story in Part 2 is why that became affordable.', { x: 0.55, y: 5.02, w: 12.2, h: 0.42, fontFace: F.body, fontSize: 10.5, italic: true, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.05 });
-  H.promptChip(s, 0.55, 5.5, 12.2, 1.55, 7, [
+  H.promptChip(s, 0.55, 5.5, 12.2, 1.55, 6, [
     { type: '“List the modes this app gives me — quick answer, thinking, web search, deep research, agent — one line each on what it does differently and its rough effort. Say ‘unsure’ rather than guess.”', why: 'your own product hands you its menu; ask again the day it changes.' },
-  ], { label: 'Ask your own product for its menu', size: 9, tab: 'EX7-FeatureMenu' });
+  ], { label: 'Ask your own product for its menu', size: 9, tab: 'EX6-FeatureMenu' });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Left card: climb the staircase — 1× quick answer up to agent modes. The discipline: pick the SMALLEST mode that can succeed; escalate deliberately.\n' +
-    '2) Right card: the same ladder under five brand logos — read one row, gesture the rest. Copilot users: your everyday menu is the fourth row. (“Smart (GPT-5)” is the CONSUMER Copilot label; M365 Copilot separately prefers GPT-5.6 — different surfaces, both true.)\n' +
+    '2) Right card: the same ladder under six brand logos — read one row, gesture the rest. Copilot users: your everyday menu is the fourth row. (“Smart (GPT-5)” is the CONSUMER Copilot label; M365 Copilot separately prefers GPT-5.6 — different surfaces, both true.)\n' +
     '3) Italic line: deep research demystified.\n' +
     '\n' +
-    'TRY IT — PROMPT 7/8 (copy from tab EX7-FeatureMenu)\n' +
+    'TRY IT — PROMPT 6/7 (copy from tab EX6-FeatureMenu)\n' +
     'Self-updating — the answer regenerates the day any vendor renames a button. The extended 6-column table version lives in the tab.\n' +
     'Recovery (model misstates its own toggles): “it knows what its modes DO better than where the buttons live — keep the ladder, verify toggles with your eyes.”\n' +
     '\n' +
@@ -593,18 +701,42 @@ module.exports = function buildPartOne(pres, H) {
     'MoE = Mixture of Experts (Part 2).\n' +
     '\n' +
     'CONTENT —\n' +
-    'Mode names verified Sep 9, 2026 — full paper trail with sources: notes/research/r18_mode_names.md. Re-confirm the ChatGPT row in the live app before training day (r18 caveat). [REFRESH QUARTERLY.]\n' +
+    'Mode names verified Sep 9, 2026 — full paper trail with sources: notes/research/r18_mode_names.md. Grok row verified Sep 10, 2026 (r23): Auto · Fast · Expert · Heavy; tiers Free / SuperGrok $30 / Heavy $300 (+X Premium bundles); nothing first-party (x.ai blocks fetch) and default-mode/Expert-gating ambiguous — re-confirm Grok AND the ChatGPT row in the live apps before training day. [REFRESH QUARTERLY.]\n' +
     'The 5–20× multiplier is sourced (r2); the 100×+ deep-research figure is an order-of-magnitude illustration, not a billed rate.\n' +
     'Scaling anecdote for questions: one fast prompt vs an orchestrated multi-agent research run = hundreds of quick answers’ worth of tokens.');
 
   // ---------- 13. HALLUCINATION — THE FOUR CHARACTERS ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 13);
   H.title(s, 'Concept 6 · Hallucination', 'Fluency is not evidence');
-  H.bullets(s, 0.55, 1.66, 5.6, 4.3, [
-    { t: 'The mechanism: models are optimized for the most plausible next token, not the most true one. Trouble concentrates where training data is thin: rare facts, exact citations, numbers, names.' },
+  H.bullets(s, 0.55, 1.62, 5.6, 2.55, [
+    { t: 'The mechanism: models are optimized for the most plausible next token, not the most true one. Trouble concentrates where training data is thin: rare facts, citations, numbers, names.' },
     { t: 'OpenAI’s own 2025 research: benchmarks reward confident guessing over “I don’t know” — models learn to be good test-takers.', b: true },
-    { t: 'The better word is confabulation: it isn’t seeing things — it fills gaps with plausible material, in-format. Fake citations LOOK like citations.' },
-  ], { size: 12, gap: 10 });
+    { t: 'The better word is confabulation: it fills gaps with plausible material, in-format — fake citations LOOK like citations.' },
+  ], { size: 11.5, gap: 6 });
+  // — the confident guess, measured (r23: arXiv:2509.04664 + GPT-5 system card) —
+  H.card(s, 0.55, 4.32, 5.6, 2.28, C.PANEL);
+  s.addText('The confident guess, measured', { x: 0.82, y: 4.46, w: 5.1, h: 0.32, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
+  const hbars = [
+    ['Older reasoning model (o4-mini)', [[24, C.TEAL], [75, C.RED], [1, C.SLATE]]],
+    ['Newer, trained to say “I don’t know”', [[22, C.TEAL], [26, C.RED], [52, C.SLATE]]],
+  ];
+  hbars.forEach((r, i) => {
+    const y = 4.9 + i * 0.62;
+    s.addText(r[0], { x: 0.82, y: y - 0.08, w: 5.0, h: 0.24, fontFace: F.body, fontSize: 9, bold: true, color: C.SLATE, margin: 0 });
+    let bx = 0.82;
+    r[1].forEach(seg => {
+      const w = 4.55 * seg[0] / 100;
+      s.addShape('rect', { x: bx, y: y + 0.16, w, h: 0.2, fill: { color: seg[1] }, line: { color: 'FFFFFF', width: 0.5 } });
+      if (seg[0] >= 10) s.addText(`${seg[0]}%`, { x: bx, y: y + 0.14, w, h: 0.24, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 8, bold: true, color: 'FFFFFF', margin: 0 });
+      bx += w;
+    });
+  });
+  s.addText([
+    { text: '■', options: { color: C.TEAL, fontSize: 8.5 } }, { text: ' right  ', options: { color: C.SLATE, fontSize: 8.5 } },
+    { text: '■', options: { color: C.RED, fontSize: 8.5 } }, { text: ' wrong  ', options: { color: C.SLATE, fontSize: 8.5 } },
+    { text: '■', options: { color: C.SLATE, fontSize: 8.5 } }, { text: ' “I don’t know” — same accuracy, ~3× fewer false statements.', options: { color: C.SLATE, fontSize: 8.5, bold: true } },
+  ], { x: 0.82, y: 6.1, w: 5.1, h: 0.24, fontFace: F.body, margin: 0 });
+  s.addText('OpenAI’s own models & benchmark (2025) — shows the mechanism, not a vendor ranking.', { x: 0.82, y: 6.34, w: 5.1, h: 0.22, fontFace: F.body, fontSize: 7.5, italic: true, color: C.MUTE, margin: 0 });
   const kinds = [
     ['brain', 'THE CONFIDENT GUESS', 'Invented facts', 'Free recall where data was thin — a wrong fact, delivered with total certainty.'],
     ['file', 'THE FAKE RECEIPT', 'Invented sources', 'Citations, cases, book titles that look perfectly real — and don’t exist.'],
@@ -627,7 +759,8 @@ module.exports = function buildPartOne(pres, H) {
     '1) Open with the improv actor, spoken: “an improv actor never breaks character — the show must go on, so gaps get filled with the most plausible line. That is your AI on a thin-data day.”\n' +
     '2) Left bullets: the mechanism; the bold OpenAI 2025 finding — the vendor itself says benchmarks reward guessing; the vocabulary upgrade — CONFABULATION.\n' +
     '3) Right: meet the four CHARACTERS — say the nicknames with theater: the confident guess · the fake receipt · the joke taken seriously · garbage in, gospel out. One line each; each returns as a real incident on the next slide.\n' +
-    '4) Presenter story for character 1 if you want one: Google Bard’s launch demo flubbed a telescope fact — details on the next slide’s notes.\n' +
+    '4) The chart, bottom-left — read it in one breath: “same questions, two models, nearly the same amount RIGHT — but the older one GUESSED whenever it didn’t know (75% wrong), and the newer one was allowed to say I-don’t-know (wrong drops to 26%).” That is the confident guess, measured — and it is why Part 3 teaches you to give the model an out.\n' +
+    '5) Presenter story for character 1 if you want one: Google Bard’s launch demo flubbed a telescope fact — details on the next slide’s notes.\n' +
     '\n' +
     'BRIDGE —\n' +
     '“What do these characters look like in public? The hall of shame.”\n' +
@@ -636,6 +769,7 @@ module.exports = function buildPartOne(pres, H) {
     'none new on this slide.\n' +
     '\n' +
     'CONTENT —\n' +
+    'v1.7: abstain-vs-guess chart added (r23: SimpleQA numbers from arXiv:2509.04664 + the GPT-5 system card — o4-mini 24/75/1 vs gpt-5-thinking-mini 22/26/52; the on-slide caveat is mandatory). Character-card ART slots reserved: when the owner’s four generated images land in notes/intake/, they replace the icon circles (R16 workflow).\n' +
     'v1.6: the four kinds became named characters (owner: more engaging). Teaching frame grounded in r10/r2/r14 — not claimed as academic taxonomy.\n' +
     'OpenAI 2025 = “Why language models hallucinate” (arXiv:2509.04664).');
 

@@ -15,7 +15,7 @@ BRANDS = {
     'gamma': 'gamma.app', 'canva': 'canva.com', 'adobe': 'adobe.com',
     'lovable': 'lovable.dev', 'elevenlabs': 'elevenlabs.io', 'deepl': 'deepl.com',
     'toyota': 'toyota.com', 'google': 'google.com', 'microsoft': 'microsoft.com',
-    'zapier': 'zapier.com', 'n8n': 'n8n.io', 'qwen': 'qwen.ai', 'kimi': 'kimi.com',
+    'zapier': 'zapier.com', 'n8n': 'n8n.io', 'qwen': 'qwen.ai', 'kimi': 'kimi.com', 'nvidia': 'nvidia.com',
 }
 
 ok, fail = [], []
