@@ -1180,6 +1180,42 @@ Numbering = v1.7c physical (68 slides).
 - Placement mechanics at update: images to src/assets/images/ with clean names;
   H.card frames; every generated image slide gets an "illustration" note per R16.
 
+### Round 8 addendum — intake verification (owner's 19:41 batch, checked 2026-09-10)
+
+All 12 delegated images landed in notes/intake/ and were reviewed against their
+prompt specs (flat vector · palette · no baked text · aspect). **11 of 12
+approved as-is; 1 judgment call (S14 emblem #2).** Mapping, by filename infix →
+target (name at embed):
+
+| infix | target | verdict |
+|---|---|---|
+| o89hc1 | S8 tokens — LEGO wall + robot hand, 16:9 | ✓ approved → `lego_tokens.jpg` |
+| yy5eo3 | S9 context window — desk + filing cabinet (amber drawer), 16:9 | ✓ approved → `desk_cabinet.jpg` |
+| pcdbtp | S10 RAG — open-book exam, librarian hands glowing doc, 16:9 | ✓ approved → `open_book.jpg` |
+| r20ygv | S12 two speeds — hare sprint / tortoise at desk split, 16:9 | ✓ approved → `hare_tortoise.jpg` |
+| ocs6cw | S14 emblem 1 — blank cue card in spotlight + ?s, 1:1 | ✓ approved → `emblem_cue_card.jpg` |
+| kdrwim | S14 emblem 2 — sealed doc dissolving into pixels, 1:1 | ⚠ see note → `emblem_fake_receipt.jpg` |
+| cts0h1 | S14 emblem 3 — rubber chicken on specimen tray + blank placard, 1:1 | ✓ approved → `emblem_rubber_chicken.jpg` |
+| df5xlt | S14 emblem 4 — crumpled paper → gilded frame on cushion, 1:1 | ✓ approved → `emblem_gilded_frame.jpg` |
+| aaq2op | S32 Deming — stylized flat-vector portrait bust, 1:1 | ✓ approved → `deming_portrait.jpg` |
+| p7utdl | S18 hospital at night, 3 lit windows, 4:5 portrait | ✓ approved → `hospital_night.jpg` |
+| 77qv9r | S7 finishing-school robot — graduation, 1:1 | ✓ approved → `robot_graduate.jpg` |
+| 7lo0dw | S40 dashboard-on-laptop, 16:9 | ✓ approved → `dashboard_laptop.jpg` |
+
+- **kdrwim note:** spec said "dissolving sealed RECEIPT"; the render is a
+  dissolving sealed CERTIFICATE (wax seal + ribbons, text-placeholder bars, edge
+  pixelating away). Style, palette, no-text, 1:1 all pass, and "official-looking
+  document that dissolves under scrutiny" arguably reads BETTER than a shop
+  receipt. Options: (a) use as-is and retitle the card "The fake credential"
+  (recommended), (b) keep the card title "The fake receipt" and use it anyway,
+  (c) owner regenerates with a literal shop receipt. Default at update: (a)
+  unless the owner says otherwise.
+- Hospital's small red cross: semantically required, matches RED_TINT accent
+  family — pass.
+- Nothing embedded, nothing moved to src/assets/images/ — waiting for "update"
+  per R1. Still open from the owner: office-scene placement (default: closing
+  hands-on slide) and the Parts 5–6 review.
+
 ---
 
 ## ROUND 9 — external AI reviews (owner-run) · 2026-09-10 · ⏸ HELD
