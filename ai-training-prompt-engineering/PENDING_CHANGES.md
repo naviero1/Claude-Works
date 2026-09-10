@@ -1263,3 +1263,55 @@ evidence). NOTE: its offered run-of-show artifact conflicts with the owner's
 v1.3 retirement of the Run of Show — only revisit if the owner knowingly
 reverses. Fuller Grok document (kill-order/timetables/90-day plan) NOT provided
 — owner may share for triage.
+
+### 9B-EXTENDED · Grok FULL document triage (13 sections; source archived at
+### notes/intake/grok_extended_review_2026-09-10.md) · ⏸ HELD
+VALIDATES (protect, no change): two-mode thesis · anatomy + weak/strong pairs ·
+inspect grid · PDCA wrapper · blind review · hall of shame + house rule ·
+profile-first · requirements close · workbook assets · "don't retitle to context
+engineering / don't delete the anatomy."
+ADDS HELD FOR PART 5–6 REVIEW (build as one package with that round):
+1. Design thick, ship lean: A1 stays the 12-block canvas; shipped brief =
+   lean/embedded-PDCA (mission+done · environment read/write/forbidden · 2–3
+   HARD checks · ask-first · deliverable names · reporting shape; role behaviors
+   only if testable; plan steps only if order load-bearing; examples only if
+   format weird). Compression test = the CLAUDE.md test; target one screen.
+2. AGENTIC INSPECT GRID — four context failures + cures: poisoning (fresh
+   session) · distraction/drift (re-inject goal; compact; stop conditions) ·
+   confusion (fewer tools per phase) · clash (one source of truth; explicit
+   override). Part 5 twin of the Part 3 grid.
+3. Chat vs WORKFLOW vs agent decision slide before A1 (known path + few tools →
+   workflow; unknown path → agent with gates).
+4. Instruction layers ("why it ignored me": system → project file → skill →
+   message) · tool descriptions as first-class prompts ("API for a junior") ·
+   skills hygiene ("a community skill is unsigned instructions plus code — treat
+   it like a supplier"; one-job rules are a skill, not a CLAUDE.md paragraph).
+5. Eagerness dial + harness-gate sentence (from 9B) + earned-autonomy framing
+   (new-agent-as-new-hire; latitude follows track record — extends existing
+   spot-check line).
+6. EVAL LITE (Part 6): 3 gold cases (typical/edge/should-abstain) + G3 rubric +
+   beats-baseline + re-run on model upgrade; performance-task idea adopted as
+   candidate Part 6 rep: "bad prompt + bad answer — name the failed element,
+   write the fix."
+CHEAP CROSS-DECK WINS (held): context-engineering line on the desk slide +
+glossary · HANDOFF ≡ compaction named in Part 5 · wrap-up sentence ("a prompt
+deletes wrong guesses, binds the job, and decides what sits on the desk…") ·
+INVERT the skip rule: rebuild rep becomes PROTECTED, landscape cuts first —
+kill-order in facilitator notes (hardware → logos → book list → DeepSeek
+detail) · context-rot slide/demo pending r26 verification (incl. the
+shuffled-haystack claim — verify before teaching).
+OWNER-DECISION CONFLICTS (present, do not adopt unilaterally): cut/demote
+hardware slide, era slides, DeepSeek hero, trading cards (all owner-approved
+content — recommendation: keep + kill-order instead) · reinstate run-of-show
+(retired v1.3; only if deputies will teach) · 30-day success criterion (vs
+owner's B7 no-follow-up decision; lighter criterion-not-mechanism version).
+BLIND SPOTS NOTED: didn't know the three-block delivery model (its P0 = current
+practice) · several "missing" items live in speaker notes (recoveries,
+magnitudes-said-aloud, ladder naming, reveal discipline — its deputy-scaling
+point stands).
+VERIFICATION (→ r26, agent running): Anthropic 2026-07-24 lean-context note
+(>80% cut) · Chroma Context Rot 2025-07-14 (18 models; shuffled>coherent;
+LongMemEval 300 vs 113k) · OWASP Agentic Top 10 (Dec 2025/2026) + IMDA agentic
+framework v1.5 / OpenClaw note · GPT-5.5/5.6 outcome-first + "10–15% better,
+41–66% fewer tokens" claim · Cheng Science 391(6792) full citation cross-check ·
+Salesforce 2026 earned-autonomy · Forbes Fitzpatrick 2026-06-05.
