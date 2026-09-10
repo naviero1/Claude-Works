@@ -1206,15 +1206,42 @@ target (name at embed):
   dissolving sealed CERTIFICATE (wax seal + ribbons, text-placeholder bars, edge
   pixelating away). Style, palette, no-text, 1:1 all pass, and "official-looking
   document that dissolves under scrutiny" arguably reads BETTER than a shop
-  receipt. Options: (a) use as-is and retitle the card "The fake credential"
-  (recommended), (b) keep the card title "The fake receipt" and use it anyway,
-  (c) owner regenerates with a literal shop receipt. Default at update: (a)
-  unless the owner says otherwise.
+  receipt. **OWNER RULED (2026-09-10): option (a)** — use the certificate as-is
+  and retitle the S14 card "The fake credential" (embed name stays
+  `emblem_fake_receipt.jpg`? No — rename to `emblem_fake_credential.jpg` at
+  update to match the card). The optional literal-receipt regen prompt is
+  withdrawn from the active list.
 - Hospital's small red cross: semantically required, matches RED_TINT accent
   family — pass.
 - Nothing embedded, nothing moved to src/assets/images/ — waiting for "update"
   per R1. Still open from the owner: office-scene placement (default: closing
   hands-on slide) and the Parts 5–6 review.
+
+### Round 8b — style-varied prompt handover (2026-09-10, owner generating)
+
+Owner loosened the uniform-style rule: "it doesn't have to be always the same
+style, people like variety." R16 amended: palette anchors (teal #0E7C7B /
+charcoal #232A31 / one amber accent) and the hard NO-TEXT rule stay on every
+prompt; rendering technique now varies per slide; **matched sets stay one
+style** (the four S14 emblems remain flat vector). Prompts handed over in chat:
+
+1. **Part 5 work-order courier** ("you hand an agent a brief") — paper cut-out
+   collage, 16:9 → future `courier_work_order.jpg`.
+2. **Part 6 guardrails mountain road** — vintage travel poster, 4:5 →
+   `guardrails_road.jpg`.
+3. **Part 5 memory ladder** (sticky note → binder → library shelf) — risograph
+   two-ink print, 16:9 → `memory_ladder.jpg`.
+4. **9C anatomy-vs-loop slide motif** — teal blueprint schematic of a robot
+   with an amber four-node loop overlay, 1:1 → `blueprint_loop.jpg`.
+5. **Closing "best prompt is a question"** — gouache storybook bench scene,
+   16:9 → `question_bench.jpg`.
+6. ~~Optional literal fake receipt~~ — WITHDRAWN (owner ruled (a): certificate
+   stays, S14 card retitles "The fake credential").
+7. **Optional S15 hall-of-shame museum wall** (empty salon-hung frames +
+   velvet rope) — duotone halftone editorial, 16:9 → `shame_gallery.jpg`;
+   backdrop/redesign decision at update, only if generated.
+
+Placements sketched, final geometry at the v1.8 render. All HELD per R1.
 
 ---
 
