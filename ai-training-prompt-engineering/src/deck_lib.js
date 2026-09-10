@@ -134,7 +134,7 @@ function makeHelpers(pres) {
     H.iconCircle(s, x + 0.16, y + 0.13, 0.4, 'robot', C.TEAL);
     s.addShape('roundRect', { x: x + 0.66, y: y + 0.16, w: 1.3, h: 0.34, rectRadius: 0.08, fill: { color: C.TEAL }, line: { type: 'none' } });
     s.addText(`PROMPT ${n}/7`, { x: x + 0.66, y: y + 0.17, w: 1.3, h: 0.32, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9.5, bold: true, charSpacing: 1, color: 'FFFFFF', margin: 0 });
-    if (opts.label) s.addText(opts.label, { x: x + 2.08, y: y + 0.17, w: w - 2.35, h: 0.32, fontFace: F.body, fontSize: 10.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+    if (opts.label) s.addText(opts.label, { x: x + 2.08, y: y + 0.17, w: w - 2.35, h: 0.32, fontFace: F.body, fontSize: 11, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
     const runs = [];
     steps.forEach((st, i) => {
       if (steps.length > 1) runs.push({ text: `STEP ${i + 1} · `, options: { bold: true, color: C.AMBER, fontSize: opts.size || 9.5, fontFace: F.body } });
@@ -145,7 +145,7 @@ function makeHelpers(pres) {
     });
     const footH = opts.tab ? 0.26 : 0;
     s.addText(runs, { x: x + 0.2, y: y + 0.56, w: w - 0.4, h: h - 0.7 - footH, margin: 0, lineSpacingMultiple: 1.08, valign: 'top' });
-    if (opts.tab) s.addText(`✂ copy-paste, don’t retype: tab ${opts.tab} of your Course Workbook`, { x: x + 0.2, y: y + h - 0.32, w: w - 0.4, h: 0.26, fontFace: F.body, fontSize: 8, italic: true, color: C.TEAL_DARK, margin: 0 });
+    if (opts.tab) s.addText(`✂ copy-paste, don’t retype: tab ${opts.tab} of your Course Workbook`, { x: x + 0.2, y: y + h - 0.34, w: w - 0.4, h: 0.28, fontFace: F.body, fontSize: 9.5, italic: true, color: C.TEAL_DARK, margin: 0 });
   };
 
   // Brand logo chip: real favicon PNG if fetched (assets/logos/<name>.png), else a drawn

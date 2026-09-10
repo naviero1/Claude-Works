@@ -13,33 +13,33 @@ module.exports = function buildClose(pres, H) {
   H.card(s, 0.55, 2.5, 6.9, 3.3, C.PANEL);
   s.addText('Same structure, three ways', { x: 0.85, y: 2.66, w: 6.2, h: 0.35, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
   const reqMap = [
-    ['User story', '“As a [role], I want [goal], so that [benefit]”', 'ROLE + TASK — the so-that is the Task’s purpose clause'],
+    ['User story', '“As a [role], I want [goal], so that [benefit]”', 'ROLE + TASK — the so-that is the purpose clause'],
     ['Acceptance criteria', 'Given [state] · When [action] · Then [result]', 'Given = CONTEXT · When = TASK · Then = FORMAT + checks'],
-    ['ISO 29148 standard', 'unambiguous · complete · singular · verifiable', 'TASK precision · CONTEXT · THE STOP · FORMAT + self-check'],
+    ['ISO 29148 standard', 'unambiguous · complete · singular · verifiable', 'TASK precision · CONTEXT · STOP · FORMAT + self-check'],
   ];
   reqMap.forEach((r, i) => {
     const y = 3.12 + i * 0.9;
     H.card(s, 0.8, y, 3.3, 0.8, 'FFFFFF', C.LINE);
     s.addText([
-      { text: r[0], options: { bold: true, color: C.INK, fontSize: 9.5, breakLine: true } },
-      { text: r[1], options: { color: C.SLATE, fontSize: 8, italic: true } },
+      { text: r[0], options: { bold: true, color: C.INK, fontSize: 10, breakLine: true } },
+      { text: r[1], options: { color: C.SLATE, fontSize: 9, italic: true } },
     ], { x: 0.94, y: y + 0.05, w: 3.05, h: 0.7, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
     H.arrow(s, 4.16, y + 0.3, 0.22, C.TEAL);
-    s.addText(r[2], { x: 4.5, y: y + 0.03, w: 2.8, h: 0.75, fontFace: F.body, fontSize: 8.4, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 0.98 });
+    s.addText(r[2], { x: 4.5, y: y + 0.03, w: 2.8, h: 0.75, fontFace: F.body, fontSize: 9.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 0.98 });
   });
   H.card(s, 7.6, 2.5, 5.15, 3.3, C.PANEL);
   s.addText('Why it wins', { x: 7.88, y: 2.66, w: 4.6, h: 0.35, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
   s.addText([
     { text: '41.1%', options: { bold: true, color: C.RED, fontSize: 22, fontFace: F.head } },
-    { text: '  — how often a model guesses an UNSTATED requirement right. A spec deletes the guessing.', options: { color: C.SLATE, fontSize: 10 } },
+    { text: '  — how often a model guesses an UNSTATED requirement right. A spec deletes the guessing.', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { x: 7.88, y: 3.06, w: 4.6, h: 0.75, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.02 });
   s.addText([
-    { text: 'The software world moved first: ', options: { bold: true, color: C.INK, fontSize: 10, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'GitHub’s Spec Kit (2025) makes the written spec “the source of truth” AI agents build from — spec-driven development is requirements writing, industrialized.', options: { color: C.SLATE, fontSize: 9.6 } },
+    { text: 'The software world moved first: ', options: { bold: true, color: C.INK, fontSize: 10.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'GitHub’s Spec Kit (2025) makes the written spec “the source of truth” AI agents build from — requirements writing, industrialized.', options: { color: C.SLATE, fontSize: 10 } },
   ], { x: 7.88, y: 3.9, w: 4.6, h: 0.95, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
   s.addText([
     { text: '“Whoever writes the spec… is now the programmer.”', options: { italic: true, color: C.TEAL_DARK, fontSize: 10.5, breakLine: true } },
-    { text: '— Sean Grove, OpenAI, 2025', options: { color: C.MUTE, fontSize: 8.5 } },
+    { text: '— Sean Grove, OpenAI, 2025', options: { color: C.MUTE, fontSize: 9 } },
   ], { x: 7.88, y: 4.92, w: 4.6, h: 0.75, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.04 });
   H.callout(s, 0.55, 6.0, 12.2, 0.95, C.AMBER_TINT, [
     { text: 'What this means for this room: ', options: { bold: true, color: C.INK, fontSize: 12, breakLine: true } },
@@ -69,33 +69,33 @@ module.exports = function buildClose(pres, H) {
   H.card(s, 0.55, 1.58, 6.2, 3.4, C.TEAL_TINT);
   s.addText('The flip — one line you can paste today', { x: 0.85, y: 1.74, w: 5.6, h: 0.35, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0 });
   H.card(s, 0.82, 2.16, 5.65, 0.85, 'FFFFFF', C.LINE);
-  s.addText('“Before answering, ask me clarifying questions until you’re 95% confident you understand what I need.”', { x: 0.98, y: 2.24, w: 5.35, h: 0.7, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 1.06 });
+  s.addText('“Before answering, ask me clarifying questions until you’re 95% confident you understand what I need.”', { x: 0.98, y: 2.24, w: 5.35, h: 0.7, fontFace: 'Consolas', fontSize: 10.5, color: C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 1.06 });
   s.addText([
-    { text: 'Why it works: ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
-    { text: 'unstated needs get guessed right 41.1% of the time — but when the model asks FIRST, accuracy jumps ~7–14 points (ClarifyGPT, FSE 2024). Answering its questions isn’t politeness; it’s quality control.', options: { color: C.SLATE, fontSize: 10 } },
+    { text: 'Why it works: ', options: { bold: true, color: C.INK, fontSize: 11 } },
+    { text: 'unstated needs get guessed right 41.1% of the time — when the model asks FIRST, accuracy jumps ~7–14 points (ClarifyGPT, FSE 2024). Answering its questions is quality control.', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { x: 0.85, y: 3.14, w: 5.6, h: 1.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
-  s.addText('You’ve run this before — it was Prompt 1/7, step 2, on slide two. The course opened and closes on the same move.', { x: 0.85, y: 4.2, w: 5.6, h: 0.65, fontFace: F.body, fontSize: 9.5, italic: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.05 });
+  s.addText('You’ve run this before — it was Prompt 1/7, step 2, on slide two. The course opened and closes on the same move.', { x: 0.85, y: 4.2, w: 5.6, h: 0.65, fontFace: F.body, fontSize: 10, italic: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.05 });
   H.card(s, 6.95, 1.58, 5.8, 3.4, C.PANEL);
   s.addText('The question toolkit — for you, not the AI', { x: 7.22, y: 1.74, w: 5.3, h: 0.35, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
   const qkit = [
-    ['Five Whys', 'Ohno, Toyota: “by repeating why five times… the solution becomes clear.” Same factory as our PDCA loop.'],
-    ['Open → closed funnel', 'Open questions to explore (“what’s driving this?”), closed to verify (“so the cap is 18k — yes or no?”).'],
+    ['Five Whys', 'Ohno, Toyota: “by repeating why five times… the solution becomes clear.” Same factory as PDCA.'],
+    ['Open → closed funnel', 'Open to explore (“what’s driving this?”), closed to verify (“so the cap is 18k — yes or no?”).'],
     ['The Socratic check', 'Interrogate any AI answer: what’s assumed? what’s the evidence? what if we’re wrong?'],
   ];
   qkit.forEach((q, i) => {
     const y = 2.18 + i * 0.94;
     H.iconCircle(s, 7.22, y + 0.08, 0.4, ['refresh', 'branch', 'help'][i], C.TEAL);
     s.addText([
-      { text: q[0] + ' — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.5 } },
-      { text: q[1], options: { color: C.SLATE, fontSize: 9.6 } },
+      { text: q[0] + ' — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
+      { text: q[1], options: { color: C.SLATE, fontSize: 10.2 } },
     ], { x: 7.74, y, w: 4.8, h: 0.9, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.03 });
   });
   H.card(s, 0.55, 5.12, 12.2, 1.0, C.PANEL);
   s.addText([
     { text: '“Figuring out what questions to ask will be more important than figuring out the answer.”', options: { italic: true, color: C.INK, fontSize: 12.5 } },
-    { text: '  — Sam Altman, 2025', options: { color: C.MUTE, fontSize: 9.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: '  — Sam Altman, 2025', options: { color: C.MUTE, fontSize: 10, breakLine: true, paraSpaceAfter: 3 } },
     { text: '“[Computers] are useless. They can only give you answers.”', options: { italic: true, color: C.SLATE, fontSize: 10.5 } },
-    { text: '  — Pablo Picasso, 1964. Sixty years apart, same conclusion.', options: { color: C.MUTE, fontSize: 9 } },
+    { text: '  — Pablo Picasso, 1964. Sixty years apart, same conclusion.', options: { color: C.MUTE, fontSize: 9.5 } },
   ], { x: 0.85, y: 5.22, w: 11.6, h: 0.82, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.08 });
   H.callout(s, 0.55, 6.28, 12.2, 0.72, C.TEAL_TINT, [
     { text: 'The two skills are one: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
@@ -125,14 +125,14 @@ module.exports = function buildClose(pres, H) {
   H.title(s, 'Wrap-up', 'Ten things worth remembering');
   const ten = [
     ['1', 'The prompt is the whole steering wheel — everything the model knows about your task must be in it (or in files it can read).'],
-    ['2', 'Anatomy beats inspiration: Role · Task · Context · Format · Examples — plus the Out and the Stop. A prompt is a requirement with a new audience.'],
-    ['3', 'The context window is a desk, not a filing cabinet: long documents at the top, question at the end, fresh chat per topic.'],
+    ['2', 'Anatomy beats inspiration: Role · Task · Context · Format · Examples — plus the Out and the Stop. A prompt is a requirement, new audience.'],
+    ['3', 'The context window is a desk, not a filing cabinet: documents at the top, question at the end, fresh chat per topic.'],
     ['4', 'Numbers come from code execution, quotes come from documents, current facts come from search — never from free recall.'],
     ['5', 'Fluency is not evidence. Uncited claims are drafts. Give the model an out and demand citations.'],
     ['6', 'Never reveal your preferred answer when asking for judgment — AI affirms you ~49% more than a human would.'],
     ['7', 'On thinking models: drop the step-by-step scripts, keep the clarity. Contradictions now cost real money.'],
-    ['8', 'A generative prompt says what to write. An agentic prompt is a work order: mission, environment, checks, gates, autonomy rules.'],
-    ['9', 'Gates catch errors at the cheapest point: definitions before data, reconciliation before analysis, headlines before rendering.'],
+    ['8', 'A generative prompt says what to write; an agentic prompt is a work order: mission, environment, checks, gates, autonomy.'],
+    ['9', 'Gates catch errors cheapest: definitions before data, reconciliation before analysis, headlines before rendering.'],
     ['10', 'Prompts that work are assets: name them, version them, store them where the team (and the agent) can find them.'],
   ];
   ten.forEach((t, i) => {
@@ -140,9 +140,9 @@ module.exports = function buildClose(pres, H) {
     const y = 1.6 + Math.floor(i / 2) * 1.02;
     H.card(s, x, y, 5.95, 0.92, C.PANEL);
     s.addText(t[0], { x: x + 0.12, y: y + 0.14, w: 0.6, h: 0.6, fontFace: F.head, fontSize: 20, bold: true, color: C.TEAL, align: 'center', margin: 0 });
-    s.addText(t[1], { x: x + 0.78, y: y + 0.06, w: 5.05, h: 0.8, fontFace: F.body, fontSize: 9.8, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.02 });
+    s.addText(t[1], { x: x + 0.78, y: y + 0.06, w: 5.05, h: 0.8, fontFace: F.body, fontSize: 10.5, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.02 });
   });
-  s.addText('And if you keep only one sentence: a prompt deletes wrong guesses, binds the job, and decides what sits on the desk.', { x: 0.55, y: 6.68, w: 12.2, h: 0.32, align: 'center', fontFace: F.body, fontSize: 10.5, italic: true, color: C.TEAL_DARK, margin: 0 });
+  s.addText('And if you keep only one sentence: a prompt deletes wrong guesses, binds the job, and decides what sits on the desk.', { x: 0.55, y: 6.68, w: 12.2, h: 0.32, align: 'center', fontFace: F.body, fontSize: 11, italic: true, color: C.TEAL_DARK, margin: 0 });
   s.addNotes(
     'HOW TO PRESENT — 1) Announce: “this is the slide people photograph — go ahead.” 2) Read all ten SLOWLY, in order, left column then right, 1→10. No commentary between them; the compression is the point. 3) If asked where one came from, the map: 1–2 anatomy, 3–5 concepts, 6–7 evidence, 8–9 agentic, 10 management. 4) Close on the italic footer — the whole course in one sentence: a prompt deletes wrong guesses (Part 1), binds the job (Parts 3–5), and decides what sits on the desk (context — Parts 1 and 5). 5) Bridge: “three exercises to make it stick.”\n' +
     'ACRONYMS — none new on this slide.\n' +
@@ -152,9 +152,9 @@ module.exports = function buildClose(pres, H) {
   s = H.slide('HANDS-ON', 43);
   H.title(s, 'Hands-on · 15 minutes each', 'Three exercises that make it stick');
   const ex = [
-    ['edit', 'Exercise 1 · Anatomy rebuild', 'Take a prompt you actually used last week. Rebuild it with the seven-element anatomy (G-templates as reference). Run both versions; compare outputs side by side. Then ask the model to improve your rebuilt prompt — metaprompting — and run that too.', 'You’ll see the quality jump — and how cheap it was.'],
-    ['scale', 'Exercise 2 · Blind review', 'Take a document or plan you own. Paste it as “a colleague’s draft” and run G3’s critique template: case against, three weakest points, what evidence would change the verdict. Do NOT hint at your view.', 'Most people meet their first honest AI review here.'],
-    ['robot', 'Exercise 3 · First mission brief', 'Pick a small recurring job with files (a folder to summarize, a tracker to update). Fill A1’s twelve blocks — placeholders and all. You don’t need an agent to run it today: writing the brief is the skill.', 'Where the checks and gates feel awkward is where your process was fuzzy all along.'],
+    ['edit', 'Exercise 1 · Anatomy rebuild', 'Take a prompt you actually used last week. Rebuild it with the seven-element anatomy (G-templates as reference). Run both; compare outputs. Then ask the model to improve your rebuilt prompt — metaprompting — and run that too.', 'You’ll see the quality jump — and how cheap it was.'],
+    ['scale', 'Exercise 2 · Blind review', 'Paste a document or plan you own as “a colleague’s draft” and run G3’s critique template: case against, three weakest points, what evidence would change the verdict. Do NOT hint at your view.', 'Most people meet their first honest AI review here.'],
+    ['robot', 'Exercise 3 · First mission brief', 'Pick a small recurring job with files (a folder to summarize, a tracker to update). Fill A1’s twelve blocks — placeholders and all. No agent needed today: writing the brief is the skill.', 'Where the checks and gates feel awkward is where your process was fuzzy all along.'],
   ];
   ex.forEach((e, i) => {
     const y = 1.65 + i * 1.68;
@@ -162,17 +162,17 @@ module.exports = function buildClose(pres, H) {
     H.iconCircle(s, 0.85, y + 0.44, 0.6, e[0], C.TEAL);
     s.addText([
       { text: e[1] + '  ', options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
-      { text: e[2] + '  ', options: { color: C.SLATE, fontSize: 10.2, breakLine: true, paraSpaceAfter: 2 } },
-      { text: e[3], options: { color: C.TEAL_DARK, fontSize: 9.5, italic: true } },
+      { text: e[2] + '  ', options: { color: C.SLATE, fontSize: 10.8, breakLine: true, paraSpaceAfter: 2 } },
+      { text: e[3], options: { color: C.TEAL_DARK, fontSize: 10, italic: true } },
     ], { x: 1.65, y: y + 0.08, w: 7.0, h: 1.38, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
   });
   s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'office_scene.jpg'), x: 9.65, y: 1.65, w: 3.1, h: 1.74, sizing: { type: 'cover', w: 3.1, h: 1.74 } });
   s.addShape('roundRect', { x: 9.65, y: 1.65, w: 3.1, h: 1.74, rectRadius: 0.06, fill: { type: 'none' }, line: { color: C.LINE, width: 1 } });
-  s.addText('Fifteen minutes, your real work — starting now.', { x: 9.65, y: 3.43, w: 3.1, h: 0.3, align: 'center', fontFace: F.body, fontSize: 8.8, italic: true, color: C.MUTE, margin: 0 });
+  s.addText('Fifteen minutes, your real work — starting now.', { x: 9.65, y: 3.43, w: 3.1, h: 0.3, align: 'center', fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0 });
   H.card(s, 9.65, 3.85, 3.1, 1.15, C.TEAL_TINT);
   s.addText([
-    { text: 'Share-back: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.2 } },
-    { text: 'next team meeting, two volunteers show a before / after.', options: { color: C.SLATE, fontSize: 10 } },
+    { text: 'Share-back: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.5 } },
+    { text: 'next team meeting, two volunteers show a before / after.', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { x: 9.85, y: 3.97, w: 2.7, h: 0.92, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
   s.addNotes(
     'HOW TO PRESENT — 1) Three cards TOP TO BOTTOM: anatomy rebuild → blind review → first mission brief; each is 15 minutes ON THEIR REAL WORK — say that twice; toy exercises don’t transfer. 2) Read the italic payoff line inside each card — it is the motivation. 3) Set the share-back (teal card): next team meeting, two volunteers show a before/after. 4) If time allows in-session, run exercise 1 live with a volunteer’s real prompt.\n' +
@@ -202,15 +202,15 @@ module.exports = function buildClose(pres, H) {
     ['Mission brief', 'an agentic prompt: goal, environment, inputs, process, checks, gates, reporting'],
     ['Gate', 'a human checkpoint inside an agent’s process — approve before it proceeds'],
     ['Open weights', 'a downloadable model you can self-host — the data-privacy end of the spectrum'],
-    ['Taxonomy', 'the element → attribute → option catalog behind the Template Creator — your parts list for prompts'],
-    ['Context engineering', 'choosing everything on the desk — prompt, files, history, tool results; the parent discipline of agentic prompting'],
+    ['Taxonomy', 'the element → attribute → option catalog behind the Template Creator — your parts list'],
+    ['Context engineering', 'choosing everything on the desk — prompt, files, history, tool results; parent of agentic prompting'],
   ];
   glossary.forEach((g, i) => {
     const x = 0.55 + (i % 2) * 6.2;
     const y = 1.55 + Math.floor(i / 2) * 0.54;
     s.addText([
-      { text: g[0] + ' — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.5 } },
-      { text: g[1], options: { color: C.SLATE, fontSize: 10 } },
+      { text: g[0] + ' — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
+      { text: g[1], options: { color: C.SLATE, fontSize: 10.5 } },
     ], { x, y, w: 5.95, h: 0.56, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.0 });
   });
   s.addNotes(
@@ -226,9 +226,9 @@ module.exports = function buildClose(pres, H) {
     rows.forEach((r, i) => {
       const y = 1.92 + i * 0.5;
       H.card(s2, 0.55, y, 12.2, 0.44, i % 2 ? 'FFFFFF' : C.PANEL, i % 2 ? C.LINE : null);
-      s2.addText(r[0], { x: 0.75, y: y + 0.02, w: 2.3, h: 0.4, fontFace: F.body, fontSize: 9.3, bold: true, color: C.INK, margin: 0, valign: 'middle', lineSpacingMultiple: 0.92 });
-      s2.addText(r[1], { x: 3.15, y: y + 0.02, w: 6.0, h: 0.4, fontFace: F.body, fontSize: 8.8, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.92 });
-      s2.addText(r[2], { x: 9.3, y: y + 0.02, w: 3.25, h: 0.4, fontFace: F.body, fontSize: 8.2, italic: true, color: C.MUTE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.92 });
+      s2.addText(r[0], { x: 0.75, y: y + 0.02, w: 2.3, h: 0.4, fontFace: F.body, fontSize: 10, bold: true, color: C.INK, margin: 0, valign: 'middle', lineSpacingMultiple: 0.92 });
+      s2.addText(r[1], { x: 3.15, y: y + 0.02, w: 6.0, h: 0.4, fontFace: F.body, fontSize: 9.5, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.92 });
+      s2.addText(r[2], { x: 9.3, y: y + 0.02, w: 3.25, h: 0.4, fontFace: F.body, fontSize: 9, italic: true, color: C.MUTE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.92 });
     });
   };
   s = H.slide('REFERENCE · EVIDENCE MAP 1 OF 2', 45);
@@ -242,7 +242,7 @@ module.exports = function buildClose(pres, H) {
     ['Context & glossary', 'Replaces the model’s most-plausible guess with your facts; every unstated quirk becomes an invented “fix.”', 'OpenAI 2025, why LMs hallucinate'],
     ['Material placement', 'Documents at the top, question at the end: up to ~30% better answers; content buried mid-context sags.', 'Anthropic long-context · Liu 2023'],
     ['Format & length', 'Tiny format changes swing accuracy up to 76 points — a tested shape removes that variance. Numeric caps are enforceable; adjectives are moods.', 'Sclar, ICLR 2024'],
-    ['Examples', 'The model imitates format, tone, AND edge-case behavior; exemplar choice and order alone can swing accuracy from chance to 90%+. Zero-shot first on thinking models.', 'Brown 2020 · Lu 2021 · DeepSeek-R1'],
+    ['Examples', 'Imitates format, tone, AND edge-case behavior; exemplar choice and order alone swing accuracy from chance to 90%+. Zero-shot first on thinking models.', 'Brown 2020 · Lu 2021 · DeepSeek-R1'],
     ['The Out & the Stop', 'Permission to say “I don’t know” drastically cuts invented answers — training rewards guessing; numbered scope plus a stop rule bound the sprawl.', 'Anthropic docs · OpenAI 2025'],
   ]);
   s.addNotes(
@@ -274,10 +274,10 @@ module.exports = function buildClose(pres, H) {
   H.title(s, 'Reference', 'Sources this training is built on');
   const srcCols = [
     ['Vendor guidance (fetched Aug 2026)', [
-      'Anthropic — Prompting best practices; long-context tips; reduce-hallucinations; Building Effective Agents; Claude Code best practices; context engineering',
+      'Anthropic — Prompting best practices; long-context; reduce-hallucinations; Building Effective Agents; Claude Code; context engineering',
       'OpenAI — GPT-5 prompting guide; reasoning best practices; A Practical Guide to Building Agents; Model Spec',
-      'Google — Gemini for Workspace prompting guides (Persona-Task-Context-Format)',
-      'Microsoft — Copilot prompt guidance (Goal-Context-Source-Expectations); Copilot agents docs',
+      'Google — Gemini for Workspace guides (Persona-Task-Context-Format)',
+      'Microsoft — Copilot guidance (Goal-Context-Source-Expectations); Copilot agents docs',
     ]],
     ['Research', [
       'Brown et al. 2020 (few-shot) · Wei et al. 2022 & Kojima et al. 2022 (chain-of-thought) · Wang et al. 2023 (self-consistency)',
@@ -287,17 +287,17 @@ module.exports = function buildClose(pres, H) {
     ]],
     ['Landscape & governance', [
       'Stanford HAI AI Index 2026 · LMArena / Artificial Analysis / SWE-bench (Aug 2026 snapshots)',
-      'OWASP LLM Top 10 (2025) + Top 10 for Agentic Applications for 2026 · UK NCSC agentic-AI guidance · IMDA/CSA Singapore (agentic deployment) · Cisco AI Defense (skills audit) · Harmonic Security (shadow-AI prompts)',
-      'Vendor launch posts & major-outlet reporting (Reuters, CNBC, TechCrunch, Bloomberg) for all product dates',
+      'OWASP LLM Top 10 (2025) + Top 10 for Agentic Applications (2026) · UK NCSC agentic-AI guidance · IMDA/CSA Singapore · Cisco AI Defense (skills audit) · Harmonic Security (shadow-AI prompts)',
+      'Vendor launch posts & reporting (Reuters, CNBC, TechCrunch, Bloomberg) for all product dates',
     ]],
   ];
   srcCols.forEach((col, i) => {
     const x = 0.55 + i * 4.18;
     H.card(s, x, 1.62, 3.95, 5.0, C.PANEL);
     s.addText(col[0], { x: x + 0.22, y: 1.8, w: 3.5, h: 0.55, fontFace: F.head, fontSize: 12.5, bold: true, color: C.TEAL_DARK, margin: 0 });
-    H.bullets(s, x + 0.24, 2.42, 3.5, 4.0, col[1], { size: 9, gap: 7 });
+    H.bullets(s, x + 0.24, 2.42, 3.5, 4.0, col[1], { size: 10, gap: 7 });
   });
-  s.addText('Full source list with URLs: notes/research/ in the training repo — every fact in this deck carries an “as of” date there.', { x: 0.55, y: 6.75, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0 });
+  s.addText('Full source list with URLs: notes/research/ in the training repo — every fact in this deck carries an “as of” date there.', { x: 0.55, y: 6.75, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
     'HOW TO PRESENT — 1) One sentence, then move: “nothing in this deck is vibes — every number has a URL and an as-of date in notes/research/ in the repo.” 2) If someone challenges a number later, this is where you point them.\n' +
     'ACRONYMS — OWASP = Open Worldwide Application Security Project. NCSC = (UK) National Cyber Security Centre. HAI = Stanford Institute for Human-Centered AI. LLM = Large Language Model. SWE-bench / LMArena = benchmark and leaderboard names.\n' +
@@ -326,8 +326,8 @@ module.exports = function buildClose(pres, H) {
     s.addText(col[0], { x: x + 0.22, y: 1.8, w: 3.5, h: 0.4, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0 });
     col[1].forEach((b, j) => {
       s.addText([
-        { text: b[0], options: { bold: true, color: C.INK, fontSize: 10.5, breakLine: true, paraSpaceAfter: 2 } },
-        { text: b[1], options: { color: C.SLATE, fontSize: 9.5 } },
+        { text: b[0], options: { bold: true, color: C.INK, fontSize: 11, breakLine: true, paraSpaceAfter: 2 } },
+        { text: b[1], options: { color: C.SLATE, fontSize: 10 } },
       ], { x: x + 0.24, y: 2.3 + j * 1.8, w: 3.5, h: 1.7, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
     });
   });

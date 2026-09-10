@@ -21,12 +21,12 @@ module.exports = function buildPartTwo(pres, H) {
   s = H.slide('PART 2 · THE ASSISTANTS', 16);
   H.title(s, 'Six assistants, six different jobs', 'Pick by task, not habit — September 2026');
   const vendors = [
-    ['openai', 'ChatGPT', 'OpenAI · GPT-5.6 family (Sol / Terra / Luna)', 'The everything assistant', 'Largest user base; fastest at drafts, options and marketing copy; images, voice, agent mode.', 'Fast model churn and renaming; check data settings before regulated content.'],
+    ['openai', 'ChatGPT', 'OpenAI · GPT-5.6 (Sol / Terra / Luna)', 'The everything assistant', 'Largest user base; fastest at drafts, options and marketing copy; images, voice, agent mode.', 'Fast model churn and renaming; check data settings before regulated content.'],
     ['gemini', 'Gemini', 'Google · Gemini 3 / 3.1 Pro / 3.6 Flash', 'Everywhere Google is', 'Multimodal breadth + the deepest Workspace integration — 1B+ monthly users; default AI in Gmail, Docs, Meet.', 'Model-name sprawl; the best reasoning (Deep Think) sits behind the Ultra tier.'],
-    ['copilot', 'Copilot', 'Microsoft · GPT-5.6 preferred + Claude selectable', 'The governed one — inside your tenant', '30M+ paid seats inside the M365 compliance boundary IT already audits; its Cowork agent runs on Claude technology.', 'Licenses others’ models; admin flags mean colleagues get different capabilities.'],
-    ['claude', 'Claude', 'Anthropic · Fable 5 / Opus 5 / Sonnet 5 / Haiku 4.5', 'Best-in-class coding & agentic work', 'Tops SWE-bench AND OpenAI’s own real-work eval (GDPval); 2026 writing evals rank its prose #1; 1M-token documents.', 'Premium pricing at the top tier; the flagship can refuse high-risk domains by design.'],
-    ['perplexity', 'Perplexity', 'Perplexity · own stack + Model Council (GPT+Claude+Gemini)', 'Research with receipts', 'Inline citations by default; the lowest citation-error rate in CJR’s AI-search testing — 37%, vs 67% for ChatGPT Search.', 'A citation isn’t proof — click through before quoting anywhere formal.'],
-    ['grok', 'Grok', 'xAI (SpaceX) · Grok 4.6', 'Blunt on purpose', '“Unhinged” is a literal voice mode; real-time X data; aggressive price-performance.', 'Fewer guardrails has meant real incidents (Jul 2025 public apology) — care for brand-sensitive work.'],
+    ['copilot', 'Copilot', 'Microsoft · GPT-5.6 + Claude selectable', 'The governed one — inside your tenant', '30M+ paid seats inside the M365 compliance boundary IT already audits; its Cowork agent runs on Claude technology.', 'Licenses others’ models; admin flags mean colleagues get different capabilities.'],
+    ['claude', 'Claude', 'Anthropic · Fable/Opus/Sonnet 5 + Haiku', 'Best-in-class coding & agentic work', 'Tops SWE-bench AND OpenAI’s own real-work eval (GDPval); 2026 writing evals rank its prose #1; 1M-token documents.', 'Premium pricing at the top; the flagship can refuse high-risk domains by design.'],
+    ['perplexity', 'Perplexity', 'Perplexity · own stack + Model Council', 'Research with receipts', 'Inline citations by default; the lowest citation-error rate in CJR’s AI-search testing — 37%, vs 67% for ChatGPT Search.', 'A citation isn’t proof — click through before quoting anywhere formal.'],
+    ['grok', 'Grok', 'xAI (SpaceX) · Grok 4.6', 'Blunt on purpose', '“Unhinged” is a literal voice mode; real-time X data; aggressive price-performance.', 'Fewer guardrails, real incidents (Jul 2025 apology) — mind brand-sensitive work.'],
   ];
   vendors.forEach((v, i) => {
     const x = 0.55 + (i % 3) * 4.18;
@@ -35,12 +35,12 @@ module.exports = function buildPartTwo(pres, H) {
     s.addShape('roundRect', { x, y, w: 3.95, h: 0.62, rectRadius: 0.06, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
     H.logo(s, x + 0.14, y + 0.11, 0.4, v[0], v[1][0]);
     s.addText(v[1], { x: x + 0.64, y: y + 0.05, w: 2.1, h: 0.34, fontFace: F.head, fontSize: 15, bold: true, color: C.INK, margin: 0 });
-    s.addText(v[2], { x: x + 0.64, y: y + 0.36, w: 3.2, h: 0.24, fontFace: F.body, fontSize: 7.8, bold: true, charSpacing: 0.3, color: C.MUTE, margin: 0 });
+    s.addText(v[2], { x: x + 0.64, y: y + 0.36, w: 3.26, h: 0.24, fontFace: F.body, fontSize: 9, bold: true, charSpacing: 0.3, color: C.MUTE, margin: 0 });
     s.addText(v[3], { x: x + 0.2, y: y + 0.7, w: 3.55, h: 0.52, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 0.96 });
-    s.addText(v[4], { x: x + 0.2, y: y + 1.24, w: 3.58, h: 0.78, fontFace: F.body, fontSize: 9.4, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
-    s.addText(v[5], { x: x + 0.2, y: y + 2.02, w: 3.58, h: 0.38, fontFace: F.body, fontSize: 8.2, italic: true, color: C.AMBER, margin: 0, lineSpacingMultiple: 0.95 });
+    s.addText(v[4], { x: x + 0.2, y: y + 1.24, w: 3.58, h: 0.74, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
+    s.addText(v[5], { x: x + 0.2, y: y + 2.0, w: 3.58, h: 0.4, fontFace: F.body, fontSize: 10, italic: true, color: C.AMBER, margin: 0, lineSpacingMultiple: 0.95 });
   });
-  s.addText('Whose servers hold your words? Two slides ahead — the account tier decides, not the logo. Fortes verified Sep 9, 2026 — they will have moved; the habits in Parts 3–5 don’t move at all.', { x: 0.55, y: 6.72, w: 12.2, h: 0.4, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.02 });
+  s.addText('Fortes verified Sep 9, 2026 — they will move; the habits in Parts 3–5 don’t.', { x: 0.55, y: 6.72, w: 12.2, h: 0.4, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.02 });
   s.addNotes(
     '[REFRESH QUARTERLY — owner: Oscar]\n' +
     '\n' +
@@ -68,7 +68,8 @@ module.exports = function buildPartTwo(pres, H) {
     'Copilot: 30M+ paid seats (Microsoft FY26 Q4, Jul 2026); Copilot Cowork licenses Claude Cowork technology (Mar 2026).\n' +
     'Vendor benchmark numbers are marketing until independently reproduced — read them as claims.\n' +
     'Grok note: xAI was acquired by SpaceX (Feb 2026).\n' +
-    'Logos: official site favicons (assets/logos/) — referential brand use inside an internal training deck.');
+    'Logos: official site favicons (assets/logos/) — referential brand use inside an internal training deck.\n' +
+    'R14 type pass: sub-labels trimmed to fit 9pt — Perplexity’s Model Council = GPT+Claude+Gemini; footer teaser (“whose servers? two slides ahead — the account tier decides, not the logo”) now spoken from point 5, not printed.');
 
   // ---------- 17. THE DEEPSEEK MOMENT ----------
   s = H.slide('PART 2 · THE CHINESE WAVE', 17);
@@ -76,32 +77,32 @@ module.exports = function buildPartTwo(pres, H) {
   H.card(s, 0.55, 1.58, 5.6, 1.62, C.PANEL);
   H.logo(s, 0.8, 1.72, 0.36, 'deepseek', 'D');
   s.addText('What happened, in three facts', { x: 1.26, y: 1.72, w: 4.7, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
-  H.bullets(s, 0.85, 2.12, 5.05, 1.05, [
-    { t: 'DeepSeek-R1: open-weights reasoning rivaling OpenAI’s o1 — MIT-licensed, free to download' },
-    { t: 'Nvidia lost $589B in one day (Jan 27) — the largest single-day market loss in history at the time' },
-    { t: 'The “$5.6M training cost”? Fuel for the final winning race — not the racing team. Real efficiency, oversold headline.', b: true },
-  ], { size: 9.2, gap: 3 });
+  H.bullets(s, 0.85, 2.08, 5.05, 1.1, [
+    { t: 'DeepSeek-R1: open-weights reasoning rivaling OpenAI’s o1 — MIT-licensed, free' },
+    { t: 'Nvidia lost $589B in one day (Jan 27) — then the largest single-day market loss ever' },
+    { t: '“$5.6M training cost”? Fuel for the final race — not the racing team. Real efficiency, oversold headline.', b: true },
+  ], { size: 10, gap: 3 });
   H.card(s, 0.55, 3.3, 5.6, 2.52, C.TEAL_TINT);
   s.addText('The trick has a name: MoE — Mixture of Experts', { x: 0.82, y: 3.44, w: 5.1, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.TEAL_DARK, margin: 0 });
   // — the specialist hospital (owner-generated illustration, v1.8) —
   s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'hospital_night.jpg'), x: 0.9, y: 3.86, w: 1.55, h: 1.9, sizing: { type: 'cover', w: 1.55, h: 1.9 } });
   s.addShape('roundRect', { x: 0.9, y: 3.86, w: 1.55, h: 1.9, rectRadius: 0.05, fill: { type: 'none' }, line: { color: C.TEAL_DARK, width: 1.25 } });
-  s.addText('Built like a huge specialist hospital at night: 671 billion parameters on the books, but only ~37 billion — the lit windows, the relevant departments — wake up per question. You pay for the specialists consulted, not the whole building. Distillation (big models teaching small ones) finishes the job.', { x: 2.62, y: 3.86, w: 3.38, h: 1.9, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.08 });
+  s.addText('Built like a huge specialist hospital at night: 671 billion parameters on the books, but only ~37 billion — the lit windows, the relevant departments — wake up per question. You pay for the specialists consulted, not the whole building. Distillation (big models teaching small ones) finishes the job.', { x: 2.62, y: 3.86, w: 3.38, h: 1.9, fontFace: F.body, fontSize: 10.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.08 });
   // — the bill, hero —
   H.card(s, 6.35, 1.58, 6.4, 2.15, C.PANEL);
   s.addText('The bill, per million output tokens', { x: 6.62, y: 1.72, w: 5.9, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
-  s.addText('OpenAI o1', { x: 6.62, y: 2.14, w: 1.35, h: 0.3, fontFace: F.body, fontSize: 9.5, color: C.SLATE, margin: 0, valign: 'middle' });
+  s.addText('OpenAI o1', { x: 6.62, y: 2.14, w: 1.35, h: 0.3, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, valign: 'middle' });
   s.addShape('roundRect', { x: 8.05, y: 2.16, w: 3.3, h: 0.26, rectRadius: 0.04, fill: { color: C.SLATE }, line: { type: 'none' } });
   s.addText('$60', { x: 8.05, y: 2.14, w: 3.25, h: 0.3, align: 'right', valign: 'middle', fontFace: F.head, fontSize: 12, bold: true, color: 'FFFFFF', margin: 0 });
-  s.addText('DeepSeek-R1', { x: 6.62, y: 2.56, w: 1.35, h: 0.3, fontFace: F.body, fontSize: 9.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+  s.addText('DeepSeek-R1', { x: 6.62, y: 2.56, w: 1.35, h: 0.3, fontFace: F.body, fontSize: 10, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
   s.addShape('roundRect', { x: 8.05, y: 2.58, w: 0.14, h: 0.26, rectRadius: 0.02, fill: { color: C.TEAL }, line: { type: 'none' } });
   s.addText('$2.19', { x: 8.24, y: 2.44, w: 1.6, h: 0.52, fontFace: F.head, fontSize: 24, bold: true, color: C.TEAL, margin: 0, valign: 'middle' });
   s.addShape('ellipse', { x: 11.55, y: 2.08, w: 1.0, h: 1.0, fill: { color: C.AMBER }, line: { type: 'none' } });
   s.addText([
     { text: '27×', options: { fontSize: 19, bold: true, breakLine: true } },
-    { text: 'cheaper', options: { fontSize: 7.5, bold: true } },
+    { text: 'cheaper', options: { fontSize: 8.5, bold: true } },
   ], { x: 11.55, y: 2.08, w: 1.0, h: 1.0, align: 'center', valign: 'middle', fontFace: F.head, color: 'FFFFFF', margin: 0, lineSpacingMultiple: 0.9 });
-  s.addText('A $100 o1 workload cost ~$3.60 on R1 — this is why the thinking and deep-research modes from Part 1 didn’t stay luxury-priced.', { x: 6.62, y: 3.14, w: 4.8, h: 0.55, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.03 });
+  s.addText('A $100 o1 workload cost ~$3.60 on R1 — this is why the thinking and deep-research modes from Part 1 didn’t stay luxury-priced.', { x: 6.62, y: 3.14, w: 4.8, h: 0.55, fontFace: F.body, fontSize: 10.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.03 });
   // — benchmarks, compressed —
   H.card(s, 6.35, 3.82, 6.4, 1.86, C.PANEL);
   s.addText('Same league on the hard benchmarks — R1 paper, Jan 2025', { x: 6.62, y: 3.94, w: 5.9, h: 0.3, fontFace: F.head, fontSize: 12, bold: true, color: C.INK, margin: 0 });
@@ -112,20 +113,20 @@ module.exports = function buildPartTwo(pres, H) {
   ];
   bench.forEach((b, i) => {
     const y = 4.28 + i * 0.34;
-    s.addText(b[0], { x: 6.62, y, w: 2.35, h: 0.32, fontFace: F.body, fontSize: 9, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
+    s.addText(b[0], { x: 6.62, y, w: 2.35, h: 0.32, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
     const barMax = 2.5;
     s.addShape('roundRect', { x: 9.05, y: y + 0.03, w: barMax * (b[1] / 100), h: 0.11, rectRadius: 0.02, fill: { color: C.TEAL }, line: { type: 'none' } });
-    s.addText(String(b[1]), { x: 9.08 + barMax * (b[1] / 100), y: y - 0.02, w: 0.5, h: 0.2, fontFace: F.body, fontSize: 7.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+    s.addText(String(b[1]), { x: 9.08 + barMax * (b[1] / 100), y: y - 0.02, w: 0.5, h: 0.2, fontFace: F.body, fontSize: 8.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
     s.addShape('roundRect', { x: 9.05, y: y + 0.17, w: barMax * (b[2] / 100), h: 0.11, rectRadius: 0.02, fill: { color: C.SLATE }, line: { type: 'none' } });
-    s.addText(String(b[2]), { x: 9.08 + barMax * (b[2] / 100), y: y + 0.12, w: 0.5, h: 0.2, fontFace: F.body, fontSize: 7.5, color: C.SLATE, margin: 0, valign: 'middle' });
+    s.addText(String(b[2]), { x: 9.08 + barMax * (b[2] / 100), y: y + 0.12, w: 0.5, h: 0.2, fontFace: F.body, fontSize: 8.5, color: C.SLATE, margin: 0, valign: 'middle' });
   });
   s.addText([
-    { text: '■', options: { color: C.TEAL, fontSize: 8, bold: true } }, { text: ' DeepSeek-R1  ', options: { color: C.SLATE, fontSize: 7.8 } },
-    { text: '■', options: { color: C.SLATE, fontSize: 8, bold: true } }, { text: ' OpenAI o1 — matched on math & coding, behind on PhD science: not a clean sweep, and that’s the honest story.', options: { color: C.MUTE, fontSize: 7.8 } },
-  ], { x: 6.62, y: 5.32, w: 5.9, h: 0.3, fontFace: F.body, margin: 0 });
-  H.promptChip(s, 0.55, 5.8, 12.2, 1.32, 7, [
-    { type: '“Explain Mixture of Experts like a colleague: a specialist hospital where only the relevant departments wake up per question — and why that made AI dramatically cheaper in 2025. Under 120 words.”', why: 'the MoE cheat-note lands in your course log, told by your own assistant.' },
-  ], { label: 'The specialist hospital, explained', size: 8.6, tab: 'EX7-MoE' });
+    { text: '■', options: { color: C.TEAL, fontSize: 9, bold: true } }, { text: ' DeepSeek-R1  ', options: { color: C.SLATE, fontSize: 9 } },
+    { text: '■', options: { color: C.SLATE, fontSize: 9, bold: true } }, { text: ' OpenAI o1 — matched on math & coding, behind on PhD science: not a clean sweep.', options: { color: C.MUTE, fontSize: 9 } },
+  ], { x: 6.62, y: 5.32, w: 5.9, h: 0.34, fontFace: F.body, margin: 0 });
+  H.promptChip(s, 0.55, 5.7, 12.2, 1.38, 7, [
+    { type: '“Explain Mixture of Experts like a colleague: a specialist hospital where only the relevant departments wake up per question — and why that made AI dramatically cheaper in 2025. Under 120 words.”', why: 'the MoE cheat-note lands in your course log.' },
+  ], { label: 'The specialist hospital, explained', size: 10, tab: 'EX7-MoE' });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Anchor the moment, LEFT top card: January 2025 — an open model rivals o1; Nvidia’s $589B day; and keep the cost claim honest — the famous $5.6M is the fuel bill for the final winning race, not the cost of the racing team (total hardware spend was estimated well over $500M).\n' +
@@ -188,11 +189,11 @@ module.exports = function buildPartTwo(pres, H) {
       H.logo(s, x + 0.18, y + 0.02, 0.36, r[0], r[1][0]);
       s.addText([
         { text: r[1], options: { bold: true, color: C.INK, fontSize: 10.5, breakLine: true } },
-        { text: r[2], options: { color: C.SLATE, fontSize: 8.8 } },
+        { text: r[2], options: { color: C.SLATE, fontSize: 10.5 } },
       ], { x: x + 0.64, y, w: 3.0, h: 0.76, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
     });
   });
-  s.addText('same logo, different homes — the ACCOUNT TIER decides which one yours is', { x: 0.85, y: 5.51, w: 11.6, h: 0.22, align: 'center', fontFace: F.body, fontSize: 9.5, bold: true, italic: true, color: C.TEAL_DARK, margin: 0 });
+  s.addText('same logo, different homes — the ACCOUNT TIER decides which one yours is', { x: 0.85, y: 5.51, w: 11.6, h: 0.22, align: 'center', fontFace: F.body, fontSize: 10.5, bold: true, italic: true, color: C.TEAL_DARK, margin: 0 });
   H.card(s, 0.55, 5.95, 6.0, 1.15, C.TEAL_TINT);
   s.addText([
     { text: 'Residency = choosing where it lives. ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12, breakLine: true } },
@@ -249,10 +250,9 @@ module.exports = function buildPartTwo(pres, H) {
     s.addText([
       { text: g[2] + '  ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
       { text: g[3], options: { color: C.MUTE, fontSize: 9.4, breakLine: true, paraSpaceAfter: 2 } },
-      { text: g[4], options: { color: C.SLATE, fontSize: 9.7 } },
+      { text: g[4], options: { color: C.SLATE, fontSize: 10.5 } },
     ], { x: x + 0.8, y: y + 0.06, w: 5.0, h: 1.05, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.0 });
   });
-  s.addText('Coding IDEs (Cursor · GitHub Copilot · Devin) and browser agents (Comet · Claude in Chrome) exist too — engineering and power-user tools; ask IT before either.', { x: 0.55, y: 6.75, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
     '[REFRESH QUARTERLY — owner: Oscar]\n' +
     '\n' +
@@ -275,7 +275,8 @@ module.exports = function buildPartTwo(pres, H) {
     'Evidence per tool: notes/research/r12_tool_landscape.md.\n' +
     'Manus: Meta acquisition ~$2B Dec 2025; Beijing (NDRC) ordered unwind Apr 2026; independent Singapore company Aug 2026; desktop “My Computer” mode Mar 2026.\n' +
     'Notion: Custom Agents (Feb 2026) run on triggers with scoped permissions; Business/Enterprise plans; usage billed in credits.\n' +
-    'OpenClaw: maintainer’s own warning, verbatim — “if you can’t run a command line, this is far too dangerous to use safely”; CVE-2026-25253 (1-click RCE); a malicious #1-ranked community skill (Cisco).');
+    'OpenClaw: maintainer’s own warning, verbatim — “if you can’t run a command line, this is far too dangerous to use safely”; CVE-2026-25253 (1-click RCE); a malicious #1-ranked community skill (Cisco).\n' +
+    'R14 type pass: the on-slide footer was removed (fewer footnotes) — speak its content from point 5: coding IDEs (Cursor · GitHub Copilot · Devin) and browser agents (Comet · Claude in Chrome) exist too — engineering and power-user tools; ask IT before either.');
 
   // ---------- 20. WHAT PEOPLE ACTUALLY USE (v1.7, r24) ----------
   s = H.slide('PART 2 · THE TOOLS IN REAL LIFE', 20);
@@ -283,8 +284,8 @@ module.exports = function buildPartTwo(pres, H) {
   const tiers = [
     ['The defaults — billion-user scale', 'chosen once, or already installed', [
       ['openai', 'ChatGPT', '900M weekly users — chose it first, stayed'],
-      ['gemini', 'Gemini', '900M+ monthly — inside Gmail, Docs, Android'],
-      ['copilot', 'Copilot', 'the work default — already in Word, Outlook, Teams'],
+      ['gemini', 'Gemini', '900M+ monthly — in Gmail, Docs, Android'],
+      ['copilot', 'Copilot', 'the work default — in Word, Outlook, Teams'],
       [null, 'Meta AI', 'the button inside WhatsApp & Instagram'],
     ]],
     ['Chosen for the job', 'smaller — picked on quality, growing fastest', [
@@ -305,14 +306,14 @@ module.exports = function buildPartTwo(pres, H) {
     H.card(s, 0.55, y, 12.2, 1.3, ti === 1 ? C.TEAL_TINT : C.PANEL);
     s.addText([
       { text: t[0], options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true } },
-      { text: t[1], options: { italic: true, color: C.MUTE, fontSize: 8.8 } },
+      { text: t[1], options: { italic: true, color: C.MUTE, fontSize: 10 } },
     ], { x: 0.8, y: y + 0.1, w: 2.35, h: 1.1, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.02 });
     t[2].forEach((tool, i) => {
       const x = 3.3 + i * 2.38;
       if (tool[0]) H.logo(s, x, y + 0.16, 0.4, tool[0], tool[1][0]);
       else H.logo(s, x, y + 0.16, 0.4, 'none', tool[1][0]);
       s.addText(tool[1], { x, y: y + 0.6, w: 2.25, h: 0.26, fontFace: F.body, fontSize: 10.5, bold: true, color: C.INK, margin: 0 });
-      s.addText(tool[2], { x, y: y + 0.85, w: 2.25, h: 0.42, fontFace: F.body, fontSize: 8.4, color: C.SLATE, margin: 0, lineSpacingMultiple: 0.96 });
+      s.addText(tool[2], { x, y: y + 0.85, w: 2.25, h: 0.42, fontFace: F.body, fontSize: 10.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 0.96 });
     });
   });
   H.card(s, 0.55, 5.9, 12.2, 0.62, C.PANEL);

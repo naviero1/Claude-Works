@@ -1290,6 +1290,36 @@ Mapping by filename infix → target (name at embed):
 
 ---
 
+## ROUND 10 — font floor + image symmetry (owner-directed) · 2026-09-10 · ✅ APPLIED (v1.9)
+
+Owner: "elevate the minimum size to at least 11, especially when you have big
+boxes surrounding the fonts… and make sure the pictures are symmetrical — you
+flattened some of them." Applied same-session as v1.9:
+
+**R14 v2 (supersedes the v1.7 floor):** reading text (bullets, card copy,
+callouts, chip steps, table cells) targets ≥11pt; where a box genuinely can't
+reach 11 after trimming, ≥10 — never below 10 for sentences. Pill/badge labels
+≥9. Chart value labels / legends / diagram glyph tags ≥8.5. Footnotes: as few
+as possible — decorative ones deleted (content moved to speaker notes);
+mandatory honesty caveats stay at ≥10. Copy trims preserve every fact, number
+and quote.
+
+**What changed:** ~200 font sizes raised across all five deck sources (chip
+step text 8.2–9.2→10–10.5; card bodies 8.8–10.3→10.2–11; the 6.5pt eras
+diagram tags→8; hallucination caveat 7.5→10; evidence-map reference tables
+floored at 9.5–10 under the dense-table exception). Nine decorative footnotes
+deleted into notes. **Image symmetry:** five over-cropped strips re-laid at
+native 16:9 — S8 LEGO (now beside its caption), S9 desk (items stacked right),
+S12 hare/tortoise (FAST/THINKING beside it), dashboard card, memory-ladder
+triptych; all other images were already at native ratio. Trading-card Claude
+sub-label + hallucination legend shortened to kill dangling wraps.
+Verified: full 71-slide render QA (six-inspector sweep) — zero clipping,
+zero overlaps; the two cosmetic wraps found were fixed and re-rendered.
+Remaining sub-9pt text is only chart/diagram glyph labels and the Deming
+name-card dates — non-reading text, per R14 v2.
+
+---
+
 ## ROUND 9 — external AI reviews (owner-run) · 2026-09-10 · ✅ SURVIVORS APPLIED in v1.8 (see Round 8 status block; rejected items stay rejected; owner rulings 9D unchanged)
 
 ### 9A · Gemini review triage (6 findings)

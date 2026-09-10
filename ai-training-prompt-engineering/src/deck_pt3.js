@@ -38,14 +38,14 @@ module.exports = function buildPartThree(pres, H) {
   anatEx.forEach((r, i) => {
     const y = 1.74 + i * 0.62;
     s.addShape('roundRect', { x: 6.5, y: y + 0.08, w: 1.18, h: 0.34, rectRadius: 0.06, fill: { color: C.TEAL }, line: { type: 'none' } });
-    s.addText(r[0], { x: 6.5, y: y + 0.09, w: 1.18, h: 0.32, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 8, bold: true, charSpacing: 0.5, color: 'FFFFFF', margin: 0 });
-    s.addText(r[1], { x: 7.82, y, w: 4.75, h: 0.56, fontFace: 'Consolas', fontSize: 8.6, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
+    s.addText(r[0], { x: 6.5, y: y + 0.09, w: 1.18, h: 0.32, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9, bold: true, charSpacing: 0.5, color: 'FFFFFF', margin: 0 });
+    s.addText(r[1], { x: 7.82, y, w: 4.75, h: 0.56, fontFace: 'Consolas', fontSize: 10, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
   });
-  s.addText('Note the industry line: what business you’re in is CONTEXT — name your world; never assume it knows.', { x: 6.55, y: 6.12, w: 6.0, h: 0.32, fontFace: F.body, fontSize: 8.8, italic: true, color: C.AMBER, margin: 0 });
+  s.addText('Note the industry line: what business you’re in is CONTEXT — name your world; never assume it knows.', { x: 6.55, y: 6.12, w: 6.0, h: 0.36, fontFace: F.body, fontSize: 10, italic: true, color: C.AMBER, margin: 0 });
   H.callout(s, 0.55, 6.62, 12.2, 0.5, C.TEAL_TINT, [
-    { text: 'Google’s data point: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.5 } },
-    { text: 'the most fruitful prompts averaged ~21 words with context — most people type fewer than nine. A good prompt is a short briefing, not a search query.', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { iconName: 'edit', iconFill: C.TEAL, size: 10.5 });
+    { text: 'Google’s data point: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
+    { text: 'the most fruitful prompts averaged ~21 words with context — most people type fewer than nine. A good prompt is a short briefing, not a search query.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { iconName: 'edit', iconFill: C.TEAL, size: 11 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “one prompt, seven parts — and the parts make a BODY. Everything in Part 3 is refinements of this picture.”\n' +
@@ -70,21 +70,21 @@ module.exports = function buildPartThree(pres, H) {
   const elemCard = (y, h, name, job, get, why, ev, pairs) => {
     H.card(s, 0.55, y, 12.2, h, C.PANEL);
     s.addText(name, { x: 0.82, y: y + 0.12, w: 2.15, h: 0.4, fontFace: F.head, fontSize: 16.5, bold: true, color: C.TEAL_DARK, margin: 0 });
-    s.addText(job, { x: 0.82, y: y + 0.54, w: 2.15, h: h - 0.66, fontFace: F.body, fontSize: 9.2, italic: true, color: C.INK, margin: 0, lineSpacingMultiple: 1.04 });
+    s.addText(job, { x: 0.82, y: y + 0.54, w: 2.15, h: h - 0.66, fontFace: F.body, fontSize: 10, italic: true, color: C.INK, margin: 0, lineSpacingMultiple: 1.04 });
     const runs = [
-      { text: 'What you get — ', options: { bold: true, color: C.GREEN, fontSize: 10.2 } },
-      { text: get, options: { color: C.SLATE, fontSize: 10.2, breakLine: true, paraSpaceAfter: 5 } },
-      { text: 'Why — ', options: { bold: true, color: C.INK, fontSize: 10.2 } },
-      { text: why + ' ', options: { color: C.SLATE, fontSize: 10.2 } },
-      { text: ev ? `(${ev})` : '', options: { color: C.MUTE, fontSize: 8.6, italic: true } },
+      { text: 'What you get — ', options: { bold: true, color: C.GREEN, fontSize: 10.5 } },
+      { text: get, options: { color: C.SLATE, fontSize: 10.5, breakLine: true, paraSpaceAfter: 5 } },
+      { text: 'Why — ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
+      { text: why + ' ', options: { color: C.SLATE, fontSize: 10.5 } },
+      { text: ev ? `(${ev})` : '', options: { color: C.MUTE, fontSize: 10, italic: true } },
     ];
     s.addText(runs, { x: 3.12, y: y + 0.1, w: 5.25, h: h - 0.2, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.07 });
     const ws = [];
     pairs.forEach((pr, i) => {
-      ws.push({ text: 'weak   ', options: { bold: true, color: C.RED, fontSize: 9 } });
-      ws.push({ text: pr[0], options: { color: C.SLATE, fontSize: 9.4, italic: true, breakLine: true, paraSpaceAfter: 2 } });
-      ws.push({ text: 'strong ', options: { bold: true, color: C.GREEN, fontSize: 9 } });
-      ws.push({ text: pr[1], options: { color: C.INK, fontSize: 9.4, italic: true, breakLine: i < pairs.length - 1, paraSpaceAfter: i < pairs.length - 1 ? 7 : 0 } });
+      ws.push({ text: 'weak   ', options: { bold: true, color: C.RED, fontSize: 10 } });
+      ws.push({ text: pr[0], options: { color: C.SLATE, fontSize: 10.5, italic: true, breakLine: true, paraSpaceAfter: 2 } });
+      ws.push({ text: 'strong ', options: { bold: true, color: C.GREEN, fontSize: 10 } });
+      ws.push({ text: pr[1], options: { color: C.INK, fontSize: 10.5, italic: true, breakLine: i < pairs.length - 1, paraSpaceAfter: i < pairs.length - 1 ? 7 : 0 } });
     });
     s.addText(ws, { x: 8.55, y: y + 0.1, w: 4.0, h: h - 0.2, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.03 });
   };
@@ -104,7 +104,6 @@ module.exports = function buildPartThree(pres, H) {
     'Yang et al. 2025',
     [['“Analyze the returns data.”', '“What is the return rate by site for Q2, vs the 2% target?”'],
      ['“Improve this report.”', '“First: list the three weakest sections, then WAIT. Rewrite only the one I pick.”']]);
-  s.addText('Read each pair aloud — the weak→strong contrast is the lesson.', { x: 0.55, y: 6.78, w: 12.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “each element now gets the full treatment: its job, what it BUYS you, why that works, and TWO weak-vs-strong pairs.”\n' +
@@ -137,7 +136,6 @@ module.exports = function buildPartThree(pres, H) {
     'OpenAI 2024 · JSONSchemaBench 2025',
     [['“Keep it short and professional.”', '“≤ 120 words: the ask in sentence one, two facts with numbers, the deadline.”'],
      ['“Make it a nice table.”', '“A table with exactly: Site | Return rate | vs target | Trend — one row per site, worst first.”']]);
-  s.addText('Context is the anti-hallucination element; Format is the anti-rework element.', { x: 0.55, y: 6.78, w: 12.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Same rhythm: weak aloud → strong aloud → what you get → why.\n' +
@@ -153,7 +151,8 @@ module.exports = function buildPartThree(pres, H) {
     '\n' +
     'CONTENT —\n' +
     'Evidence (r15): context-faithful prompting 35.2%→3.0% memorization-ratio and 30.6%→87.8% on unanswerable = Zhou et al., EMNLP 2023 Findings; planted-error propagation up to 83% = Omar et al., Communications Medicine 2025; schema compliance <40%→100% = OpenAI Structured Outputs (Aug 2024); format-constraints replication = JSONSchemaBench (2025) + dottxt rebuttal of Tam et al. 2024.\n' +
-    'Teaching nuance kept honest: “reason first, format second” is still a fine manual habit — but do NOT teach “format restrictions hurt reasoning” as settled fact.');
+    'Teaching nuance kept honest: “reason first, format second” is still a fine manual habit — but do NOT teach “format restrictions hurt reasoning” as settled fact.\n' +
+    'Font-policy pass: the on-slide footer line was removed — deliver “Context fights hallucination; Format fights rework” verbally (step 4).');
 
   // ---------- 25. ELEMENTS 3 of 3 · EXAMPLES + THE TWO VALVES ----------
   s = H.slide('PART 3 · THE ELEMENTS', 25);
@@ -174,7 +173,7 @@ module.exports = function buildPartThree(pres, H) {
     'converts open-ended capability into a scoped job with a finish line. In Part 5 it grows up to become gates and autonomy rules for agents.',
     null,
     [['“Keep it focused.”', '“Answer these three questions, then stop — do not go exploring.”']]);
-  s.addText('Seven elements. Each moves something out of your head onto the page — when output disappoints, one of them stayed in your head.', { x: 0.55, y: 6.92, w: 12.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addText('Seven elements — each moves something out of your head onto the page; when output disappoints, one stayed in your head.', { x: 0.55, y: 6.92, w: 12.2, h: 0.3, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Examples: land “the model imitates what it sees — including exactly how your examples handle the hard cases; so include one hard case.”\n' +
@@ -216,13 +215,13 @@ module.exports = function buildPartThree(pres, H) {
     s.addShape('roundRect', { x: o[1], y: 3.25, w: o[2], h: 0.38, rectRadius: 0.06, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
     s.addText(o[0], { x: o[1], y: 3.26, w: o[2], h: 0.36, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9.5, color: C.SLATE, margin: 0 });
   });
-  s.addText('OPTIONS — every option ships with when-to-use guidance, and every slot with its research-backed “Why it matters.” You pick from a vetted menu instead of composing from scratch.', { x: 7.3, y: 3.78, w: 5.2, h: 0.72, fontFace: F.body, fontSize: 9.5, italic: true, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.06 });
+  s.addText('OPTIONS — every option ships with when-to-use guidance, and every slot with its research-backed “Why it matters.” You pick from a vetted menu instead of composing from scratch.', { x: 7.3, y: 3.78, w: 5.2, h: 0.72, fontFace: F.body, fontSize: 10, italic: true, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.06 });
   H.card(s, 0.55, 4.75, 12.2, 1.9, C.TEAL_TINT);
   const taxStats = [['19', 'elements\n(7 generative · 12 agentic)'], ['78', 'attributes —\nthe slots you fill'], ['~290', 'vetted options,\neach with guidance'], ['18', 'presets — one-click\nstarting templates']];
   taxStats.forEach((t, i) => {
     const x = 0.85 + i * 1.95;
     s.addText(t[0], { x, y: 4.95, w: 1.8, h: 0.6, fontFace: F.head, fontSize: 30, bold: true, color: C.TEAL_DARK, align: 'center', margin: 0 });
-    s.addText(t[1], { x, y: 5.6, w: 1.8, h: 0.85, fontFace: F.body, fontSize: 9, color: C.SLATE, align: 'center', valign: 'top', margin: 0, lineSpacingMultiple: 1.02 });
+    s.addText(t[1], { x, y: 5.6, w: 1.8, h: 0.85, fontFace: F.body, fontSize: 9.5, color: C.SLATE, align: 'center', valign: 'top', margin: 0, lineSpacingMultiple: 1.02 });
   });
   s.addShape('line', { x: 8.85, y: 5.0, w: 0, h: 1.4, line: { color: C.TEAL, width: 0.75 } });
   s.addText([
@@ -260,13 +259,13 @@ module.exports = function buildPartThree(pres, H) {
       'Show 2–3 examples, one edge case included',
     ], '“I need [X] for [audience], with [constraints]. Draft me a strong prompt, then wait.”'],
     ['D', 'DO — run it, in order', C.TEAL, C.PANEL, [
-      'Bullet the process as NUMBERED steps — order stated is order followed',
+      'Number the steps — order stated is order followed',
       'Add “wait for my OK” where you want control',
-      'Documents at the top, ask at the end · fresh chat per topic',
+      'Documents on top, ask at the end · fresh chat per topic',
     ], '“1) Outline only. 2) Wait for my OK. 3) Draft section by section.”'],
     ['C', 'CHECK — verify before you trust', C.AMBER, C.AMBER_TINT, [
       'Name the failed element (the grid — later this part)',
-      'Self-check against NAMED criteria — never “are you sure?”',
+      'Self-check on NAMED criteria — never “are you sure?”',
       'Blind review: paste it as “a colleague’s draft”',
       'Numbers reconcile to a known total · citations + the out',
     ], '“Verify against these three criteria and list exactly what fails.”'],
@@ -286,14 +285,14 @@ module.exports = function buildPartThree(pres, H) {
     s.addText(q[1], { x: x + 0.72, y: y + 0.16, w: 5.1, h: 0.36, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
     const runs = [];
     q[4].forEach(m => {
-      runs.push({ text: '· ' + m, options: { color: C.SLATE, fontSize: 9.6, breakLine: true } });
+      runs.push({ text: '· ' + m, options: { color: C.SLATE, fontSize: 10.5, breakLine: true } });
     });
-    s.addText(runs, { x: x + 0.3, y: y + 0.56, w: 5.45, h: q[4].length * 0.24 + 0.08, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
-    s.addShape('roundRect', { x: x + 0.24, y: y + 1.82, w: 5.5, h: 0.44, rectRadius: 0.05, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
+    s.addText(runs, { x: x + 0.3, y: y + 0.56, w: 5.45, h: q[4].length * 0.27 + 0.08, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
+    s.addShape('roundRect', { x: x + 0.24, y: y + 1.78, w: 5.5, h: 0.48, rectRadius: 0.05, fill: { color: 'FFFFFF' }, line: { color: C.LINE, width: 0.75 } });
     s.addText([
-      { text: 'delegate it → ', options: { bold: true, color: C.TEAL_DARK, fontSize: 8.2 } },
-      { text: q[5], options: { color: C.TEAL_DARK, fontSize: 8.2, fontFace: 'Consolas' } },
-    ], { x: x + 0.36, y: y + 1.85, w: 5.28, h: 0.38, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
+      { text: 'delegate it → ', options: { bold: true, color: C.TEAL_DARK, fontSize: 9 } },
+      { text: q[5], options: { color: C.TEAL_DARK, fontSize: 9, fontFace: 'Consolas' } },
+    ], { x: x + 0.36, y: y + 1.81, w: 5.28, h: 0.42, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
   });
   H.callout(s, 0.55, 6.68, 12.2, 0.5, C.TEAL_TINT, [
     { text: 'Every phase can itself be delegated to the AI — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
@@ -324,11 +323,11 @@ module.exports = function buildPartThree(pres, H) {
   s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'blueprint_loop.jpg'), x: 0.83, y: 1.78, w: 3.0, h: 3.0, sizing: { type: 'cover', w: 3.0, h: 3.0 } });
   s.addShape('roundRect', { x: 0.83, y: 1.78, w: 3.0, h: 3.0, rectRadius: 0.05, fill: { type: 'none' }, line: { color: C.LINE, width: 0.75 } });
   s.addText([
-    { text: 'THE ANATOMY — design layer. ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.5 } },
-    { text: 'What a prompt CONTAINS: the seven elements. Its question: is it complete?', options: { color: C.SLATE, fontSize: 10.2, breakLine: true, paraSpaceAfter: 5 } },
-    { text: 'THE LOOP — process layer. ', options: { bold: true, color: C.AMBER, fontSize: 10.5 } },
-    { text: 'What you DO with it: Plan, Do, Check, Act. Its question: how does it get good — and stay good?', options: { color: C.SLATE, fontSize: 10.2 } },
-  ], { x: 0.83, y: 4.9, w: 3.0, h: 1.46, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
+    { text: 'THE ANATOMY — design layer. ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
+    { text: 'What a prompt CONTAINS: the seven elements. Ask: is it complete?', options: { color: C.SLATE, fontSize: 10.8, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'THE LOOP — process layer. ', options: { bold: true, color: C.AMBER, fontSize: 11 } },
+    { text: 'What you DO with it: Plan, Do, Check, Act. Ask: how does it get — and stay — good?', options: { color: C.SLATE, fontSize: 10.8 } },
+  ], { x: 0.83, y: 4.9, w: 3.0, h: 1.5, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
   // — the worked prompt: the loop written INTO one brief —
   const layerBlocks = [
     ['P', C.TEAL, C.TEAL_TINT, 'PLAN — the anatomy, all seven elements', 'Role: careful retail analyst — never invent numbers. Task: monthly returns report from the attached export. Context: columns = SKU · reason code · refund €. Format: one-page summary + top-5 table. Example: last month’s report, attached. The out: field missing → say so, don’t guess. The stop: deliver the report — nothing beyond.', 1.6],
@@ -342,10 +341,10 @@ module.exports = function buildPartThree(pres, H) {
     s.addShape('ellipse', { x: 4.46, y: lbY + 0.1, w: 0.38, h: 0.38, fill: { color: b[1] }, line: { type: 'none' } });
     s.addText(b[0], { x: 4.46, y: lbY + 0.09, w: 0.38, h: 0.38, align: 'center', valign: 'middle', fontFace: F.head, fontSize: 14, bold: true, color: 'FFFFFF', margin: 0 });
     s.addText(b[3], { x: 4.98, y: lbY + 0.12, w: 7.6, h: 0.3, fontFace: F.head, fontSize: 11.5, bold: true, color: C.INK, margin: 0 });
-    s.addText(b[4], { x: 4.98, y: lbY + 0.44, w: 7.55, h: b[5] - 0.52, fontFace: 'Consolas', fontSize: 9.3, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.06 });
+    s.addText(b[4], { x: 4.98, y: lbY + 0.44, w: 7.55, h: b[5] - 0.52, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.06 });
     lbY += b[5] + 0.08;
   });
-  s.addText('One brief, four sections — the loop is written INTO the prompt: a wait-gate is a Do you kept; a stop-on-fail Check is a verification you refused to delegate.', { x: 4.28, y: 6.22, w: 8.47, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.0 });
+  s.addText('One brief, four sections — the loop written INTO the prompt: a wait-gate is a Do you kept; a stop-on-fail Check is a verification you refused to delegate.', { x: 4.28, y: 6.14, w: 8.47, h: 0.38, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.0 });
   H.callout(s, 0.55, 6.56, 12.2, 0.6, C.TEAL_TINT, [
     { text: 'In chat, you run the loop by hand. In agentic work, you write the loop into the brief — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
     { text: 'which is why it works best there. Part 5’s mission-brief template is exactly these four sections, grown up.', options: { color: C.SLATE, fontSize: 11 } },
@@ -384,7 +383,7 @@ module.exports = function buildPartThree(pres, H) {
     ['x', C.RED, C.RED_TINT, 'MYTH — SAVE YOUR TYPING', [
       ['“Tell it it’s a genius and it gets smarter”', '162 personas tested: zero accuracy gain'],
       ['“Tips, threats, ‘important to my career’”', 'null on average; the famous 115% was the cherry-picked best case'],
-      ['“There are magic phrases”', '“take a deep breath” won on one model, one benchmark — never universal'],
+      ['“There are magic phrases”', '“take a deep breath” won on one model & benchmark — never universal'],
       ['“Longer prompts are always better”', 'padding drops accuracy at just ~3K tokens — density wins, not length'],
       ['“‘Are you sure?’ makes it double-check”', 'it makes it FOLD: answers flip under pushback in 58% of cases'],
       ['“The AI knows what I mean”', 'the same ~41% — mind-reading is the myth behind every vague prompt'],
@@ -398,15 +397,15 @@ module.exports = function buildPartThree(pres, H) {
     col[4].forEach((item, ri) => {
       const y = 2.32 + ri * 0.7;
       s.addText([
-        { text: item[0], options: { bold: true, color: C.INK, fontSize: 10.8, breakLine: true } },
-        { text: item[1], options: { color: C.SLATE, fontSize: 9, italic: true } },
+        { text: item[0], options: { bold: true, color: C.INK, fontSize: 11, breakLine: true } },
+        { text: item[1], options: { color: C.SLATE, fontSize: 9.5, italic: true } },
       ], { x: x + 0.3, y, w: 5.4, h: 0.66, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.0 });
     });
   });
   H.callout(s, 0.55, 6.68, 12.2, 0.46, C.TEAL_TINT, [
-    { text: 'Every line has a study behind it — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.5 } },
-    { text: 'sources in the PLAYBOOK tab of your Course Workbook. And one myth got its own slide: the next one.', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { iconName: 'download', iconFill: C.TEAL, size: 10.5 });
+    { text: 'Every line has a study behind it — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.8 } },
+    { text: 'sources in the PLAYBOOK tab of your Course Workbook. And one myth got its own slide: the next one.', options: { color: C.SLATE, fontSize: 10.8 } },
+  ], { iconName: 'download', iconFill: C.TEAL, size: 10.8 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “everything on this slide survived replication — and everything on the right failed it. Twelve lines, plain terms.”\n' +
@@ -431,27 +430,27 @@ module.exports = function buildPartThree(pres, H) {
   H.title(s, 'AI mirrors you', 'The flattery bias — measured, and all over the news');
   H.card(s, 0.55, 1.58, 4.5, 2.5, C.PANEL);
   s.addText('+49%', { x: 0.85, y: 1.66, w: 2.6, h: 0.78, fontFace: F.head, fontSize: 46, bold: true, color: C.RED, margin: 0 });
-  s.addText('how often it tells you you’re right — indexed, a person = 100', { x: 0.85, y: 2.5, w: 3.9, h: 0.22, fontFace: F.body, fontSize: 8.5, italic: true, color: C.MUTE, margin: 0 });
-  s.addText('a person', { x: 0.85, y: 2.76, w: 0.95, h: 0.24, fontFace: F.body, fontSize: 9, color: C.SLATE, margin: 0, valign: 'middle' });
+  s.addText('how often it says you’re right — a person = 100', { x: 0.85, y: 2.5, w: 3.9, h: 0.22, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addText('a person', { x: 0.85, y: 2.76, w: 0.95, h: 0.24, fontFace: F.body, fontSize: 9.5, color: C.SLATE, margin: 0, valign: 'middle' });
   s.addShape('roundRect', { x: 1.86, y: 2.79, w: 1.56, h: 0.2, rectRadius: 0.03, fill: { color: C.SLATE }, line: { type: 'none' } });
-  s.addText('100', { x: 3.47, y: 2.76, w: 0.5, h: 0.24, fontFace: F.body, fontSize: 8.5, bold: true, color: C.SLATE, margin: 0, valign: 'middle' });
-  s.addText('the AI', { x: 0.85, y: 3.06, w: 0.95, h: 0.24, fontFace: F.body, fontSize: 9, bold: true, color: C.RED, margin: 0, valign: 'middle' });
+  s.addText('100', { x: 3.47, y: 2.76, w: 0.5, h: 0.24, fontFace: F.body, fontSize: 9, bold: true, color: C.SLATE, margin: 0, valign: 'middle' });
+  s.addText('the AI', { x: 0.85, y: 3.06, w: 0.95, h: 0.24, fontFace: F.body, fontSize: 9.5, bold: true, color: C.RED, margin: 0, valign: 'middle' });
   s.addShape('roundRect', { x: 1.86, y: 3.09, w: 2.32, h: 0.2, rectRadius: 0.03, fill: { color: C.RED }, line: { type: 'none' } });
-  s.addText('149', { x: 4.22, y: 3.06, w: 0.5, h: 0.24, fontFace: F.body, fontSize: 8.5, bold: true, color: C.RED, margin: 0, valign: 'middle' });
-  s.addText('11 leading models (Stanford/CMU, Science 2026). Root cause: trained on human preferences — and we prefer agreement.', { x: 0.85, y: 3.44, w: 3.9, h: 0.56, fontFace: F.body, fontSize: 9.2, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.02 });
+  s.addText('149', { x: 4.22, y: 3.06, w: 0.5, h: 0.24, fontFace: F.body, fontSize: 9, bold: true, color: C.RED, margin: 0, valign: 'middle' });
+  s.addText('11 leading models (Stanford/CMU, Science 2026). Root cause: trained on human preferences — and we prefer agreement.', { x: 0.85, y: 3.44, w: 3.9, h: 0.56, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.02 });
   H.card(s, 5.25, 1.58, 7.5, 2.5, C.PANEL);
   s.addText('It made the news', { x: 5.52, y: 1.7, w: 6.9, h: 0.32, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
   const mirrorTL = [
-    ['APR 2025', 'OpenAI rolls back a ChatGPT update for being — its own words — “overly flattering or agreeable… sycophantic.” Their metrics had rewarded the mirror.'],
-    ['JUN 2025', 'New York Times: chatbots validating users’ false beliefs send some people “spiraling” — agreement as a safety problem.'],
-    ['AUG 2025', 'Microsoft’s AI chief warns publicly about unhealthy AI validation — “not confined to people already at risk.”'],
+    ['APR 2025', 'OpenAI rolls back a ChatGPT update — its own words: “overly flattering or agreeable… sycophantic.” Its metrics had rewarded the mirror.'],
+    ['JUN 2025', 'New York Times: chatbots validating false beliefs send some users “spiraling” — agreement as a safety problem.'],
+    ['AUG 2025', 'Microsoft’s AI chief warns of unhealthy AI validation — “not confined to people already at risk.”'],
     ['2026', 'The Science study measures it (+49%) — and the flattery bias draws regulatory attention.'],
   ];
   mirrorTL.forEach((r, i) => {
     const y = 2.1 + i * 0.48;
     s.addShape('roundRect', { x: 5.52, y: y + 0.04, w: 0.85, h: 0.3, rectRadius: 0.05, fill: { color: C.TEAL }, line: { type: 'none' } });
-    s.addText(r[0], { x: 5.52, y: y + 0.05, w: 0.85, h: 0.28, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 8, bold: true, color: 'FFFFFF', margin: 0 });
-    s.addText(r[1], { x: 6.5, y, w: 6.1, h: 0.46, fontFace: F.body, fontSize: 9.2, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
+    s.addText(r[0], { x: 5.52, y: y + 0.05, w: 0.85, h: 0.28, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9, bold: true, color: 'FFFFFF', margin: 0 });
+    s.addText(r[1], { x: 6.5, y, w: 6.1, h: 0.46, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
   });
   H.callout(s, 0.55, 4.28, 12.2, 1.05, C.TEAL_TINT, [
     { text: 'The countermeasures — usable today: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true } },
@@ -459,8 +458,8 @@ module.exports = function buildPartThree(pres, H) {
   ], { iconName: 'shield', iconFill: C.TEAL, size: 12.5 });
   H.card(s, 0.55, 5.5, 12.2, 1.55, 'FFFFFF', C.LINE);
   s.addText('SEE IT YOURSELF — two chats, same paragraph:', { x: 0.85, y: 5.62, w: 11.6, h: 0.28, fontFace: F.body, fontSize: 10, bold: true, charSpacing: 0.5, color: C.TEAL_DARK, margin: 0 });
-  s.addText('Chat 1: “A colleague wrote this — rate it 1–10 and list its three biggest weaknesses.”   Chat 2: “I wrote this myself and I’m really proud of it — rate it 1–10 and list its three biggest weaknesses.”', { x: 0.85, y: 5.92, w: 11.6, h: 0.5, fontFace: 'Consolas', fontSize: 9.5, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.08 });
-  s.addText('Did the score move — and the criticism soften — once it knew you were the author? To read more: ask your AI to “search the web for the April 2025 ChatGPT sycophancy rollback and two 2025+ studies — cite sources, say ‘not verified’ if unsure.”', { x: 0.85, y: 6.48, w: 11.6, h: 0.5, fontFace: F.body, fontSize: 9, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.04 });
+  s.addText('Chat 1: “A colleague wrote this — rate it 1–10 and list its three biggest weaknesses.”   Chat 2: “I wrote this myself and I’m really proud of it — rate it 1–10 and list its three biggest weaknesses.”', { x: 0.85, y: 5.92, w: 11.6, h: 0.5, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.08 });
+  s.addText('Did the score move — and the criticism soften — once it knew you were the author?', { x: 0.85, y: 6.5, w: 11.6, h: 0.32, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.04 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Say it as one sentence first: “the AI is a mirror — it agrees with you about half again as often as a person would.” Then the +49%.\n' +
@@ -478,7 +477,8 @@ module.exports = function buildPartThree(pres, H) {
     'v1.7: sycophancy promoted to its own slide (owner request) — full instance file + reading list in notes/research/r25_proven_myth_mirror.md. Timeline sources: OpenAI “Sycophancy in GPT-4o” Apr 29 2025 + “Expanding on what we missed” May 2 2025 (their own words quoted) · NYT (Kashmir Hill) Jun 13 2025 · Suleyman warnings Aug 2025 (Fortune Aug 22; “AI psychosis” is a media label, not a diagnosis — attribute, don’t diagnose) · Cheng et al., Science 2026 · Fortune Mar 31 2026 (regulatory attention).\n' +
     'Deeper research if asked (r25): SycEval (AIES 2025): pushback flips answers 58.2% of the time, 14.7% right→wrong · ELEPHANT (2025/26): models save the user’s face 45 pts more than humans; affirm BOTH sides of the same conflict in 48% of cases (same lab as the Science paper — not independent) · npj Digital Medicine Oct 2025: models complied with 100% of illogical drug requests they KNEW were false; permission-to-refuse fixed most of it.\n' +
     'Reading list for the curious (give on request): OpenAI’s own Apr 2025 post · NYT Jun 13 2025 · Nature news feature Oct 2025 (“AI chatbots are sycophants”) · Stanford Report Mar 2026. Litigation (Raine v. OpenAI): active case, OpenAI denies — phrase as “a lawsuit alleges” or leave it out.\n' +
-    'Handled with care: no medical claims from the “AI psychosis” coverage; countermeasures are the deck’s standing blind-review discipline.');
+    'Handled with care: no medical claims from the “AI psychosis” coverage; countermeasures are the deck’s standing blind-review discipline.\n' +
+    'Font-policy pass: the on-slide read-more line was removed (owner: fewer footnotes) — give it verbally or on request: ask your AI to “search the web for the April 2025 ChatGPT sycophancy rollback and two 2025+ studies — cite sources, say ‘not verified’ if unsure.”');
 
 
   // ---------- 30. THE 2026 PLAYBOOK — DO / DON'T / EXPIRED ----------
@@ -516,14 +516,14 @@ module.exports = function buildPartThree(pres, H) {
       const y = 2.28 + ri * 0.81;
       s.addText([
         { text: `${ri + 1}  `, options: { bold: true, color: col[1], fontSize: 10.5 } },
-        { text: item, options: { color: ci === 2 ? C.SLATE : C.INK, fontSize: 8.9 } },
+        { text: item, options: { color: ci === 2 ? C.SLATE : C.INK, fontSize: 10 } },
       ], { x: x + 0.22, y, w: 3.55, h: 0.78, fontFace: F.body, margin: 0, valign: 'top', lineSpacingMultiple: 1.0 });
     });
   });
   H.callout(s, 0.55, 6.5, 12.2, 0.6, C.TEAL_TINT, [
     { text: 'The full 8 + 8 + 8, with the study behind every line: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
-    { text: 'tab PLAYBOOK of your Course Workbook — plus the one-page printout in your pack. Notice column 1, rule 4 IS column 2, rule 3 said positively: say what TO do.', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { iconName: 'download', iconFill: C.TEAL, size: 10.5 });
+    { text: 'tab PLAYBOOK of your Course Workbook — plus the one-page printout in your pack. Notice column 1, rule 4 IS column 2, rule 3 said positively: say what TO do.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { iconName: 'download', iconFill: C.TEAL, size: 11 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Why this slide exists, in one line: “half the prompting advice on the internet is from 2023 — here is the 2026 state of play, in three columns: keep, avoid, unlearn.”\n' +
@@ -552,10 +552,10 @@ module.exports = function buildPartThree(pres, H) {
   s = H.slide('PART 3 · ITERATION', 31);
   H.title(s, 'Running the loop · Draft → Inspect → Refine → Standardize', 'PDCA in practice');
   const iter = [
-    ['edit', '1 · Draft', 'PLAN + DO', 'Write the prompt with the anatomy — or bullet what you want and let the AI draft it (the PLAN methods).'],
-    ['eye', '2 · Inspect', 'CHECK', 'Don’t reword at random: name the failed element with the grid → or self-check against named criteria (CHECK).'],
-    ['refresh', '3 · Refine', 'ACT', 'Fix that ONE element — or metaprompt: “rewrite this prompt so it more consistently produces X” (ACT).'],
-    ['save', '4 · Standardize', 'STANDARD WORK', 'Works twice? Name it, version it, put it in the library (Part 6). Improve the standard, not the improvisation.'],
+    ['edit', '1 · Draft', 'PLAN + DO', 'Write it with the anatomy — or bullet what you want and let the AI draft it (PLAN methods).'],
+    ['eye', '2 · Inspect', 'CHECK', 'Don’t reword at random: name the failed element (the grid) — or self-check on named criteria.'],
+    ['refresh', '3 · Refine', 'ACT', 'Fix that ONE element — or metaprompt: “rewrite this prompt so it more consistently produces X”.'],
+    ['save', '4 · Standardize', 'STANDARD WORK', 'Works twice? Name it, version it, library (Part 6). Improve the standard, not the improvisation.'],
   ];
   iter.forEach((it, i) => {
     const x = 0.55 + (i % 2) * 3.05;
@@ -563,9 +563,9 @@ module.exports = function buildPartThree(pres, H) {
     H.card(s, x, y, 2.9, 1.9, i === 3 ? C.TEAL_TINT : C.PANEL);
     H.iconCircle(s, x + 0.2, y + 0.16, 0.44, it[0], C.TEAL);
     s.addText(it[1], { x: x + 0.74, y: y + 0.2, w: 2.1, h: 0.35, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
-    s.addShape('roundRect', { x: x + 0.2, y: y + 0.68, w: 1.5, h: 0.28, rectRadius: 0.06, fill: { color: C.AMBER_TINT }, line: { color: C.AMBER, width: 0.6 } });
-    s.addText(it[2], { x: x + 0.2, y: y + 0.69, w: 1.5, h: 0.26, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 7.5, bold: true, charSpacing: 0.5, color: C.AMBER, margin: 0 });
-    s.addText(it[3], { x: x + 0.2, y: y + 1.02, w: 2.55, h: 0.85, fontFace: F.body, fontSize: 8.9, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
+    s.addShape('roundRect', { x: x + 0.2, y: y + 0.68, w: 1.5, h: 0.3, rectRadius: 0.06, fill: { color: C.AMBER_TINT }, line: { color: C.AMBER, width: 0.6 } });
+    s.addText(it[2], { x: x + 0.2, y: y + 0.69, w: 1.5, h: 0.28, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 8.5, bold: true, charSpacing: 0.5, color: C.AMBER, margin: 0 });
+    s.addText(it[3], { x: x + 0.2, y: y + 1.02, w: 2.55, h: 0.85, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
   });
   H.card(s, 6.85, 1.62, 5.9, 4.1, C.PANEL);
   s.addText('Inspect with this — which element failed?', { x: 7.12, y: 1.8, w: 5.4, h: 0.38, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
@@ -580,8 +580,8 @@ module.exports = function buildPartThree(pres, H) {
   ];
   grid.forEach((g, i) => {
     const y = 2.28 + i * 0.49;
-    s.addText(g[0], { x: 7.12, y, w: 3.6, h: 0.42, fontFace: F.body, fontSize: 9.8, color: C.SLATE, margin: 0, valign: 'middle' });
-    s.addText(g[1], { x: 10.8, y, w: 1.75, h: 0.42, fontFace: F.body, fontSize: 9.8, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+    s.addText(g[0], { x: 7.12, y, w: 3.6, h: 0.42, fontFace: F.body, fontSize: 10.5, color: C.SLATE, margin: 0, valign: 'middle' });
+    s.addText(g[1], { x: 10.8, y, w: 1.75, h: 0.42, fontFace: F.body, fontSize: 10.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
     if (i < 6) s.addShape('line', { x: 7.12, y: y + 0.46, w: 5.35, h: 0, line: { color: C.LINE, width: 0.5 } });
   });
   H.card(s, 0.55, 5.95, 12.2, 1.12, C.AMBER_TINT);
@@ -597,14 +597,14 @@ module.exports = function buildPartThree(pres, H) {
   H.logo(s, 2.35, 6.06, 0.42, 'toyota', 'T');
   s.addText([
     { text: 'This is PDCA — Plan · Do · Check · Act: ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
-    { text: 'the Deming/Toyota improvement cycle, applied to prompts. The Lean Enterprise Institute now literally teaches “Prompt-Do-Check-Act.” Part 3 taught the elements; this loop turns them into tested templates; Part 6 turns templates into a team asset.', options: { color: C.SLATE, fontSize: 10.5 } },
+    { text: 'the Deming/Toyota improvement cycle, applied to prompts. The Lean Enterprise Institute now teaches “Prompt-Do-Check-Act.” Part 3 taught the elements; this loop turns them into tested templates; Part 6 turns templates into a team asset.', options: { color: C.SLATE, fontSize: 10.8 } },
   ], { x: 2.92, y: 6.05, w: 7.0, h: 0.95, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
   s.addShape('roundRect', { x: 10.06, y: 6.13, w: 2.56, h: 0.78, rectRadius: 0.07, fill: { color: 'FFFFFF' }, line: { color: C.AMBER, width: 1 } });
   s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'deming_portrait.jpg'), x: 10.16, y: 6.19, w: 0.66, h: 0.66, sizing: { type: 'cover', w: 0.66, h: 0.66 } });
   s.addShape('roundRect', { x: 10.16, y: 6.19, w: 0.66, h: 0.66, rectRadius: 0.05, fill: { type: 'none' }, line: { color: C.LINE, width: 0.5 } });
   s.addText([
-    { text: 'W. EDWARDS DEMING', options: { bold: true, color: C.INK, fontSize: 8.2, breakLine: true } },
-    { text: '1900–1993 · the quality pioneer whose cycle Toyota made famous', options: { color: C.SLATE, fontSize: 7, italic: true } },
+    { text: 'W. EDWARDS DEMING', options: { bold: true, color: C.INK, fontSize: 8.5, breakLine: true } },
+    { text: '1900–1993 · the quality pioneer whose cycle Toyota made famous', options: { color: C.SLATE, fontSize: 7.5, italic: true } },
   ], { x: 10.92, y: 6.17, w: 1.62, h: 0.7, fontFace: F.body, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
@@ -662,7 +662,6 @@ module.exports = function buildPartThree(pres, H) {
     { text: 'Then compare with a neighbor: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
     { text: 'whose STEP 2 summary is more useful — and which ELEMENT made the difference? Different fills, same anatomy.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 7.62, y: 5.22, w: 4.85, h: 1.3, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.08 });
-  s.addText('Why this rep: it is the one moment Part 3 asks you to WRITE — the elements stick when your hands use them once. Skippable if running long.', { x: 0.55, y: 6.85, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) 3:00 badge. The slide is INSTRUCTIONS ONLY (owner request) — the 60-word practice report lives in tab EX-Rebuild with both prompts; everyone works the same material from the workbook.\n' +
@@ -677,7 +676,8 @@ module.exports = function buildPartThree(pres, H) {
     '\n' +
     'CONTENT —\n' +
     'v1.7: the on-slide report box removed (owner: concentrate on the instructions); the report + both prompts live in tab EX-Rebuild, and the steps point there. The rep still runs as two R10 steps, baseline → upgrade, so the contrast is felt, not described.\n' +
-    'The excerpt is fictional and consistent with the practice dataset’s world (sites, suppliers, returns).');
+    'The excerpt is fictional and consistent with the practice dataset’s world (sites, suppliers, returns).\n' +
+    'Font-policy pass: the on-slide footnote was removed — say it if useful: this is the one moment Part 3 asks the room to WRITE; the elements stick when hands use them once. Skippable if running long.');
 
   // ================= PART 4 =================
 
@@ -725,13 +725,13 @@ module.exports = function buildPartThree(pres, H) {
     const y = 2.14 + i * 0.88;
     s.addShape('roundRect', { x: 0.75, y, w: 5.65, h: 0.8, rectRadius: 0.04, fill: { color: i % 2 ? 'FFFFFF' : C.TEAL_TINT }, line: { color: C.LINE, width: 0.5 } });
     s.addText(r[0], { x: 0.88, y: y + 0.03, w: 1.15, h: 0.74, fontFace: 'Consolas', fontSize: 11, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
-    s.addText(r[1], { x: 2.06, y: y + 0.03, w: 4.25, h: 0.74, fontFace: 'Consolas', fontSize: 7.8, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
+    s.addText(r[1], { x: 2.06, y: y + 0.03, w: 4.25, h: 0.74, fontFace: 'Consolas', fontSize: 10, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
     // connector to the why-card
     s.addShape('line', { x: 6.42, y: y + 0.4, w: 0.5, h: 0, line: { color: C.MUTE, width: 0.75, dashType: 'sysDot' } });
     H.card(s, 6.94, y - 0.02, 5.8, 0.84, C.PANEL);
     s.addText([
-      { text: r[2] + ' — ', options: { bold: true, color: C.INK, fontSize: 10 } },
-      { text: r[3], options: { color: C.SLATE, fontSize: 9.2, italic: true } },
+      { text: r[2] + ' — ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
+      { text: r[3], options: { color: C.SLATE, fontSize: 10, italic: true } },
     ], { x: 7.18, y: y + 0.03, w: 5.35, h: 0.74, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.0 });
   });
   H.callout(s, 0.55, 6.7, 12.2, 0.45, C.TEAL_TINT, [
@@ -765,7 +765,7 @@ module.exports = function buildPartThree(pres, H) {
     { t: 'Course_Workbook.xlsx, Data tab — 12 months of fictional supplier deliveries: 4 sites × 3 suppliers, 144 rows (units, returns, defects, inspection hours, cost, on-time).' },
     { t: 'The README tab defines every column — that tab IS your <data> block: paste it, don’t retype it.', b: true },
     { t: 'Two quirks are planted on purpose. A good first prompt finds both.' },
-  ], { size: 10.8, gap: 7 });
+  ], { size: 11, gap: 7 });
   H.card(s, 0.55, 4.38, 5.9, 2.2, C.TEAL_TINT);
   s.addText([
     { text: 'The rule the whole walkthrough teaches: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12, breakLine: true, paraSpaceAfter: 4 } },
@@ -776,13 +776,13 @@ module.exports = function buildPartThree(pres, H) {
   s.addShape('line', { x: 9.75, y: 2.16, w: 0, h: 0.2, line: { color: C.TEAL, width: 1.5, endArrowType: 'triangle' } });
   H.stepBig(s, 6.75, 2.4, 6.0, 2, 'TYPE THIS — then wait (tab G2-DataAnalysis)', C.TEAL_TINT);
   H.card(s, 6.75, 2.98, 6.0, 1.5, 'FFFFFF', C.LINE);
-  s.addText('Work only with the Data tab of this workbook. Before any analysis: profile it — rows, columns, types, missing or odd values, and anything that would trip a calculation. Show me the profile and STOP. Do not analyze yet.', { x: 6.95, y: 3.08, w: 5.6, h: 1.32, fontFace: 'Consolas', fontSize: 9.6, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.1 });
+  s.addText('Work only with the Data tab of this workbook. Before any analysis: profile it — rows, columns, types, missing or odd values, and anything that would trip a calculation. Show me the profile and STOP. Do not analyze yet.', { x: 6.95, y: 3.08, w: 5.6, h: 1.32, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.1 });
   s.addShape('line', { x: 9.75, y: 4.52, w: 0, h: 0.2, line: { color: C.TEAL, width: 1.5, endArrowType: 'triangle' } });
   H.stepBig(s, 6.75, 4.76, 6.0, 3, 'CHECK the profile against this reveal', C.AMBER_TINT);
   H.card(s, 6.75, 5.34, 6.0, 1.32, C.AMBER_TINT);
   s.addText([
     { text: 'A good profile finds: ', options: { bold: true, color: C.AMBER, fontSize: 10.5 } },
-    { text: '144 data rows + a TOTAL row to exclude · one Inspection_Hours cell that says “n/a” · clean types elsewhere. Missed a quirk? That’s why this step exists — tell it, and make it re-profile.', options: { color: C.SLATE, fontSize: 10 } },
+    { text: '144 data rows + a TOTAL row to exclude · one Inspection_Hours cell that says “n/a” · clean types elsewhere. Missed a quirk? That’s why this step exists — tell it, and make it re-profile.', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { x: 6.98, y: 5.44, w: 5.55, h: 1.12, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.06 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
@@ -818,8 +818,8 @@ module.exports = function buildPartThree(pres, H) {
   steps2.forEach((st, i) => {
     const y = 1.62 + i * 1.68;
     H.stepBig(s, 0.55, y, 12.2, i + 1, st[0], C.TEAL_TINT);
-    H.card(s, 0.55, y + 0.56, 12.2, i === 0 ? 1.04 : 0.86, 'FFFFFF', C.LINE);
-    s.addText(st[1], { x: 0.75, y: y + 0.63, w: 11.8, h: (i === 0 ? 1.04 : 0.86) - 0.14, fontFace: 'Consolas', fontSize: 8.4, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.06 });
+    H.card(s, 0.55, y + 0.56, 12.2, i === 0 ? 1.1 : 0.86, 'FFFFFF', C.LINE);
+    s.addText(st[1], { x: 0.75, y: y + 0.63, w: 11.8, h: (i === 0 ? 1.1 : 0.86) - 0.14, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.06 });
   });
   H.callout(s, 0.55, 6.7, 12.2, 0.42, C.AMBER_TINT, [
     { text: 'The tension the data holds: ', options: { bold: true, color: C.INK, fontSize: 10 } },
@@ -852,11 +852,11 @@ module.exports = function buildPartThree(pres, H) {
   H.bullets(s, 0.9, 2.24, 5.3, 1.8, [
     { t: 'Three fictional supplier quotations (PDFs) answering the same RFQ — Alpha Components, Bravo Plastics, Cardinal Metals.' },
     { t: 'Deliberately NOT comparable at first glance: one quotes in euros per 1,000 units, one excludes tooling, one includes shipping, warranties differ 6–24 months.', b: true },
-  ], { size: 10.8, gap: 7 });
+  ], { size: 11, gap: 7 });
   H.card(s, 0.55, 4.28, 5.9, 2.3, C.AMBER_TINT);
   s.addText([
     { text: 'What the room should notice: ', options: { bold: true, color: C.AMBER, fontSize: 11.5, breakLine: true, paraSpaceAfter: 4 } },
-    { text: 'the “cheapest” quote stops looking cheapest once currency, per-1,000 pricing, tooling and freight are normalized — exactly the kind of buried-terms error AI is good at catching, IF you ask for normalization explicitly. The AI’s exchange rate must be flagged as an assumption to verify.', options: { color: C.SLATE, fontSize: 10.5 } },
+    { text: 'the “cheapest” quote stops looking cheapest once currency, per-1,000 pricing, tooling and freight are normalized — exactly the kind of buried-terms error AI is good at catching, IF you ask for normalization explicitly. The AI’s exchange rate must be flagged as an assumption to verify.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 0.85, y: 4.46, w: 5.3, h: 2.0, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.08 });
   const qsteps = [
     ['Extract & normalize',
@@ -868,9 +868,9 @@ module.exports = function buildPartThree(pres, H) {
     const y = 1.62 + i * 2.52;
     H.stepBig(s, 6.75, y, 6.0, i + 1, st[0], C.TEAL_TINT);
     H.card(s, 6.75, y + 0.56, 6.0, 1.86, 'FFFFFF', C.LINE);
-    s.addText(st[1], { x: 6.95, y: y + 0.66, w: 5.6, h: 1.66, fontFace: 'Consolas', fontSize: 8.7, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.08 });
+    s.addText(st[1], { x: 6.95, y: y + 0.66, w: 5.6, h: 1.66, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.08 });
   });
-  s.addText('Works the same in a chat upload, Copilot, or your company assistant — this is G8 (summarize & compare) grown teeth. ✂ Both prompts: tab EX-Quotes of your Course Workbook.', { x: 0.55, y: 6.72, w: 12.2, h: 0.32, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addText('Works the same in a chat upload, Copilot, or your company assistant — this is G8 grown teeth. ✂ Both prompts: tab EX-Quotes of your Course Workbook.', { x: 0.55, y: 6.72, w: 12.2, h: 0.36, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “same discipline, messier input: three PDFs answering one RFQ — and they don’t line up on purpose.”\n' +
@@ -895,21 +895,21 @@ module.exports = function buildPartThree(pres, H) {
   H.title(s, 'Walkthrough · from answer to artifact', 'Make the AI ship the file, not just the answer');
   H.stepBig(s, 0.55, 1.62, 12.2, 4, 'The deliverable — ship the file, not just the answer', C.TEAL_TINT);
   H.card(s, 0.55, 2.18, 12.2, 1.3, 'FFFFFF', C.LINE);
-  s.addText('Turn the supplier scorecard into a one-sheet spreadsheet I can circulate: a README tab explaining every column and where the numbers came from, the scorecard tab with formulas visible — not pasted values — and a short caveats section (the “n/a” cell, the excluded TOTAL row, the exchange-rate assumption). Use only numbers from this chat; if one is missing, leave the cell blank and say so — do not invent it.', { x: 0.75, y: 2.28, w: 11.8, h: 1.12, fontFace: 'Consolas', fontSize: 9.2, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.1 });
+  s.addText('Turn the supplier scorecard into a one-sheet spreadsheet I can circulate: a README tab explaining every column and where the numbers came from, the scorecard tab with formulas visible — not pasted values — and a short caveats section (the “n/a” cell, the excluded TOTAL row, the exchange-rate assumption). Use only numbers from this chat; if one is missing, leave the cell blank and say so — do not invent it.', { x: 0.75, y: 2.28, w: 11.8, h: 1.12, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.1 });
   H.card(s, 0.55, 3.65, 5.9, 2.75, C.PANEL);
   s.addText([
     { text: 'Why these spec lines matter', options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 5 } },
-    { text: 'README tab — the file explains itself when it’s forwarded without you.\nFormulas visible — anyone can audit; nothing is a magic number.\nCaveats section — the quirks and assumptions travel WITH the numbers.\n“Don’t invent” + blank cells — the Out, working inside a spreadsheet.', options: { color: C.SLATE, fontSize: 10.8 } },
+    { text: 'README tab — the file explains itself when it’s forwarded without you.\nFormulas visible — anyone can audit; nothing is a magic number.\nCaveats section — the quirks and assumptions travel WITH the numbers.\n“Don’t invent” + blank cells — the Out, working inside a spreadsheet.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 0.85, y: 3.85, w: 5.3, h: 2.4, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.15 });
   H.card(s, 6.75, 3.65, 6.0, 2.75, C.TEAL_TINT);
   s.addText([
     { text: 'The same move, everywhere', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 5 } },
-    { text: 'Copilot in Excel: “build this as a new sheet with formulas” — it writes them in place.\nChat assistants: they produce the .xlsx for download.\nAgentic tools (Part 5): they build the file, chart it, and write the email that sends it.\nThe prompt barely changes — the delegation level does.', options: { color: C.SLATE, fontSize: 10.8 } },
+    { text: 'Copilot in Excel: “build this as a new sheet with formulas” — it writes them in place.\nChat assistants: they produce the .xlsx for download.\nAgentic tools (Part 5): they build the file, chart it, and write the email that sends it.\nThe prompt barely changes — the delegation level does.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 7.05, y: 3.85, w: 5.4, h: 2.4, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.15 });
   H.callout(s, 0.55, 6.6, 12.2, 0.5, C.RED_TINT, [
-    { text: 'Before it ships: ', options: { bold: true, color: C.RED, fontSize: 10.5 } },
-    { text: 'open the file, spot-check two formulas against the chat, and verify the exchange rate — the house rule never retires.', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { iconName: 'alert', iconFill: C.RED, size: 10.5 });
+    { text: 'Before it ships: ', options: { bold: true, color: C.RED, fontSize: 11 } },
+    { text: 'open the file, spot-check two formulas against the chat, and verify the exchange rate — the house rule never retires.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { iconName: 'alert', iconFill: C.RED, size: 11 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “the last mile — most people copy AI answers into Excel by hand. Don’t: make it ship the artifact.”\n' +
@@ -943,14 +943,14 @@ module.exports = function buildPartThree(pres, H) {
     H.card(s, 0.55, y, 7.6, 1.2, C.PANEL);
     s.addText([
       { text: d[0] + '  ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 2 } },
-      { text: d[1], options: { color: C.SLATE, fontSize: 10.8 } },
+      { text: d[1], options: { color: C.SLATE, fontSize: 11 } },
     ], { x: 0.82, y: y + 0.08, w: 7.05, h: 1.04, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
   });
   H.card(s, 8.45, 1.7, 4.3, 3.95, C.AMBER_TINT);
-  s.addText('What the room should notice', { x: 8.7, y: 1.86, w: 3.8, h: 0.3, fontFace: F.body, fontSize: 12, bold: true, color: C.AMBER, margin: 0 });
-  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'dashboard_laptop.jpg'), x: 8.7, y: 2.2, w: 3.8, h: 1.5, sizing: { type: 'cover', w: 3.8, h: 1.5 } });
-  s.addShape('roundRect', { x: 8.7, y: 2.2, w: 3.8, h: 1.5, rectRadius: 0.05, fill: { type: 'none' }, line: { color: C.LINE, width: 0.75 } });
-  s.addText('The deliverable is a tool, not a text. The spec lines that made it trustworthy: single file · offline · data embedded · nothing hard-coded · formulas on screen.\n\nCaveats to say out loud: it is a snapshot, not a live system — and share the FILE, not a public link.', { x: 8.7, y: 3.82, w: 3.8, h: 1.75, fontFace: F.body, fontSize: 10.2, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.06 });
+  s.addText('What the room should notice', { x: 8.7, y: 1.84, w: 3.8, h: 0.3, fontFace: F.body, fontSize: 12, bold: true, color: C.AMBER, margin: 0 });
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'dashboard_laptop.jpg'), x: 8.7, y: 2.18, w: 3.8, h: 2.14, sizing: { type: 'cover', w: 3.8, h: 2.14 } });
+  s.addShape('roundRect', { x: 8.7, y: 2.18, w: 3.8, h: 2.14, rectRadius: 0.05, fill: { type: 'none' }, line: { color: C.LINE, width: 0.75 } });
+  s.addText('The deliverable is a tool, not a text. What made it trustworthy: single file · offline · data embedded · formulas visible. Say aloud: a snapshot, not a live system — share the FILE, not a link.', { x: 8.7, y: 4.4, w: 3.8, h: 1.2, fontFace: F.body, fontSize: 10.8, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.04 });
   H.callout(s, 0.55, 5.8, 12.2, 0.6, C.PANEL, [
     { text: 'Backup plan: ', options: { bold: true, color: C.INK, fontSize: 11 } },
     { text: 'if generation runs long, open the pre-built copy from your desktop and narrate the prompt — the room still sees prompt → working software.', options: { color: C.SLATE, fontSize: 11 } },
@@ -992,20 +992,20 @@ module.exports = function buildPartThree(pres, H) {
     const y = 1.62 + i * 0.86;
     H.card(s, 0.55, y, 6.0, 0.76, i === 1 ? C.TEAL_TINT : C.PANEL);
     s.addText([
-      { text: r[0] + ' — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.8 } },
-      { text: r[1], options: { color: C.SLATE, fontSize: 9.4 } },
+      { text: r[0] + ' — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
+      { text: r[1], options: { color: C.SLATE, fontSize: 10.5 } },
     ], { x: 0.82, y: y + 0.06, w: 5.5, h: 0.64, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.02 });
   });
   s.addShape('roundRect', { x: 6.75, y: 1.62, w: 6.0, h: 0.42, rectRadius: 0.07, fill: { color: C.TEAL }, line: { type: 'none' } });
   s.addText('THE PROMPT · the structured brief (shape 2)', { x: 6.95, y: 1.65, w: 5.6, h: 0.36, fontFace: F.body, fontSize: 10.5, bold: true, color: 'FFFFFF', margin: 0, valign: 'middle' });
   H.card(s, 6.75, 2.1, 6.0, 2.62, 'FFFFFF', C.LINE);
-  s.addText('Summarize the email thread below under four headers, in order: 1) OVERVIEW — two sentences. 2) DECISIONS — bullets; write “None” if nothing was decided. 3) ACTION ITEMS — task — owner — due date; leave a slot blank rather than guess. 4) OPEN QUESTIONS — raised but never answered. Rules: use only facts in the thread · work oldest-first and flag anywhere a decision or date CHANGED later — show both, mark the latest · do not invent owners or dates. Thread: [paste, oldest first]', { x: 6.95, y: 2.22, w: 5.6, h: 2.4, fontFace: 'Consolas', fontSize: 8.9, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.12 });
+  s.addText('Summarize the email thread below under four headers, in order: 1) OVERVIEW — two sentences. 2) DECISIONS — bullets; write “None” if nothing was decided. 3) ACTION ITEMS — task — owner — due date; leave a slot blank rather than guess. 4) OPEN QUESTIONS — raised but never answered. Rules: use only facts in the thread · work oldest-first and flag anywhere a decision or date CHANGED later — show both, mark the latest · do not invent owners or dates. Thread: [paste, oldest first]', { x: 6.95, y: 2.22, w: 5.6, h: 2.4, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.12 });
   H.card(s, 6.75, 4.9, 6.0, 1.68, C.AMBER_TINT);
   s.addText([
     { text: 'Your practice thread (in the pack): ', options: { bold: true, color: C.AMBER, fontSize: 11, breakLine: true, paraSpaceAfter: 3 } },
-    { text: '“Q3 packaging change” — 10 messages, 6 people, and four planted traps: a date that MOVED mid-thread, an approval WITH a condition, a question nobody answered, and a mentioned attachment that isn’t there. A good brief catches all four.', options: { color: C.SLATE, fontSize: 10.2 } },
+    { text: '“Q3 packaging change” — 10 messages, 6 people, and four planted traps: a date that MOVED mid-thread, an approval WITH a condition, a question nobody answered, and a mentioned attachment that isn’t there. A good brief catches all four.', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { x: 6.98, y: 5.06, w: 5.55, h: 1.42, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.08 });
-  s.addText('Why this play: thread summarization is the single most-used Copilot feature — and the easiest to trust blindly. ✂ All five shape prompts: tab EX-Email of your Course Workbook.', { x: 0.55, y: 6.1, w: 6.0, h: 0.8, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.05 });
+  s.addText('Why this play: thread summarization is the single most-used Copilot feature — and the easiest to trust blindly. ✂ All five shape prompts: tab EX-Email of your Course Workbook.', { x: 0.55, y: 6.1, w: 6.0, h: 0.8, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.05 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “the other daily play — the inbox. There isn’t ONE way to summarize a thread; there are five shapes, and picking the shape is the skill.”\n' +
@@ -1037,52 +1037,51 @@ module.exports = function buildPartThree(pres, H) {
     const x = 0.55 + i * 4.15;
     s.addShape('roundRect', { x, y: 1.58, w: 3.95, h: 1.5, rectRadius: 0.05, fill: { color: 'FFFFFF' }, line: { color: C.SLATE, width: 1 } });
     s.addShape('roundRect', { x, y: 1.58, w: 3.95, h: 0.3, rectRadius: 0.05, fill: { color: i === 1 ? C.TEAL : C.SLATE }, line: { type: 'none' } });
-    s.addText(p[0], { x: x + 0.12, y: 1.58, w: 3.75, h: 0.3, fontFace: F.body, fontSize: 8.5, bold: true, color: 'FFFFFF', margin: 0, valign: 'middle' });
+    s.addText(p[0], { x: x + 0.12, y: 1.58, w: 3.75, h: 0.3, fontFace: F.body, fontSize: 9, bold: true, color: 'FFFFFF', margin: 0, valign: 'middle' });
     if (p[1] === 'A') {
       s.addText('Q3 packaging change', { x: x + 0.15, y: 1.94, w: 3.6, h: 0.24, fontFace: F.body, fontSize: 9, bold: true, color: C.INK, margin: 0 });
       [0, 1, 2].forEach(r => {
         s.addShape('ellipse', { x: x + 0.17, y: 2.24 + r * 0.26, w: 0.16, h: 0.16, fill: { color: [C.TEAL, C.AMBER, C.SLATE][r] }, line: { type: 'none' } });
         s.addShape('roundRect', { x: x + 0.42, y: 2.27 + r * 0.26, w: 2.4 - r * 0.4, h: 0.1, rectRadius: 0.03, fill: { color: C.LINE }, line: { type: 'none' } });
       });
-      s.addText('10 messages · 6 people', { x: x + 0.15, y: 2.82, w: 3.6, h: 0.22, fontFace: F.body, fontSize: 7.5, italic: true, color: C.MUTE, margin: 0 });
+      s.addText('10 messages · 6 people', { x: x + 0.15, y: 2.82, w: 3.6, h: 0.22, fontFace: F.body, fontSize: 8.5, italic: true, color: C.MUTE, margin: 0 });
     } else if (p[1] === 'B') {
       [0, 1, 2].forEach(r => {
         s.addShape('roundRect', { x: x + 0.17, y: 2.02 + r * 0.3, w: 2.9 - r * 0.5, h: 0.11, rectRadius: 0.03, fill: { color: C.LINE }, line: { type: 'none' } });
         s.addShape('roundRect', { x: x + 3.12 - r * 0.5, y: 1.99 + r * 0.3, w: 0.22, h: 0.17, rectRadius: 0.03, fill: { color: C.TEAL }, line: { type: 'none' } });
         s.addText(String(r + 1), { x: x + 3.12 - r * 0.5, y: 1.97 + r * 0.3, w: 0.22, h: 0.19, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 7, bold: true, color: 'FFFFFF', margin: 0 });
       });
-      s.addText('each number is a click-through citation — your verification tool', { x: x + 0.15, y: 2.78, w: 3.65, h: 0.28, fontFace: F.body, fontSize: 7.5, italic: true, color: C.TEAL_DARK, margin: 0 });
+      s.addText('each number is a click-through citation — your verification tool', { x: x + 0.15, y: 2.76, w: 3.65, h: 0.3, fontFace: F.body, fontSize: 8.5, italic: true, color: C.TEAL_DARK, margin: 0 });
     } else {
       s.addShape('roundRect', { x: x + 0.15, y: 1.98, w: 3.65, h: 0.4, rectRadius: 0.06, fill: { color: 'FFFFFF' }, line: { color: C.TEAL, width: 1 } });
-      s.addText('“Who owes the next reply, and by when?”', { x: x + 0.25, y: 2.0, w: 3.45, h: 0.36, fontFace: 'Consolas', fontSize: 7.6, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
-      s.addText('“List the action items” · “What did you base that on?”', { x: x + 0.15, y: 2.48, w: 3.65, h: 0.5, fontFace: 'Consolas', fontSize: 7.2, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.1 });
+      s.addText('“Who owes the next reply, and by when?”', { x: x + 0.25, y: 2.0, w: 3.45, h: 0.36, fontFace: 'Consolas', fontSize: 8.5, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
+      s.addText('“List the action items” · “What did you base that on?”', { x: x + 0.15, y: 2.48, w: 3.65, h: 0.5, fontFace: 'Consolas', fontSize: 8.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.1 });
     }
   });
-  s.addText('stylized illustration — not a screenshot', { x: 9.4, y: 3.1, w: 3.35, h: 0.22, align: 'right', fontFace: F.body, fontSize: 7.5, italic: true, color: C.MUTE, margin: 0 });
+  s.addText('stylized illustration — not a screenshot', { x: 8.9, y: 3.1, w: 3.85, h: 0.26, align: 'right', fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0 });
   H.card(s, 0.55, 3.42, 5.9, 1.95, C.PANEL);
   s.addText('Mechanics worth knowing', { x: 0.85, y: 3.55, w: 5.3, h: 0.32, fontFace: F.head, fontSize: 12.5, bold: true, color: C.INK, margin: 0 });
   H.bullets(s, 0.9, 3.92, 5.3, 1.4, [
-    { t: 'The summary’s numbered citations jump to the source email — verify names and dates through them.', b: true },
-    { t: 'Limits: attachments NOT read (use “Summarize a file”) · shared mailboxes & encrypted mail out of scope · very short threads produce nothing.' },
+    { t: 'Numbered citations jump to the source email — verify names and dates through them.', b: true },
+    { t: 'Limits: attachments NOT read (use “Summarize a file”) · shared & encrypted mail excluded · very short threads produce nothing.' },
     { t: 'Microsoft’s own anatomy = ours: Goal · Context · Source · Expectations.' },
-  ], { size: 8.8, gap: 4 });
+  ], { size: 10.5, gap: 4 });
   H.callout(s, 0.55, 5.5, 5.9, 1.5, C.RED_TINT, [
-    { text: 'Where naive “summarize this” fails: ', options: { bold: true, color: C.RED, fontSize: 10, breakLine: true } },
-    { text: 'the FIRST date, not the moved one · qualifiers dropped (“approved with a cap” → “approved”) · invented owners for “I’ll look into it.” Our prompt’s rules exist because of these three failures.', options: { color: C.SLATE, fontSize: 9.4 } },
-  ], { iconName: 'alert', iconFill: C.RED, size: 10 });
+    { text: 'Where naive “summarize this” fails: ', options: { bold: true, color: C.RED, fontSize: 10.5, breakLine: true } },
+    { text: 'the FIRST date, not the moved one · qualifiers dropped (“approved with a cap” → “approved”) · invented owners for “I’ll look into it.” Our prompt’s rules exist because of these three failures.', options: { color: C.SLATE, fontSize: 10.5 } },
+  ], { iconName: 'alert', iconFill: C.RED, size: 10.5 });
   const eseq = [
     ['STEP 1 · The brief', 'Run the structured brief from the last slide on the practice thread (paste it, or run it on the thread in Copilot). Check it caught: the moved date, the 18k condition, the unanswered question, the missing attachment.'],
     ['STEP 2 · Reply prep', 'From the thread: List A — every question raised that was never answered. List B — WHO OWES WHAT: “X owes Y: [thing] by [date]”, latest state only. Blank beats guessed.'],
     ['STEP 3 · The reply', 'Using the brief above, draft my reply: answer the open questions, confirm the decisions with their conditions, propose next steps. Do not invent commitments — leave a [bracket] where I must decide. Under 120 words, one clear next step at the end.'],
   ];
   eseq.forEach((st, i) => {
-    const y = 3.42 + i * 1.16;
+    const y = 3.42 + i * 1.22;
     s.addShape('roundRect', { x: 6.6, y, w: 6.15, h: 0.34, rectRadius: 0.06, fill: { color: C.TEAL }, line: { type: 'none' } });
     s.addText(st[0], { x: 6.78, y: y + 0.01, w: 5.8, h: 0.32, fontFace: F.body, fontSize: 9.5, bold: true, color: 'FFFFFF', margin: 0, valign: 'middle' });
-    H.card(s, 6.6, y + 0.36, 6.15, 0.72, 'FFFFFF', C.LINE);
-    s.addText(st[1], { x: 6.78, y: y + 0.4, w: 5.8, h: 0.64, fontFace: 'Consolas', fontSize: 7.5, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 0.98 });
+    H.card(s, 6.6, y + 0.36, 6.15, 0.78, 'FFFFFF', C.LINE);
+    s.addText(st[1], { x: 6.78, y: y + 0.4, w: 5.8, h: 0.7, fontFace: 'Consolas', fontSize: 9.5, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 0.98 });
   });
-  s.addText('Same prompts in any assistant — Copilot adds the citations and the tenant boundary (Part 2: green tier). ✂ Steps 1–3: tab EX-Email of your Course Workbook.', { x: 6.6, y: 6.88, w: 6.15, h: 0.28, fontFace: F.body, fontSize: 8, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) TOP strip — walk the three panels left to right like a comic: ① the thread as Outlook shows it (10 messages, 6 people) → ② the “Summary by Copilot” button output, where every numbered chip is a CLICK-THROUGH citation back to the source email → ③ the Copilot pane, where the real work happens with your refine prompts. Say once: stylized illustration, not a screenshot — buttons move; the flow doesn’t.\n' +
@@ -1100,7 +1099,8 @@ module.exports = function buildPartThree(pres, H) {
     'CONTENT —\n' +
     'v1.6: stylized 3-panel Outlook strip added (owner: pictures + do-from-Outlook); drawn in house style and labeled as illustration — no real UI screenshots, so nothing goes stale or misrepresents a tenant.\n' +
     'Copilot mechanics verified against Microsoft Support pages Sep 2026 (r16): thread summary + numbered citations; refine-in-pane prompts (Bowdoin KB examples); attachments not read by default (“Summarize a file” added Jun 2025); primary-mailbox-only scope; encrypted/IRM excluded; ~1,000-character minimum (documented for Copilot for Sales, widely reported for Outlook).\n' +
-    'Advanced variants for questions (r16): scheduled daily triage (“Summarize emails from the past day that haven’t received a reply; rank importance 1–5; draft replies for 3+”) · cross-channel reconcile table (Mail/Teams/Channel | Topic | Summary | Action | Follow-up) · chunk-and-merge sequence for 30+ message threads (carry running decisions/questions forward; reconcile conflicts to the latest value, and say so).');
+    'Advanced variants for questions (r16): scheduled daily triage (“Summarize emails from the past day that haven’t received a reply; rank importance 1–5; draft replies for 3+”) · cross-channel reconcile table (Mail/Teams/Channel | Topic | Summary | Action | Follow-up) · chunk-and-merge sequence for 30+ message threads (carry running decisions/questions forward; reconcile conflicts to the latest value, and say so).\n' +
+    'Font-policy pass: the on-slide footer under the steps was removed (fewer footnotes) — its content is already step 5 above: same prompts work in any assistant; Copilot adds citations and the tenant boundary (green tier); steps 1–3 live in tab EX-Email.');
 
   // ---------- 42. FUTURE PLAYS MENU (closes Block 2) ----------
   s = H.slide('PART 4 · WHAT NEXT', 42);
@@ -1120,7 +1120,7 @@ module.exports = function buildPartThree(pres, H) {
     H.iconCircle(s, x + 0.2, y + 0.24, 0.46, p[0], C.TEAL);
     s.addText([
       { text: p[1], options: { bold: true, color: C.INK, fontSize: 12, breakLine: true, paraSpaceAfter: 3 } },
-      { text: p[2], options: { color: C.SLATE, fontSize: 9.8 } },
+      { text: p[2], options: { color: C.SLATE, fontSize: 10.5 } },
     ], { x: x + 0.8, y: y + 0.1, w: 5.0, h: 1.2, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
   });
   H.callout(s, 0.55, 6.3, 12.2, 0.65, C.TEAL_TINT, [
