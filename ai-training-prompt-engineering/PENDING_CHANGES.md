@@ -1213,3 +1213,20 @@ Reviewer blind spots (for the record): couldn't see speaker notes, workbook
 system, audience (non-API chat users), or decision history.
 
 ### 9B · Grok review — pending (owner will paste next).
+
+### 9C · Owner-endorsed clarification → NEW SLIDE candidate (2026-09-10, HELD)
+"You write with the anatomy — you improve with the loop": anatomy = DESIGN layer
+(what a prompt contains; the seven elements; "is it complete?"); PDCA = PROCESS
+layer (what you do with it; "how does it get good and stay good"). Slide shape:
+anatomy column (THE WHAT) · PDCA ring (THE WHEN) · center: the annotated
+worked prompt from chat 2026-09-10 — PLAN block = the seven elements on the
+returns-report brief; DO = numbered sequence + wait-gate; CHECK = reconcile-to-
+TOTAL as a precondition, stop-on-fail; ACT = "list what was ambiguous so I fix
+the brief for next month" (the prompt improving itself → versioned standard).
+Footer verbatim: "In chat, you run the loop by hand. In agentic work, you write
+the loop into the brief — which is why it works best there." Placement default:
+right after "The toolkit is a loop" (Part 3), explicit callback at the Part 5
+mission-brief slide (A-template blocks = these four sections); alt placement:
+Block 3 bridge — owner picks at Part 5 review. Owner: "I want to be able to
+bring this clarification in a slide for sure… indicate that indeed it works best
+for agentic prompting."
