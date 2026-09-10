@@ -1243,6 +1243,34 @@ style** (the four S14 emblems remain flat vector). Prompts handed over in chat:
 
 Placements sketched, final geometry at the v1.8 render. All HELD per R1.
 
+### Round 8b verification (owner's 19:55 batch, checked 2026-09-10)
+
+Seven images landed; **all 7 pass spec** (style, palette anchors, aspect, hard
+no-text — every clipboard, label box, book spine, and frame interior blank).
+Mapping by filename infix → target (name at embed):
+
+| infix | target | verdict |
+|---|---|---|
+| 406u01 | Part 5 courier — paper cut-out collage, envelope w/ amber wax seal, 16:9 | ✓ → `courier_work_order.jpg` (envelope beats the specced folded note) |
+| wkrksz | Part 6 guardrails — vintage travel poster, 4:5 | ✓ → `guardrails_road.jpg` (batch standout) |
+| n1q1s8 | Part 5 memory ladder — risograph triptych + arrow, 16:9 | ✓ → `memory_ladder.jpg` |
+| jkl0f8 | 9C anatomy-vs-loop — teal blueprint, empty label boxes, 4-node amber loop, 1:1 | ✓ → `blueprint_loop.jpg` |
+| 1zpahs | Closing question — gouache bench scene, amber ? vs teal dot-constellation ?, 16:9 | ✓ → `question_bench.jpg` |
+| fc2r3b | S15 gallery wall — duotone halftone, 7 empty frames + rope, 16:9 | ✓ → `shame_gallery.jpg`; USE decided at render: headline text set inside frames if geometry allows, else side/backdrop art |
+| ng02ac | Literal fake receipt — flat vector, teal line-bars, amber seal, pixel dissolve, 1:1 | ✓ spec-valid; REOPENS emblem-2 choice (below) |
+
+- **Emblem 2 choice reopened by the owner's own generation:** the standing
+  ruling is (a) certificate + retitle "The fake credential". The owner then
+  generated the literal receipt anyway (ng02ac), which also passes and matches
+  the emblem set. RECOMMENDATION: use the RECEIPT and keep the existing card
+  title "The fake receipt" (zero copy ripple); certificate benched to intake.
+  Standing ruling (a) applies unless the owner says "receipt".
+- Design-soundness notes for the render: blueprint + gallery are intentional
+  accent-background images (deep teal / busy salon wall) — both sit inside
+  H.card frames; bench scene and poster have painterly/print edge borders —
+  full-bleed OK or frame, decide at render. All subjects large enough to read
+  at slide scale.
+
 ---
 
 ## ROUND 9 — external AI reviews (owner-run) · 2026-09-10 · ⏸ HELD
