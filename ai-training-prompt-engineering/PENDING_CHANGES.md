@@ -1315,3 +1315,12 @@ LongMemEval 300 vs 113k) · OWASP Agentic Top 10 (Dec 2025/2026) + IMDA agentic
 framework v1.5 / OpenClaw note · GPT-5.5/5.6 outcome-first + "10–15% better,
 41–66% fewer tokens" claim · Cheng Science 391(6792) full citation cross-check ·
 Salesforce 2026 earned-autonomy · Forbes Fitzpatrick 2026-06-05.
+
+### 9D · Owner rulings on the Round-9 conflicts (2026-09-10)
+- KEEP, settled: hardware slide · era slides · DeepSeek hero (bill + hospital) ·
+  assistant trading cards. Grok's cut/demote suggestions on these are REJECTED.
+  Kill-order note for facilitator guidance stays HELD as the compromise (trim
+  order when late: hardware → logos → book list → DeepSeek detail — removes
+  nothing from the deck).
+- Still open, conservative defaults: run-of-show stays retired (revisit only if
+  deputies teach) · 30-day success criterion stays out (owner decision B7).
