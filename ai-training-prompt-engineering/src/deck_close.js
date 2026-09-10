@@ -142,37 +142,47 @@ module.exports = function buildClose(pres, H) {
     s.addText(t[0], { x: x + 0.12, y: y + 0.14, w: 0.6, h: 0.6, fontFace: F.head, fontSize: 20, bold: true, color: C.TEAL, align: 'center', margin: 0 });
     s.addText(t[1], { x: x + 0.78, y: y + 0.06, w: 5.05, h: 0.8, fontFace: F.body, fontSize: 9.8, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.02 });
   });
+  s.addText('And if you keep only one sentence: a prompt deletes wrong guesses, binds the job, and decides what sits on the desk.', { x: 0.55, y: 6.68, w: 12.2, h: 0.32, align: 'center', fontFace: F.body, fontSize: 10.5, italic: true, color: C.TEAL_DARK, margin: 0 });
   s.addNotes(
-    'HOW TO PRESENT — 1) Announce: “this is the slide people photograph — go ahead.” 2) Read all ten SLOWLY, in order, left column then right, 1→10. No commentary between them; the compression is the point. 3) If asked where one came from, the map: 1–2 anatomy, 3–5 concepts, 6–7 evidence, 8–9 agentic, 10 management. 4) Bridge: “three exercises to make it stick.”\n' +
+    'HOW TO PRESENT — 1) Announce: “this is the slide people photograph — go ahead.” 2) Read all ten SLOWLY, in order, left column then right, 1→10. No commentary between them; the compression is the point. 3) If asked where one came from, the map: 1–2 anatomy, 3–5 concepts, 6–7 evidence, 8–9 agentic, 10 management. 4) Close on the italic footer — the whole course in one sentence: a prompt deletes wrong guesses (Part 1), binds the job (Parts 3–5), and decides what sits on the desk (context — Parts 1 and 5). 5) Bridge: “three exercises to make it stick.”\n' +
     'ACRONYMS — none new on this slide.\n' +
-    'CONTENT — Each maps back to a part: 1–2 anatomy, 3–5 concepts, 6–7 evidence, 8–9 agentic, 10 management.');
+    'CONTENT — Each maps back to a part: 1–2 anatomy, 3–5 concepts, 6–7 evidence, 8–9 agentic, 10 management. v1.8: the one-sentence wrap-up added (external-review adoption, 9B-ext) — it compresses the course’s three moves into one line.');
 
   // ---------- 43. EXERCISES ----------
   s = H.slide('HANDS-ON', 43);
   H.title(s, 'Hands-on · 15 minutes each', 'Three exercises that make it stick');
   const ex = [
-    ['edit', 'Exercise 1 · Anatomy rebuild', 'Take a prompt you actually used last week. Rebuild it with the five-block anatomy (G-templates as reference). Run both versions; compare outputs side by side. Then ask the model to improve your rebuilt prompt — metaprompting — and run that too.', 'You’ll see the quality jump — and how cheap it was.'],
+    ['edit', 'Exercise 1 · Anatomy rebuild', 'Take a prompt you actually used last week. Rebuild it with the seven-element anatomy (G-templates as reference). Run both versions; compare outputs side by side. Then ask the model to improve your rebuilt prompt — metaprompting — and run that too.', 'You’ll see the quality jump — and how cheap it was.'],
     ['scale', 'Exercise 2 · Blind review', 'Take a document or plan you own. Paste it as “a colleague’s draft” and run G3’s critique template: case against, three weakest points, what evidence would change the verdict. Do NOT hint at your view.', 'Most people meet their first honest AI review here.'],
     ['robot', 'Exercise 3 · First mission brief', 'Pick a small recurring job with files (a folder to summarize, a tracker to update). Fill A1’s twelve blocks — placeholders and all. You don’t need an agent to run it today: writing the brief is the skill.', 'Where the checks and gates feel awkward is where your process was fuzzy all along.'],
   ];
   ex.forEach((e, i) => {
     const y = 1.65 + i * 1.68;
-    H.card(s, 0.55, y, 12.2, 1.52, C.PANEL);
+    H.card(s, 0.55, y, 8.9, 1.52, C.PANEL);
     H.iconCircle(s, 0.85, y + 0.44, 0.6, e[0], C.TEAL);
     s.addText([
-      { text: e[1] + '  ', options: { bold: true, color: C.INK, fontSize: 13.5, breakLine: true, paraSpaceAfter: 3 } },
-      { text: e[2], options: { color: C.SLATE, fontSize: 11 } },
-    ], { x: 1.65, y: y + 0.12, w: 8.1, h: 1.3, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.07 });
-    s.addText(e[3], { x: 9.9, y: y + 0.12, w: 2.7, h: 1.3, fontFace: F.body, fontSize: 10, italic: true, color: C.TEAL_DARK, margin: 0, valign: 'middle', lineSpacingMultiple: 1.08 });
+      { text: e[1] + '  ', options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
+      { text: e[2] + '  ', options: { color: C.SLATE, fontSize: 10.2, breakLine: true, paraSpaceAfter: 2 } },
+      { text: e[3], options: { color: C.TEAL_DARK, fontSize: 9.5, italic: true } },
+    ], { x: 1.65, y: y + 0.08, w: 7.0, h: 1.38, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
   });
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'office_scene.jpg'), x: 9.65, y: 1.65, w: 3.1, h: 1.74, sizing: { type: 'cover', w: 3.1, h: 1.74 } });
+  s.addShape('roundRect', { x: 9.65, y: 1.65, w: 3.1, h: 1.74, rectRadius: 0.06, fill: { type: 'none' }, line: { color: C.LINE, width: 1 } });
+  s.addText('Fifteen minutes, your real work — starting now.', { x: 9.65, y: 3.43, w: 3.1, h: 0.3, align: 'center', fontFace: F.body, fontSize: 8.8, italic: true, color: C.MUTE, margin: 0 });
+  H.card(s, 9.65, 3.85, 3.1, 1.15, C.TEAL_TINT);
+  s.addText([
+    { text: 'Share-back: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 10.2 } },
+    { text: 'next team meeting, two volunteers show a before / after.', options: { color: C.SLATE, fontSize: 10 } },
+  ], { x: 9.85, y: 3.97, w: 2.7, h: 0.92, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
   s.addNotes(
-    'HOW TO PRESENT — 1) Three cards TOP TO BOTTOM: anatomy rebuild → blind review → first mission brief; each is 15 minutes ON THEIR REAL WORK — say that twice; toy exercises don’t transfer. 2) Read the italic payoff line on the right of each card — it is the motivation. 3) Set the share-back: next team meeting, two volunteers show a before/after. 4) If time allows in-session, run exercise 1 live with a volunteer’s real prompt.\n' +
+    'HOW TO PRESENT — 1) Three cards TOP TO BOTTOM: anatomy rebuild → blind review → first mission brief; each is 15 minutes ON THEIR REAL WORK — say that twice; toy exercises don’t transfer. 2) Read the italic payoff line inside each card — it is the motivation. 3) Set the share-back (teal card): next team meeting, two volunteers show a before/after. 4) If time allows in-session, run exercise 1 live with a volunteer’s real prompt.\n' +
     'ACRONYMS — G-templates / G3 / A1 = library codes (generative set, the critique template, the mission brief).\n' +
-    'CONTENT — Exercises 2 and 3 work as homework with a share-back next meeting.');
+    'CONTENT — Exercises 2 and 3 work as homework with a share-back next meeting.\n' +
+    'ART — the office scene is an owner-generated illustration (R16), placed here per the owner’s default (the closing hands-on slide): the room it depicts is the room doing the exercises.');
 
   // ---------- 44. GLOSSARY ----------
   s = H.slide('REFERENCE', 44);
-  H.title(s, 'Reference', 'Glossary — nineteen terms that matter');
+  H.title(s, 'Reference', 'Glossary — twenty terms that matter');
   const glossary = [
     ['Escalation ladder', 'prompt first, retrieve second, fine-tune last — capability triage (Part 1)'],
     ['Promotion ladder', 'one-off → personal → team → packaged → as-code — where a prompt lives (Part 6)'],
@@ -193,6 +203,7 @@ module.exports = function buildClose(pres, H) {
     ['Gate', 'a human checkpoint inside an agent’s process — approve before it proceeds'],
     ['Open weights', 'a downloadable model you can self-host — the data-privacy end of the spectrum'],
     ['Taxonomy', 'the element → attribute → option catalog behind the Template Creator — your parts list for prompts'],
+    ['Context engineering', 'choosing everything on the desk — prompt, files, history, tool results; the parent discipline of agentic prompting'],
   ];
   glossary.forEach((g, i) => {
     const x = 0.55 + (i % 2) * 6.2;
@@ -205,7 +216,7 @@ module.exports = function buildClose(pres, H) {
   s.addNotes(
     'HOW TO PRESENT — 1) Do not read it. One sentence: “print-friendly glossary — every term on it was used in context today.” 2) Point at two entries only: sycophancy (the one that changes behavior) and gate (the one that makes agents safe). 3) Advance.\n' +
     'ACRONYMS — RAG and MCP are expanded on the slide itself; nothing else to define.\n' +
-    'CONTENT — Print-friendly reference. All nineteen were used in context during the training (taxonomy added in v1.2; the two ladders added in v1.5 to disambiguate them).');
+    'CONTENT — Print-friendly reference. All twenty were used in context during the training (taxonomy added in v1.2; the two ladders added in v1.5 to disambiguate them; context engineering added in v1.8 with the desk-slide line).');
 
   // ---------- EVIDENCE MAPS (v1.4 — why each dial matters, per criteria class) ----------
   const evTable = (s2, rows) => {
@@ -276,7 +287,7 @@ module.exports = function buildClose(pres, H) {
     ]],
     ['Landscape & governance', [
       'Stanford HAI AI Index 2026 · LMArena / Artificial Analysis / SWE-bench (Aug 2026 snapshots)',
-      'OWASP LLM Top 10 (2025) · UK NCSC agentic-AI guidance · Cisco AI Defense (skills audit) · Harmonic Security (shadow-AI prompts)',
+      'OWASP LLM Top 10 (2025) + Top 10 for Agentic Applications for 2026 · UK NCSC agentic-AI guidance · IMDA/CSA Singapore (agentic deployment) · Cisco AI Defense (skills audit) · Harmonic Security (shadow-AI prompts)',
       'Vendor launch posts & major-outlet reporting (Reuters, CNBC, TechCrunch, Bloomberg) for all product dates',
     ]],
   ];
@@ -332,10 +343,14 @@ module.exports = function buildClose(pres, H) {
   // ---------- 47. THANK YOU / DARK CLOSE ----------
   s = H.slide(null, 47, { dark: true });
   s.addText('FROM PROMPTS TO AGENTS', { x: 0.55, y: 2.4, w: 12, h: 0.5, fontFace: F.body, fontSize: 15, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
-  s.addText('Draft with AI.\nDecide with judgment.\nDelegate with a brief.', { x: 0.55, y: 2.95, w: 11.5, h: 2.4, fontFace: F.head, fontSize: 40, bold: true, color: C.ON_DARK, margin: 0, lineSpacingMultiple: 1.12 });
+  s.addText('Draft with AI.\nDecide with judgment.\nDelegate with a brief.', { x: 0.55, y: 2.95, w: 7.6, h: 2.4, fontFace: F.head, fontSize: 40, bold: true, color: C.ON_DARK, margin: 0, lineSpacingMultiple: 1.12 });
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'question_bench.jpg'), x: 8.4, y: 2.35, w: 4.15, h: 2.33, sizing: { type: 'cover', w: 4.15, h: 2.33 } });
+  s.addShape('roundRect', { x: 8.4, y: 2.35, w: 4.15, h: 2.33, rectRadius: 0.06, fill: { type: 'none' }, line: { color: C.TEAL_LIGHT, width: 1 } });
+  s.addText('and the last skill of all — let it ask you', { x: 8.4, y: 4.74, w: 4.15, h: 0.3, align: 'center', fontFace: F.body, fontSize: 10, italic: true, color: C.ON_DARK_MUTE, margin: 0 });
   s.addText('Templates: prompt-library/ · Research & sources: notes/ · Questions and template improvements: open an issue or bring them to the next session.', { x: 0.55, y: 5.6, w: 11.5, h: 0.6, fontFace: F.body, fontSize: 13, color: C.ON_DARK_MUTE, margin: 0, lineSpacingMultiple: 1.15 });
   s.addNotes(
-    'HOW TO PRESENT — 1) Read the three lines as a cadence, with a beat between each: draft with AI — decide with judgment — delegate with a brief. 2) Connect to the previous training: the first two lines are its habit line; the third is what this course added. 3) Last sentence: where everything lives, and bring template improvements to the next session. 4) Thank them — then stop talking; resist the recap urge.\n' +
+    'HOW TO PRESENT — 1) Read the three lines as a cadence, with a beat between each: draft with AI — decide with judgment — delegate with a brief. 2) Connect to the previous training: the first two lines are its habit line; the third is what this course added. 3) Gesture at the painting: the person’s question is lit; the robot’s is still forming — the caption is the course’s last lesson, from the best-prompt-is-a-question slide. 4) Last sentence: where everything lives, and bring template improvements to the next session. 5) Thank them — then stop talking; resist the recap urge.\n' +
     'ACRONYMS — none on this slide.\n' +
-    'CONTENT — Close by connecting to the previous training’s habit line — now extended with: delegate with a brief.');
+    'CONTENT — Close by connecting to the previous training’s habit line — now extended with: delegate with a brief.\n' +
+    'ART — the bench scene is an owner-generated illustration (R16). PLACEMENT NOTE (v1.8): the ledger slotted it on the best-prompt-is-a-question slide, but that slide has no room at full size without cutting the question toolkit — so it closes the deck instead, uncropped, as the final image the room sees. Flagged to the owner; easy to move if he prefers.');
 };

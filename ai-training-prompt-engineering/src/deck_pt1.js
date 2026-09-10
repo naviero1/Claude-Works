@@ -99,7 +99,8 @@ module.exports = function buildPartOne(pres, H) {
     'CONTENT —\n' +
     'v1.6: prompt rebuilt to the R10 template (TYPE THIS/WHY, no untaught concepts).\n' +
     'The multimodal aside is deliberate: the Prompt Report counts 58 text + 40 other-modality techniques — a separate training if votes call for it.\n' +
-    'The eight numbered PROMPT exercises run through Parts 1–2 in the trainees’ own AI window; Parts 3–4 carry the hands-on reps and walkthrough exercises. The one course-log thread doubles as their take-home record.');
+    'The eight numbered PROMPT exercises run through Parts 1–2 in the trainees’ own AI window; Parts 3–4 carry the hands-on reps and walkthrough exercises. The one course-log thread doubles as their take-home record.\n' +
+    'IF RUNNING LATE — the kill-order (owner-approved, v1.8): compress live in this order, never delete from the deck — ① hardware-slide detail (keep the ×45M punchline) → ② the logo walk on the feature menu (read one row, gesture the rest) → ③ book-list mentions → ④ DeepSeek benchmark detail (keep the bill + hospital). The rebuild rep in Part 3 is PROTECTED — landscape trims first, practice never.');
 
   // ---------- 3. PART I DIVIDER ----------
   s = H.slide(null, 3, { dark: true });
@@ -327,6 +328,8 @@ module.exports = function buildPartOne(pres, H) {
   // ---------- 6. HOW AN LLM WORKS ----------
   s = H.slide('PART 1 · HOW LLMS WORK', 6);
   H.title(s, 'Under the hood', 'A prediction engine, sent to finishing school');
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'robot_graduate.jpg'), x: 11.5, y: 0.3, w: 1.12, h: 1.12, sizing: { type: 'cover', w: 1.12, h: 1.12 } });
+  s.addShape('roundRect', { x: 11.5, y: 0.3, w: 1.12, h: 1.12, rectRadius: 0.06, fill: { type: 'none' }, line: { color: C.LINE, width: 1 } });
   const pipe = [
     ['database', '1 · Pretraining', 'Months, trillions of words: learn to predict the next token on internet-scale text. Language, facts, and reasoning patterns compress into billions of learned weights.'],
     ['list', '2 · Instruction tuning', 'Curated example dialogues teach it to follow instructions and answer questions — instead of just continuing your text.'],
@@ -372,7 +375,8 @@ module.exports = function buildPartOne(pres, H) {
     '\n' +
     'CONTENT —\n' +
     'InstructGPT fact worth telling: raters preferred a well-tuned 1.3B model over raw 175B GPT-3 — tuning beat 100× scale.\n' +
-    'v1.6: cutoff callout gains the web-search/RAG escape hatches; RLHF card gains the after-ship story (owner request).');
+    'v1.6: cutoff callout gains the web-search/RAG escape hatches; RLHF card gains the after-ship story (owner request).\n' +
+    'ART — the corner graduation robot is an owner-generated illustration (R16): the “finishing school” of the subtitle, literally.');
 
   // ---------- 7. TOKENS ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 7);
@@ -383,9 +387,11 @@ module.exports = function buildPartOne(pres, H) {
     { t: 'The model never sees letters — “strawberry” arrives as one or two IDs. The famous letter-counting fails of 2024 are patched now; what still breaks: exact word counts and “count your own tokens” (every tier), character-precise edits (free/fast tiers).', b: true },
     { t: 'Everything is priced and limited in tokens — input and output. Output tokens cost ~5× input, because generation is serial.' },
   ], { size: 11.8, gap: 8 });
-  H.card(s, 7.0, 1.66, 5.75, 2.55, C.PANEL);
-  s.addText('LEGO bricks of text', { x: 7.3, y: 1.88, w: 5.2, h: 0.4, fontFace: F.head, fontSize: 15, bold: true, color: C.INK, margin: 0 });
-  s.addText('Common words are pre-molded bricks; unusual words get assembled from smaller pieces. You pay by the brick — and the builder has never seen inside a brick.', { x: 7.3, y: 2.34, w: 5.2, h: 0.85, fontFace: F.body, fontSize: 11, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.08 });
+  H.card(s, 7.0, 1.66, 5.75, 2.72, C.PANEL);
+  s.addText('LEGO bricks of text', { x: 7.3, y: 1.84, w: 5.2, h: 0.34, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'lego_tokens.jpg'), x: 7.3, y: 2.22, w: 5.15, h: 0.92, sizing: { type: 'cover', w: 5.15, h: 0.92 } });
+  s.addShape('roundRect', { x: 7.3, y: 2.22, w: 5.15, h: 0.92, rectRadius: 0.04, fill: { type: 'none' }, line: { color: C.LINE, width: 0.75 } });
+  s.addText('Common words are pre-molded bricks; unusual words get assembled from pieces. You pay by the brick — and the builder has never seen inside a brick.', { x: 7.3, y: 3.2, w: 5.2, h: 0.44, fontFace: F.body, fontSize: 9.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.02 });
   const chips = [['Analyzing', 0.95], ['the', 0.45], ['supplier', 0.85], ['’s', 0.3], ['first', 0.55], ['-', 0.22], ['pass', 0.55], ['yield', 0.6]];
   let cx = 7.3;
   chips.forEach((ch, i) => {
@@ -393,14 +399,14 @@ module.exports = function buildPartOne(pres, H) {
     const nStuds = ch[1] > 0.5 ? 2 : 1;
     for (let st = 0; st < nStuds; st++) {
       const sx = cx + (ch[1] / (nStuds + 1)) * (st + 1) - 0.05;
-      s.addShape('roundRect', { x: sx, y: 3.32, w: 0.1, h: 0.1, rectRadius: 0.02, fill: { color: fillCol }, line: { color: C.TEAL, width: 0.75 } });
+      s.addShape('roundRect', { x: sx, y: 3.64, w: 0.1, h: 0.1, rectRadius: 0.02, fill: { color: fillCol }, line: { color: C.TEAL, width: 0.75 } });
     }
-    s.addShape('roundRect', { x: cx, y: 3.4, w: ch[1], h: 0.36, rectRadius: 0.04, fill: { color: fillCol }, line: { color: C.TEAL, width: 0.75 } });
-    s.addText(ch[0], { x: cx, y: 3.41, w: ch[1], h: 0.34, align: 'center', valign: 'middle', fontFace: 'Consolas', fontSize: 9.5, color: C.TEAL_DARK, margin: 0 });
+    s.addShape('roundRect', { x: cx, y: 3.72, w: ch[1], h: 0.36, rectRadius: 0.04, fill: { color: fillCol }, line: { color: C.TEAL, width: 0.75 } });
+    s.addText(ch[0], { x: cx, y: 3.73, w: ch[1], h: 0.34, align: 'center', valign: 'middle', fontFace: 'Consolas', fontSize: 9.5, color: C.TEAL_DARK, margin: 0 });
     cx += ch[1] + 0.06;
   });
-  s.addText('eight bricks — the model receives eight numbered IDs, not forty letters', { x: 7.3, y: 3.85, w: 5.2, h: 0.3, fontFace: F.body, fontSize: 9.5, italic: true, color: C.MUTE, margin: 0 });
-  H.callout(s, 7.0, 4.35, 5.75, 1.55, C.TEAL_TINT, [
+  s.addText('eight bricks — the model receives eight numbered IDs, not forty letters', { x: 7.3, y: 4.12, w: 5.2, h: 0.24, fontFace: F.body, fontSize: 8.8, italic: true, color: C.MUTE, margin: 0 });
+  H.callout(s, 7.0, 4.46, 5.75, 1.44, C.TEAL_TINT, [
     { text: 'So what, for daily work: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true } },
     { text: 'paste-heavy prompts burn budget and context fast · non-English and dense technical text cost more tokens · use AI for language, software for characters (counts, checksums, exact IDs).', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { iconName: 'layers', iconFill: C.TEAL, size: 11 });
@@ -429,7 +435,8 @@ module.exports = function buildPartOne(pres, H) {
     'CONTENT —\n' +
     'v1.7: capability claim re-verified 2026-09-10 (r23_tokens_grok_hallucination.md, owner challenge): strawberry-class counting is fixed on current frontier models (partly memorized — the Aug-2025 blueberry incident); still failing with evidence: character-position edits ~33–44% accuracy on non-reasoning tiers (CharBench 2025/26) · paragraph-scale letter counts on fast tiers · exact word counts on ALL tiers · counting own tokens on ALL tiers (arXiv:2502.06258). Reasoning modes pass letter tasks by spelling out — a paid, token-burning workaround, not letter-vision. Re-verify at every refresh; this claim ages fast.\n' +
     'v1.6: prompt finalized from the explainer research (r17) — LEGO validated as the dominant popular analogy; tokenizer-page demo recommended over any word trick.\n' +
-    'Token math preview: tokens also explain context windows (next slide) and the bill (later this part).');
+    'Token math preview: tokens also explain context windows (next slide) and the bill (later this part).\n' +
+    'ART — the LEGO wall + robot hand at the top of the right card is an owner-generated illustration (R16).');
 
   // ---------- 8. CONTEXT WINDOW ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 8);
@@ -440,23 +447,25 @@ module.exports = function buildPartOne(pres, H) {
     { t: 'By 2026, ~1M tokens (≈750,000 words) is the flagship standard. Consumer apps often enforce smaller limits than the raw model.' },
     { t: 'In very long chats the middle gets skimmed — accuracy is highest at the start and the end (“lost in the middle”).', b: true },
   ], { size: 12, gap: 7 });
-  H.card(s, 7.0, 1.62, 5.75, 2.4, C.PANEL);
-  s.addText('What’s on the desk right now', { x: 7.3, y: 1.8, w: 5.2, h: 0.4, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  H.card(s, 7.0, 1.62, 5.75, 2.46, C.PANEL);
+  s.addText('What’s on the desk right now', { x: 7.3, y: 1.78, w: 5.2, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'desk_cabinet.jpg'), x: 7.3, y: 2.14, w: 5.15, h: 0.94, sizing: { type: 'cover', w: 5.15, h: 0.94 } });
+  s.addShape('roundRect', { x: 7.3, y: 2.14, w: 5.15, h: 0.94, rectRadius: 0.04, fill: { type: 'none' }, line: { color: C.LINE, width: 0.75 } });
   const deskItems = [['file', 'System prompt & instructions'], ['chat', 'Every prior turn — both sides'], ['paperclip', 'Attached documents'], ['search', 'Tool & search results']];
   deskItems.forEach((d, i) => {
-    const x = 7.3 + (i % 2) * 2.75; const y = 2.28 + Math.floor(i / 2) * 0.82;
-    H.iconCircle(s, x, y + 0.06, 0.42, d[0], C.SLATE);
-    s.addText(d[1], { x: x + 0.54, y, w: 2.2, h: 0.76, fontFace: F.body, fontSize: 11, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 1.0 });
+    const x = 7.3 + (i % 2) * 2.62; const y = 3.16 + Math.floor(i / 2) * 0.46;
+    H.iconCircle(s, x, y + 0.05, 0.32, d[0], C.SLATE);
+    s.addText(d[1], { x: x + 0.42, y, w: 2.18, h: 0.44, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
   });
   H.callout(s, 7.0, 4.16, 5.75, 1.28, C.TEAL_TINT, [
     { text: 'Habits that exploit the desk: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11, breakLine: true } },
     { text: '① long documents at the TOP, question at the END (up to ~30% better answers) · ② label multiple documents · ③ new topic → new chat · ④ long thread → run the handoff move below.', options: { color: C.SLATE, fontSize: 10.2 } },
   ], { iconName: 'check', iconFill: C.TEAL, size: 10.5 });
-  H.card(s, 0.55, 4.5, 6.2, 0.94, C.AMBER_TINT);
+  H.card(s, 0.55, 4.44, 6.2, 1.06, C.AMBER_TINT);
   s.addText([
-    { text: 'A desk with a filing cabinet? ', options: { bold: true, color: C.INK, fontSize: 11 } },
-    { text: 'Persistent files, notes and standing instructions are exactly what agentic tools bolt onto the desk — Part 5.', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { x: 0.85, y: 4.6, w: 5.7, h: 0.76, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
+    { text: 'A desk with a filing cabinet? ', options: { bold: true, color: C.INK, fontSize: 10.8 } },
+    { text: 'Persistent files, notes and standing instructions are exactly what agentic tools bolt onto the desk — Part 5. The pros call managing the whole desk CONTEXT ENGINEERING: the prompt is the briefing; context is everything on the desk — including things nobody typed.', options: { color: C.SLATE, fontSize: 10.2 } },
+  ], { x: 0.85, y: 4.52, w: 5.7, h: 0.9, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.03 });
   H.promptChip(s, 0.55, 5.56, 12.2, 1.52, 4, [
     { type: '“Explain your context window like I’m a 5th grader: the desk, what fits on it, and what happens when I close this chat. Under 100 words.”', why: 'the AI describes its own working memory, plainly.' },
     { type: '(homework) “Summarize our chat so far in under 80 words, titled HANDOFF.”', why: 'tonight, paste it into a fresh chat, ask “where was I?” — and watch it pick up your course.' },
@@ -481,7 +490,9 @@ module.exports = function buildPartOne(pres, H) {
     '\n' +
     'CONTENT —\n' +
     '“Lost in the middle” = Liu et al. 2023 (TACL). The up-to-~30% figure is Anthropic’s own long-context guidance.\n' +
-    '1M-token flagship standard verified Aug 2026 across Claude, GPT-5.x, Gemini, and the Chinese open-weight flagships.');
+    '1M-token flagship standard verified Aug 2026 across Claude, GPT-5.x, Gemini, and the Chinese open-weight flagships.\n' +
+    'v1.8: CONTEXT ENGINEERING named on the amber card (external-review adoption, 9B-2): the prompt is the briefing; context is everything on the desk — files, history, tool results, memory. Part 5 returns to it as the parent discipline of agentic prompting. Glossary entry added.\n' +
+    'ART — the desk + filing-cabinet header in the right card is an owner-generated illustration (R16).');
 
   // ---------- 9. RAG ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 9);
@@ -501,16 +512,18 @@ module.exports = function buildPartOne(pres, H) {
     s.addText(st[2], { x: x + 0.24, y: 3.12, w: 2.42, h: 1.1, fontFace: F.body, fontSize: 10.4, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.04 });
     if (i < 3) H.arrow(s, x + 2.87, 3.0, 0.3, C.TEAL);
   });
-  H.card(s, 0.55, 4.48, 6.0, 1.8, C.GREEN_TINT);
+  H.card(s, 0.55, 4.48, 4.3, 1.8, C.GREEN_TINT);
   s.addText([
-    { text: 'Why enterprises build on it: ', options: { bold: true, color: C.INK, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'current (re-index a doc in minutes, no retraining) · checkable (citations to the exact passage) · private (retrieval feeds one answer; it teaches the model nothing) · access-aware (you only see what you’re allowed to see).', options: { color: C.SLATE, fontSize: 11 } },
-  ], { x: 0.85, y: 4.66, w: 5.5, h: 1.5, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
-  H.card(s, 6.75, 4.48, 6.0, 1.8, C.RED_TINT);
+    { text: 'Why enterprises build on it: ', options: { bold: true, color: C.INK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'current (re-index a doc in minutes, no retraining) · checkable (citations to the exact passage) · private (retrieval feeds one answer; it teaches the model nothing) · access-aware.', options: { color: C.SLATE, fontSize: 10.2 } },
+  ], { x: 0.82, y: 4.62, w: 3.8, h: 1.54, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
+  H.card(s, 4.99, 4.48, 4.3, 1.8, C.RED_TINT);
   s.addText([
-    { text: 'The failure mode to respect: ', options: { bold: true, color: C.RED, fontSize: 12.5, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'if retrieval fetches the wrong page — an outdated revision, a near-miss document — the model still writes a fluent, confident, CITED answer from it. Check the citation, not just the prose.', options: { color: C.SLATE, fontSize: 11 } },
-  ], { x: 7.05, y: 4.66, w: 5.5, h: 1.5, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.06 });
+    { text: 'The failure mode to respect: ', options: { bold: true, color: C.RED, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'fetch the wrong page — an outdated revision, a near-miss document — and the model still writes a fluent, confident, CITED answer from it. Check the citation, not just the prose.', options: { color: C.SLATE, fontSize: 10.2 } },
+  ], { x: 5.26, y: 4.62, w: 3.8, h: 1.54, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'open_book.jpg'), x: 9.43, y: 4.48, w: 3.32, h: 1.8, sizing: { type: 'cover', w: 3.32, h: 1.8 } });
+  s.addShape('roundRect', { x: 9.43, y: 4.48, w: 3.32, h: 1.8, rectRadius: 0.06, fill: { type: 'none' }, line: { color: C.LINE, width: 1 } });
   H.callout(s, 0.55, 6.42, 12.2, 0.62, C.TEAL_TINT, [
     { text: 'You already use this. ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5 } },
     { text: 'Our internal company assistant — the one where you upload documentation and “talk” to it — is RAG in production. Every step on this slide happens each time you ask it a question.', options: { color: C.SLATE, fontSize: 11 } },
@@ -531,7 +544,8 @@ module.exports = function buildPartOne(pres, H) {
     '\n' +
     'CONTENT —\n' +
     'Retrieval ≠ training is the privacy point to repeat.\n' +
-    'This is the engine behind internal document assistants and Copilot-over-SharePoint.');
+    'This is the engine behind internal document assistants and Copilot-over-SharePoint.\n' +
+    'ART — the open-book-exam scene (robot writing from the book, librarian delivering a glowing page) is an owner-generated illustration (R16); gesture at it when you say the analogy.');
 
   // ---------- 10. ESCALATION LADDER — THREE STEPS, ONE WORKED TOPIC ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 10);
@@ -610,17 +624,15 @@ module.exports = function buildPartOne(pres, H) {
     { type: '“Describe your fast mode vs your thinking mode like I’m choosing between them for real work: when is each worth it, and roughly how much more does thinking cost? Under 120 words.”', why: 'the model explains its own two speeds — and its own bill.' },
   ], { label: 'Same brain, two speeds', size: 9.2, tab: 'EX5-TwoSpeeds' });
   H.card(s, 7.0, 4.12, 5.75, 2.5, C.PANEL);
-  s.addText('The two speeds, side by side', { x: 7.28, y: 4.28, w: 5.2, h: 0.36, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
-  H.iconCircle(s, 7.28, 4.78, 0.5, 'zap', C.GREEN);
+  s.addText('The two speeds, side by side', { x: 7.28, y: 4.26, w: 5.2, h: 0.34, fontFace: F.head, fontSize: 14, bold: true, color: C.INK, margin: 0 });
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'hare_tortoise.jpg'), x: 7.28, y: 4.64, w: 5.2, h: 1.26, sizing: { type: 'cover', w: 5.2, h: 1.26 } });
+  s.addShape('roundRect', { x: 7.28, y: 4.64, w: 5.2, h: 1.26, rectRadius: 0.05, fill: { type: 'none' }, line: { color: C.LINE, width: 0.75 } });
   s.addText([
-    { text: 'FAST — ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
-    { text: 'one pass, instant, cheap. Great until the question has traps.', options: { color: C.SLATE, fontSize: 11.5 } },
-  ], { x: 7.92, y: 4.72, w: 4.6, h: 0.62, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
-  H.iconCircle(s, 7.28, 5.62, 0.5, 'brain', C.TEAL);
-  s.addText([
-    { text: 'THINKING — ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
-    { text: 'drafts, checks, revises. Slower, 5–20× the cost — worth it when wrong is expensive.', options: { color: C.SLATE, fontSize: 11.5 } },
-  ], { x: 7.92, y: 5.56, w: 4.6, h: 0.8, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
+    { text: 'FAST ', options: { bold: true, color: C.GREEN, fontSize: 11 } },
+    { text: '— one pass, instant, cheap. Great until the question has traps.   ', options: { color: C.SLATE, fontSize: 10.2 } },
+    { text: 'THINKING ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
+    { text: '— drafts, checks, revises. 5–20× the cost — worth it when wrong is expensive.', options: { color: C.SLATE, fontSize: 10.2 } },
+  ], { x: 7.28, y: 5.98, w: 5.2, h: 0.6, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.05 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “every AI app sells you two speeds — when is the slow one worth its bill?” Name the book once: Kahneman’s Thinking, Fast and Slow — the owner-favorite narrative of this slide.\n' +
@@ -641,7 +653,8 @@ module.exports = function buildPartOne(pres, H) {
     'CONTENT —\n' +
     'v1.7: the on-slide extended-puzzle card was cut (owner: too much); the puzzle survives in the workbook tab’s EXTENDED rows for self-study (answer key: Ben Mon · Chloe Tue · Ema Wed · Ana Thu · Dev Fri).\n' +
     'Thinking tokens billed as output even when you only see a summary; output ≈ 5× input across vendors; effort adaptive/dial-able by 2026 (t4 §5, primary-sourced).\n' +
-    'Honest caveat: the model isn’t literally “thinking” — it generates intermediate tokens that improve the final answer.');
+    'Honest caveat: the model isn’t literally “thinking” — it generates intermediate tokens that improve the final answer.\n' +
+    'ART — the sprinting-hare / studying-tortoise panel is an owner-generated illustration (R16): hare = fast tier, tortoise = thinking tier. Name the fable, point at the panel.');
 
   // ---------- 12. THE FEATURE MENU ----------
   s = H.slide('PART 1 · CORE CONCEPTS', 12);
@@ -738,20 +751,21 @@ module.exports = function buildPartOne(pres, H) {
   ], { x: 0.82, y: 6.1, w: 5.1, h: 0.24, fontFace: F.body, margin: 0 });
   s.addText('OpenAI’s own models & benchmark (2025) — shows the mechanism, not a vendor ranking.', { x: 0.82, y: 6.34, w: 5.1, h: 0.22, fontFace: F.body, fontSize: 7.5, italic: true, color: C.MUTE, margin: 0 });
   const kinds = [
-    ['brain', 'THE CONFIDENT GUESS', 'Invented facts', 'Free recall where data was thin — a wrong fact, delivered with total certainty.'],
-    ['file', 'THE FAKE RECEIPT', 'Invented sources', 'Citations, cases, book titles that look perfectly real — and don’t exist.'],
-    ['alert', 'THE JOKE TAKEN SERIOUSLY', 'Wrong source, confident answer', 'Fluent, cited — and built on a joke, a satire, or the wrong revision.'],
-    ['repeat', 'GARBAGE IN, GOSPEL OUT', 'Runs with your false premise', 'It assumes your prompt is true: feed it a wrong “fact” and it politely builds on it.'],
+    ['emblem_cue_card', 'THE CONFIDENT GUESS', 'Invented facts', 'Free recall where data was thin — a wrong fact, delivered with total certainty.'],
+    ['emblem_fake_receipt', 'THE FAKE RECEIPT', 'Invented sources', 'Citations, cases, book titles that look perfectly real — and don’t exist.'],
+    ['emblem_rubber_chicken', 'THE JOKE TAKEN SERIOUSLY', 'Wrong source, confident answer', 'Fluent, cited — and built on a joke, a satire, or the wrong revision.'],
+    ['emblem_gilded_frame', 'GARBAGE IN, GOSPEL OUT', 'Runs with your false premise', 'It assumes your prompt is true: feed it a wrong “fact” and it politely builds on it.'],
   ];
   kinds.forEach((k, i) => {
     const y = 1.66 + i * 1.24;
     H.card(s, 6.35, y, 6.4, 1.12, i === 2 ? C.RED_TINT : C.PANEL);
-    H.iconCircle(s, 6.55, y + 0.31, 0.5, k[0], i === 2 ? C.RED : C.TEAL);
+    s.addImage({ path: require('path').join(__dirname, 'assets', 'images', k[0] + '.jpg'), x: 6.51, y: y + 0.09, w: 0.94, h: 0.94, sizing: { type: 'cover', w: 0.94, h: 0.94 } });
+    s.addShape('roundRect', { x: 6.51, y: y + 0.09, w: 0.94, h: 0.94, rectRadius: 0.05, fill: { type: 'none' }, line: { color: C.LINE, width: 0.75 } });
     s.addText([
       { text: k[1] + '  ', options: { bold: true, color: i === 2 ? C.RED : C.TEAL_DARK, fontSize: 13, fontFace: F.head } },
       { text: '· ' + k[2], options: { color: C.MUTE, fontSize: 9.5, breakLine: true, paraSpaceAfter: 2 } },
       { text: k[3], options: { color: C.SLATE, fontSize: 9.8 } },
-    ], { x: 7.18, y: y + 0.08, w: 5.4, h: 0.98, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.03 });
+    ], { x: 7.6, y: y + 0.08, w: 5.02, h: 0.98, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.03 });
   });
   s.addText('Four characters — one root: the show must go on. Next slide: what they cost in public.', { x: 0.55, y: 6.6, w: 12.2, h: 0.35, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0 });
   s.addNotes(
@@ -769,7 +783,8 @@ module.exports = function buildPartOne(pres, H) {
     'none new on this slide.\n' +
     '\n' +
     'CONTENT —\n' +
-    'v1.7: abstain-vs-guess chart added (r23: SimpleQA numbers from arXiv:2509.04664 + the GPT-5 system card — o4-mini 24/75/1 vs gpt-5-thinking-mini 22/26/52; the on-slide caveat is mandatory). Character-card ART slots reserved: when the owner’s four generated images land in notes/intake/, they replace the icon circles (R16 workflow).\n' +
+    'v1.7: abstain-vs-guess chart added (r23: SimpleQA numbers from arXiv:2509.04664 + the GPT-5 system card — o4-mini 24/75/1 vs gpt-5-thinking-mini 22/26/52; the on-slide caveat is mandatory).\n' +
+    'v1.8 ART — the four character cards now carry the owner-generated object emblems (R16): blank cue card in a spotlight · sealed receipt dissolving into pixels · rubber chicken on a specimen tray · crumpled paper in a gilded frame. Point at each emblem as you name its character.\n' +
     'v1.6: the four kinds became named characters (owner: more engaging). Teaching frame grounded in r10/r2/r14 — not claimed as academic taxonomy.\n' +
     'OpenAI 2025 = “Why language models hallucinate” (arXiv:2509.04664).');
 

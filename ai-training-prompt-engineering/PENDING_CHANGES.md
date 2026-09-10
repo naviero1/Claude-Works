@@ -1140,7 +1140,26 @@ handed over) or the current image stands. Q5: renumbering confirmed fine.
 
 ## ROUND 8 — image round + protocol reaffirmation · 2026-09-10
 
-**Status: ⏸ HELD — no deck edits until the owner says "update".** (Owner noted
+**Status: ✅ APPLIED in v1.8 (owner said "Update", 2026-09-10).** Deck 68→71
+slides. Everything below built as planned, with three recorded deviations:
+① S15 gallery wall NOT embedded — setting headline text inside the frames
+would push fonts below the R14 floor and the slide has no side room; image
+benched in intake for future use (divider art / workbook cover candidate).
+② The bench scene moved from the best-prompt-is-a-question slide (no room at
+full size without cutting the question toolkit) to the DARK CLOSE — uncropped,
+as the final image of the deck; one-line change if the owner prefers otherwise.
+③ Emblem 2 = the RECEIPT per the owner's final ruling; certificate benched.
+Also fixed in passing: the MoE chip read "PROMPT 8/7" — renumbered 7/7.
+v1.8 also applied: the 9C two-layers slide · chat/workflow/agent slide ·
+run-time inspect grid + instruction layers · S30 native mirror bars ·
+operating-manual test + design-thick/ship-lean band on A1 · harness-gate card +
+eagerness dial + earned-autonomy on guardrails · eval lite in house rules ·
+HANDOFF≡compaction · context-engineering line + glossary entry · kill-order in
+welcome notes · wrap-up sentence on Ten Things · verification-aware planning +
+divider-as-data notes · pipeline-schema salvage note · cheat sheet, taxonomy
+PDF and Template Creator reframed onto PDCA. All r26 slide-safe wordings used.
+
+**Original Round 8 record (was ⏸ HELD):** (Owner noted
 Rounds 6–7 were applied without an explicit "update"; accepted, but R1 is
 reaffirmed strictly from here: prompts and proposals may be handed to the owner,
 placements planned, ledger committed — the deck itself waits for the word.)
@@ -1271,7 +1290,7 @@ Mapping by filename infix → target (name at embed):
 
 ---
 
-## ROUND 9 — external AI reviews (owner-run) · 2026-09-10 · ⏸ HELD
+## ROUND 9 — external AI reviews (owner-run) · 2026-09-10 · ✅ SURVIVORS APPLIED in v1.8 (see Round 8 status block; rejected items stay rejected; owner rulings 9D unchanged)
 
 ### 9A · Gemini review triage (6 findings)
 1. Structured outputs / "format begging" — REJECTED for this audience (API-only

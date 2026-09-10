@@ -3,9 +3,19 @@
 **Project:** "From Prompts to Agents" — prompt-engineering training + template system
 **Owner:** Oscar Penny (owns all content and the quarterly refresh)
 **Branch:** v1.1 merged to `main`; v1.2 developed on `claude/training-course-polish-oxohwj`
-**Last updated:** 2026-09-09 — v1.6 (five-round audit pass applied: R10 prompt system,
-Course_Workbook.xlsx, trading cards + logos, playbook, body anatomy, closing
-requirements/questions slides; see the v1.6 entry below)
+**Last updated:** 2026-09-10 — v1.8 (owner's "update"): all 19 owner-generated
+illustrations embedded (R16 — Part 1 concept art, four S14 emblems, DeepSeek hospital,
+Deming portrait, courier/guardrails/memory-ladder/blueprint/bench/office scenes); three
+NEW slides — "Two layers, one craft" (anatomy = design layer, PDCA = process layer, worked
+embedded-PDCA brief, 9C), "Pick the vehicle" (chat/workflow/agent), "When the run goes
+wrong" (run-time context-failure grid + instruction layers); S30 native mirror bars
+(100 vs 149); Round 9 survivors applied with r26-verified wordings (operating-manual test,
+design-thick/ship-lean, harness-gate sentence, eagerness dial, eval lite, HANDOFF≡compaction,
+context-engineering line + glossary, kill-order in welcome notes, wrap-up sentence); all
+three handouts (cheat sheet, taxonomy PDF, Template Creator) reframed onto the PDCA loop;
+deck now 71 slides. Held in intake: certificate emblem (benched), gallery wall (S15 has no
+room within the font floor — future use). Bench scene placed on the dark close (flagged:
+ledger had slotted the question slide, which had no room at full size).
 
 ## What this project is
 

@@ -84,6 +84,12 @@ doc.addPageTemplates([PageTemplate(id='first', frames=[f_first], onPage=hf),
 E = []
 
 # ---------- intro + legend ----------
+E.append(Paragraph('<b>Two layers, one craft — you write with the anatomy; you improve with the loop.</b> '
+                   'This taxonomy is the DESIGN layer: what a prompt contains, element by element, so you can ask “is it complete?”. '
+                   'The PROCESS layer is the PDCA loop from Part 3 — Plan (design with these elements) · Do (run in order, with wait-gates) · '
+                   'Check (verify against named criteria) · Act (deliver, then improve one element and version it). '
+                   'In agentic work the loop is written INTO the brief — the agentic elements below are exactly where. ', S['body']))
+E.append(Spacer(1, 5))
 E.append(Paragraph('This reference prints the complete ontology behind the Prompt Template Creator: '
                    '<b>19 elements</b> (7 generative, 12 agentic), their <b>attributes</b>, and every vetted <b>option</b> with its guidance. '
                    'New in v1.1: every attribute carries a shaded <b>Why it matters</b> note — what that dial actually does to the output, '
@@ -207,7 +213,9 @@ E.append(t)
 E.append(Spacer(1, 6))
 E.append(Paragraph('The separation this taxonomy makes — WHAT you want (elements/attributes) vs. HOW the model should work on it (techniques) — '
                    'is the same separation DSPy makes between Signatures and Modules, and the pattern literature makes between a pattern’s '
-                   '“fundamental contextual statements” and its usage. The full sources live in notes/research/ (t1–t6).', S['body']))
+                   '“fundamental contextual statements” and its usage. Since v1.8 the course teaches the HOW as one loop (PDCA) rather than a '
+                   'numbered technique list: every technique in this reference is a method inside Plan, Do, Check, or Act. '
+                   'The full sources live in notes/research/ (t1–t6).', S['body']))
 
 doc.build(E)
 print('taxonomy PDF written:', out)

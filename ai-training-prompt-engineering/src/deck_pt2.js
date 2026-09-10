@@ -83,21 +83,10 @@ module.exports = function buildPartTwo(pres, H) {
   ], { size: 9.2, gap: 3 });
   H.card(s, 0.55, 3.3, 5.6, 2.52, C.TEAL_TINT);
   s.addText('The trick has a name: MoE — Mixture of Experts', { x: 0.82, y: 3.44, w: 5.1, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.TEAL_DARK, margin: 0 });
-  // — the specialist hospital, drawn —
-  const hx = 0.85, hy = 3.92, hw = 1.95, hh = 1.5;
-  s.addShape('roundRect', { x: hx, y: hy, w: hw, h: hh, rectRadius: 0.05, fill: { color: 'FFFFFF' }, line: { color: C.TEAL_DARK, width: 1.5 } });
-  s.addShape('roundRect', { x: hx + hw / 2 - 0.14, y: hy - 0.26, w: 0.28, h: 0.26, rectRadius: 0.03, fill: { color: C.RED }, line: { type: 'none' } });
-  s.addText('+', { x: hx + hw / 2 - 0.14, y: hy - 0.28, w: 0.28, h: 0.26, align: 'center', valign: 'middle', fontFace: F.head, fontSize: 12, bold: true, color: 'FFFFFF', margin: 0 });
-  const litWin = [1, 6, 11];
-  for (let wi = 0; wi < 16; wi++) {
-    const wx = hx + 0.16 + (wi % 4) * 0.45;
-    const wy = hy + 0.14 + Math.floor(wi / 4) * 0.3;
-    const lit = litWin.includes(wi);
-    s.addShape('rect', { x: wx, y: wy, w: 0.3, h: 0.2, fill: { color: lit ? C.AMBER : C.PANEL }, line: { color: lit ? C.AMBER : C.LINE, width: lit ? 1.25 : 0.75 } });
-  }
-  s.addShape('roundRect', { x: hx + hw / 2 - 0.13, y: hy + hh - 0.32, w: 0.26, h: 0.32, rectRadius: 0.02, fill: { color: C.TEAL_DARK }, line: { type: 'none' } });
-  s.addText('671B params — the building · ~37B — the lit departments', { x: hx - 0.05, y: hy + hh + 0.03, w: 2.25, h: 0.34, fontFace: F.body, fontSize: 7.2, italic: true, color: C.TEAL_DARK, margin: 0, align: 'center', lineSpacingMultiple: 0.95 });
-  s.addText('Built like a huge specialist hospital: 671 billion parameters on the books, but only ~37 billion — the relevant departments — wake up per question. You pay for the specialists consulted, not the whole building. Distillation (big models teaching small ones) finishes the job.', { x: 3.0, y: 3.88, w: 3.0, h: 1.85, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.08 });
+  // — the specialist hospital (owner-generated illustration, v1.8) —
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'hospital_night.jpg'), x: 0.9, y: 3.86, w: 1.55, h: 1.9, sizing: { type: 'cover', w: 1.55, h: 1.9 } });
+  s.addShape('roundRect', { x: 0.9, y: 3.86, w: 1.55, h: 1.9, rectRadius: 0.05, fill: { type: 'none' }, line: { color: C.TEAL_DARK, width: 1.25 } });
+  s.addText('Built like a huge specialist hospital at night: 671 billion parameters on the books, but only ~37 billion — the lit windows, the relevant departments — wake up per question. You pay for the specialists consulted, not the whole building. Distillation (big models teaching small ones) finishes the job.', { x: 2.62, y: 3.86, w: 3.38, h: 1.9, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.08 });
   // — the bill, hero —
   H.card(s, 6.35, 1.58, 6.4, 2.15, C.PANEL);
   s.addText('The bill, per million output tokens', { x: 6.62, y: 1.72, w: 5.9, h: 0.32, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
@@ -134,13 +123,13 @@ module.exports = function buildPartTwo(pres, H) {
     { text: '■', options: { color: C.TEAL, fontSize: 8, bold: true } }, { text: ' DeepSeek-R1  ', options: { color: C.SLATE, fontSize: 7.8 } },
     { text: '■', options: { color: C.SLATE, fontSize: 8, bold: true } }, { text: ' OpenAI o1 — matched on math & coding, behind on PhD science: not a clean sweep, and that’s the honest story.', options: { color: C.MUTE, fontSize: 7.8 } },
   ], { x: 6.62, y: 5.32, w: 5.9, h: 0.3, fontFace: F.body, margin: 0 });
-  H.promptChip(s, 0.55, 5.8, 12.2, 1.32, 8, [
+  H.promptChip(s, 0.55, 5.8, 12.2, 1.32, 7, [
     { type: '“Explain Mixture of Experts like a colleague: a specialist hospital where only the relevant departments wake up per question — and why that made AI dramatically cheaper in 2025. Under 120 words.”', why: 'the MoE cheat-note lands in your course log, told by your own assistant.' },
   ], { label: 'The specialist hospital, explained', size: 8.6, tab: 'EX7-MoE' });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Anchor the moment, LEFT top card: January 2025 — an open model rivals o1; Nvidia’s $589B day; and keep the cost claim honest — the famous $5.6M is the fuel bill for the final winning race, not the cost of the racing team (total hardware spend was estimated well over $500M).\n' +
-    '2) LEFT teal card — POINT AT THE DRAWING: the whole hospital is 671 billion parameters; the three lit windows are the ~37 billion that wake up for your question. You pay for the specialists consulted, not the whole building. Distillation = big models teaching small ones.\n' +
+    '2) LEFT teal card — POINT AT THE HOSPITAL IMAGE: the whole building is 671 billion parameters; the three lit windows are the ~37 billion that wake up for your question. You pay for the specialists consulted, not the whole building. Distillation = big models teaching small ones.\n' +
     '3) RIGHT top — the star of the slide: $60 against $2.19, and the bars are TRUE proportion (the R1 bar really is 27× shorter). A $100 o1 workload for $3.60.\n' +
     '4) RIGHT bottom: three benchmark pairs — matched on math and coding, behind on PhD science (be honest: not a clean sweep).\n' +
     '5) Close the loop to Part 1: THIS is why thinking modes and deep research became affordable for everyone.\n' +
@@ -158,6 +147,7 @@ module.exports = function buildPartTwo(pres, H) {
     '\n' +
     'CONTENT —\n' +
     'v1.6: bill promoted to hero position with true-proportion bars + 27× badge; MoE hospital drawn (owner request); benchmark chart compressed to three rows — MATH-500 (97.3 vs 96.4) and Codeforces (96.3 vs 96.6 percentile) cut for space, quote if asked.\n' +
+    'v1.8 ART — the drawn hospital is replaced by the owner-generated night-hospital illustration (R16): three windows lit, exactly the ~37B-of-671B story. Point at the lit windows.\n' +
     'Chart data verified against the R1 paper (arXiv:2501.12948) — see notes/research/r13_reputations_r1.md.\n' +
     'Pricing: R1 $0.55/$2.19 vs o1 $15/$60 per M tokens (Jan 2025) = 27.3–27.4×.\n' +
     'Since then (if asked): DeepSeek stayed the open-weight value leader but slipped off the leading edge — NIST’s CAISI evaluation (May 2026) put it ~8 months behind the frontier.\n' +

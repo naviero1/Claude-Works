@@ -65,7 +65,7 @@ def header_footer(cv, doc):
     cv.setFillColor(DARK)
     cv.rect(0, H - HEADER_H, W, HEADER_H, stroke=0, fill=1)
     cv.setFillColor(colors.HexColor('#5FB8B0')); cv.setFont('DV-B', 7)
-    cv.drawString(M, H - 0.24 * inch, 'FROM PROMPTS TO AGENTS  ·  CHEAT SHEET  ·  AUGUST 2026')
+    cv.drawString(M, H - 0.24 * inch, 'FROM PROMPTS TO AGENTS  ·  CHEAT SHEET  ·  SEPTEMBER 2026')
     cv.setFillColor(colors.white); cv.setFont('DVSer-B', 14.5)
     cv.drawString(M, H - 0.48 * inch, 'One skill, two modes: prompts that write — and prompts that work')
     cv.setFillColor(MUTE); cv.setFont('DV', 6.2)
@@ -88,23 +88,23 @@ gap = Spacer(1, 6)
 E.append(Paragraph('GENERATIVE — a prompt that writes', S_mode))
 E.append(Paragraph('you ask → it produces text → you read it and act', S_modesub))
 
-E.append(box('THE ANATOMY — EVERY GOOD CHAT PROMPT', [
-    ('Role', '— who the AI is + the behaviours you need (“never invent numbers”). Shapes tone and framing, not IQ.'),
-    ('Task', '— one clear ask with a verb, the audience, and a success criterion (“reader should be able to decide X”).'),
+E.append(box('THE ANATOMY — SEVEN ELEMENTS (THE DESIGN LAYER)', [
+    ('Role', '— behaviours, not titles (“never invent numbers”). Shapes tone and framing, not IQ.'),
+    ('Task', '— one clear ask with a verb, the audience, and a success criterion.'),
     ('Context', '— raw material, glossary, constraints; explain WHY a rule exists.'),
     ('Format', '— structure, length cap, tone; say what TO do, not what to avoid.'),
-    ('Examples', '— 3–5 realistic samples of “good”; the strongest format control there is.'),
+    ('Examples', '— 2–3 realistic samples of “good”, one edge case included.'),
+    ('The Out', '— “if the document doesn’t say, say so” — permission not to guess.'),
+    ('The Stop', '— where the action ends: “deliver X, then stop — nothing beyond.”'),
 ], PANEL))
 E.append(gap)
 
-E.append(box('SEVEN TECHNIQUES COVER ALMOST EVERYTHING', [
-    ('1', 'Be specific — and say why the rule matters.'),
-    ('2', 'Show 3–5 diverse examples of the output you want.'),
-    ('3', 'Structure with tags/headers: instructions vs context vs input.'),
-    ('4', 'Give it an out: “if the document doesn’t say, say so.”'),
-    ('5', 'Chain big jobs: draft → review against criteria → refine.'),
-    ('6', 'Self-check against a concrete checklist (not “are you sure?”).'),
-    ('7', 'Metaprompt: ask the model to improve your prompt.'),
+E.append(box('THE TOOLKIT IS A LOOP — PLAN · DO · CHECK · ACT', [
+    ('PLAN', '— design the ask: the seven elements, filled; be specific and say why; separate your ask from pasted material.'),
+    ('DO', '— run it in order: NUMBERED steps; “wait for my OK” where you want control; documents on top, ask at the end.'),
+    ('CHECK', '— verify before you trust: name the failed element; self-check against NAMED criteria (never “are you sure?”); blind review; reconcile numbers to a known total.'),
+    ('ACT', '— deliver + improve: fix ONE element and rerun; metaprompt; works twice? name it, version it; re-baseline on model upgrades.'),
+    ('Layers', '— you WRITE with the anatomy; you IMPROVE with the loop. In agentic work the loop is written INTO the brief — which is why it works best there.'),
 ], TEAL_T))
 E.append(gap)
 
@@ -145,6 +145,7 @@ E.append(box('THE MISSION BRIEF — 12 BLOCKS (TEMPLATE A1)', [
     ('&lt;rules&gt;', 'never invent data; version outputs; log assumptions'),
     ('&lt;quality_bar&gt;', 'definition of done as an auditable checklist'),
     ('&lt;reporting&gt;', 'status · headline · evidence · open items, under 25 lines'),
+    ('', 'Design thick, ship lean: design against all 12 — SHIP the four-section PLAN·DO·CHECK·ACT brief, one screen long.'),
 ], TEAL_T, key_mono=True))
 E.append(gap)
 
@@ -161,6 +162,7 @@ E.append(box('GUARDRAILS', [
     ('', 'Least privilege: the minimum folders, tools, and accounts for the job.'),
     ('', 'Anything the agent reads can carry hostile instructions (prompt injection). Highest risk when private data + untrusted content + outbound channels combine.'),
     ('', 'Vet third-party skills/plugins like software. Demand evidence of “done,” then spot-check.'),
+    ('', 'A gate in the prompt is a suggestion; a gate in the harness is a control — put approvals in tool permissions too.'),
 ], RED_T, RED))
 E.append(gap)
 
@@ -168,6 +170,7 @@ E.append(box('MANAGE PROMPTS LIKE ASSETS', [
     ('Ladder:', 'one-off → personal doc → team library → skills/instructions → repo (as code).'),
     ('Trigger:', 'explained the same task more than once? Package it.'),
     ('Each entry:', 'name · owner · version + change note · model tested · a filled example.'),
+    ('Eval lite:', 'three gold cases (typical · edge · should-abstain) + a rubric; a new version must BEAT the current one; re-run on model upgrades.'),
     ('Governance:', 'prompts contain data — classify the library like the documents it quotes; secrets/PII never in a template ({{placeholders}} at run time).'),
 ], GREEN_T, GREEN))
 
