@@ -1135,3 +1135,47 @@ Deck 69→68. Q3: ALL THREE handouts (Template Creator + taxonomy reference + ch
 sheet) to mirror the PDCA framing — next-session job, queued. Q4: stop-as-action
 confirmed; owner may regenerate the body figure with the new Stop wording (prompt
 handed over) or the current image stands. Q5: renumbering confirmed fine.
+
+---
+
+## ROUND 8 — image round + protocol reaffirmation · 2026-09-10
+
+**Status: ⏸ HELD — no deck edits until the owner says "update".** (Owner noted
+Rounds 6–7 were applied without an explicit "update"; accepted, but R1 is
+reaffirmed strictly from here: prompts and proposals may be handed to the owner,
+placements planned, ledger committed — the deck itself waits for the word.)
+
+Numbering = v1.7c physical (68 slides).
+
+- **S8 (tokens):** owner-generated LEGO illustration (prompt handed over, wide
+  16:9) — placement: top of the right "LEGO bricks of text" card, above the brick
+  strip; shrink card text to fit.
+- **S9 (context window):** desk + filing-cabinet illustration (16:9) — placement:
+  header visual of "What's on the desk right now" (icon grid compresses below) or
+  a wide strip under the left bullets; decide at update by render.
+- **S12 (two speeds):** hare-and-tortoise fast/slow illustration (16:9) —
+  replaces the two icons inside "The two speeds, side by side".
+- **S14 (hallucination):** REDESIGNED art plan — no characters; four OBJECT
+  emblems (1:1): blank cue card on podium · dissolving sealed receipt · rubber
+  chicken on evidence tray · crumpled paper in gilded frame. One per character
+  card, replacing the icon circles. (Photoreal robot image stays unused in
+  notes/intake.)
+- **S30 (mirror):** NATIVE graph at update (mine, R16 data-stays-native): +49%
+  as two proportional bars (human baseline vs AI, indexed) and/or SycEval
+  pushback bars (58.2% flip · 14.7% right→wrong, AIES 2025 — r25). Fits the left
+  hero card under the number.
+- **S32 (PDCA in practice):** Deming corner portrait — owner generates a clearly
+  stylized flat-vector portrait bust (prompt handed over; labeled as an
+  illustration in notes; no license-cleared photo found). Placement: inside the
+  existing white Deming name card, image left of the text, band grows slightly.
+- **Additional delegated-image proposals (prompts handed over):** S18 hospital
+  upgrade (replaces the hand-drawn one, portrait 4:5) · S10 RAG open-book exam
+  (16:9, intro band or under step cards) · S7 finishing-school robot (1:1,
+  top-right corner) · S40 dashboard-on-laptop (16:9, right card header).
+- **Office-scene image (in intake):** proposed home = closing "Hands-on · three
+  exercises" slide (alt: welcome slide) — owner to pick.
+- **Part 5/6 image candidates (prompts at that review):** mission-brief work
+  order → robot courier · guardrails mountain road · promotion ladder sticky
+  note → binder → library shelf.
+- Placement mechanics at update: images to src/assets/images/ with clean names;
+  H.card frames; every generated image slide gets an "illustration" note per R16.
