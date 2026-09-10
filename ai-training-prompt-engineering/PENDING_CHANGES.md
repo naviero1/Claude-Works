@@ -920,10 +920,10 @@ the EmotionPrompt replication-crisis recalc, and the GPT-4.1/5.1/5.5 + Gemini 3 
 ## ROUND 6 — v1.7 ledger · owner's second pass on Part 1 (slides 2–14) · 2026-09-10
 
 **Status: ⏸ HELD.** Nothing below touches the deck until the owner says "update".
-Research in flight: (a) hardware/Moore's-law/Nvidia/data-centers slide → will become
-r22; (b) letter-counting currency check + Grok mode names + chartable hallucination
-data → will become r23. Ledger entries marked [needs r22]/[needs r23] finalize when
-those land.
+Research COMPLETE (2026-09-10): r22_hardware_story.md (Moore's law / Nvidia / data
+centers) and r23_tokens_grok_hallucination.md (letter-counting currency check · Grok
+modes · hallucination chart data). All entries below are finalized against them; the
+[needs r22]/[needs r23] tags mark which research file backs each spec.
 
 ### New standing rules (from this round's generic instructions)
 
@@ -963,26 +963,43 @@ those land.
   role, how chip tech and AI models have interacted, and why so many data centers.
   Intro-level only, ONE slide. Proposed placement: directly after S5 (closes the
   history arc: eras → decade → the hardware that made it possible), before "Under the
-  hood". Draft shape (finalize from r22): title ~"The hardware behind the magic";
-  blocks: ① Moore's law in one sentence + its 2026 status ② why GPUs/Nvidia (parallel
-  math; CUDA; AlexNet moment; market-cap milestone strip) ③ the feedback loop (bigger
-  models ⇄ bigger chips) ④ why data centers (training vs inference + power anchor,
-  announced-vs-built kept honest). One honest mini-chart if r22 yields a clean dataset.
-  Ripple: slide count 67→68; Part-1 divider subtitle gains "the hardware"; S17's
-  Nvidia $589B line gets a back-reference.
-- **S7 (Tokens) · strawberry-claim currency fix [needs r23].** Owner challenged
-  "letter-counting and character-exact edits fail" — right instinct: the famous
-  strawberry failure is largely FIXED on 2025+ reasoning models (memorized + spell-out
-  reasoning), so the bold bullet as written violates R15. Direction (pending r23
-  verification): reframe from "fails" to "reads bricks, not letters — and here's the
-  live proof": (a) keep the LEGO/brick teaching; (b) swap the bold bullet to the honest
-  2026 version: reasoning modes now count letters by spelling words out (premium fix —
-  label it), but character-exact work stays unreliable where it can't brute-force
-  (r23 to confirm which tasks still fail live: paragraph-level character counts,
-  exact-position edits, token counts); (c) the live-safe demo becomes the tokenizer
-  webpage with attendees' names (never a trick the model may have memorized);
-  (d) notes get the story ARC: "2024: strawberry broke models → 2025: vendors fixed it
-  → the lesson that didn't change: it reads tokens." Fully dated per R7.
+  hood". FINAL SHAPE (all facts sourced in r22): title "Why AI happened now — the
+  hardware story" (or "The machines behind the magic"); four blocks:
+  ① Moore's law — 1965/1975 prediction, one stat pair (1971: 2,300 transistors →
+  2024: 208 billion), status 2026 "slowing to ~3-year doublings, not dead";
+  ② The accident — gaming chips WERE AI chips: CUDA 2006 ("Nvidia let anyone program
+  a graphics card") + AlexNet 2012 on TWO consumer gaming cards, six days;
+  ③ Mini-chart "Moore's pace vs AI's appetite" (log scale, Epoch AI data: AlexNet
+  2012 4.7e17 → GPT-2 1.9e21 → GPT-3 3.1e23 → GPT-4 2.1e25 est., dashed Moore-pace
+  reference line; punchline: Moore pace since 2012 = ~45× — actual = ~45,000,000×;
+  caption credits Epoch + "GPT-4 est.");
+  ④ Why data centers — TRAIN (Llama 3.1: 16,000+ GPUs, months) / SERVE (a billion
+  users, 24/7) / POWER (IEA: one large AI data center ≈ 100,000 homes; biggest under
+  construction ≈ 2M; ~$700B build-out planned 2026; announced ≠ built said aloud).
+  Footer strip: Nvidia "first reached" milestones $1T May-2023 → $5T Oct-2025 →
+  ~$5.56T Sep-2026, world's most valuable company — sets up Part 2's DeepSeek day.
+  Notes stories (r22): the two gaming cards · the shovel-seller (92% of Nvidia
+  revenue now data center) · the city-sized computer. Huang's-law counterpoint
+  (Epoch ~2.5-yr price-performance doubling) in notes, attributed. Ripple: slide
+  count 67→68; S17 notes gain a back-reference ("the shovel story from Part 1").
+- **S7 (Tokens) · strawberry-claim currency fix [needs r23 — now VERIFIED].** Owner
+  challenged "letter-counting and character-exact edits fail" — right instinct: r23
+  confirms PARTLY OUTDATED. Strawberry is answered correctly by all current frontier
+  models; but the fix is partly memorization/routing — the BLUEBERRY incident (Aug
+  2025: free-tier fast path insisted on 3 b's, reasoning path passed) proves the
+  limit lives on. Still reliably failing (2025–26 papers in r23): character-position
+  edits (~33–44% accuracy, fast tiers) · letter counts across long words/paragraphs
+  (fast tiers; reasoning passes by SPELLING OUT — a paid, token-burning workaround) ·
+  exact word counts (all tiers) · "count your own tokens" (all tiers — the safest
+  claim). Rewrite the bold bullet to the honest 2026 version with tier labels (R15):
+  famous words are memorized now; position edits/paragraph counts still break on
+  fast/free tiers; word counts and token counts break everywhere. Live-safe demo:
+  tokenizer webpage with attendees' names — platform.openai.com/tokenizer (preload;
+  backup tiktokenizer.vercel.app). Near-safe live variant: "how many tokens is this
+  paragraph?" then reveal the true count on the tokenizer page (fails on every tier,
+  on-message). NEVER run strawberry or blueberry live. Notes get the story arc:
+  2024 strawberry breaks models → Aug 2025 blueberry breaks the "fixed" free tier →
+  the lesson that didn't change: it reads bricks.
 - **S8 (Context window) · fonts + one confusing bullet.** Keep everything (owner likes
   the slide). Raise "What's on the desk right now" item fonts (9.8 → ≥11) per R14.
   Replace the bold bullet «"Fits on the desk" ≠ "gets read carefully"» (confusing) with
@@ -1010,19 +1027,30 @@ those land.
   and upsize fonts per R14. Default: the puzzle survives only as the extended section
   of its workbook tab (now EX5-TwoSpeeds) for self-study; presenter answer key moves
   fully to notes.
-- **S12 (Feature menu) · ADD GROK ROW [needs r23].** Owner wants Grok in the
-  what-it's-called card (he values its less-filtered directness — that framing already
-  lives on the S16 trading card; S12 just adds the mode names). Sixth row with grok
-  logo + current mode/tier names once r23 verifies them; card compresses to 6 rows.
-- **S13 (Hallucination) · add a strong visual [needs r23 + R16].** Two-track:
-  (a) DATA: one honest chart drawn natively if r23 finds a current verifiable dataset
-  (candidates: Vectara grounded-hallucination leaderboard; OpenAI abstain-vs-guess
-  numbers) — metric explained in one sentence, caveat on the slide;
+- **S12 (Feature menu) · ADD GROK ROW [needs r23 — now VERIFIED].** Sixth row, grok
+  logo, compressed to: "Auto · Fast · Expert · Heavy (multi-agent, $300 tier) — the
+  old Think/DeepSearch buttons are retired". Card compresses to 6 rows. Notes carry
+  the tier map (Free · SuperGrok $30 · Heavy $300; X Premium bundles) and the r23
+  caveats: nothing first-party (x.ai blocks fetch), default-mode and Expert-gating
+  ambiguous — re-confirm in the live app before training day; [REFRESH QUARTERLY].
+  Owner's less-filtered/directness framing stays on the S16 trading card.
+- **S13 (Hallucination) · add a strong visual [needs r23 — now VERIFIED + R16].**
+  Two-track:
+  (a) DATA (r23 recommendation): the abstain-vs-guess chart from OpenAI's own paper
+  (arXiv:2509.04664 + GPT-5 System Card) — two stacked bars: o4-mini 24% right /
+  75% WRONG / 1% "I don't know" vs gpt-5-thinking-mini 22% right / 26% wrong /
+  52% "I don't know". One-sentence metric + punchline "same accuracy, ~3× fewer
+  false statements when it's allowed to say I-don't-know" — it draws the CONFIDENT
+  GUESS character in data and reinforces the Out. On-slide caveat: OpenAI's own
+  research, own models, one benchmark — mechanism, not a market ranking. (Vectara
+  many-logos option documented in r23 but NOT recommended — summarization-only
+  metric invites misreading.)
   (b) ILLUSTRATION: four character images via R16 workflow — Nano Banana prompts
-  already handed to the owner (see chat 2026-09-10): the Confident Guess (blank cue
+  already handed to the owner (chat 2026-09-10): the Confident Guess (blank cue
   card), the Fake Receipt (dissolving receipt), the Joke Taken Seriously (rubber
-  chicken on an evidence tray), Garbage In Gospel Out (crumpled note in → gilded frame
-  out). Embed as card art at update; text stays native.
+  chicken on an evidence tray), Garbage In Gospel Out (crumpled note in → gilded
+  frame out). Owner drops PNGs in notes/intake/; embed as card art at update; text
+  stays native.
 - **S14 (Hall of shame):** no change (owner: very good).
 
 ### Open questions for the owner (answer any time; defaults in parentheses)
