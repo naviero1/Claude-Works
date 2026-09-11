@@ -7,7 +7,7 @@ module.exports = function buildPartThree(pres, H) {
   H.partMarker(s, 3);
   s.addText('PART 3 · PROMPT ENGINEERING', { x: 0.55, y: 2.3, w: 12, h: 0.5, fontFace: F.body, fontSize: 16, bold: true, charSpacing: 4, color: C.TEAL_LIGHT, margin: 0 });
   s.addText('The craft: getting what\nyou actually meant', { x: 0.55, y: 2.8, w: 11.5, h: 1.9, fontFace: F.head, fontSize: 44, bold: true, color: C.ON_DARK, margin: 0, lineSpacingMultiple: 1.05 });
-  s.addText('Seven elements, seven techniques — and for every one of them: what it buys you, and the evidence behind it.', { x: 0.55, y: 4.85, w: 11, h: 0.8, fontFace: F.body, fontSize: 15, color: C.ON_DARK_MUTE, margin: 0, lineSpacingMultiple: 1.15 });
+  s.addText('Seven elements, one improvement loop — and for every method: what it buys you, and the evidence behind it.', { x: 0.55, y: 4.85, w: 11, h: 0.8, fontFace: F.body, fontSize: 15, color: C.ON_DARK_MUTE, margin: 0, lineSpacingMultiple: 1.15 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Progress bar: part 3 — the core craft part; if the room remembers one part, make it this one.\n' +
@@ -252,7 +252,7 @@ module.exports = function buildPartThree(pres, H) {
   s = H.slide('PART 3 · THE TOOLKIT', 27);
   H.title(s, 'The toolkit · Plan · Do · Check · Act', 'The toolkit is a loop');
   const pdcaKit = [
-    ['P', 'PLAN — design the ask', C.TEAL, C.TEAL_TINT, [
+    ['P', 'PLAN — draft the ask', C.TEAL, C.TEAL_TINT, [
       'The anatomy: all seven elements, filled',
       'Be specific — and say WHY behind each rule',
       'Separate your ask from the pasted material',
@@ -263,13 +263,13 @@ module.exports = function buildPartThree(pres, H) {
       'Add “wait for my OK” where you want control',
       'Documents on top, ask at the end · fresh chat per topic',
     ], '“1) Outline only. 2) Wait for my OK. 3) Draft section by section.”'],
-    ['C', 'CHECK — verify before you trust', C.AMBER, C.AMBER_TINT, [
-      'Name the failed element (the grid — later this part)',
+    ['C', 'CHECK — inspect before you trust', C.AMBER, C.AMBER_TINT, [
+      'Name the failed element — the symptom→element grid, tab EX-Rebuild',
       'Self-check on NAMED criteria — never “are you sure?”',
       'Blind review: paste it as “a colleague’s draft”',
       'Numbers reconcile to a known total · citations + the out',
     ], '“Verify against these three criteria and list exactly what fails.”'],
-    ['A', 'ACT — improve & standardize', C.GREEN, C.GREEN_TINT, [
+    ['A', 'ACT — refine, then standardize', C.GREEN, C.GREEN_TINT, [
       'Fix ONE element, rerun — never reword at random',
       'Metaprompt: have the AI rewrite the prompt itself',
       'Works twice? Name it, version it, library (Part 6)',
@@ -294,27 +294,38 @@ module.exports = function buildPartThree(pres, H) {
       { text: q[5], options: { color: C.TEAL_DARK, fontSize: 9, fontFace: 'Consolas' } },
     ], { x: x + 0.36, y: y + 1.81, w: 5.28, h: 0.42, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
   });
-  H.callout(s, 0.55, 6.68, 12.2, 0.5, C.TEAL_TINT, [
-    { text: 'Every phase can itself be delegated to the AI — ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
-    { text: 'the white lines show how. The methods are how YOU stay in charge of the loop.', options: { color: C.SLATE, fontSize: 11 } },
-  ], { iconName: 'refresh', iconFill: C.TEAL, size: 11 });
+  H.card(s, 0.55, 6.54, 12.2, 0.54, C.AMBER_TINT);
+  H.logo(s, 0.72, 6.62, 0.38, 'toyota', 'T');
+  s.addText([
+    { text: 'This is PDCA — the Deming/Toyota improvement cycle, applied to prompts. ', options: { bold: true, color: C.INK, fontSize: 10 } },
+    { text: 'The Lean Enterprise Institute now teaches “Prompt-Do-Check-Act.” Every phase is delegable — the white lines show how; the methods keep you in charge.', options: { color: C.SLATE, fontSize: 10 } },
+  ], { x: 1.22, y: 6.58, w: 8.3, h: 0.46, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.0 });
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'deming_portrait.jpg'), x: 9.72, y: 6.6, w: 0.42, h: 0.42, sizing: { type: 'cover', w: 0.42, h: 0.42 } });
+  s.addShape('roundRect', { x: 9.72, y: 6.6, w: 0.42, h: 0.42, rectRadius: 0.04, fill: { type: 'none' }, line: { color: C.LINE, width: 0.5 } });
+  s.addText([
+    { text: 'W. EDWARDS DEMING', options: { bold: true, color: C.INK, fontSize: 8.5 } },
+    { text: ' · 1900–1993', options: { color: C.SLATE, fontSize: 8, italic: true } },
+  ], { x: 10.22, y: 6.6, w: 2.4, h: 0.42, fontFace: F.body, valign: 'middle', margin: 0 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
-    '1) The frame is the owner’s design — say it plainly: “there is no separate list of techniques. The toolkit IS the improvement loop you already know from the factory floor: Plan, Do, Check, Act — with the right prompting method for each phase.”\n' +
+    '1) The frame is the owner’s design — say it plainly: “there is no separate list of techniques. The toolkit IS the improvement loop you already know from the factory floor: Plan, Do, Check, Act — with the right prompting method for each phase.” In practice the four phases are simply: draft → inspect → refine → standardize.\n' +
     '2) Walk the four quadrants P → D → C → A. Per quadrant: read the methods fast, then the WHITE LINE slowly — it is the copy-paste move, and it is also the delegation move: planning can be delegated (the AI drafts the prompt), checking can be delegated (against YOUR named criteria), acting can be delegated (metaprompt). You keep judgment; it does the labor.\n' +
     '3) CHECK is the quadrant to slow on — four different verification methods, one per failure type: wrong element → the grid; quality → named criteria; bias → blind review; numbers → reconcile to an anchor. “Are you sure?” appears in none of them, on purpose (the mirror, two slides ahead).\n' +
-    '4) Teal band: every phase delegable; the methods are how you stay in charge.\n' +
+    '4) Amber band — the provenance, with the portrait: Deming is the American quality pioneer whose cycle Toyota built its production system around; this room already runs PDCA on processes — now run it on prompts. The credential: the Lean Enterprise Institute (Deming/Toyota home turf) published “Prompt, Do, Check, Act: the new PDCA” in May 2026; their line — the people who get the most from these tools are the ones willing to run the loop a few more times. And every phase is delegable; the white lines show how.\n' +
+    '5) At ACT/standardize, the Toyota phrase: standardized work — lock in the better way, then improve the standard (Part 6’s whole story). Anthropic’s golden rule, spoken: show your prompt to a colleague with minimal context — if they’d be confused, the model will be too.\n' +
     '\n' +
     'BRIDGE —\n' +
     '“One clarification before the evidence — the two layers, on one worked prompt.”\n' +
     '\n' +
     'ACRONYMS —\n' +
-    'PDCA = Plan-Do-Check-Act — the Deming/Toyota improvement cycle (its full story comes later this part).\n' +
+    'PDCA = Plan-Do-Check-Act — the Deming/Toyota improvement cycle, core of kaizen (continuous improvement).\n' +
+    'gauge R&R = Gauge Repeatability & Reproducibility — a tested template kills prompt-to-prompt variation the way a calibrated gauge kills measurement variation.\n' +
     '\n' +
     'CONTENT —\n' +
     'v1.7b: the two technique slides merged into this PDCA-structured toolkit (owner decision, 2026-09-10: “folded entirely into the PDCA loop… PDCA is the main structure; Act sometimes will be delegated to AI, same with planning, same with verifying — it’s all about having the right methods for each”).\n' +
     'Every method keeps its evidence (r15/r20/r25): specificity+why (Yang 41.1%; the WHY is vendor guidance) · examples (Brown/Min; order matters) · separation (He 2024 ~40% wrapper swings; XML/tags = power-user variant in heavy documents) · placement (Anthropic ~30%/GPT-4.1) · sequence-following (vendor guidance; chaining evidence) · named-criteria self-check (CoVe 55.9→71.4; “are you sure” HARMS — Huang ICLR 2024, SycEval) · blind review (Cheng Science 2026) · reconciliation (G2 practice) · metaprompting (OPRO +50% BBH; GEPA; official vendor improvers) · re-baseline (GPT-5.5 guide via Willison).\n' +
-    'The Template Creator, taxonomy reference AND cheat sheet are queued to mirror this framing (owner: all three matter) — next session, not tonight.');
+    'The Template Creator, taxonomy reference AND cheat sheet mirror this framing (v1.8).\n' +
+    'v1.10 CONSOLIDATION (owner: “slides 28, 29 and 33 overlap — summarize in 2 slides”): the separate “PDCA in practice” slide was folded in here — its draft/inspect/refine/standardize verbs live in the quadrant titles, its Deming/Toyota/LEI band is the amber band below, and its symptom→element diagnosis grid moved to workbook tab EX-Rebuild (where the rep uses it). Citation: Art Smalley (Toyota veteran), “Prompt, Do, Check, Act: The New PDCA,” Lean Enterprise Institute, May 27 2026 — lean.org/the-lean-post (r15). Why standardize, with the number: identical asks formatted differently swung accuracy up to 76 points (Sclar) — the template IS the gauge-R&R answer.');
 
   // ---------- 28b. THE TWO LAYERS — ANATOMY vs LOOP (v1.8, 9C) ----------
   s = H.slide('PART 3 · THE DESIGN LAYER & THE PROCESS LAYER', 29);
@@ -366,6 +377,7 @@ module.exports = function buildPartThree(pres, H) {
     'CONTENT —\n' +
     'v1.8 new slide (owner-endorsed clarification, Round 9C, 2026-09-10): “PDCA is a process lens, not a design lens… I want to be able to bring this clarification in a slide for sure. And indicate that indeed it works best for agentic prompting.” Canonical structure confirmed by the owner in chat: embedded PDCA with ACT = deliver the final output + improve.\n' +
     'The returns-report brief is generic/fictional (R3) — no company data.\n' +
+    'v1.10: this slide and the toolkit-loop slide before it are the consolidated pair the owner asked for (Rounds: 28+29+33 → two adjacent slides; no more jumping between PDCA slides). The old “PDCA in practice” slide is gone: its verbs live in the loop slide’s quadrant titles, its diagnosis grid in workbook tab EX-Rebuild.\n' +
     'ART — the blueprint (robot schematic + amber loop) is an owner-generated illustration (R16): the anatomy drafted, the loop running around it.');
 
   // ---------- 29a. PROVEN VS MYTH — FULL SLIDE (v1.7, r25) ----------
@@ -548,85 +560,6 @@ module.exports = function buildPartThree(pres, H) {
     'v1.6: rebuilt as the three-column playbook (owner request); full lists + anchors in notes/research/r20_do_dont_expired.md. Key anchors: Yang 2026 (41.1%) · He 2024 (wrapper swings ~40%) · GPT-4.1 guide (bookending) · Omar 2025 (out: 66→44%) · GPT-5.1 guide (length adherence) · Safety Tax arXiv:2601.02023 · Wharton R3 + Salinas 2024 (tips/threats) · Cheng Science 2026 (+49%) · IFScale arXiv:2507.11538 (~150-rule cliff) · Kojima 2022 (10.4→40.7 GSM8K origin) · Sprague ICLR 2025 · Zheng 2024/Wharton R4 (personas) · OPRO 2024 (magic-phrase post-mortem) · EmotionPrompt recalc arXiv:2409.20303 (honest average ~2.6%) · GPT-5.5 guide via Willison Apr 2026 (re-baseline).\n' +
     'What did NOT change (say if the room looks nervous): clarity, context, format, the out, grounding, iteration — the anatomy applies to every model they will ever use; scaffolding tricks retire, briefing skills compound.');
 
-  // ---------- 31. THE HABIT · PDCA + DIAGNOSIS GRID ----------
-  s = H.slide('PART 3 · ITERATION', 31);
-  H.title(s, 'Running the loop · Draft → Inspect → Refine → Standardize', 'PDCA in practice');
-  const iter = [
-    ['edit', '1 · Draft', 'PLAN + DO', 'Write it with the anatomy — or bullet what you want and let the AI draft it (PLAN methods).'],
-    ['eye', '2 · Inspect', 'CHECK', 'Don’t reword at random: name the failed element (the grid) — or self-check on named criteria.'],
-    ['refresh', '3 · Refine', 'ACT', 'Fix that ONE element — or metaprompt: “rewrite this prompt so it more consistently produces X”.'],
-    ['save', '4 · Standardize', 'STANDARD WORK', 'Works twice? Name it, version it, library (Part 6). Improve the standard, not the improvisation.'],
-  ];
-  iter.forEach((it, i) => {
-    const x = 0.55 + (i % 2) * 3.05;
-    const y = 1.62 + Math.floor(i / 2) * 2.05;
-    H.card(s, x, y, 2.9, 1.9, i === 3 ? C.TEAL_TINT : C.PANEL);
-    H.iconCircle(s, x + 0.2, y + 0.16, 0.44, it[0], C.TEAL);
-    s.addText(it[1], { x: x + 0.74, y: y + 0.2, w: 2.1, h: 0.35, fontFace: F.head, fontSize: 13, bold: true, color: C.INK, margin: 0 });
-    s.addShape('roundRect', { x: x + 0.2, y: y + 0.68, w: 1.5, h: 0.3, rectRadius: 0.06, fill: { color: C.AMBER_TINT }, line: { color: C.AMBER, width: 0.6 } });
-    s.addText(it[2], { x: x + 0.2, y: y + 0.69, w: 1.5, h: 0.28, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 8.5, bold: true, charSpacing: 0.5, color: C.AMBER, margin: 0 });
-    s.addText(it[3], { x: x + 0.2, y: y + 1.02, w: 2.55, h: 0.85, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
-  });
-  H.card(s, 6.85, 1.62, 5.9, 4.1, C.PANEL);
-  s.addText('Inspect with this — which element failed?', { x: 7.12, y: 1.8, w: 5.4, h: 0.38, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
-  const grid = [
-    ['wrong altitude, tone, or posture', 'Role'],
-    ['answers a different (or vaguer) question', 'Task'],
-    ['generically right, specifically wrong for us', 'Context'],
-    ['right content, unusable shape or length', 'Format'],
-    ['doesn’t match the standard in your head', 'Examples'],
-    ['confidently invented', 'The Out (missing)'],
-    ['sprawls past what you asked', 'The Stop (missing)'],
-  ];
-  grid.forEach((g, i) => {
-    const y = 2.28 + i * 0.49;
-    s.addText(g[0], { x: 7.12, y, w: 3.6, h: 0.42, fontFace: F.body, fontSize: 10.5, color: C.SLATE, margin: 0, valign: 'middle' });
-    s.addText(g[1], { x: 10.8, y, w: 1.75, h: 0.42, fontFace: F.body, fontSize: 10.5, bold: true, color: C.TEAL_DARK, margin: 0, valign: 'middle' });
-    if (i < 6) s.addShape('line', { x: 7.12, y: y + 0.46, w: 5.35, h: 0, line: { color: C.LINE, width: 0.5 } });
-  });
-  H.card(s, 0.55, 5.95, 12.2, 1.12, C.AMBER_TINT);
-  // — the PDCA wheel, drawn —
-  const wcx = 1.42, wcy = 6.51, wr = 0.38;
-  [['P', 0, -1], ['D', 1, 0], ['C', 0, 1], ['A', -1, 0]].forEach(q => {
-    s.addShape('ellipse', { x: wcx + q[1] * wr - 0.15, y: wcy + q[2] * wr - 0.15, w: 0.3, h: 0.3, fill: { color: q[0] === 'A' ? C.AMBER : C.TEAL }, line: { type: 'none' } });
-    s.addText(q[0], { x: wcx + q[1] * wr - 0.15, y: wcy + q[2] * wr - 0.16, w: 0.3, h: 0.3, align: 'center', valign: 'middle', fontFace: F.head, fontSize: 11, bold: true, color: 'FFFFFF', margin: 0 });
-  });
-  [[0.13, -0.36, 0.2, 0.18], [0.13, 0.2, -0.2, 0.18], [-0.34, 0.2, -0.19, -0.2], [-0.34, -0.18, 0.2, -0.19]].forEach((a, i) => {
-    s.addShape('line', { x: wcx + a[0], y: wcy + a[1], w: Math.abs(a[2]), h: Math.abs(a[3]), line: { color: C.SLATE, width: 1, endArrowType: 'triangle' }, flipH: a[2] < 0, flipV: a[3] < 0 });
-  });
-  H.logo(s, 2.35, 6.06, 0.42, 'toyota', 'T');
-  s.addText([
-    { text: 'This is PDCA — Plan · Do · Check · Act: ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
-    { text: 'the Deming/Toyota improvement cycle, applied to prompts. The Lean Enterprise Institute now teaches “Prompt-Do-Check-Act.” Part 3 taught the elements; this loop turns them into tested templates; Part 6 turns templates into a team asset.', options: { color: C.SLATE, fontSize: 10.8 } },
-  ], { x: 2.92, y: 6.05, w: 7.0, h: 0.95, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.04 });
-  s.addShape('roundRect', { x: 10.06, y: 6.13, w: 2.56, h: 0.78, rectRadius: 0.07, fill: { color: 'FFFFFF' }, line: { color: C.AMBER, width: 1 } });
-  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'deming_portrait.jpg'), x: 10.16, y: 6.19, w: 0.66, h: 0.66, sizing: { type: 'cover', w: 0.66, h: 0.66 } });
-  s.addShape('roundRect', { x: 10.16, y: 6.19, w: 0.66, h: 0.66, rectRadius: 0.05, fill: { type: 'none' }, line: { color: C.LINE, width: 0.5 } });
-  s.addText([
-    { text: 'W. EDWARDS DEMING', options: { bold: true, color: C.INK, fontSize: 8.5, breakLine: true } },
-    { text: '1900–1993 · the quality pioneer whose cycle Toyota made famous', options: { color: C.SLATE, fontSize: 7.5, italic: true } },
-  ], { x: 10.92, y: 6.17, w: 1.62, h: 0.7, fontFace: F.body, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
-  s.addNotes(
-    'HOW TO PRESENT —\n' +
-    '1) Callback first: “this is the toolkit loop from earlier this part, IN PRACTICE — draft, inspect, refine, standardize on a real prompt.” Each card names which loop methods it runs on; the grid on the right is CHECK’s first method, in full.\n' +
-    '2) At INSPECT, gesture right: the diagnosis grid is the Check step — name the failed element, fix that one; iteration stops being random retyping.\n' +
-    '3) At STANDARDIZE, say the Toyota phrase: standardized work — lock in the better way, then improve the standard. That is Part 6’s whole story.\n' +
-    '4) Amber band — point at the WHEEL (P→D→C→A, forever), the Toyota mark, and the Deming card: Deming is the American quality pioneer whose cycle Toyota built its production system around — this room already runs PDCA on processes; now run it on prompts. The credential: the Lean Enterprise Institute (the Deming/Toyota home turf) published “Prompt, Do, Check, Act: the new PDCA” in May 2026. Their line: the people who get the most from these tools are the ones willing to run the loop a few more times.\n' +
-    '5) Anthropic’s golden rule, spoken: show your prompt to a colleague with minimal context — if they’d be confused, the model will be too.\n' +
-    '\n' +
-    'BRIDGE —\n' +
-    '“One rep to cement it — then the playbook.”\n' +
-    '\n' +
-    'ACRONYMS —\n' +
-    'PDCA = Plan-Do-Check-Act — the Deming cycle, core of Toyota-style continuous improvement (kaizen).\n' +
-    'gauge R&R = Gauge Repeatability & Reproducibility — a tested template kills prompt-to-prompt variation the way a calibrated gauge kills measurement variation.\n' +
-    '\n' +
-    'CONTENT —\n' +
-    'v1.6: PDCA wheel drawn + Toyota mark + Deming named card added (owner request; a public-domain-clear Deming photo wasn’t confirmed, so the named card stands in — swap in a photo only with a verified license).\n' +
-    'v1.8 ART — the name card now carries the owner-generated STYLIZED PORTRAIT of Deming (R16): clearly an illustration, not a photograph — no license issue; say “the man himself, in house style” if anyone asks.\n' +
-    'Citation: Art Smalley (Toyota veteran), “Prompt, Do, Check, Act: The New PDCA,” Lean Enterprise Institute, May 27, 2026 — lean.org/the-lean-post (r15).\n' +
-    'Why standardize, with the number: identical asks formatted differently swung accuracy up to 76 points (Sclar) — the template IS the gauge-R&R answer.');
-
   // ---------- 32. P3 REP ----------
   s = H.slide('THREE-MINUTE REP · PART 3', 32);
   H.title(s, 'Your turn — rebuild one prompt', 'Same report, two prompts — feel the difference');
@@ -660,14 +593,14 @@ module.exports = function buildPartThree(pres, H) {
   H.card(s, 7.35, 5.05, 5.4, 1.6, C.TEAL_TINT);
   s.addText([
     { text: 'Then compare with a neighbor: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'whose STEP 2 summary is more useful — and which ELEMENT made the difference? Different fills, same anatomy.', options: { color: C.SLATE, fontSize: 11 } },
+    { text: 'whose STEP 2 summary is more useful — and which ELEMENT made the difference? The symptom→element grid in tab EX-Rebuild names it.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 7.62, y: 5.22, w: 4.85, h: 1.3, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.08 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) 3:00 badge. The slide is INSTRUCTIONS ONLY (owner request) — the 60-word practice report lives in tab EX-Rebuild with both prompts; everyone works the same material from the workbook.\n' +
     '2) Run STEP 1 first, everyone: the naive ask on the excerpt. Let a couple of results be read out — fluent, unfocused.\n' +
     '3) STEP 2: three minutes to upgrade — a Role, a named reader, a ≤80-word cap, an Out. Same excerpt, second send.\n' +
-    '4) Neighbor compare — the learning moment: whose version wins and WHICH ELEMENT made the difference.\n' +
+    '4) Neighbor compare — the learning moment: whose version wins and WHICH ELEMENT made the difference. The symptom→element grid sits at the top of tab EX-Rebuild (wrong tone → Role · vaguer question → Task · generically right → Context · unusable shape → Format · not your standard → Examples · invented → the Out · sprawls → the Stop) — inspecting with it is the CHECK step, live.\n' +
     '5) Only then reveal the amber presenter answer.\n' +
     '6) Skip freely if behind — the playbook walkthroughs also exercise the elements.\n' +
     '\n' +

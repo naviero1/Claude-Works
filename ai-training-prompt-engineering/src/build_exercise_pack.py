@@ -346,6 +346,8 @@ prompt_tab('EX-Email', 'Part 4 walkthrough · The inbox play (uses Email_Thread_
 ], note='The practice thread has four planted traps: a moved date, an approval WITH a condition, an unanswered question, and a mentioned attachment that isn\'t there. A good brief catches all four.')
 
 prompt_tab('EX-Rebuild', 'Part 3 rep · Rebuild one prompt (3 minutes)', [
+    ('THE GRID', 'Inspect with this — which element failed? wrong altitude, tone, or posture -> ROLE · answers a different (or vaguer) question -> TASK · generically right, specifically wrong for us -> CONTEXT · right content, unusable shape or length -> FORMAT · doesn\'t match the standard in your head -> EXAMPLES · confidently invented -> THE OUT is missing · sprawls past what you asked -> THE STOP is missing.',
+     'The symptom-to-element diagnosis grid (moved here from the slides in v1.10) — name the failed element, fix that ONE, rerun.'),
     ('THE REPORT', 'Q2 returns totaled 412 units against 28,400 shipped (1.45%), up from 1.1% in Q1. Site B drove the rise; supplier packaging changes are the suspected cause. Inspection hours were flat; two corrective actions are in draft. Full breakdown by site and supplier is in the appendix table.',
      'The 60-word fictional report both steps run on — paste it after each prompt.'),
     ('STEP 1', 'Summarize this report.',

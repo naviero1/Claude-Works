@@ -1290,6 +1290,29 @@ Mapping by filename infix → target (name at embed):
 
 ---
 
+## ROUND 11 — cut + consolidate (owner-directed) · 2026-09-11 · ✅ APPLIED (v1.10)
+
+Owner: "I don't think we need slide 21. Slides 28, 29 and 33 overlap — summarize
+in 2 slides and not jump from one area to another. Slide 31 flattery bias:
+think of a nice image and give me a prompt." Applied:
+- **S21 "What people actually use" CUT** (deck 71→69 after both changes). Its
+  keepers (Gallup 52%/15%, 86% first-draft, usage≠preference, the standing
+  approved-tool rule) condensed into the doers slide's speaker notes; r24
+  research file unchanged. Doers bridge now goes straight to Part 3.
+- **S28+S29+S33 → TWO adjacent slides.** "The toolkit is a loop" absorbed
+  "PDCA in practice": quadrant titles carry the practice verbs (draft ·
+  run · inspect · refine-then-standardize) and the bottom band is now the
+  Deming/Toyota/LEI provenance with the portrait. "Two layers, one craft"
+  stays as the second slide, unchanged. The symptom→element DIAGNOSIS GRID
+  moved to workbook tab EX-Rebuild (top row), where the rep uses it; the
+  CHECK quadrant, the rep slide, and Part 5's run-time grid all point there.
+  No PDCA material remains after the evidence-corner slides — no jumping.
+- **Part 3 divider line updated** ("seven techniques" → "one improvement
+  loop") — the last stale pre-merge phrasing.
+- **S31 (now S30) mirror image**: prompt handed to owner (person at a
+  mirror; the reflection is a robot giving an enthusiastic thumbs-up);
+  16:9 slot planned bottom-right of the slide, restructure at embed.
+
 ## ROUND 10 — font floor + image symmetry (owner-directed) · 2026-09-10 · ✅ APPLIED (v1.9)
 
 Owner: "elevate the minimum size to at least 11, especially when you have big

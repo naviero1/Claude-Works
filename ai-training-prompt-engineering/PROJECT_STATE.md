@@ -13,7 +13,7 @@ wrong" (run-time context-failure grid + instruction layers); S30 native mirror b
 design-thick/ship-lean, harness-gate sentence, eagerness dial, eval lite, HANDOFF≡compaction,
 context-engineering line + glossary, kill-order in welcome notes, wrap-up sentence); all
 three handouts (cheat sheet, taxonomy PDF, Template Creator) reframed onto the PDCA loop;
-deck now 71 slides. Held in intake: certificate emblem (benched), gallery wall (S15 has no
+deck now 69 slides (v1.10: most-used slide cut; the three PDCA slides consolidated to two). Held in intake: certificate emblem (benched), gallery wall (S15 has no
 room within the font floor — future use). Bench scene placed on the dark close (flagged:
 ledger had slotted the question slide, which had no room at full size).
 

@@ -264,7 +264,7 @@ module.exports = function buildPartTwo(pres, H) {
     '5) Footer: IDEs and browser agents exist — engineering/power-user territory, and browser agents are injection-prone (treat every page as untrusted input).\n' +
     '\n' +
     'BRIDGE —\n' +
-    '“Agents that DO. Now the specialists that MAKE — next slide.”\n' +
+    '“That’s the landscape. Part 3 — the craft itself.”\n' +
     '\n' +
     'ACRONYMS —\n' +
     'IDE = Integrated Development Environment — a programmer’s editor.\n' +
@@ -276,79 +276,7 @@ module.exports = function buildPartTwo(pres, H) {
     'Manus: Meta acquisition ~$2B Dec 2025; Beijing (NDRC) ordered unwind Apr 2026; independent Singapore company Aug 2026; desktop “My Computer” mode Mar 2026.\n' +
     'Notion: Custom Agents (Feb 2026) run on triggers with scoped permissions; Business/Enterprise plans; usage billed in credits.\n' +
     'OpenClaw: maintainer’s own warning, verbatim — “if you can’t run a command line, this is far too dangerous to use safely”; CVE-2026-25253 (1-click RCE); a malicious #1-ranked community skill (Cisco).\n' +
-    'R14 type pass: the on-slide footer was removed (fewer footnotes) — speak its content from point 5: coding IDEs (Cursor · GitHub Copilot · Devin) and browser agents (Comet · Claude in Chrome) exist too — engineering and power-user tools; ask IT before either.');
+    'R14 type pass: the on-slide footer was removed (fewer footnotes) — speak its content from point 5: coding IDEs (Cursor · GitHub Copilot · Devin) and browser agents (Comet · Claude in Chrome) exist too — engineering and power-user tools; ask IT before either.\n' +
+    'v1.10: the “What people actually use” slide was CUT (owner). Its keepers, spoken here if useful (all sourced in r24, mid-2026): 52% of US employees use AI at work, 15% daily (Gallup May ’26) · top jobs writing 51% / research 49% · 86% treat AI output as a FIRST DRAFT, not a final product (Microsoft WTI 2026) · usage ≠ preference — people default to whatever is already inside Gmail/Office/WhatsApp; the chosen-for-the-job tier (Claude ~9× visit growth, Perplexity, Gemini Notebook, DeepSeek) is smaller but fastest-growing · STANDING RULE, always said aloud: your organization’s AI policy and approved-tool list outrank every name in this part.');
 
-  // ---------- 20. WHAT PEOPLE ACTUALLY USE (v1.7, r24) ----------
-  s = H.slide('PART 2 · THE TOOLS IN REAL LIFE', 20);
-  H.title(s, 'What people actually use', 'Usage data, not hype — and the why · mid-2026');
-  const tiers = [
-    ['The defaults — billion-user scale', 'chosen once, or already installed', [
-      ['openai', 'ChatGPT', '900M weekly users — chose it first, stayed'],
-      ['gemini', 'Gemini', '900M+ monthly — in Gmail, Docs, Android'],
-      ['copilot', 'Copilot', 'the work default — in Word, Outlook, Teams'],
-      [null, 'Meta AI', 'the button inside WhatsApp & Instagram'],
-    ]],
-    ['Chosen for the job', 'smaller — picked on quality, growing fastest', [
-      ['claude', 'Claude', 'writing & coding — visits up ~9× in a year'],
-      ['perplexity', 'Perplexity', 'answers with sources — the search replacement'],
-      ['google', 'Gemini Notebook', 'answers from YOUR documents only'],
-      ['deepseek', 'DeepSeek', 'free, capable, open — huge in Asia'],
-    ]],
-    ['AI came to tools you already had', 'you may be an AI user without noticing', [
-      ['canva', 'Canva', 'the design suite grew an AI brain'],
-      [null, 'CapCut', '736M users — video editing, AI inside'],
-      ['notion', 'Notion', 'notes & docs that draft themselves'],
-      [null, 'Grammarly', 'the quiet writing fixer, everywhere'],
-    ]],
-  ];
-  tiers.forEach((t, ti) => {
-    const y = 1.58 + ti * 1.42;
-    H.card(s, 0.55, y, 12.2, 1.3, ti === 1 ? C.TEAL_TINT : C.PANEL);
-    s.addText([
-      { text: t[0], options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true } },
-      { text: t[1], options: { italic: true, color: C.MUTE, fontSize: 10 } },
-    ], { x: 0.8, y: y + 0.1, w: 2.35, h: 1.1, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.02 });
-    t[2].forEach((tool, i) => {
-      const x = 3.3 + i * 2.38;
-      if (tool[0]) H.logo(s, x, y + 0.16, 0.4, tool[0], tool[1][0]);
-      else H.logo(s, x, y + 0.16, 0.4, 'none', tool[1][0]);
-      s.addText(tool[1], { x, y: y + 0.6, w: 2.25, h: 0.26, fontFace: F.body, fontSize: 10.5, bold: true, color: C.INK, margin: 0 });
-      s.addText(tool[2], { x, y: y + 0.85, w: 2.25, h: 0.42, fontFace: F.body, fontSize: 10.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 0.96 });
-    });
-  });
-  H.card(s, 0.55, 5.9, 12.2, 0.62, C.PANEL);
-  s.addText([
-    { text: '52% of US employees use AI at work — 15% daily (Gallup, May ’26)   ·   ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
-    { text: 'top jobs: writing 51% · research 49%   ·   86% treat AI output as a first draft, not a final product (Microsoft, 2026)', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { x: 0.85, y: 5.98, w: 11.6, h: 0.48, fontFace: F.body, valign: 'middle', margin: 0 });
-  H.callout(s, 0.55, 6.62, 12.2, 0.52, C.AMBER_TINT, [
-    { text: 'Standing rule: ', options: { bold: true, color: C.INK, fontSize: 10.5 } },
-    { text: 'your organization’s AI policy and approved-tool list outrank every name on this slide.', options: { color: C.SLATE, fontSize: 10.5 } },
-  ], { iconName: 'shield', iconFill: C.AMBER, size: 10.5 });
-  s.addNotes(
-    '[REFRESH QUARTERLY — owner: Oscar]\n' +
-    '\n' +
-    'HOW TO PRESENT —\n' +
-    '1) Frame: “not the hype list — the USAGE list. Three tiers, and the tier names are the insight.”\n' +
-    '2) Tier 1 — the defaults: ChatGPT is the one people CHOSE (900M weekly users, ~54% of all chatbot visits); Gemini, Copilot and Meta AI are enormous partly because they are already INSIDE Gmail, Office, and WhatsApp. Usage ≠ preference — Copilot is #3 with US adults yet a rounding error in destination-site traffic: people use what IT already approved.\n' +
-    '3) Tier 2 — chosen for the job (the teal row): Claude for writing and coding (fastest growth of the majors — visits up ~9× in a year); Perplexity for answers with receipts; Gemini Notebook when the answers must come from YOUR documents; DeepSeek free/open with a heavy Asia skew.\n' +
-    '4) Tier 3 — the sleeper tier: Canva, CapCut, Notion, Grammarly — a chunk of “AI adoption” is tools people already had growing AI features. Some of this room are AI users who never called it that.\n' +
-    '5) Stats band: a majority of US employees now use AI at work; the jobs are writing and research; and 86% treat the output as a FIRST DRAFT — the healthiest one-line usage policy ever measured.\n' +
-    '6) The Reddit wisdom, clearly labeled as anecdotal: heavy users don’t pick ONE tool — they run a small STACK (daily driver + a writer + a searcher). Direction, not data.\n' +
-    '\n' +
-    'TRY IT (spoken, not numbered) —\n' +
-    'The find-more move never goes stale: “Search the web: what are the best current tools for [my task], and which are enterprise-safe?”\n' +
-    '\n' +
-    'BRIDGE —\n' +
-    '“That’s the landscape. Part 3 — the craft itself.”\n' +
-    '\n' +
-    'ACRONYMS —\n' +
-    'MAU/WAU = monthly/weekly active users. Gemini Notebook = the renamed NotebookLM (Jul 2026).\n' +
-    '\n' +
-    'CONTENT —\n' +
-    'v1.7: replaces the specialist shelf (owner request: most-used tools + why, researched via Reddit signals AND measured sources). All numbers sourced in notes/research/r24_most_used_tools.md (researched Sep 10, 2026): a16z Top-100 6th ed. (Mar 2026, Jan-2026 data) · Similarweb shares May 2026 (ChatGPT 53.9%, Gemini 27.9%, Claude 9.2% +855% YoY, DeepSeek 4.1%, Copilot/Perplexity 1.3%) · Sensor Tower Jun 2026 · Pew Feb 2026 (ChatGPT 44% of US adults, Gemini 24%, Copilot 17%) · Gallup May 2026 (52% work use, 15% daily; writing 51%, research 49%) · Microsoft Work Trend Index 2026 (86% first-draft) · Edison/SSRS May 2026 (65% of Americans weekly).\n' +
-    'Hype-vs-usage gaps for questions: Perplexity = famous but 1.3% of visits · Midjourney fell to #46 mobile · companion apps are quietly huge (Character.AI #7 web, 15+ minute sessions) · China’s Doubao/Quark/Kimi are enormous and invisible to US offices.\n' +
-    'Meta AI: ~1B monthly (Meta, May 2025 — its last hard number); lives inside WhatsApp/Instagram rather than as an app people choose.\n' +
-    'Displaced specialist-shelf answers (kept for questions, evidence in r12): images-for-work safe lane = Adobe Firefly (licensed training; paid plans include indemnification) · meetings = native Teams/Zoom first, Granola best-in-class (consent policy applies) · decks = Gamma · apps-without-code = Lovable · voice/translation = ElevenLabs · DeepL · video = Veo 3.1 (Sora app shut down Apr 2026 — never build a process on a consumer app).\n' +
-    'Reddit signal is SECONDARY-SOURCED (Reddit blocks crawlers; roundups of subreddit consensus, Aug–Sep 2026) — always label it anecdotal.');
 };
