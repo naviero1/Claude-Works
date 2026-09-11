@@ -141,12 +141,13 @@ module.exports = function buildPartOne(pres, H) {
     if (i === 0) {
       box(gx + 0.78, gy, 0.8, 'if…?');
       box(gx + 0.08, gy + 0.4, 0.8, 'then A'); box(gx + 1.5, gy + 0.4, 0.8, 'else B');
-      s.addShape('line', { x: gx + 1.05, y: gy + 0.22, w: -0.55, h: 0.18, line: { color: C.TEAL, width: 1 } });
+      s.addShape('line', { x: gx + 0.5, y: gy + 0.22, w: 0.55, h: 0.18, line: { color: C.TEAL, width: 1 }, flipH: true });
       s.addShape('line', { x: gx + 1.32, y: gy + 0.22, w: 0.55, h: 0.18, line: { color: C.TEAL, width: 1 } });
     } else if (i === 1) {
       const L1 = [0, 0.22, 0.44], L2 = [0.11, 0.33];
-      L1.forEach(dy => L2.forEach(dy2 => s.addShape('line', { x: gx + 0.3, y: gy + dy + 0.07, w: 0.85, h: dy2 - dy, line: { color: C.LINE, width: 0.9 } })));
-      L2.forEach(dy2 => s.addShape('line', { x: gx + 1.3, y: gy + dy2 + 0.07, w: 0.75, h: 0.15 - dy2 + 0.07, line: { color: C.LINE, width: 0.9 } }));
+      const seg = (sx, sy, sw, sh) => s.addShape('line', { x: sw < 0 ? sx + sw : sx, y: sh < 0 ? sy + sh : sy, w: Math.abs(sw), h: Math.abs(sh), line: { color: C.LINE, width: 0.9 }, flipH: sw < 0, flipV: sh < 0 });
+      L1.forEach(dy => L2.forEach(dy2 => seg(gx + 0.3, gy + dy + 0.07, 0.85, dy2 - dy)));
+      L2.forEach(dy2 => seg(gx + 1.3, gy + dy2 + 0.07, 0.75, 0.15 - dy2 + 0.07));
       L1.forEach(dy => s.addShape('ellipse', { x: gx + 0.16, y: gy + dy, w: 0.15, h: 0.15, fill: { color: C.TEAL }, line: { type: 'none' } }));
       L2.forEach(dy => s.addShape('ellipse', { x: gx + 1.16, y: gy + dy, w: 0.15, h: 0.15, fill: { color: C.TEAL }, line: { type: 'none' } }));
       s.addShape('ellipse', { x: gx + 2.06, y: gy + 0.22, w: 0.15, h: 0.15, fill: { color: C.AMBER }, line: { type: 'none' } });

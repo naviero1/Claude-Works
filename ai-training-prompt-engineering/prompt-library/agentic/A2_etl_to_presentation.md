@@ -253,8 +253,8 @@ ambiguous; a number would change a prior published figure.
 </process>
 
 <rules>
-- Never invent, estimate, or back-fill a number. Missing is missing; say so on the slide if
-  it matters.
+- Never invent, estimate, or back-fill a number. Missing is missing: write UNKNOWN, log it
+  in OPEN_ITEMS, and say so on the slide if it matters.
 - Every transformation is a logged rule with a row count. No silent fixes, no manual cell edits.
 - Source files are immutable. Outputs go to deliverables/; everything regenerable goes to work/.
 - Every presented number must trace to an L2/L3 cell and a source file — keep a

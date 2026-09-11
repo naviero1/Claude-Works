@@ -1290,6 +1290,40 @@ Mapping by filename infix → target (name at embed):
 
 ---
 
+## ROUND 12 — the Out redefined + mirror art + PowerPoint repair fix · 2026-09-11 · ✅ APPLIED (v1.11)
+
+Owner: "the Out needs to be better defined in slide 22 — a better example and a
+clearer definition"; then "update the other artifacts — the examples, the
+workbook, the cheat sheet and the tool itself"; plus "every time I open the
+pptx it says it needs to be repaired"; and the mirror image arrived.
+
+**The Out — new canonical definition (everywhere):** the escape route for
+missing information, in three parts — CONDITION (what counts as missing) ·
+HONEST MOVE (write UNKNOWN — never estimate) · SURFACING (list the gaps at the
+end). Rationale taught with it: a model is trained to always produce an
+answer — unless you specify the honest move, inventing is the only way it can
+obey. Prefer the checkable shape (UNKNOWN + gap list beats a bare "say so").
+Propagated to: anatomy slide 22 (new example row + formal definition in the
+teal band — the Google 21-words stat moved to notes) · element card 3-of-3 ·
+taxonomy generative.json (the_out definition/mechanism + new default behavior
+option "UNKNOWN + gap list"; 287 options now) · Template Creator + taxonomy
+PDF + configurator XLSX (regenerated + recalc) · cheat sheet · ELEMENTS.md +
+field guide PDF · workbook EX-Rebuild + PLAYBOOK row 5 · A1/A2 rules lines
+(UNKNOWN → OPEN_ITEMS).
+
+**Mirror art embedded** (S30): owner-generated reflection illustration
+(person + blank page; beaming amber robot reflection, thumbs-up, stars) at
+native 16:9, right of the countermeasures/see-it-yourself stack (compressed
+left). Staged as mirror_reflection.jpg.
+
+**PowerPoint "needs repair" FIXED:** root cause found by unzipping the pptx —
+negative shape extents (invalid OOXML) from two spots on the eras slide: a
+connector drawn with w:-0.55 and the neural-net mini-diagram computing
+negative heights (dy2−dy). Both normalized to positive extents + flipH/flipV.
+Verified: zero negative extents anywhere in the rebuilt file; all XML parses;
+eras diagram renders identically. LibreOffice had silently tolerated it —
+PowerPoint repairs it; the prompt should now be gone.
+
 ## ROUND 11 — cut + consolidate (owner-directed) · 2026-09-11 · ✅ APPLIED (v1.10)
 
 Owner: "I don't think we need slide 21. Slides 28, 29 and 33 overlap — summarize

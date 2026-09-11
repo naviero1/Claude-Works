@@ -1404,8 +1404,8 @@
       "oop": "class TheOut extends SafetyValve",
       "emit_tag": "uncertainty_rules",
       "default_on": true,
-      "definition": "Permission to not know — re-opens the abstain option that benchmark training closed.",
-      "mechanism": "Models are trained on tests that reward confident guessing over admitting uncertainty. Without an explicit out, you have implicitly ordered the model to always produce something.",
+      "definition": "The escape route for missing information: name the condition, the honest move, and how gaps surface — so the model never has to choose between obeying you and being honest.",
+      "mechanism": "A model is trained to always produce an answer — benchmarks reward confident guessing over abstaining. Unless you specify the honest move, inventing is the only way it can obey your prompt.",
       "prevents": "confident invention — the signature failure of factual work.",
       "attributes": [
         {
@@ -1459,9 +1459,14 @@
           "guidance": "The escape hatch's shape.",
           "options": [
             {
+              "label": "UNKNOWN + gap list",
+              "phrase": "Anything the material doesn't state: write UNKNOWN — never estimate. List the gaps at the end.",
+              "when": "the checkable default — condition, honest move, and surfacing in one sentence (the course anatomy's form)"
+            },
+            {
               "label": "Say so plainly",
               "phrase": "When uncertain: say \"I don't know\" or \"the material doesn't say\" — plainly, without apology.",
-              "when": "default"
+              "when": "lightest form — names no output shape"
             },
             {
               "label": "Best reading, labeled",
@@ -1474,7 +1479,7 @@
               "when": "interactive sessions"
             }
           ],
-          "why": "Explicitly permitting 'I don't know' 'can drastically reduce false information' — the vendor's own wording. Giving the escape hatch a shape (say so, ask, or flag and continue) converts invisible guesses into visible, handleable items. (Anthropic reduce-hallucinations, verbatim)"
+          "why": "Explicitly permitting 'I don't know' 'can drastically reduce false information' — the vendor's own wording. Prefer a CHECKABLE shape: UNKNOWN plus a gap list can be verified in the output; a bare 'say so' names no form. Giving the escape hatch a shape converts invisible guesses into visible, handleable items. (Anthropic reduce-hallucinations, verbatim)"
         }
       ],
       "techniques": [

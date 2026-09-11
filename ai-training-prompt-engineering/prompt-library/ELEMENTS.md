@@ -175,10 +175,14 @@ drafting/formatting tasks, examples remain the highest-leverage element there is
 These are single sentences, not sections — but they appear in every template in this library
 because each shuts off a signature failure.
 
-**THE OUT — permission to not know.** `If the document doesn't say, say so. If you are not
-sure, say you are not sure.` Models are trained on benchmarks that reward guessing over
-abstaining (OpenAI, 2025); the Out re-opens the abstain option and drastically cuts invented
-answers. Without it you have implicitly ordered the model to always produce something.
+**THE OUT — the escape route for missing information.** `Anything the document doesn't
+state: write UNKNOWN — never estimate. List the gaps at the end.` A complete Out has three
+parts: the **condition** (what counts as missing), the **honest move** (what to write
+instead of a guess), and the **surfacing** (how the gaps reach you — a list, a flag, a
+question). Models are trained on benchmarks that reward guessing over abstaining (OpenAI,
+2025); unless you specify the honest move, inventing is the only way the model can obey
+your prompt. Prefer a checkable shape — `UNKNOWN` plus a gap list can be verified in the
+output; a bare "say so" names no form.
 
 **THE STOP — the scope boundary.** `Answer these three questions, then stop — do not go
 exploring.` The Stop converts open-ended capability into bounded work. It is the difference

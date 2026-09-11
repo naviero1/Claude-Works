@@ -98,7 +98,7 @@ is ambiguous; an action would be hard to reverse (delete, send, publish, overwri
 </process>
 
 <rules>
-- Never invent, estimate, or back-fill a fact or number. Missing is missing; say so.
+- Never invent, estimate, or back-fill a fact or number. Missing is missing: write UNKNOWN and log it in OPEN_ITEMS.
 - Inputs are immutable; outputs are versioned; everything regenerable goes in scratch.
 - State assumptions as assumptions, in OPEN_ITEMS.md.
 - Prefer boring, reproducible methods; propose fancier ones at a gate, don't just use them.

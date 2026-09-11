@@ -32,7 +32,7 @@ module.exports = function buildPartThree(pres, H) {
     ['CONTEXT', '“We’re a mid-size electronics manufacturer. Return rate = returns ÷ shipped. The export has a totals row — exclude it.”'],
     ['FORMAT', '“≤ 150 words: the headline number first, then three bullets.”'],
     ['EXAMPLES', '<example> March’s summary — the one the team liked </example>'],
-    ['THE OUT', '“If the report doesn’t say — say so.”'],
+    ['THE OUT', '“Anything the report doesn’t state: write UNKNOWN — never estimate. List the gaps at the end.”'],
     ['THE STOP', '“Deliver the summary, then stop — nothing beyond.”'],
   ];
   anatEx.forEach((r, i) => {
@@ -43,16 +43,17 @@ module.exports = function buildPartThree(pres, H) {
   });
   s.addText('Note the industry line: what business you’re in is CONTEXT — name your world; never assume it knows.', { x: 6.55, y: 6.12, w: 6.0, h: 0.36, fontFace: F.body, fontSize: 10, italic: true, color: C.AMBER, margin: 0 });
   H.callout(s, 0.55, 6.62, 12.2, 0.5, C.TEAL_TINT, [
-    { text: 'Google’s data point: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
-    { text: 'the most fruitful prompts averaged ~21 words with context — most people type fewer than nine. A good prompt is a short briefing, not a search query.', options: { color: C.SLATE, fontSize: 11 } },
-  ], { iconName: 'edit', iconFill: C.TEAL, size: 11 });
+    { text: 'The Out, defined: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
+    { text: 'the escape route for missing information — name the honest move (write UNKNOWN · never estimate · list the gaps), so the model never has to choose between obeying you and being honest.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { iconName: 'shield', iconFill: C.TEAL, size: 11 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “one prompt, seven parts — and the parts make a BODY. Everything in Part 3 is refinements of this picture.”\n' +
-    '2) Walk the FIGURE (owner-generated art) top to bottom, naming each organ: the head thinks in the right posture (Role) · the heart is why it beats at all (Task) · the bloodstream feeds every organ (Context) · the skeleton holds the shape (Format) · the hands show how it’s done (Examples) · the immune system rejects invented facts (the Out) · the skin is where the ACTION ends (the Stop — perform exactly the named action, then stop). Then the caption: miss an organ and it still walks — it just fails in a predictable way. That predictability is the diagnosis grid later this part. (The image caption says the Stop is “where the job ends” — SAY it the owner’s way: where the ACTION ends.)\n' +
-    '3) RIGHT card: the same body written out — read it top to bottom as ONE continuous prompt (~85 words, under two minutes to write).\n' +
-    '4) The amber line — owner-requested and worth saying twice: YOUR INDUSTRY IS CONTEXT. “We’re a mid-size electronics manufacturer” changes every answer downstream; people constantly assume the AI knows their world. It doesn’t until you say so.\n' +
-    '5) Teal band: ~21 words vs the nine people type.\n' +
+    '2) Walk the FIGURE (owner-generated art) top to bottom, naming each organ: the head thinks in the right posture (Role) · the heart is why it beats at all (Task) · the bloodstream feeds every organ (Context) · the skeleton holds the shape (Format) · the hands show how it’s done (Examples) · the immune system rejects invented facts (the Out) · the skin is where the ACTION ends (the Stop — perform exactly the named action, then stop). Then the caption: miss an organ and it still walks — it just fails in a predictable way. That predictability is the diagnosis grid (tab EX-Rebuild). (The image caption says the Stop is “where the job ends” — SAY it the owner’s way: where the ACTION ends.)\n' +
+    '3) RIGHT card: the same body written out — read it top to bottom as ONE continuous prompt (~90 words, under two minutes to write).\n' +
+    '4) SLOW on THE OUT row — the element people define worst, so define it fully: the Out is the ESCAPE ROUTE you write for missing information. It has three parts, all visible in the example: the CONDITION (“anything the report doesn’t state”), the HONEST MOVE (“write UNKNOWN — never estimate”), and the SURFACING (“list the gaps at the end” — so the gaps reach YOU instead of hiding). Then the why, in one sentence: a model is trained to always produce an answer — if you don’t specify the honest move, INVENTING is the only way it can obey your prompt. “Say so” alone is weaker: it names no form; UNKNOWN + a gap list is checkable in the output.\n' +
+    '5) The amber line — owner-requested and worth saying twice: YOUR INDUSTRY IS CONTEXT. “We’re a mid-size electronics manufacturer” changes every answer downstream; people constantly assume the AI knows their world. It doesn’t until you say so.\n' +
+    '6) Teal band: read the Out definition verbatim — it is the slide’s one formal definition.\n' +
     '\n' +
     'BRIDGE —\n' +
     '“Now each element properly — and what each one BUYS you.”\n' +
@@ -62,7 +63,8 @@ module.exports = function buildPartThree(pres, H) {
     '\n' +
     'CONTENT —\n' +
     'v1.6: rebuilt around the body figure (owner: “let’s see how creative and artistic you can get”); the vendor-recipe panel moved off-slide (owner request) — keep in reserve for questions: Anthropic (role · clear task · context · format · examples), OpenAI (role & instructions · context · format · few-shot), Google (Persona·Task·Context·Format), Microsoft (Goal·Context·Source·Expectations) — four official guides, one anatomy: convergence, not our opinion.\n' +
-    'The 21-words stat: Google’s Oct 2024 Workspace guide (directional, not gospel).\n' +
+    'The 21-words stat (moved off-slide in v1.10 to make room for the Out definition; say it if useful): Google’s Oct 2024 Workspace guide found the most fruitful prompts averaged ~21 words with context — most people type fewer than nine (directional, not gospel).\n' +
+    'v1.10 (owner request): the Out re-defined and its example upgraded — condition + honest move + surfacing (“anything the report doesn’t state: write UNKNOWN — never estimate; list the gaps at the end”), with the formal definition in the teal band. The same sharpened definition is on the element card (3 of 3), the cheat sheet, and tab EX-Rebuild.\n' +
     'Anthropic’s golden rule belongs in the room: show the prompt to a colleague with minimal context — if they’d be confused, the model will be too.\n' +
     'If the cold open was used: this slide is its debrief — the vague line is the returns-data prompt with every element filled in.');
 
@@ -163,11 +165,11 @@ module.exports = function buildPartThree(pres, H) {
     'Brown 2020 · Min 2022',
     [['three clones of the happy case', 'one typical + one edge + one reject case, clearly separated'],
      ['“Write it like the good ones.”', '“Match this: [March’s summary] — same tone, same length. Here’s one we rejected, and why.”']]);
-  elemCard(3.52, 1.58, 'The Out', 'permission to not know',
-    'an honest “the document doesn’t say” instead of an invented answer.',
-    'models are trained on tests that reward guessing over abstaining. One sentence of permission cut hallucinations on planted-error questions from 53% to 23% (GPT-4o) — and under 8% on GPT-5.',
+  elemCard(3.52, 1.58, 'The Out', 'the escape route for missing information — condition · honest move · surfacing',
+    'an honest UNKNOWN with the gaps listed — instead of an invented answer.',
+    'a model is trained to always produce an answer; unless you specify the honest move, inventing is the only way to obey you. One sentence of permission cut hallucinations on planted-error questions from 53% to 23% (GPT-4o) — and under 8% on GPT-5.',
     'Omar 2025 · OpenAI 2025',
-    [['“Do not hallucinate.” (bare bans backfire)', '“If the document doesn’t say — say so.”']]);
+    [['“Do not hallucinate.” (bare bans backfire)', '“Anything the document doesn’t state: write UNKNOWN — never estimate. List the gaps at the end.”']]);
   elemCard(5.24, 1.58, 'The Stop', 'the action to perform — and its boundary',
     'bounded work that ends where you said — not ten charts and no answer.',
     'converts open-ended capability into a scoped job with a finish line. In Part 5 it grows up to become gates and autonomy rules for agents.',
@@ -464,14 +466,16 @@ module.exports = function buildPartThree(pres, H) {
     s.addText(r[0], { x: 5.52, y: y + 0.05, w: 0.85, h: 0.28, align: 'center', valign: 'middle', fontFace: F.body, fontSize: 9, bold: true, color: 'FFFFFF', margin: 0 });
     s.addText(r[1], { x: 6.5, y, w: 6.1, h: 0.46, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, valign: 'middle', lineSpacingMultiple: 0.95 });
   });
-  H.callout(s, 0.55, 4.28, 12.2, 1.05, C.TEAL_TINT, [
-    { text: 'The countermeasures — usable today: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12.5, breakLine: true } },
-    { text: 'never reveal your preferred answer when asking for a review · ask for the case AGAINST (“three weakest points”) · paste your draft as “a colleague’s” · never treat “are you sure?” as verification.', options: { color: C.SLATE, fontSize: 12 } },
-  ], { iconName: 'shield', iconFill: C.TEAL, size: 12.5 });
-  H.card(s, 0.55, 5.5, 12.2, 1.55, 'FFFFFF', C.LINE);
-  s.addText('SEE IT YOURSELF — two chats, same paragraph:', { x: 0.85, y: 5.62, w: 11.6, h: 0.28, fontFace: F.body, fontSize: 10, bold: true, charSpacing: 0.5, color: C.TEAL_DARK, margin: 0 });
-  s.addText('Chat 1: “A colleague wrote this — rate it 1–10 and list its three biggest weaknesses.”   Chat 2: “I wrote this myself and I’m really proud of it — rate it 1–10 and list its three biggest weaknesses.”', { x: 0.85, y: 5.92, w: 11.6, h: 0.5, fontFace: 'Consolas', fontSize: 10, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.08 });
-  s.addText('Did the score move — and the criticism soften — once it knew you were the author?', { x: 0.85, y: 6.5, w: 11.6, h: 0.32, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.04 });
+  H.callout(s, 0.55, 4.28, 7.0, 1.3, C.TEAL_TINT, [
+    { text: 'The countermeasures — usable today: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11, breakLine: true } },
+    { text: 'never reveal your preferred answer when asking for a review · ask for the case AGAINST (“three weakest points”) · paste your draft as “a colleague’s” · never treat “are you sure?” as verification.', options: { color: C.SLATE, fontSize: 10.5 } },
+  ], { iconName: 'shield', iconFill: C.TEAL, size: 11 });
+  H.card(s, 0.55, 5.7, 7.0, 1.38, 'FFFFFF', C.LINE);
+  s.addText('SEE IT YOURSELF — two chats, same paragraph:', { x: 0.85, y: 5.8, w: 6.4, h: 0.24, fontFace: F.body, fontSize: 10, bold: true, charSpacing: 0.5, color: C.TEAL_DARK, margin: 0 });
+  s.addText('Chat 1: “A colleague wrote this — rate it 1–10 and list its three biggest weaknesses.”   Chat 2: “I wrote this myself and I’m really proud of it — rate it 1–10, three biggest weaknesses.”', { x: 0.85, y: 6.06, w: 6.4, h: 0.62, fontFace: 'Consolas', fontSize: 9.5, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.05 });
+  s.addText('Did the score move — and the criticism soften — once it knew you were the author?', { x: 0.85, y: 6.7, w: 6.4, h: 0.32, fontFace: F.body, fontSize: 10, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.0 });
+  s.addImage({ path: require('path').join(__dirname, 'assets', 'images', 'mirror_reflection.jpg'), x: 7.75, y: 4.28, w: 5.0, h: 2.8, sizing: { type: 'cover', w: 5.0, h: 2.8 } });
+  s.addShape('roundRect', { x: 7.75, y: 4.28, w: 5.0, h: 2.8, rectRadius: 0.06, fill: { type: 'none' }, line: { color: C.LINE, width: 1 } });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Say it as one sentence first: “the AI is a mirror — it agrees with you about half again as often as a person would.” Then the +49%.\n' +
@@ -490,6 +494,7 @@ module.exports = function buildPartThree(pres, H) {
     'Deeper research if asked (r25): SycEval (AIES 2025): pushback flips answers 58.2% of the time, 14.7% right→wrong · ELEPHANT (2025/26): models save the user’s face 45 pts more than humans; affirm BOTH sides of the same conflict in 48% of cases (same lab as the Science paper — not independent) · npj Digital Medicine Oct 2025: models complied with 100% of illogical drug requests they KNEW were false; permission-to-refuse fixed most of it.\n' +
     'Reading list for the curious (give on request): OpenAI’s own Apr 2025 post · NYT Jun 13 2025 · Nature news feature Oct 2025 (“AI chatbots are sycophants”) · Stanford Report Mar 2026. Litigation (Raine v. OpenAI): active case, OpenAI denies — phrase as “a lawsuit alleges” or leave it out.\n' +
     'Handled with care: no medical claims from the “AI psychosis” coverage; countermeasures are the deck’s standing blind-review discipline.\n' +
+    'v1.10 ART — the mirror illustration (owner-generated, R16): a person holds up a page; the reflection is a beaming robot giving a thumbs-up, stars and all. Point at it when you say the opening sentence — the reflection is the flattery; both pages are blank because the CONTENT never mattered to the mirror.\n' +
     'Font-policy pass: the on-slide read-more line was removed (owner: fewer footnotes) — give it verbally or on request: ask your AI to “search the web for the April 2025 ChatGPT sycophancy rollback and two 2025+ studies — cite sources, say ‘not verified’ if unsure.”');
 
 

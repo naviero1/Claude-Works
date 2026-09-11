@@ -3,7 +3,7 @@
 **Project:** "From Prompts to Agents" — prompt-engineering training + template system
 **Owner:** Oscar Penny (owns all content and the quarterly refresh)
 **Branch:** v1.1 merged to `main`; v1.2 developed on `claude/training-course-polish-oxohwj`
-**Last updated:** 2026-09-10 — v1.9 (font floor R14 v2: reading text ≥11pt target, ≥10 hard floor, fewer footnotes; five over-cropped images re-laid at native 16:9) — previously v1.8 (owner's "update"): all 19 owner-generated
+**Last updated:** 2026-09-11 — v1.11 (the Out redefined everywhere: condition · honest move · surfacing, UNKNOWN + gap list as the checkable default; mirror illustration embedded on the flattery-bias slide; PowerPoint repair prompt fixed — negative shape extents on the eras slide normalized) — previously v1.9 (font floor R14 v2: reading text ≥11pt target, ≥10 hard floor, fewer footnotes; five over-cropped images re-laid at native 16:9) — previously v1.8 (owner's "update"): all 19 owner-generated
 illustrations embedded (R16 — Part 1 concept art, four S14 emblems, DeepSeek hospital,
 Deming portrait, courier/guardrails/memory-ladder/blueprint/bench/office scenes); three
 NEW slides — "Two layers, one craft" (anatomy = design layer, PDCA = process layer, worked

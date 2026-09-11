@@ -94,7 +94,7 @@ E.append(box('THE ANATOMY — SEVEN ELEMENTS (THE DESIGN LAYER)', [
     ('Context', '— raw material, glossary, constraints; explain WHY a rule exists.'),
     ('Format', '— structure, length cap, tone; say what TO do, not what to avoid.'),
     ('Examples', '— 2–3 realistic samples of “good”, one edge case included.'),
-    ('The Out', '— “if the document doesn’t say, say so” — permission not to guess.'),
+    ('The Out', '— the escape route for missing info: “anything not stated: write UNKNOWN — never estimate; list the gaps.”'),
     ('The Stop', '— where the action ends: “deliver X, then stop — nothing beyond.”'),
 ], PANEL))
 E.append(gap)

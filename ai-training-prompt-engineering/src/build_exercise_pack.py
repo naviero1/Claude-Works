@@ -352,7 +352,7 @@ prompt_tab('EX-Rebuild', 'Part 3 rep · Rebuild one prompt (3 minutes)', [
      'The 60-word fictional report both steps run on — paste it after each prompt.'),
     ('STEP 1', 'Summarize this report.',
      'The naive baseline — fluent, unfocused, written for nobody in particular.'),
-    ('STEP 2', 'Your upgrade — write it yourself: add a Role, a named reader in the Task, a <=80-word cap, and an Out ("if the report doesn\'t say, say so"). Then send it with the same report pasted.',
+    ('STEP 2', 'Your upgrade — write it yourself: add a Role, a named reader in the Task, a <=80-word cap, and an Out ("anything the report doesn\'t state: write UNKNOWN — never estimate; list the gaps at the end"). Then send it with the same report pasted.',
      'Same report, four elements — watch it change league. Compare with a neighbor: which ELEMENT made the difference?'),
 ])
 
@@ -362,7 +362,7 @@ PB_TODO = [
     ('2', 'Structure with delimiters (XML/Markdown) and standardize ONE tested, versioned template', 'Anthropic/OpenAI/Google guides · He 2024: wrapper alone swings up to 40%'),
     ('3', 'Zero-shot first; add 3-5 targeted, diverse examples only when format or tone matters', 'OpenAI reasoning best practices · Anthropic 2026'),
     ('4', 'Long inputs: documents at the TOP, instructions at the END — bookend BOTH ends when very long', 'Anthropic: up to ~30% · GPT-4.1 guide 2025: both ends beat either alone'),
-    ('5', 'Give an out ("if it doesn\'t say, say so") + require citations', 'Omar 2025: hallucination 66%→44% · Anthropic docs'),
+    ('5', 'Give an out with a checkable shape ("anything not stated: write UNKNOWN — never estimate; list the gaps") + require citations', 'Omar 2025: hallucination 66%→44% · Anthropic docs'),
     ('6', 'Concrete numeric budgets for measurable outputs — words, bullets, tool calls', 'GPT-5.1 guide: adheres well to concrete length guidance · GPT-5 guide'),
     ('7', 'Persona + audience for VOICE and level — never for accuracy', 'PersonaLLM 2024: traits detectable up to 80% · Google PTCF'),
     ('8', 'Self-check against NAMED criteria, with evaluation blinded from generation', 'CoVe 2024: FactScore 55.9→71.4 · Cheng, Science 2026 (blinding)'),
