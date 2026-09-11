@@ -49,7 +49,7 @@ module.exports = function buildPartThree(pres, H) {
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Frame: “one prompt, seven parts — and the parts make a BODY. Everything in Part 3 is refinements of this picture.”\n' +
-    '2) Walk the FIGURE (owner-generated art) top to bottom, naming each organ: the head thinks in the right posture (Role) · the heart is why it beats at all (Task) · the bloodstream feeds every organ (Context) · the skeleton holds the shape (Format) · the hands show how it’s done (Examples) · the immune system rejects invented facts (the Out) · the skin is where the ACTION ends (the Stop — perform exactly the named action, then stop). Then the caption: miss an organ and it still walks — it just fails in a predictable way. That predictability is the diagnosis grid (tab EX-Rebuild). (The image caption says the Stop is “where the job ends” — SAY it the owner’s way: where the ACTION ends.)\n' +
+    '2) Walk the FIGURE (owner-generated art) top to bottom, naming each organ: the head thinks in the right posture (Role) · the heart is why it beats at all (Task) · the bloodstream feeds every organ (Context) · the skeleton holds the shape (Format) · the hands show how it’s done (Examples) · the immune system rejects invented facts (the Out) · the skin is where the ACTION ends (the Stop — perform exactly the named action, then stop). Then the caption: miss an organ and it still walks — it just fails in a predictable way. That predictability is the diagnosis grid (tab EX-Report). (The image caption says the Stop is “where the job ends” — SAY it the owner’s way: where the ACTION ends.)\n' +
     '3) RIGHT card: the same body written out — read it top to bottom as ONE continuous prompt (~90 words, under two minutes to write).\n' +
     '4) SLOW on THE OUT row — the element people define worst, so define it fully: the Out is the ESCAPE ROUTE you write for missing information. It has three parts, all visible in the example: the CONDITION (“anything the report doesn’t state”), the HONEST MOVE (“write UNKNOWN — never estimate”), and the SURFACING (“list the gaps at the end” — so the gaps reach YOU instead of hiding). Then the why, in one sentence: a model is trained to always produce an answer — if you don’t specify the honest move, INVENTING is the only way it can obey your prompt. “Say so” alone is weaker: it names no form; UNKNOWN + a gap list is checkable in the output.\n' +
     '5) The amber line — owner-requested and worth saying twice: YOUR INDUSTRY IS CONTEXT. “We’re a mid-size electronics manufacturer” changes every answer downstream; people constantly assume the AI knows their world. It doesn’t until you say so.\n' +
@@ -64,7 +64,7 @@ module.exports = function buildPartThree(pres, H) {
     'CONTENT —\n' +
     'v1.6: rebuilt around the body figure (owner: “let’s see how creative and artistic you can get”); the vendor-recipe panel moved off-slide (owner request) — keep in reserve for questions: Anthropic (role · clear task · context · format · examples), OpenAI (role & instructions · context · format · few-shot), Google (Persona·Task·Context·Format), Microsoft (Goal·Context·Source·Expectations) — four official guides, one anatomy: convergence, not our opinion.\n' +
     'The 21-words stat (moved off-slide in v1.10 to make room for the Out definition; say it if useful): Google’s Oct 2024 Workspace guide found the most fruitful prompts averaged ~21 words with context — most people type fewer than nine (directional, not gospel).\n' +
-    'v1.10 (owner request): the Out re-defined and its example upgraded — condition + honest move + surfacing (“anything the report doesn’t state: write UNKNOWN — never estimate; list the gaps at the end”), with the formal definition in the teal band. The same sharpened definition is on the element card (3 of 3), the cheat sheet, and tab EX-Rebuild.\n' +
+    'v1.10 (owner request): the Out re-defined and its example upgraded — condition + honest move + surfacing (“anything the report doesn’t state: write UNKNOWN — never estimate; list the gaps at the end”), with the formal definition in the teal band. The same sharpened definition is on the element card (3 of 3), the cheat sheet, and tab EX-Report.\n' +
     'Anthropic’s golden rule belongs in the room: show the prompt to a colleague with minimal context — if they’d be confused, the model will be too.\n' +
     'If the cold open was used: this slide is its debrief — the vague line is the returns-data prompt with every element filled in.');
 
@@ -266,7 +266,7 @@ module.exports = function buildPartThree(pres, H) {
       'Documents on top, ask at the end · fresh chat per topic',
     ], '“1) Outline only. 2) Wait for my OK. 3) Draft section by section.”'],
     ['C', 'CHECK — inspect before you trust', C.AMBER, C.AMBER_TINT, [
-      'Name the failed element — the symptom→element grid, tab EX-Rebuild',
+      'Name the failed element — the symptom→element grid, tab EX-Report',
       'Self-check on NAMED criteria — never “are you sure?”',
       'Blind review: paste it as “a colleague’s draft”',
       'Numbers reconcile to a known total · citations + the out',
@@ -327,7 +327,7 @@ module.exports = function buildPartThree(pres, H) {
     'v1.7b: the two technique slides merged into this PDCA-structured toolkit (owner decision, 2026-09-10: “folded entirely into the PDCA loop… PDCA is the main structure; Act sometimes will be delegated to AI, same with planning, same with verifying — it’s all about having the right methods for each”).\n' +
     'Every method keeps its evidence (r15/r20/r25): specificity+why (Yang 41.1%; the WHY is vendor guidance) · examples (Brown/Min; order matters) · separation (He 2024 ~40% wrapper swings; XML/tags = power-user variant in heavy documents) · placement (Anthropic ~30%/GPT-4.1) · sequence-following (vendor guidance; chaining evidence) · named-criteria self-check (CoVe 55.9→71.4; “are you sure” HARMS — Huang ICLR 2024, SycEval) · blind review (Cheng Science 2026) · reconciliation (G2 practice) · metaprompting (OPRO +50% BBH; GEPA; official vendor improvers) · re-baseline (GPT-5.5 guide via Willison).\n' +
     'The Template Creator, taxonomy reference AND cheat sheet mirror this framing (v1.8).\n' +
-    'v1.10 CONSOLIDATION (owner: “slides 28, 29 and 33 overlap — summarize in 2 slides”): the separate “PDCA in practice” slide was folded in here — its draft/inspect/refine/standardize verbs live in the quadrant titles, its Deming/Toyota/LEI band is the amber band below, and its symptom→element diagnosis grid moved to workbook tab EX-Rebuild (where the rep uses it). Citation: Art Smalley (Toyota veteran), “Prompt, Do, Check, Act: The New PDCA,” Lean Enterprise Institute, May 27 2026 — lean.org/the-lean-post (r15). Why standardize, with the number: identical asks formatted differently swung accuracy up to 76 points (Sclar) — the template IS the gauge-R&R answer.');
+    'v1.10 CONSOLIDATION (owner: “slides 28, 29 and 33 overlap — summarize in 2 slides”): the separate “PDCA in practice” slide was folded in here — its draft/inspect/refine/standardize verbs live in the quadrant titles, its Deming/Toyota/LEI band is the amber band below, and its symptom→element diagnosis grid moved to workbook tab EX-Report (where the rep uses it). Citation: Art Smalley (Toyota veteran), “Prompt, Do, Check, Act: The New PDCA,” Lean Enterprise Institute, May 27 2026 — lean.org/the-lean-post (r15). Why standardize, with the number: identical asks formatted differently swung accuracy up to 76 points (Sclar) — the template IS the gauge-R&R answer.');
 
   // ---------- 28b. THE TWO LAYERS — ANATOMY vs LOOP (v1.8, 9C) ----------
   s = H.slide('PART 3 · THE DESIGN LAYER & THE PROCESS LAYER', 29);
@@ -379,7 +379,7 @@ module.exports = function buildPartThree(pres, H) {
     'CONTENT —\n' +
     'v1.8 new slide (owner-endorsed clarification, Round 9C, 2026-09-10): “PDCA is a process lens, not a design lens… I want to be able to bring this clarification in a slide for sure. And indicate that indeed it works best for agentic prompting.” Canonical structure confirmed by the owner in chat: embedded PDCA with ACT = deliver the final output + improve.\n' +
     'The returns-report brief is generic/fictional (R3) — no company data.\n' +
-    'v1.10: this slide and the toolkit-loop slide before it are the consolidated pair the owner asked for (Rounds: 28+29+33 → two adjacent slides; no more jumping between PDCA slides). The old “PDCA in practice” slide is gone: its verbs live in the loop slide’s quadrant titles, its diagnosis grid in workbook tab EX-Rebuild.\n' +
+    'v1.10: this slide and the toolkit-loop slide before it are the consolidated pair the owner asked for (Rounds: 28+29+33 → two adjacent slides; no more jumping between PDCA slides). The old “PDCA in practice” slide is gone: its verbs live in the loop slide’s quadrant titles, its diagnosis grid in workbook tab EX-Report.\n' +
     'ART — the blueprint (robot schematic + amber loop) is an owner-generated illustration (R16): the anatomy drafted, the loop running around it.');
 
   // ---------- 29a. PROVEN VS MYTH — FULL SLIDE (v1.7, r25) ----------
@@ -565,13 +565,13 @@ module.exports = function buildPartThree(pres, H) {
     'v1.6: rebuilt as the three-column playbook (owner request); full lists + anchors in notes/research/r20_do_dont_expired.md. Key anchors: Yang 2026 (41.1%) · He 2024 (wrapper swings ~40%) · GPT-4.1 guide (bookending) · Omar 2025 (out: 66→44%) · GPT-5.1 guide (length adherence) · Safety Tax arXiv:2601.02023 · Wharton R3 + Salinas 2024 (tips/threats) · Cheng Science 2026 (+49%) · IFScale arXiv:2507.11538 (~150-rule cliff) · Kojima 2022 (10.4→40.7 GSM8K origin) · Sprague ICLR 2025 · Zheng 2024/Wharton R4 (personas) · OPRO 2024 (magic-phrase post-mortem) · EmotionPrompt recalc arXiv:2409.20303 (honest average ~2.6%) · GPT-5.5 guide via Willison Apr 2026 (re-baseline).\n' +
     'What did NOT change (say if the room looks nervous): clarity, context, format, the out, grounding, iteration — the anatomy applies to every model they will ever use; scaffolding tricks retire, briefing skills compound.');
 
-  // ---------- 32. P3 REP ----------
+  // ---------- 32. P3 REP — THE COURSE REPORT (v1.12, owner redesign) ----------
   s = H.slide('THREE-MINUTE REP · PART 3', 32);
-  H.title(s, 'Your turn — rebuild one prompt', 'Same report, two prompts — feel the difference');
+  H.title(s, 'YOUR TURN — TURN YOUR COURSE LOG INTO A REPORT', 'One prompt, one keepsake report');
   H.repTimer(s);
   const repSteps = [
-    ['STEP 1', '“Summarize this report.” + paste the report from tab EX-Rebuild of your Course Workbook', 'the naive baseline — fluent, unfocused, written for nobody in particular.', 1.75],
-    ['STEP 2', 'your upgrade, same report: add a Role, a named reader in the Task, a ≤ 80-word cap, and an Out.', 'four elements — watch it change league. That contrast is Part 3.', 1.75],
+    ['STEP 1', '“List every prompt I have run in this course log, in order — one line each: what it did, and which element or move it taught.”', 'the log replays your whole course — every numbered prompt is in there.', 1.75],
+    ['STEP 2', '“Now turn that into my one-page course report: the seven elements with my own example for each, the loop, and the three prompts I will reuse at work. Anything the log doesn’t show: write UNKNOWN — don’t invent. Deliver the report, then stop.”', 'your examples, your report — with the Out and the Stop doing their jobs.', 1.9],
   ];
   let repY = 1.8;
   repSteps.forEach(st => {
@@ -579,43 +579,42 @@ module.exports = function buildPartThree(pres, H) {
     s.addText([
       { text: st[0] + '  ·  ', options: { bold: true, color: C.AMBER, fontSize: 13 } },
       { text: 'TYPE THIS → ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12 } },
-      { text: st[1], options: { color: C.INK, fontSize: 11.5, fontFace: 'Consolas', breakLine: true, paraSpaceAfter: 6 } },
+      { text: st[1], options: { color: C.INK, fontSize: 11, fontFace: 'Consolas', breakLine: true, paraSpaceAfter: 6 } },
       { text: 'WHY → ', options: { bold: true, color: C.SLATE, fontSize: 11 } },
       { text: st[2], options: { color: C.SLATE, fontSize: 11, italic: true } },
-    ], { x: 0.82, y: repY + 0.1, w: 6.06, h: st[3] - 0.2, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.1 });
+    ], { x: 0.82, y: repY + 0.1, w: 6.06, h: st[3] - 0.2, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.08 });
     repY += st[3] + 0.18;
   });
-  H.card(s, 0.55, 5.66, 6.6, 1.0, C.PANEL);
+  H.card(s, 0.55, 5.81, 6.6, 0.85, C.PANEL);
   s.addText([
-    { text: 'Everything you need is in the tab: ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
-    { text: 'the 60-word practice report AND both prompts, copy-paste ready. Run it in your course log.', options: { color: C.SLATE, fontSize: 11 } },
-  ], { x: 0.85, y: 5.76, w: 6.0, h: 0.8, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.06 });
+    { text: 'Both prompts are in tab EX-Report ', options: { bold: true, color: C.INK, fontSize: 11.5 } },
+    { text: 'of your Course Workbook — run them in the course log you opened with Prompt 1.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { x: 0.85, y: 5.89, w: 6.0, h: 0.69, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.05 });
   H.card(s, 7.35, 1.75, 5.4, 3.15, C.AMBER_TINT);
   s.addText([
-    { text: 'One strong answer (reveal after the rep)', options: { bold: true, color: C.AMBER, fontSize: 11.5, breakLine: true, paraSpaceAfter: 5 } },
-    { text: '“You are a precise editor. Summarize this report for the operations lead in ≤ 80 words: the headline number first, what changed since Q1, and what it does NOT explain. If the report doesn’t say, say so.”', options: { color: C.SLATE, fontSize: 11, italic: true } },
-  ], { x: 7.62, y: 1.95, w: 4.85, h: 2.8, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.12 });
+    { text: 'Why this is the closing rep', options: { bold: true, color: C.AMBER, fontSize: 11.5, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'Every numbered prompt you ran taught one move — and your log kept them all. The report writes itself because the raw material is real, yours, and already in the chat.\n\nStep 1 opened the course by telling the AI to remember; this is the payoff. The report IS your first library entry: name it, date it, keep it.', options: { color: C.SLATE, fontSize: 11 } },
+  ], { x: 7.62, y: 1.95, w: 4.85, h: 2.8, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.1 });
   H.card(s, 7.35, 5.05, 5.4, 1.6, C.TEAL_TINT);
   s.addText([
     { text: 'Then compare with a neighbor: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'whose STEP 2 summary is more useful — and which ELEMENT made the difference? The symptom→element grid in tab EX-Rebuild names it.', options: { color: C.SLATE, fontSize: 11 } },
+    { text: 'same course, different logs — which three prompts made THEIR reuse list, and why? Different fills, same anatomy.', options: { color: C.SLATE, fontSize: 11 } },
   ], { x: 7.62, y: 5.22, w: 4.85, h: 1.3, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.08 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
-    '1) 3:00 badge. The slide is INSTRUCTIONS ONLY (owner request) — the 60-word practice report lives in tab EX-Rebuild with both prompts; everyone works the same material from the workbook.\n' +
-    '2) Run STEP 1 first, everyone: the naive ask on the excerpt. Let a couple of results be read out — fluent, unfocused.\n' +
-    '3) STEP 2: three minutes to upgrade — a Role, a named reader, a ≤80-word cap, an Out. Same excerpt, second send.\n' +
-    '4) Neighbor compare — the learning moment: whose version wins and WHICH ELEMENT made the difference. The symptom→element grid sits at the top of tab EX-Rebuild (wrong tone → Role · vaguer question → Task · generically right → Context · unusable shape → Format · not your standard → Examples · invented → the Out · sprawls → the Stop) — inspecting with it is the CHECK step, live.\n' +
-    '5) Only then reveal the amber presenter answer.\n' +
-    '6) Skip freely if behind — the playbook walkthroughs also exercise the elements.\n' +
+    '1) 3:00 badge. Frame the payoff: “your very first prompt today told the AI to remember everything — now you collect.” Both steps run in the SAME chat they have used all course (the course log).\n' +
+    '2) STEP 1: the log lists every prompt it has seen, with what each taught. Let people scroll their own list — that quiet moment of “I did all that” is the point.\n' +
+    '3) STEP 2: the one-page course report — seven elements with THEIR examples, the loop, and their three reuse prompts. Note the craft inside the prompt itself: it carries an Out (UNKNOWN, don’t invent) and a Stop (deliver, then stop) — the course’s own rules, applied to the course.\n' +
+    '4) Neighbor compare: which three prompts made THEIR reuse list. Public commitment sticks.\n' +
+    '5) Recovery (someone started a fresh chat mid-course, or their tool lost the thread): pair them with a neighbor’s log, or point at tab EX-Report — the numbered prompts are all there to rebuild from. The HANDOFF move from Part 1 is exactly the repair tool.\n' +
+    '6) Skip only under extreme time pressure — this rep converts the course into an artifact they keep.\n' +
     '\n' +
     'ACRONYMS —\n' +
-    'Q2 = second quarter.\n' +
+    'none new on this slide.\n' +
     '\n' +
     'CONTENT —\n' +
-    'v1.7: the on-slide report box removed (owner: concentrate on the instructions); the report + both prompts live in tab EX-Rebuild, and the steps point there. The rep still runs as two R10 steps, baseline → upgrade, so the contrast is felt, not described.\n' +
-    'The excerpt is fictional and consistent with the practice dataset’s world (sites, suppliers, returns).\n' +
-    'Font-policy pass: the on-slide footnote was removed — say it if useful: this is the one moment Part 3 asks the room to WRITE; the elements stick when hands use them once. Skippable if running long.');
+    'v1.12 (owner redesign): the rebuild-one-prompt rep is replaced by the COURSE-REPORT rep — “summarize all the prompts they’ve used through the course, so those informative examples give a full report.” Enabled by the new STEP 1 of Prompt 1/7 (the course-log acknowledgment). The old rebuild exercise (naive vs upgraded summary of the 60-word returns report) moved to tab EX-Report as a BONUS block for self-study; the symptom→element diagnosis grid stays at the top of the same tab.\n' +
+    'The report doubles as Part 6 setup: it is literally their first library entry.');
 
   // ================= PART 4 =================
 

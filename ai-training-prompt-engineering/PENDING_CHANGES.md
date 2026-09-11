@@ -1290,6 +1290,49 @@ Mapping by filename infix → target (name at embed):
 
 ---
 
+## ROUND 13 — owner's hand-edited deck merged + course-report rep · 2026-09-11 · ✅ APPLIED (v1.12)
+
+Owner uploaded his own edited copy of v1.11 and directed changes; all ported
+into the SOURCES (his uploaded pptx would otherwise be overwritten by the next
+build).
+
+**His manual edits, found by XML diff and ported:** S11 ladder temp-analogies
+recolored red (his FF0000 → house red AF3230) · S12 + S14 left bullets → 14pt ·
+S15 hall of shame → 14pt cards and bands (cure band 12, cards grown to fit) ·
+S17 trading-card evidence lines enlarged (his 14pt cannot fit the fixed cards —
+set to 11pt max-that-fits, caveats 10.5; noted to owner) · S17 "Fortes
+verified" footer and S19 "same logo, different homes" line deleted (content →
+speaker notes) · **agent-gallery slide MOVED from Part 2 to Part 5** (now
+after A2, before guardrails — exactly where he placed it; kicker/footer/
+bridges/OpenClaw line updated; servers slide now closes Part 2).
+
+**S6 hardware (owner Q + directive):** the chart's Y axis is TRAINING COMPUTE
+in FLOP, log scale — now labeled on-slide: axis caption "training compute per
+model, in FLOP (one FLOP = one arithmetic operation)", ticks at 10^18/10^21/
+10^24, AlexNet label unclamped from the card edge. One-variable equivalence
+added under the ×45M line: GPT-4 ≈ 2×10^25 FLOP — ~200,000 years on AlexNet's
+two gaming cards; a ~25,000-GPU data-center hall: ~3 months (arithmetic
+illustration + reported estimate, both labeled in notes).
+
+**S8 tokens:** "busy office worker" → "high-school student" (owner: could
+offend) — slide + workbook EX3.
+
+**Course-report rep (owner redesign of his slide 31):** the Part 3 rep is now
+"turn your course log into a report" — STEP 1 lists every prompt run in the
+log with what each taught; STEP 2 produces the one-page course report (seven
+elements with their OWN examples, the loop, three reuse prompts — with the Out
+and the Stop written into the prompt itself). Enabled by a NEW STEP 1 on
+Prompt 1/7: "This chat is my course log… remember every prompt I run — at the
+end I'll ask for a report." Workbook tab EX-Rebuild → **EX-Report** (grid kept
+on top · report steps · recovery row · old rebuild drill as BONUS); all grid/
+tab references updated (CHECK quadrant, anatomy notes, Part 5 inspect grid,
+README). Old rep's answer card replaced by "why this is the closing rep" +
+neighbor-compare.
+
+QA: all changed slides re-rendered; welcome chip re-trimmed twice to clear its
+tab line; rep title shortened out of the 3:00 badge; negative-extent scan
+still clean. Deck 69 slides.
+
 ## ROUND 12 — the Out redefined + mirror art + PowerPoint repair fix · 2026-09-11 · ✅ APPLIED (v1.11)
 
 Owner: "the Out needs to be better defined in slide 22 — a better example and a

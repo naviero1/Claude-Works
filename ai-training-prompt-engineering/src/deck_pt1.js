@@ -48,14 +48,15 @@ module.exports = function buildPartOne(pres, H) {
     { t: 'The same skill has two modes. Generative: you ask, it writes, you act. Agentic: you brief it, it plans, uses tools, checks itself, and delivers.' },
     { t: 'Each mode needs a different kind of prompt — that distinction is the backbone of this training.' },
   ], { size: 11.5, gap: 6 });
-  H.callout(s, 0.55, 3.62, 6.1, 1.2, C.TEAL_TINT, [
+  H.callout(s, 0.55, 3.62, 6.1, 1.0, C.TEAL_TINT, [
     { text: 'The 10-second version: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11.5, breakLine: true } },
     { text: 'a generative prompt describes what to write.\nAn agentic prompt describes a job to run — Part 5 teaches that mode properly.', options: { color: C.SLATE, fontSize: 11 } },
   ], { iconName: 'zap', iconFill: C.TEAL, size: 11.5 });
-  H.promptChip(s, 0.55, 4.84, 6.1, 2.24, 1, [
-    { type: '“Write a short farewell card for a coworker who is leaving.”', why: 'generative mode — writes instantly, guessing every unknown.' },
-    { type: '“Now don’t write it. Ask me everything you’d need to know to do this perfectly, then wait for my answers.”', why: 'delegate mode’s seed — the AI turns and interviews YOU.' },
-  ], { label: 'Two modes, felt — opens your course log', size: 10, tab: 'EX1-TwoModes' });
+  H.promptChip(s, 0.55, 4.7, 6.1, 2.38, 1, [
+    { type: '“This chat is my course log for a prompting course. Remember every prompt I run — at the end I’ll ask for a report.”', why: 'the log becomes the final exercise.' },
+    { type: '“First job: write a farewell card for a coworker.”', why: 'generative mode — instant, guessing every unknown.' },
+    { type: '“Now don’t write it — interview me first, then wait.”', why: 'delegate mode’s seed — the questions come to YOU.' },
+  ], { label: 'Two modes, felt — opens your course log', size: 9.5, tab: 'EX1-TwoModes' });
   H.card(s, 7.0, 1.55, 5.75, 2.95, C.PANEL);
   s.addText('The map — three blocks, six parts', { x: 7.3, y: 1.78, w: 5.2, h: 0.4, fontFace: F.head, fontSize: 15, bold: true, color: C.INK, margin: 0 });
   s.addText([
@@ -85,7 +86,8 @@ module.exports = function buildPartOne(pres, H) {
     '5) Amber card: the take-homes; hold up the handout pack and the Course Workbook.\n' +
     '6) Footer aside, one sentence: this is the TEXT wing; image/video/audio could become their own training.\n' +
     '\n' +
-    'TRY IT — PROMPT 1/7 (opens the course log; copy both steps from tab EX1-TwoModes)\n' +
+    'TRY IT — PROMPT 1/7 (opens the course log; copy all three steps from tab EX1-TwoModes)\n' +
+    'v1.12 (owner request): STEP 1 is new — it tells the AI this chat IS the course log and to remember every prompt, so the final Part 3 rep (“turn my log into a report”) works without setup. Say: “this one sentence is what makes your last exercise possible.”\n' +
     'Everyone runs both steps in ONE chat they keep all course — their course log.\n' +
     'Sequence: open your AI → paste STEP 1 → read what it invented → paste STEP 2 → watch it interview you.\n' +
     'Debrief line: step 1 ran on guesses (invented names, blanks); step 2 asked YOU.\n' +
@@ -259,8 +261,13 @@ module.exports = function buildPartOne(pres, H) {
   // — chart: Moore's pace vs AI's appetite (log scale; Epoch AI data, r22) —
   H.card(s, 4.3, 1.62, 4.55, 4.68, C.PANEL);
   s.addText('③ Moore’s pace vs AI’s appetite', { x: 4.55, y: 1.76, w: 4.1, h: 0.32, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
-  s.addText('Compute to train notable AI models (log scale)', { x: 4.55, y: 2.08, w: 4.1, h: 0.26, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0 });
+  s.addText('Y axis: training compute per model, in FLOP (one FLOP = one arithmetic operation) — log scale', { x: 4.55, y: 2.08, w: 4.15, h: 0.42, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 0.98 });
   const hwPts = [[2012, 17.67, 'AlexNet'], [2019, 21.28, 'GPT-2'], [2020, 23.49, 'GPT-3'], [2023, 25.32, 'GPT-4 (est.)']];
+  [[18, '10\u00b9\u2078'], [21, '10\u00b2\u00b9'], [24, '10\u00b2\u2074']].forEach(tk => {
+    const ty = 5.42 - (tk[0] - 17) / 9 * 2.85;
+    s.addShape('line', { x: 4.74, y: ty, w: 0.06, h: 0, line: { color: C.MUTE, width: 1 } });
+    s.addText(tk[1], { x: 4.3, y: ty - 0.1, w: 0.42, h: 0.2, align: 'right', fontFace: F.body, fontSize: 8.5, color: C.MUTE, margin: 0 });
+  });
   const hwX = yr => 4.78 + (yr - 2012) / 11 * 3.5;
   const hwY = lg => 5.42 - (lg - 17) / 9 * 2.85;
   s.addShape('line', { x: hwX(2012), y: hwY(19.33), w: hwX(2023) - hwX(2012), h: hwY(17.67) - hwY(19.33), line: { color: C.MUTE, width: 1.5, dashType: 'dash' }, flipV: true });
@@ -269,18 +276,19 @@ module.exports = function buildPartOne(pres, H) {
     const [x2, y2] = [hwX(hwPts[i + 1][0]), hwY(hwPts[i + 1][1])];
     s.addShape('line', { x: x1, y: y2, w: x2 - x1, h: y1 - y2, line: { color: C.TEAL, width: 2 }, flipV: true });
   }
-  hwPts.forEach(p => {
+  hwPts.forEach((p, pi) => {
     s.addShape('ellipse', { x: hwX(p[0]) - 0.06, y: hwY(p[1]) - 0.06, w: 0.12, h: 0.12, fill: { color: C.TEAL_DARK }, line: { type: 'none' } });
-    s.addText(p[2], { x: hwX(p[0]) - 0.95, y: hwY(p[1]) - 0.3, w: 1.0, h: 0.22, align: 'right', fontFace: F.body, fontSize: 8.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+    if (pi === 0) s.addText(p[2], { x: hwX(p[0]) + 0.1, y: hwY(p[1]) - 0.28, w: 1.0, h: 0.22, fontFace: F.body, fontSize: 8.5, bold: true, color: C.TEAL_DARK, margin: 0 });
+    else s.addText(p[2], { x: hwX(p[0]) - 0.95, y: hwY(p[1]) - 0.3, w: 1.0, h: 0.22, align: 'right', fontFace: F.body, fontSize: 8.5, bold: true, color: C.TEAL_DARK, margin: 0 });
   });
   s.addText('Moore’s pace', { x: hwX(2023) - 1.0, y: hwY(19.33) + 0.05, w: 1.1, h: 0.2, align: 'right', fontFace: F.body, fontSize: 8.5, italic: true, color: C.MUTE, margin: 0 });
   s.addText('2012', { x: hwX(2012) - 0.2, y: 5.5, w: 0.5, h: 0.2, fontFace: F.body, fontSize: 8.5, color: C.MUTE, margin: 0 });
   s.addText('2023', { x: hwX(2023) - 0.25, y: 5.5, w: 0.5, h: 0.2, fontFace: F.body, fontSize: 8.5, color: C.MUTE, margin: 0 });
   s.addText([
-    { text: 'At Moore’s pace since 2012: ×45. ', options: { color: C.SLATE, fontSize: 10 } },
-    { text: 'Actual: ×45,000,000', options: { bold: true, color: C.RED, fontSize: 11.5 } },
-    { text: ' — bought with chips, clusters and electricity.', options: { color: C.SLATE, fontSize: 10 } },
-  ], { x: 4.55, y: 5.72, w: 4.1, h: 0.5, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.04 });
+    { text: 'At Moore’s pace since 2012: ×45.  ', options: { color: C.SLATE, fontSize: 10 } },
+    { text: 'Actual: ×45,000,000.', options: { bold: true, color: C.RED, fontSize: 11.5, breakLine: true } },
+    { text: 'GPT-4 ≈ 2×10²⁵ FLOP: ~200,000 years on AlexNet’s two cards — a ~25,000-GPU data-center hall: ~3 months.', options: { color: C.SLATE, fontSize: 9.5 } },
+  ], { x: 4.55, y: 5.68, w: 4.15, h: 0.6, fontFace: F.body, margin: 0, lineSpacingMultiple: 1.02 });
   H.card(s, 9.1, 1.62, 3.65, 4.68, C.PANEL);
   s.addText('④ Why the data centers', { x: 9.35, y: 1.76, w: 3.2, h: 0.32, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0 });
   const dcTiles = [
@@ -324,7 +332,8 @@ module.exports = function buildPartOne(pres, H) {
     'v1.7 new slide (owner request: Moore’s law, Nvidia’s role, chips⇄AI, why data centers — intro level). Every fact sourced in notes/research/r22_hardware_story.md: Moore 1965/1975 · Intel-CEO 3-year cadence · Blackwell 208B transistors (Mar 2024) · CUDA 2006 · AlexNet two GTX 580s (NeurIPS 2012 paper) · chart = Epoch AI database (GPT-4 point is an ESTIMATE — labeled) · Llama 3.1 16,000+ H100s (Meta, Jul 2024) · IEA Apr 2025 (415 TWh 2024 → ~945 TWh 2030; 100K-homes comparison) · capex ~$700B+ 2026 (CNBC Feb 2026, analyst tallies vary) · Nvidia milestones $1T–$5T with dates + ~$5.56T and 92% data-center revenue (Q2 FY2027, Aug 2026).\n' +
     'If asked about “Huang’s law” (AI chips beating Moore’s law): Nvidia’s claim for whole SYSTEMS; independent measurement (Epoch) puts GPU price-performance doubling at ~2.5 years — say “the marketing outruns the measurement.”\n' +
     'Stargate, if asked: announced Jan 2025 at “up to $500B”; by mid-2026 ~7 GW PLANNED across 7 US sites, first campus (Abilene, TX) partially live — announced ≠ built.\n' +
-    'US–China chip angle, one line if asked: US export restrictions since Oct 2022; an Apr 2025 license rule forced Nvidia to write down $5.5B on its China-market chip.');
+    'US–China chip angle, one line if asked: US export restrictions since Oct 2022; an Apr 2025 license rule forced Nvidia to write down $5.5B on its China-market chip.\n' +
+    'v1.12 Y-AXIS, made explicit (owner request): the axis is TRAINING COMPUTE in FLOP — floating-point operations, one FLOP = one arithmetic operation (a single multiply or add) — on a log scale from 10^17 to 10^26; ticks at 10^18 / 10^21 / 10^24. Say it as one variable: “everything on this chart is counted in the same unit — how many little arithmetic operations it took to train the model.” The data-center equivalence under the chart: GPT-4 ≈ 2.1×10^25 FLOP (Epoch estimate). On AlexNet’s two GTX 580s (~3.2×10^12 FLOP/s combined, perfect efficiency) that is ~2×10^5 years — the “~200,000 years” line, an arithmetic illustration, not a measured fact. The “~25,000-GPU hall, ~3 months” figure is the widely reported industry estimate for GPT-4’s training cluster (SemiAnalysis-derived; vendor-unconfirmed — say “reported estimate” if pressed). One more anchor if useful: Llama 3.1 on the TRAIN tile used 16,000+ GPUs — that IS a data-center hall; the chart is why those halls exist.');
 
   // ---------- 6. HOW AN LLM WORKS ----------
   s = H.slide('PART 1 · HOW LLMS WORK', 6);
@@ -411,7 +420,7 @@ module.exports = function buildPartOne(pres, H) {
     { text: 'paste-heavy prompts burn budget and context fast · non-English and dense technical text cost more tokens · use AI for language, software for characters (counts, checksums, exact IDs).', options: { color: C.SLATE, fontSize: 11 } },
   ], { iconName: 'layers', iconFill: C.TEAL, size: 11 });
   H.promptChip(s, 0.55, 4.78, 6.2, 2.3, 3, [
-    { type: '“Explain AI tokens to a busy office worker in under 80 words: use a LEGO-brick analogy, show one word splitting into tokens, and end with why tokens set my AI’s cost and limits.”', why: 'the definition lands in your course log — the analogy the best explainers use.' },
+    { type: '“Explain AI tokens to a high-school student in under 80 words: use a LEGO-brick analogy, show one word splitting into tokens, and end with why tokens set my AI’s cost and limits.”', why: 'the definition lands in your course log — the analogy the best explainers use.' },
   ], { label: 'Bricks, not letters', size: 10, tab: 'EX3-Tokens' });
   s.addNotes(
     'HOW TO PRESENT —\n' +
@@ -560,7 +569,7 @@ module.exports = function buildPartOne(pres, H) {
     H.card(s, x, 1.62, 3.95, 2.55, i === 0 ? C.TEAL_TINT : C.PANEL);
     H.iconCircle(s, x + 0.26, 1.84, 0.6, l[0], C.TEAL);
     s.addText(l[1], { x: x + 1.0, y: 1.92, w: 2.85, h: 0.42, fontFace: F.head, fontSize: 15.5, bold: true, color: C.TEAL_DARK, margin: 0 });
-    s.addText(l[2], { x: x + 0.26, y: 2.56, w: 3.45, h: 0.34, fontFace: F.body, fontSize: 11, italic: true, color: C.INK, margin: 0 });
+    s.addText(l[2], { x: x + 0.26, y: 2.56, w: 3.45, h: 0.34, fontFace: F.body, fontSize: 11, italic: true, color: C.RED, margin: 0 });
     s.addText(l[3], { x: x + 0.26, y: 2.94, w: 3.45, h: 0.6, fontFace: F.body, fontSize: 11.5, bold: true, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.04 });
     s.addText(l[4], { x: x + 0.26, y: 3.58, w: 3.45, h: 0.52, fontFace: F.body, fontSize: 10.5, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.02 });
     if (i < 2) H.arrow(s, x + 3.97, 2.75, 0.2, C.TEAL);
@@ -609,7 +618,7 @@ module.exports = function buildPartOne(pres, H) {
     { t: 'System 1 vs System 2 (Kahneman’s Thinking, Fast and Slow): fast intuition for routine asks; slow deliberation where being wrong is expensive.' },
     { t: 'The bill: thinking is charged as output tokens — the expensive kind. A hard question can quietly cost 5–20× a simple one.', b: true },
     { t: 'Why the fast tier got so good: MoE (Part 2 tells that story) and big models teaching small ones (distillation).' },
-  ], { size: 12, gap: 8 });
+  ], { size: 14, gap: 7 });
   H.card(s, 0.55, 4.75, 6.2, 0.88, C.GREEN_TINT);
   s.addText([
     { text: 'Think ON: ', options: { bold: true, color: C.INK, fontSize: 12 } },
@@ -725,7 +734,7 @@ module.exports = function buildPartOne(pres, H) {
     { t: 'The mechanism: models are optimized for the most plausible next token, not the most true one. Trouble concentrates where training data is thin: rare facts, citations, numbers, names.' },
     { t: 'OpenAI’s own 2025 research: benchmarks reward confident guessing over “I don’t know” — models learn to be good test-takers.', b: true },
     { t: 'The better word is confabulation: it fills gaps with plausible material, in-format — fake citations LOOK like citations.' },
-  ], { size: 11.5, gap: 6 });
+  ], { size: 14, gap: 6 });
   // — the confident guess, measured (r23: arXiv:2509.04664 + GPT-5 system card) —
   H.card(s, 0.55, 4.32, 5.6, 2.44, C.PANEL);
   s.addText('The confident guess, measured', { x: 0.82, y: 4.46, w: 5.1, h: 0.32, fontFace: F.head, fontSize: 13.5, bold: true, color: C.INK, margin: 0 });
@@ -800,25 +809,25 @@ module.exports = function buildPartOne(pres, H) {
   shame.forEach((r, i) => {
     const x = 0.55 + (i % 2) * 6.2;
     const y = 1.62 + Math.floor(i / 2) * 1.68;
-    H.card(s, x, y, 5.95, 1.56, C.PANEL);
+    H.card(s, x, y, 5.95, 1.62, C.PANEL);
     H.iconCircle(s, x + 0.2, y + 0.2, 0.44, r[0], i === 0 ? C.AMBER : C.RED);
     s.addText([
-      { text: r[1], options: { bold: true, color: C.INK, fontSize: 11.5, breakLine: true, paraSpaceAfter: 3 } },
-      { text: r[2], options: { color: C.SLATE, fontSize: 10.2 } },
-    ], { x: x + 0.78, y: y + 0.1, w: 5.0, h: 1.4, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.03 });
+      { text: r[1], options: { bold: true, color: C.INK, fontSize: 14, breakLine: true, paraSpaceAfter: 3 } },
+      { text: r[2], options: { color: C.SLATE, fontSize: 14 } },
+    ], { x: x + 0.78, y: y + 0.08, w: 5.0, h: 1.48, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
   });
-  H.callout(s, 0.55, 5.12, 12.2, 0.55, C.AMBER_TINT, [
-    { text: 'Not one-offs: ', options: { bold: true, color: C.INK, fontSize: 11 } },
-    { text: 'a legal tracker counted ~1,500 court decisions worldwide involving AI-fabricated citations by mid-2026.', options: { color: C.SLATE, fontSize: 11 } },
-  ], { iconName: 'scale', iconFill: C.AMBER, size: 11 });
-  H.callout(s, 0.55, 5.8, 12.2, 0.55, C.TEAL_TINT, [
-    { text: 'The cure hasn’t changed: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
-    { text: 'Ground it (give it the source) · Cite it (demand receipts + an “I don’t know” escape hatch) · Verify it (check what matters before it ships).', options: { color: C.SLATE, fontSize: 11 } },
-  ], { iconName: 'check', iconFill: C.TEAL, size: 11 });
-  H.callout(s, 0.55, 6.48, 12.2, 0.55, C.RED_TINT, [
-    { text: 'House rule: ', options: { bold: true, color: C.RED, fontSize: 11 } },
-    { text: 'every uncited standard clause, date, number, or quote is a draft until verified.', options: { color: C.SLATE, fontSize: 11 } },
-  ], { iconName: 'alert', iconFill: C.RED, size: 11 });
+  H.callout(s, 0.55, 5.04, 12.2, 0.6, C.AMBER_TINT, [
+    { text: 'Not one-offs: ', options: { bold: true, color: C.INK, fontSize: 14 } },
+    { text: 'a legal tracker counted ~1,500 court decisions worldwide involving AI-fabricated citations by mid-2026.', options: { color: C.SLATE, fontSize: 14 } },
+  ], { iconName: 'scale', iconFill: C.AMBER, size: 14 });
+  H.callout(s, 0.55, 5.7, 12.2, 0.64, C.TEAL_TINT, [
+    { text: 'The cure hasn’t changed: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12 } },
+    { text: 'Ground it (give it the source) · Cite it (demand receipts + an “I don’t know” escape hatch) · Verify it (check what matters before it ships).', options: { color: C.SLATE, fontSize: 12 } },
+  ], { iconName: 'check', iconFill: C.TEAL, size: 12 });
+  H.callout(s, 0.55, 6.4, 12.2, 0.6, C.RED_TINT, [
+    { text: 'House rule: ', options: { bold: true, color: C.RED, fontSize: 14 } },
+    { text: 'every uncited standard clause, date, number, or quote is a draft until verified.', options: { color: C.SLATE, fontSize: 14 } },
+  ], { iconName: 'alert', iconFill: C.RED, size: 14 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
     '1) Walk the four cards — laugh at glue-on-pizza, then take the temperature down.\n' +

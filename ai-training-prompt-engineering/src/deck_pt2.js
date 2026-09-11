@@ -37,10 +37,9 @@ module.exports = function buildPartTwo(pres, H) {
     s.addText(v[1], { x: x + 0.64, y: y + 0.05, w: 2.1, h: 0.34, fontFace: F.head, fontSize: 15, bold: true, color: C.INK, margin: 0 });
     s.addText(v[2], { x: x + 0.64, y: y + 0.36, w: 3.26, h: 0.24, fontFace: F.body, fontSize: 9, bold: true, charSpacing: 0.3, color: C.MUTE, margin: 0 });
     s.addText(v[3], { x: x + 0.2, y: y + 0.7, w: 3.55, h: 0.52, fontFace: F.head, fontSize: 13.5, bold: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 0.96 });
-    s.addText(v[4], { x: x + 0.2, y: y + 1.24, w: 3.58, h: 0.74, fontFace: F.body, fontSize: 10, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.0 });
-    s.addText(v[5], { x: x + 0.2, y: y + 2.0, w: 3.58, h: 0.4, fontFace: F.body, fontSize: 10, italic: true, color: C.AMBER, margin: 0, lineSpacingMultiple: 0.95 });
+    s.addText(v[4], { x: x + 0.2, y: y + 1.24, w: 3.58, h: 0.76, fontFace: F.body, fontSize: 11, color: C.SLATE, margin: 0, lineSpacingMultiple: 0.98 });
+    s.addText(v[5], { x: x + 0.2, y: y + 2.02, w: 3.58, h: 0.38, fontFace: F.body, fontSize: 10.5, italic: true, color: C.AMBER, margin: 0, lineSpacingMultiple: 0.92 });
   });
-  s.addText('Fortes verified Sep 9, 2026 — they will move; the habits in Parts 3–5 don’t.', { x: 0.55, y: 6.72, w: 12.2, h: 0.4, fontFace: F.body, fontSize: 10.5, italic: true, color: C.MUTE, margin: 0, lineSpacingMultiple: 1.02 });
   s.addNotes(
     '[REFRESH QUARTERLY — owner: Oscar]\n' +
     '\n' +
@@ -61,6 +60,7 @@ module.exports = function buildPartTwo(pres, H) {
     'X = the social platform (Grok’s data source).\n' +
     '\n' +
     'CONTENT —\n' +
+    'v1.12 (owner edits, ported): evidence lines enlarged (his 14pt did not fit the fixed cards — set to the max that does, 11pt; caveats 10.5) and the “Fortes verified Sep 9, 2026 — they will move” footer removed from the slide: say it from point 5 instead.\n' +
     'v1.6: rebuilt as identity trading cards (assertion-evidence layout, r19) with real product logos; Perplexity’s known-for now leads with the CJR error-rate comparison (the ~94%-with-citations figure was less meaningful — audit H3).\n' +
     'Every claim evidence-backed in notes/research/r13_reputations_r1.md:\n' +
     'Writing: owner’s hunch was “ChatGPT writes better” — 2026 evals say otherwise (LMArena creative-writing June 2026: Anthropic six of top ten, #1; EQ-Bench Aug 2026 agrees). ChatGPT’s honest forte is speed, options, marketing copy.\n' +
@@ -193,7 +193,6 @@ module.exports = function buildPartTwo(pres, H) {
       ], { x: x + 0.64, y, w: 3.0, h: 0.76, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 0.98 });
     });
   });
-  s.addText('same logo, different homes — the ACCOUNT TIER decides which one yours is', { x: 0.85, y: 5.51, w: 11.6, h: 0.22, align: 'center', fontFace: F.body, fontSize: 10.5, bold: true, italic: true, color: C.TEAL_DARK, margin: 0 });
   H.card(s, 0.55, 5.95, 6.0, 1.15, C.TEAL_TINT);
   s.addText([
     { text: 'Residency = choosing where it lives. ', options: { bold: true, color: C.TEAL_DARK, fontSize: 12, breakLine: true } },
@@ -216,67 +215,17 @@ module.exports = function buildPartTwo(pres, H) {
     '6) The restaurant-vs-cookbook aside if China comes up: using the app is eating at their restaurant (they see your order); downloaded open-weight MODELS are a cookbook IT can cook from at home — the app, not the model, is the risk.\n' +
     '\n' +
     'BRIDGE —\n' +
-    '“From models to the tools that DO things — the gallery.”\n' +
+    '“That’s the landscape. Part 3 — the craft itself.”\n' +
     '\n' +
     'ACRONYMS —\n' +
     'PRC = People’s Republic of China. EU Data Boundary = Microsoft’s commitment to process EU data inside the EU.\n' +
     'AWS = Amazon Web Services. Entity List = the US federal trade-restriction list — a procurement red flag.\n' +
     '\n' +
     'CONTENT —\n' +
+    'v1.12 (owner edits, ported): the centered “same logo, different homes — the ACCOUNT TIER decides” line was removed from the slide — say it aloud instead when sweeping the panels; it remains the slide’s one-line lesson.\n' +
     'v1.7: rebuilt as the server-geography map (owner: focus on where servers are; no data-type guidance — that belongs to company policy). Swap the schematic band for the owner’s generated world-map backdrop when it lands in notes/intake/ (R16).\n' +
     'Presenter background (kept OFF-slide by design, from r11, researched Sep 9 2026): the major Western vendors train on CONSUMER chats by default and none train on enterprise-tier data · the famous 2025 leaks were all personal-account: ~300K+ Grok chats indexed by Google; “deleted” ChatGPT chats preserved for court (enterprise excluded) · Google consumer: reviewed chats kept up to 3 yrs · Kimi PRC storage; Z.ai Singapore processing, Entity-List parent · EchoLeak (CVE-2025-32711, Jun 2025): even enterprise Copilot had a zero-click exfiltration hole — patched.\n' +
     'Defaults drift (Anthropic flipped consumer training Aug 2025; Microsoft Oct 2024) — re-verify quarterly.\n' +
     'Standing rule, always said aloud: your organization’s AI policy and approved-tool list outrank everything on this slide.');
-
-  // ---------- 19. AGENT GALLERY — THE DOERS ----------
-  s = H.slide('PART 2 · AGENTIC TOOLS', 19);
-  H.title(s, 'The agent gallery · the doers', 'Agents that run jobs — names you’ll hear');
-  const gallery = [
-    ['claude', 'C', 'Claude Code', 'Anthropic', 'Agentic coding AND general file/data automation — points at a real folder: reads PDFs, builds spreadsheets, writes reports. Built this training’s materials.'],
-    ['claude', 'C', 'Claude Cowork', 'Anthropic', 'The same engine for non-technical knowledge work: “describe the outcome, step away, come back to finished files.” Licensed by Microsoft as Copilot Cowork.'],
-    ['openai', 'C', 'ChatGPT Work', 'OpenAI', 'Agent mode beside Chat: connects Slack/Gmail/Drive, runs scheduled tasks, produces decks, sheets, small apps.'],
-    ['copilot', 'C', 'Copilot agents', 'Microsoft', 'Researcher, Analyst, Excel Agent Mode, Copilot Studio — governed agents inside your tenant. The path of least resistance at most enterprises.'],
-    ['manus', 'M', 'Manus', 'independent (Singapore)', 'The famous general agent: goal in, finished multi-step work out. So famous Meta paid ~$2B for it (Dec 2025) — and Beijing forced the deal apart (Apr 2026). Try it personally; don’t feed it company data.'],
-    ['notion', 'N', 'Notion Agents', 'Notion', 'Agents living inside the workspace you may already use: run 24/7 on triggers (schedules, Slack, email), build docs and databases, shareable with the team.'],
-    ['zapier', 'Z', 'Automation platforms', 'n8n · Zapier', 'Wire apps together with agent steps in the flow: n8n for technical/self-hosted, Zapier for business users, 8,000+ connectors.'],
-    [null, 'O', 'OpenClaw', 'open source', 'DIY personal agent run from WhatsApp/Telegram — and 2026’s security cautionary tale. Not for corporate use; its lessons come in Part 5.'],
-  ];
-  gallery.forEach((g, i) => {
-    const x = 0.55 + (i % 2) * 6.2;
-    const y = 1.6 + Math.floor(i / 2) * 1.28;
-    H.card(s, x, y, 5.95, 1.16, i === 7 ? C.AMBER_TINT : C.PANEL);
-    if (i === 7) H.iconCircle(s, x + 0.18, y + 0.32, 0.5, 'alert', C.AMBER);
-    else H.logo(s, x + 0.18, y + 0.32, 0.5, g[0], g[1]);
-    s.addText([
-      { text: g[2] + '  ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
-      { text: g[3], options: { color: C.MUTE, fontSize: 9.4, breakLine: true, paraSpaceAfter: 2 } },
-      { text: g[4], options: { color: C.SLATE, fontSize: 10.5 } },
-    ], { x: x + 0.8, y: y + 0.06, w: 5.0, h: 1.05, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.0 });
-  });
-  s.addNotes(
-    '[REFRESH QUARTERLY — owner: Oscar]\n' +
-    '\n' +
-    'HOW TO PRESENT —\n' +
-    '1) Frame: “eight doers — agents that run jobs. One line each; two get a story.”\n' +
-    '2) Story 1 — Claude Code: “this very training’s materials were built with it.”\n' +
-    '3) Story 2 — Manus, plainly: an agent so famous Meta bought it for two billion dollars — and the Chinese government forced the deal to be unwound; it now runs independently from Singapore. That whole saga is a one-line governance lesson: know who owns your tools.\n' +
-    '4) End on the amber OpenClaw card: 2026’s security cautionary tale — don’t tell the whole story now; its lessons return in Part 5’s guardrails.\n' +
-    '5) Footer: IDEs and browser agents exist — engineering/power-user territory, and browser agents are injection-prone (treat every page as untrusted input).\n' +
-    '\n' +
-    'BRIDGE —\n' +
-    '“That’s the landscape. Part 3 — the craft itself.”\n' +
-    '\n' +
-    'ACRONYMS —\n' +
-    'IDE = Integrated Development Environment — a programmer’s editor.\n' +
-    'DIY = do-it-yourself. n8n / Zapier = product names (not acronyms).\n' +
-    '\n' +
-    'CONTENT —\n' +
-    'v1.6: brand logos on cards (assets/logos/); Manus saga dates now on the card (audit L13).\n' +
-    'Evidence per tool: notes/research/r12_tool_landscape.md.\n' +
-    'Manus: Meta acquisition ~$2B Dec 2025; Beijing (NDRC) ordered unwind Apr 2026; independent Singapore company Aug 2026; desktop “My Computer” mode Mar 2026.\n' +
-    'Notion: Custom Agents (Feb 2026) run on triggers with scoped permissions; Business/Enterprise plans; usage billed in credits.\n' +
-    'OpenClaw: maintainer’s own warning, verbatim — “if you can’t run a command line, this is far too dangerous to use safely”; CVE-2026-25253 (1-click RCE); a malicious #1-ranked community skill (Cisco).\n' +
-    'R14 type pass: the on-slide footer was removed (fewer footnotes) — speak its content from point 5: coding IDEs (Cursor · GitHub Copilot · Devin) and browser agents (Comet · Claude in Chrome) exist too — engineering and power-user tools; ask IT before either.\n' +
-    'v1.10: the “What people actually use” slide was CUT (owner). Its keepers, spoken here if useful (all sourced in r24, mid-2026): 52% of US employees use AI at work, 15% daily (Gallup May ’26) · top jobs writing 51% / research 49% · 86% treat AI output as a FIRST DRAFT, not a final product (Microsoft WTI 2026) · usage ≠ preference — people default to whatever is already inside Gmail/Office/WhatsApp; the chosen-for-the-job tier (Claude ~9× visit growth, Perplexity, Gemini Notebook, DeepSeek) is smaller but fastest-growing · STANDING RULE, always said aloud: your organization’s AI policy and approved-tool list outrank every name in this part.');
 
 };

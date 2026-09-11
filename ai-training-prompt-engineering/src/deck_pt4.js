@@ -241,10 +241,62 @@ module.exports = function buildPartFour(pres, H) {
     { text: 'Ask only if: a HARD check fails · an input isn’t as described · a definition is ambiguous · a published number would change. Otherwise, proceed.', options: { color: C.SLATE, fontSize: 12 } },
   ], { iconName: 'zap', iconFill: C.TEAL, size: 12 });
   s.addNotes(
-    'HOW TO PRESENT — 1) Frame: “one prompt, five links — data in, defensible slide out.” 2) Walk the five phase cards LEFT TO RIGHT, one line each: extract (read-only) → transform (logged rules) → validate (reconcile) → analyze (numbered questions, then stop) → present (headline titles). 3) Then the three amber GATES in order — tell it as ascending cost: definitions caught for pennies → reconciliation before analysis → headlines before rendering (“re-rendering is cheap; re-thinking a circulated deck is not”). 4) Teal band: between gates, full autonomy — read the four ask-only-if conditions; they stop the agent from asking about everything or nothing. 5) Bridge: “arms need supervision — five rules.”\n' +
+    'HOW TO PRESENT — 1) Frame: “one prompt, five links — data in, defensible slide out.” 2) Walk the five phase cards LEFT TO RIGHT, one line each: extract (read-only) → transform (logged rules) → validate (reconcile) → analyze (numbered questions, then stop) → present (headline titles). 3) Then the three amber GATES in order — tell it as ascending cost: definitions caught for pennies → reconciliation before analysis → headlines before rendering (“re-rendering is cheap; re-thinking a circulated deck is not”). 4) Teal band: between gates, full autonomy — read the four ask-only-if conditions; they stop the agent from asking about everything or nothing. 5) Bridge: “that’s how you brief one — now the agents you’d hand it to: names you’ll hear.”\n' +
     'ACRONYMS — ETL = Extract, Transform, Load — the classic data-pipeline shape. HARD = run-stopping check. n = sample size (n on every proportion). as-of = the data-cutoff date stamped on the output. A2 = this template’s library code.\n' +
     'CONTENT — This is the ETL→Presentation template (A2) in the library — a real, reusable prompt for any “take data, make it trustworthy, put the answer in front of people” job.\n' +
     'v1.8 VERIFICATION-AWARE PLANNING (external-review adoption, 9A-5) — say it over the chain: each phase ENDS by emitting a checkable claim (a total, a row count, a named assumption); the next phase BEGINS by checking it. That is why the links chain safely: the plan is written so its own progress is verifiable, not just its end state.');
+
+  // ---------- 19. AGENT GALLERY — THE DOERS ----------
+  s = H.slide('PART 5 · THE AGENT TOOLS', 51);
+  H.title(s, 'The agent gallery · the doers', 'Agents that run jobs — names you’ll hear');
+  const gallery = [
+    ['claude', 'C', 'Claude Code', 'Anthropic', 'Agentic coding AND general file/data automation — points at a real folder: reads PDFs, builds spreadsheets, writes reports. Built this training’s materials.'],
+    ['claude', 'C', 'Claude Cowork', 'Anthropic', 'The same engine for non-technical knowledge work: “describe the outcome, step away, come back to finished files.” Licensed by Microsoft as Copilot Cowork.'],
+    ['openai', 'C', 'ChatGPT Work', 'OpenAI', 'Agent mode beside Chat: connects Slack/Gmail/Drive, runs scheduled tasks, produces decks, sheets, small apps.'],
+    ['copilot', 'C', 'Copilot agents', 'Microsoft', 'Researcher, Analyst, Excel Agent Mode, Copilot Studio — governed agents inside your tenant. The path of least resistance at most enterprises.'],
+    ['manus', 'M', 'Manus', 'independent (Singapore)', 'The famous general agent: goal in, finished multi-step work out. So famous Meta paid ~$2B for it (Dec 2025) — and Beijing forced the deal apart (Apr 2026). Try it personally; don’t feed it company data.'],
+    ['notion', 'N', 'Notion Agents', 'Notion', 'Agents living inside the workspace you may already use: run 24/7 on triggers (schedules, Slack, email), build docs and databases, shareable with the team.'],
+    ['zapier', 'Z', 'Automation platforms', 'n8n · Zapier', 'Wire apps together with agent steps in the flow: n8n for technical/self-hosted, Zapier for business users, 8,000+ connectors.'],
+    [null, 'O', 'OpenClaw', 'open source', 'DIY personal agent run from WhatsApp/Telegram — and 2026’s security cautionary tale. Not for corporate use; its lessons: next slide.'],
+  ];
+  gallery.forEach((g, i) => {
+    const x = 0.55 + (i % 2) * 6.2;
+    const y = 1.6 + Math.floor(i / 2) * 1.28;
+    H.card(s, x, y, 5.95, 1.16, i === 7 ? C.AMBER_TINT : C.PANEL);
+    if (i === 7) H.iconCircle(s, x + 0.18, y + 0.32, 0.5, 'alert', C.AMBER);
+    else H.logo(s, x + 0.18, y + 0.32, 0.5, g[0], g[1]);
+    s.addText([
+      { text: g[2] + '  ', options: { bold: true, color: C.INK, fontSize: 12.5 } },
+      { text: g[3], options: { color: C.MUTE, fontSize: 9.4, breakLine: true, paraSpaceAfter: 2 } },
+      { text: g[4], options: { color: C.SLATE, fontSize: 10.5 } },
+    ], { x: x + 0.8, y: y + 0.06, w: 5.0, h: 1.05, fontFace: F.body, valign: 'middle', margin: 0, lineSpacingMultiple: 1.0 });
+  });
+  s.addNotes(
+    '[REFRESH QUARTERLY — owner: Oscar]\n' +
+    '\n' +
+    'HOW TO PRESENT —\n' +
+    '1) Frame: “eight doers — agents that run jobs. One line each; two get a story.”\n' +
+    '2) Story 1 — Claude Code: “this very training’s materials were built with it.”\n' +
+    '3) Story 2 — Manus, plainly: an agent so famous Meta bought it for two billion dollars — and the Chinese government forced the deal to be unwound; it now runs independently from Singapore. That whole saga is a one-line governance lesson: know who owns your tools.\n' +
+    '4) End on the amber OpenClaw card: 2026’s security cautionary tale — don’t tell the whole story yet; the guardrails are the very next slide.\n' +
+    '5) Footer: IDEs and browser agents exist — engineering/power-user territory, and browser agents are injection-prone (treat every page as untrusted input).\n' +
+    '\n' +
+    'BRIDGE —\n' +
+    '“Arms need supervision — five rules for delegating to any of them.”\n' +
+    '\n' +
+    'ACRONYMS —\n' +
+    'IDE = Integrated Development Environment — a programmer’s editor.\n' +
+    'DIY = do-it-yourself. n8n / Zapier = product names (not acronyms).\n' +
+    '\n' +
+    'CONTENT —\n' +
+    'v1.12: slide MOVED from Part 2 to Part 5 (owner reorder, done by hand in his copy and ported to source): the agent names now land right after the mission-brief/A2 slides that teach how to brief them, and before standing memory.\n' +
+    'v1.6: brand logos on cards (assets/logos/); Manus saga dates now on the card (audit L13).\n' +
+    'Evidence per tool: notes/research/r12_tool_landscape.md.\n' +
+    'Manus: Meta acquisition ~$2B Dec 2025; Beijing (NDRC) ordered unwind Apr 2026; independent Singapore company Aug 2026; desktop “My Computer” mode Mar 2026.\n' +
+    'Notion: Custom Agents (Feb 2026) run on triggers with scoped permissions; Business/Enterprise plans; usage billed in credits.\n' +
+    'OpenClaw: maintainer’s own warning, verbatim — “if you can’t run a command line, this is far too dangerous to use safely”; CVE-2026-25253 (1-click RCE); a malicious #1-ranked community skill (Cisco).\n' +
+    'R14 type pass: the on-slide footer was removed (fewer footnotes) — speak its content from point 5: coding IDEs (Cursor · GitHub Copilot · Devin) and browser agents (Comet · Claude in Chrome) exist too — engineering and power-user tools; ask IT before either.\n' +
+    'v1.10: the “What people actually use” slide was CUT (owner). Its keepers, spoken here if useful (all sourced in r24, mid-2026): 52% of US employees use AI at work, 15% daily (Gallup May ’26) · top jobs writing 51% / research 49% · 86% treat AI output as a FIRST DRAFT, not a final product (Microsoft WTI 2026) · usage ≠ preference — people default to whatever is already inside Gmail/Office/WhatsApp; the chosen-for-the-job tier (Claude ~9× visit growth, Perplexity, Gemini Notebook, DeepSeek) is smaller but fastest-growing · STANDING RULE, always said aloud: your organization’s AI policy and approved-tool list outrank every name in this part.');
 
   // ---------- 38. GUARDRAILS ----------
   s = H.slide('PART 5 · GUARDRAILS', 38);
@@ -311,7 +363,7 @@ module.exports = function buildPartFour(pres, H) {
   s.addText('Instructions stack in layers; conflicts resolve by precedence — the layer you typed is the easiest to lose. Find which layer said what before you blame the model. One-job rules belong in a SKILL, not another standing paragraph.', { x: 9.1, y: 4.6, w: 3.4, h: 1.3, fontFace: F.body, fontSize: 10.2, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.05 });
   s.addText('Tool descriptions are prompts too — the agent reads them like a junior reads an API doc.', { x: 9.1, y: 5.94, w: 3.4, h: 0.7, fontFace: F.body, fontSize: 10, italic: true, color: C.TEAL_DARK, margin: 0, lineSpacingMultiple: 1.02 });
   s.addNotes(
-    'HOW TO PRESENT — 1) Frame the twin: “Part 3 gave you a grid for when the ANSWER is wrong (top of tab EX-Rebuild) — name the failed element. This is its agentic twin: when the RUN is wrong, name the context failure.” 2) Four rows top to bottom, each in two beats — the smell, then the cure: poisoning → fresh session; drift → re-inject the mission and compact (the HANDOFF move — third callback today); confusion → fewer tools per phase; clash → one source of truth. 3) Right card: the layers answer the most common frustration — “why did it ignore me?” Walk the stack top to bottom, then the two lines: find which layer said what; one-job rules belong in a skill. 4) The italic tool-descriptions line is for builders in the room — a badly named tool is a badly written prompt. 5) Bridge: “supervision costs effort — next slide is where agentic prompting pays it back.”\n' +
+    'HOW TO PRESENT — 1) Frame the twin: “Part 3 gave you a grid for when the ANSWER is wrong (top of tab EX-Report) — name the failed element. This is its agentic twin: when the RUN is wrong, name the context failure.” 2) Four rows top to bottom, each in two beats — the smell, then the cure: poisoning → fresh session; drift → re-inject the mission and compact (the HANDOFF move — third callback today); confusion → fewer tools per phase; clash → one source of truth. 3) Right card: the layers answer the most common frustration — “why did it ignore me?” Walk the stack top to bottom, then the two lines: find which layer said what; one-job rules belong in a skill. 4) The italic tool-descriptions line is for builders in the room — a badly named tool is a badly written prompt. 5) Bridge: “supervision costs effort — next slide is where agentic prompting pays it back.”\n' +
     'ACRONYMS — compaction = the agent summarizing its own context into a note and reloading it (Part 1’s HANDOFF, automated).\n' +
     'CONTENT — v1.8 new slide (external-review adoption, Round 9B-ext-2, built at the owner’s v1.8 update). The four failure modes are the practitioner-standard taxonomy of agent context failures (poisoning · distraction/drift · confusion · clash), matching Anthropic’s context-engineering guidance (2025-09-29: smallest high-signal token set; just-in-time context; compaction, note-taking, sub-agents for long horizons — r26). Chroma “Context Rot” (2025-07-14, 18 models, r26) backs DRIFT: performance degrades non-uniformly as input grows, one distractor already hurts — teach as “degrades with length,” never a fixed percentage. Instruction-layer precedence varies by product — teach the LADDER, not a fixed winner: know which layer said what.');
 

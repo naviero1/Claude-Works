@@ -2,7 +2,7 @@
 #   deliverables/exercise-data/Course_Workbook.xlsx           README + Data (raw, NO formulas - the AI
 #                                                             does the math) + one named tab per exercise
 #                                                             (EX1..EX8, G2-DataAnalysis, EX-Quotes,
-#                                                             EX-Email, EX-Rebuild) + PLAYBOOK (8+8+8)
+#                                                             EX-Email, EX-Report) + PLAYBOOK (8+8+8)
 #   deliverables/exercise-data/Quote_Alpha_Components.pdf     (three comparable supplier quotations,
 #   deliverables/exercise-data/Quote_Bravo_Plastics.pdf        deliberately non-comparable at first
 #   deliverables/exercise-data/Quote_Cardinal_Metals.pdf       glance: currency/per-1000/EXW traps)
@@ -44,7 +44,7 @@ readme = [
     ['WHAT THIS IS', 'Your one take-home workbook: every exercise prompt from the course in a named tab (copy-paste, don\'t retype), the practice dataset for the Part 4 data walkthrough, and the full 2026 prompting playbook.'],
     ['HOW TO USE IT', 'During the course: when a slide points at a tab (e.g. "tab EX3-Tokens"), open it and copy the prompt. For the data walkthrough: upload this whole workbook to your AI and follow tab G2-DataAnalysis - profile first, then numbered questions.'],
     [''],
-    ['THE TABS', 'EX1-TwoModes .. EX7-MoE = the seven numbered course prompts · G2-DataAnalysis = the data walkthrough (uses the Data tab) · EX-Quotes = the three-quotations exercise (PDFs in the pack) · EX-Email = the inbox play (thread file in the pack) · EX-Rebuild = the Part 3 rep · BONUS-Ladder = a self-study triage drill · PLAYBOOK = Do / Don\'t / Expired, with sources.'],
+    ['THE TABS', 'EX1-TwoModes .. EX7-MoE = the seven numbered course prompts · G2-DataAnalysis = the data walkthrough (uses the Data tab) · EX-Quotes = the three-quotations exercise (PDFs in the pack) · EX-Email = the inbox play (thread file in the pack) · EX-Report = the Part 3 rep (your course, reported; grid + bonus rebuild drill) · BONUS-Ladder = a self-study triage drill · PLAYBOOK = Do / Don\'t / Expired, with sources.'],
     [''],
     ['THE DATA TAB', 'Twelve months of fictional supplier-delivery data across four sites and three suppliers, for practicing AI data analysis (Copilot, chat assistants with file upload, or a company RAG assistant).'],
     [''],
@@ -273,7 +273,7 @@ prompt_tab('EX2-Guesses', 'Prompt 2/7 · Narrowing the guesses — two separate 
 ])
 
 prompt_tab('EX3-Tokens', 'Prompt 3/7 · Bricks, not letters', [
-    ('STEP 1', 'Explain AI tokens to a busy office worker in under 80 words: use a LEGO-brick analogy, show one word splitting into tokens, and end with why tokens set my AI\'s cost and limits.',
+    ('STEP 1', 'Explain AI tokens to a high-school student in under 80 words: use a LEGO-brick analogy, show one word splitting into tokens, and end with why tokens set my AI\'s cost and limits.',
      'The definition lands in your course log — and the brick analogy is the one the best explainers use.'),
 ])
 
@@ -345,15 +345,17 @@ prompt_tab('EX-Email', 'Part 4 walkthrough · The inbox play (uses Email_Thread_
      'Picking the shape IS the skill — the brief is the default.'),
 ], note='The practice thread has four planted traps: a moved date, an approval WITH a condition, an unanswered question, and a mentioned attachment that isn\'t there. A good brief catches all four.')
 
-prompt_tab('EX-Rebuild', 'Part 3 rep · Rebuild one prompt (3 minutes)', [
+prompt_tab('EX-Report', 'Part 3 rep · Your course, reported (3 minutes)', [
     ('THE GRID', 'Inspect with this — which element failed? wrong altitude, tone, or posture -> ROLE · answers a different (or vaguer) question -> TASK · generically right, specifically wrong for us -> CONTEXT · right content, unusable shape or length -> FORMAT · doesn\'t match the standard in your head -> EXAMPLES · confidently invented -> THE OUT is missing · sprawls past what you asked -> THE STOP is missing.',
-     'The symptom-to-element diagnosis grid (moved here from the slides in v1.10) — name the failed element, fix that ONE, rerun.'),
-    ('THE REPORT', 'Q2 returns totaled 412 units against 28,400 shipped (1.45%), up from 1.1% in Q1. Site B drove the rise; supplier packaging changes are the suspected cause. Inspection hours were flat; two corrective actions are in draft. Full breakdown by site and supplier is in the appendix table.',
-     'The 60-word fictional report both steps run on — paste it after each prompt.'),
-    ('STEP 1', 'Summarize this report.',
-     'The naive baseline — fluent, unfocused, written for nobody in particular.'),
-    ('STEP 2', 'Your upgrade — write it yourself: add a Role, a named reader in the Task, a <=80-word cap, and an Out ("anything the report doesn\'t state: write UNKNOWN — never estimate; list the gaps at the end"). Then send it with the same report pasted.',
-     'Same report, four elements — watch it change league. Compare with a neighbor: which ELEMENT made the difference?'),
+     'The symptom-to-element diagnosis grid — name the failed element, fix that ONE, rerun.'),
+    ('STEP 1', 'List every prompt I have run in this course log, in order — one line each: what it did, and which element or move it taught.',
+     'Run in your COURSE LOG (the chat you opened with Prompt 1). The log replays your whole course.'),
+    ('STEP 2', 'Now turn that into my one-page course report: the seven elements with my own example for each, the loop, and the three prompts I will reuse at work. Anything the log doesn\'t show: write UNKNOWN — don\'t invent. Deliver the report, then stop.',
+     'Your examples, your report — note the Out and the Stop working inside the prompt itself. Name it, date it: your first library entry.'),
+    ('RECOVERY', 'If your course log was lost mid-course: the numbered prompts EX1..EX7 in this workbook are the full list — paste the ones you ran, then run STEP 2.',
+     'The HANDOFF move from Part 1 is the repair tool.'),
+    ('BONUS · REBUILD', 'Self-study contrast drill. Baseline: "Summarize this report." + the practice report below. Upgrade: add a Role, a named reader in the Task, a <=80-word cap, and an Out ("anything the report doesn\'t state: write UNKNOWN — never estimate; list the gaps at the end"). Practice report: Q2 returns totaled 412 units against 28,400 shipped (1.45%), up from 1.1% in Q1. Site B drove the rise; supplier packaging changes are the suspected cause. Inspection hours were flat; two corrective actions are in draft. Full breakdown by site and supplier is in the appendix table.',
+     'Four elements — watch the same report change league.'),
 ])
 
 # ---------------------------------------------------------------- 5. PLAYBOOK tab (full 8+8+8, r20)
