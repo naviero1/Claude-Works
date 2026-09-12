@@ -296,7 +296,7 @@ module.exports = function buildPartFour(pres, H) {
     'Notion: Custom Agents (Feb 2026) run on triggers with scoped permissions; Business/Enterprise plans; usage billed in credits.\n' +
     'OpenClaw: maintainer’s own warning, verbatim — “if you can’t run a command line, this is far too dangerous to use safely”; CVE-2026-25253 (1-click RCE); a malicious #1-ranked community skill (Cisco).\n' +
     'R14 type pass: the on-slide footer was removed (fewer footnotes) — speak its content from point 5: coding IDEs (Cursor · GitHub Copilot · Devin) and browser agents (Comet · Claude in Chrome) exist too — engineering and power-user tools; ask IT before either.\n' +
-    'v1.10: the “What people actually use” slide was CUT (owner). Its keepers, spoken here if useful (all sourced in r24, mid-2026): 52% of US employees use AI at work, 15% daily (Gallup May ’26) · top jobs writing 51% / research 49% · 86% treat AI output as a FIRST DRAFT, not a final product (Microsoft WTI 2026) · usage ≠ preference — people default to whatever is already inside Gmail/Office/WhatsApp; the chosen-for-the-job tier (Claude ~9× visit growth, Perplexity, Gemini Notebook, DeepSeek) is smaller but fastest-growing · STANDING RULE, always said aloud: your organization’s AI policy and approved-tool list outrank every name in this part.');
+    'v1.12: this slide now lives in Part 5 — the usage-stats keepers that used to be spoken here moved to the trading-cards notes in Part 2, where they belong.');
 
   // ---------- 38. GUARDRAILS ----------
   s = H.slide('PART 5 · GUARDRAILS', 38);

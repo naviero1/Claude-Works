@@ -69,6 +69,7 @@ module.exports = function buildPartTwo(pres, H) {
     'Vendor benchmark numbers are marketing until independently reproduced — read them as claims.\n' +
     'Grok note: xAI was acquired by SpaceX (Feb 2026).\n' +
     'Logos: official site favicons (assets/logos/) — referential brand use inside an internal training deck.\n' +
+    'USAGE KEEPERS (from the cut “What people actually use” slide; all sourced in r24, mid-2026 — speak if useful): 52% of US employees use AI at work, 15% daily (Gallup May ’26) · top jobs writing 51% / research 49% · 86% treat AI output as a FIRST DRAFT, not a final product (Microsoft WTI 2026) · usage ≠ preference — people default to whatever is inside Gmail/Office/WhatsApp · STANDING RULE, always said aloud: your organization’s AI policy and approved-tool list outrank every name in this part.\n' +
     'R14 type pass: sub-labels trimmed to fit 9pt — Perplexity’s Model Council = GPT+Claude+Gemini; footer teaser (“whose servers? two slides ahead — the account tier decides, not the logo”) now spoken from point 5, not printed.');
 
   // ---------- 17. THE DEEPSEEK MOMENT ----------

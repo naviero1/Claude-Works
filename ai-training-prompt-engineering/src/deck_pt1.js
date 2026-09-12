@@ -100,8 +100,8 @@ module.exports = function buildPartOne(pres, H) {
     'CONTENT —\n' +
     'v1.6: prompt rebuilt to the R10 template (TYPE THIS/WHY, no untaught concepts).\n' +
     'The multimodal aside is deliberate: the Prompt Report counts 58 text + 40 other-modality techniques — a separate training if votes call for it.\n' +
-    'The eight numbered PROMPT exercises run through Parts 1–2 in the trainees’ own AI window; Parts 3–4 carry the hands-on reps and walkthrough exercises. The one course-log thread doubles as their take-home record.\n' +
-    'IF RUNNING LATE — the kill-order (owner-approved, v1.8): compress live in this order, never delete from the deck — ① hardware-slide detail (keep the ×45M punchline) → ② the logo walk on the feature menu (read one row, gesture the rest) → ③ book-list mentions → ④ DeepSeek benchmark detail (keep the bill + hospital). The rebuild rep in Part 3 is PROTECTED — landscape trims first, practice never.\n' +
+    'The seven numbered PROMPT exercises run through Parts 1–2 in the trainees’ own AI window; Parts 3–4 carry the hands-on reps and walkthrough exercises. The one course-log thread doubles as their take-home record.\n' +
+    'IF RUNNING LATE — the kill-order (owner-approved, v1.8): compress live in this order, never delete from the deck — ① hardware-slide detail (keep the ×45M punchline) → ② the logo walk on the feature menu (read one row, gesture the rest) → ③ book-list mentions → ④ DeepSeek benchmark detail (keep the bill + hospital). The course-report rep in Part 3 is PROTECTED — landscape trims first, practice never.\n' +
     'R14: the multimodal aside now lives only in these notes — the slide footer was removed (step 6 above: speak it, nothing to point at).');
 
   // ---------- 3. PART I DIVIDER ----------
@@ -226,7 +226,7 @@ module.exports = function buildPartOne(pres, H) {
     '3) On 2017, tell the title story: “Attention Is All You Need” — ATTENTION is the mechanism that lets the model weigh which earlier words matter most when predicting the next one; the paper’s bold claim was that attention ALONE suffices — the older machinery could be dropped. (The title is widely described as a playful nod to “All You Need Is Love.”)\n' +
     '4) Right card: ChatGPT reached 100M users in two months; TikTok ~nine; Instagram ~two and a half years.\n' +
     '\n' +
-    'TRY IT (optional, spoken — not one of the eight numbered exercises) —\n' +
+    'TRY IT (optional, spoken — not one of the seven numbered exercises) —\n' +
     'TYPE THIS → “Explain the 2017 AI paper ‘Attention Is All You Need’ like I’m new to AI: what is attention, why did the title claim it’s ALL you need, and what did it replace? Under 120 words.”\n' +
     'WHY → the definition lands in their course log, accurately, from their own tool.\n' +
     '\n' +
