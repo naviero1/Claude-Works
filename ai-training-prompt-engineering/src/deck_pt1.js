@@ -74,7 +74,7 @@ module.exports = function buildPartOne(pres, H) {
     { text: '•  Course Workbook — every exercise, copy-paste ready', options: { breakLine: true } },
     { text: '•  13-template prompt library + Template Creator', options: { breakLine: true } },
     { text: '•  Taxonomy reference + one-page cheat sheet', options: { breakLine: true } },
-    { text: '•  The Do / Don’t / Expired playbook one-pager', options: { breakLine: true } },
+    { text: '•  Field Guide — the elements + the works/myth/expired compendium', options: { breakLine: true } },
     { text: '•  Team conventions for storing & versioning prompts', options: {} },
   ], { x: 7.28, y: 5.18, w: 5.3, h: 1.2, fontFace: F.body, fontSize: 10.5, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.1 });
   s.addNotes(

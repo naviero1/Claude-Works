@@ -1290,6 +1290,59 @@ Mapping by filename infix → target (name at embed):
 
 ---
 
+## ROUND 14 — evidence compendium into the PDFs + playbook merge · 2026-09-13 · ✅ APPLIED (v1.13)
+
+Owner: "add a section of what works, what's myth and doesn't work, explaining
+why — expand the compendium from the slides and put it in the PDFs, except the
+case examples" + "merge the playbook with the other documents where we summarize
+the course" + (on the survey question) all four Part-1/close extras AND both
+agentic extras AND "on fast vs thinking, define each model — opus, the one
+perplexity/grok/gemini uses, gpt versions — where they fall on the spectrum";
+one-pager ruling: retire it (true merge).
+
+**Field Guide (build_elements_guide.py) — 7pp → 14pp, V1.1 SEPTEMBER 2026:**
+- PART 5 · THE EVIDENCE COMPENDIUM: proven-vs-myth (r25) + the full 8+8+8
+  playbook (r20) merged & deduplicated into WORKS (9) / MYTH & MISTAKE (12) /
+  EXPIRED (5), each with a mechanism-level WHY + dated evidence anchors.
+  Dedup rules: personas-for-accuracy and emotional appeals live in MYTH only
+  (never survived replication — the MYTH/EXPIRED distinction is taught:
+  expired = was right, product absorbed it). + THE MIRROR box (+49%, root
+  cause, 4 countermeasures, two-chat experiment — NO news timeline: case
+  examples excluded per owner) + the five coherence seams + contested edges
+  (politeness; "prompt engineering is dead" half-myth).
+- PART 6 · THE FAILURE MODES: hallucination's four characters w/ defenses
+  (no hall-of-shame stories) + the run-time diagnosis grid (from the S39
+  inspect slide) + instruction-layers paragraph.
+- PART 7 · ENGINE & VEHICLE: fast-vs-thinking + think ON/OFF + THE MODEL
+  SPECTRUM table (as of Sep 2026, from r12/r13/r23-verified slide content:
+  GPT-5.6 Sol/Terra/Luna slider · Claude Haiku→Sonnet 5→Opus 5/Fable 5 +
+  extended thinking · Gemini 3.6 Flash / 3.1 Pro / Deep Think · Copilot
+  GPT-5.6+Claude · Perplexity own stack + Model Council · Grok 4.6
+  Auto/Fast/Expert/Heavy · DeepSeek V3/R1 open weights) — REFRESH QUARTERLY
+  marker in the closing line; churn caveat = the teaching point.
+- PART 8 · ten things + one-sentence wrap + APPENDIX glossary (20 terms,
+  two-column; slide part-refs dropped to avoid clashing with guide parts).
+- Layout: Parts 6–7 flow (no page break) to avoid ⅔-empty pages; spectrum
+  table + vehicle section in KeepTogether; glossary VALIGN TOP.
+
+**Cheat sheet:** EVIDENCE QUICK HITS → THE EVIDENCE — WORKS · MYTH · EXPIRED
+(3 verdict lines + sycophancy + pointer to Field Guide part 5 / PLAYBOOK tab).
+Still one page (render-verified).
+
+**Playbook_One_Pager.pdf RETIRED** (owner ruling): build section removed from
+build_exercise_pack.py (PLAYBOOK tab stays — the sources reference), file
+deleted from deliverables. Pointers updated: S30 teal band + notes step 5 →
+Field Guide; welcome "you leave with" bullet 4 → "Field Guide — the elements +
+the works/myth/expired compendium"; README rows + rebuild comment; v1.13
+CONTENT note on S30.
+
+**NOT done (deliberate):** taxonomy reference PDF unchanged — it is the
+ontology lookup, not a course-summary document; the compendium's homes are the
+Field Guide (full) + cheat sheet (compact). Case examples (hall of shame,
+mirror news timeline) excluded from all PDFs per owner instruction.
+
+---
+
 ## ROUND 13 — owner's hand-edited deck merged + course-report rep · 2026-09-11 · ✅ APPLIED (v1.12)
 
 Owner uploaded his own edited copy of v1.11 and directed changes; all ported

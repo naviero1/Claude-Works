@@ -539,7 +539,7 @@ module.exports = function buildPartThree(pres, H) {
   });
   H.callout(s, 0.55, 6.5, 12.2, 0.6, C.TEAL_TINT, [
     { text: 'The full 8 + 8 + 8, with the study behind every line: ', options: { bold: true, color: C.TEAL_DARK, fontSize: 11 } },
-    { text: 'tab PLAYBOOK of your Course Workbook — plus the one-page printout in your pack. Notice column 1, rule 4 IS column 2, rule 3 said positively: say what TO do.', options: { color: C.SLATE, fontSize: 11 } },
+    { text: 'tab PLAYBOOK of your Course Workbook — and your Field Guide explains the WHY behind every line. Notice column 1, rule 4 IS column 2, rule 3 said positively: say what TO do.', options: { color: C.SLATE, fontSize: 11 } },
   ], { iconName: 'download', iconFill: C.TEAL, size: 11 });
   s.addNotes(
     'HOW TO PRESENT —\n' +
@@ -547,7 +547,7 @@ module.exports = function buildPartThree(pres, H) {
     '2) GREEN column, fast — these five are Part 3 itself, condensed; nothing new, that’s the point.\n' +
     '3) RED column — slow on 3 and 4: bare “do not hallucinate” backfires (models start refusing facts that ARE in the context — researchers call it a Safety Tax; the positive out-and-cite pattern is the fix), and “are you sure?” is not verification (last slide’s mirror).\n' +
     '4) EXPIRED column — tell one origin story so the room trusts the column: “think step by step” was REAL (it took one math benchmark from 10% to 41% in 2022) — then vendors built the stepping in, and OpenAI’s own guide now says avoid chain-of-thought prompts. Advice expires when the product absorbs it. Every expired row ends with its replacement after the arrow.\n' +
-    '5) Teal band: the full 8+8+8 with sources lives in the PLAYBOOK tab + the one-pager. And the coherence beat: give-an-out is “don’t hallucinate” said positively — a live demo of “say what TO do.”\n' +
+    '5) Teal band: the full 8+8+8 with sources lives in the PLAYBOOK tab; the Field Guide’s compendium chapter (part 5) carries the WHY behind every line. And the coherence beat: give-an-out is “don’t hallucinate” said positively — a live demo of “say what TO do.”\n' +
     '\n' +
     'COHERENCE SEAMS (if someone spots a “contradiction”) —\n' +
     'Numeric caps vs no-absolutes: caps constrain QUANTITY; ALWAYS/NEVER locks JUDGMENT — reserve absolutes for true invariants.\n' +
@@ -563,7 +563,8 @@ module.exports = function buildPartThree(pres, H) {
     '\n' +
     'CONTENT —\n' +
     'v1.6: rebuilt as the three-column playbook (owner request); full lists + anchors in notes/research/r20_do_dont_expired.md. Key anchors: Yang 2026 (41.1%) · He 2024 (wrapper swings ~40%) · GPT-4.1 guide (bookending) · Omar 2025 (out: 66→44%) · GPT-5.1 guide (length adherence) · Safety Tax arXiv:2601.02023 · Wharton R3 + Salinas 2024 (tips/threats) · Cheng Science 2026 (+49%) · IFScale arXiv:2507.11538 (~150-rule cliff) · Kojima 2022 (10.4→40.7 GSM8K origin) · Sprague ICLR 2025 · Zheng 2024/Wharton R4 (personas) · OPRO 2024 (magic-phrase post-mortem) · EmotionPrompt recalc arXiv:2409.20303 (honest average ~2.6%) · GPT-5.5 guide via Willison Apr 2026 (re-baseline).\n' +
-    'What did NOT change (say if the room looks nervous): clarity, context, format, the out, grounding, iteration — the anatomy applies to every model they will ever use; scaffolding tricks retire, briefing skills compound.');
+    'What did NOT change (say if the room looks nervous): clarity, context, format, the out, grounding, iteration — the anatomy applies to every model they will ever use; scaffolding tricks retire, briefing skills compound.\n' +
+    'v1.13 (owner request): the standalone playbook one-pager was RETIRED — its content merged into the Field Guide (part 5: the full works/myth/expired compendium with the why per line) and the cheat sheet (compact box). The PLAYBOOK workbook tab remains the sources reference.');
 
   // ---------- 32. P3 REP — THE COURSE REPORT (v1.12, owner redesign) ----------
   s = H.slide('THREE-MINUTE REP · PART 3', 32);

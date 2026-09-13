@@ -7,7 +7,6 @@
 #   deliverables/exercise-data/Quote_Bravo_Plastics.pdf        deliberately non-comparable at first
 #   deliverables/exercise-data/Quote_Cardinal_Metals.pdf       glance: currency/per-1000/EXW traps)
 #   deliverables/exercise-data/Email_Thread_Packaging_Change.txt / .pdf  (messy 10-message thread)
-#   deliverables/exercise-data/Playbook_One_Pager.pdf         (Do / Don't / Expired on one page)
 # Deterministic (seeded) so the numbers on the walkthrough slides stay true after a rebuild.
 # Prompt texts in the tabs MUST match the deck (R10/R11) - edit deck_pt*.js and this file together.
 import os
@@ -422,30 +421,7 @@ xlsx_path = os.path.join(OUT, 'Course_Workbook.xlsx')
 wb.save(xlsx_path)
 print('wrote', xlsx_path, f'({n_data_rows} data rows + README + 12 exercise tabs + PLAYBOOK)')
 
-# ---------------------------------------------------------------- 6. Playbook one-pager PDF
-pp_doc = SimpleDocTemplate(os.path.join(OUT, 'Playbook_One_Pager.pdf'), pagesize=LETTER,
-                           leftMargin=0.55 * inch, rightMargin=0.55 * inch,
-                           topMargin=0.5 * inch, bottomMargin=0.45 * inch)
-tiny = ParagraphStyle('tiny', fontName='Helvetica', fontSize=7.4, textColor=INK, leading=9.2)
-tinym = ParagraphStyle('tinym', fontName='Helvetica-Oblique', fontSize=6.6, textColor=MUTE, leading=8.4)
-sect = ParagraphStyle('sect', fontName='Helvetica-Bold', fontSize=9.5, textColor=HexColor('#FFFFFF'), leading=12)
-PE = [Paragraph('The 2026 prompting playbook — one page', S['h1']),
-      Paragraph('From Prompts to Agents · researched Sep 2026 · full sources in the PLAYBOOK tab of your Course Workbook', S['sub'])]
-for title, rows, col in (('TO DO — reliably helps', PB_TODO, '#1E7B34'),
-                         ('NOT TO DO — hurts or wastes effort', PB_NOT, '#B3261E'),
-                         ('EXPIRED — do the replacement instead', PB_EXP, '#5A6570')):
-    hdr = Table([[Paragraph(title, sect)]], colWidths=[7.3 * inch])
-    hdr.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), HexColor(col)),
-                             ('TOPPADDING', (0, 0), (-1, -1), 2), ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
-                             ('LEFTPADDING', (0, 0), (-1, -1), 6)]))
-    PE.append(hdr)
-    body = Table([[Paragraph(f'<b>{n}</b>', tiny), Paragraph(txt, tiny), Paragraph(ev, tinym)] for n, txt, ev in rows],
-                 colWidths=[0.25 * inch, 4.55 * inch, 2.5 * inch])
-    body.setStyle(TableStyle([('GRID', (0, 0), (-1, -1), 0.4, HexColor('#DCE3E6')),
-                              ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-                              ('TOPPADDING', (0, 0), (-1, -1), 1.5), ('BOTTOMPADDING', (0, 0), (-1, -1), 1.5)]))
-    PE.append(body)
-    PE.append(Spacer(1, 5))
-PE.append(Paragraph('Coherence: caps constrain quantity, absolutes lock judgment · repeat verbatim at both ends of long context or not at all · task detail helps, rule count hurts · CoT expired on frontier reasoning models only · "give an out" is "don\'t hallucinate" said positively.', tinym))
-pp_doc.build(PE)
-print('wrote', os.path.join(OUT, 'Playbook_One_Pager.pdf'))
+# NOTE (v1.13, owner request): the standalone Playbook_One_Pager.pdf was retired — the
+# playbook now lives merged in the Field Guide (part 5, the full works/myth/expired
+# compendium with the why per line) and the cheat sheet (compact box). The PLAYBOOK tab
+# above remains the sources reference the slides point to.

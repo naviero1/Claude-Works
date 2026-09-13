@@ -108,11 +108,12 @@ E.append(box('THE TOOLKIT IS A LOOP — PLAN · DO · CHECK · ACT', [
 ], TEAL_T))
 E.append(gap)
 
-E.append(box('EVIDENCE QUICK HITS', [
-    ('Works:', 'specificity · examples · structure · grounding in documents · code for all math.'),
-    ('Myth:', 'tips, politeness games, “genius” personas for accuracy — small, unstable effects.'),
-    ('Thinking models:', 'skip “think step by step” and example piles; remove contradictions; set effort; stay clear.'),
+E.append(box('THE EVIDENCE — WORKS · MYTH · EXPIRED', [
+    ('Works:', 'specificity with success criteria · one tested template · docs top, ask at the END · the checkable out + citations · named-criteria self-check · numeric budgets · metaprompting.'),
+    ('Myth:', '“genius” personas · tips &amp; threats · magic phrases · length for its own sake · bare “don’t hallucinate” (backfires) · “are you sure?” — it folds, it doesn’t check.'),
+    ('Expired:', '“think step by step” · example piles · ### layouts · hand-run voting — the product absorbed them; re-baseline on every model upgrade.'),
     ('Sycophancy:', 'AI affirms you ~49% more than humans would. Never reveal your preferred answer; ask for the case AGAINST; paste your draft as “a colleague’s.”'),
+    ('', 'The why behind every line: Field Guide part 5 · sources: PLAYBOOK tab of the Course Workbook.'),
 ], PANEL))
 E.append(gap)
 
