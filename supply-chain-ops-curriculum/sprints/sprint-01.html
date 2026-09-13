@@ -1,0 +1,437 @@
+<title>Ops Learning Sprints</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F5F7F8; --surface:#FFFFFF; --ink:#1D2A31; --muted:#58676F;
+  --line:#D9E1E5; --line-soft:#E7EDF0;
+  --accent:#12616C; --accent-ink:#0E4E57; --accent-soft:#E3EEF0;
+  --ok:#2E7D46; --ok-bg:#E7F2EA;
+  --warn:#A16207; --warn-bg:#F8EFDD;
+  --ml:#3B5FA0; --ml-bg:#E6ECF6;
+  --shadow:0 1px 3px rgba(29,42,49,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F171B; --surface:#172228; --ink:#E5EDF1; --muted:#93A4AD;
+    --line:#2A3941; --line-soft:#22313A;
+    --accent:#5FB7C2; --accent-ink:#8ACDD5; --accent-soft:#173840;
+    --ok:#6FBF87; --ok-bg:#1C3324;
+    --warn:#D9A441; --warn-bg:#3A2E14;
+    --ml:#8FA9DC; --ml-bg:#1F2C44;
+    --shadow:0 1px 3px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F171B; --surface:#172228; --ink:#E5EDF1; --muted:#93A4AD;
+  --line:#2A3941; --line-soft:#22313A;
+  --accent:#5FB7C2; --accent-ink:#8ACDD5; --accent-soft:#173840;
+  --ok:#6FBF87; --ok-bg:#1C3324;
+  --warn:#D9A441; --warn-bg:#3A2E14;
+  --ml:#8FA9DC; --ml-bg:#1F2C44;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{background:var(--ground); color:var(--ink); font-family:"Source Sans 3",system-ui,sans-serif; font-size:16.5px; line-height:1.55; padding-block:0 64px; padding-inline:20px;}
+.wrap{max-width:920px; margin:0 auto}
+h1,h2,h3,h4{font-family:Bitter,Georgia,serif; text-wrap:balance; line-height:1.22; margin:0}
+h1{font-size:clamp(1.8rem,4.5vw,2.5rem)} h2{font-size:1.4rem; margin-bottom:.3rem} h3{font-size:1.05rem} h4{font-size:.98rem}
+p{margin:.5em 0} a{color:var(--accent-ink)}
+.eyebrow{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink); font-weight:600}
+.muted{color:var(--muted)} .mono{font-family:"IBM Plex Mono",monospace}
+header.page{padding-block:40px 6px}
+header.page .sub{max-width:66ch; color:var(--muted); font-size:1.02rem}
+section{padding-block:30px 4px}
+.lede{max-width:68ch; color:var(--muted)}
+/* progress */
+.progress{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 18px; margin-top:16px; box-shadow:var(--shadow)}
+.pbar{height:10px; border-radius:999px; background:var(--line-soft); overflow:hidden; margin-top:8px}
+.pbar > div{height:100%; width:0%; background:var(--accent); border-radius:999px; transition:width .3s}
+.pmeta{display:flex; justify-content:space-between; font-size:.82rem; color:var(--muted); font-variant-numeric:tabular-nums}
+/* day grid */
+.week{margin-top:14px}
+.wk-label{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:6px}
+.day{display:flex; gap:12px; align-items:flex-start; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin-bottom:6px}
+.day input[type=checkbox]{width:19px; height:19px; margin-top:3px; accent-color:var(--accent); flex-shrink:0; cursor:pointer}
+.day .dd{font-family:"IBM Plex Mono",monospace; font-size:.74rem; color:var(--muted); width:74px; flex-shrink:0; padding-top:3px}
+.day .dt{flex:1; min-width:0; font-size:.95rem}
+.day .dt a{font-weight:600; text-decoration:none}
+.day .dt a:hover{text-decoration:underline}
+.tag{font-family:"IBM Plex Mono",monospace; font-size:.62rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:1px 7px; border-radius:999px; white-space:nowrap; vertical-align:2px}
+.t-ml{color:var(--ml); background:var(--ml-bg)}
+.t-ls{color:var(--accent-ink); background:var(--accent-soft)}
+.t-rv{color:var(--warn); background:var(--warn-bg)}
+/* lessons */
+details.lesson{background:var(--surface); border:1px solid var(--line); border-radius:10px; margin-bottom:10px; box-shadow:var(--shadow)}
+details.lesson > summary{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; cursor:pointer; padding:13px 18px; list-style:none}
+details.lesson > summary::-webkit-details-marker{display:none}
+details.lesson > summary::after{content:"+"; margin-left:auto; font-family:"IBM Plex Mono",monospace; color:var(--muted)}
+details.lesson[open] > summary::after{content:"–"}
+details.lesson > summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px; border-radius:10px}
+.lnum{font-family:"IBM Plex Mono",monospace; font-size:.76rem; color:var(--accent-ink); font-weight:600}
+.lname{font-family:Bitter,Georgia,serif; font-weight:700; font-size:1.02rem}
+.ldom{font-size:.74rem; color:var(--muted)}
+.lbody{padding:2px 18px 16px; border-top:1px solid var(--line-soft); font-size:.95rem; max-width:76ch}
+.lbody .k{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-ink); margin:1em 0 .15em}
+.lbody .k + p{margin-top:0}
+.case{background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:0 6px 6px 0; padding:8px 13px; margin:.6em 0}
+.task{background:var(--warn-bg); border-left:3px solid var(--warn); border-radius:0 6px 6px 0; padding:8px 13px; margin:.6em 0}
+.task b, .case b{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:2px}
+.case b{color:var(--accent-ink)} .task b{color:var(--warn)}
+.refs{font-size:.88rem; color:var(--muted)}
+.refs .own{color:var(--ok); font-weight:600}
+dfn{font-style:normal; font-weight:600}
+/* ML */
+.mlcard{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-top:12px; box-shadow:var(--shadow)}
+.bench{display:flex; gap:12px; align-items:flex-start; border-top:1px solid var(--line-soft); padding:9px 0}
+.bench:first-of-type{border-top:none}
+.bench input[type=checkbox]{width:19px; height:19px; margin-top:2px; accent-color:var(--ml); flex-shrink:0; cursor:pointer}
+.bench .bd{font-family:"IBM Plex Mono",monospace; font-size:.72rem; color:var(--muted); width:86px; flex-shrink:0; padding-top:2px}
+.bench .bt{font-size:.94rem}
+details.gq{border:1px solid var(--line-soft); border-radius:8px; margin-top:10px}
+details.gq > summary{cursor:pointer; padding:9px 14px; font-weight:600; font-size:.92rem; list-style:none}
+details.gq > summary::-webkit-details-marker{display:none}
+details.gq .gqb{padding:0 14px 12px; font-size:.92rem; border-top:1px solid var(--line-soft)}
+.tablewrap{overflow-x:auto; margin-top:12px}
+table{border-collapse:collapse; width:100%; background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; font-size:.9rem}
+th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); background:var(--ground)}
+tr:last-child td{border-bottom:none}
+/* notes */
+.notesbox{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-top:12px; box-shadow:var(--shadow)}
+.notesbox textarea{width:100%; min-height:120px; border:1px solid var(--line); border-radius:8px; background:var(--ground); color:var(--ink); font-family:"Source Sans 3",system-ui,sans-serif; font-size:.95rem; padding:10px 12px; resize:vertical}
+.notesbox button{margin-top:8px; font-family:"IBM Plex Mono",monospace; font-size:.78rem; letter-spacing:.05em; padding:8px 16px; border-radius:999px; border:1px solid var(--accent); background:var(--accent-soft); color:var(--accent-ink); cursor:pointer; font-weight:600}
+.notesbox button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+#savemsg{font-size:.82rem; color:var(--ok); margin-left:10px}
+.shelf li{margin-bottom:4px; font-size:.93rem}
+.shelf .own{color:var(--ok); font-weight:600; font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.06em}
+.shelf .buy{color:var(--warn); font-weight:600; font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.06em}
+footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font-size:.83rem; color:var(--muted); max-width:74ch}
+@media (max-width:520px){ .day .dd{width:56px} .bench .bd{width:64px} }
+</style>
+
+<div class="wrap">
+
+<header class="page">
+<p class="eyebrow">Biweekly program · Sprint 01 · Sep 14 – Sep 27, 2026</p>
+<h1>Ops Learning Sprints</h1>
+<p class="sub">One hour a day. Every sprint: measurable progress on the Andrew Ng Machine Learning course, plus one taught topic from each of the 11 domains of your curriculum. Check things off as you go and leave notes at the bottom — I read both when I prepare the next sprint on <span class="mono">Sun Sep 27</span>.</p>
+<div class="progress">
+<div class="pmeta"><span>Sprint progress</span><span id="pcount">0 / 0</span></div>
+<div class="pbar"><div id="pfill"></div></div>
+</div>
+</header>
+
+<section id="floor">
+<p class="eyebrow">§ 0</p>
+<h2>Compliance floor — book these this week, do them anytime</h2>
+<div class="week">
+<div class="day"><input type="checkbox" data-ck="iata" id="ck-iata"><span class="dt">Book the <strong>IATA infectious-substances + dry-ice shipper course</strong> (Saf-T-Pak or another IATA-accredited provider; 2–3 days, a few hundred dollars). Legally required before you classify or sign off biological shipments.</span></div>
+<div class="day"><input type="checkbox" data-ck="bbp" id="ck-bbp"><span class="dt">Complete an <strong>OSHA Bloodborne Pathogens</strong> online training (an hour, ~$25–60) and ask EHS about BSL-2 orientation. Required before you physically receive/inspect biological material or walk a supplier floor.</span></div>
+<div class="day"><input type="checkbox" data-ck="wes" id="ck-wes"><span class="dt">Start the <strong>University of Lima transcript evaluation</strong> (WES.org or ECE.org, ~$100–230). One errand; it prices the degree-completion option once and for all.</span></div>
+</div>
+</section>
+
+<section id="schedule">
+<p class="eyebrow">§ 1</p>
+<h2>The two weeks, day by day</h2>
+<p class="lede">Weekdays ≈ 30 min ML + 30 min lesson. Saturdays are ML lab time; Sundays are application days — that's where learning becomes yours. Check the box when the day's hour is done.</p>
+
+<div class="week"><div class="wk-label">Week 1 · Sep 14–20</div>
+<div class="day"><input type="checkbox" data-ck="d0914"><span class="dd">Mon 14</span><span class="dt"><span class="tag t-ml">ML</span> Course intro + "What is machine learning," supervised vs. unsupervised (videos) · <span class="tag t-ls">Lesson</span> <a href="#l1">L1 — The supplier quality loop</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0915"><span class="dd">Tue 15</span><span class="dt"><span class="tag t-ml">ML</span> Linear regression model, cost function intuition · <span class="tag t-ls">Lesson</span> <a href="#l2">L2 — The Kraljic matrix</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0916"><span class="dd">Wed 16</span><span class="dt"><span class="tag t-ml">ML</span> Gradient descent (all videos) — Module 1 videos done · <span class="tag t-ls">Lesson</span> <a href="#l3">L3 — Supplier market power</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0917"><span class="dd">Thu 17</span><span class="dt"><span class="tag t-ml">ML</span> Module 1 quiz · <span class="tag t-ls">Lesson</span> <a href="#l4">L4 — Shipping biological materials legally</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0918"><span class="dd">Fri 18</span><span class="dt"><span class="tag t-ml">ML</span> Start Module 1 optional labs (Jupyter/NumPy) · <span class="tag t-ls">Lesson</span> <a href="#l5">L5 — FMEA</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0919"><span class="dd">Sat 19</span><span class="dt"><span class="tag t-ml">ML LAB</span> Full hour: finish Module 1 labs — run every cell, change numbers, watch the cost surface move. <strong>Benchmark B1 due.</strong></span></div>
+<div class="day"><input type="checkbox" data-ck="d0920"><span class="dd">Sun 20</span><span class="dt"><span class="tag t-rv">Apply</span> 30 min: classify your real suppliers (from your Production Supplier Shortlist sheet) on a Kraljic 2×2 · 20 min: write 3 FMEA rows for your most critical supplier · 10 min: answer Module 1 guiding questions out loud.</span></div>
+</div>
+
+<div class="week"><div class="wk-label">Week 2 · Sep 21–27</div>
+<div class="day"><input type="checkbox" data-ck="d0921"><span class="dd">Mon 21</span><span class="dt"><span class="tag t-ml">ML</span> Module 2: multiple features, vectorization · <span class="tag t-ls">Lesson</span> <a href="#l6">L6 — Safety stock &amp; service level</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0922"><span class="dd">Tue 22</span><span class="dt"><span class="tag t-ml">ML</span> Feature scaling, learning rate · <span class="tag t-ls">Lesson</span> <a href="#l7">L7 — Total cost of ownership &amp; landed cost</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0923"><span class="dd">Wed 23</span><span class="dt"><span class="tag t-ml">ML</span> Feature engineering, polynomial regression — Module 2 videos done · <span class="tag t-ls">Lesson</span> <a href="#l8">L8 — Acceptance sampling</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0924"><span class="dd">Thu 24</span><span class="dt"><span class="tag t-ml">ML</span> Module 2 quiz · <span class="tag t-ls">Lesson</span> <a href="#l9">L9 — P2P and the three-way match</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0925"><span class="dd">Fri 25</span><span class="dt"><span class="tag t-ml">ML</span> Start Module 2 graded lab · <span class="tag t-ls">Lesson</span> <a href="#l10">L10 — BATNA &amp; the negotiation plan</a></span></div>
+<div class="day"><input type="checkbox" data-ck="d0926"><span class="dd">Sat 26</span><span class="dt"><span class="tag t-ml">ML LAB</span> 30 min: finish Module 2 graded lab — <strong>Benchmark B2 due</strong> · <span class="tag t-ls">Lesson</span> <a href="#l11">L11 — Your first hour of SQL</a> (30 min, in-browser)</span></div>
+<div class="day"><input type="checkbox" data-ck="d0927"><span class="dd">Sun 27</span><span class="dt"><span class="tag t-rv">Apply</span> 25 min: landed-cost one real purchased item in a spreadsheet · 20 min: draft the one-page negotiation plan for your next supplier renewal · 15 min: answer Module 2 guiding questions, then <a href="#notes">write your sprint notes below</a>. Sprint 2 lands today.</span></div>
+</div>
+</section>
+
+<section id="ml">
+<p class="eyebrow">§ 2</p>
+<h2>ML track — Machine Learning Specialization (Andrew Ng)</h2>
+<p class="lede">You're on Course 1, <em>Supervised Machine Learning: Regression and Classification</em> (3 modules). With your R/Minitab/statistics background the concepts will land fast; the new muscle is NumPy notation. Do the optional labs — you learn this by running code, same way you learned everything else.</p>
+
+<div class="mlcard">
+<h3>Benchmarks — check when actually done</h3>
+<div class="bench"><input type="checkbox" data-ck="mlb1"><span class="bd">B1 · Sep 19</span><span class="bt"><strong>Module 1 complete</strong> — videos, quiz passed, optional labs run (linear regression model + cost function notebooks).</span></div>
+<div class="bench"><input type="checkbox" data-ck="mlb2"><span class="bd">B2 · Sep 26</span><span class="bt"><strong>Module 2 complete</strong> — videos, quiz, and the graded lab (linear regression with scikit-learn/NumPy) submitted.</span></div>
+<div class="bench"><input type="checkbox" data-ck="mlb3"><span class="bd">Stretch</span><span class="bt">Watched the first two Module 3 videos (classification motivation, logistic regression) — a running start for Sprint 2.</span></div>
+
+<details class="gq"><summary>Module 1 guiding questions — answer out loud on Sun Sep 20</summary><div class="gqb">
+<p>1. What makes a problem <em>supervised</em> learning rather than unsupervised? Give one example from your job of each. <span class="muted">(Supervised = you have labeled right answers to learn from, e.g., past lots labeled accepted/rejected. Unsupervised = no labels, find structure, e.g., clustering suppliers by behavior.)</span></p>
+<p>2. In your own words: what does the cost function J(w,b) measure, and why square the errors? <span class="muted">(Average "wrongness" of the line across all training points; squaring makes negatives count, punishes big misses, and gives a smooth bowl gradient descent can roll down.)</span></p>
+<p>3. What does the learning rate α control, and what goes wrong if it's too large? Too small? <span class="muted">(Step size downhill; too large overshoots and diverges, too small crawls.)</span></p>
+<p>4. Frame "predict supplier lead time" as a regression problem: what's the target, what 4 features would you use? <span class="muted">(There's no single right answer — this is the question that turns the course into your job.)</span></p>
+</div></details>
+
+<details class="gq"><summary>Module 2 guiding questions — answer out loud on Sun Sep 27</summary><div class="gqb">
+<p>1. Why does feature scaling make gradient descent converge faster? <span class="muted">(Unscaled features make the cost bowl a long narrow valley; scaling rounds it so steps head straight downhill.)</span></p>
+<p>2. What is vectorization, and why is <span class="mono">np.dot(w,x)</span> faster than a Python loop? <span class="muted">(One optimized parallel operation on whole arrays instead of interpreted one-at-a-time steps.)</span></p>
+<p>3. When would polynomial features beat a straight line? Give an operations example. <span class="muted">(Curved reality — e.g., overtime hours vs. throughput flattens; changeover cost vs. batch size bends.)</span></p>
+<p>4. Your LMS-Light bands predicted units-picked-per-hour from operational data. Which engineered features would a regression version have used — and what would you add now that you couldn't then?</p>
+</div></details>
+</div>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Horizon</th><th>Target</th><th>By when</th></tr></thead>
+<tbody>
+<tr><td>Sprint 1</td><td>Course 1: Modules 1–2</td><td>Sep 27</td></tr>
+<tr><td>Sprint 2</td><td>Course 1: Module 3 (logistic regression, regularization) → <strong>Course 1 certificate</strong></td><td>Oct 11</td></tr>
+<tr><td>Sprints 3–4</td><td>Course 2: <em>Advanced Learning Algorithms</em> (neural nets, decision trees — 4 modules)</td><td>Nov 8</td></tr>
+<tr><td>Sprints 5–6</td><td>Course 3: <em>Unsupervised, Recommenders, RL</em> (3 modules) → <strong>Specialization certificate</strong></td><td>~Dec 13</td></tr>
+<tr><td>Then</td><td>Capstone for your world: supplier risk-scoring or lead-time model on your own data</td><td>Sprint 7+</td></tr>
+</tbody>
+</table></div>
+<p class="muted" style="font-size:.86rem">Note: my Coursera connector needs re-authorization (claude.ai Settings → Connectors) — reconnect it and I can pull your actual course progress instead of relying on your check-offs.</p>
+</section>
+
+<section id="lessons">
+<p class="eyebrow">§ 3</p>
+<h2>The eleven lessons</h2>
+<p class="lede">One per domain, ~25–30 minutes each: plain-language teaching, acronyms spelled out, a case from your world, and a 10-minute task that makes it stick. <span style="color:var(--ok);font-weight:600">ON YOUR DRIVE</span> marks books you already own.</p>
+
+<details class="lesson" id="l1"><summary><span class="lnum">L1</span><span class="lname">The supplier quality loop: NCR → 8D → SCAR → CAPA</span><span class="ldom">Supplier Engineering</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>When bad material arrives, professionals don't just complain to the supplier — they run a standard loop that turns one failure into a permanent fix. Every regulated company runs some version of it; you'll build yours.</p>
+<p class="k">The concepts</p>
+<p><dfn>NCR (Nonconformance Report)</dfn>: the written record that something didn't meet spec — what, which lot, how found. If it isn't written down, it never happened. <dfn>Containment</dfn>: immediately fence off the suspect material (quarantine shelf, hold label) so nobody uses it while you investigate. <dfn>Disposition</dfn>: the decision about the bad material — <em>use-as-is</em> (deviation approved), <em>rework</em>, <em>return</em>, or <em>scrap</em>. <dfn>8D (Eight Disciplines)</dfn>: a standard problem-solving report format suppliers everywhere recognize: D1 team, D2 problem description, D3 containment, D4 root cause, D5 chosen corrective action, D6 implement, D7 prevent recurrence system-wide, D8 recognize the team. Your Apollo RCA skill is D4 — the hard part you already master; 8D just wraps it in a standard envelope. <dfn>SCAR (Supplier Corrective Action Request)</dfn>: the formal letter asking a supplier to run an 8D and report back — issued for serious or repeat problems, not every hiccup. <dfn>CAPA (Corrective and Preventive Action)</dfn>: the umbrella system tracking all fixes to closure, including <em>verification of effectiveness</em>: checking weeks later that the fix actually worked. <dfn>COPQ (Cost of Poor Quality)</dfn>: what failures cost in dollars — your language for prioritizing.</p>
+<div class="case"><b>Case — your world</b>A gelatin lot arrives and the CoA (Certificate of Analysis) shows 210 Bloom instead of the 250 spec. NCR opened; lot quarantined (containment); R&amp;D judges it unusable for the stiffness the model needs → disposition: return. Second occurrence in 3 months → SCAR issued; the supplier's 8D finds their blending step lacks an in-process Bloom check; they add one (D7). You re-check their next 5 CoAs — effectiveness verified. Loop closed.</div>
+<div class="task"><b>10-minute task</b>Open a blank sheet and design your NCR log columns (date, item, lot, supplier, problem, containment, disposition, SCAR? Y/N, status, closed date). That sheet is the seed of your company's quality system.</div>
+<p class="k">Read more</p>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> ASQ CQE Handbook 5th ed. (corrective action chapters) · The Quality Toolbox (Tague). <span class="buy" style="color:var(--warn)">BUY:</span> <a href="https://www.amazon.com/s?k=Root+Cause+Analysis+Core+of+Problem+Solving+Duke+Okes">Root Cause Analysis — Duke Okes (Amazon)</a></p>
+</div></details>
+
+<details class="lesson" id="l2"><summary><span class="lnum">L2</span><span class="lname">The Kraljic matrix: your supply base on one 2×2</span><span class="ldom">Procurement</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>In 1983 Peter Kraljic wrote the most-used framework in procurement: plot everything you buy on two axes — <em>profit/business impact</em> (how much it matters) and <em>supply risk</em> (how hard it is to get) — and the quadrant tells you the strategy. It's the anchor your "all over the place" role is missing: it tells you where to spend relationship effort, where to automate, where to de-risk.</p>
+<p class="k">The four quadrants</p>
+<p><dfn>Routine / non-critical</dfn> (low impact, low risk — gloves, standard plasticware): minimize effort; catalogs, blanket POs, don't negotiate pennies. <dfn>Leverage</dfn> (high impact, low risk — commodity items with many suppliers): here the buyer holds power; bid competitively, switch freely. <dfn>Bottleneck</dfn> (low impact, high risk — a cheap adhesive only one company makes): the sneaky quadrant where cheap items stop your line; strategy is <em>secure supply</em> — buffer stock, alternates, monitoring — not price. <dfn>Strategic</dfn> (high impact, high risk — your donor-network tissue, custom biologicals): few suppliers, high stakes; strategy is <em>partnership</em> — long-term agreements, joint planning, executive relationships, and treating the supplier as an extension of your company.</p>
+<div class="case"><b>Case — your world</b>From your own supplier shortlist: fish gelatin 250 Bloom with one strong US manufacturer (Norland) and thin alternatives is <em>bottleneck</em> drifting toward <em>strategic</em> — the strategy is qualifying that second source (which you're already doing) plus a modest buffer, not price pressure. The Sigma-Aldrich/Thermo catalog items on your ASL are <em>routine</em>: automate them and spend zero relationship energy there.</div>
+<div class="task"><b>10-minute task</b>Draw the 2×2 and place your top 10 purchased items. Mark each with today's actual strategy — every mismatch (e.g., negotiating hard with a bottleneck supplier) is a risk you're carrying.</div>
+<p class="k">Read more</p>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Leading Procurement Strategy 3rd ed. (Mena, van Hoek &amp; Christopher — category strategy chapters). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Category+Management+in+Purchasing+Jonathan+O%27Brien">Category Management in Purchasing — O'Brien (Amazon)</a> · Kraljic's original HBR article "Purchasing Must Become Supply Management" (1983).</p>
+</div></details>
+
+<details class="lesson" id="l3"><summary><span class="lnum">L3</span><span class="lname">Supplier market power — and how they see YOUR account</span><span class="ldom">Economics</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>Prices aren't set by fairness; they're set by market structure — how many sellers there are and how easily buyers can switch. Economics gives you the diagnosis; the diagnosis picks the tactic.</p>
+<p class="k">The concepts</p>
+<p>The spectrum runs from <dfn>perfect competition</dfn> (many sellers, identical product, nobody sets prices — think office paper) to <dfn>oligopoly</dfn> (a few sellers who watch each other — lab instruments) to <dfn>monopoly</dfn> (one seller sets terms — a patented reagent, or the only USDA-permitted tissue recovery network in your region). <dfn>Monopsony</dfn> is the mirror: one powerful <em>buyer</em> (you are not one — you're a small buyer, which shapes everything). <dfn>Switching costs</dfn> are what it costs you to change suppliers (re-qualification, re-validation, risk) — the higher they are, the more power your <em>current</em> supplier holds over you even if alternatives exist; economists call being exploited through switching costs the <dfn>hold-up problem</dfn>. Finally, <dfn>supplier preferencing</dfn> flips the lens: suppliers rank accounts too — roughly <em>core</em> (big, attractive), <em>development</em> (small but promising), <em>exploit</em> (big but annoying — they'll serve you at a premium), <em>nuisance</em> (small and annoying — you get the leftovers). A small ex-vivo company is naturally in the bottom half; the escape is being a <em>customer of choice</em>: easy to serve, fast-paying, forecast-sharing, interesting (your novel application is genuinely interesting to niche suppliers).</p>
+<div class="case"><b>Case — your world</b>Your tissue source holds near-monopoly power locally — price pressure is pointless and can hurt you. But you can move from "nuisance" to "development" in their eyes: share a 6-month forecast, pay on time, be the easiest pickup on their route. That earns allocation priority in a shortage — worth more than any discount.</div>
+<div class="task"><b>10-minute task</b>For your top 3 suppliers write two words each: the market structure you face (monopoly / oligopoly / competitive) and, honestly, which box you occupy in <em>their</em> account ranking. Any "monopoly + nuisance" pair is your most urgent relationship project.</div>
+<p class="k">Read more</p>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Mankiw, Principles of Microeconomics (chapters 15–17: monopoly, monopolistic competition, oligopoly). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Understanding+Michael+Porter+Joan+Magretta">Understanding Michael Porter — Magretta (Amazon)</a></p>
+</div></details>
+
+<details class="lesson" id="l4"><summary><span class="lnum">L4</span><span class="lname">Shipping biological materials legally: UN3373, dry ice, triple packaging</span><span class="ldom">Warehouse &amp; Logistics</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>Biological shipments are regulated dangerous goods. Misclassify or mispack one and the carrier rejects it (product dies in a depot), or worse, you create legal exposure. The rules are learnable in a week, the required training takes days, and knowing them makes you the site authority.</p>
+<p class="k">The concepts</p>
+<p><dfn>Category A</dfn> (UN2814 human/UN2900 animal): infectious substances capable of causing permanent disability or fatal disease in healthy people — packed under instruction <dfn>P620</dfn>, heavily restricted. <dfn>Category B</dfn> (UN3373, "Biological Substance, Category B"): infectious but not meeting the Category A threshold — most diagnostic and research specimens; packed under <dfn>P650</dfn>. Many research-grade, non-infectious materials are <dfn>exempt</dfn> — but that judgment must be made by a trained person and documented. <dfn>Triple packaging</dfn> is the universal philosophy: a leakproof <em>primary</em> receptacle, a leakproof <em>secondary</em> with absorbent, and a rigid <em>outer</em> — so any single failure doesn't release contents. <dfn>Dry ice (UN1845)</dfn> is itself a Class 9 dangerous good (it sublimates to CO₂ and can burst sealed containers or asphyxiate) with its own marking and a vented package requirement. <dfn>IATA DGR</dfn> (International Air Transport Association Dangerous Goods Regulations) and <dfn>49 CFR</dfn> (the US DOT ground rules) both require <em>documented training</em> for anyone who classifies, packs, or signs — that's the certification you're booking. Add a <dfn>temperature data logger</dfn> in the box and you have evidence for every excursion argument with a courier.</p>
+<div class="case"><b>Case — your world</b>A partner lab ships you ex-vivo tissue on dry ice via FedEx. The box lacks the UN1845 label and net-weight marking → rejected at the depot → 30 hours at ambient → tissue dead, study slipped two weeks. Cost of the missing label: a $6,000 shipment and a customer's timeline. Your shipping SOP (Stage 1 deliverable) exists to make that impossible.</div>
+<div class="task"><b>10-minute task</b>Classify three shipments in writing: (a) formalin-fixed tissue blocks, (b) fresh porcine organs on dry ice, (c) a suspect infectious human sample. Which category, which packing instruction, what markings? (Answers: likely exempt "patient specimen"-style; UN3373 + UN1845, P650 + vented dry-ice pack; Category A UN2814, P620 — and (c) you'd refuse until trained.)</div>
+<p class="k">Read more</p>
+<p class="refs">Free: IATA's "Infectious Substances Shipping Guidelines" summary and CDC's shipping guidance. Course: <a href="https://www.saftpak.com">Saf-T-Pak IATA training</a>. <span class="own">ON YOUR DRIVE:</span> Industrial Refrigeration Handbook (Stoecker) for the cold-side physics, when you want depth.</p>
+</div></details>
+
+<details class="lesson" id="l5"><summary><span class="lnum">L5</span><span class="lname">FMEA: failure thinking before the failure</span><span class="ldom">Risk Management</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p><dfn>FMEA (Failure Mode and Effects Analysis)</dfn> is RCA's proactive twin — instead of asking "why did it fail?" after the fact (your Apollo strength), you ask "how <em>could</em> it fail?" before. It's the standard formal tool for exactly the supplier risk analysis your job description names.</p>
+<p class="k">The concepts</p>
+<p>For each step of a process (or each supplier), list <dfn>failure modes</dfn> (ways it can go wrong), each mode's <dfn>effect</dfn> (what happens downstream) and <dfn>cause</dfn>. Score three things 1–10: <dfn>Severity (S)</dfn> — how bad the effect is; <dfn>Occurrence (O)</dfn> — how likely the cause; <dfn>Detection (D)</dfn> — how likely you'd catch it before it hurts (10 = you'd never catch it). The classic <dfn>RPN (Risk Priority Number)</dfn> = S×O×D ranks what to fix first; the newer <dfn>AIAG-VDA</dfn> method replaces RPN with an <dfn>Action Priority</dfn> table (high/medium/low) because multiplication treats a 10-severity/low-occurrence catastrophe the same as a trivial-but-common annoyance — severity should dominate. Two rules keep FMEAs honest: score <em>causes</em> for occurrence (not vague modes), and treat it as a living document reviewed when anything changes — a dead FMEA is worse than none because it manufactures false confidence.</p>
+<div class="case"><b>Case — your world</b>Row for gelatin supply: failure mode "lot ships at wrong Bloom strength"; effect "model stiffness out of spec, batch scrapped" (S=8); cause "supplier has no in-process Bloom check" (O=6 for a small maker); detection "we only see the CoA, no incoming test" (D=7). AP: high → actions: add incoming Bloom verification on first article + require the in-process check in the quality agreement. Notice how the FMEA row <em>generates</em> your L1 acceptance criteria and your contract clauses — the tools chain together.</div>
+<div class="task"><b>10-minute task</b>Three rows for your most critical supplier: one material failure, one logistics failure (cold chain), one business failure (they exit the market). Score S/O/D honestly. Sunday you'll present these to yourself.</div>
+<p class="k">Read more</p>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Supply Chain Risk Management (Schlegel &amp; Trent) · CQE Handbook (FMEA section). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=The+Basics+of+FMEA+McDermott">The Basics of FMEA — McDermott et al. (Amazon)</a> (90 pages, perfect first book).</p>
+</div></details>
+
+<details class="lesson" id="l6"><summary><span class="lnum">L6</span><span class="lname">Safety stock &amp; service level: the math of "just in case"</span><span class="ldom">Supply Chain Planning</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>You know EOQ (how much to order). Safety stock answers the other question: how much <em>extra</em> to hold because demand and lead times wobble. It converts "I feel like we should keep more" into a number you can defend to finance.</p>
+<p class="k">The concepts</p>
+<p><dfn>Service level</dfn>: the probability you don't stock out in a replenishment cycle — a choice, not a law. 95% means you accept being short about 1 cycle in 20; pushing toward 99.9% gets exponentially expensive. <dfn>z-score</dfn>: the number of standard deviations matching that choice (95% → z≈1.65; 99% → z≈2.33 — same z-table as your Minitab work). The workhorse formula: <span class="mono">SS = z × σ_d × √LT</span> — safety stock equals your service-level z times demand variability (σ_d, the standard deviation of demand per period) times the square root of lead time in periods. Lead-time variability adds a second term; the square root is why <em>long lead times are expensive even when average demand is known</em>. <dfn>Reorder point</dfn> = average demand during lead time + SS: when inventory hits it, order. The perishables caveat that makes your world special: shelf life caps how much buffer you <em>can</em> hold — when SS math says "hold 10 weeks" and shelf life says "6 weeks max," the difference must come from somewhere else: shorter supplier lead time, capacity reservation, or a second source. That tension IS your job.</p>
+<div class="case"><b>Case — your world</b>A culture medium: demand ~4 units/week, σ_d = 2, lead time 3 weeks, target 95%. SS = 1.65 × 2 × √3 ≈ 5.7 → hold 6 units beyond the 12 you expect to use during lead time; reorder at 18. Now check shelf life: at 4/week, 18 units on the shelf must survive ~4.5 weeks — fine if dated 90 days, a problem if 30. If 30: negotiate split deliveries against a blanket PO instead of holding stock.</div>
+<div class="task"><b>10-minute task</b>Sunday's applied slot: run this formula on one real item with rough numbers from memory. Wrong inputs are fine — the point is owning the machinery.</div>
+<p class="k">Read more</p>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Supply Chain Logistics Management (Bowersox — inventory chapters). Free: MITx SC1x on edX. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Supply+Chain+Management+Strategy+Planning+Operation+Chopra">Supply Chain Management — Chopra &amp; Meindl (Amazon)</a></p>
+</div></details>
+
+<details class="lesson" id="l7"><summary><span class="lnum">L7</span><span class="lname">Total cost of ownership &amp; landed cost: why unit price lies</span><span class="ldom">Finance &amp; Cost Analytics</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>The quote is not the cost. <dfn>TCO (Total Cost of Ownership)</dfn> counts everything a purchase costs across its life; <dfn>landed cost</dfn> is its logistics slice — what it costs to get the thing to your dock. For cold-chain biologicals, the gap between price and cost is enormous, so unit-price comparisons actively mislead.</p>
+<p class="k">The concepts</p>
+<p>TCO buckets: <em>acquisition</em> (price, ordering effort, qualification cost), <em>ownership</em> (freight, duty, storage, inspection, yield loss, <strong>expiry loss</strong> — for perishables often the biggest hidden line), <em>post-ownership</em> (disposal, failure costs downstream). Landed cost build-up: price + freight + insurance + customs duty + brokerage + special handling (validated cold-chain packaging can run $50–300 per shipment) + inbound QC. <dfn>Incoterms</dfn> (International Commercial Terms, ICC): three-letter codes that say where cost and risk transfer from seller to buyer — <dfn>EXW</dfn> (Ex Works: you own it at their door — cheap-looking quote, all risk yours), <dfn>FOB</dfn> (Free On Board — classic ocean term), <dfn>DAP/DDP</dfn> (Delivered At Place / Duty Paid: they carry it to you). Two quotes with different Incoterms are different products. The decision rule: compute <em>cost per usable unit, delivered</em> — (landed cost + expected expiry and rejection losses) ÷ units actually consumed.</p>
+<div class="case"><b>Case — your world</b>Supplier A: $180/kg, MOQ 25 kg, EXW their dock, overnight cold ship $220. Supplier B: $210/kg, MOQ 5 kg, DAP. You use 2 kg/month, shelf life 12 months. A: you'll expire ~1 kg for every 24 used at best, pay all freight, and tie up cash. Per usable kg delivered, B likely wins despite a 17% higher sticker — and carries less write-off risk. This is the math that justifies your low-MOQ supplier hunt (your shortlist literally has a "Low-MOQ fit" column — you were already doing TCO by instinct).</div>
+<div class="task"><b>10-minute task</b>Sunday: build a 10-row landed-cost sheet for one real item — price, freight, packaging, duty, inspection time at your loaded rate, expected expiry loss. Compare per <em>usable</em> unit.</div>
+<p class="k">Read more</p>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Procurement &amp; Supply Chain Management (Lysons &amp; Farrington) · Leading Procurement Strategy. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Purchasing+and+Supply+Chain+Management+Monczka+Handfield">Purchasing &amp; Supply Chain Management — Monczka et al. (Amazon)</a></p>
+</div></details>
+
+<details class="lesson" id="l8"><summary><span class="lnum">L8</span><span class="lname">Acceptance sampling: deciding on a lot without testing it all</span><span class="ldom">Industrial Engineering</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>You can't inspect everything — testing may be destructive (very true for tissue) or just uneconomic. Acceptance sampling is the statistics of judging a whole lot from a sample, with known, chosen risks. It's the single most "new" high-value tool in your quality toolkit, and it's the heart of the CSQP/CQE exams.</p>
+<p class="k">The concepts</p>
+<p>A <dfn>lot</dfn> arrives; you inspect a random sample of <span class="mono">n</span>; if defects ≤ acceptance number <span class="mono">c</span>, the lot passes. <dfn>AQL (Acceptance Quality Limit)</dfn>: the worst defect rate you'd still call "acceptable on average" — a contract number, agreed with the supplier. Two mistakes are always possible: rejecting a good lot (<dfn>producer's risk, α</dfn>, usually ~5%) and accepting a bad one (<dfn>consumer's risk, β</dfn>, usually ~10%). The <dfn>OC curve (Operating Characteristic)</dfn> plots the probability of accepting a lot against its true defect rate — every sampling plan IS its OC curve, and reading one tells you exactly what protection you bought. <dfn>ANSI/ASQ Z1.4</dfn>: the standard lookup tables (lot size + inspection level → sample size code → n and c). <dfn>c=0 plans</dfn>: smaller samples but any single defect rejects — popular in med-device because "we accept some defects" reads badly. For your biologicals: destructive testing means sampling can't carry the load alone — so you shift assurance upstream: <dfn>CoA-based acceptance</dfn> (trust the supplier's measured certificate, verify their measurement system once) plus process audits, sampling only what's non-destructive (packaging, temperature logs, documentation, weights).</p>
+<div class="case"><b>Case — your world</b>500 fixation cassettes arrive. Z1.4, general inspection level II → code H → n=50, and at AQL 1.0% accept on ≤1 defect, reject on 2. You now know precisely what you're claiming — and reading the OC curve shows a lot that's truly 5% defective still passes ~28% of the time, which is why repeat offenders get <em>tightened</em> inspection, and why L1's SCAR loop exists.</div>
+<div class="task"><b>10-minute task</b>Sketch an OC curve freehand (x: true % defective; y: P(accept)) for "n=50, c=1" — just the shape. Mark where AQL and consumer's-risk points sit. If you can draw it, you understand it.</div>
+<p class="k">Read more</p>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Acceptance Sampling in Quality Control (Schilling &amp; Neubauer) — the definitive text, you own it · CQE Handbook · SPC for Real-World Applications (Levinson). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Introduction+to+Statistical+Quality+Control+Montgomery">Montgomery, Intro to Statistical Quality Control (Amazon)</a></p>
+</div></details>
+
+<details class="lesson" id="l9"><summary><span class="lnum">L9</span><span class="lname">P2P and the three-way match: the plumbing of buying</span><span class="ldom">Business Analysis / ERP</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>You mapped P2P at Navy scale; now you live inside it as the buyer. The <dfn>P2P (Procure-to-Pay)</dfn> cycle is the same everywhere, and its control heart — the three-way match — is what auditors check first, especially when one person does everything.</p>
+<p class="k">The concepts</p>
+<p>The chain: <dfn>PR (Purchase Requisition)</dfn> — the internal "we need this," with approval; <dfn>PO (Purchase Order)</dfn> — the external, legally binding order (in SAP, its T&amp;Cs govern unless a contract exists); <dfn>GR (Goods Receipt)</dfn> — the recorded "it arrived, this much, this condition"; <dfn>IR (Invoice Receipt)</dfn> — the supplier's bill entered against the PO. The <dfn>three-way match</dfn>: before anyone pays, PO = GR = Invoice must agree in item, quantity, and price within tolerance; mismatches become <em>exceptions</em> a human resolves. Why it matters: it's the structural control against paying for what never arrived, duplicate invoices, and price creep. <dfn>Blanket PO</dfn>: one approved order releasing many deliveries — your tool for split deliveries (L7). <dfn>Segregation of duties</dfn>: ideally the person who orders ≠ receives ≠ pays; as a one-person function you ARE all three, so you design compensating controls: documented approvals above a threshold, someone else clicking GR, a monthly exception review someone else sees. Write that one page now, and a future customer audit finds a control environment instead of a shrug.</p>
+<div class="case"><b>Case — your world</b>Invoice arrives for 10 kg; GR says 8 kg (2 kg short-shipped). Without a match: paid in full, loss invisible, supplier never corrects. With it: exception blocks payment, credit memo requested — and the shortage lands in supplier scorecard data (L1/L2 chaining again).</div>
+<div class="task"><b>10-minute task</b>BPMN-sketch your company's actual P2P in 8–12 boxes, mark who does each step, and circle every step where you're both actor and checker. Each circle gets a compensating control. (This is a Stage 2 deliverable seed.)</div>
+<p class="k">Read more</p>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Procurement Principles and Management in the Digital Age (Baily et al., 12th ed.) · Lysons &amp; Farrington. Free: SAP Learning Journey "Sourcing and Procurement in S/4HANA" at learning.sap.com.</p>
+</div></details>
+
+<details class="lesson" id="l10"><summary><span class="lnum">L10</span><span class="lname">BATNA: negotiating when you're the small buyer</span><span class="ldom">Business Strategy</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>Negotiation power isn't volume or charm — it's your <dfn>BATNA (Best Alternative To a Negotiated Agreement)</dfn>: what you'll actually do if this deal falls through. Whoever has the better walk-away wins the terms. Sole-source buying with no leverage is the hardest setting there is, which is why method matters more for you than for anyone at a big company.</p>
+<p class="k">The concepts</p>
+<p><dfn>Reservation point</dfn>: the worst deal you'd still accept — decided <em>before</em> the conversation, from your BATNA, never during it. <dfn>ZOPA (Zone Of Possible Agreement)</dfn>: the overlap between your reservation point and theirs; if it's empty, no skill closes the deal. The prep insight: <em>improve your BATNA before the table</em> — qualifying a second source (even partially) moves your reservation point and changes the deal without a word spoken; that's why L2's bottleneck strategy and this lesson are the same project. <dfn>Distributive vs. integrative</dfn>: haggling over one number (price) splits a fixed pie; adding issues — volume commitment, capacity reservation, lead time, payment terms, lot dating, forecast sharing — lets you <em>trade things you value cheaply for things they value dearly</em>, growing the pie. Small buyers win integratively, almost never distributively. <dfn>Anchoring</dfn>: the first number placed shapes the whole range; when you have data (your L7 landed-cost model, a PPI index), anchor first with justification; when you don't, don't. And always: the relationship survives the deal — you'll need this supplier next quarter.</p>
+<div class="case"><b>Case — your world</b>Sole-source renewal, they open with +12% "inflation." Distributive response (argue to +8%) leaves you a nuisance account paying more. Integrative: "I can commit to 12 months of volume and share our quarterly forecast; in exchange, hold pricing at +4% (PPI for your inputs is +3.1%) and reserve two production slots per quarter." You traded certainty (cheap for you, valuable for a small maker) for price and capacity (what you actually need). Your Smithfield SLA instincts already work this way — now it has names.</div>
+<div class="task"><b>10-minute task</b>Sunday: the one-page plan for your next real renewal — BATNA (honest), reservation point, your target, three tradeable issues with what each is worth to each side, your anchor and its data.</div>
+<p class="k">Read more</p>
+<p class="refs"><span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Getting+to+Yes+Fisher+Ury+Patton">Getting to Yes — Fisher &amp; Ury (Amazon)</a> — the canon, read it this month · <a href="https://www.amazon.com/s?k=Never+Split+the+Difference+Chris+Voss">Never Split the Difference — Voss (Amazon)</a> — the tactical layer. Free: U. Michigan "Successful Negotiation" on Coursera.</p>
+</div></details>
+
+<details class="lesson" id="l11"><summary><span class="lnum">L11</span><span class="lname">Your first hour of SQL — you already think in it</span><span class="ldom">Data Analytics &amp; AI</span></summary><div class="lbody">
+<p class="k">The idea</p>
+<p>SQL (Structured Query Language) is how you ask questions of databases directly — no export, no workbook limits. Here's the secret: <strong>you already know the concepts from Power Query</strong>; only the words change. This lesson is a translation table plus 30 minutes of typing.</p>
+<p class="k">The translation table</p>
+<p>A <dfn>table</dfn> = a Power Query table (rows/columns). <span class="mono">SELECT col1, col2 FROM table</span> = "Choose Columns." <span class="mono">WHERE condition</span> = "Filter Rows." <span class="mono">GROUP BY supplier</span> + <span class="mono">AVG(x)</span> = "Group By" with an aggregation. <span class="mono">JOIN</span> = "Merge Queries" — <span class="mono">LEFT JOIN</span> is exactly Power Query's default left outer merge, matching rows from a second table by key and keeping all of the first. <span class="mono">ORDER BY</span> = sort. That's 80% of daily SQL. The genuinely new ideas come later (window functions, CTEs — Sprint 3+); today is proving to yourself the wall is paper.</p>
+<div class="case"><b>Case — your world</b>The supplier OTD query you'd want:<br><span class="mono">SELECT s.name, COUNT(*) AS receipts,<br>&nbsp;&nbsp;AVG(CASE WHEN r.received_date &lt;= r.promised_date THEN 1.0 ELSE 0 END) AS otd_rate<br>FROM receipts r JOIN suppliers s ON r.supplier_id = s.id<br>WHERE r.received_date &gt;= '2026-01-01'<br>GROUP BY s.name ORDER BY otd_rate;</span><br>Read it aloud in Power Query terms and notice you understood every line.</div>
+<div class="task"><b>30-minute task (this IS the lesson)</b>Do <a href="https://sqlbolt.com">SQLBolt</a> lessons 1–6 in the browser — free, nothing to install, interactive. Stop when the timer ends; Sprint 2 continues from wherever you are.</div>
+<p class="k">Read more</p>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Python for Data Analysis (McKinney) — for when pandas enters in Sprint 3. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Learning+SQL+Alan+Beaulieu">Learning SQL — Beaulieu (Amazon)</a>. Free: Mode Analytics SQL tutorial.</p>
+</div></details>
+</section>
+
+<section id="certs">
+<p class="eyebrow">§ 4</p>
+<h2>Certification radar — what to keep in mind, by path</h2>
+<p class="lede">Nothing to buy this sprint except the compliance floor. But three cheap moves now keep every door open.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Now (this sprint)</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Create a free <b>ASQ account</b> and download the free <b>CSQP Body of Knowledge</b> PDF</td><td>CSQP is your anchor credential (matches your exact title; 8 yrs experience, no degree needed — you qualify outright). Skimming its BoK now lets every lesson double-count toward the exam (~months 12–16).</td></tr>
+<tr><td>Note: <b>CPIM</b> (ASCM) has <em>zero</em> prerequisites</td><td>The planning credential is a pure when-you're-ready exam — nothing to do yet except know it's there (Stage 4).</td></tr>
+<tr><td>Keep the <b>Coursera certificate</b> for each ML course you finish</td><td>Stackable public proof; the Specialization certificate (~Dec) is a real LinkedIn line.</td></tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead><tr><th>Path</th><th>Credential sequence</th><th>Why advantageous for you specifically</th></tr></thead>
+<tbody>
+<tr><td><b>Quality / Supplier-Quality leadership</b> (grow in place, biotech niche)</td><td>IATA+BBP now → ISO 9001 Lead Auditor (Stage 2) → <b>CSQP</b> → CQE</td><td>CSQP converts 20 years of unlabeled vendor work into the exact market signal for your title; the biological/cold-chain layer on top is a moat almost nobody holds. You already own the CQE Handbook — study cost is time only.</td></tr>
+<tr><td><b>Strategic sourcing / category management</b></td><td>CSQP → <b>CPSM</b> (ISM; 5-yr no-degree route — get eligibility confirmed in writing first)</td><td>The lane where a missing degree matters least against commercial results; your should-cost engine is a scarce premium skill there.</td></tr>
+<tr><td><b>Analytics / planning leadership</b></td><td>ML Specialization (now) → <b>CPIM</b> → PL-300 → MITx SCM MicroMasters</td><td>Highest salaried ceiling; the MicroMasters is your realistic ladder toward an accredited master's — the long-run cure for the degree gap.</td></tr>
+<tr><td><b>Consulting / transformation</b></td><td><b>PMP</b> (real no-degree path: HS diploma + 60 months leading projects + 35 hrs) → CBAP</td><td>Your $34M portfolios and plant-closure lead already satisfy the experience; PMP is the highest recognition-per-dollar credential open to you.</td></tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="shelf">
+<p class="eyebrow">§ 5</p>
+<h2>The sprint bookshelf</h2>
+<ul class="shelf">
+<li><span class="own">OWNED (Drive)</span> ASQ CQE Handbook 5e · Quality Toolbox (Tague) · Acceptance Sampling in QC (Schilling &amp; Neubauer) · SPC for Real-World Applications (Levinson) · ISO 9001:2015 (the standard itself) · Supply Chain Risk Management (Schlegel &amp; Trent) · Leading Procurement Strategy 3e · Lysons &amp; Farrington · Baily 12e · Bowersox 5e · Mankiw Micro 8e · Python for Data Analysis (McKinney) · Python ML (Raschka) · Profit Improvement through Supplier Enhancement (Pawlak)</li>
+<li><span class="buy">WORTH BUYING</span> <a href="https://www.amazon.com/s?k=Getting+to+Yes+Fisher+Ury+Patton">Getting to Yes</a> (this month — L10 and every week after) · <a href="https://www.amazon.com/s?k=The+Basics+of+FMEA+McDermott">The Basics of FMEA</a> (90 pages, ~$20) · <a href="https://www.amazon.com/s?k=The+Goal+Goldratt+30th">The Goal — Goldratt</a> (a novel; read for pleasure, it's your capacity worldview in story form) · <a href="https://www.amazon.com/s?k=Hands-On+Machine+Learning+Scikit-Learn+Geron+3rd">Hands-On ML — Géron</a> (when the specialization ends)</li>
+</ul>
+<p class="muted" style="font-size:.85rem">Amazon links are exact-title searches rather than direct product links, so you always land on the current edition. Tell me which of the "buy" list you already have and I'll stop suggesting them.</p>
+</section>
+
+<section id="notes">
+<p class="eyebrow">§ 6</p>
+<h2>Sunday notes to Claude</h2>
+<p class="lede">On Sep 27 (or anytime), write what happened: what got done, what was too easy or too hard, your answers to any guiding question, blockers, requests. I read this plus your checkboxes when I build Sprint 2.</p>
+<div class="notesbox">
+<textarea id="notes" placeholder="e.g., Finished M1 easily, M2 lab took longer than 30 min... Kraljic exercise was eye-opening, want more procurement... skip warehouse next sprint..."></textarea>
+<div><button id="savenotes" type="button">Save notes</button><span id="savemsg" hidden>Saved ✓</span></div>
+</div>
+</section>
+
+<footer>
+<p><strong>The contract.</strong> Every second Sunday I prepare the next sprint: one new topic per domain (sequenced by your curriculum's priorities), the next ML benchmarks with guiding questions, cert-radar updates, and adjustments based on your checkboxes and notes. Sprint 2 lands <span class="mono">Sun Sep 27</span>. Source files live in the repo under <span class="mono">supply-chain-ops-curriculum/sprints/</span>; the full curriculum is the <em>Full-Stack Supplier Engineer</em> artifact.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var DOCID = "progress/sprint-01";
+  var db = null, state = {checks:{}, notes:""};
+  var saveTimer = null;
+
+  function boxes(){ return Array.prototype.slice.call(document.querySelectorAll('[data-ck]')); }
+  function updateBar(){
+    var bs = boxes(), done = bs.filter(function(b){return b.checked;}).length;
+    var fill = document.getElementById('pfill'), cnt = document.getElementById('pcount');
+    if(fill) fill.style.width = (bs.length ? Math.round(100*done/bs.length) : 0) + "%";
+    if(cnt) cnt.textContent = done + " / " + bs.length;
+  }
+  function applyState(){
+    boxes().forEach(function(b){ b.checked = !!state.checks[b.getAttribute('data-ck')]; });
+    var n = document.getElementById('notes');
+    if(n && document.activeElement !== n) n.value = state.notes || "";
+    updateBar();
+  }
+  function persistLocal(){ try{ localStorage.setItem('sprint01', JSON.stringify(state)); }catch(e){} }
+  function persistDb(){
+    if(!db) return;
+    db.doc(DOCID).set({checks: state.checks, notes: state.notes, updatedAt: new Date().toISOString()}).catch(function(){});
+  }
+  function persist(){ persistLocal(); if(saveTimer) clearTimeout(saveTimer); saveTimer = setTimeout(persistDb, 400); }
+
+  try{ var cached = localStorage.getItem('sprint01'); if(cached){ var p = JSON.parse(cached); state.checks = p.checks||{}; state.notes = p.notes||""; } }catch(e){}
+  applyState();
+
+  document.addEventListener('change', function(e){
+    var t = e.target;
+    if(t && t.hasAttribute && t.hasAttribute('data-ck')){
+      state.checks[t.getAttribute('data-ck')] = t.checked;
+      updateBar(); persist();
+    }
+  });
+  var btn = document.getElementById('savenotes');
+  if(btn) btn.addEventListener('click', function(){
+    var n = document.getElementById('notes');
+    state.notes = n ? n.value : "";
+    persistLocal(); persistDb();
+    var m = document.getElementById('savemsg');
+    if(m){ m.hidden = false; setTimeout(function(){ m.hidden = true; }, 2500); }
+  });
+
+  if(window.claude && typeof window.claude.use === 'function'){
+    window.claude.use("db").then(function(d){
+      if(!d) return;
+      db = d;
+      d.doc(DOCID).onSnapshot(function(snap){
+        if(snap && snap.exists){
+          var data = snap.data() || {};
+          state.checks = data.checks || {};
+          if(typeof data.notes === 'string') state.notes = data.notes;
+          applyState(); persistLocal();
+        } else {
+          persistDb();
+        }
+      });
+    }).catch(function(){});
+  }
+})();
+</script>
