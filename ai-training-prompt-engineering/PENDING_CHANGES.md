@@ -1290,6 +1290,49 @@ Mapping by filename infix → target (name at embed):
 
 ---
 
+## ROUND 15 — de-update scrub + model chart + redundancy rulings · 2026-09-13 · ✅ APPLIED (v1.14)
+
+Owner, three directives: "don't mention anything in terms of what has been
+updated — audience has never seen this training" · "put a graph: heaviest/more
+thinking models and their versions, how fast and how accurate — all the major
+models from the different companies, and all of their versions" · "we can't be
+too repetitive — inspect redundancies and ask me."
+
+**1 · De-update scrub (audience-facing pages only):** field-guide header
+V1.1→dateline only; compendium intro no longer says "merged"; taxonomy PDF
+"New in v1.1:"→"Every attribute carries…" and "Since v1.8 the course
+teaches"→"The course teaches". Repo docs/ledger keep versions (internal).
+
+**2 · The chart (Field Guide Part 7):** new src/build_speed_chart.py →
+speed_accuracy_chart.png. Form: SMALL MULTIPLES, one panel per company +
+how-to-read cell — chosen because a 5-vendor scatter cannot pass the dataviz
+skill's all-pairs color validation (validator run: green-vs-teal ΔE 6.1 hard
+fail) and the skill's rule for that case is facet; single house-teal marks,
+every point direct-labeled, frontier model bolded per panel. Data: Artificial
+Analysis leaderboard, fetched live 2026-09-13, three cross-checked extractions
+→ notes/research/r27_speed_accuracy_chart.md (22 points: Fable 5.1/Opus 5/
+Sonnet 5/Haiku 4.5 · GPT-6 Astra/5.6 Sol/Terra/Luna/5.5 Instant/o3 · Gemini
+3.8/3.7/3.6 Flash/3.1 Pro/3.5 Flash-Lite · Grok 4.6/4.5/4.3 · GLM-5.3/Kimi
+K3/DeepSeek V4.1 Flash/V4 Pro/Qwen3.8 Max; axes = AA Intelligence Index v4.3 ·
+median API t/s; each model at its strongest thinking setting). Excluded with
+reasons in r27 (Deep Think not API-benchmarked; Meta Muse uncorroborated; speed-
+specialist hosts). Caption carries the app-vs-API seam + churn note. Ripple:
+spectrum-table DeepSeek cell V3/R1 → V4 Pro (reasoning) / V4.1 Flash (fast).
+Layout re-packed: vehicle section moved before the chart; spectrum table flows
+under the chart with repeatRows=1 header; glossary re-paired/tightened — 14pp,
+no stub or half-empty pages.
+
+**3 · Redundancy audit (owner asked to be asked):** full inventory presented;
+owner selected exactly two cuts — (a) placement pair MERGED: EXPIRED
+"instructions, ###, then the text" row deleted, its history folded into WORKS
+№3 as one clause; (b) Part 3's "when to switch modes" line DELETED (superseded
+by Part 7's chat/workflow/agent). Explicitly KEPT (owner passed): persona
+works/myth pair · examples works/expired pair · the 76-pt stat ×3 and ~41%
+symmetry · "are you sure?" myth entry alongside the mirror box · the Out
+drumbeat · the ten-things closing page.
+
+---
+
 ## ROUND 14 — evidence compendium into the PDFs + playbook merge · 2026-09-13 · ✅ APPLIED (v1.13)
 
 Owner: "add a section of what works, what's myth and doesn't work, explaining

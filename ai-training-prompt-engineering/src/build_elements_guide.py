@@ -6,7 +6,7 @@ from reportlab.lib.units import inch
 from reportlab.lib import colors
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import (BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer,
-                                Table, TableStyle, KeepTogether, PageBreak)
+                                Table, TableStyle, KeepTogether, PageBreak, Image)
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
@@ -49,7 +49,7 @@ def hf(cv, doc):
         cv.setFillColor(DARK)
         cv.rect(0, H - 1.05 * inch, W, 1.05 * inch, stroke=0, fill=1)
         cv.setFillColor(colors.HexColor('#5FB8B0')); cv.setFont('DV-B', 7.5)
-        cv.drawString(M, H - 0.38 * inch, 'FROM PROMPTS TO AGENTS  ·  COMPANION TO THE PROMPT LIBRARY  ·  V1.1 SEPTEMBER 2026')
+        cv.drawString(M, H - 0.38 * inch, 'FROM PROMPTS TO AGENTS  ·  COMPANION TO THE PROMPT LIBRARY  ·  SEPTEMBER 2026')
         cv.setFillColor(colors.white); cv.setFont('DVSer-B', 21)
         cv.drawString(M, H - 0.68 * inch, 'The Elements of Prompting — Field Guide')
         cv.setFillColor(colors.HexColor('#A9BBC4')); cv.setFont('DV', 8.5)
@@ -233,8 +233,6 @@ tm.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), TEAL_T),
                         ('LEFTPADDING', (0, 0), (-1, -1), 6), ('RIGHTPADDING', (0, 0), (-1, -1), 6),
                         ('TOPPADDING', (0, 0), (-1, -1), 4), ('BOTTOMPADDING', (0, 0), (-1, -1), 4)]))
 E.append(tm)
-E.append(Spacer(1, 6))
-E.append(Paragraph('<font face="DV-B" color="#232A31">When to switch modes:</font> if the work involves files, tools, multiple steps, or a deliverable produced while you’re not watching — write the brief. If you’ll read the output and act on it yourself — the five elements and two valves are enough.', S['body']))
 
 E.append(Spacer(1, 10))
 E.append(Paragraph('PART 4 — BUILDING YOUR OWN TEMPLATES', S['kicker']))
@@ -279,7 +277,7 @@ def verdict_table(rows):
 E.append(PageBreak())
 E.append(Paragraph('PART 5 — THE EVIDENCE COMPENDIUM', S['kicker']))
 E.append(Paragraph('What works, what’s myth, what expired — and why', S['h1']))
-E.append(Paragraph('Half the prompting advice in circulation is folklore from 2023. This chapter is the course’s evidence layer in one place — the proven-vs-myth slide and the 2026 Do/Don’t/Expired playbook, merged, with the <b>why</b> behind every line. Three verdicts: <font face="DV-B" color="#3B8560">WORKS</font> (replicated — use it) · <font face="DV-B" color="#AF3230">MYTH</font> (never survived replication, including some standard 2023 advice) · <font face="DV-B" color="#46545F">EXPIRED</font> (was genuinely right, then the product absorbed it). Researched September 2026 — this field moves; the study behind every line is in the PLAYBOOK tab of the Course Workbook and <font face="Mono-B">notes/research/</font>.', S['body']))
+E.append(Paragraph('Half the prompting advice in circulation is folklore from 2023. This chapter is the course’s evidence layer in one place — every technique given a verdict, with the <b>why</b> behind it. Three verdicts: <font face="DV-B" color="#3B8560">WORKS</font> (replicated — use it) · <font face="DV-B" color="#AF3230">MYTH</font> (never survived replication, including some standard 2023 advice) · <font face="DV-B" color="#46545F">EXPIRED</font> (was genuinely right, then the product absorbed it). Researched September 2026 — this field moves; the study behind every line is in the PLAYBOOK tab of the Course Workbook and <font face="Mono-B">notes/research/</font>.', S['body']))
 E.append(Spacer(1, 4))
 
 E.append(KeepTogether([band('WORKS — replicated, reliably helps today', GREEN), verdict_table([
@@ -292,7 +290,7 @@ E.append(KeepTogether([band('WORKS — replicated, reliably helps today', GREEN)
 ])]))
 E.append(verdict_table([
     ('Long inputs: documents at the top, question at the END — bookend both ends when very long.',
-     'Attention concentrates at the edges of the context and thins in the middle (“lost in the middle”); the last thing read is the freshest instruction. Placement alone is worth up to ~30% on long documents.',
+     'Attention concentrates at the edges of the context and thins in the middle (“lost in the middle”); the last thing read is the freshest instruction. Placement alone is worth up to ~30% on long documents. (The 2023 recipe — “instructions, ###, then the text” — was written for 4–8K-token windows; as contexts grew to a million tokens the guidance inverted.)',
      'Liu 2023 · Anthropic docs · GPT-4.1 guide 2025'),
     ('Give it an out — in checkable shape — and require citations.',
      'Models are trained on benchmarks that reward a confident guess over “I don’t know,” so inventing is the default way to obey you. The out re-opens honest abstention; the checkable shape (“anything not stated: write UNKNOWN — never estimate; list the gaps”) makes compliance visible in the output.',
@@ -366,9 +364,6 @@ E.append(KeepTogether([band('EXPIRED — was right in 2022–23; do the replacem
      'Brown 2020 · DeepSeek-R1 paper 2025'),
 ])]))
 E.append(verdict_table([
-    ('“Instructions, ###, then the text”  →  documents at the top, question at the end.',
-     'Written for 4–8K-token windows. At hundred-K-to-million-token contexts the placement guidance inverted — the edge-attention mechanism persisted; the recipe didn’t.',
-     'Liu 2023 · GPT-4.1 guide'),
     ('Hand-run voting and micro-decomposed steps  →  effort settings; chain only for auditable intermediates.',
      'Sampling-and-voting and step-scripting were absorbed into test-time compute, and over-prescribing steps now underperforms outcome-first prompts — give a clear destination, let it choose the path. Chaining stays a feature where regulated work needs auditable intermediates.',
      'Wang, ICLR 2023 · Anthropic 2026 · GPT-5.5 guide'),
@@ -466,6 +461,33 @@ E.append(KeepTogether([box([
 ], TEAL_T)]))
 E.append(Spacer(1, 8))
 
+veh = [[Paragraph('CHAT<br/><font face="DV">you are the loop</font>', S['cellb']),
+        Paragraph('Exploring, drafting, judging as you go. You read every answer and steer every turn — the generative craft, live.', S['cell'])],
+       [Paragraph('WORKFLOW<br/><font face="DV">the loop is frozen</font>', S['cellb']),
+        Paragraph('Known path, few tools, same steps every time — script it (n8n, Zapier, Power Automate). Cheaper, predictable, auditable; no judgment needed mid-run. A pipeline can also enforce output schemas at the system level.', S['cell'])],
+       [Paragraph('AGENT<br/><font face="DV">the loop runs inside</font>', S['cellb']),
+        Paragraph('Unknown path — the next step depends on what it finds. Brief it (Part 2 of this guide), with gates where the judgment stays yours. Your control lives in the brief, not the conversation.', S['cell'])]]
+tv2 = Table(veh, colWidths=[CW * 0.2, CW * 0.8])
+tv2.setStyle(TableStyle([('ROWBACKGROUNDS', (0, 0), (-1, -1), [colors.white, PANEL]),
+                         ('GRID', (0, 0), (-1, -1), 0.5, LINE), ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+                         ('LEFTPADDING', (0, 0), (-1, -1), 6), ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+                         ('TOPPADDING', (0, 0), (-1, -1), 4), ('BOTTOMPADDING', (0, 0), (-1, -1), 4)]))
+E.append(KeepTogether([
+    Paragraph('PICK THE VEHICLE — CHAT, WORKFLOW, OR AGENT', S['kicker']),
+    tv2,
+    Spacer(1, 4),
+    Paragraph('<font face="DV-B" color="#0A5B5A">The decision rule:</font> known path + few tools → workflow. Unknown path, real judgment → agent, with gates. Still thinking it through → chat. <font face="DV-B">The wrong vehicle costs:</font> an agent on a known path pays judgment prices for clerk work; a workflow on an unknown path is a script that breaks on the first surprise. And don’t chat with an agent — hand it a work order.', S['body']),
+]))
+
+
+chart_path = os.path.join(os.path.dirname(__file__), 'assets', 'speed_accuracy_chart.png')
+E.append(KeepTogether([
+    Image(chart_path, width=CW * 0.92, height=CW * 0.92 * 6.4 / 10.4, hAlign='CENTER'),
+    Spacer(1, 2),
+    Paragraph('<font size="7.6" color="#7A8790">One panel per company; inside each, that company’s current versions. Data: notes/research/r27 — refresh quarterly.</font>', S['ev']),
+]))
+E.append(Spacer(1, 8))
+
 spec = [[Paragraph('Assistant', S['cellh']), Paragraph('Fast ↔ thinking, in its own names', S['cellh']), Paragraph('Worth knowing', S['cellh'])],
         [Paragraph('ChatGPT<br/><font face="DV">OpenAI</font>', S['cellb']),
          Paragraph('GPT-5.6 family (tiers Sol · Terra · Luna) — one family, speed by setting: the “Think” button (free) or the thinking slider (paid) moves it between speeds; deep research on top.', S['cell']),
@@ -486,44 +508,24 @@ spec = [[Paragraph('Assistant', S['cellh']), Paragraph('Fast ↔ thinking, in it
          Paragraph('Grok 4.6, one family — the modes are the spectrum: Auto · Fast · Expert (reasoning) · Heavy (multi-agent, top tier).', S['cell']),
          Paragraph('Fewer guardrails by design — mind brand-sensitive work.', S['cell'])],
         [Paragraph('DeepSeek', S['cellb']),
-         Paragraph('The open-weights pair: the V3 line = fast chat · the R1 line = reasoning. MIT-licensed — IT can self-host it.', S['cell']),
+         Paragraph('The open-weights house, heir of the famous R1: V4 Pro = the reasoning line · V4.1 Flash = the fast line. MIT-licensed — IT can self-host it.', S['cell']),
          Paragraph('The value leader, ~8 months behind the frontier (NIST CAISI, May 2026); the hosted app stores data in the PRC.', S['cell'])]]
-ts = Table(spec, colWidths=[CW * 0.14, CW * 0.55, CW * 0.31])
+ts = Table(spec, colWidths=[CW * 0.14, CW * 0.55, CW * 0.31], repeatRows=1)
 ts.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), TEAL_T),
                         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, PANEL]),
                         ('GRID', (0, 0), (-1, -1), 0.5, LINE), ('VALIGN', (0, 0), (-1, -1), 'TOP'),
                         ('LEFTPADDING', (0, 0), (-1, -1), 6), ('RIGHTPADDING', (0, 0), (-1, -1), 6),
                         ('TOPPADDING', (0, 0), (-1, -1), 4), ('BOTTOMPADDING', (0, 0), (-1, -1), 4)]))
-E.append(KeepTogether([
-    Paragraph('THE MODEL SPECTRUM — WHO SELLS WHICH SPEED (AS OF SEPTEMBER 2026)', S['kicker']),
-    ts,
-    Spacer(1, 4),
-    Paragraph('The names above are the September 2026 snapshot and <b>will</b> churn — refresh quarterly. The pattern won’t: every vendor sells the same two speeds under different labels. Learn to recognize the tier, not memorize the name.', S['body']),
-]))
+E.append(Paragraph('THE MODEL SPECTRUM — WHO SELLS WHICH SPEED (AS OF SEPTEMBER 2026)', S['kicker']))
+E.append(ts)
+E.append(Spacer(1, 4))
+E.append(Paragraph('The names above are the September 2026 snapshot and <b>will</b> churn — refresh quarterly. The pattern won’t: every vendor sells the same two speeds under different labels. Learn to recognize the tier, not memorize the name.', S['body']))
 E.append(Spacer(1, 8))
-
-veh = [[Paragraph('CHAT<br/><font face="DV">you are the loop</font>', S['cellb']),
-        Paragraph('Exploring, drafting, judging as you go. You read every answer and steer every turn — the generative craft, live.', S['cell'])],
-       [Paragraph('WORKFLOW<br/><font face="DV">the loop is frozen</font>', S['cellb']),
-        Paragraph('Known path, few tools, same steps every time — script it (n8n, Zapier, Power Automate). Cheaper, predictable, auditable; no judgment needed mid-run. A pipeline can also enforce output schemas at the system level.', S['cell'])],
-       [Paragraph('AGENT<br/><font face="DV">the loop runs inside</font>', S['cellb']),
-        Paragraph('Unknown path — the next step depends on what it finds. Brief it (Part 2 of this guide), with gates where the judgment stays yours. Your control lives in the brief, not the conversation.', S['cell'])]]
-tv2 = Table(veh, colWidths=[CW * 0.2, CW * 0.8])
-tv2.setStyle(TableStyle([('ROWBACKGROUNDS', (0, 0), (-1, -1), [colors.white, PANEL]),
-                         ('GRID', (0, 0), (-1, -1), 0.5, LINE), ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-                         ('LEFTPADDING', (0, 0), (-1, -1), 6), ('RIGHTPADDING', (0, 0), (-1, -1), 6),
-                         ('TOPPADDING', (0, 0), (-1, -1), 4), ('BOTTOMPADDING', (0, 0), (-1, -1), 4)]))
-E.append(KeepTogether([
-    Paragraph('PICK THE VEHICLE — CHAT, WORKFLOW, OR AGENT', S['kicker']),
-    tv2,
-    Spacer(1, 4),
-    Paragraph('<font face="DV-B" color="#0A5B5A">The decision rule:</font> known path + few tools → workflow. Unknown path, real judgment → agent, with gates. Still thinking it through → chat. <font face="DV-B">The wrong vehicle costs:</font> an agent on a known path pays judgment prices for clerk work; a workflow on an unknown path is a script that breaks on the first surprise. And don’t chat with an agent — hand it a work order.', S['body']),
-]))
 
 # ---------------------------------------------------------------------------
 # PART 8 — TEN THINGS + GLOSSARY (v1.1: the deck's wrap-up + reference, in print)
 # ---------------------------------------------------------------------------
-E.append(PageBreak())
+E.append(Spacer(1, 6))
 E.append(Paragraph('PART 8 — TEN THINGS WORTH REMEMBERING', S['kicker']))
 E.append(Paragraph('The whole course in ten lines', S['h1']))
 ten_things = [
@@ -538,13 +540,13 @@ ten_things = [
     'Gates catch errors cheapest: definitions before data, reconciliation before analysis, headlines before rendering.',
     'Prompts that work are assets: name them, version them, store them where the team (and the agent) can find them.',
 ]
-S['ten'] = ParagraphStyle('ten', parent=S['body'], spaceAfter=3)
+S['ten'] = ParagraphStyle('ten', parent=S['body'], fontSize=9.0, leading=12.2, spaceAfter=2.4)
 for i, t_ in enumerate(ten_things, 1):
     E.append(Paragraph(f'<font face="DVSer-B" color="#0E7C7B">{i}</font>&nbsp;&nbsp;{t_}', S['ten']))
 E.append(Spacer(1, 4))
 E.append(Paragraph('<i>And if you keep only one sentence: a prompt deletes wrong guesses, binds the job, and decides what sits on the desk.</i>', ParagraphStyle('wrap', parent=S['body'], textColor=TEAL_D)))
 
-E.append(Spacer(1, 8))
+E.append(Spacer(1, 5))
 E.append(Paragraph('APPENDIX — GLOSSARY: TWENTY TERMS THAT MATTER', S['kicker']))
 glossary = [
     ('Escalation ladder', 'prompt first, retrieve second, fine-tune last — capability triage'),
@@ -555,8 +557,8 @@ glossary = [
     ('RAG', 'retrieval-augmented generation — fetch relevant passages, answer from them, with citations'),
     ('Embedding', 'a text’s coordinate in meaning-space; powers semantic search and RAG retrieval'),
     ('Hallucination', 'fluent, confident, wrong — plausibility optimized instead of truth'),
-    ('Reasoning model', 'drafts and checks internally before answering; slower, costlier, better at hard problems'),
     ('Few-shot', 'teaching by 3–5 examples in the prompt'),
+    ('Reasoning model', 'drafts and checks internally before answering; slower, costlier, better at hard problems'),
     ('Chain-of-thought', 'prompting visible step-by-step reasoning — now built into thinking models'),
     ('Metaprompting', 'asking the model to critique or rewrite your prompt'),
     ('Sycophancy', 'the trained tendency to agree with you; blind the review to defuse it'),
@@ -568,13 +570,14 @@ glossary = [
     ('Taxonomy', 'the element → attribute → option catalog behind the Template Creator — your parts list'),
     ('Context engineering', 'choosing everything on the desk — prompt, files, history, tool results; parent of agentic prompting'),
 ]
-gl_cells = [Paragraph(f'<font face="DV-B" color="#0A5B5A">{t_}</font> — {d}', S['cell']) for t_, d in glossary]
+S['gcell'] = ParagraphStyle('gc', parent=S['cell'], leading=10.6)
+gl_cells = [Paragraph(f'<font face="DV-B" color="#0A5B5A">{t_}</font> — {d}', S['gcell']) for t_, d in glossary]
 gl_rows = [[gl_cells[i], gl_cells[i + 10]] for i in range(10)]
 tg = Table(gl_rows, colWidths=[CW / 2, CW / 2])
 tg.setStyle(TableStyle([('ROWBACKGROUNDS', (0, 0), (-1, -1), [colors.white, PANEL]),
                         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
                         ('LEFTPADDING', (0, 0), (-1, -1), 6), ('RIGHTPADDING', (0, 0), (-1, -1), 6),
-                        ('TOPPADDING', (0, 0), (-1, -1), 2.5), ('BOTTOMPADDING', (0, 0), (-1, -1), 2.5)]))
+                        ('TOPPADDING', (0, 0), (-1, -1), 1.8), ('BOTTOMPADDING', (0, 0), (-1, -1), 1.8)]))
 E.append(tg)
 
 doc.build(E)
