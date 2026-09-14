@@ -10,6 +10,7 @@ A standing contract, started 2026-09-13.
 ## What every sprint contains
 
 1. **At least one taught topic from each of the 11 curriculum domains** — plain-language micro-lessons with acronyms defined, a case from Oscar's world (ex-vivo materials, his resume projects), a 10-minute task, and references split into *owned* (Google Drive library) vs. *worth buying* (Amazon links).
+   **Lesson template (standard from Sprint 01 v2 onward, per Oscar's request): visual first.** Each lesson opens with an original diagram or chart (hand-authored inline SVG: `currentColor` theming, one accent hue, real computed numbers for charts, `figure`/`figcaption` with aria-labels), then 4–5 "read the picture" bullets, then case → task, with the full prose collapsed in a "Depth" block. Multi-series charts use the validated `--s1/--s2/--s3` palette slots. Never paste figures from copyrighted books — redraw the standard concept with his own case data, and cite the owned book for depth.
 2. **ML track benchmarks** for the Andrew Ng Machine Learning Specialization — dated checkpoints plus guiding questions to self-test on Sundays.
 3. **Certification radar** — path-tagged, updated as targets approach.
 4. **A progress tracker** — the artifact stores checkboxes and a "notes to Claude" box in its database (`progress/sprint-NN`); Claude reads both before building the next sprint.

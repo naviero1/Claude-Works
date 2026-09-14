@@ -8,6 +8,8 @@
   --ok:#2E7D46; --ok-bg:#E7F2EA;
   --warn:#A16207; --warn-bg:#F8EFDD;
   --ml:#3B5FA0; --ml-bg:#E6ECF6;
+  --bad:#C43D3D;
+  --s1:#2a78d6; --s2:#1baf7a; --s3:#eb6834;
   --shadow:0 1px 3px rgba(29,42,49,.08);
 }
 @media (prefers-color-scheme: dark){
@@ -18,6 +20,8 @@
     --ok:#6FBF87; --ok-bg:#1C3324;
     --warn:#D9A441; --warn-bg:#3A2E14;
     --ml:#8FA9DC; --ml-bg:#1F2C44;
+    --bad:#E66767;
+    --s1:#3987e5; --s2:#199e70; --s3:#d95926;
     --shadow:0 1px 3px rgba(0,0,0,.4);
   }
 }
@@ -28,6 +32,8 @@
   --ok:#6FBF87; --ok-bg:#1C3324;
   --warn:#D9A441; --warn-bg:#3A2E14;
   --ml:#8FA9DC; --ml-bg:#1F2C44;
+  --bad:#E66767;
+  --s1:#3987e5; --s2:#199e70; --s3:#d95926;
   --shadow:0 1px 3px rgba(0,0,0,.4);
 }
 *{box-sizing:border-box}
@@ -105,6 +111,19 @@ tr:last-child td{border-bottom:none}
 .shelf li{margin-bottom:4px; font-size:.93rem}
 .shelf .own{color:var(--ok); font-weight:600; font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.06em}
 .shelf .buy{color:var(--warn); font-weight:600; font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.06em}
+figure.fig{margin:14px 0 6px; background:var(--ground); border:1px solid var(--line-soft); border-radius:8px; padding:12px 12px 4px}
+figure.fig svg{display:block; max-width:100%; height:auto; margin:0 auto}
+figure.fig figcaption{font-size:.82rem; color:var(--muted); padding:6px 6px 6px; text-align:center; max-width:66ch; margin:0 auto}
+ul.read{margin:.5em 0 .2em; padding-left:1.15em; font-size:.93rem}
+ul.read li{margin-bottom:4px}
+details.depth{border:1px solid var(--line-soft); border-radius:8px; margin-top:10px}
+details.depth>summary{cursor:pointer; padding:8px 13px; font-weight:600; font-size:.88rem; color:var(--muted); list-style:none}
+details.depth>summary::-webkit-details-marker{display:none}
+details.depth>summary::before{content:"▸ "; }
+details.depth[open]>summary::before{content:"▾ "}
+details.depth .dpb{padding:2px 13px 10px; border-top:1px solid var(--line-soft); font-size:.92rem}
+.sod{display:inline-block; min-width:24px; text-align:center; border-radius:5px; padding:1px 5px; font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:.8rem}
+table.fmea td{font-size:.87rem}
 footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font-size:.83rem; color:var(--muted); max-width:74ch}
 @media (max-width:520px){ .day .dd{width:56px} .bench .bd{width:64px} }
 </style>
@@ -162,6 +181,52 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 <h2>ML track — Machine Learning Specialization (Andrew Ng)</h2>
 <p class="lede">You're on Course 1, <em>Supervised Machine Learning: Regression and Classification</em> (3 modules). With your R/Minitab/statistics background the concepts will land fast; the new muscle is NumPy notation. Do the optional labs — you learn this by running code, same way you learned everything else.</p>
 
+<div style="display:flex; flex-wrap:wrap; gap:12px">
+<figure class="fig" style="flex:1; min-width:280px">
+<svg viewBox="0 0 360 250" role="img" aria-label="Scatter of data points with a fitted line; dashed vertical segments show each point's error, whose squared average is the cost J">
+<line x1="42" y1="210" x2="340" y2="210" stroke="currentColor" stroke-width="1" opacity=".5"/>
+<line x1="42" y1="210" x2="42" y2="22" stroke="currentColor" stroke-width="1" opacity=".5"/>
+<text x="190" y="238" font-size="12" fill="var(--muted)" text-anchor="middle">feature x (e.g., order size)</text>
+<text x="16" y="120" font-size="12" fill="var(--muted)" text-anchor="middle" transform="rotate(-90 16 120)">target y (e.g., lead time)</text>
+<line x1="52" y1="196" x2="330" y2="52" stroke="var(--accent)" stroke-width="2.5"/>
+<g stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 3" opacity=".65">
+<line x1="80" y1="182" x2="80" y2="158"/>
+<line x1="120" y1="140" x2="120" y2="161"/>
+<line x1="165" y1="152" x2="165" y2="138"/>
+<line x1="205" y1="104" x2="205" y2="117"/>
+<line x1="250" y1="108" x2="250" y2="94"/>
+<line x1="295" y1="60" x2="295" y2="71"/>
+</g>
+<g fill="currentColor">
+<circle cx="80" cy="182" r="5"/><circle cx="120" cy="140" r="5"/><circle cx="165" cy="152" r="5"/>
+<circle cx="205" cy="104" r="5"/><circle cx="250" cy="108" r="5"/><circle cx="295" cy="60" r="5"/>
+</g>
+<text x="332" y="44" font-size="12" fill="var(--accent-ink)" text-anchor="end" font-weight="600">f(x) = wx + b</text>
+<text x="132" y="185" font-size="11.5" fill="var(--muted)">errors</text>
+</svg>
+<figcaption>The model is a line; the <strong>cost J(w,b)</strong> is the average of the squared dashed errors. Training = sliding w and b until that average is smallest.</figcaption>
+</figure>
+
+<figure class="fig" style="flex:1; min-width:280px">
+<svg viewBox="0 0 360 250" role="img" aria-label="U-shaped cost curve with gradient descent steps rolling to the bottom, and a dotted diverging zigzag showing a too-large learning rate">
+<line x1="42" y1="210" x2="340" y2="210" stroke="currentColor" stroke-width="1" opacity=".5"/>
+<line x1="42" y1="210" x2="42" y2="22" stroke="currentColor" stroke-width="1" opacity=".5"/>
+<text x="190" y="238" font-size="12" fill="var(--muted)" text-anchor="middle">parameter w</text>
+<text x="16" y="120" font-size="12" fill="var(--muted)" text-anchor="middle" transform="rotate(-90 16 120)">cost J(w)</text>
+<path d="M 60 45 Q 190 330 322 45" fill="none" stroke="currentColor" stroke-width="2"/>
+<g fill="var(--accent)" stroke="var(--surface)" stroke-width="2">
+<circle cx="84" cy="82" r="6"/><circle cx="112" cy="122" r="6"/><circle cx="140" cy="152" r="6"/>
+<circle cx="166" cy="172" r="6"/><circle cx="191" cy="180" r="6"/>
+</g>
+<path d="M 84 82 L 112 122 L 140 152 L 166 172 L 191 180" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+<path d="M 246 96 L 132 146 L 266 118 L 108 128" fill="none" stroke="var(--bad)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="196" y="200" font-size="11.5" fill="var(--accent-ink)" font-weight="600" text-anchor="middle">α just right: settles at the bottom</text>
+<text x="252" y="86" font-size="11.5" fill="var(--bad)" text-anchor="middle">α too large: overshoots</text>
+</svg>
+<figcaption><strong>Gradient descent</strong> takes downhill steps of size α (the learning rate). Small α crawls; big α bounces across the bowl and can diverge.</figcaption>
+</figure>
+</div>
+
 <div class="mlcard">
 <h3>Benchmarks — check when actually done</h3>
 <div class="bench"><input type="checkbox" data-ck="mlb1"><span class="bd">B1 · Sep 19</span><span class="bt"><strong>Module 1 complete</strong> — videos, quiz passed, optional labs run (linear regression model + cost function notebooks).</span></div>
@@ -199,129 +264,597 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 <section id="lessons">
 <p class="eyebrow">§ 3</p>
 <h2>The eleven lessons</h2>
-<p class="lede">One per domain, ~25–30 minutes each: plain-language teaching, acronyms spelled out, a case from your world, and a 10-minute task that makes it stick. <span style="color:var(--ok);font-weight:600">ON YOUR DRIVE</span> marks books you already own.</p>
+<p class="lede">One per domain, ~25–30 min each. New format: the picture first, then how to read it, then the case and task. The full write-up from before lives under "Depth" in each lesson — nothing was cut. <span style="color:var(--ok);font-weight:600">ON YOUR DRIVE</span> marks books you already own.</p>
 
 <details class="lesson" id="l1"><summary><span class="lnum">L1</span><span class="lname">The supplier quality loop: NCR → 8D → SCAR → CAPA</span><span class="ldom">Supplier Engineering</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>When bad material arrives, professionals don't just complain to the supplier — they run a standard loop that turns one failure into a permanent fix. Every regulated company runs some version of it; you'll build yours.</p>
-<p class="k">The concepts</p>
-<p><dfn>NCR (Nonconformance Report)</dfn>: the written record that something didn't meet spec — what, which lot, how found. If it isn't written down, it never happened. <dfn>Containment</dfn>: immediately fence off the suspect material (quarantine shelf, hold label) so nobody uses it while you investigate. <dfn>Disposition</dfn>: the decision about the bad material — <em>use-as-is</em> (deviation approved), <em>rework</em>, <em>return</em>, or <em>scrap</em>. <dfn>8D (Eight Disciplines)</dfn>: a standard problem-solving report format suppliers everywhere recognize: D1 team, D2 problem description, D3 containment, D4 root cause, D5 chosen corrective action, D6 implement, D7 prevent recurrence system-wide, D8 recognize the team. Your Apollo RCA skill is D4 — the hard part you already master; 8D just wraps it in a standard envelope. <dfn>SCAR (Supplier Corrective Action Request)</dfn>: the formal letter asking a supplier to run an 8D and report back — issued for serious or repeat problems, not every hiccup. <dfn>CAPA (Corrective and Preventive Action)</dfn>: the umbrella system tracking all fixes to closure, including <em>verification of effectiveness</em>: checking weeks later that the fix actually worked. <dfn>COPQ (Cost of Poor Quality)</dfn>: what failures cost in dollars — your language for prioritizing.</p>
-<div class="case"><b>Case — your world</b>A gelatin lot arrives and the CoA (Certificate of Analysis) shows 210 Bloom instead of the 250 spec. NCR opened; lot quarantined (containment); R&amp;D judges it unusable for the stiffness the model needs → disposition: return. Second occurrence in 3 months → SCAR issued; the supplier's 8D finds their blending step lacks an in-process Bloom check; they add one (D7). You re-check their next 5 CoAs — effectiveness verified. Loop closed.</div>
-<div class="task"><b>10-minute task</b>Open a blank sheet and design your NCR log columns (date, item, lot, supplier, problem, containment, disposition, SCAR? Y/N, status, closed date). That sheet is the seed of your company's quality system.</div>
-<p class="k">Read more</p>
+<figure class="fig">
+<svg viewBox="0 0 760 252" role="img" aria-label="Flow of a supplier nonconformance: bad lot to NCR to containment to disposition; serious or repeat issues branch to SCAR and supplier 8D, then CAPA with effectiveness verification looping back to monitoring">
+<defs><marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+<g fill="none" stroke="currentColor" stroke-width="1.5">
+<rect x="8" y="52" width="86" height="46" rx="7"/>
+<rect x="130" y="52" width="82" height="46" rx="7"/>
+<rect x="248" y="52" width="104" height="46" rx="7"/>
+<rect x="388" y="52" width="110" height="46" rx="7"/>
+<path d="M 585 40 L 650 75 L 585 110 L 520 75 Z"/>
+<rect x="530" y="150" width="110" height="52" rx="7" stroke="var(--accent)" stroke-width="2"/>
+<rect x="330" y="150" width="150" height="52" rx="7" stroke="var(--accent)" stroke-width="2"/>
+<rect x="130" y="150" width="150" height="52" rx="7"/>
+</g>
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="51" y="71">Bad lot</text><text x="51" y="86">arrives</text>
+<text x="171" y="71">NCR</text><text x="171" y="86">write it down</text>
+<text x="300" y="71">Containment</text><text x="300" y="86">quarantine it</text>
+<text x="443" y="79">Disposition</text><text x="443" y="114" font-size="10.5" fill="var(--muted)">use-as-is · rework · return · scrap</text>
+<text x="585" y="70">serious or</text><text x="585" y="84">repeat?</text>
+<text x="585" y="170" fill="var(--accent-ink)" font-weight="600">SCAR →</text><text x="585" y="185" fill="var(--accent-ink)">supplier runs 8D</text>
+<text x="405" y="170" fill="var(--accent-ink)" font-weight="600">CAPA closed</text><text x="405" y="185" fill="var(--accent-ink)">+ verify weeks later</text>
+<text x="205" y="170">no → note in</text><text x="205" y="185">supplier scorecard</text>
+</g>
+<g stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#ar1)">
+<line x1="94" y1="75" x2="126" y2="75"/>
+<line x1="212" y1="75" x2="244" y2="75"/>
+<line x1="352" y1="75" x2="384" y2="75"/>
+<line x1="498" y1="75" x2="516" y2="75"/>
+<line x1="585" y1="110" x2="585" y2="146"/>
+<line x1="526" y1="176" x2="484" y2="176"/>
+<line x1="326" y1="176" x2="284" y2="176"/>
+</g>
+<text x="601" y="132" font-size="11" fill="var(--muted)">yes</text>
+<path d="M 405 202 Q 405 228 300 228 Q 195 228 175 206" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ar1)"/>
+<text x="300" y="246" font-size="11" fill="var(--accent-ink)" text-anchor="middle">did the fix stick? → next lots feed the scorecard</text>
+</svg>
+<figcaption>One loop, closed. Everything left of the diamond happens on every bad lot; the accented path fires only for serious or repeat problems.</figcaption>
+</figure>
+<ul class="read">
+<li><strong>NCR (Nonconformance Report)</strong>: if it isn't written down, it never happened.</li>
+<li><strong>Containment before investigation</strong> — quarantine first, think second.</li>
+<li>The diamond is judgment: not every hiccup earns a <strong>SCAR (Supplier Corrective Action Request)</strong>; minor ones become scorecard trend data.</li>
+<li><strong>8D</strong> is a standard envelope around root-cause work you already master (it's D4 of eight); <strong>CAPA</strong> isn't closed until effectiveness is <em>verified later</em> — the dashed return arrow is the most-skipped step in industry.</li>
+</ul>
+<div class="case"><b>Case — your world</b>A gelatin lot's CoA shows 210 Bloom against a 250 spec. NCR → quarantine → return. Second occurrence in 3 months → SCAR; the supplier's 8D finds no in-process Bloom check; they add one. Your next 5 CoAs confirm it held — loop closed, and the whole story is three rows in your NCR log.</div>
+<div class="task"><b>10-minute task</b>Design your NCR log columns (date, item, lot, supplier, problem, containment, disposition, SCAR? Y/N, status, closed date). That sheet is the seed of your company's quality system.</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p><dfn>NCR</dfn>: the written record that something didn't meet spec — what, which lot, how found. <dfn>Containment</dfn>: immediately fence off suspect material (quarantine shelf, hold label) so nobody uses it while you investigate. <dfn>Disposition</dfn>: the decision — <em>use-as-is</em> (deviation approved), <em>rework</em>, <em>return</em>, or <em>scrap</em>. <dfn>8D (Eight Disciplines)</dfn>: D1 team, D2 problem description, D3 containment, D4 root cause, D5 chosen corrective action, D6 implement, D7 prevent recurrence system-wide, D8 recognize the team. <dfn>SCAR</dfn>: the formal letter asking a supplier to run an 8D and report back — for serious or repeat problems, not every hiccup. <dfn>CAPA (Corrective and Preventive Action)</dfn>: the umbrella system tracking fixes to closure, including verification of effectiveness weeks later. <dfn>COPQ (Cost of Poor Quality)</dfn>: what failures cost in dollars — your prioritization language.</p>
+</div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> ASQ CQE Handbook 5th ed. (corrective action chapters) · The Quality Toolbox (Tague). <span class="buy" style="color:var(--warn)">BUY:</span> <a href="https://www.amazon.com/s?k=Root+Cause+Analysis+Core+of+Problem+Solving+Duke+Okes">Root Cause Analysis — Duke Okes (Amazon)</a></p>
 </div></details>
 
 <details class="lesson" id="l2"><summary><span class="lnum">L2</span><span class="lname">The Kraljic matrix: your supply base on one 2×2</span><span class="ldom">Procurement</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>In 1983 Peter Kraljic wrote the most-used framework in procurement: plot everything you buy on two axes — <em>profit/business impact</em> (how much it matters) and <em>supply risk</em> (how hard it is to get) — and the quadrant tells you the strategy. It's the anchor your "all over the place" role is missing: it tells you where to spend relationship effort, where to automate, where to de-risk.</p>
-<p class="k">The four quadrants</p>
-<p><dfn>Routine / non-critical</dfn> (low impact, low risk — gloves, standard plasticware): minimize effort; catalogs, blanket POs, don't negotiate pennies. <dfn>Leverage</dfn> (high impact, low risk — commodity items with many suppliers): here the buyer holds power; bid competitively, switch freely. <dfn>Bottleneck</dfn> (low impact, high risk — a cheap adhesive only one company makes): the sneaky quadrant where cheap items stop your line; strategy is <em>secure supply</em> — buffer stock, alternates, monitoring — not price. <dfn>Strategic</dfn> (high impact, high risk — your donor-network tissue, custom biologicals): few suppliers, high stakes; strategy is <em>partnership</em> — long-term agreements, joint planning, executive relationships, and treating the supplier as an extension of your company.</p>
-<div class="case"><b>Case — your world</b>From your own supplier shortlist: fish gelatin 250 Bloom with one strong US manufacturer (Norland) and thin alternatives is <em>bottleneck</em> drifting toward <em>strategic</em> — the strategy is qualifying that second source (which you're already doing) plus a modest buffer, not price pressure. The Sigma-Aldrich/Thermo catalog items on your ASL are <em>routine</em>: automate them and spend zero relationship energy there.</div>
-<div class="task"><b>10-minute task</b>Draw the 2×2 and place your top 10 purchased items. Mark each with today's actual strategy — every mismatch (e.g., negotiating hard with a bottleneck supplier) is a risk you're carrying.</div>
-<p class="k">Read more</p>
-<p class="refs"><span class="own">ON YOUR DRIVE:</span> Leading Procurement Strategy 3rd ed. (Mena, van Hoek &amp; Christopher — category strategy chapters). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Category+Management+in+Purchasing+Jonathan+O%27Brien">Category Management in Purchasing — O'Brien (Amazon)</a> · Kraljic's original HBR article "Purchasing Must Become Supply Management" (1983).</p>
+<figure class="fig">
+<svg viewBox="0 0 600 440" role="img" aria-label="Kraljic matrix: business impact versus supply risk, four quadrants with strategies, and Oscar's real items plotted as dots">
+<defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs>
+<rect x="70" y="40" width="460" height="340" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<line x1="300" y1="40" x2="300" y2="380" stroke="currentColor" stroke-width="1" opacity=".4"/>
+<line x1="70" y1="210" x2="530" y2="210" stroke="currentColor" stroke-width="1" opacity=".4"/>
+<g font-size="13" font-weight="700" fill="currentColor" text-anchor="middle" font-family="Bitter,Georgia,serif">
+<text x="185" y="66">LEVERAGE</text><text x="415" y="66">STRATEGIC</text>
+<text x="185" y="236">ROUTINE</text><text x="415" y="236">BOTTLENECK</text>
+</g>
+<g font-size="11.5" fill="var(--muted)" text-anchor="middle">
+<text x="185" y="82">many suppliers, big spend:</text><text x="185" y="96">bid hard, switch freely</text>
+<text x="415" y="82">few suppliers, big stakes:</text><text x="415" y="96">partner, plan jointly</text>
+<text x="185" y="252">cheap and easy:</text><text x="185" y="266">automate, don't negotiate pennies</text>
+<text x="415" y="252">cheap but scarce — the sneaky one:</text><text x="415" y="266">secure supply: buffers, alternates</text>
+</g>
+<g>
+<circle cx="150" cy="330" r="6" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="162" y="334" font-size="11.5" fill="currentColor">Sigma / Thermo catalog items</text>
+<circle cx="175" cy="140" r="6" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="187" y="144" font-size="11.5" fill="currentColor">validated cold shippers</text>
+<circle cx="420" cy="300" r="6" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="368" y="325" font-size="11.5" fill="currentColor">fish gelatin 250 Bloom</text>
+<line x1="426" y1="292" x2="446" y2="180" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ar2)"/>
+<text x="436" y="190" font-size="10.5" fill="var(--accent-ink)" text-anchor="end">drifts strategic</text>
+<text x="436" y="203" font-size="10.5" fill="var(--accent-ink)" text-anchor="end">as volume grows</text>
+<circle cx="470" cy="110" r="6" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="462" y="132" font-size="11.5" fill="currentColor" text-anchor="end">donor-network tissue</text>
+</g>
+<text x="300" y="412" font-size="12.5" fill="var(--muted)" text-anchor="middle">Supply risk →  (how hard is it to get?)</text>
+<text x="36" y="210" font-size="12.5" fill="var(--muted)" text-anchor="middle" transform="rotate(-90 36 210)">Business impact →  (how much does it matter?)</text>
+</svg>
+<figcaption>Your supply base, plotted. The quadrant — not the price tag — picks the strategy; every mismatch between quadrant and current behavior is a risk you're carrying.</figcaption>
+</figure>
+<ul class="read">
+<li>Axes are <strong>impact</strong> (spend + consequence of failure) × <strong>supply risk</strong> (few suppliers, switching cost, scarcity).</li>
+<li><strong>Bottleneck</strong> is the trap quadrant: cheap items that stop the line. Strategy is <em>supply security</em>, never price pressure.</li>
+<li><strong>Strategic</strong> items get relationships and joint planning; <strong>routine</strong> items get automated; <strong>leverage</strong> items get competition.</li>
+<li>Items <em>move</em> — the dashed arrow is your gelatin as production scales.</li>
+</ul>
+<div class="case"><b>Case — your world</b>Your low-MOQ supplier hunt is textbook bottleneck strategy — you were doing it by instinct. The Sigma/Thermo ASL items deserve zero relationship energy; the tissue network deserves most of it.</div>
+<div class="task"><b>10-minute task</b>Place your top 10 purchased items on the 2×2. Mark each with today's actual behavior; circle every mismatch.</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p>Kraljic (HBR, 1983) remains the anchor framework of category management. <dfn>Routine</dfn>: minimize effort; catalogs, blanket POs. <dfn>Leverage</dfn>: buyer holds power; competitive bidding, easy switching. <dfn>Bottleneck</dfn>: buffer stock, alternate qualification, monitoring — accept paying a little more for certainty. <dfn>Strategic</dfn>: long-term agreements, top-to-top relationships, joint capacity planning; treat the supplier as an extension of the company. The matrix also drives risk segmentation (Sprint 1's FMEA targets = the right column) and negotiation posture (L10).</p>
+</div></details>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Leading Procurement Strategy 3rd ed. (category strategy chapters). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Category+Management+in+Purchasing+Jonathan+O%27Brien">Category Management in Purchasing — O'Brien (Amazon)</a> · Kraljic's original HBR article (1983).</p>
 </div></details>
 
 <details class="lesson" id="l3"><summary><span class="lnum">L3</span><span class="lname">Supplier market power — and how they see YOUR account</span><span class="ldom">Economics</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>Prices aren't set by fairness; they're set by market structure — how many sellers there are and how easily buyers can switch. Economics gives you the diagnosis; the diagnosis picks the tactic.</p>
-<p class="k">The concepts</p>
-<p>The spectrum runs from <dfn>perfect competition</dfn> (many sellers, identical product, nobody sets prices — think office paper) to <dfn>oligopoly</dfn> (a few sellers who watch each other — lab instruments) to <dfn>monopoly</dfn> (one seller sets terms — a patented reagent, or the only USDA-permitted tissue recovery network in your region). <dfn>Monopsony</dfn> is the mirror: one powerful <em>buyer</em> (you are not one — you're a small buyer, which shapes everything). <dfn>Switching costs</dfn> are what it costs you to change suppliers (re-qualification, re-validation, risk) — the higher they are, the more power your <em>current</em> supplier holds over you even if alternatives exist; economists call being exploited through switching costs the <dfn>hold-up problem</dfn>. Finally, <dfn>supplier preferencing</dfn> flips the lens: suppliers rank accounts too — roughly <em>core</em> (big, attractive), <em>development</em> (small but promising), <em>exploit</em> (big but annoying — they'll serve you at a premium), <em>nuisance</em> (small and annoying — you get the leftovers). A small ex-vivo company is naturally in the bottom half; the escape is being a <em>customer of choice</em>: easy to serve, fast-paying, forecast-sharing, interesting (your novel application is genuinely interesting to niche suppliers).</p>
-<div class="case"><b>Case — your world</b>Your tissue source holds near-monopoly power locally — price pressure is pointless and can hurt you. But you can move from "nuisance" to "development" in their eyes: share a 6-month forecast, pay on time, be the easiest pickup on their route. That earns allocation priority in a shortage — worth more than any discount.</div>
-<div class="task"><b>10-minute task</b>For your top 3 suppliers write two words each: the market structure you face (monopoly / oligopoly / competitive) and, honestly, which box you occupy in <em>their</em> account ranking. Any "monopoly + nuisance" pair is your most urgent relationship project.</div>
-<p class="k">Read more</p>
-<p class="refs"><span class="own">ON YOUR DRIVE:</span> Mankiw, Principles of Microeconomics (chapters 15–17: monopoly, monopolistic competition, oligopoly). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Understanding+Michael+Porter+Joan+Magretta">Understanding Michael Porter — Magretta (Amazon)</a></p>
+<figure class="fig">
+<svg viewBox="0 0 720 130" role="img" aria-label="Spectrum of market structures from perfect competition to monopoly, with examples from Oscar's supply base placed along it; supplier pricing power increases to the right">
+<defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+<g stroke="var(--surface)" stroke-width="2">
+<rect x="40" y="34" width="160" height="34" rx="5" fill="var(--accent)" opacity=".18"/>
+<rect x="202" y="34" width="160" height="34" rx="5" fill="var(--accent)" opacity=".38"/>
+<rect x="364" y="34" width="160" height="34" rx="5" fill="var(--accent)" opacity=".62"/>
+<rect x="526" y="34" width="160" height="34" rx="5" fill="var(--accent)" opacity=".9"/>
+</g>
+<g font-size="11.5" fill="currentColor" text-anchor="middle" font-weight="600">
+<text x="120" y="55">Perfect competition</text><text x="282" y="55">Monopolistic comp.</text><text x="444" y="55">Oligopoly</text>
+<text x="606" y="55" fill="#fff">Monopoly</text>
+</g>
+<g font-size="10.5" fill="var(--muted)" text-anchor="middle">
+<text x="120" y="86">office paper, gloves</text><text x="282" y="86">standard plasticware</text><text x="444" y="86">instruments, couriers</text><text x="606" y="86">your tissue network</text>
+</g>
+<line x1="40" y1="106" x2="686" y2="106" stroke="currentColor" stroke-width="1.5" marker-end="url(#ar3)"/>
+<text x="363" y="124" font-size="11.5" fill="var(--muted)" text-anchor="middle">supplier pricing power →</text>
+</svg>
+<figcaption>Diagnose the structure first — it decides whether negotiating, bidding, or relationship-building is even the right tool.</figcaption>
+</figure>
+<figure class="fig">
+<svg viewBox="0 0 560 380" role="img" aria-label="Supplier preferencing matrix: account attractiveness versus spend size; quadrants development, core, nuisance, exploitable, with Oscar's likely position and the customer-of-choice move upward">
+<defs><marker id="ar3b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker></defs>
+<rect x="70" y="30" width="440" height="290" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<line x1="290" y1="30" x2="290" y2="320" stroke="currentColor" stroke-width="1" opacity=".4"/>
+<line x1="70" y1="175" x2="510" y2="175" stroke="currentColor" stroke-width="1" opacity=".4"/>
+<g font-size="13" font-weight="700" fill="currentColor" text-anchor="middle" font-family="Bitter,Georgia,serif">
+<text x="180" y="56">DEVELOPMENT</text><text x="400" y="56">CORE</text>
+<text x="180" y="201">NUISANCE</text><text x="400" y="201">EXPLOITABLE</text>
+</g>
+<g font-size="11" fill="var(--muted)" text-anchor="middle">
+<text x="180" y="72">small but promising — they invest</text>
+<text x="400" y="72">big and attractive — best service</text>
+<text x="180" y="217">small and annoying — leftovers</text>
+<text x="400" y="217">big but painful — premium pricing</text>
+</g>
+<circle cx="150" cy="272" r="7" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="163" y="276" font-size="11.5" fill="currentColor">you today (small buyer)</text>
+<line x1="152" y1="262" x2="168" y2="112" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar3b)"/>
+<text x="182" y="120" font-size="11" fill="var(--accent-ink)">customer-of-choice moves:</text>
+<text x="182" y="134" font-size="11" fill="var(--accent-ink)">share forecasts · pay fast · be easy · be interesting</text>
+<text x="290" y="348" font-size="12.5" fill="var(--muted)" text-anchor="middle">Your spend, in THEIR book →</text>
+<text x="36" y="175" font-size="12.5" fill="var(--muted)" text-anchor="middle" transform="rotate(-90 36 175)">How attractive your account feels →</text>
+</svg>
+<figcaption>Suppliers rank you too. You can't move right (spend is what it is) — but you can move <em>up</em>, and in a shortage, "up" is who gets allocation.</figcaption>
+</figure>
+<ul class="read">
+<li>Structure spectrum: more supplier power to the right → price pressure works less, relationship and alternatives work more.</li>
+<li><strong>Switching costs</strong> give even a non-monopoly supplier power over you (the <em>hold-up problem</em>).</li>
+<li>A small ex-vivo buyer starts in the bottom half of every supplier's book; the escape is being cheap to serve and interesting to keep.</li>
+</ul>
+<div class="case"><b>Case — your world</b>Your tissue source is near-monopoly: haggling is pointless and can hurt. A 6-month forecast, on-time payment, and easy logistics move you from "nuisance" to "development" — worth more than any discount when supply gets tight.</div>
+<div class="task"><b>10-minute task</b>Top 3 suppliers, two words each: the structure you face; the box you occupy in their ranking. Any "monopoly + nuisance" pair is your most urgent relationship project.</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p>The spectrum runs <dfn>perfect competition</dfn> (many sellers, identical product, nobody sets prices) → <dfn>monopolistic competition</dfn> (many sellers, differentiated) → <dfn>oligopoly</dfn> (few sellers who watch each other) → <dfn>monopoly</dfn> (one seller sets terms). <dfn>Monopsony</dfn> is one powerful buyer — you are the opposite. <dfn>Switching costs</dfn>: requalification, revalidation, and risk of changing suppliers; high switching costs transfer power to the incumbent. <dfn>Supplier preferencing</dfn>: suppliers segment accounts as core / development / exploitable / nuisance based on attractiveness and value; small buyers win by account behavior, not volume.</p>
+</div></details>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Mankiw, Principles of Microeconomics (ch. 15–17). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Understanding+Michael+Porter+Joan+Magretta">Understanding Michael Porter — Magretta (Amazon)</a></p>
 </div></details>
 
 <details class="lesson" id="l4"><summary><span class="lnum">L4</span><span class="lname">Shipping biological materials legally: UN3373, dry ice, triple packaging</span><span class="ldom">Warehouse &amp; Logistics</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>Biological shipments are regulated dangerous goods. Misclassify or mispack one and the carrier rejects it (product dies in a depot), or worse, you create legal exposure. The rules are learnable in a week, the required training takes days, and knowing them makes you the site authority.</p>
-<p class="k">The concepts</p>
-<p><dfn>Category A</dfn> (UN2814 human/UN2900 animal): infectious substances capable of causing permanent disability or fatal disease in healthy people — packed under instruction <dfn>P620</dfn>, heavily restricted. <dfn>Category B</dfn> (UN3373, "Biological Substance, Category B"): infectious but not meeting the Category A threshold — most diagnostic and research specimens; packed under <dfn>P650</dfn>. Many research-grade, non-infectious materials are <dfn>exempt</dfn> — but that judgment must be made by a trained person and documented. <dfn>Triple packaging</dfn> is the universal philosophy: a leakproof <em>primary</em> receptacle, a leakproof <em>secondary</em> with absorbent, and a rigid <em>outer</em> — so any single failure doesn't release contents. <dfn>Dry ice (UN1845)</dfn> is itself a Class 9 dangerous good (it sublimates to CO₂ and can burst sealed containers or asphyxiate) with its own marking and a vented package requirement. <dfn>IATA DGR</dfn> (International Air Transport Association Dangerous Goods Regulations) and <dfn>49 CFR</dfn> (the US DOT ground rules) both require <em>documented training</em> for anyone who classifies, packs, or signs — that's the certification you're booking. Add a <dfn>temperature data logger</dfn> in the box and you have evidence for every excursion argument with a courier.</p>
-<div class="case"><b>Case — your world</b>A partner lab ships you ex-vivo tissue on dry ice via FedEx. The box lacks the UN1845 label and net-weight marking → rejected at the depot → 30 hours at ambient → tissue dead, study slipped two weeks. Cost of the missing label: a $6,000 shipment and a customer's timeline. Your shipping SOP (Stage 1 deliverable) exists to make that impossible.</div>
-<div class="task"><b>10-minute task</b>Classify three shipments in writing: (a) formalin-fixed tissue blocks, (b) fresh porcine organs on dry ice, (c) a suspect infectious human sample. Which category, which packing instruction, what markings? (Answers: likely exempt "patient specimen"-style; UN3373 + UN1845, P650 + vented dry-ice pack; Category A UN2814, P620 — and (c) you'd refuse until trained.)</div>
-<p class="k">Read more</p>
-<p class="refs">Free: IATA's "Infectious Substances Shipping Guidelines" summary and CDC's shipping guidance. Course: <a href="https://www.saftpak.com">Saf-T-Pak IATA training</a>. <span class="own">ON YOUR DRIVE:</span> Industrial Refrigeration Handbook (Stoecker) for the cold-side physics, when you want depth.</p>
+<figure class="fig">
+<svg viewBox="0 0 740 300" role="img" aria-label="Classification decision tree for biological shipments: Category A, Category B UN3373, or exempt, with a dry ice add-on rule">
+<defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+<rect x="10" y="96" width="120" height="52" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<text x="70" y="118" font-size="12" fill="currentColor" text-anchor="middle">Biological</text>
+<text x="70" y="133" font-size="12" fill="currentColor" text-anchor="middle">material to ship</text>
+<path d="M 250 68 L 355 122 L 250 176 L 145 122 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<text x="250" y="106" font-size="11" fill="currentColor" text-anchor="middle">Could it cause</text>
+<text x="250" y="120" font-size="11" fill="currentColor" text-anchor="middle">permanent disability or</text>
+<text x="250" y="134" font-size="11" fill="currentColor" text-anchor="middle">life-threatening disease</text>
+<text x="250" y="148" font-size="11" fill="currentColor" text-anchor="middle">in a healthy person?</text>
+<path d="M 480 90 L 570 134 L 480 178 L 390 134 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<text x="480" y="122" font-size="11" fill="currentColor" text-anchor="middle">Contains / may</text>
+<text x="480" y="136" font-size="11" fill="currentColor" text-anchor="middle">contain other</text>
+<text x="480" y="150" font-size="11" fill="currentColor" text-anchor="middle">pathogens?</text>
+<rect x="430" y="10" width="290" height="48" rx="7" fill="none" stroke="var(--bad)" stroke-width="2"/>
+<text x="575" y="30" font-size="12" fill="var(--bad)" text-anchor="middle" font-weight="600">CATEGORY A — UN2814 / UN2900 · P620</text>
+<text x="575" y="46" font-size="11" fill="var(--muted)" text-anchor="middle">heavily restricted; trained + authorized only</text>
+<rect x="600" y="102" width="132" height="64" rx="7" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<text x="666" y="124" font-size="12" fill="var(--warn)" text-anchor="middle" font-weight="600">CATEGORY B</text>
+<text x="666" y="140" font-size="11.5" fill="currentColor" text-anchor="middle">UN3373 · P650</text>
+<text x="666" y="155" font-size="10.5" fill="var(--muted)" text-anchor="middle">most research specimens</text>
+<rect x="404" y="210" width="180" height="52" rx="7" fill="none" stroke="var(--ok)" stroke-width="2"/>
+<text x="494" y="231" font-size="12" fill="var(--ok)" text-anchor="middle" font-weight="600">EXEMPT</text>
+<text x="494" y="248" font-size="10.5" fill="var(--muted)" text-anchor="middle">still document the judgment call</text>
+<g stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#ar4)">
+<line x1="130" y1="122" x2="141" y2="122"/>
+<line x1="290" y1="82" x2="426" y2="42"/>
+<line x1="355" y1="126" x2="386" y2="130"/>
+<line x1="570" y1="134" x2="596" y2="134"/>
+<line x1="480" y1="178" x2="490" y2="206"/>
+</g>
+<g font-size="11" fill="var(--muted)">
+<text x="340" y="58">yes</text><text x="362" y="118">no</text><text x="576" y="126">yes</text><text x="452" y="198">no</text>
+</g>
+<rect x="10" y="210" width="330" height="52" rx="7" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/>
+<text x="175" y="231" font-size="12" fill="var(--accent-ink)" text-anchor="middle" font-weight="600">Shipping on dry ice? ADD: UN1845 · Class 9</text>
+<text x="175" y="248" font-size="11" fill="var(--accent-ink)" text-anchor="middle">label + net weight in kg + package must vent CO₂</text>
+</svg>
+<figcaption>The classification call comes first and must be made by a trained person — that's the certification you're booking. Dry ice is its own dangerous good on top.</figcaption>
+</figure>
+<figure class="fig">
+<svg viewBox="0 0 560 250" role="img" aria-label="Triple packaging cutaway: leakproof primary receptacle with absorbent inside a leakproof secondary, inside a rigid outer box carrying the UN3373 and dry ice markings">
+<rect x="40" y="30" width="300" height="190" rx="10" fill="none" stroke="currentColor" stroke-width="2.5"/>
+<rect x="75" y="62" width="230" height="128" rx="8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+<rect x="112" y="90" width="156" height="72" rx="6" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+<text x="190" y="122" font-size="11.5" fill="var(--accent-ink)" text-anchor="middle" font-weight="600">1 · PRIMARY receptacle</text>
+<text x="190" y="138" font-size="10.5" fill="var(--accent-ink)" text-anchor="middle">leakproof, holds the specimen</text>
+<text x="190" y="180" font-size="10.5" fill="var(--muted)" text-anchor="middle">absorbent packing between layers</text>
+<text x="190" y="52" font-size="11.5" fill="currentColor" text-anchor="middle">2 · SECONDARY — leakproof</text>
+<text x="190" y="238" font-size="11.5" fill="currentColor" text-anchor="middle">3 · OUTER — rigid, drop-rated</text>
+<path d="M 415 55 L 455 80 L 415 105 L 375 80 Z" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<text x="415" y="85" font-size="10.5" fill="var(--warn)" text-anchor="middle" font-weight="600">UN3373</text>
+<text x="415" y="126" font-size="10.5" fill="var(--muted)" text-anchor="middle">on the outer box</text>
+<rect x="372" y="150" width="86" height="42" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<text x="415" y="168" font-size="10.5" fill="currentColor" text-anchor="middle">UN1845</text>
+<text x="415" y="182" font-size="10.5" fill="currentColor" text-anchor="middle">DRY ICE · 4 kg</text>
+<text x="500" y="80" font-size="10.5" fill="var(--muted)" text-anchor="middle">+ shipper /</text>
+<text x="500" y="94" font-size="10.5" fill="var(--muted)" text-anchor="middle">consignee,</text>
+<text x="500" y="108" font-size="10.5" fill="var(--muted)" text-anchor="middle">responsible person</text>
+<text x="500" y="168" font-size="10.5" fill="var(--muted)" text-anchor="middle">data logger</text>
+<text x="500" y="182" font-size="10.5" fill="var(--muted)" text-anchor="middle">inside ✓</text>
+</svg>
+<figcaption>Triple packaging: any single layer can fail without releasing contents. The markings live on the rigid outer.</figcaption>
+</figure>
+<ul class="read">
+<li>Three outcomes, one decision tree — and the tree must be walked by a <em>trained</em> person (IATA DGR / 49 CFR requirement).</li>
+<li>Most research material lands in <strong>Category B (UN3373, P650)</strong> or exempt; Category A is rare and changes everything.</li>
+<li>Dry ice is a dangerous good <em>even when the specimen is exempt</em>.</li>
+<li>A data logger in the box turns every excursion dispute into evidence.</li>
+</ul>
+<div class="case"><b>Case — your world</b>A partner ships tissue on dry ice; the box lacks the UN1845 label and net weight → FedEx rejects at the depot → 30 hours at ambient → dead tissue, slipped study. Cost of a missing $0.10 label: a $6,000 shipment.</div>
+<div class="task"><b>10-minute task</b>Classify three shipments in writing: (a) formalin-fixed tissue blocks, (b) fresh porcine organs on dry ice, (c) a suspect infectious human sample. Category, packing instruction, markings. ((a) likely exempt; (b) UN3373 + UN1845; (c) Category A — refuse until trained.)</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p><dfn>Category A</dfn> (UN2814 human / UN2900 animal): infectious substances capable of permanent disability or fatal disease — P620, restricted. <dfn>Category B</dfn> (UN3373): infectious but below that threshold — P650. <dfn>Exempt</dfn>: documented judgment by a trained person. <dfn>Triple packaging</dfn>: leakproof primary + absorbent, leakproof secondary, rigid outer. <dfn>Dry ice UN1845</dfn>: Class 9, vented package, net-weight marking. <dfn>IATA DGR</dfn> and <dfn>49 CFR</dfn> both require documented shipper training with 24-month recurrency — the compliance-floor course.</p>
+</div></details>
+<p class="refs">Free: IATA "Infectious Substances Shipping Guidelines" summary · CDC shipping guidance. Course: <a href="https://www.saftpak.com">Saf-T-Pak IATA training</a>. <span class="own">ON YOUR DRIVE:</span> Industrial Refrigeration Handbook (Stoecker) for cold-side physics.</p>
 </div></details>
 
 <details class="lesson" id="l5"><summary><span class="lnum">L5</span><span class="lname">FMEA: failure thinking before the failure</span><span class="ldom">Risk Management</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p><dfn>FMEA (Failure Mode and Effects Analysis)</dfn> is RCA's proactive twin — instead of asking "why did it fail?" after the fact (your Apollo strength), you ask "how <em>could</em> it fail?" before. It's the standard formal tool for exactly the supplier risk analysis your job description names.</p>
-<p class="k">The concepts</p>
-<p>For each step of a process (or each supplier), list <dfn>failure modes</dfn> (ways it can go wrong), each mode's <dfn>effect</dfn> (what happens downstream) and <dfn>cause</dfn>. Score three things 1–10: <dfn>Severity (S)</dfn> — how bad the effect is; <dfn>Occurrence (O)</dfn> — how likely the cause; <dfn>Detection (D)</dfn> — how likely you'd catch it before it hurts (10 = you'd never catch it). The classic <dfn>RPN (Risk Priority Number)</dfn> = S×O×D ranks what to fix first; the newer <dfn>AIAG-VDA</dfn> method replaces RPN with an <dfn>Action Priority</dfn> table (high/medium/low) because multiplication treats a 10-severity/low-occurrence catastrophe the same as a trivial-but-common annoyance — severity should dominate. Two rules keep FMEAs honest: score <em>causes</em> for occurrence (not vague modes), and treat it as a living document reviewed when anything changes — a dead FMEA is worse than none because it manufactures false confidence.</p>
-<div class="case"><b>Case — your world</b>Row for gelatin supply: failure mode "lot ships at wrong Bloom strength"; effect "model stiffness out of spec, batch scrapped" (S=8); cause "supplier has no in-process Bloom check" (O=6 for a small maker); detection "we only see the CoA, no incoming test" (D=7). AP: high → actions: add incoming Bloom verification on first article + require the in-process check in the quality agreement. Notice how the FMEA row <em>generates</em> your L1 acceptance criteria and your contract clauses — the tools chain together.</div>
-<div class="task"><b>10-minute task</b>Three rows for your most critical supplier: one material failure, one logistics failure (cold chain), one business failure (they exit the market). Score S/O/D honestly. Sunday you'll present these to yourself.</div>
-<p class="k">Read more</p>
-<p class="refs"><span class="own">ON YOUR DRIVE:</span> Supply Chain Risk Management (Schlegel &amp; Trent) · CQE Handbook (FMEA section). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=The+Basics+of+FMEA+McDermott">The Basics of FMEA — McDermott et al. (Amazon)</a> (90 pages, perfect first book).</p>
+<div class="tablewrap"><table class="fmea">
+<thead><tr><th>Failure mode</th><th>Effect (downstream)</th><th>Cause</th><th>S</th><th>O</th><th>D</th><th>Priority → action</th></tr></thead>
+<tbody>
+<tr><td>Lot ships at wrong Bloom strength</td><td>Model stiffness out of spec; batch scrapped</td><td>No in-process Bloom check at supplier</td><td><span class="sod" style="background:var(--bad);color:#fff">8</span></td><td><span class="sod" style="background:var(--warn-bg);color:var(--warn)">6</span></td><td><span class="sod" style="background:var(--warn-bg);color:var(--warn)">7</span></td><td><b style="color:var(--bad)">HIGH</b> — incoming Bloom check on FAI + clause in quality agreement</td></tr>
+<tr><td>Cold-chain excursion in transit</td><td>Tissue viability lost; study slips</td><td>Unqualified packout, no logger</td><td><span class="sod" style="background:var(--bad);color:#fff">9</span></td><td><span class="sod" style="background:var(--warn-bg);color:var(--warn)">5</span></td><td><span class="sod" style="background:var(--ok-bg);color:var(--ok)">3</span></td><td><b style="color:var(--bad)">HIGH</b> — qualified shipper + logger in every box (L4)</td></tr>
+<tr><td>Supplier exits the niche market</td><td>Sole source gone; months to requalify</td><td>Small private firm, thin financials</td><td><span class="sod" style="background:var(--bad);color:#fff">10</span></td><td><span class="sod" style="background:var(--ok-bg);color:var(--ok)">3</span></td><td><span class="sod" style="background:var(--warn-bg);color:var(--warn)">8</span></td><td><b style="color:var(--warn)">MED</b> — financial-health watch + pre-qualify alternate (L2 bottleneck play)</td></tr>
+</tbody>
+</table></div>
+<figure class="fig">
+<svg viewBox="0 0 460 260" role="img" aria-label="Action priority mini-matrix: severity rows versus occurrence columns; high severity dominates regardless of occurrence, the key difference from multiplying into an RPN">
+<g font-size="11" fill="var(--muted)" text-anchor="middle">
+<text x="180" y="26">Occurrence →</text>
+<text x="40" y="150" transform="rotate(-90 40 150)">Severity →</text>
+</g>
+<g font-size="11" fill="var(--muted)" text-anchor="middle">
+<text x="130" y="52">low</text><text x="230" y="52">medium</text><text x="330" y="52">high</text>
+<text x="76" y="90" text-anchor="end">9–10</text><text x="76" y="150" text-anchor="end">7–8</text><text x="76" y="210" text-anchor="end">≤6</text>
+</g>
+<g stroke="var(--surface)" stroke-width="2">
+<rect x="84" y="64" width="92" height="52" fill="var(--warn-bg)"/><rect x="184" y="64" width="92" height="52" fill="var(--bad)"/><rect x="284" y="64" width="92" height="52" fill="var(--bad)"/>
+<rect x="84" y="124" width="92" height="52" fill="var(--ok-bg)"/><rect x="184" y="124" width="92" height="52" fill="var(--warn-bg)"/><rect x="284" y="124" width="92" height="52" fill="var(--bad)"/>
+<rect x="84" y="184" width="92" height="52" fill="var(--ok-bg)"/><rect x="184" y="184" width="92" height="52" fill="var(--ok-bg)"/><rect x="284" y="184" width="92" height="52" fill="var(--warn-bg)"/>
+</g>
+<g font-size="13" font-weight="700" text-anchor="middle">
+<text x="130" y="95" fill="var(--warn)">M</text><text x="230" y="95" fill="#fff">H</text><text x="330" y="95" fill="#fff">H</text>
+<text x="130" y="155" fill="var(--ok)">L</text><text x="230" y="155" fill="var(--warn)">M</text><text x="330" y="155" fill="#fff">H</text>
+<text x="130" y="215" fill="var(--ok)">L</text><text x="230" y="215" fill="var(--ok)">L</text><text x="330" y="215" fill="var(--warn)">M</text>
+</g>
+<text x="230" y="252" font-size="10.5" fill="var(--muted)" text-anchor="middle">H = act now · M = act or justify · L = monitor  (weak detection pushes a cell up)</text>
+</svg>
+<figcaption>Why modern FMEA (AIAG-VDA) replaced RPN multiplication: severity dominates. A rare catastrophe outranks a common annoyance — S×O×D arithmetic said otherwise.</figcaption>
+</figure>
+<ul class="read">
+<li>Score <strong>S</strong>everity (how bad), <strong>O</strong>ccurrence (how likely the <em>cause</em>), <strong>D</strong>etection (would you catch it? 10 = never) — each 1–10.</li>
+<li>The output isn't the score — it's the <strong>action list</strong>, which feeds your acceptance criteria (L8), contracts (L10), and buffers (L6).</li>
+<li>A dead FMEA is worse than none: review it when anything changes.</li>
+</ul>
+<div class="case"><b>Case — your world</b>The three rows above are your starter supplier FMEA — notice each action points at another lesson in this sprint. That chaining is the whole design.</div>
+<div class="task"><b>10-minute task</b>Rewrite the three rows for your actual most-critical supplier: one material failure, one logistics failure, one business failure. Honest scores.</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p><dfn>FMEA (Failure Mode and Effects Analysis)</dfn> is the proactive twin of RCA. Classic <dfn>RPN</dfn> = S×O×D ranks priorities; the <dfn>AIAG-VDA</dfn> handbook replaced it with an Action Priority table because multiplication under-weights severity. Variants: design FMEA, process FMEA, and the supplier FMEA you'll run (failure modes across quote-to-delivery). Rules of craft: occurrence belongs to causes, not vague modes; detection scores your <em>current</em> controls; the document lives — review triggers include new lots, new processes, any SCAR.</p>
+</div></details>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Supply Chain Risk Management (Schlegel &amp; Trent) · CQE Handbook (FMEA section). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=The+Basics+of+FMEA+McDermott">The Basics of FMEA — McDermott et al. (Amazon)</a></p>
 </div></details>
 
 <details class="lesson" id="l6"><summary><span class="lnum">L6</span><span class="lname">Safety stock &amp; service level: the math of "just in case"</span><span class="ldom">Supply Chain Planning</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>You know EOQ (how much to order). Safety stock answers the other question: how much <em>extra</em> to hold because demand and lead times wobble. It converts "I feel like we should keep more" into a number you can defend to finance.</p>
-<p class="k">The concepts</p>
-<p><dfn>Service level</dfn>: the probability you don't stock out in a replenishment cycle — a choice, not a law. 95% means you accept being short about 1 cycle in 20; pushing toward 99.9% gets exponentially expensive. <dfn>z-score</dfn>: the number of standard deviations matching that choice (95% → z≈1.65; 99% → z≈2.33 — same z-table as your Minitab work). The workhorse formula: <span class="mono">SS = z × σ_d × √LT</span> — safety stock equals your service-level z times demand variability (σ_d, the standard deviation of demand per period) times the square root of lead time in periods. Lead-time variability adds a second term; the square root is why <em>long lead times are expensive even when average demand is known</em>. <dfn>Reorder point</dfn> = average demand during lead time + SS: when inventory hits it, order. The perishables caveat that makes your world special: shelf life caps how much buffer you <em>can</em> hold — when SS math says "hold 10 weeks" and shelf life says "6 weeks max," the difference must come from somewhere else: shorter supplier lead time, capacity reservation, or a second source. That tension IS your job.</p>
-<div class="case"><b>Case — your world</b>A culture medium: demand ~4 units/week, σ_d = 2, lead time 3 weeks, target 95%. SS = 1.65 × 2 × √3 ≈ 5.7 → hold 6 units beyond the 12 you expect to use during lead time; reorder at 18. Now check shelf life: at 4/week, 18 units on the shelf must survive ~4.5 weeks — fine if dated 90 days, a problem if 30. If 30: negotiate split deliveries against a blanket PO instead of holding stock.</div>
-<div class="task"><b>10-minute task</b>Sunday's applied slot: run this formula on one real item with rough numbers from memory. Wrong inputs are fine — the point is owning the machinery.</div>
-<p class="k">Read more</p>
-<p class="refs"><span class="own">ON YOUR DRIVE:</span> Supply Chain Logistics Management (Bowersox — inventory chapters). Free: MITx SC1x on edX. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Supply+Chain+Management+Strategy+Planning+Operation+Chopra">Supply Chain Management — Chopra &amp; Meindl (Amazon)</a></p>
+<figure class="fig">
+<svg viewBox="0 0 740 380" role="img" aria-label="Sawtooth inventory chart: stock declines with demand, an order is placed at the reorder point, arrives after the lead time; a shaded safety stock band at the bottom absorbs a dashed demand-spike month without a stockout">
+<defs><marker id="ar6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+<rect x="60" y="255" width="624" height="75" fill="var(--warn-bg)"/>
+<text x="70" y="322" font-size="11.5" fill="var(--warn)" font-weight="600">SAFETY STOCK = 6  (z=1.65 × σ=2 × √3wk ≈ 5.7)</text>
+<line x1="60" y1="105" x2="684" y2="105" stroke="currentColor" stroke-width="1.2" stroke-dasharray="6 4" opacity=".7"/>
+<text x="680" y="84" font-size="11.5" fill="currentColor" text-anchor="end" font-weight="600">reorder point = 18</text>
+<text x="680" y="98" font-size="10.5" fill="var(--muted)" text-anchor="end">(12 during lead time + 6 SS)</text>
+<g font-size="10.5" fill="var(--muted)">
+<text x="52" y="59" text-anchor="end">22</text><text x="52" y="109" text-anchor="end">18</text><text x="52" y="259" text-anchor="end">6</text><text x="52" y="334" text-anchor="end">0</text>
+</g>
+<line x1="60" y1="330" x2="684" y2="330" stroke="currentColor" stroke-width="1.2"/>
+<line x1="60" y1="40" x2="60" y2="330" stroke="currentColor" stroke-width="1.2"/>
+<g font-size="10.5" fill="var(--muted)" text-anchor="middle">
+<text x="108" y="348">wk 1</text><text x="252" y="348">wk 4</text><text x="300" y="348">wk 5</text><text x="444" y="348">wk 8</text><text x="516" y="348">wk 9.5</text><text x="660" y="348">wk 12.5</text>
+</g>
+<polyline points="60,55 108,105 252,255 252,55 300,105 444,255 444,55 516,105" fill="none" stroke="currentColor" stroke-width="2.2"/>
+<polyline points="516,105 660,255" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 4"/>
+<polyline points="516,105 660,305" fill="none" stroke="var(--bad)" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="108" cy="105" r="5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<circle cx="300" cy="105" r="5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<circle cx="516" cy="105" r="5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="108" y="86" font-size="11" fill="var(--accent-ink)" text-anchor="middle" font-weight="600">order placed</text>
+<line x1="108" y1="130" x2="252" y2="130" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#ar6)" marker-start="url(#ar6)"/>
+<text x="180" y="123" font-size="11" fill="var(--accent-ink)" text-anchor="middle">lead time = 3 wk</text>
+<text x="262" y="50" font-size="11" fill="var(--muted)">order of Q=16 arrives</text>
+<text x="572" y="296" font-size="11" fill="var(--bad)" text-anchor="middle">spike month: demand runs hot —</text>
+<text x="572" y="310" font-size="11" fill="var(--bad)" text-anchor="middle">the buffer absorbs it, no stockout</text>
+<text x="372" y="372" font-size="12" fill="var(--muted)" text-anchor="middle">time (weeks) — item: culture medium, ~4 units/wk, σ = 2, service level 95%</text>
+</svg>
+<figcaption>The sawtooth: consume, hit the reorder point, survive the lead time, receive. Safety stock exists only for the dashed months — that's the entire deal you're buying with carrying cost.</figcaption>
+</figure>
+<ul class="read">
+<li><strong>Service level is a choice</strong> (95% ≈ short 1 cycle in 20); its z-score prices the buffer: <span class="mono">SS = z·σ_d·√LT</span>.</li>
+<li><strong>ROP = demand during lead time + SS</strong> — order when stock hits it, not when it feels low.</li>
+<li>The √LT term is why long lead times are expensive even when demand is steady.</li>
+<li>Perishables twist: shelf life <em>caps</em> the buffer; when the math wants more than dating allows, the fix moves upstream — shorter lead time, split deliveries, capacity reservation, second source.</li>
+</ul>
+<div class="case"><b>Case — your world</b>The chart's numbers are the medium case: SS 6, ROP 18. Check dating: 18 units at 4/week must survive ~4.5 weeks — fine at 90-day dating, broken at 30. At 30 days, negotiate split deliveries on a blanket PO instead of holding stock (L9's tool).</div>
+<div class="task"><b>10-minute task</b>Sunday's applied slot: run the formula on one real item with rough numbers from memory. Wrong inputs are fine — own the machinery.</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p><dfn>Service level</dfn>: probability of not stocking out in a replenishment cycle; z-scores: 90%→1.28, 95%→1.65, 98%→2.05, 99%→2.33 — cost grows exponentially as you chase nines. Full formula with lead-time variability: SS = z·√(LT·σ_d² + d²·σ_LT²). <dfn>Reorder point</dfn> systems (continuous review, s,Q) vs. periodic review (R,S) — you'll mostly run periodic at a small company. Perishable inventory: expiry converts carrying cost into outright loss; expiry-aware policies cap order-up-to levels at shelf-life-consumable quantities.</p>
+</div></details>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Supply Chain Logistics Management (Bowersox — inventory chapters). Free: MITx SC1x (edX). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Supply+Chain+Management+Strategy+Planning+Operation+Chopra">Supply Chain Management — Chopra &amp; Meindl (Amazon)</a></p>
 </div></details>
 
 <details class="lesson" id="l7"><summary><span class="lnum">L7</span><span class="lname">Total cost of ownership &amp; landed cost: why unit price lies</span><span class="ldom">Finance &amp; Cost Analytics</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>The quote is not the cost. <dfn>TCO (Total Cost of Ownership)</dfn> counts everything a purchase costs across its life; <dfn>landed cost</dfn> is its logistics slice — what it costs to get the thing to your dock. For cold-chain biologicals, the gap between price and cost is enormous, so unit-price comparisons actively mislead.</p>
-<p class="k">The concepts</p>
-<p>TCO buckets: <em>acquisition</em> (price, ordering effort, qualification cost), <em>ownership</em> (freight, duty, storage, inspection, yield loss, <strong>expiry loss</strong> — for perishables often the biggest hidden line), <em>post-ownership</em> (disposal, failure costs downstream). Landed cost build-up: price + freight + insurance + customs duty + brokerage + special handling (validated cold-chain packaging can run $50–300 per shipment) + inbound QC. <dfn>Incoterms</dfn> (International Commercial Terms, ICC): three-letter codes that say where cost and risk transfer from seller to buyer — <dfn>EXW</dfn> (Ex Works: you own it at their door — cheap-looking quote, all risk yours), <dfn>FOB</dfn> (Free On Board — classic ocean term), <dfn>DAP/DDP</dfn> (Delivered At Place / Duty Paid: they carry it to you). Two quotes with different Incoterms are different products. The decision rule: compute <em>cost per usable unit, delivered</em> — (landed cost + expected expiry and rejection losses) ÷ units actually consumed.</p>
-<div class="case"><b>Case — your world</b>Supplier A: $180/kg, MOQ 25 kg, EXW their dock, overnight cold ship $220. Supplier B: $210/kg, MOQ 5 kg, DAP. You use 2 kg/month, shelf life 12 months. A: you'll expire ~1 kg for every 24 used at best, pay all freight, and tie up cash. Per usable kg delivered, B likely wins despite a 17% higher sticker — and carries less write-off risk. This is the math that justifies your low-MOQ supplier hunt (your shortlist literally has a "Low-MOQ fit" column — you were already doing TCO by instinct).</div>
-<div class="task"><b>10-minute task</b>Sunday: build a 10-row landed-cost sheet for one real item — price, freight, packaging, duty, inspection time at your loaded rate, expected expiry loss. Compare per <em>usable</em> unit.</div>
-<p class="k">Read more</p>
-<p class="refs"><span class="own">ON YOUR DRIVE:</span> Procurement &amp; Supply Chain Management (Lysons &amp; Farrington) · Leading Procurement Strategy. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Purchasing+and+Supply+Chain+Management+Monczka+Handfield">Purchasing &amp; Supply Chain Management — Monczka et al. (Amazon)</a></p>
+<figure class="fig viz">
+<svg viewBox="0 0 740 260" role="img" aria-label="Stacked bar comparison of two gelatin suppliers in dollars per usable kilogram: Supplier A's 180 dollar quote grows to 262 after freight and expiry surcharge; Supplier B's 210 dollar delivered price wins">
+<g font-size="10.5" fill="var(--muted)">
+<text x="140" y="228" text-anchor="middle">$0</text><text x="240" y="228" text-anchor="middle">$50</text><text x="340" y="228" text-anchor="middle">$100</text><text x="440" y="228" text-anchor="middle">$150</text><text x="540" y="228" text-anchor="middle">$200</text><text x="640" y="228" text-anchor="middle">$250</text>
+</g>
+<g stroke="currentColor" stroke-width="1" opacity=".12">
+<line x1="240" y1="40" x2="240" y2="212"/><line x1="340" y1="40" x2="340" y2="212"/><line x1="440" y1="40" x2="440" y2="212"/><line x1="540" y1="40" x2="540" y2="212"/><line x1="640" y1="40" x2="640" y2="212"/>
+</g>
+<line x1="140" y1="40" x2="140" y2="212" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="80" font-size="12" fill="currentColor" text-anchor="end" font-weight="600">Supplier A</text>
+<text x="130" y="96" font-size="10.5" fill="var(--muted)" text-anchor="end">MOQ 25 kg · EXW</text>
+<g>
+<rect x="140" y="62" width="358" height="40" fill="var(--s1)"/>
+<rect x="500" y="62" width="22" height="40" fill="var(--s2)"/>
+<rect x="524" y="62" width="138" height="40" fill="var(--s3)"/>
+</g>
+<text x="319" y="87" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="600">quoted $180</text>
+<text x="593" y="87" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="600">expiry +$70</text>
+<text x="511" y="54" font-size="10.5" fill="var(--muted)" text-anchor="middle">freight +$12</text>
+<text x="670" y="87" font-size="13" fill="currentColor" font-weight="700">$262</text>
+<text x="130" y="150" font-size="12" fill="currentColor" text-anchor="end" font-weight="600">Supplier B</text>
+<text x="130" y="166" font-size="10.5" fill="var(--muted)" text-anchor="end">MOQ 5 kg · DAP</text>
+<rect x="140" y="132" width="418" height="40" fill="var(--s1)"/>
+<text x="349" y="157" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="600">delivered price $210 — freight in, no expiry</text>
+<text x="566" y="157" font-size="13" fill="currentColor" font-weight="700">$210</text>
+<g font-size="10.5" fill="var(--muted)">
+<rect x="140" y="244" width="11" height="11" fill="var(--s1)"/><text x="156" y="253">quoted / delivered price</text>
+<rect x="310" y="244" width="11" height="11" fill="var(--s2)"/><text x="326" y="253">logistics</text>
+<rect x="400" y="244" width="11" height="11" fill="var(--s3)"/><text x="416" y="253">expiry surcharge</text>
+</g>
+<text x="440" y="34" font-size="12" fill="var(--muted)" text-anchor="middle">cost per USABLE kg, delivered</text>
+</svg>
+<figcaption>The cheaper sticker loses by $52/kg once the 25 kg MOQ (arriving with 9 of 12 months dating; ~7 kg expire at 2 kg/mo usage) and EXW freight are counted. "Per usable unit, delivered" is the only honest comparison.</figcaption>
+</figure>
+<ul class="read">
+<li><strong>TCO = acquisition + ownership + post-ownership</strong>; for perishables the killer hidden line is <strong>expiry loss</strong>.</li>
+<li><strong>Landed cost</strong> stacks freight, insurance, duty, brokerage, special handling, inbound QC on top of price.</li>
+<li><strong>Incoterms</strong> decide who pays and who carries risk — an EXW quote and a DAP quote are different products.</li>
+<li>Decision rule: <em>(landed cost + expected losses) ÷ units actually consumed</em>.</li>
+</ul>
+<div class="case"><b>Case — your world</b>Your shortlist's "Low-MOQ fit" column was TCO instinct before you had the name — the chart is that instinct with arithmetic attached, ready for a CFO.</div>
+<div class="task"><b>10-minute task</b>Sunday: a 10-row landed-cost sheet for one real item — price, freight, packaging, duty, inspection time at your loaded rate, expected expiry loss. Compare per usable unit.</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p>TCO buckets: <em>acquisition</em> (price, ordering effort, qualification cost), <em>ownership</em> (freight, duty, storage, inspection, yield loss, expiry), <em>post-ownership</em> (disposal, downstream failure costs). <dfn>Incoterms 2020</dfn> highlights: <dfn>EXW</dfn> (you own it at their door), <dfn>FOB</dfn> (loaded on vessel), <dfn>DAP/DDP</dfn> (delivered, duty unpaid/paid). Validated cold-chain packaging runs $50–300 per shipment and belongs in every biologics landed cost. Assumptions behind the chart: A's 25 kg at 2 kg/month with 9 months of dating on arrival → ~18 kg usable; $4,500 product + $220 freight over 18 usable kg ≈ $262.</p>
+</div></details>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Lysons &amp; Farrington · Leading Procurement Strategy. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Purchasing+and+Supply+Chain+Management+Monczka+Handfield">Monczka et al. (Amazon)</a></p>
 </div></details>
 
 <details class="lesson" id="l8"><summary><span class="lnum">L8</span><span class="lname">Acceptance sampling: deciding on a lot without testing it all</span><span class="ldom">Industrial Engineering</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>You can't inspect everything — testing may be destructive (very true for tissue) or just uneconomic. Acceptance sampling is the statistics of judging a whole lot from a sample, with known, chosen risks. It's the single most "new" high-value tool in your quality toolkit, and it's the heart of the CSQP/CQE exams.</p>
-<p class="k">The concepts</p>
-<p>A <dfn>lot</dfn> arrives; you inspect a random sample of <span class="mono">n</span>; if defects ≤ acceptance number <span class="mono">c</span>, the lot passes. <dfn>AQL (Acceptance Quality Limit)</dfn>: the worst defect rate you'd still call "acceptable on average" — a contract number, agreed with the supplier. Two mistakes are always possible: rejecting a good lot (<dfn>producer's risk, α</dfn>, usually ~5%) and accepting a bad one (<dfn>consumer's risk, β</dfn>, usually ~10%). The <dfn>OC curve (Operating Characteristic)</dfn> plots the probability of accepting a lot against its true defect rate — every sampling plan IS its OC curve, and reading one tells you exactly what protection you bought. <dfn>ANSI/ASQ Z1.4</dfn>: the standard lookup tables (lot size + inspection level → sample size code → n and c). <dfn>c=0 plans</dfn>: smaller samples but any single defect rejects — popular in med-device because "we accept some defects" reads badly. For your biologicals: destructive testing means sampling can't carry the load alone — so you shift assurance upstream: <dfn>CoA-based acceptance</dfn> (trust the supplier's measured certificate, verify their measurement system once) plus process audits, sampling only what's non-destructive (packaging, temperature logs, documentation, weights).</p>
-<div class="case"><b>Case — your world</b>500 fixation cassettes arrive. Z1.4, general inspection level II → code H → n=50, and at AQL 1.0% accept on ≤1 defect, reject on 2. You now know precisely what you're claiming — and reading the OC curve shows a lot that's truly 5% defective still passes ~28% of the time, which is why repeat offenders get <em>tightened</em> inspection, and why L1's SCAR loop exists.</div>
-<div class="task"><b>10-minute task</b>Sketch an OC curve freehand (x: true % defective; y: P(accept)) for "n=50, c=1" — just the shape. Mark where AQL and consumer's-risk points sit. If you can draw it, you understand it.</div>
-<p class="k">Read more</p>
-<p class="refs"><span class="own">ON YOUR DRIVE:</span> Acceptance Sampling in Quality Control (Schilling &amp; Neubauer) — the definitive text, you own it · CQE Handbook · SPC for Real-World Applications (Levinson). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Introduction+to+Statistical+Quality+Control+Montgomery">Montgomery, Intro to Statistical Quality Control (Amazon)</a></p>
+<figure class="fig">
+<svg viewBox="0 0 760 400" role="img" aria-label="Operating characteristic curve for a sample of 50 with acceptance number 1: probability of accepting a lot versus its true percent defective, with the AQL point at 1 percent passing 91 percent of the time and the consumer risk point near 7.5 percent">
+<g stroke="currentColor" stroke-width="1" opacity=".12">
+<line x1="70" y1="40" x2="690" y2="40"/><line x1="70" y1="110" x2="690" y2="110"/><line x1="70" y1="180" x2="690" y2="180"/><line x1="70" y1="250" x2="690" y2="250"/>
+</g>
+<line x1="70" y1="320" x2="690" y2="320" stroke="currentColor" stroke-width="1.2"/>
+<line x1="70" y1="40" x2="70" y2="320" stroke="currentColor" stroke-width="1.2"/>
+<g font-size="10.5" fill="var(--muted)" text-anchor="end">
+<text x="62" y="44">100%</text><text x="62" y="114">75%</text><text x="62" y="184">50%</text><text x="62" y="254">25%</text><text x="62" y="324">0%</text>
+</g>
+<g font-size="10.5" fill="var(--muted)" text-anchor="middle">
+<text x="70" y="338">0</text><text x="132" y="338">1</text><text x="194" y="338">2</text><text x="256" y="338">3</text><text x="318" y="338">4</text><text x="380" y="338">5</text><text x="442" y="338">6</text><text x="504" y="338">7</text><text x="566" y="338">8</text><text x="628" y="338">9</text><text x="690" y="338">10</text>
+</g>
+<path d="M 70.0 40.0 L 82.4 41.3 L 94.8 44.8 L 107.2 50.2 L 119.6 57.1 L 132.0 65.0 L 144.4 73.7 L 156.8 82.9 L 169.2 92.4 L 181.6 102.0 L 194.0 111.6 L 206.4 121.0 L 218.8 130.3 L 231.2 139.2 L 243.6 147.9 L 256.0 156.1 L 268.4 164.0 L 280.8 171.5 L 293.2 178.6 L 305.6 185.3 L 318.0 191.6 L 330.4 197.5 L 342.8 203.0 L 355.2 208.2 L 367.6 213.0 L 380.0 217.5 L 392.4 221.6 L 404.8 225.5 L 417.2 229.0 L 429.6 232.3 L 442.0 235.4 L 454.4 238.2 L 466.8 240.8 L 479.2 243.2 L 491.6 245.4 L 504.0 247.4 L 516.4 249.3 L 528.8 251.0 L 541.2 252.6 L 553.6 254.0 L 566.0 255.3 L 578.4 256.5 L 590.8 257.7 L 603.2 258.7 L 615.6 259.6 L 628.0 260.5 L 640.4 261.2 L 652.8 262.0 L 665.2 262.6 L 677.6 263.2 L 690.0 263.7" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+<circle cx="132" cy="65" r="5.5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="146" y="60" font-size="11.5" fill="currentColor" font-weight="600">AQL 1% → accepted 91% of the time</text>
+<text x="146" y="75" font-size="10.5" fill="var(--muted)">(producer's risk α ≈ 9%)</text>
+<circle cx="380" cy="242" r="5.5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="368" y="250" font-size="11.5" fill="currentColor" font-weight="600" text-anchor="end">a 5%-defective lot STILL passes 28% of the time</text>
+<text x="368" y="265" font-size="10.5" fill="var(--muted)" text-anchor="end">— why repeat offenders get tightened inspection (L1)</text>
+<circle cx="535" cy="291" r="5.5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="540" y="282" font-size="11.5" fill="currentColor" font-weight="600">consumer's risk β = 10% at ~7.5%</text>
+<text x="380" y="368" font-size="12" fill="var(--muted)" text-anchor="middle">true lot % defective — plan: n = 50, accept if ≤ 1 defect  (Z1.4: lot 281–500, level II, AQL 1.0)</text>
+<text x="30" y="180" font-size="12" fill="var(--muted)" text-anchor="middle" transform="rotate(-90 30 180)">chance the plan ACCEPTS the lot</text>
+</svg>
+<figcaption>Every sampling plan IS its OC curve — computed here, not sketched. You choose the curve; the curve states exactly what protection you bought.</figcaption>
+</figure>
+<ul class="read">
+<li>Inspect <span class="mono">n=50</span> at random; accept if defects ≤ <span class="mono">c=1</span> — the whole plan.</li>
+<li><strong>AQL</strong> is a contract number: "this defect rate should almost always pass." <strong>α</strong> = good lots wrongly rejected; <strong>β</strong> = bad lots wrongly passed.</li>
+<li>The middle dot is the humbling one: sampling is a screen, not a wall — which is why it pairs with supplier process control, not replaces it.</li>
+<li>Destructive tissue testing → shift assurance upstream: <strong>CoA-based acceptance</strong> + supplier audits; sample the non-destructive (docs, temps, weights, packaging).</li>
+</ul>
+<div class="case"><b>Case — your world</b>500 fixation cassettes arrive: Z1.4 level II → code H → n=50, Ac=1/Re=2 at AQL 1.0. You can now state exactly what "accepted" means — and defend it to a customer auditor.</div>
+<div class="task"><b>10-minute task</b>Without looking, sketch this curve's shape freehand and mark AQL and β. If you can draw it, you own it.</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p><dfn>ANSI/ASQ Z1.4</dfn>: lot size + inspection level → sample-size code letter → n and c; includes normal/tightened/reduced switching rules that operationalize supplier trust. <dfn>c=0 plans</dfn> (Squeglia): smaller n, any defect rejects — popular in med-device optics. <dfn>Variables plans (Z1.9)</dfn> use measurements instead of pass/fail for smaller samples. For research-grade biologicals: CoA-based acceptance (verify the supplier's measurement system once — MSA — then trust-but-trend their numbers), skip-lot for proven suppliers, 100% inspection only where non-destructive and cheap.</p>
+</div></details>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Acceptance Sampling in Quality Control (Schilling &amp; Neubauer) — the definitive text · CQE Handbook · SPC for Real-World Applications (Levinson). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Introduction+to+Statistical+Quality+Control+Montgomery">Montgomery (Amazon)</a></p>
 </div></details>
 
 <details class="lesson" id="l9"><summary><span class="lnum">L9</span><span class="lname">P2P and the three-way match: the plumbing of buying</span><span class="ldom">Business Analysis / ERP</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>You mapped P2P at Navy scale; now you live inside it as the buyer. The <dfn>P2P (Procure-to-Pay)</dfn> cycle is the same everywhere, and its control heart — the three-way match — is what auditors check first, especially when one person does everything.</p>
-<p class="k">The concepts</p>
-<p>The chain: <dfn>PR (Purchase Requisition)</dfn> — the internal "we need this," with approval; <dfn>PO (Purchase Order)</dfn> — the external, legally binding order (in SAP, its T&amp;Cs govern unless a contract exists); <dfn>GR (Goods Receipt)</dfn> — the recorded "it arrived, this much, this condition"; <dfn>IR (Invoice Receipt)</dfn> — the supplier's bill entered against the PO. The <dfn>three-way match</dfn>: before anyone pays, PO = GR = Invoice must agree in item, quantity, and price within tolerance; mismatches become <em>exceptions</em> a human resolves. Why it matters: it's the structural control against paying for what never arrived, duplicate invoices, and price creep. <dfn>Blanket PO</dfn>: one approved order releasing many deliveries — your tool for split deliveries (L7). <dfn>Segregation of duties</dfn>: ideally the person who orders ≠ receives ≠ pays; as a one-person function you ARE all three, so you design compensating controls: documented approvals above a threshold, someone else clicking GR, a monthly exception review someone else sees. Write that one page now, and a future customer audit finds a control environment instead of a shrug.</p>
-<div class="case"><b>Case — your world</b>Invoice arrives for 10 kg; GR says 8 kg (2 kg short-shipped). Without a match: paid in full, loss invisible, supplier never corrects. With it: exception blocks payment, credit memo requested — and the shortage lands in supplier scorecard data (L1/L2 chaining again).</div>
-<div class="task"><b>10-minute task</b>BPMN-sketch your company's actual P2P in 8–12 boxes, mark who does each step, and circle every step where you're both actor and checker. Each circle gets a compensating control. (This is a Stage 2 deliverable seed.)</div>
-<p class="k">Read more</p>
-<p class="refs"><span class="own">ON YOUR DRIVE:</span> Procurement Principles and Management in the Digital Age (Baily et al., 12th ed.) · Lysons &amp; Farrington. Free: SAP Learning Journey "Sourcing and Procurement in S/4HANA" at learning.sap.com.</p>
+<figure class="fig">
+<svg viewBox="0 0 760 330" role="img" aria-label="Procure-to-pay swimlanes: requester raises PR and approves, buyer issues PO and records goods receipt, finance enters the invoice and runs the three-way match before paying; boxes Oscar currently occupies are highlighted">
+<defs><marker id="ar9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+<g stroke="currentColor" stroke-width="1" opacity=".35" fill="none">
+<rect x="8" y="30" width="744" height="88" rx="6"/>
+<rect x="8" y="124" width="744" height="88" rx="6"/>
+<rect x="8" y="218" width="744" height="88" rx="6"/>
+</g>
+<g font-size="10.5" fill="var(--muted)">
+<text x="16" y="46">R&amp;D / REQUESTER</text>
+<text x="16" y="140">BUYER — you</text>
+<text x="16" y="232">FINANCE</text>
+</g>
+<g fill="none" stroke="currentColor" stroke-width="1.5">
+<rect x="60" y="58" width="96" height="46" rx="7"/>
+<rect x="188" y="58" width="136" height="46" rx="7" stroke="var(--warn)" stroke-width="2"/>
+<rect x="196" y="152" width="96" height="46" rx="7" stroke="var(--warn)" stroke-width="2"/>
+<rect x="372" y="152" width="126" height="46" rx="7" stroke="var(--warn)" stroke-width="2"/>
+<rect x="380" y="246" width="96" height="46" rx="7"/>
+</g>
+<path d="M 588 224 L 650 258 L 588 292 L 526 258 Z" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<rect x="676" y="238" width="72" height="42" rx="7" fill="none" stroke="var(--ok)" stroke-width="2"/>
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="108" y="78">PR raised</text><text x="108" y="93" font-size="10.5" fill="var(--muted)">"we need this"</text>
+<text x="256" y="78">Approval ≥ threshold</text><text x="256" y="93" font-size="10.5" fill="var(--warn)">should NOT be you</text>
+<text x="244" y="172">PO issued</text><text x="244" y="187" font-size="10.5" fill="var(--muted)">legally binding</text>
+<text x="435" y="172">GR recorded</text><text x="435" y="187" font-size="10.5" fill="var(--muted)">arrived · qty · condition</text>
+<text x="428" y="266">IR entered</text><text x="428" y="281" font-size="10.5" fill="var(--muted)">supplier's bill</text>
+<text x="588" y="254">3-way</text><text x="588" y="268">match?</text>
+<text x="712" y="264" fill="var(--ok)" font-weight="600">PAY</text>
+</g>
+<g stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#ar9)">
+<line x1="156" y1="81" x2="192" y2="81"/>
+<path d="M 256 104 L 256 134 L 244 134 L 244 148"/>
+<line x1="292" y1="175" x2="376" y2="175"/>
+<path d="M 435 198 L 435 222 L 428 222 L 428 242"/>
+<line x1="476" y1="266" x2="522" y2="262"/>
+<line x1="650" y1="258" x2="672" y2="258"/>
+</g>
+<path d="M 588 224 L 588 175 L 494 175" fill="none" stroke="var(--bad)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ar9)"/>
+<text x="600" y="190" font-size="10.5" fill="var(--bad)">mismatch → exception,</text>
+<text x="600" y="204" font-size="10.5" fill="var(--bad)">payment blocked</text>
+<text x="588" y="316" font-size="10.5" fill="var(--muted)" text-anchor="middle">match rule: PO = GR = Invoice (item · qty · price, within tolerance)</text>
+<text x="380" y="132" font-size="10.5" fill="var(--warn)" text-anchor="start">⚠ amber boxes = all you today → design compensating controls</text>
+</svg>
+<figcaption>The three-way match is the structural control against paying for what never arrived. When one person holds every amber box, the controls must be designed, not assumed.</figcaption>
+</figure>
+<ul class="read">
+<li><strong>PR → PO → GR → IR → match → pay</strong>: the same cycle at your company and at NAVSUP scale.</li>
+<li>The match blocks: wrong quantity, wrong price, duplicate invoices — and generates the exception data your scorecard (L1) eats.</li>
+<li><strong>Blanket PO</strong>: one approval, many releases — the split-delivery tool L6 and L7 both reached for.</li>
+<li><strong>Segregation of duties</strong>: order ≠ receive ≠ pay. As a one-person function, write your compensating controls down <em>before</em> a customer auditor asks.</li>
+</ul>
+<div class="case"><b>Case — your world</b>Invoice 10 kg, GR 8 kg → without a match: paid in full, loss invisible. With it: payment blocked, credit memo, and the short-ship lands in the supplier's OTD data.</div>
+<div class="task"><b>10-minute task</b>BPMN-sketch your actual P2P in 8–12 boxes, mark who does each step, circle every step where you're both actor and checker, and write one compensating control per circle. (Stage 2 deliverable seed.)</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p><dfn>PR (Purchase Requisition)</dfn>: internal request with approval. <dfn>PO (Purchase Order)</dfn>: the binding external order; its T&amp;Cs govern absent a contract. <dfn>GR (Goods Receipt)</dfn>: recorded arrival — quantity and condition. <dfn>IR (Invoice Receipt)</dfn>: the bill entered against the PO. Three-way match tolerance policy (e.g., ±2% price, ±5% qty) is a design decision. Compensating controls for a sole buyer: documented approvals above a threshold, a different person clicking GR, monthly exception review someone else signs, and an audit trail (your ERP does this if you let it).</p>
+</div></details>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Baily et al. 12th ed. · Lysons &amp; Farrington. Free: SAP Learning Journey "Sourcing and Procurement in S/4HANA" (learning.sap.com).</p>
 </div></details>
 
 <details class="lesson" id="l10"><summary><span class="lnum">L10</span><span class="lname">BATNA: negotiating when you're the small buyer</span><span class="ldom">Business Strategy</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>Negotiation power isn't volume or charm — it's your <dfn>BATNA (Best Alternative To a Negotiated Agreement)</dfn>: what you'll actually do if this deal falls through. Whoever has the better walk-away wins the terms. Sole-source buying with no leverage is the hardest setting there is, which is why method matters more for you than for anyone at a big company.</p>
-<p class="k">The concepts</p>
-<p><dfn>Reservation point</dfn>: the worst deal you'd still accept — decided <em>before</em> the conversation, from your BATNA, never during it. <dfn>ZOPA (Zone Of Possible Agreement)</dfn>: the overlap between your reservation point and theirs; if it's empty, no skill closes the deal. The prep insight: <em>improve your BATNA before the table</em> — qualifying a second source (even partially) moves your reservation point and changes the deal without a word spoken; that's why L2's bottleneck strategy and this lesson are the same project. <dfn>Distributive vs. integrative</dfn>: haggling over one number (price) splits a fixed pie; adding issues — volume commitment, capacity reservation, lead time, payment terms, lot dating, forecast sharing — lets you <em>trade things you value cheaply for things they value dearly</em>, growing the pie. Small buyers win integratively, almost never distributively. <dfn>Anchoring</dfn>: the first number placed shapes the whole range; when you have data (your L7 landed-cost model, a PPI index), anchor first with justification; when you don't, don't. And always: the relationship survives the deal — you'll need this supplier next quarter.</p>
-<div class="case"><b>Case — your world</b>Sole-source renewal, they open with +12% "inflation." Distributive response (argue to +8%) leaves you a nuisance account paying more. Integrative: "I can commit to 12 months of volume and share our quarterly forecast; in exchange, hold pricing at +4% (PPI for your inputs is +3.1%) and reserve two production slots per quarter." You traded certainty (cheap for you, valuable for a small maker) for price and capacity (what you actually need). Your Smithfield SLA instincts already work this way — now it has names.</div>
-<div class="task"><b>10-minute task</b>Sunday: the one-page plan for your next real renewal — BATNA (honest), reservation point, your target, three tradeable issues with what each is worth to each side, your anchor and its data.</div>
-<p class="k">Read more</p>
-<p class="refs"><span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Getting+to+Yes+Fisher+Ury+Patton">Getting to Yes — Fisher &amp; Ury (Amazon)</a> — the canon, read it this month · <a href="https://www.amazon.com/s?k=Never+Split+the+Difference+Chris+Voss">Never Split the Difference — Voss (Amazon)</a> — the tactical layer. Free: U. Michigan "Successful Negotiation" on Coursera.</p>
+<figure class="fig">
+<svg viewBox="0 0 740 230" role="img" aria-label="ZOPA number line for a price-increase negotiation: seller's minimum near plus 3.5 percent, buyer's maximum plus 8 percent, the zone of possible agreement shaded between them; anchors at plus 4 and plus 12 percent and a settlement dot at plus 4.5">
+<rect x="221" y="70" width="207" height="56" fill="var(--accent-soft)"/>
+<text x="324" y="60" font-size="12" fill="var(--accent-ink)" text-anchor="middle" font-weight="700">ZOPA — deals both can live with</text>
+<line x1="60" y1="126" x2="704" y2="126" stroke="currentColor" stroke-width="1.5"/>
+<g font-size="10.5" fill="var(--muted)" text-anchor="middle">
+<text x="60" y="146">0%</text><text x="152" y="146">+2</text><text x="244" y="146">+4</text><text x="336" y="146">+6</text><text x="428" y="146">+8</text><text x="520" y="146">+10</text><text x="612" y="146">+12</text><text x="704" y="146">+14</text>
+</g>
+<g stroke="currentColor" stroke-width="2">
+<line x1="221" y1="112" x2="221" y2="140"/>
+<line x1="428" y1="112" x2="428" y2="140"/>
+</g>
+<text x="221" y="104" font-size="11" fill="currentColor" text-anchor="middle">their walk-away ≈ +3.5% (your estimate)</text>
+<text x="428" y="164" font-size="11" fill="currentColor" text-anchor="middle">your reservation point = +8%</text>
+<text x="428" y="179" font-size="10.5" fill="var(--muted)" text-anchor="middle">set by your BATNA: alternate source, ~6 months to qualify</text>
+<circle cx="244" cy="126" r="6" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>
+<text x="244" y="196" font-size="11" fill="var(--accent-ink)" text-anchor="middle" font-weight="600">your anchor: +4%</text>
+<text x="244" y="211" font-size="10.5" fill="var(--muted)" text-anchor="middle">justified: PPI for their inputs +3.1%</text>
+<circle cx="612" cy="126" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="612" y="104" font-size="11" fill="currentColor" text-anchor="middle">their anchor: +12% "inflation"</text>
+<circle cx="267" cy="126" r="7" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
+<text x="282" y="86" font-size="11" fill="var(--ok)" font-weight="700">settled +4.5%</text>
+<text x="380" y="222" font-size="10.5" fill="var(--muted)" text-anchor="middle">closed by trading: 12-mo volume commitment + quarterly forecasts  ⇄  price hold + 2 reserved production slots/quarter</text>
+</svg>
+<figcaption>Both reservation points are private — you estimate theirs, and yours is set by your BATNA before the meeting, never during it. The trade beneath the line is what actually closed the gap.</figcaption>
+</figure>
+<div class="tablewrap"><table>
+<thead><tr><th>Tradeable issue</th><th>Costs you</th><th>Worth to a small supplier</th></tr></thead>
+<tbody>
+<tr><td>12-month volume commitment</td><td>Little (you'll buy anyway)</td><td>A lot — plannable revenue</td></tr>
+<tr><td>Quarterly forecast sharing</td><td>An email</td><td>Production planning gold</td></tr>
+<tr><td>Faster payment terms (Net 15)</td><td>Some cash timing</td><td>Real cash-flow relief</td></tr>
+<tr><td>Case-study / reference rights</td><td>Nothing</td><td>Marketing they can't buy</td></tr>
+<tr><td>← Capacity reservation, price hold, lot dating, priority allocation</td><td colspan="2">…what you ask for in exchange</td></tr>
+</tbody>
+</table></div>
+<ul class="read">
+<li><strong>BATNA</strong> sets your reservation point; improving it (partially qualifying an alternate) changes the deal without a word spoken — L2's bottleneck strategy and this lesson are the same project.</li>
+<li>Empty <strong>ZOPA</strong> = no deal any skill can close; find out early.</li>
+<li>Small buyers win <strong>integratively</strong> (multi-issue trades), almost never distributively (price haggling).</li>
+<li><strong>Anchor first only when you have data</strong> (your L7 model, a PPI index); otherwise don't.</li>
+</ul>
+<div class="case"><b>Case — your world</b>The figure IS the case: their +12% opener, your data-anchored +4%, settlement at +4.5% with the capacity reservation you actually needed. Certainty is cheap for you and precious to a small maker — that asymmetry is your whole negotiating endowment.</div>
+<div class="task"><b>10-minute task</b>Sunday: the one-page plan for your next real renewal — honest BATNA, reservation point, target, three trades from the table, your anchor and its data.</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p><dfn>BATNA (Best Alternative To a Negotiated Agreement)</dfn>: what you'll actually do if talks fail. <dfn>Reservation point</dfn>: worst acceptable deal, derived from BATNA before the table. <dfn>ZOPA (Zone Of Possible Agreement)</dfn>: overlap of the two reservation points. <dfn>Distributive vs. integrative</dfn>: claiming a fixed pie vs. growing it with multi-issue trades. <dfn>Anchoring</dfn>: first credible number shapes the range. Relationship rule: you need this supplier next quarter — the deal must leave them wanting your account.</p>
+</div></details>
+<p class="refs"><span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Getting+to+Yes+Fisher+Ury+Patton">Getting to Yes (Amazon)</a> — read this month · <a href="https://www.amazon.com/s?k=Never+Split+the+Difference+Chris+Voss">Never Split the Difference (Amazon)</a>. Free: U. Michigan "Successful Negotiation" (Coursera).</p>
 </div></details>
 
 <details class="lesson" id="l11"><summary><span class="lnum">L11</span><span class="lname">Your first hour of SQL — you already think in it</span><span class="ldom">Data Analytics &amp; AI</span></summary><div class="lbody">
-<p class="k">The idea</p>
-<p>SQL (Structured Query Language) is how you ask questions of databases directly — no export, no workbook limits. Here's the secret: <strong>you already know the concepts from Power Query</strong>; only the words change. This lesson is a translation table plus 30 minutes of typing.</p>
-<p class="k">The translation table</p>
-<p>A <dfn>table</dfn> = a Power Query table (rows/columns). <span class="mono">SELECT col1, col2 FROM table</span> = "Choose Columns." <span class="mono">WHERE condition</span> = "Filter Rows." <span class="mono">GROUP BY supplier</span> + <span class="mono">AVG(x)</span> = "Group By" with an aggregation. <span class="mono">JOIN</span> = "Merge Queries" — <span class="mono">LEFT JOIN</span> is exactly Power Query's default left outer merge, matching rows from a second table by key and keeping all of the first. <span class="mono">ORDER BY</span> = sort. That's 80% of daily SQL. The genuinely new ideas come later (window functions, CTEs — Sprint 3+); today is proving to yourself the wall is paper.</p>
-<div class="case"><b>Case — your world</b>The supplier OTD query you'd want:<br><span class="mono">SELECT s.name, COUNT(*) AS receipts,<br>&nbsp;&nbsp;AVG(CASE WHEN r.received_date &lt;= r.promised_date THEN 1.0 ELSE 0 END) AS otd_rate<br>FROM receipts r JOIN suppliers s ON r.supplier_id = s.id<br>WHERE r.received_date &gt;= '2026-01-01'<br>GROUP BY s.name ORDER BY otd_rate;</span><br>Read it aloud in Power Query terms and notice you understood every line.</div>
-<div class="task"><b>30-minute task (this IS the lesson)</b>Do <a href="https://sqlbolt.com">SQLBolt</a> lessons 1–6 in the browser — free, nothing to install, interactive. Stop when the timer ends; Sprint 2 continues from wherever you are.</div>
-<p class="k">Read more</p>
-<p class="refs"><span class="own">ON YOUR DRIVE:</span> Python for Data Analysis (McKinney) — for when pandas enters in Sprint 3. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Learning+SQL+Alan+Beaulieu">Learning SQL — Beaulieu (Amazon)</a>. Free: Mode Analytics SQL tutorial.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>You know it as (Power Query)</th><th>SQL says</th><th>Plain English</th></tr></thead>
+<tbody>
+<tr><td>Choose Columns</td><td class="mono">SELECT name, otd_rate</td><td>keep these columns</td></tr>
+<tr><td>Filter Rows</td><td class="mono">WHERE received &gt;= '2026-01-01'</td><td>keep these rows</td></tr>
+<tr><td>Merge Queries (left outer)</td><td class="mono">LEFT JOIN suppliers s ON r.supplier_id = s.id</td><td>match a second table by key, keep all of the first</td></tr>
+<tr><td>Group By + aggregate</td><td class="mono">GROUP BY s.name … AVG(x), COUNT(*)</td><td>collapse groups into summary rows</td></tr>
+<tr><td>Sort</td><td class="mono">ORDER BY otd_rate</td><td>sort the result</td></tr>
+</tbody>
+</table></div>
+<figure class="fig">
+<svg viewBox="0 0 740 240" role="img" aria-label="Anatomy of a SQL query: each clause of a supplier on-time-delivery query annotated with its Power Query equivalent">
+<g font-family="IBM Plex Mono,monospace" font-size="12.5" fill="currentColor">
+<text x="30" y="48">SELECT s.name, COUNT(*) AS receipts,</text>
+<text x="30" y="70">  AVG(CASE WHEN r.received &lt;= r.promised</text>
+<text x="30" y="92">      THEN 1.0 ELSE 0 END) AS otd_rate</text>
+<text x="30" y="122">FROM receipts r</text>
+<text x="30" y="144">JOIN suppliers s ON r.supplier_id = s.id</text>
+<text x="30" y="174">WHERE r.received &gt;= '2026-01-01'</text>
+<text x="30" y="196">GROUP BY s.name</text>
+<text x="30" y="218">ORDER BY otd_rate;</text>
+</g>
+<g font-size="11" fill="var(--accent-ink)">
+<text x="500" y="48">← choose columns</text>
+<text x="500" y="81">← a computed column:</text>
+<text x="512" y="95">"1 if on time" then averaged = OTD %</text>
+<text x="500" y="122">← the main table</text>
+<text x="500" y="144">← Merge Queries</text>
+<text x="500" y="174">← Filter Rows</text>
+<text x="500" y="196">← Group By</text>
+<text x="500" y="218">← Sort</text>
+</g>
+<line x1="480" y1="30" x2="480" y2="228" stroke="currentColor" stroke-width="1" opacity=".2"/>
+</svg>
+<figcaption>The supplier-OTD query, annotated. Read the left column aloud in Power Query terms — you understood every line.</figcaption>
+</figure>
+<ul class="read">
+<li>Tables are Power Query tables; the five clauses above are 80% of daily SQL.</li>
+<li>The genuinely new material (window functions, CTEs) waits for Sprint 3 — today is proving the wall is paper.</li>
+</ul>
+<div class="task"><b>30-minute task (this IS the lesson)</b>Do <a href="https://sqlbolt.com">SQLBolt</a> lessons 1–6 in the browser — free, interactive, nothing to install. Stop at the timer; Sprint 2 continues from wherever you are.</div>
+<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
+<p>SQL (Structured Query Language) queries databases directly — no exports, no workbook row limits, and it feeds Power BI natively (import mode or DirectQuery). Concept mapping is exact: merge=JOIN, group=GROUP BY, filter=WHERE, custom column=CASE expression. Later sprints add: window functions (running totals, rankings — the LMS-Light banding logic in one clause), CTEs (named intermediate steps, like query steps), and star-schema modeling discipline.</p>
+</div></details>
+<p class="refs"><span class="own">ON YOUR DRIVE:</span> Python for Data Analysis (McKinney) — for Sprint 3's pandas. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Learning+SQL+Alan+Beaulieu">Learning SQL — Beaulieu (Amazon)</a>. Free: Mode Analytics SQL tutorial.</p>
 </div></details>
 </section>
+
 
 <section id="certs">
 <p class="eyebrow">§ 4</p>
