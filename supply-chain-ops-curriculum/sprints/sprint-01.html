@@ -122,6 +122,12 @@ details.depth>summary::-webkit-details-marker{display:none}
 details.depth>summary::before{content:"▸ "; }
 details.depth[open]>summary::before{content:"▾ "}
 details.depth .dpb{padding:2px 13px 10px; border-top:1px solid var(--line-soft); font-size:.92rem}
+.gloss{background:var(--ground); border:1px solid var(--line-soft); border-radius:8px; padding:10px 14px; margin-top:12px; font-size:.9rem}
+.gloss b.gt{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-ink); display:block; margin-bottom:6px}
+.gloss dl{margin:0; display:grid; grid-template-columns:max-content 1fr; gap:3px 14px}
+.gloss dt{font-weight:600; white-space:nowrap}
+.gloss dd{margin:0; color:var(--muted)}
+@media (max-width:560px){.gloss dl{grid-template-columns:1fr} .gloss dt{margin-top:5px}}
 .sod{display:inline-block; min-width:24px; text-align:center; border-radius:5px; padding:1px 5px; font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:.8rem}
 table.fmea td{font-size:.87rem}
 footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font-size:.83rem; color:var(--muted); max-width:74ch}
@@ -265,7 +271,7 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 <section id="lessons">
 <p class="eyebrow">§ 3</p>
 <h2>The eleven lessons</h2>
-<p class="lede">One per domain, ~25–30 min each. New format: the picture first, then how to read it, then the case and task. The full write-up from before lives under "Depth" in each lesson — nothing was cut. <span style="color:var(--ok);font-weight:600">ON YOUR DRIVE</span> marks books you already own.</p>
+<p class="lede">One per domain. The core loop is still ~25–30 min: picture → how to read it → case → task. Below each, a <em>Terms &amp; acronyms</em> box defines everything used in the lesson, and "Depth" now opens a full mini-chapter (~15 extra min when you want it — theory, second-layer concepts, common mistakes, and how it connects to the other lessons). <span style="color:var(--ok);font-weight:600">ON YOUR DRIVE</span> marks books you already own.</p>
 
 <details class="lesson" id="l1"><summary><span class="lnum">L1</span><span class="lname">The supplier quality loop: NCR → 8D → SCAR → CAPA</span><span class="ldom">Supplier Engineering</span></summary><div class="lbody">
 <figure class="fig">
@@ -314,8 +320,35 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>A gelatin lot's CoA shows 210 Bloom against a 250 spec. NCR → quarantine → return. Second occurrence in 3 months → SCAR; the supplier's 8D finds no in-process Bloom check; they add one. Your next 5 CoAs confirm it held — loop closed, and the whole story is three rows in your NCR log.</div>
 <div class="task"><b>10-minute task</b>Design your NCR log columns (date, item, lot, supplier, problem, containment, disposition, SCAR? Y/N, status, closed date). That sheet is the seed of your company's quality system.</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p><dfn>NCR</dfn>: the written record that something didn't meet spec — what, which lot, how found. <dfn>Containment</dfn>: immediately fence off suspect material (quarantine shelf, hold label) so nobody uses it while you investigate. <dfn>Disposition</dfn>: the decision — <em>use-as-is</em> (deviation approved), <em>rework</em>, <em>return</em>, or <em>scrap</em>. <dfn>8D (Eight Disciplines)</dfn>: D1 team, D2 problem description, D3 containment, D4 root cause, D5 chosen corrective action, D6 implement, D7 prevent recurrence system-wide, D8 recognize the team. <dfn>SCAR</dfn>: the formal letter asking a supplier to run an 8D and report back — for serious or repeat problems, not every hiccup. <dfn>CAPA (Corrective and Preventive Action)</dfn>: the umbrella system tracking fixes to closure, including verification of effectiveness weeks later. <dfn>COPQ (Cost of Poor Quality)</dfn>: what failures cost in dollars — your prioritization language.</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>NCR</dt><dd>Nonconformance Report — the written record that material or a process failed a requirement</dd>
+<dt>Containment</dt><dd>Immediate action fencing off suspect material so it cannot be used (quarantine)</dd>
+<dt>Disposition</dt><dd>The decision on nonconforming material: use-as-is, rework, return, or scrap</dd>
+<dt>MRB</dt><dd>Material Review Board — the (small) group authorized to sign a disposition</dd>
+<dt>RCA</dt><dd>Root Cause Analysis — finding the underlying cause, not the symptom (your Apollo method)</dd>
+<dt>8D</dt><dd>Eight Disciplines — the standard problem-solving report format suppliers worldwide recognize</dd>
+<dt>ICA / PCA</dt><dd>Interim vs. Permanent Corrective Action — the stopgap vs. the real fix</dd>
+<dt>SCAR</dt><dd>Supplier Corrective Action Request — the formal letter requiring a supplier 8D</dd>
+<dt>CAPA</dt><dd>Corrective and Preventive Action — the tracking system that closes fixes and verifies them</dd>
+<dt>COPQ</dt><dd>Cost of Poor Quality — what failures cost in dollars (prevention, appraisal, internal &amp; external failure)</dd>
+<dt>Escape</dt><dd>A defect that got past a control that should have caught it — always its own second root cause</dd>
+<dt>Deviation / waiver</dt><dd>Documented, time-bound permission to use material outside spec</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">Every failure has two root causes</p>
+<p>The mistake most teams make is stopping at "why did the supplier ship bad material?" A mature loop always asks a second question: "why didn't <em>our</em> controls catch it before it mattered?" That second cause is the <dfn>escape point</dfn> — and fixing it is usually cheaper and more in your control than fixing the supplier. If the 210-Bloom lot reached the lab bench before anyone read the CoA, the escape is your intake process, and no SCAR fixes that.</p>
+<p class="k">The 8D disciplines, and what "good" looks like at each</p>
+<p>D1 <em>team</em> — even at a supplier of 12 people, ask who was on it; a one-name 8D is a form, not an investigation. D2 <em>problem description</em> — quantified (what, where, when, how many, how detected); vague D2s predict vague root causes. D3 <em>containment</em> — both sides: they quarantine their stock and in-process work, you quarantine yours. D4 <em>root cause</em> — demand evidence, not opinion ("we retrained the operator" without a cause analysis is the classic non-answer). D5/D6 <em>chosen and implemented corrective action</em> — dated, owned, verifiable. D7 <em>prevent recurrence</em> — the fix applied system-wide (other products, other lines), which separates good suppliers from box-checkers. D8 <em>recognition</em> — skip it externally, but note internally which suppliers investigate honestly: that's qualification gold.</p>
+<p class="k">Interim vs. permanent, and verification with teeth</p>
+<p>Accept an <dfn>ICA</dfn> (100% inspection at their dock, say) to keep supply moving, but never let it silently become permanent — log a due date for the PCA. Verification of effectiveness needs a defined method and window before you close: "next 5 lots' CoAs show in-process Bloom results" is verifiable; "supplier says it's fixed" is not. A CAPA closed without verification is the most common audit finding in every industry.</p>
+<p class="k">When NOT to issue a SCAR</p>
+<p>SCARs are a currency; overspend it and suppliers stop taking it seriously (and start hiding problems). Reserve formal SCARs for safety/major impact, repeats, or systemic smells. Everything else goes in the NCR log as trend data with a defined trigger — e.g., three minor NCRs from one supplier in a quarter escalates to a SCAR automatically. Written triggers protect the relationship: it's the rule escalating, not your mood.</p>
+<p class="k">COPQ — pricing the loop for executives</p>
+<p>Quality costs split into <em>prevention</em> (qualification, audits), <em>appraisal</em> (inspection, CoA review), <em>internal failure</em> (scrap, rework, retest), and <em>external failure</em> (a bad model reaching a customer — by far the most expensive). The old 1–10–100 rule of thumb: a dollar of prevention saves ten of appraisal and a hundred of failure. When you ask leadership for audit time or incoming-check equipment, frame it in COPQ — it's the same capital-justification language as your $50M portfolio, pointed at quality.</p>
+<p class="k">Even a three-person MRB matters</p>
+<p>Disposition authority should never be one person — not because you're untrustworthy, but because "use-as-is" decisions need R&amp;D's science and someone accountable for the customer consequence. A lightweight <dfn>MRB</dfn> at your size: you + a scientist + whoever owns the study. Put it in the procedure; a customer auditor will ask who can accept nonconforming material, and "Oscar decides alone" is the wrong answer even when Oscar decides well.</p>
+<p class="k">Connections</p>
+<p>NCR trend data feeds the supplier scorecard (Sprint 1.2) and the Occurrence and Detection scores of your FMEA (L5). Escapes drive your acceptance-plan design (L8). SCAR history is qualification evidence when customers audit you (Stage 2.1). Metrics worth tracking from day one: repeat-NCR rate per supplier, SCAR closure days, and COPQ per quarter.</p>
 </div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> ASQ CQE Handbook 5th ed. (corrective action chapters) · The Quality Toolbox (Tague). <span class="buy" style="color:var(--warn)">BUY:</span> <a href="https://www.amazon.com/s?k=Root+Cause+Analysis+Core+of+Problem+Solving+Duke+Okes">Root Cause Analysis — Duke Okes (Amazon)</a></p>
 </div></details>
@@ -363,8 +396,30 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>Your low-MOQ supplier hunt is textbook bottleneck strategy — you were doing it by instinct. The Sigma/Thermo ASL items deserve zero relationship energy; the tissue network deserves most of it.</div>
 <div class="task"><b>10-minute task</b>Place your top 10 purchased items on the 2×2. Mark each with today's actual behavior; circle every mismatch.</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p>Kraljic (HBR, 1983) remains the anchor framework of category management. <dfn>Routine</dfn>: minimize effort; catalogs, blanket POs. <dfn>Leverage</dfn>: buyer holds power; competitive bidding, easy switching. <dfn>Bottleneck</dfn>: buffer stock, alternate qualification, monitoring — accept paying a little more for certainty. <dfn>Strategic</dfn>: long-term agreements, top-to-top relationships, joint capacity planning; treat the supplier as an extension of the company. The matrix also drives risk segmentation (Sprint 1's FMEA targets = the right column) and negotiation posture (L10).</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>Kraljic matrix</dt><dd>The 2×2 (business impact × supply risk) that assigns each purchase a strategy quadrant</dd>
+<dt>Category</dt><dd>A family of similar purchases managed with one strategy (e.g., "biological raw materials")</dd>
+<dt>Category management</dt><dd>Running each category deliberately: profile → market analysis → strategy → actions</dd>
+<dt>Tail spend</dt><dd>The many tiny purchases that together are ~20% of spend but 80% of suppliers — automate them</dd>
+<dt>MOQ</dt><dd>Minimum Order Quantity — the smallest lot a supplier will sell</dd>
+<dt>LTA</dt><dd>Long-Term Agreement — a multi-period supply contract with agreed terms</dd>
+<dt>Dual sourcing</dt><dd>Keeping two qualified suppliers for one item, splitting volume</dd>
+<dt>Supplier preferencing</dt><dd>How suppliers rank YOUR account (core / development / exploitable / nuisance) — L3</dd>
+<dt>Switching cost</dt><dd>Everything it costs to change suppliers: requalification, validation, risk, time</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">Scoring the axes honestly (a working rubric)</p>
+<p>The matrix is only as good as its inputs, so score 1–5 on each axis instead of eyeballing. <em>Impact</em>: annual spend (1–5 by quintile) × criticality (would a 4-week outage stop a study? halve output? be an annoyance?). <em>Supply risk</em>: number of qualified sources (5 = sole source), time to qualify an alternate (5 = &gt;6 months), market volatility, geographic/biological concentration (one region, one herd, one donor network), and supplier fragility (tiny private firm). Multiply or average — consistency matters more than the formula. Re-score annually and whenever the business scales: your gelatin's dashed arrow is exactly this.</p>
+<p class="k">The strategies are verbs, not labels</p>
+<p><em>Routine</em>: consolidate suppliers, catalog/punch-out ordering, blanket POs, p-card, never spend meeting time. <em>Leverage</em>: run real competitions (RFQs, L-Sprint-2), switch without sentiment, push payment terms. <em>Bottleneck</em>: buffer within shelf life (L6), pre-qualify alternates before you need them, monitor supplier health, accept paying a premium for certainty — price pressure here is actively dangerous. <em>Strategic</em>: LTAs with capacity reservation, joint forecasting, top-to-top relationships, and supplier development (your kaizen skill) — you invest in these suppliers like internal assets.</p>
+<p class="k">Moving items between quadrants is the real game</p>
+<p>The matrix isn't static — the best category managers <em>move</em> items deliberately. Bottleneck → routine: standardize the spec so more suppliers qualify (is 250 Bloom truly required, or would 240–260 open three more makers?). Strategic → leverage: de-specify, split the item into a commodity part and a critical part. Risk reduction without a single negotiation — engineering as procurement strategy, which is precisely what a supplier <em>engineer</em> is for. The reverse also happens: volume growth drags routine items into leverage and bottleneck items into strategic, which is why the annual re-score matters.</p>
+<p class="k">Know the framework's limits</p>
+<p>Kraljic is two-dimensional and one-sided: it shows how you see suppliers, not how they see you — always pair it with preferencing (L3). It also says nothing about <em>how</em> to execute (that's negotiation, contracting, development). And beware the two classic abuses: classifying by spend alone (spend ≠ impact — a $2k adhesive can be your highest-risk item), and calling everything "strategic" because it feels important (if more than ~15% of items are strategic, your scoring is broken and your attention is diluted).</p>
+<p class="k">The one-page category strategy</p>
+<p>For each real category, one page: profile (items, spend, specs), supply market (structure per L3, main players, trend), current position (quadrant, preferencing guess), strategy (the verbs above), and 3–5 dated actions. Write the first one for biological raw materials this month and you'll have produced the document a sourcing interview asks for — "walk me through a category strategy you built" — with a real answer.</p>
+<p class="k">Connections</p>
+<p>Quadrants set negotiation posture (L10: integrative for strategic/bottleneck, competitive for leverage), risk priorities (L5 FMEAs belong to the right-hand column), buffer policy (L6 exists mainly for bottleneck items), and audit priority (Stage 2.2). The spend cube from Sprint 1.2 supplies the impact axis automatically.</p>
 </div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> Leading Procurement Strategy 3rd ed. (category strategy chapters). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Category+Management+in+Purchasing+Jonathan+O%27Brien">Category Management in Purchasing — O'Brien (Amazon)</a> · Kraljic's original HBR article (1983).</p>
 </div></details>
@@ -424,8 +479,31 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>Your tissue source is near-monopoly: haggling is pointless and can hurt. A 6-month forecast, on-time payment, and easy logistics move you from "nuisance" to "development" — worth more than any discount when supply gets tight.</div>
 <div class="task"><b>10-minute task</b>Top 3 suppliers, two words each: the structure you face; the box you occupy in their ranking. Any "monopoly + nuisance" pair is your most urgent relationship project.</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p>The spectrum runs <dfn>perfect competition</dfn> (many sellers, identical product, nobody sets prices) → <dfn>monopolistic competition</dfn> (many sellers, differentiated) → <dfn>oligopoly</dfn> (few sellers who watch each other) → <dfn>monopoly</dfn> (one seller sets terms). <dfn>Monopsony</dfn> is one powerful buyer — you are the opposite. <dfn>Switching costs</dfn>: requalification, revalidation, and risk of changing suppliers; high switching costs transfer power to the incumbent. <dfn>Supplier preferencing</dfn>: suppliers segment accounts as core / development / exploitable / nuisance based on attractiveness and value; small buyers win by account behavior, not volume.</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>Market structure</dt><dd>How many sellers exist and how differentiated they are — the shape that sets pricing power</dd>
+<dt>Perfect competition</dt><dd>Many sellers, identical product — nobody sets prices (office paper)</dd>
+<dt>Monopolistic competition</dt><dd>Many sellers, differentiated products — mild pricing power (branded plasticware)</dd>
+<dt>Oligopoly</dt><dd>A few sellers who watch each other — stable-ish prices, quiet coordination (couriers, instruments)</dd>
+<dt>Monopoly / monopsony</dt><dd>One seller sets terms / one buyer sets terms (you are neither — you're a small buyer)</dd>
+<dt>Five Forces</dt><dd>Porter's checklist of what makes a market profitable for its sellers — and expensive for you</dd>
+<dt>Switching costs</dt><dd>Your cost to change suppliers; high switching costs give the incumbent power over you</dd>
+<dt>Hold-up problem</dt><dd>Being squeezed by a supplier because they know your switching costs are high</dd>
+<dt>Supplier preferencing</dt><dd>Suppliers ranking accounts: core / development / exploitable / nuisance</dd>
+<dt>Customer of choice</dt><dd>The account suppliers protect in a shortage: easy, fast-paying, forecast-sharing, interesting</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">Five Forces, pointed at a supply market</p>
+<p>Porter built the framework for competitors; buyers use it in reverse — a market that's <em>good</em> for its sellers is <em>expensive</em> for you. Ask of each input market: How concentrated are suppliers? (few = power) How real is the threat of new entrants? (a growing NAMs market attracts them — good news for you) Do substitutes exist? (a different tissue source, a synthetic alternative — every substitute is negotiating leverage even if you never use it) How much buyer power exists? (little, at your size — unless buyers aggregate) How intense is rivalry? (rivals discount; comfortable oligopolies don't). Sketching this for your top category takes twenty minutes and predicts your next three years of price letters.</p>
+<p class="k">Where supplier power actually comes from</p>
+<p>Concentration is only the loudest source. The quieter ones: <em>differentiation</em> (their tissue-prep protocol is validated into your product — that's power they gained the day your validation finished); <em>your switching costs</em> (requalification months are a moat they didn't have to build); <em>your share of their revenue</em> (a supplier for whom you're 0.5% of sales can afford to lose you — one at 15% cannot; estimate this number for every critical supplier, it's the single best one-number power gauge); and <em>information asymmetry</em> (they know their costs, you don't — which is exactly what should-cost modeling attacks in Sprint 2).</p>
+<p class="k">The preferencing matrix, used deliberately</p>
+<p>Suppliers run the same portfolio logic you do. <em>Core</em>: big and pleasant — gets the best people, allocation priority, early warning of problems. <em>Development</em>: small but promising — gets investment because of what the account could become. <em>Exploitable</em>: big but painful — served at a premium with minimum effort. <em>Nuisance</em>: small and painful — last in every queue. You cannot change your size this year, so the levers are all on the "pleasant/promising" axis: pay exactly on time (be famous for it), send clean POs and forecasts (L9's machinery), make their logistics easy, and tell the story — a novel ex-vivo application riding the FDA's animal-testing-reduction wave is genuinely <em>interesting</em>, and niche suppliers fund interesting. Ask your rep outright: "what would make us a better customer for you?" The answer is a free map of their preferencing criteria.</p>
+<p class="k">Small-buyer price mechanics</p>
+<p>List price is the price for anonymous nuisance accounts. Distributors and manufacturers run tiers (volume, contract, institutional); a modest annual commitment often unlocks a tier your monthly ordering never will — the volume is identical, only the promise changed (that's L10's "trade certainty for terms" in its simplest form). Buying groups and consortium purchasing (common among labs and research institutions) are the structural version: aggregated demand converts many nuisance accounts into one core account. Worth one exploratory call.</p>
+<p class="k">When the answer isn't negotiation at all</p>
+<p>Against a true monopoly with rising prices, the economic answers are structural: qualify a substitute (change the input), redesign the spec (escape the differentiation moat), integrate (make it yourself — L7's make-vs-buy with a power motive), or buffer and wait (new entrants come to profitable markets). Recognizing which structure you face keeps you from spending relationship capital on a negotiation that structure has already decided.</p>
+<p class="k">Connections</p>
+<p>Market structure sets the Kraljic risk axis (L2) and the negotiation posture (L10). "Share of their revenue" feeds supplier financial-health screening (Stage 3.2). Preferencing moves are the relationship half of every bottleneck strategy.</p>
 </div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> Mankiw, Principles of Microeconomics (ch. 15–17). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Understanding+Michael+Porter+Joan+Magretta">Understanding Michael Porter — Magretta (Amazon)</a></p>
 </div></details>
@@ -504,8 +582,36 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>A partner ships tissue on dry ice; the box lacks the UN1845 label and net weight → FedEx rejects at the depot → 30 hours at ambient → dead tissue, slipped study. Cost of a missing $0.10 label: a $6,000 shipment.</div>
 <div class="task"><b>10-minute task</b>Classify three shipments in writing: (a) formalin-fixed tissue blocks, (b) fresh porcine organs on dry ice, (c) a suspect infectious human sample. Category, packing instruction, markings. ((a) likely exempt; (b) UN3373 + UN1845; (c) Category A — refuse until trained.)</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p><dfn>Category A</dfn> (UN2814 human / UN2900 animal): infectious substances capable of permanent disability or fatal disease — P620, restricted. <dfn>Category B</dfn> (UN3373): infectious but below that threshold — P650. <dfn>Exempt</dfn>: documented judgment by a trained person. <dfn>Triple packaging</dfn>: leakproof primary + absorbent, leakproof secondary, rigid outer. <dfn>Dry ice UN1845</dfn>: Class 9, vented package, net-weight marking. <dfn>IATA DGR</dfn> and <dfn>49 CFR</dfn> both require documented shipper training with 24-month recurrency — the compliance-floor course.</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>IATA</dt><dd>International Air Transport Association — airlines' trade body; its DGR rules govern air shipments</dd>
+<dt>DGR</dt><dd>Dangerous Goods Regulations — IATA's rulebook, updated annually</dd>
+<dt>49 CFR</dt><dd>Title 49, US Code of Federal Regulations — the DOT's ground/domestic transport rules</dd>
+<dt>DOT / PHMSA</dt><dd>US Department of Transportation / its Pipeline &amp; Hazardous Materials Safety Administration</dd>
+<dt>Category A</dt><dd>Infectious substance capable of permanent disability or life-threatening disease (UN2814 human / UN2900 animal)</dd>
+<dt>Category B</dt><dd>Infectious substance below the Category A threshold — UN3373, most research specimens</dd>
+<dt>UN number</dt><dd>The UN's four-digit dangerous-goods identifier (UN3373 biological substance; UN1845 dry ice)</dd>
+<dt>P620 / P650</dt><dd>The packing instructions for Category A / Category B respectively</dd>
+<dt>Triple packaging</dt><dd>Leakproof primary + absorbent, leakproof secondary, rigid outer</dd>
+<dt>Dry shipper</dt><dd>A liquid-nitrogen container whose LN2 is absorbed in a matrix — ships cryogenic without free liquid</dd>
+<dt>Excursion</dt><dd>Temperature going outside the allowed band during transport or storage</dd>
+<dt>APHIS</dt><dd>USDA's Animal and Plant Health Inspection Service — permits for animal-derived materials</dd>
+<dt>Chain of custody</dt><dd>The documented, unbroken record of who held the material, when</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">Who regulates what (the map nobody gives you)</p>
+<p>Four bodies touch one box. <em>IATA/ICAO</em> rule the air leg — airlines enforce the DGR at the counter, which is why FedEx rejects happen at depots. <em>DOT/PHMSA (49 CFR)</em> rule US ground transport and mirror IATA closely for biologics. <em>USDA APHIS</em> permits the movement of animal-derived materials (your porcine/bovine tissues — import permits, and interstate rules for some agents). <em>CDC</em> permits importation of human/etiologic agents. The shipper's certification you're booking covers the first two; the permit landscape for the second two belongs in your supplier qualification checklist — asking a tissue supplier "which APHIS permits do you hold?" is a qualification question most buyers never ask and every good supplier can answer instantly.</p>
+<p class="k">The exempt lane, done properly</p>
+<p>"Exempt" never means "unregulated" — it means a trained person judged the material out of scope and documented why. <em>Exempt human/animal specimens</em> (minimal likelihood of pathogens — fixed tissues, many research materials) still require triple-style packaging and the words "Exempt human specimen" or "Exempt animal specimen" on the box. Formalin-fixed blocks, DNA extracts, and non-infectious ex-vivo constructs typically ride this lane. Keep a one-line classification record per material type in your shipping SOP: material, classification, rationale, date, your name. That log is what turns "we think it's fine" into a defensible system.</p>
+<p class="k">Cold without dangerous goods: the LN2 dry shipper</p>
+<p>A charged <dfn>dry shipper</dfn> holds cryogenic temperature for days–weeks with the LN2 absorbed in a porous matrix — no free liquid, so a properly designed one is excepted from dangerous-goods rules (unlike wet LN2 or dry ice). For irreplaceable frozen material it's the gold standard: longer hold time than dry ice, no UN1845 marking, no venting worries. The trade: rental/logistics cost and charging discipline. Know it exists so you can specify it when a shipment's value justifies it.</p>
+<p class="k">Excursion response — decide before, not during</p>
+<p>The logger tells you the box hit 12°C for 6 hours; now what? Without a pre-written rule, the answer becomes an argument between schedule pressure and science. Your excursion playbook (Sprint 1's deliverable) should define per material: the allowed band, the stability data or rationale behind it, disposition authority (this is an NCR — L1's machinery, with the MRB deciding use-as-is vs. discard), and the claim path (carrier claims have short windows; the logger file is your evidence). Pre-agreed stability windows with the supplier ("viable if ≤8°C for ≤12h cumulative") convert excursions from debates into lookups.</p>
+<p class="k">Packaging qualification vs. per-shipment verification</p>
+<p>Two different assurances: a packout is <em>qualified</em> once (ISTA 7D-style thermal testing — or the vendor's qualification report for the shipper system, which you file) proving the box holds 2–8°C for 48h in summer/winter profiles; then each shipment is <em>verified</em> (right shipper, right coolant mass, logger included, dwell time within the qualified window). Buying qualified shippers and then packing them with half the gel packs is the classic failure — the SOP's packout diagram exists to prevent exactly that.</p>
+<p class="k">Carrier reality</p>
+<p>FedEx and UPS require an approved dangerous-goods agreement for Category A (many won't take it at all) and have their own packaging fine print for UN3373 and dry ice; specialty couriers (World Courier, Marken, QuickSTAT, BioCair) exist because milestone monitoring, contingency reicing, and customs handling matter more than price for live tissue. Your L7 landed-cost model prices the difference; a lost donor organ prices the alternative.</p>
+<p class="k">Connections</p>
+<p>Excursions flow into the NCR log (L1) and FMEA detection scores (L5). Courier qualification is supplier qualification (Stage 2.1) applied to a service. Cold-chain cost lives in every landed-cost model (L7). And the classification log is Exhibit A when a customer audits your shipping controls (Stage 2.1's dossier).</p>
 </div></details>
 <p class="refs">Free: IATA "Infectious Substances Shipping Guidelines" summary · CDC shipping guidance. Course: <a href="https://www.saftpak.com">Saf-T-Pak IATA training</a>. <span class="own">ON YOUR DRIVE:</span> Industrial Refrigeration Handbook (Stoecker) for cold-side physics.</p>
 </div></details>
@@ -550,8 +656,34 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>The three rows above are your starter supplier FMEA — notice each action points at another lesson in this sprint. That chaining is the whole design.</div>
 <div class="task"><b>10-minute task</b>Rewrite the three rows for your actual most-critical supplier: one material failure, one logistics failure, one business failure. Honest scores.</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p><dfn>FMEA (Failure Mode and Effects Analysis)</dfn> is the proactive twin of RCA. Classic <dfn>RPN</dfn> = S×O×D ranks priorities; the <dfn>AIAG-VDA</dfn> handbook replaced it with an Action Priority table because multiplication under-weights severity. Variants: design FMEA, process FMEA, and the supplier FMEA you'll run (failure modes across quote-to-delivery). Rules of craft: occurrence belongs to causes, not vague modes; detection scores your <em>current</em> controls; the document lives — review triggers include new lots, new processes, any SCAR.</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>FMEA</dt><dd>Failure Mode and Effects Analysis — systematic "how could this fail?" before it does</dd>
+<dt>DFMEA / PFMEA</dt><dd>Design FMEA (the product's design) / Process FMEA (the process that makes or supplies it)</dd>
+<dt>Failure mode</dt><dd>The specific way a function fails (a function, negated: "does not deliver 250 Bloom")</dd>
+<dt>Effect / cause</dt><dd>What the failure does downstream / the mechanism that produces it</dd>
+<dt>S / O / D</dt><dd>Severity of the effect · Occurrence of the cause · Detection (chance current controls catch it) — each 1–10</dd>
+<dt>RPN</dt><dd>Risk Priority Number = S×O×D — the classic ranking, now deprecated for under-weighting severity</dd>
+<dt>AP</dt><dd>Action Priority (High/Medium/Low) — the AIAG-VDA replacement where severity dominates</dd>
+<dt>AIAG / VDA</dt><dd>The US and German automotive quality associations whose joint handbook is the modern standard</dd>
+<dt>Prevention control</dt><dd>A control that stops the cause happening (supplier's in-process Bloom check)</dd>
+<dt>Detection control</dt><dd>A control that catches the failure before it hurts (your incoming test)</dd>
+<dt>Control plan</dt><dd>The document listing every control an FMEA decided you need — FMEA's output made operational</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">The discipline that makes FMEAs useful: mode ≠ cause ≠ effect</p>
+<p>Most bad FMEAs blur the three columns. Keep the chain mechanical: a <em>function</em> ("deliver gelatin at 250±10 Bloom"), its <em>failure mode</em> (the function negated: "Bloom below 240"), the <em>effect</em> downstream ("model stiffness out of spec → batch scrapped → study slips"), and the <em>cause</em> upstream ("no in-process Bloom verification at blending"). Severity belongs to the effect, occurrence to the cause, detection to your current controls — score the wrong column and the arithmetic is meaningless. One mode can have several causes; write them as separate rows, because they need different actions.</p>
+<p class="k">Prevention beats detection — and the scores say so</p>
+<p>Every action either lowers Occurrence (prevention: fix the cause — supplier adds the in-process check, spec gets a wider tolerance, dual source) or lowers Detection's number (detection: catch it — incoming test, CoA trend review, logger in the box). Prevention is almost always the better dollar: it removes risk, while detection just intercepts it, forever, at recurring cost. When your action list is all detection, you're taxing yourself annually for a problem the supplier could delete once — that observation, made politely with the FMEA on the table, is one of the most persuasive supplier-development conversations there is.</p>
+<p class="k">Scoring anchors (calibrate once, reuse forever)</p>
+<p>Write a half-page anchor table so scores mean the same thing next quarter: Severity — 10: safety/regulatory or customer study invalidated; 8: batch lost; 5: rework/delay days; 2: cosmetic. Occurrence — tie to data where you have it (your statistical strength): 8: seen quarterly or no control exists; 5: seen yearly; 2: never seen in 3+ years with a control in place. Detection — 10: no control could catch it before use; 7: catchable only by chance; 4: systematic check catches most; 1: automated/100% verification. Anchored scores are also defensible in front of a customer auditor — unanchored ones read as vibes.</p>
+<p class="k">Running it as a one-person function (without it becoming fiction)</p>
+<p>FMEA is designed as a team sport because one person's blind spots become the document's blind spots. Your lightweight version: draft rows yourself (you know the supply chain), then run a 45-minute review with one scientist (they know what severity really means for the model) and, when possible, the supplier's technical contact (they know occurrence honestly). Asking a supplier for <em>their</em> PFMEA is also a first-class qualification probe (Stage 2.1): mature suppliers hand you one; the silence of the others is itself data.</p>
+<p class="k">Keeping it alive</p>
+<p>Define revision triggers, or the FMEA dies the week after you write it: any SCAR (L1) — did the FMEA foresee it? If not, add the row and ask what else it's missing; any spec, supplier, or process change; the annual category review (L2). An FMEA whose Occurrence scores never move despite a year of NCR data isn't a risk tool, it's wall art.</p>
+<p class="k">Cousins worth knowing exist</p>
+<p>Bow-tie diagrams (one hazard, threats on the left, consequences on the right, barriers between) communicate a single big risk to executives better than any table. Fault trees work top-down from one catastrophic event with AND/OR logic. FMEA remains the workhorse because it's exhaustive and cheap — but for "the donor network fails" as a single scenario, a bow-tie one-pager (Stage 2.4's continuity work) will land harder in the boardroom.</p>
+<p class="k">Connections</p>
+<p>Detection scores are designed by your acceptance plan (L8). Occurrence scores are calibrated by NCR/CoA trend data (L1). High-AP rows generate quality-agreement clauses (Stage 2.1) and buffer decisions (L6). The whole table is the evidence spine of the risk register your role already owes leadership.</p>
 </div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> Supply Chain Risk Management (Schlegel &amp; Trent) · CQE Handbook (FMEA section). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=The+Basics+of+FMEA+McDermott">The Basics of FMEA — McDermott et al. (Amazon)</a></p>
 </div></details>
@@ -597,8 +729,35 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>The chart's numbers are the medium case: SS 6, ROP 18. Check dating: 18 units at 4/week must survive ~4.5 weeks — fine at 90-day dating, broken at 30. At 30 days, negotiate split deliveries on a blanket PO instead of holding stock (L9's tool).</div>
 <div class="task"><b>10-minute task</b>Sunday's applied slot: run the formula on one real item with rough numbers from memory. Wrong inputs are fine — own the machinery.</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p><dfn>Service level</dfn>: probability of not stocking out in a replenishment cycle; z-scores: 90%→1.28, 95%→1.65, 98%→2.05, 99%→2.33 — cost grows exponentially as you chase nines. Full formula with lead-time variability: SS = z·√(LT·σ_d² + d²·σ_LT²). <dfn>Reorder point</dfn> systems (continuous review, s,Q) vs. periodic review (R,S) — you'll mostly run periodic at a small company. Perishable inventory: expiry converts carrying cost into outright loss; expiry-aware policies cap order-up-to levels at shelf-life-consumable quantities.</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>SS</dt><dd>Safety Stock — inventory held beyond expected demand, purely to absorb variability</dd>
+<dt>Service level (CSL)</dt><dd>Cycle Service Level — probability of not stocking out during one replenishment cycle</dd>
+<dt>Fill rate</dt><dd>Fraction of demand served from stock — related to CSL but not the same number</dd>
+<dt>z-score</dt><dd>Standard deviations above the mean matching your chosen service level (95% → 1.65)</dd>
+<dt>σ (sigma)</dt><dd>Standard deviation — here, of demand per period (σ_d) or of lead time (σ_LT)</dd>
+<dt>LT</dt><dd>Lead Time — order placed to material usable on the shelf</dd>
+<dt>ROP</dt><dd>Reorder Point = expected demand during LT + SS; hitting it triggers an order</dd>
+<dt>(s,Q) / (R,S)</dt><dd>Continuous review (order Q when stock hits s) / periodic review (every R days, order up to S)</dd>
+<dt>EOQ</dt><dd>Economic Order Quantity — the order size balancing ordering cost vs. carrying cost</dd>
+<dt>ABC / XYZ</dt><dd>Segmentation by value (A high) and by demand predictability (X steady, Z erratic)</dd>
+<dt>FEFO</dt><dd>First-Expire-First-Out — pick the earliest-dated stock first, always, for perishables</dd>
+<dt>Carrying cost</dt><dd>Annual cost of holding a dollar of inventory: capital + storage + risk + expiry</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">CSL vs. fill rate — don't let the numbers lie to you</p>
+<p>A 95% <em>cycle service level</em> means 1 cycle in 20 has <em>a</em> stockout — even a one-unit, one-day one. The <em>fill rate</em> — fraction of total demand served — for the same policy is usually much higher (a brief small shortage barely dents it). Executives intuitively hear "fill rate" when you say "service level," so name which one you're quoting. For critical study materials the honest target is usually a high CSL on a short list of items, not a blanket number across everything — which is what segmentation is for.</p>
+<p class="k">The full formula, and when you need it</p>
+<p>With lead-time variability: SS = z·√(LT·σ_d² + d²·σ_LT²) — demand noise scaled by lead time, plus lead-time noise scaled by demand rate. The second term is the one that explodes for your suppliers: a niche maker whose "3 weeks" is really 2–6 weeks contributes more buffer requirement through σ_LT than demand noise ever will. That gives you a negotiable insight: <em>lead-time reliability is worth more than lead-time speed</em> — a guaranteed 4 weeks beats a nominal 2-that's-sometimes-6, and it's a cheaper concession for the supplier to give (L10 trade material). Unit discipline: σ_d and LT must share the same period (both weekly or both monthly) — mixing them is the most common spreadsheet error in this domain.</p>
+<p class="k">You'll actually run periodic review</p>
+<p>Continuous (s,Q) assumes someone watches stock in real time. Small companies order on a rhythm — "every Monday" — which is (R,S): every R days, order up to level S. The honest cost: exposure now spans R + LT, so S = expected demand over (R+LT) + z·σ·√(R+LT) — slightly more buffer than continuous review needs. Batch your Monday buying consciously and the math stays honest.</p>
+<p class="k">Segment before you calculate</p>
+<p>Run ABC (annual value) × XYZ (predictability) and give each cell a policy, not a formula-for-everything: AX items (high value, steady) get tight SS and frequent orders; AZ items (high value, erratic — most research-driven demand) get the full formula plus human review of upcoming studies; CX consumables get big lazy buffers because carrying cost is trivial; CZ items get "order on evidence." Ten minutes of segmentation saves you from polishing safety stock on gloves while a critical medium runs on feel.</p>
+<p class="k">Perishables: three rules the formula doesn't know</p>
+<p>1) <em>Cap by dating</em>: max useful stock ≈ demand rate × usable shelf life on arrival (ask suppliers to commit minimum remaining dating at delivery — a quality-agreement clause most buyers forget). 2) <em>FEFO or the math is fiction</em>: one grab of fresh stock ahead of old and your real expiry loss doubles — shelf discipline is an SOP, not a preference. 3) <em>Carrying cost includes death</em>: for a 6-month-dated material, expected expiry can dwarf capital cost; charge it per unit-year when comparing "hold more" against alternatives like split deliveries (L9's blanket PO) or supplier-held stock.</p>
+<p class="k">A ten-column worksheet is the whole system</p>
+<p>Item, demand/wk, σ_d, LT, σ_LT, target CSL, z, SS, ROP, shelf-life cap — one row per critical material, reviewed monthly. That sheet, versioned and dated, is simultaneously your planning system, your finance justification for inventory, and a Stage 4 S&amp;OP input. It's also thirty minutes in Excel with data you mostly know from memory.</p>
+<p class="k">Connections</p>
+<p>Buffers are a Kraljic bottleneck strategy (L2) and a risk mitigation with a price tag (L5's action column). Lead-time reliability clauses come from L10 negotiations. Expiry cost lives inside L7's TCO. And the demand-forecasting upgrade for lumpy research demand (Croston-class methods) is scheduled for a later sprint — this lesson's normal-distribution math is the honest first approximation.</p>
 </div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> Supply Chain Logistics Management (Bowersox — inventory chapters). Free: MITx SC1x (edX). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Supply+Chain+Management+Strategy+Planning+Operation+Chopra">Supply Chain Management — Chopra &amp; Meindl (Amazon)</a></p>
 </div></details>
@@ -646,8 +805,34 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>Your shortlist's "Low-MOQ fit" column was TCO instinct before you had the name — the chart is that instinct with arithmetic attached, ready for a CFO.</div>
 <div class="task"><b>10-minute task</b>Sunday: a 10-row landed-cost sheet for one real item — price, freight, packaging, duty, inspection time at your loaded rate, expected expiry loss. Compare per usable unit.</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p>TCO buckets: <em>acquisition</em> (price, ordering effort, qualification cost), <em>ownership</em> (freight, duty, storage, inspection, yield loss, expiry), <em>post-ownership</em> (disposal, downstream failure costs). <dfn>Incoterms 2020</dfn> highlights: <dfn>EXW</dfn> (you own it at their door), <dfn>FOB</dfn> (loaded on vessel), <dfn>DAP/DDP</dfn> (delivered, duty unpaid/paid). Validated cold-chain packaging runs $50–300 per shipment and belongs in every biologics landed cost. Assumptions behind the chart: A's 25 kg at 2 kg/month with 9 months of dating on arrival → ~18 kg usable; $4,500 product + $220 freight over 18 usable kg ≈ $262.</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>TCO</dt><dd>Total Cost of Ownership — everything a purchase costs across its life, not just its price</dd>
+<dt>Landed cost</dt><dd>Price + everything required to get the item to your dock: freight, insurance, duty, brokerage, handling</dd>
+<dt>Incoterms</dt><dd>ICC's three-letter trade terms defining where cost and risk pass from seller to buyer</dd>
+<dt>EXW / FCA</dt><dd>Ex Works (theirs at their door — all cost/risk yours) / Free Carrier (they load your carrier)</dd>
+<dt>FOB / CIF</dt><dd>Free On Board / Cost-Insurance-Freight — classic sea-freight terms, risk passes at the ship</dd>
+<dt>DAP / DDP</dt><dd>Delivered At Place / Delivered Duty Paid — they carry it to you (DDP includes customs duty)</dd>
+<dt>HTS</dt><dd>Harmonized Tariff Schedule — the classification code that sets an import's duty rate</dd>
+<dt>Brokerage</dt><dd>The customs broker's fee for clearing an import</dd>
+<dt>DIM weight</dt><dd>Dimensional weight — parcel carriers charge by volume when it exceeds actual weight</dd>
+<dt>MOQ / dating</dt><dd>Minimum Order Quantity / how much shelf life remains when material arrives</dd>
+<dt>Cost per usable unit</dt><dd>The honest comparison: (landed cost + expected losses) ÷ units actually consumed</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">The Incoterms ladder in one paragraph</p>
+<p>Eleven terms, one axis: how far the seller carries cost and risk. EXW (nothing — you arrange pickup at their dock) → FCA (they hand to your carrier) → FOB/CIF (sea terms; risk passes as goods board the vessel — CIF adds their freight+insurance to the port only) → DAP (they deliver to your door, you pay import duty) → DDP (door delivery, duty included). Two traps for cold chain: under EXW/FCA <em>you</em> own transit risk, so a thawed box is your loss and your carrier claim; and CIF's included insurance covers to the <em>port</em>, not your dock. For perishables from small suppliers, DAP is usually worth paying for — the supplier who packs it also owns getting it to you cold, which aligns incentives exactly where you want them.</p>
+<p class="k">Duty and the tariff decade</p>
+<p>Every import has an HTS code, and the code — not the product's story — sets the duty. Many research biologicals and reagents enter at low or zero duty, but the classification obligation is real, and lab consumables and equipment made in China frequently carry Section 301 tariffs that change with the political wind (a live issue through 2025–26). Practical hygiene: know the HTS code and duty for your top imported items (your broker will tell you), keep country-of-origin in the item master, and re-check exposure when sourcing moves. "What's our tariff exposure?" is a question leadership will eventually ask — be the person with the one-page answer.</p>
+<p class="k">Freight economics worth knowing by feel</p>
+<p>Parcel (FedEx/UPS) prices by max(actual, DIM) weight — a light, bulky validated shipper bills at its volume, which is why cold-chain packaging choice changes freight, not just packaging cost. Overnight cold-chain parcel is fine to roughly a shipper's qualified hold time; past that you're into air freight + specialty courier territory where minimums run high but per-kg falls. The structural lesson: freight has step functions, so <em>consolidation is free money</em> — two monthly orders merged into one saves an entire fixed shipment cost, which compounds with the MOQ/expiry math from the chart.</p>
+<p class="k">Building the model so it survives finance</p>
+<p>Architecture: one tab per scenario, rows split into <em>per-order</em> costs (freight, brokerage, your ordering/receiving time at a loaded rate), <em>per-unit</em> costs (price, inbound QC, special handling), and <em>risk/loss</em> costs (expected expiry from the dating math, expected rejects from supplier history, expected excursion loss × probability). Annualize at your real usage, divide by usable units, and carry your assumptions visibly (dating on arrival, usage rate, loss rates). Finance doesn't distrust estimates — it distrusts hidden ones. One-time costs (qualification, first articles, validation of a new supplier) amortize over the expected relationship, which is exactly the switching-cost number that L3's power analysis and L10's BATNA both need.</p>
+<p class="k">TCO in supplier selection, not just price checks</p>
+<p>Weighted-criteria selection scorecards (Stage 2's RFQ machinery) get honest when the cost line is TCO per usable unit instead of quote price. The same model then monitors the relationship: recompute quarterly with actual loss rates, and a supplier whose "cheap" keeps costing you inspections and credits becomes visibly expensive — which is the dollar argument behind a SCAR (L1) or a switch (L2).</p>
+<p class="k">TCO is your cost; should-cost is theirs</p>
+<p>Keep the two models distinct: TCO asks "what does buying this really cost <em>us</em>?" Should-cost asks "what does making this really cost <em>them</em>?" — built from your time-study/BOM engine pointed at their process, and it's your negotiation counterweight in sole-source deals. Should-cost is Sprint 2's finance lesson; this one gives it the landed-cost layer it sits on.</p>
+<p class="k">Connections</p>
+<p>Incoterms clauses land in every PO and contract (L9, Stage 2.3). Expiry loss comes from L6's dating math. Courier choice is L4's compliance decision with L7's price tag. And "cost per usable unit, delivered" is the number your Kraljic impact axis (L2) secretly wanted all along.</p>
 </div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> Lysons &amp; Farrington · Leading Procurement Strategy. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Purchasing+and+Supply+Chain+Management+Monczka+Handfield">Monczka et al. (Amazon)</a></p>
 </div></details>
@@ -688,8 +873,35 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>500 fixation cassettes arrive: Z1.4 level II → code H → n=50, Ac=1/Re=2 at AQL 1.0. You can now state exactly what "accepted" means — and defend it to a customer auditor.</div>
 <div class="task"><b>10-minute task</b>Without looking, sketch this curve's shape freehand and mark AQL and β. If you can draw it, you own it.</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p><dfn>ANSI/ASQ Z1.4</dfn>: lot size + inspection level → sample-size code letter → n and c; includes normal/tightened/reduced switching rules that operationalize supplier trust. <dfn>c=0 plans</dfn> (Squeglia): smaller n, any defect rejects — popular in med-device optics. <dfn>Variables plans (Z1.9)</dfn> use measurements instead of pass/fail for smaller samples. For research-grade biologicals: CoA-based acceptance (verify the supplier's measurement system once — MSA — then trust-but-trend their numbers), skip-lot for proven suppliers, 100% inspection only where non-destructive and cheap.</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>AQL</dt><dd>Acceptance Quality Limit — the worst average defect rate still considered acceptable; a contract number</dd>
+<dt>LTPD / RQL</dt><dd>Lot Tolerance Percent Defective / Rejectable Quality Level — the defect rate you want almost always rejected</dd>
+<dt>OC curve</dt><dd>Operating Characteristic curve — P(accept) vs. the lot's true defect rate; the plan's fingerprint</dd>
+<dt>α / β</dt><dd>Producer's risk (good lot rejected) / consumer's risk (bad lot accepted)</dd>
+<dt>n / c (Ac/Re)</dt><dd>Sample size / acceptance number (accept at ≤c defects; reject at Re)</dd>
+<dt>Z1.4 / Z1.9</dt><dd>The ANSI/ASQ attribute (count defects) and variables (measure values) sampling standards</dd>
+<dt>c=0 plan</dt><dd>Zero-acceptance-number plans (Squeglia) — smaller samples, any defect rejects</dd>
+<dt>Switching rules</dt><dd>Z1.4's normal → tightened → reduced inspection shifts, driven by recent lot history</dd>
+<dt>Code letter</dt><dd>Z1.4's index from lot size + inspection level to the sampling table row</dd>
+<dt>CoA / CoC</dt><dd>Certificate of Analysis (measured results per lot) / Certificate of Conformance (a claim of compliance)</dd>
+<dt>MSA / gage R&amp;R</dt><dd>Measurement Systems Analysis / repeatability-&amp;-reproducibility — is the measurement itself trustworthy?</dd>
+<dt>Skip-lot / dock-to-stock</dt><dd>Inspecting only some lots / none, earned by demonstrated supplier performance</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">Using Z1.4 for real (the three-step lookup)</p>
+<p>Step 1: lot size + inspection level → code letter (General Level II is the default; Level I halves scrutiny, III raises it). Step 2: code letter → sample size n in the master table. Step 3: read Ac/Re at your AQL column — if the cell has arrows, follow them and use that row's n. The cassette example (lot 500, GII → H → n=50; AQL 1.0 → Ac 1/Re 2) is the whole mechanic. Two habits make it defensible: pick the AQL <em>with</em> the supplier and write it into the quality agreement (an AQL nobody agreed to is just your opinion), and record lot, n, defects found, decision — that log is your future skip-lot evidence.</p>
+<p class="k">Switching rules are codified trust</p>
+<p>Z1.4 isn't a static table — it's a feedback loop. Two rejections in five consecutive lots → <em>tightened</em> inspection (same n, stingier Ac); five clean lots on tightened → back to normal; sustained clean history (plus stable production) earns <em>reduced</em>. This is the statistical spine under "trusted supplier" programs: dock-to-stock isn't a favor, it's a status <em>earned by lot history and revocable by it</em>. Implement even a simplified version and your inspection effort automatically flows toward the suppliers who currently deserve it — which is exactly what a one-person function needs.</p>
+<p class="k">Two numbers define a plan: AQL and LTPD</p>
+<p>AQL is the producer-side promise (good lots nearly always pass). LTPD/RQL is the consumer-side promise: the defect rate that should nearly always <em>fail</em> (your β=10% point — ~7.5% on the chart). Any plan is a compromise between the two, and the gap between them is what your sample size buys: bigger n steepens the curve, separating good from bad more sharply. When someone asks "why are we inspecting 50?", the honest answer is "to hold α≈9% at our AQL and β≈10% at 7.5% defective" — and now you can draw it.</p>
+<p class="k">c=0 plans: know the trade you're making</p>
+<p>Squeglia's zero-acceptance tables achieve the same consumer protection with smaller samples — attractive — but at the same n a c=0 plan rejects far more <em>good</em> lots (worse α). Med-device optics favor "we accept zero defects"; the OC curves show what that slogan costs the producer. With tiny, expensive research lots, the practical wisdom is usually the opposite direction: fewer attribute samples, more information per sample — which is Z1.9, using measurements (the actual Bloom values) instead of pass/fail counts to reach the same confidence with far smaller n. For a Minitab user, variables plans are home turf.</p>
+<p class="k">CoA-based acceptance, formalized (your main lane)</p>
+<p>When testing is destructive, the assurance moves upstream in three layers: <em>validate the measurement once</em> (their lab's method and gage R&amp;R — or a one-time split-sample comparison against a third-party lab); <em>trend every certificate</em> (plot their reported Bloom lot-over-lot — a supplier whose numbers never vary is as suspicious as one drifting toward a spec limit; this is SPC applied to CoAs, next sprint's statistical lesson); <em>verify periodically</em> (an occasional independent retest, frequency by risk). Add sampling only where non-destructive — documentation, weights, packaging integrity, temperature logs. Write these three layers into the quality agreement and you have an acceptance system a customer auditor will respect, built for materials you can't afford to consume.</p>
+<p class="k">Randomness is a procedure, not a vibe</p>
+<p>"Grab some from the top" defeats the statistics — defects cluster (one bad shipping position, one production hour). Number the units and use a random pick (even a spreadsheet RAND) or stratify across the lot's structure (cartons, positions). It takes ninety seconds and it's the difference between an inference and a ritual.</p>
+<p class="k">Connections</p>
+<p>Acceptance results feed the scorecard (Sprint 1.2) and Occurrence scores (L5); tightened/reduced status is Detection made dynamic. AQLs live in quality agreements (Stage 2.1); the CoA trending layer becomes your SPC practice (Sprint 2); and the whole design is what the CSQP/CQE exams test hardest — you own Schilling &amp; Neubauer, the canonical reference, already.</p>
 </div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> Acceptance Sampling in Quality Control (Schilling &amp; Neubauer) — the definitive text · CQE Handbook · SPC for Real-World Applications (Levinson). <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Introduction+to+Statistical+Quality+Control+Montgomery">Montgomery (Amazon)</a></p>
 </div></details>
@@ -750,8 +962,34 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>Invoice 10 kg, GR 8 kg → without a match: paid in full, loss invisible. With it: payment blocked, credit memo, and the short-ship lands in the supplier's OTD data.</div>
 <div class="task"><b>10-minute task</b>BPMN-sketch your actual P2P in 8–12 boxes, mark who does each step, circle every step where you're both actor and checker, and write one compensating control per circle. (Stage 2 deliverable seed.)</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p><dfn>PR (Purchase Requisition)</dfn>: internal request with approval. <dfn>PO (Purchase Order)</dfn>: the binding external order; its T&amp;Cs govern absent a contract. <dfn>GR (Goods Receipt)</dfn>: recorded arrival — quantity and condition. <dfn>IR (Invoice Receipt)</dfn>: the bill entered against the PO. Three-way match tolerance policy (e.g., ±2% price, ±5% qty) is a design decision. Compensating controls for a sole buyer: documented approvals above a threshold, a different person clicking GR, monthly exception review someone else signs, and an audit trail (your ERP does this if you let it).</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>P2P</dt><dd>Procure-to-Pay — the end-to-end cycle from need to payment</dd>
+<dt>PR</dt><dd>Purchase Requisition — the internal, approved "we need this"</dd>
+<dt>PO</dt><dd>Purchase Order — the external, legally binding order</dd>
+<dt>GR</dt><dd>Goods Receipt — the recorded arrival: what, how much, what condition</dd>
+<dt>IR</dt><dd>Invoice Receipt — the supplier's bill entered against the PO</dd>
+<dt>2/3/4-way match</dt><dd>PO=Invoice / PO=GR=Invoice / plus inspection result — checks before money moves</dd>
+<dt>Tolerance</dt><dd>The allowed mismatch (e.g., ±2% price, ±5% qty) before a match blocks payment</dd>
+<dt>Blanket PO</dt><dd>One approved framework order released against many times — the split-delivery tool</dd>
+<dt>Battle of the forms</dt><dd>The legal contest between your PO terms and their acknowledgment/quote terms</dd>
+<dt>SoD</dt><dd>Segregation of Duties — orderer ≠ receiver ≠ payer; the control fraud fears most</dd>
+<dt>DOA</dt><dd>Delegation of Authority — the written table of who may approve what amount</dd>
+<dt>GR/IR account</dt><dd>The ERP clearing account of goods received but not yet invoiced (why finance nags about open POs)</dd>
+<dt>Accrual</dt><dd>Month-end recognition of costs received but not yet billed — built from open POs/GRs</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">Match variants, and choosing tolerances like an adult</p>
+<p>Two-way (PO=Invoice) suits services with no receivable goods; three-way is the goods standard; four-way adds the inspection result — which for your critical materials means <em>payment can wait for quality acceptance</em>, a control worth having for expensive biologicals (write payment-on-acceptance into the terms, L10 trade material). Tolerances are a design choice with teeth: too tight and you drown in trivial exceptions (a $0.40 freight rounding blocking a payment); too loose and price creep rides through unexamined. Common sense at small scale: percentage price tolerance (±2%), small absolute floor, quantity tolerance matched to how the material is actually measured (tissue by weight will never match to the gram — set the tolerance from measurement reality, not accounting neatness).</p>
+<p class="k">The battle of the forms — the fine print war you're already in</p>
+<p>Your PO says your T&amp;Cs govern; their order acknowledgment says theirs do. Under US commercial law the last document sent before performance often wins ("last shot"), and suppliers know it — which is why acknowledgments exist. Practical defenses at your size: get an MSA or quality agreement signed once (it outranks the forms war entirely — Stage 2.3), read acknowledgments for the three terms that matter (price validity, lead time, liability/warranty), and when they conflict, reply reserving your PO terms rather than staying silent. You don't need to litigate this — you need to stop <em>losing it by default</em>.</p>
+<p class="k">PO types as planning tools</p>
+<p>A standard PO buys a thing once. A <em>blanket/framework</em> PO approves a ceiling ("up to 24 kg gelatin, $5,500, 12 months") and then releases against it — one approval, many deliveries, which is how L6's split-delivery answer and L7's consolidation answer become administratively free. Releases also give suppliers a demand signal without new paperwork — a customer-of-choice behavior (L3) that costs you nothing. Contract-referencing POs go one step further: the PO carries only quantity and date; the LTA carries everything else.</p>
+<p class="k">Why finance keeps asking about open POs</p>
+<p>Every GR without an invoice sits in the GR/IR clearing account, and month-end accruals are built from it — so stale open POs and unposted receipts literally distort the company's books. Being the buyer who closes POs, posts GRs same-day, and keeps the open-order report clean makes finance an ally, and at a small company the buyer with clean books gets believed when the same spreadsheets ask for budget (Stage 3's credibility, banked early).</p>
+<p class="k">The sole-buyer control kit, concretely</p>
+<p>You can't split yourself into three people, so compensate structurally: a written <em>DOA</em> (above $X, a second signature — even the CEO's — approves the PR); <em>someone else posts GR</em> (whoever physically receives — lab staff — clicks "received," which is both a control and honest data); <em>monthly exception review</em> witnessed by finance or your manager (fifteen minutes over the match-exception and open-PO reports, initialed); <em>no self-dealing rules written down</em> (gifts, conflicts declared — Stage 2's ethics policy). Fraud patterns these defeat are depressingly standard: ghost vendors, split POs ducking under approval thresholds, duplicate invoices — auditors look for exactly these, and finding the controls already written moves you from "finding" to "commendation."</p>
+<p class="k">Connections</p>
+<p>GR data is the raw feed for OTD scorecards (Sprint 1.2) and L6's lead-time σ. Four-way match ties payment to L8's acceptance decisions. Blanket POs execute L6/L7 strategies. The DOA and ethics policy are Stage 2.1 deliverables, and the whole map is the BPMN exercise in this lesson's task — your NAVSUP skill pointed home.</p>
 </div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> Baily et al. 12th ed. · Lysons &amp; Farrington. Free: SAP Learning Journey "Sourcing and Procurement in S/4HANA" (learning.sap.com).</p>
 </div></details>
@@ -801,8 +1039,41 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 </ul>
 <div class="case"><b>Case — your world</b>The figure IS the case: their +12% opener, your data-anchored +4%, settlement at +4.5% with the capacity reservation you actually needed. Certainty is cheap for you and precious to a small maker — that asymmetry is your whole negotiating endowment.</div>
 <div class="task"><b>10-minute task</b>Sunday: the one-page plan for your next real renewal — honest BATNA, reservation point, target, three trades from the table, your anchor and its data.</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p><dfn>BATNA (Best Alternative To a Negotiated Agreement)</dfn>: what you'll actually do if talks fail. <dfn>Reservation point</dfn>: worst acceptable deal, derived from BATNA before the table. <dfn>ZOPA (Zone Of Possible Agreement)</dfn>: overlap of the two reservation points. <dfn>Distributive vs. integrative</dfn>: claiming a fixed pie vs. growing it with multi-issue trades. <dfn>Anchoring</dfn>: first credible number shapes the range. Relationship rule: you need this supplier next quarter — the deal must leave them wanting your account.</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>BATNA</dt><dd>Best Alternative To a Negotiated Agreement — what you'll actually do if this deal fails</dd>
+<dt>WATNA</dt><dd>Worst Alternative — the honest downside if talks collapse; the panic-check on your confidence</dd>
+<dt>Reservation point</dt><dd>The worst deal you'd still accept — derived from your BATNA, fixed before the meeting</dd>
+<dt>ZOPA</dt><dd>Zone Of Possible Agreement — the overlap between the two sides' reservation points</dd>
+<dt>Position vs. interest</dt><dd>What someone demands vs. why they need it — deals live in the whys</dd>
+<dt>Distributive / integrative</dt><dd>Claiming slices of a fixed pie vs. growing the pie with multi-issue trades</dd>
+<dt>Anchoring</dt><dd>The first credible number reshaping the whole range — use with data, defuse with criteria</dd>
+<dt>Objective criteria</dt><dd>External standards (indexes, benchmarks, precedents) that decide instead of willpower</dd>
+<dt>MESO</dt><dd>Multiple Equivalent Simultaneous Offers — 2–3 packages equal to you, revealing their preferences</dd>
+<dt>Concession pattern</dt><dd>The size/rhythm of your moves — shrinking steps signal a limit; free moves teach bad habits</dd>
+<dt>Calibrated question</dt><dd>An open "how/what" question that hands them your problem to solve (Voss)</dd>
+<dt>Labeling / mirroring</dt><dd>Naming their emotion / repeating their last words — cheap trust builders that surface information</dd>
+<dt>PPI</dt><dd>Producer Price Index — published input-cost indexes; your objective criterion for price-increase talks</dd>
+<dt>LTA</dt><dd>Long-Term Agreement — often the prize: terms locked, capacity reserved, relationship formalized</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~25 min — the long one, by request)</summary><div class="dpb">
+<p class="k">1 · The Harvard core: four ideas that carry everything</p>
+<p><em>Separate the people from the problem</em> — be soft on the person, hard on the issue; a supplier rep who feels attacked defends, one who feels respected problem-solves. <em>Negotiate interests, not positions</em> — the classic tale: two people fight over an orange, split it, and each gets half of what they needed; one wanted the fruit, the other the peel. Their +12% is a position; the interests underneath might be covering a real input-cost spike, hitting a revenue target, or derisking a big new customer — each interest is answerable by a different (cheaper) concession than price. <em>Invent options before deciding</em> — the tradeables table exists so the meeting has raw material beyond one number. <em>Insist on objective criteria</em> — your PPI anchor isn't a tactic, it's a philosophy: let the published index argue so neither of you has to win by stubbornness. When they say 12 and the index says 3.1, the burden of explaining the gap has quietly moved to them.</p>
+<p class="k">2 · BATNA work is done before the meeting, in the world</p>
+<p>Your BATNA is not a feeling of options — it's the specific, costed thing you would do Monday if talks died: qualify the alternate (6 months, $X, known risk), substitute the material (R&amp;D says maybe), redesign the spec to open the market (L2's quadrant move), or absorb and buffer (L6's inventory literally purchases negotiating time — walking in with 10 weeks of stock changes your voice more than any technique). <em>Improving</em> the BATNA beats rehearsing lines: even a half-qualified second source — samples tested, audit scheduled — moves your reservation point, and suppliers can smell the difference between a buyer with options and a buyer with hopes. Then run the WATNA check honestly: if the alternate fails qualification and the buffer runs out mid-study, what actually happens? If the WATNA is catastrophic, your reservation point must be humbler than your pride wants — better to know that in the office than discover it at the table.</p>
+<p class="k">3 · Estimate THEIR side (you know more than you think)</p>
+<p>Their reservation point is invisible but bounded by things you can observe: capacity utilization (a maker running at 60% needs your volume more than one at 95% — you assess capacity professionally; use that skill here), their calendar (quarter-end and fiscal-year-end make sales teams flexible), concentration (if you're 10% of their revenue, losing you is a board conversation), switching friction on <em>their</em> side (onboarding a replacement customer costs them too), and how much they value the reference ("supplier to the ex-vivo lab pushing NAMs" is marketing for a niche maker). Write your estimate down before the meeting and grade it after — your calibration improves fast, and the file becomes institutional memory.</p>
+<p class="k">4 · The one-page preparation sheet (the actual deliverable)</p>
+<p>Ten minutes, six blocks: (1) my BATNA, costed, and its current readiness; (2) my reservation point, in numbers, derived from it; (3) my target — ambitious but explainable; (4) their estimated reservation and interests; (5) the issues table — every negotiable dimension (price, volume commitment, forecast sharing, payment terms, capacity reservation, lead-time guarantee, minimum dating on arrival, lot-consistency clause, quality-agreement terms, reference rights) with value-to-me and value-to-them columns; the asymmetries are the deal; (6) my opening — first number with its justification, or the calibrated question that starts discovery. A negotiation you can't fit on this page isn't prepared; one you can is mostly already won.</p>
+<p class="k">5 · At the table: sequence and craft</p>
+<p><em>Open with discovery, not numbers</em>, when you lack information: "Walk me through what's driving the increase" — every sentence of their answer prices their interests. <em>Anchor first only with data</em>; when they anchor first, never counter immediately (a fast counter validates their range) — label it ("12 feels like a big move for a year when your input index shows 3") and return to criteria. <em>Trade, never concede</em>: every move is conditional — "If you can hold 4%, then I can commit the full year" — because unconditional concessions teach the other side that waiting works. <em>Shrink your steps</em>: 8 → 5.5 → 4.8 → 4.5 tells a story of an approaching limit; equal steps invite infinite asking. <em>Use MESOs</em> when stuck: offer two packages equal in value to you (higher price + guaranteed capacity + dating commitment, vs. lower price + relaxed lead time + smaller commitment) — whichever they pick, you learn what they value, and the conversation becomes choosing rather than fighting. <em>Deploy silence</em> — after your number, stop talking; discomfort negotiates for you. And <em>calibrated questions</em> do your hardest arguing politely: "How am I supposed to take a 12% increase to leadership when the index reads 3.1?" hands them your constraint as their problem.</p>
+<p class="k">6 · The small-buyer playbook (your permanent situation)</p>
+<p>Your endowment is asymmetry: certainty, predictability, and ease are nearly free for you and genuinely valuable to a small supplier — price them like assets, not gestures. Negotiate the <em>process</em> too: reps often can't approve structural terms, so ask early "who would need to be comfortable with a capacity reservation?" — escalating to an owner at a 30-person maker is a feature (owners think in relationships and years; reps think in quotas and quarters). Watch timing: their fiscal calendar, and your world's donor/seasonal cycles — renegotiating tissue supply during the scarce season is negotiating hungry. And remember the account-quality flywheel (L3): every on-time payment and clean forecast between negotiations is pre-negotiation — by the time you sit down, most of the outcome is already priced into how much they want to keep you.</p>
+<p class="k">7 · Recognize hardball; don't play it</p>
+<p>The standard tricks, so they don't work on you: <em>good cop/bad cop</em> (respond to the position, not the theater), the <em>nibble</em> ("one small thing" after agreement — answer with a trade: "sure, if…"), <em>phantom authority</em> ("my manager won't accept" — then let's schedule with your manager), <em>exploding offers</em> (artificial deadlines — test them once; they usually reflate), <em>the flinch</em> (theatrical shock at your number — information-free; restate your criteria). You'll face these occasionally; don't return them. You meet the same handful of niche suppliers for years — in repeated games, a reputation for being firm, fair, and predictable outperforms every trick in this list, and it's also simply who you want to be at the table.</p>
+<p class="k">8 · The five classic mistakes</p>
+<p>Deciding your reservation point <em>during</em> the meeting (adrenaline is a terrible economist); fighting single-issue price battles when ten issues were tradeable; revealing a weak BATNA unprompted ("we have no other option right now" — never say this, and if it's true, go build even a partial one first); treating their first offer as information about their limit (it's information about their opening theater); and skipping the debrief — five minutes logging what they valued, what worked, and your calibration error compounds into a supplier-specific playbook nobody can take from you.</p>
+<p class="k">Connections</p>
+<p>Your BATNA is built by L2 (alternate qualification), funded by L6 (buffers = time), priced by L7 (TCO of switching), and armed by should-cost (Sprint 2). Objective criteria come from indexes (Economics lessons) and your own data (L9's clean records). The quality agreement you negotiate is Stage 2.1's anchor document. Read <em>Getting to Yes</em> for the philosophy and <em>Never Split the Difference</em> for the tactical layer — in that order; Voss without Fisher tends to make people clever before it makes them wise.</p>
 </div></details>
 <p class="refs"><span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Getting+to+Yes+Fisher+Ury+Patton">Getting to Yes (Amazon)</a> — read this month · <a href="https://www.amazon.com/s?k=Never+Split+the+Difference+Chris+Voss">Never Split the Difference (Amazon)</a>. Free: U. Michigan "Successful Negotiation" (Coursera).</p>
 </div></details>
@@ -849,8 +1120,35 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 <li>The genuinely new material (window functions, CTEs) waits for Sprint 3 — today is proving the wall is paper.</li>
 </ul>
 <div class="task"><b>30-minute task (this IS the lesson)</b>Do <a href="https://sqlbolt.com">SQLBolt</a> lessons 1–6 in the browser — free, interactive, nothing to install. Stop at the timer; Sprint 2 continues from wherever you are.</div>
-<details class="depth"><summary>Depth — the full write-up</summary><div class="dpb">
-<p>SQL (Structured Query Language) queries databases directly — no exports, no workbook row limits, and it feeds Power BI natively (import mode or DirectQuery). Concept mapping is exact: merge=JOIN, group=GROUP BY, filter=WHERE, custom column=CASE expression. Later sprints add: window functions (running totals, rankings — the LMS-Light banding logic in one clause), CTEs (named intermediate steps, like query steps), and star-schema modeling discipline.</p>
+<div class="gloss"><b class="gt">Terms &amp; acronyms in this lesson</b><dl>
+<dt>SQL</dt><dd>Structured Query Language — the standard language for asking questions of relational databases</dd>
+<dt>Table / row / column</dt><dd>Exactly a Power Query table: records in rows, fields in columns</dd>
+<dt>SELECT / FROM / WHERE</dt><dd>Choose columns / name the table / filter rows</dd>
+<dt>JOIN</dt><dd>Combine tables by matching keys — Power Query's Merge; comes in INNER/LEFT/RIGHT/FULL flavors</dd>
+<dt>GROUP BY</dt><dd>Collapse rows into groups for aggregates (AVG, COUNT, SUM, MIN, MAX)</dd>
+<dt>HAVING</dt><dd>A WHERE that runs after grouping — filters the groups themselves</dd>
+<dt>Primary / foreign key</dt><dd>A table's unique row ID / another table's column pointing at it — what JOINs match on</dd>
+<dt>NULL</dt><dd>"No value" — not zero, not empty text; it needs IS NULL, not = NULL</dd>
+<dt>CASE</dt><dd>SQL's if/then inside a query — Power Query's conditional column</dd>
+<dt>CTE</dt><dd>Common Table Expression (WITH …) — a named intermediate step, like a query step (Sprint 3)</dd>
+<dt>Window function</dt><dd>Aggregates that keep every row (running totals, rankings) — the LMS-Light trick, Sprint 3</dd>
+<dt>Import / DirectQuery</dt><dd>Power BI copying data on refresh vs. querying the database live</dd>
+</dl></div>
+<details class="depth"><summary>Depth — the full chapter (~15 min)</summary><div class="dpb">
+<p class="k">The JOIN family, in receiving-dock terms</p>
+<p>INNER JOIN keeps only matches (receipts that have a known supplier). LEFT JOIN keeps every row of the left table, matched or not — receipts with an unknown supplier_id survive with NULLs in the supplier columns, which is exactly how you <em>find</em> master-data problems instead of silently dropping them. RIGHT is LEFT with the tables swapped; FULL keeps everything from both. Power Query's default merge is the left outer — you've done ten thousand of these. The professional habit: after a join, sanity-check the row count; a count that <em>grew</em> means your "unique" key wasn't (duplicate supplier rows), and that one habit prevents most silently-wrong dashboards ever built.</p>
+<p class="k">NULL will bite you exactly once — make it today</p>
+<p>NULL means "unknown," and unknown poisons comparisons: <span class="mono">WHERE qty &lt;&gt; 10</span> quietly excludes rows where qty is NULL (unknown isn't "not 10" — it's unknown). Test with <span class="mono">IS NULL / IS NOT NULL</span>; wrap with <span class="mono">COALESCE(x, 0)</span> when a default makes sense; and know that aggregates skip NULLs (AVG of {10, NULL, 20} is 15, not 10). Your OTD query already handles this correctly by construction — the CASE decides 1 or 0 explicitly.</p>
+<p class="k">Why your alias fails in WHERE: the real execution order</p>
+<p>SQL runs FROM → JOIN → WHERE → GROUP BY → HAVING → SELECT → ORDER BY — the SELECT line executes nearly <em>last</em>, which explains the two classic beginner errors in one stroke: you can't use <span class="mono">otd_rate</span> (born in SELECT) inside WHERE (which ran earlier) — filter aggregates with HAVING instead (<span class="mono">HAVING COUNT(*) &gt;= 5</span> to hide suppliers with too few receipts to judge); and WHERE filters rows <em>before</em> grouping while HAVING filters groups <em>after</em> — both useful, different jobs. Read any confusing query in execution order and it usually stops being confusing.</p>
+<p class="k">Keys are your master-data discipline wearing a new hat</p>
+<p>The suppliers table's <span class="mono">id</span> (primary key) and receipts' <span class="mono">supplier_id</span> (foreign key) are the SAP master-data hygiene you already practice, formalized. The design instinct to carry forward: every entity (supplier, item, lot, receipt) gets one table and one stable ID, and everything else references the ID — never the name (names get re-spelled; IDs don't). This is exactly the supplier/item master with lot-level CoA traceability that Stage 3.3 builds; today's lesson is its language.</p>
+<p class="k">Practicing on your own data this month</p>
+<p>After SQLBolt, skip the toy datasets: install the free <em>DB Browser for SQLite</em>, import two CSVs you already have (a receipts export and a supplier list), and re-ask questions you currently answer in Excel — OTD by supplier, receipts by month, top items by spend. Then connect Power BI to the same file and feel the workbook-size ceiling disappear: <em>Import</em> mode (copy on refresh — the right default) vs. <em>DirectQuery</em> (live, for data too big or too fresh to copy). One evening, and "knows SQL" quietly becomes true on your resume.</p>
+<p class="k">A 30-second preview of Sprint 3's payoff</p>
+<p><span class="mono">AVG(otd) OVER (PARTITION BY supplier ORDER BY month ROWS 5 PRECEDING)</span> — a rolling six-month OTD per supplier, computed without collapsing the rows. That's a window function: the Red/Yellow/Green banding engine you built in LMS-Light, expressed in one clause. CTEs (<span class="mono">WITH clean AS (…)</span>) then chain steps the way Power Query steps chain. Same thinking; sharper tools.</p>
+<p class="k">Connections</p>
+<p>The scorecard (Sprint 1.2) becomes a query instead of a workbook; L9's GR data is the table this lesson queries; Stage 3.3 turns these instincts into the company's supplier/item master; and every AI-automation ambition in Stage 4 stands on data being queryable at all.</p>
 </div></details>
 <p class="refs"><span class="own">ON YOUR DRIVE:</span> Python for Data Analysis (McKinney) — for Sprint 3's pandas. <span style="color:var(--warn)" class="buy">BUY:</span> <a href="https://www.amazon.com/s?k=Learning+SQL+Alan+Beaulieu">Learning SQL — Beaulieu (Amazon)</a>. Free: Mode Analytics SQL tutorial.</p>
 </div></details>
