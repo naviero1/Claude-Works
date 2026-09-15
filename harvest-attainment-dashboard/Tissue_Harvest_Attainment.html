@@ -106,6 +106,8 @@ button.primary{background:var(--accent); color:#fff; border-color:transparent; f
 .hbars .blb small{color:var(--muted); display:block; font-size:11px; line-height:1.2}
 .htrack{position:relative; height:18px}
 .hfill{position:absolute; top:1px; bottom:1px; left:0; background:var(--s1); border-radius:0 4px 4px 0; min-width:2px}
+.hseg{position:absolute; top:1px; bottom:1px}
+.hseg.last{border-radius:0 4px 4px 0}
 .htarget{position:absolute; top:-2px; bottom:-2px; width:1px; background:var(--axis)}
 .hval{position:absolute; top:50%; transform:translateY(-50%); font-size:11.5px; color:var(--ink2); white-space:nowrap; padding-left:6px}
 .hval.in{color:#fff; transform:translate(-100%,-50%); padding:0 6px 0 0}
@@ -437,6 +439,30 @@ function laborBySH(ps){
   }
   return a.map(m=>m/60);
 }
+function laborByTissue(ps){
+  // per tissue: units harvested and labor minutes, split by site
+  const m = new Map();
+  for (const w of weeksOf(ps)) for (const t of w.rows){
+    const lm = laborMin(t.pn);
+    let e = m.get(t.pn); if(!e){ e={pn:t.pn, units:[0,0,0], min:[0,0,0]}; m.set(t.pn,e); }
+    for (let s=0;s<3;s++){ e.units[s]+=t.ach[s]; e.min[s]+=t.ach[s]*lm; }
+  }
+  return Array.from(m.values()).filter(e=>sum(e.units)>0);
+}
+function laborByWeekday(ps){
+  // minutes per weekday per site, from the daily harvest cells
+  const day = DAYS.map(()=>[0,0,0]);
+  for (const w of weeksOf(ps)) for (const t of w.rows){
+    const lm = laborMin(t.pn);
+    for (let k=0;k<15;k++) day[Math.floor(k/3)][k%3] += (t.daily[k]||0)*lm;
+  }
+  return day;
+}
+function stdTxt(pn){
+  const l = S.labor[pn];
+  if (!l || !l.labor) return '—';
+  return l.labor + (S.unit==='min' ? ' min/u' : ' h/u');
+}
 /* ---------- tooltip ---------- */
 const tip = $('#tip');
 function showTip(ev, title, rows){
@@ -560,6 +586,27 @@ function hbars(el, rows, {scaleMax, targetAt}){
         '<span class="hfill" style="width:'+wpct+'%"></span>'+
         '<span class="hval'+(inside?' in':'')+'" style="left:'+wpct+'%">'+esc(r.text)+'</span>'+
       '</div>';
+  }).join('') + '</div>';
+  $$('[data-b]', el).forEach(t=>{
+    const r = rows[+t.dataset.b];
+    t.addEventListener('pointermove', ev=>showTip(ev, r.tipTitle, r.tipRows));
+    t.addEventListener('pointerleave', hideTip);
+  });
+}
+
+function hbarsStacked(el, rows, {scaleMax, series}){
+  el.innerHTML = '<div class="hbars">' + rows.map((r,i)=>{
+    const total = sum(r.parts);
+    const wpct = Math.min(100, (total/scaleMax)*100);
+    let cum=0, segs='';
+    r.parts.forEach((v,si)=>{
+      if (v<=0) return;
+      const left = (cum/scaleMax)*100, w = (v/scaleMax)*100; cum += v;
+      const last = (cum===total);
+      segs += '<span class="hseg'+(last?' last':'')+'" style="left:'+left+'%;width:max(2px, calc('+w+'% - 2px));background:'+series[si].color+'"></span>';
+    });
+    return '<div class="blb" title="'+esc(r.label)+'">'+esc(r.label)+(r.sub?'<small>'+esc(r.sub)+'</small>':'')+'</div>'+
+      '<div class="htrack" data-b="'+i+'">'+segs+'<span class="hval" style="left:'+wpct+'%">'+esc(r.text)+'</span></div>';
   }).join('') + '</div>';
   $$('[data-b]', el).forEach(t=>{
     const r = rows[+t.dataset.b];
@@ -813,6 +860,22 @@ function vLabor(m){
     return {w, byTech};
   });
   const techNames = techs.map(([n])=>n).slice(0,3);
+  const tisLab = laborByTissue(rep).sort((a,b)=>sum(b.min)-sum(a.min));
+  const totMin = sum(tisLab.map(e=>sum(e.min)));
+  let cumMin = 0;
+  const ledgerRows = tisLab.map(e=>{
+    cumMin += sum(e.min);
+    return [tissueName(e.pn), e.pn, stdTxt(e.pn), fmtN(sum(e.units)),
+      fmt1(e.min[0]/60), fmt1(e.min[1]/60), fmt1(e.min[2]/60), fmt1(sum(e.min)/60),
+      totMin?Math.round(sum(e.min)/totMin*100)+'%':'—', totMin?Math.round(cumMin/totMin*100)+'%':'—'];
+  });
+  const stdRows = Object.keys(S.names).filter(pn=>S.labor[pn] && S.labor[pn].labor)
+    .sort((a,b)=>(S.labor[b].labor||0)-(S.labor[a].labor||0));
+  const top3Share = totMin ? Math.round(tisLab.slice(0,3).reduce((a,e)=>a+sum(e.min),0)/totMin*100) : 0;
+  const stdDetails = '<details class="twin"><summary>Labor standards in use ('+stdRows.length+' part numbers)</summary>'+
+    '<div class="tblwrap"><table><thead><tr><th>Tissue</th><th>PN</th><th>Standard</th></tr></thead><tbody>'+
+    stdRows.map(pn=>'<tr><td>'+esc(tissueName(pn))+'</td><td class="dim">'+esc(pn)+'</td><td>'+esc(stdTxt(pn))+'</td></tr>').join('')+
+    '</tbody></table></div></details>';
   m.innerHTML =
     '<div class="banner"><strong>How labor is estimated.</strong> Units harvested × per-tissue labor standard from the capacity tool’s Yields-Labor-Cube sheet, read as <strong>'+(S.unit==='min'?'minutes':'hours')+' per unit</strong> (switch in the filter bar). Tech attribution uses the “Tech Harvesting” row of each weekly tab: a tech accrues the tissue harvested on the site-days they were assigned, and a share of each site’s cycle goal proportional to their assigned days there.</div>'+
     '<div class="cards tiles">'+
@@ -823,6 +886,13 @@ function vLabor(m){
         '<div class="val">'+fmtN(e.min/60)+'<small> h</small></div>'+
         '<div class="delta">'+fmtN(e.units)+' units · '+e.days+' site-days · util. '+pct(e.days? (e.min/60)/(e.days*8):null)+' of 8h days</div>'+
         '<div class="delta">attainment '+pct(att)+' '+pillHtml(att)+'</div></div>';}).join('')+
+    '</div>'+
+    '<div class="cards">'+
+      card('Where the labor goes — tissue × site','Hours = units harvested × the standard printed on each bar ÷ 60. The top 3 tissues carry '+top3Share+'% of all harvest labor.','lb_tis',
+        {span:true, pre: legendHtml(SHS.map((n,i)=>({name:n,color:SHCOL[i]})),'box'),
+         post: twinTable(['Tissue','PN','Std','Units','Nahunta h','Martin h','Custom h','Total h','% of labor','Cum. %'], ledgerRows) + stdDetails})+
+      card('Labor by weekday','Estimated hours per weekday, stacked by site — computed from the daily harvest cells.','lb_days',
+        {span:true, pre: legendHtml(SHS.map((n,i)=>({name:n,color:SHCOL[i]})),'box')})+
     '</div>'+
     '<div class="cards">'+
       card('Labor by slaughterhouse','Estimated hours to harvest what was achieved at each site.','lb_sh')+
@@ -838,6 +908,18 @@ function vLabor(m){
         const att = e.goal>0? e.units/e.goal : null;
         return '<tr><td>'+esc(n)+'</td><td>'+(e.days||0)+'</td><td>'+fmtN(e.units)+'</td><td>'+fmtN(e.goal)+'</td><td>'+pct1(att)+'</td><td>'+fmtN(e.min/60)+'</td><td>'+(e.days?fmt1(e.min/60/e.days):'—')+'</td></tr>';
       }).join('')+'</tbody></table></div></div></div>';
+  hbarsStacked($('#lb_tis'), tisLab.map(e=>({
+    label: tissueLabel(e.pn),
+    sub: fmtN(sum(e.units))+' u · '+stdTxt(e.pn),
+    parts: e.min.map(x=>x/60),
+    text: fmt1(sum(e.min)/60)+' h',
+    tipTitle: tissueLabel(e.pn)+' — '+fmt1(sum(e.min)/60)+' h',
+    tipRows: SHS.map((s,i)=>({color:SHCOL[i], name:s+' — '+fmtN(e.units[i])+' u', value:fmt1(e.min[i]/60)+' h'}))
+      .concat([{name:'standard', value:stdTxt(e.pn)}])
+  })), {scaleMax: niceMax(Math.max(1e-9,...tisLab.map(e=>sum(e.min)/60))), series: SHS.map((n,i)=>({name:n,color:SHCOL[i]}))});
+  const dl = laborByWeekday(rep);
+  stackedCols($('#lb_days'), {groups: DAYS.map((d,di)=>({label:d, values: dl[di].map(x=>x/60)})),
+    series: SHS.map((n,i)=>({name:n,color:SHCOL[i]})), yFmt: v=>fmt1(v)+' h'});
   const mxh = niceMax(Math.max(1,...shHrs));
   hbars($('#lb_sh'), shHrs.map((h,i)=>({label:SHS[i], frac:h, text:fmtN(h)+' h',
     tipTitle:SHS[i], tipRows:[{color:SHCOL[i], name:'est. hours', value:fmtN(h)+' h'}]})), {scaleMax:mxh});
@@ -877,15 +959,27 @@ function vData(m){
     const w = wks.find(x=>x.name===S.drillWeek);
     const el = $('#drilltbl');
     if (!w){ el.innerHTML=''; return; }
+    const dayLab = DAYS.map((d,di)=>SHS.map((s,si)=>{
+      let mn=0; for (const t of w.rows) mn += (t.daily[di*3+si]||0)*laborMin(t.pn); return mn;
+    }));
     el.innerHTML = '<div class="tblwrap"><table><thead><tr><th>Tissue</th>'+
       SHS.map(s=>'<th>'+esc(s)+' ask</th><th>'+esc(s)+' ach</th>').join('')+
-      '<th>Total ask</th><th>Total ach</th><th>Att.</th></tr></thead><tbody>'+
+      '<th>Total ask</th><th>Total ach</th><th>Att.</th><th>Std</th><th>Est. h</th></tr></thead><tbody>'+
       w.rows.map(t=>{
         const ta = sum(t.ask), th = sum(t.ach);
         return '<tr><td>'+esc(tissueLabel(t.pn))+'</td>'+
           SHS.map((s,i)=>'<td class="dim">'+(t.ask[i]?fmtN(t.ask[i]):'—')+'</td><td>'+(t.ach[i]?fmtN(t.ach[i]):'—')+'</td>').join('')+
-          '<td>'+fmtN(ta)+'</td><td>'+fmtN(th)+'</td><td>'+pct1(ta>0?th/ta:null)+'</td></tr>';
+          '<td>'+fmtN(ta)+'</td><td>'+fmtN(th)+'</td><td>'+pct1(ta>0?th/ta:null)+'</td>'+
+          '<td class="dim">'+esc(stdTxt(t.pn))+'</td><td>'+(th?fmt1(th*laborMin(t.pn)/60):'—')+'</td></tr>';
       }).join('')+'</tbody></table></div>'+
+      '<h3 style="margin-top:16px;font-size:13.5px">Estimated labor this week, by day and site (h)</h3>'+
+      '<div class="tblwrap"><table><thead><tr><th>Site</th>'+DAYS.map(d=>'<th>'+esc(d)+'</th>').join('')+'<th>Total</th></tr></thead><tbody>'+
+      SHS.map((s,si)=>'<tr><td>'+esc(s)+'</td>'+
+        DAYS.map((d,di)=>'<td>'+(dayLab[di][si]?fmt1(dayLab[di][si]/60):'—')+'</td>').join('')+
+        '<td>'+fmt1(sum(dayLab.map(dv=>dv[si]))/60)+'</td></tr>').join('')+
+      '<tr class="total"><td>All sites</td>'+DAYS.map((d,di)=>'<td>'+fmt1(sum(dayLab[di])/60)+'</td>').join('')+
+      '<td>'+fmt1(sum(dayLab.flat())/60)+'</td></tr>'+
+      '</tbody></table></div>'+
       '<div class="note" style="margin-top:10px">Tech schedule this week: '+
       SHS.map((s,i)=>{
         const days = DAYS.map((d,di)=>w.techs[di*3+i]).filter(Boolean);
