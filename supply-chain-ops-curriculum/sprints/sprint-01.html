@@ -137,6 +137,7 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 <div class="progress">
 <div class="pmeta"><span>Sprint progress</span><span id="pcount">0 / 0</span></div>
 <div class="pbar"><div id="pfill"></div></div>
+<div id="syncstate" style="font-size:.76rem; color:var(--muted); margin-top:6px">connecting…</div>
 </div>
 </header>
 
@@ -908,63 +909,98 @@ footer{margin-top:44px; border-top:1px solid var(--line); padding-top:14px; font
 <script>
 (function(){
   var DOCID = "progress/sprint-01";
-  var db = null, state = {checks:{}, notes:""};
-  var saveTimer = null;
+  var db = null, ref = null;
+  var server = {checks:{}, notes:""};           // last persisted truth (server, or local cache until connected)
+  var pending = {checks:{}, hasNotes:false, notes:""}; // your un-flushed clicks — ALWAYS win over snapshots
+  var writeTimer = null, writing = false, dbFailed = false;
 
+  function mergedChecks(){ var m={}, k;
+    for(k in server.checks) m[k]=server.checks[k];
+    for(k in pending.checks) m[k]=pending.checks[k];
+    return m; }
+  function mergedNotes(){ return pending.hasNotes ? pending.notes : (server.notes||""); }
+  function isDirty(){ if(pending.hasNotes) return true; for(var k in pending.checks) return true; return false; }
   function boxes(){ return Array.prototype.slice.call(document.querySelectorAll('[data-ck]')); }
-  function updateBar(){
+
+  function render(){
+    var m = mergedChecks();
+    boxes().forEach(function(b){ b.checked = !!m[b.getAttribute('data-ck')]; });
+    var n = document.getElementById('notes');
+    if(n && document.activeElement !== n) n.value = mergedNotes();
     var bs = boxes(), done = bs.filter(function(b){return b.checked;}).length;
     var fill = document.getElementById('pfill'), cnt = document.getElementById('pcount');
     if(fill) fill.style.width = (bs.length ? Math.round(100*done/bs.length) : 0) + "%";
     if(cnt) cnt.textContent = done + " / " + bs.length;
+    syncMsg();
   }
-  function applyState(){
-    boxes().forEach(function(b){ b.checked = !!state.checks[b.getAttribute('data-ck')]; });
-    var n = document.getElementById('notes');
-    if(n && document.activeElement !== n) n.value = state.notes || "";
-    updateBar();
+  function syncMsg(){
+    var el = document.getElementById('syncstate'); if(!el) return;
+    if(db) el.textContent = (writing || isDirty()) ? "saving…" : "synced to your account ✓";
+    else if(dbFailed) el.textContent = "saved on this device only — cloud sync unavailable in this view";
+    else el.textContent = "connecting…";
   }
-  function persistLocal(){ try{ localStorage.setItem('sprint01', JSON.stringify(state)); }catch(e){} }
-  function persistDb(){
-    if(!db) return;
-    db.doc(DOCID).set({checks: state.checks, notes: state.notes, updatedAt: new Date().toISOString()}).catch(function(){});
+  function cacheLocal(){
+    try{ localStorage.setItem('sprint01', JSON.stringify({checks:mergedChecks(), notes:mergedNotes()})); }catch(e){}
   }
-  function persist(){ persistLocal(); if(saveTimer) clearTimeout(saveTimer); saveTimer = setTimeout(persistDb, 400); }
+  function flush(){
+    if(!db || writing || !isDirty()) return;
+    var payload = {checks: mergedChecks(), notes: mergedNotes(), updatedAt: new Date().toISOString()};
+    var sentChecks = {}; for(var k in pending.checks) sentChecks[k] = pending.checks[k];
+    var sentNotes = pending.hasNotes, sentNotesVal = pending.notes;
+    writing = true; syncMsg();
+    ref.set(payload).then(function(){
+      server.checks = payload.checks; server.notes = payload.notes;
+      for(var k in sentChecks){ if(pending.checks[k]===sentChecks[k]) delete pending.checks[k]; }
+      if(sentNotes && pending.notes===sentNotesVal) pending.hasNotes = false;
+      writing = false; syncMsg();
+      if(isDirty()) schedule();
+    }).catch(function(){ writing = false; syncMsg(); schedule(); });
+  }
+  function schedule(){ if(writeTimer) clearTimeout(writeTimer); writeTimer = setTimeout(flush, 500); }
+  function flushNow(){ if(writeTimer) clearTimeout(writeTimer); flush(); }
 
-  try{ var cached = localStorage.getItem('sprint01'); if(cached){ var p = JSON.parse(cached); state.checks = p.checks||{}; state.notes = p.notes||""; } }catch(e){}
-  applyState();
+  try{ var c = localStorage.getItem('sprint01'); if(c){ var pc = JSON.parse(c); server.checks = pc.checks||{}; server.notes = pc.notes||""; } }catch(e){}
+  render();
 
   document.addEventListener('change', function(e){
     var t = e.target;
     if(t && t.hasAttribute && t.hasAttribute('data-ck')){
-      state.checks[t.getAttribute('data-ck')] = t.checked;
-      updateBar(); persist();
+      pending.checks[t.getAttribute('data-ck')] = t.checked;
+      render(); cacheLocal(); schedule();
     }
   });
   var btn = document.getElementById('savenotes');
   if(btn) btn.addEventListener('click', function(){
     var n = document.getElementById('notes');
-    state.notes = n ? n.value : "";
-    persistLocal(); persistDb();
+    pending.hasNotes = true; pending.notes = n ? n.value : "";
+    render(); cacheLocal(); flushNow();
     var m = document.getElementById('savemsg');
     if(m){ m.hidden = false; setTimeout(function(){ m.hidden = true; }, 2500); }
   });
 
-  if(window.claude && typeof window.claude.use === 'function'){
-    window.claude.use("db").then(function(d){
-      if(!d) return;
-      db = d;
-      d.doc(DOCID).onSnapshot(function(snap){
-        if(snap && snap.exists){
-          var data = snap.data() || {};
-          state.checks = data.checks || {};
-          if(typeof data.notes === 'string') state.notes = data.notes;
-          applyState(); persistLocal();
-        } else {
-          persistDb();
+  var useFn = (window.claude && typeof window.claude.use === 'function') ? window.claude.use.bind(window.claude) : null;
+  if(!useFn){ dbFailed = true; syncMsg(); return; }
+  useFn("db").then(function(d){
+    if(!d){ dbFailed = true; syncMsg(); return; }
+    db = d; ref = d.doc(DOCID);
+    ref.onSnapshot(function(snap){
+      if(snap && snap.exists){
+        var data = snap.data() || {};
+        server.checks = data.checks || {};              // pending still overlays this — a click can never be reverted
+        if(typeof data.notes === 'string') server.notes = data.notes;
+        render(); cacheLocal();
+      } else {
+        // first ever connection: push whatever this device already has
+        var has = false; for(var k in server.checks){ has = true; break; }
+        if(has || server.notes){
+          pending.checks = mergedChecks();
+          if(server.notes){ pending.hasNotes = true; pending.notes = server.notes; }
         }
-      });
-    }).catch(function(){});
-  }
+        if(isDirty()) schedule();
+      }
+      syncMsg();
+    });
+    syncMsg();
+  }).catch(function(){ dbFailed = true; syncMsg(); });
 })();
 </script>
