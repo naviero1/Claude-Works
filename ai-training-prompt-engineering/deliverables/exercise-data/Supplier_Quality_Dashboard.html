@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supplier Quality Dashboard — training snapshot</title>
+<style>
+  :root { --teal:#0E7C7B; --teal-d:#0A5B5A; --ink:#232A31; --slate:#46545F; --mute:#7A8790;
+          --line:#DCE3E6; --panel:#F2F5F6; --amber:#B96A1B; --red:#AF3230; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.45 Calibri, 'Segoe UI', Arial, sans-serif; color:var(--ink); background:#FFFFFF; padding:0 16px; }
+  header { padding:18px 4px 8px; border-bottom:2px solid var(--teal); }
+  h1 { font-size:22px; margin:0 0 2px; } .sub { color:var(--slate); }
+  .bar { display:flex; flex-wrap:wrap; gap:14px; align-items:flex-end; padding:12px 4px; background:var(--panel); margin:12px 0; border-radius:8px; padding:12px; }
+  .ctl label { display:block; font-size:11px; font-weight:bold; color:var(--teal-d); letter-spacing:.4px; margin-bottom:2px; }
+  select, button { font:inherit; padding:4px 6px; border:1px solid var(--line); border-radius:5px; background:#fff; color:var(--ink); }
+  select[multiple] { min-width:150px; height:74px; }
+  button { cursor:pointer; } button:focus, select:focus { outline:2px solid var(--teal); outline-offset:1px; }
+  #reset { background:var(--teal); color:#fff; border-color:var(--teal); font-weight:bold; }
+  #active { font-size:12.5px; color:var(--slate); padding:2px 6px; }
+  #active b { color:var(--teal-d); }
+  .tiles { display:flex; flex-wrap:wrap; gap:12px; margin:10px 0; }
+  .tile { flex:1 1 160px; min-width:150px; background:var(--panel); border-radius:8px; padding:10px 14px; }
+  .tile .lab { font-size:11px; font-weight:bold; letter-spacing:.4px; color:var(--teal-d); }
+  .tile .val { font-size:26px; font-weight:bold; }
+  .tile .note { font-size:11px; color:var(--mute); }
+  .grids { display:flex; flex-wrap:wrap; gap:16px; }
+  .card { flex:1 1 420px; min-width:320px; border:1px solid var(--line); border-radius:8px; padding:10px 14px; }
+  .card h2 { font-size:15px; margin:2px 0 8px; }
+  table { border-collapse:collapse; width:100%; font-size:12.5px; }
+  th, td { border:1px solid var(--line); padding:3px 7px; text-align:right; }
+  th { background:var(--panel); cursor:pointer; user-select:none; }
+  th:first-child, td:first-child, th:nth-child(2), td:nth-child(2), th:nth-child(3), td:nth-child(3) { text-align:left; }
+  .empty { padding:26px; text-align:center; color:var(--amber); font-weight:bold; }
+  footer { margin:18px 0 24px; padding-top:10px; border-top:1px solid var(--line); font-size:12px; color:var(--slate); }
+  footer b { color:var(--ink); }
+  #selfcheck.ok { color:#1E7B34; } #selfcheck.bad { color:var(--red); }
+  .bars rect:hover, .bars rect:focus { opacity:.75; cursor:pointer; }
+  @media (max-width:640px){ .bar{flex-direction:column; align-items:stretch;} select[multiple]{width:100%;} }
+</style></head><body>
+<header>
+  <h1>Supplier Quality Dashboard</h1>
+  <div class="sub">The case question: <b>which supplier has the highest return rate, and what should we investigate next?</b>
+  &nbsp;·&nbsp; Fictional training data · period 2025-09 to 2026-08 · grain: one row = month × site × supplier</div>
+</header>
+
+<div class="bar" role="group" aria-label="Filters">
+  <div class="ctl"><label for="m1">START MONTH</label><select id="m1"></select></div>
+  <div class="ctl"><label for="m2">END MONTH (inclusive)</label><select id="m2"></select></div>
+  <div class="ctl"><label for="fsup">SUPPLIERS (multi-select)</label><select id="fsup" multiple></select></div>
+  <div class="ctl"><label for="fsite">SITES (multi-select)</label><select id="fsite" multiple></select></div>
+  <div class="ctl"><label for="grp">COMPARE BY</label><select id="grp"><option value="sup">Supplier</option><option value="site">Site</option></select></div>
+  <div class="ctl"><label for="gran">TREND GRANULARITY</label><select id="gran"><option value="m">Monthly</option><option value="q">Quarterly</option></select></div>
+  <div class="ctl"><label for="met">METRIC</label><select id="met">
+    <option value="units">Units shipped</option>
+    <option value="rr" selected>Return rate</option>
+    <option value="dr">Defect rate</option></select></div>
+  <div class="ctl"><label>&nbsp;</label><button id="reset">Reset all</button></div>
+</div>
+<div id="active"></div>
+
+<div class="tiles" id="tiles"></div>
+<div class="grids">
+  <div class="card"><h2 id="trendTitle"></h2><div id="trend"></div></div>
+  <div class="card"><h2 id="rankTitle"></h2><div id="rank"></div>
+    <div style="font-size:11.5px;color:var(--mute);margin-top:4px">Bars are ranked highest→lowest on the selected metric. Click a bar to drill down to its records in the table.</div></div>
+</div>
+<div class="card" style="margin-top:16px"><h2 id="tabTitle">Records in the current selection</h2><div id="tab"></div></div>
+
+<footer>
+  <b>Definitions</b> — Return rate = sum(Units_Returned) ÷ sum(Units_Shipped) over the selected records ·
+  Defect rate = sum(Defects_Found) ÷ sum(Units_Shipped) · rates shown to three decimals; sums, never averaged row percentages.
+  Defects (caught at inspection) and returns (escaped to customers) are separate measures.
+  One Inspection_Hours value is missing in the source and is shown blank — missing is not zero.<br>
+  <b>Data snapshot</b> — embedded from Course_Workbook.xlsx (Data tab, 144 detail rows; TOTAL row excluded), generated 2026-09-16.
+  This file is a static snapshot, not a live reporting system — regenerate it when the source changes. Works offline; no network calls.
+  Fictional training data: no real company, suppliers, or prices. &nbsp; <span id="selfcheck"></span>
+</footer>
+
+<script>
+const D = [{"m":"2025-09","site":"Austin","sup":"Alpha Components","u":1781,"ret":2,"def":8,"ih":22.8,"cost":12.67,"ot":89.2},{"m":"2025-09","site":"Austin","sup":"Bravo Plastics","u":1590,"ret":8,"def":14,"ih":15,"cost":9.85,"ot":86.3},{"m":"2025-09","site":"Austin","sup":"Cardinal Metals","u":1569,"ret":1,"def":13,"ih":34.8,"cost":13.89,"ot":87.4},{"m":"2025-09","site":"Berlin","sup":"Alpha Components","u":1291,"ret":0,"def":9,"ih":36.3,"cost":12.16,"ot":92.1},{"m":"2025-09","site":"Berlin","sup":"Bravo Plastics","u":1564,"ret":6,"def":14,"ih":17,"cost":10.09,"ot":91.1},{"m":"2025-09","site":"Berlin","sup":"Cardinal Metals","u":1499,"ret":1,"def":13,"ih":45.1,"cost":14.22,"ot":91.8},{"m":"2025-09","site":"Osaka","sup":"Alpha Components","u":2167,"ret":1,"def":14,"ih":41.6,"cost":12.64,"ot":98.4},{"m":"2025-09","site":"Osaka","sup":"Bravo Plastics","u":1947,"ret":5,"def":16,"ih":21.4,"cost":9.7,"ot":97.4},{"m":"2025-09","site":"Osaka","sup":"Cardinal Metals","u":2088,"ret":3,"def":13,"ih":25.8,"cost":13.94,"ot":99.7},{"m":"2025-09","site":"Monterrey","sup":"Alpha Components","u":1226,"ret":0,"def":9,"ih":37.3,"cost":12.36,"ot":85.8},{"m":"2025-09","site":"Monterrey","sup":"Bravo Plastics","u":1317,"ret":3,"def":22,"ih":31.8,"cost":10.08,"ot":88.5},{"m":"2025-09","site":"Monterrey","sup":"Cardinal Metals","u":1087,"ret":2,"def":8,"ih":22.6,"cost":14.61,"ot":85.2},{"m":"2025-10","site":"Austin","sup":"Alpha Components","u":1863,"ret":1,"def":12,"ih":35,"cost":12.82,"ot":89.7},{"m":"2025-10","site":"Austin","sup":"Bravo Plastics","u":1645,"ret":8,"def":20,"ih":22.4,"cost":10.12,"ot":92.6},{"m":"2025-10","site":"Austin","sup":"Cardinal Metals","u":1698,"ret":1,"def":14,"ih":45.9,"cost":13.77,"ot":93.4},{"m":"2025-10","site":"Berlin","sup":"Alpha Components","u":1469,"ret":1,"def":9,"ih":27.5,"cost":12.36,"ot":94.3},{"m":"2025-10","site":"Berlin","sup":"Bravo Plastics","u":1575,"ret":2,"def":23,"ih":45.1,"cost":9.51,"ot":93.4},{"m":"2025-10","site":"Berlin","sup":"Cardinal Metals","u":1443,"ret":0,"def":11,"ih":34.5,"cost":14.11,"ot":91},{"m":"2025-10","site":"Osaka","sup":"Alpha Components","u":2014,"ret":1,"def":14,"ih":42,"cost":12.46,"ot":98.9},{"m":"2025-10","site":"Osaka","sup":"Bravo Plastics","u":2184,"ret":2,"def":26,"ih":34.4,"cost":9.61,"ot":100},{"m":"2025-10","site":"Osaka","sup":"Cardinal Metals","u":2140,"ret":1,"def":16,"ih":38.9,"cost":13.68,"ot":96.8},{"m":"2025-10","site":"Monterrey","sup":"Alpha Components","u":1302,"ret":0,"def":12,"ih":40.6,"cost":12.08,"ot":88.7},{"m":"2025-10","site":"Monterrey","sup":"Bravo Plastics","u":1290,"ret":10,"def":17,"ih":16.7,"cost":9.55,"ot":88.5},{"m":"2025-10","site":"Monterrey","sup":"Cardinal Metals","u":1110,"ret":1,"def":11,"ih":31.6,"cost":14.54,"ot":81.2},{"m":"2025-11","site":"Austin","sup":"Alpha Components","u":1706,"ret":1,"def":10,"ih":31.3,"cost":12.2,"ot":88.3},{"m":"2025-11","site":"Austin","sup":"Bravo Plastics","u":1785,"ret":3,"def":26,"ih":30.6,"cost":9.66,"ot":100},{"m":"2025-11","site":"Austin","sup":"Cardinal Metals","u":1677,"ret":4,"def":12,"ih":21.4,"cost":13.75,"ot":90.5},{"m":"2025-11","site":"Berlin","sup":"Alpha Components","u":1549,"ret":4,"def":8,"ih":16.3,"cost":12.61,"ot":92.9},{"m":"2025-11","site":"Berlin","sup":"Bravo Plastics","u":1351,"ret":1,"def":18,"ih":43.9,"cost":9.83,"ot":94.8},{"m":"2025-11","site":"Berlin","sup":"Cardinal Metals","u":1344,"ret":2,"def":9,"ih":27.8,"cost":14.14,"ot":90.5},{"m":"2025-11","site":"Osaka","sup":"Alpha Components","u":2126,"ret":1,"def":13,"ih":45.5,"cost":12.38,"ot":94.9},{"m":"2025-11","site":"Osaka","sup":"Bravo Plastics","u":1931,"ret":4,"def":21,"ih":28.4,"cost":9.7,"ot":100},{"m":"2025-11","site":"Osaka","sup":"Cardinal Metals","u":1931,"ret":3,"def":15,"ih":28.2,"cost":14.22,"ot":100},{"m":"2025-11","site":"Monterrey","sup":"Alpha Components","u":1280,"ret":1,"def":12,"ih":43.6,"cost":12.17,"ot":92.8},{"m":"2025-11","site":"Monterrey","sup":"Bravo Plastics","u":1196,"ret":3,"def":17,"ih":26.8,"cost":9.77,"ot":91.1},{"m":"2025-11","site":"Monterrey","sup":"Cardinal Metals","u":1268,"ret":3,"def":11,"ih":27.5,"cost":14.66,"ot":87.7},{"m":"2025-12","site":"Austin","sup":"Alpha Components","u":1314,"ret":3,"def":7,"ih":null,"cost":12.87,"ot":84.7},{"m":"2025-12","site":"Austin","sup":"Bravo Plastics","u":1364,"ret":2,"def":19,"ih":32.7,"cost":10.09,"ot":86.2},{"m":"2025-12","site":"Austin","sup":"Cardinal Metals","u":1210,"ret":4,"def":8,"ih":16.6,"cost":14.26,"ot":87},{"m":"2025-12","site":"Berlin","sup":"Alpha Components","u":993,"ret":2,"def":6,"ih":21.9,"cost":12.57,"ot":88.7},{"m":"2025-12","site":"Berlin","sup":"Bravo Plastics","u":1057,"ret":3,"def":16,"ih":30.7,"cost":9.65,"ot":89.7},{"m":"2025-12","site":"Berlin","sup":"Cardinal Metals","u":1052,"ret":2,"def":7,"ih":23.6,"cost":14.42,"ot":88.6},{"m":"2025-12","site":"Osaka","sup":"Alpha Components","u":1394,"ret":0,"def":8,"ih":46,"cost":12.09,"ot":93.4},{"m":"2025-12","site":"Osaka","sup":"Bravo Plastics","u":1657,"ret":2,"def":26,"ih":42.1,"cost":9.61,"ot":94.5},{"m":"2025-12","site":"Osaka","sup":"Cardinal Metals","u":1626,"ret":1,"def":13,"ih":33.6,"cost":14.32,"ot":96.7},{"m":"2025-12","site":"Monterrey","sup":"Alpha Components","u":863,"ret":0,"def":7,"ih":44,"cost":12.13,"ot":84.4},{"m":"2025-12","site":"Monterrey","sup":"Bravo Plastics","u":829,"ret":5,"def":12,"ih":22.7,"cost":10,"ot":85.6},{"m":"2025-12","site":"Monterrey","sup":"Cardinal Metals","u":857,"ret":0,"def":9,"ih":43,"cost":13.77,"ot":89.4},{"m":"2026-01","site":"Austin","sup":"Alpha Components","u":1706,"ret":5,"def":7,"ih":14.1,"cost":12.58,"ot":91.6},{"m":"2026-01","site":"Austin","sup":"Bravo Plastics","u":1751,"ret":11,"def":19,"ih":14.3,"cost":10.11,"ot":96.9},{"m":"2026-01","site":"Austin","sup":"Cardinal Metals","u":1873,"ret":1,"def":17,"ih":40.7,"cost":13.82,"ot":93.8},{"m":"2026-01","site":"Berlin","sup":"Alpha Components","u":1547,"ret":1,"def":11,"ih":41.5,"cost":12.21,"ot":95.2},{"m":"2026-01","site":"Berlin","sup":"Bravo Plastics","u":1361,"ret":2,"def":20,"ih":39,"cost":9.78,"ot":93.2},{"m":"2026-01","site":"Berlin","sup":"Cardinal Metals","u":1556,"ret":1,"def":15,"ih":45.2,"cost":14.55,"ot":93.2},{"m":"2026-01","site":"Osaka","sup":"Alpha Components","u":1840,"ret":3,"def":10,"ih":24.6,"cost":12.72,"ot":99.4},{"m":"2026-01","site":"Osaka","sup":"Bravo Plastics","u":1938,"ret":14,"def":22,"ih":17.5,"cost":10.09,"ot":94.2},{"m":"2026-01","site":"Osaka","sup":"Cardinal Metals","u":1920,"ret":2,"def":14,"ih":28.7,"cost":14.46,"ot":97.1},{"m":"2026-01","site":"Monterrey","sup":"Alpha Components","u":1126,"ret":0,"def":9,"ih":41.7,"cost":12.27,"ot":88.9},{"m":"2026-01","site":"Monterrey","sup":"Bravo Plastics","u":1233,"ret":2,"def":24,"ih":45.4,"cost":10.15,"ot":95.9},{"m":"2026-01","site":"Monterrey","sup":"Cardinal Metals","u":1122,"ret":3,"def":10,"ih":22.5,"cost":14.11,"ot":95},{"m":"2026-02","site":"Austin","sup":"Alpha Components","u":1812,"ret":1,"def":12,"ih":33.4,"cost":12.36,"ot":90},{"m":"2026-02","site":"Austin","sup":"Bravo Plastics","u":1805,"ret":2,"def":28,"ih":43.6,"cost":10,"ot":90.9},{"m":"2026-02","site":"Austin","sup":"Cardinal Metals","u":1817,"ret":3,"def":14,"ih":25.7,"cost":14.33,"ot":90.7},{"m":"2026-02","site":"Berlin","sup":"Alpha Components","u":1533,"ret":2,"def":9,"ih":23.6,"cost":12.38,"ot":95.5},{"m":"2026-02","site":"Berlin","sup":"Bravo Plastics","u":1405,"ret":8,"def":16,"ih":18.1,"cost":10.15,"ot":92.1},{"m":"2026-02","site":"Berlin","sup":"Cardinal Metals","u":1466,"ret":1,"def":11,"ih":31.5,"cost":13.96,"ot":90.1},{"m":"2026-02","site":"Osaka","sup":"Alpha Components","u":2004,"ret":1,"def":12,"ih":35,"cost":12.41,"ot":97.5},{"m":"2026-02","site":"Osaka","sup":"Bravo Plastics","u":2196,"ret":11,"def":27,"ih":19.4,"cost":9.86,"ot":99.2},{"m":"2026-02","site":"Osaka","sup":"Cardinal Metals","u":2087,"ret":1,"def":15,"ih":40.2,"cost":14.34,"ot":97.2},{"m":"2026-02","site":"Monterrey","sup":"Alpha Components","u":1085,"ret":1,"def":7,"ih":29.2,"cost":12.09,"ot":90.6},{"m":"2026-02","site":"Monterrey","sup":"Bravo Plastics","u":1179,"ret":9,"def":19,"ih":20.2,"cost":9.85,"ot":88.2},{"m":"2026-02","site":"Monterrey","sup":"Cardinal Metals","u":1081,"ret":0,"def":12,"ih":38.6,"cost":14.1,"ot":93.8},{"m":"2026-03","site":"Austin","sup":"Alpha Components","u":1620,"ret":1,"def":12,"ih":30.6,"cost":12.24,"ot":93.9},{"m":"2026-03","site":"Austin","sup":"Bravo Plastics","u":1837,"ret":3,"def":36,"ih":45.6,"cost":10.16,"ot":89.3},{"m":"2026-03","site":"Austin","sup":"Cardinal Metals","u":1869,"ret":1,"def":17,"ih":37,"cost":14.5,"ot":85.9},{"m":"2026-03","site":"Berlin","sup":"Alpha Components","u":1503,"ret":2,"def":8,"ih":22.3,"cost":12.58,"ot":92.7},{"m":"2026-03","site":"Berlin","sup":"Bravo Plastics","u":1509,"ret":2,"def":27,"ih":34.1,"cost":9.56,"ot":93.6},{"m":"2026-03","site":"Berlin","sup":"Cardinal Metals","u":1381,"ret":4,"def":8,"ih":18.4,"cost":14.36,"ot":95.6},{"m":"2026-03","site":"Osaka","sup":"Alpha Components","u":2117,"ret":2,"def":10,"ih":27,"cost":12.39,"ot":97.6},{"m":"2026-03","site":"Osaka","sup":"Bravo Plastics","u":2197,"ret":3,"def":36,"ih":36.3,"cost":10.03,"ot":99},{"m":"2026-03","site":"Osaka","sup":"Cardinal Metals","u":1984,"ret":3,"def":11,"ih":25.3,"cost":14.52,"ot":99},{"m":"2026-03","site":"Monterrey","sup":"Alpha Components","u":1259,"ret":0,"def":10,"ih":33.3,"cost":12.22,"ot":86.8},{"m":"2026-03","site":"Monterrey","sup":"Bravo Plastics","u":1184,"ret":6,"def":18,"ih":24.8,"cost":9.78,"ot":90.3},{"m":"2026-03","site":"Monterrey","sup":"Cardinal Metals","u":1110,"ret":5,"def":7,"ih":14.9,"cost":14.23,"ot":91.9},{"m":"2026-04","site":"Austin","sup":"Alpha Components","u":1569,"ret":4,"def":8,"ih":18.3,"cost":12.07,"ot":90.5},{"m":"2026-04","site":"Austin","sup":"Bravo Plastics","u":1673,"ret":9,"def":30,"ih":26.1,"cost":10.08,"ot":93.4},{"m":"2026-04","site":"Austin","sup":"Cardinal Metals","u":1647,"ret":5,"def":8,"ih":14.6,"cost":14.66,"ot":89.4},{"m":"2026-04","site":"Berlin","sup":"Alpha Components","u":1513,"ret":1,"def":11,"ih":38.1,"cost":12.2,"ot":96.3},{"m":"2026-04","site":"Berlin","sup":"Bravo Plastics","u":1295,"ret":8,"def":15,"ih":18,"cost":9.89,"ot":94.6},{"m":"2026-04","site":"Berlin","sup":"Cardinal Metals","u":1509,"ret":1,"def":11,"ih":33.4,"cost":13.79,"ot":97},{"m":"2026-04","site":"Osaka","sup":"Alpha Components","u":2163,"ret":4,"def":10,"ih":17.5,"cost":12.3,"ot":94.8},{"m":"2026-04","site":"Osaka","sup":"Bravo Plastics","u":1991,"ret":15,"def":24,"ih":16.4,"cost":9.94,"ot":92.5},{"m":"2026-04","site":"Osaka","sup":"Cardinal Metals","u":1871,"ret":1,"def":15,"ih":41.2,"cost":13.8,"ot":100},{"m":"2026-04","site":"Monterrey","sup":"Alpha Components","u":1163,"ret":2,"def":8,"ih":25.9,"cost":12.32,"ot":87.3},{"m":"2026-04","site":"Monterrey","sup":"Bravo Plastics","u":1283,"ret":14,"def":22,"ih":17.4,"cost":9.94,"ot":91},{"m":"2026-04","site":"Monterrey","sup":"Cardinal Metals","u":1184,"ret":1,"def":13,"ih":44.9,"cost":14.47,"ot":82.5},{"m":"2026-05","site":"Austin","sup":"Alpha Components","u":1746,"ret":2,"def":11,"ih":27.9,"cost":12.26,"ot":95.4},{"m":"2026-05","site":"Austin","sup":"Bravo Plastics","u":1590,"ret":11,"def":28,"ih":21.8,"cost":9.92,"ot":87.5},{"m":"2026-05","site":"Austin","sup":"Cardinal Metals","u":1691,"ret":1,"def":13,"ih":41.2,"cost":13.89,"ot":92.8},{"m":"2026-05","site":"Berlin","sup":"Alpha Components","u":1542,"ret":2,"def":9,"ih":22.8,"cost":12.85,"ot":92.3},{"m":"2026-05","site":"Berlin","sup":"Bravo Plastics","u":1314,"ret":5,"def":25,"ih":29.6,"cost":9.98,"ot":92.6},{"m":"2026-05","site":"Berlin","sup":"Cardinal Metals","u":1517,"ret":4,"def":8,"ih":21.1,"cost":13.98,"ot":92.2},{"m":"2026-05","site":"Osaka","sup":"Alpha Components","u":2066,"ret":1,"def":12,"ih":31,"cost":12.68,"ot":95.5},{"m":"2026-05","site":"Osaka","sup":"Bravo Plastics","u":1940,"ret":10,"def":22,"ih":17.9,"cost":9.59,"ot":99.7},{"m":"2026-05","site":"Osaka","sup":"Cardinal Metals","u":2047,"ret":5,"def":12,"ih":19.9,"cost":14.15,"ot":96.1},{"m":"2026-05","site":"Monterrey","sup":"Alpha Components","u":1205,"ret":3,"def":6,"ih":17.2,"cost":12.23,"ot":77.2},{"m":"2026-05","site":"Monterrey","sup":"Bravo Plastics","u":1123,"ret":2,"def":21,"ih":31.1,"cost":10.17,"ot":82.2},{"m":"2026-05","site":"Monterrey","sup":"Cardinal Metals","u":1110,"ret":2,"def":11,"ih":29.7,"cost":14.24,"ot":86},{"m":"2026-06","site":"Austin","sup":"Alpha Components","u":1722,"ret":3,"def":9,"ih":19.9,"cost":12.84,"ot":86.5},{"m":"2026-06","site":"Austin","sup":"Bravo Plastics","u":1698,"ret":2,"def":31,"ih":34.1,"cost":9.61,"ot":92.8},{"m":"2026-06","site":"Austin","sup":"Cardinal Metals","u":1755,"ret":1,"def":15,"ih":45.8,"cost":14.43,"ot":87.8},{"m":"2026-06","site":"Berlin","sup":"Alpha Components","u":1354,"ret":1,"def":8,"ih":28.4,"cost":12.77,"ot":91.8},{"m":"2026-06","site":"Berlin","sup":"Bravo Plastics","u":1573,"ret":2,"def":29,"ih":33.9,"cost":10.01,"ot":95.3},{"m":"2026-06","site":"Berlin","sup":"Cardinal Metals","u":1350,"ret":3,"def":8,"ih":19,"cost":13.75,"ot":93.6},{"m":"2026-06","site":"Osaka","sup":"Alpha Components","u":1831,"ret":1,"def":11,"ih":33,"cost":12.23,"ot":96.2},{"m":"2026-06","site":"Osaka","sup":"Bravo Plastics","u":2014,"ret":3,"def":38,"ih":43.6,"cost":9.93,"ot":94},{"m":"2026-06","site":"Osaka","sup":"Cardinal Metals","u":2098,"ret":3,"def":16,"ih":27.6,"cost":14.32,"ot":100},{"m":"2026-06","site":"Monterrey","sup":"Alpha Components","u":1097,"ret":2,"def":6,"ih":23.8,"cost":12.52,"ot":83.9},{"m":"2026-06","site":"Monterrey","sup":"Bravo Plastics","u":1149,"ret":2,"def":25,"ih":36,"cost":10.15,"ot":83.3},{"m":"2026-06","site":"Monterrey","sup":"Cardinal Metals","u":1099,"ret":1,"def":8,"ih":27.8,"cost":13.92,"ot":88},{"m":"2026-07","site":"Austin","sup":"Alpha Components","u":1591,"ret":1,"def":13,"ih":40.8,"cost":12.85,"ot":96.5},{"m":"2026-07","site":"Austin","sup":"Bravo Plastics","u":1653,"ret":2,"def":31,"ih":38.2,"cost":9.95,"ot":92},{"m":"2026-07","site":"Austin","sup":"Cardinal Metals","u":1877,"ret":1,"def":15,"ih":32.7,"cost":14.16,"ot":94.3},{"m":"2026-07","site":"Berlin","sup":"Alpha Components","u":1385,"ret":0,"def":10,"ih":41.4,"cost":12.63,"ot":95},{"m":"2026-07","site":"Berlin","sup":"Bravo Plastics","u":1372,"ret":2,"def":32,"ih":40,"cost":9.82,"ot":93.3},{"m":"2026-07","site":"Berlin","sup":"Cardinal Metals","u":1568,"ret":2,"def":12,"ih":30.5,"cost":14.33,"ot":95.6},{"m":"2026-07","site":"Osaka","sup":"Alpha Components","u":2050,"ret":4,"def":9,"ih":20,"cost":12.68,"ot":94.6},{"m":"2026-07","site":"Osaka","sup":"Bravo Plastics","u":1912,"ret":3,"def":36,"ih":43.7,"cost":9.98,"ot":94.6},{"m":"2026-07","site":"Osaka","sup":"Cardinal Metals","u":1879,"ret":1,"def":16,"ih":33.5,"cost":13.83,"ot":94.6},{"m":"2026-07","site":"Monterrey","sup":"Alpha Components","u":1102,"ret":0,"def":10,"ih":43.2,"cost":12.13,"ot":86.4},{"m":"2026-07","site":"Monterrey","sup":"Bravo Plastics","u":1279,"ret":2,"def":32,"ih":36.9,"cost":9.69,"ot":93.7},{"m":"2026-07","site":"Monterrey","sup":"Cardinal Metals","u":1138,"ret":3,"def":10,"ih":26.3,"cost":14.18,"ot":78.3},{"m":"2026-08","site":"Austin","sup":"Alpha Components","u":1864,"ret":4,"def":12,"ih":22.8,"cost":12.39,"ot":95.3},{"m":"2026-08","site":"Austin","sup":"Bravo Plastics","u":1844,"ret":11,"def":31,"ih":23.6,"cost":10.19,"ot":90.6},{"m":"2026-08","site":"Austin","sup":"Cardinal Metals","u":1729,"ret":1,"def":13,"ih":31.2,"cost":14.22,"ot":88.8},{"m":"2026-08","site":"Berlin","sup":"Alpha Components","u":1382,"ret":0,"def":8,"ih":36.3,"cost":12.23,"ot":93.4},{"m":"2026-08","site":"Berlin","sup":"Bravo Plastics","u":1512,"ret":2,"def":28,"ih":37.8,"cost":10.06,"ot":91.8},{"m":"2026-08","site":"Berlin","sup":"Cardinal Metals","u":1525,"ret":2,"def":14,"ih":29.9,"cost":14.17,"ot":95.9},{"m":"2026-08","site":"Osaka","sup":"Alpha Components","u":2070,"ret":1,"def":14,"ih":42,"cost":12.48,"ot":93.9},{"m":"2026-08","site":"Osaka","sup":"Bravo Plastics","u":1996,"ret":14,"def":29,"ih":18.9,"cost":10.17,"ot":97.9},{"m":"2026-08","site":"Osaka","sup":"Cardinal Metals","u":1967,"ret":1,"def":16,"ih":34.8,"cost":14.52,"ot":98.2},{"m":"2026-08","site":"Monterrey","sup":"Alpha Components","u":1155,"ret":1,"def":10,"ih":38.3,"cost":12.06,"ot":85},{"m":"2026-08","site":"Monterrey","sup":"Bravo Plastics","u":1096,"ret":3,"def":29,"ih":43.5,"cost":10.02,"ot":86.3},{"m":"2026-08","site":"Monterrey","sup":"Cardinal Metals","u":1232,"ret":3,"def":12,"ih":28.2,"cost":14.57,"ot":88.7}];
+const MONTHS = [...new Set(D.map(r=>r.m))].sort();
+const SUPS = [...new Set(D.map(r=>r.sup))].sort();
+const SITES = [...new Set(D.map(r=>r.site))].sort();
+const COLORS = ['#0E7C7B','#AF3230','#B96A1B','#46545F'];
+const $ = id => document.getElementById(id);
+const METRIC = { units:{lab:'Units shipped', unit:'units'}, rr:{lab:'Return rate', unit:'%'}, dr:{lab:'Defect rate', unit:'%'} };
+let drill = null;          // {key, val} from clicking a bar
+let sortCol = 0, sortAsc = true;
+
+function fill(sel, vals, all){ sel.innerHTML=''; vals.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;o.selected=all;sel.appendChild(o);}); }
+function init(){
+  fill($('m1'), MONTHS, false); fill($('m2'), MONTHS, false);
+  $('m1').value = MONTHS[0]; $('m2').value = MONTHS[MONTHS.length-1];
+  fill($('fsup'), SUPS, true); fill($('fsite'), SITES, true);
+  ['m1','m2','fsup','fsite','grp','gran','met'].forEach(id=>$(id).addEventListener('change', ()=>{drill=null; render();}));
+  $('reset').addEventListener('click', ()=>{ init0(); drill=null; render(); });
+  render();
+}
+function init0(){ $('m1').value=MONTHS[0]; $('m2').value=MONTHS[MONTHS.length-1];
+  [...$('fsup').options].forEach(o=>o.selected=true); [...$('fsite').options].forEach(o=>o.selected=true);
+  $('grp').value='sup'; $('gran').value='m'; $('met').value='rr'; sortCol=0; sortAsc=true; }
+const picked = sel => [...sel.selectedOptions].map(o=>o.value);
+function filtered(){
+  const a=$('m1').value, b=$('m2').value, lo=a<b?a:b, hi=a<b?b:a;
+  const su=picked($('fsup')), si=picked($('fsite'));
+  return D.filter(r=> r.m>=lo && r.m<=hi && su.includes(r.sup) && si.includes(r.site));
+}
+const q = m => m.slice(0,4)+'-Q'+Math.ceil(+m.slice(5)/3);
+function agg(rs){ const u=rs.reduce((s,r)=>s+r.u,0), re=rs.reduce((s,r)=>s+r.ret,0), de=rs.reduce((s,r)=>s+r.def,0);
+  return {u, re, de, rr: u? re/u*100 : null, dr: u? de/u*100 : null}; }
+const mv = (a,m)=> m==='units'? a.u : m==='rr'? a.rr : a.dr;
+const fmt = (v,m)=> v==null? '—' : m==='units'? v.toLocaleString('en-US') : v.toFixed(3)+'%';
+
+function render(){
+  const rs0 = filtered();
+  const rs = drill ? rs0.filter(r=> (drill.key==='sup'? r.sup : r.site)===drill.val) : rs0;
+  const met=$('met').value, grpKey=$('grp').value, grpLab= grpKey==='sup'?'supplier':'site';
+  const a=agg(rs0);
+  // active-selection line
+  const su=picked($('fsup')), si=picked($('fsite'));
+  $('active').innerHTML = 'Showing <b>'+rs0.length+'</b> of 144 records · months <b>'+$('m1').value+'</b>–<b>'+$('m2').value+'</b>'
+    + ' · suppliers <b>'+(su.length===SUPS.length?'all':su.join(', ')||'none')+'</b>'
+    + ' · sites <b>'+(si.length===SITES.length?'all':si.join(', ')||'none')+'</b>'
+    + (drill? ' · <b style="color:var(--amber)">drill-down: '+drill.val+'</b> (click Reset or change a filter to clear)':'');
+  // tiles (always the FILTERED set, so every view agrees)
+  $('tiles').innerHTML = rs0.length===0 ? '' : [
+    ['UNITS SHIPPED', a.u.toLocaleString('en-US'), 'sum over selection'],
+    ['UNITS RETURNED', a.re.toLocaleString('en-US'), 'escapes to customers'],
+    ['RETURN RATE', fmt(a.rr,'rr'), 'returns ÷ shipped'],
+    ['DEFECT RATE', fmt(a.dr,'dr'), 'caught at inspection ÷ shipped'],
+  ].map(t=>'<div class="tile"><div class="lab">'+t[0]+'</div><div class="val">'+t[1]+'</div><div class="note">'+t[2]+'</div></div>').join('');
+  const empty = '<div class="empty">No records match the current selections. This is an empty selection, not a zero — widen the month range or clear a filter (Reset restores everything).</div>';
+  // trend
+  $('trendTitle').textContent = METRIC[met].lab + ' by ' + ($('gran').value==='m'?'month':'quarter') + ', one line per ' + grpLab;
+  $('trend').innerHTML = rs0.length? trendSVG(rs0, met, grpKey) : empty;
+  // ranked bars
+  $('rankTitle').textContent = METRIC[met].lab + ' by ' + grpLab + ' — ranked';
+  $('rank').innerHTML = rs0.length? rankSVG(rs0, met, grpKey) : empty;
+  // table
+  $('tabTitle').textContent = 'Records in the current selection' + (drill? ' — drill-down: '+drill.val : '') + ' ('+rs.length+' rows)';
+  $('tab').innerHTML = rs.length? tableHTML(rs) : empty;
+}
+function groups(rs, key){ const g={}; rs.forEach(r=>{ (g[key==='sup'?r.sup:r.site] ||= []).push(r); }); return g; }
+function trendSVG(rs, met, key){
+  const gran=$('gran').value, per = [...new Set(rs.map(r=> gran==='m'? r.m : q(r.m)))].sort();
+  const g = groups(rs, key), names=Object.keys(g).sort();
+  const series = names.map(n=>{ const by={}; g[n].forEach(r=>{ const p=gran==='m'?r.m:q(r.m); (by[p] ||= []).push(r); });
+    return { n, pts: per.map(p=> by[p]? mv(agg(by[p]),met) : null) }; });
+  const W=430,H=220,L=52,R=104,T=12,B=34, vals=series.flatMap(s=>s.pts).filter(v=>v!=null);
+  if(!vals.length) return '<div class="empty">No computable values in this selection.</div>';
+  const vmax=Math.max(...vals)*1.12||1, x=i=> L+(per.length===1?0:(W-L-R)*i/(per.length-1)), y=v=> T+(H-T-B)*(1-v/vmax);
+  let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Trend chart" style="width:100%;height:auto">';
+  for(let t=0;t<=3;t++){const vy=y(vmax*t/3); s+='<line x1="'+L+'" y1="'+vy+'" x2="'+(W-R)+'" y2="'+vy+'" stroke="#DCE3E6"/>'
+    +'<text x="'+(L-5)+'" y="'+(vy+4)+'" font-size="9.5" fill="#7A8790" text-anchor="end">'+(met==='units'? Math.round(vmax*t/3).toLocaleString('en-US') : (vmax*t/3).toFixed(2)+'%')+'</text>';}
+  per.forEach((p,i)=>{ if(per.length<=6 || i%2===0) s+='<text x="'+x(i)+'" y="'+(H-B+14)+'" font-size="9" fill="#46545F" text-anchor="middle">'+p+'</text>'; });
+  series.forEach((se,si2)=>{ const c=COLORS[si2%COLORS.length];
+    const seg=se.pts.map((v,i)=> v==null? null : [x(i),y(v)]).filter(Boolean);
+    s+='<polyline fill="none" stroke="'+c+'" stroke-width="2" points="'+seg.map(p=>p.join(',')).join(' ')+'"/>';
+    se.pts.forEach((v,i)=>{ if(v!=null) s+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="3" fill="'+c+'"><title>'+se.n+' · '+per[i]+' · '+fmt(v,met)+'</title></circle>'; });
+    const last=seg[seg.length-1]; if(last) s+='<text x="'+(last[0]+6)+'" y="'+(last[1]+3+(si2? (si2%2?9:-7):0))+'" font-size="10" font-weight="bold" fill="'+c+'">'+se.n.split(' ')[0]+'</text>';
+  });
+  return s+'</svg>';
+}
+function rankSVG(rs, met, key){
+  const g=groups(rs,key);
+  const items=Object.entries(g).map(([n,r])=>({n, v:mv(agg(r),met)})).filter(i=>i.v!=null).sort((p,r)=>r.v-p.v);
+  const W=430, bh=30, H=items.length*bh+8, vmax=Math.max(...items.map(i=>i.v))||1;
+  let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Ranked bars" class="bars" style="width:100%;height:auto">';
+  items.forEach((it,i)=>{ const bw=Math.max(2,(W-190)*it.v/vmax), yy=i*bh+4;
+    s+='<rect x="120" y="'+yy+'" width="'+bw+'" height="'+(bh-10)+'" rx="4" fill="#0E7C7B" tabindex="0" role="button" aria-label="Drill down to '+it.n+'" onclick="drillTo(\''+key+'\',\''+it.n.replace(/'/g,"\\'")+'\')" onkeydown="if(event.key===\'Enter\')drillTo(\''+key+'\',\''+it.n.replace(/'/g,"\\'")+'\')"><title>'+it.n+' · '+fmt(it.v,met)+' — click to drill down</title></rect>'
+      +'<text x="114" y="'+(yy+14)+'" font-size="11" fill="#232A31" text-anchor="end">'+it.n+'</text>'
+      +'<text x="'+(126+bw)+'" y="'+(yy+14)+'" font-size="11" font-weight="bold" fill="#232A31">'+fmt(it.v,met)+'</text>'; });
+  return s+'</svg>';
+}
+function drillTo(key,val){ drill={key,val}; render(); }
+function tableHTML(rs){
+  const cols=[['m','Month'],['site','Site'],['sup','Supplier'],['u','Shipped'],['ret','Returned'],['def','Defects'],['ih','Insp. hours'],['cost','Unit cost $'],['ot','On-time %']];
+  const sorted=[...rs].sort((a,b)=>{ const k=cols[sortCol][0]; const av=a[k]??-1, bv=b[k]??-1;
+    return (av<bv?-1:av>bv?1:0)*(sortAsc?1:-1); });
+  let h='<div style="overflow-x:auto"><table><tr>'+cols.map((c,i)=>'<th onclick="setSort('+i+')" title="Click to sort">'+c[1]+(i===sortCol?(sortAsc?' ▲':' ▼'):'')+'</th>').join('')+'</tr>';
+  sorted.slice(0,40).forEach(r=>{ h+='<tr>'+cols.map(c=>'<td>'+(r[c[0]]==null?'':(typeof r[c[0]]==='number'&&c[0]==='u'? r[c[0]].toLocaleString('en-US'):r[c[0]]))+'</td>').join('')+'</tr>'; });
+  h+='</table></div>';
+  if(sorted.length>40) h+='<div style="font-size:11.5px;color:var(--mute)">Showing 40 of '+sorted.length+' rows — narrow the selection or drill down to see the rest.</div>';
+  return h;
+}
+function setSort(i){ if(sortCol===i) sortAsc=!sortAsc; else {sortCol=i; sortAsc=true;} render(); }
+// visible self-check: the exercise's verified filtered result
+(function(){ const sel=D.filter(r=> r.site==='Berlin' && r.sup==='Bravo Plastics' && r.m>='2026-03' && r.m<='2026-08');
+  const a=agg(sel), ok = sel.length===6 && a.u===8575 && a.re===21 && a.rr.toFixed(3)==='0.245';
+  const el=$('selfcheck'); el.className= ok?'ok':'bad';
+  el.textContent='Self-check '+(ok?'PASSED':'FAILED')+': Berlin × Bravo Plastics, 2026-03..2026-08 → '+sel.length+' rows, '+a.u.toLocaleString('en-US')+' units, '+a.re+' returns, '+fmt(a.rr,'rr')+(ok?' — matches the workbook.':' — INVESTIGATE.');
+})();
+init();
+</script></body></html>

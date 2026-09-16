@@ -1,0 +1,36 @@
+PACKAGING-CHANGE CONVERSATION — fictional training thread (copy-paste source)
+Ten messages, oldest first. The attachment mentioned in message 5 is
+intentionally NOT supplied. No real people, companies, or projects.
+Matches the reference pages of the facilitated course deck.
+----------------------------------------------------------------------
+
+1. Sep 7, 09:00 — Maya, project lead
+Target the packaging change for September 25. Luis, please confirm the trial plan.
+
+2. Sep 7, 10:20 — Luis, operations
+I can run the trial on September 18, subject to quality review.
+
+3. Sep 8, 08:40 — Priya, finance
+Approved provided the total trial cost does not exceed 18,000 and quality signs off.
+
+4. Sep 8, 11:00 — Ben, quality
+The revised drawing is mentioned in the plan. Please send it before I can approve the trial.
+
+5. Sep 9, 13:15 — Elena, supplier contact
+The updated drawing is attached. The material shipment will arrive on September 23.
+[Attachment referenced: revised packaging drawing — NOT supplied with this exercise]
+
+6. Sep 9, 15:00 — Maya, project lead
+September 25 is no longer feasible. The proposed change date is now October 2. Luis, update the trial plan by September 16.
+
+7. Sep 10, 09:30 — Omar, logistics
+Who will pay the extra freight for the later material shipment?
+
+8. Sep 10, 14:10 — Luis, operations
+I will submit the revised trial plan by September 16. The new trial date is September 25.
+
+9. Sep 11, 08:50 — Priya, finance
+The 18,000 cap still applies. I have not approved additional freight charges.
+
+10. Sep 11, 11:20 — Maya, project lead
+Plan for October 2, pending Ben's quality sign-off. Luis owns the revised trial plan. We still need the freight decision.
