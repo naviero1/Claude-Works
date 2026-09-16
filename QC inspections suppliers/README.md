@@ -4,7 +4,7 @@ Incoming-quality-control (IQC) data for tissue harvested at the slaughterhouse (
 
 ## Files
 
-- **SH_IQC_Inspections.xlsx** — master workbook (current). SH-floor IQC inspections, Apr 13 – Aug 19 2026, across Martins, Parks and Nahunta. (Renamed from `Pelvic_Blocks_Quality_*`; earlier versions are in git history.)
+- **SH_IQC_Inspections.xlsx** — master workbook (current). SH-floor IQC inspections, Apr 13 – Sep 9 2026, across Martins, Parks and Nahunta. (Renamed from `Pelvic_Blocks_Quality_*`; earlier versions are in git history.)
 
 ## Workbook map
 
@@ -15,7 +15,7 @@ Incoming-quality-control (IQC) data for tissue harvested at the slaughterhouse (
 | `Monthly Breakdown` | Month-by-month (Apr–Aug) view per tissue × slaughterhouse × part combo: FPY + fails overview matrices, then a detail block per combo with volumes and **issues found**, normalized into standard defect categories (urethra/bladder, membrane, bowel, short/mesentery, critical-area, ureter, lung, heart, other). Volume rows live; defect tags analyst-coded from scrap notes. |
 | `SH vs ATM by Batch` | Batch-to-batch comparison for lots inspected at both stages (matched on batch number): SH sample results vs ATM full-batch receipt review, with both inspection dates, the SH→ATM review lag in days, ATM scrap reason codes per batch (matrix + full code legend). 12 matched batches (Martins 666541 + Nahunta 666521). |
 | `SH vs ATM Issues` | Date-filterable issue profiles per tissue: pick a From/To window (yellow cells) and the SH defect categories (left) vs ATM SAP reason codes (right) recalculate — units, %, totals, quality-only subtotals (planned withdrawals marked *), data bars. Backed by the hidden `Issue Data` sheet (append rows there to extend). Unmapped legacy ATM codes excluded per Quality. |
-| `Apr 2026` … `Aug 2026` | One tab per month: month summary by tissue × slaughterhouse (with top defect), the month's most recurring defects ranked per combo (count, % of fails, data bars), and the full list of that month's inspections. Static snapshots — extend with a new month tab as data arrives. |
+| `Apr 2026` … `Sep 2026` | One tab per month: month summary by tissue × slaughterhouse (with top defect), the month's most recurring defects ranked per combo (count, % of fails, data bars), and the full list of that month's inspections. Static snapshots — extend with a new month tab as data arrives. |
 | `SmartAssessment` | Working analyst notes: stage/yield model, root-cause findings, spec corrections, caveats, next steps. Verify with Quality before external use. (May lag the latest data.) |
 | `Defect Atlas` | Visual reference per defect category (photos). |
 
