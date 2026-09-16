@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# One-page printable cheat sheet — "From Prompts to Agents"
+# One-page printable cheat sheet — "From Prompts to Agents" (R17: requirements-first).
+# Editable source: this file. Rebuild: python3 build_cheatsheet.py
 import os
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
@@ -12,7 +13,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 FD = '/usr/share/fonts/truetype/dejavu/'
 pdfmetrics.registerFont(TTFont('DV', FD + 'DejaVuSans.ttf'))
 pdfmetrics.registerFont(TTFont('DV-B', FD + 'DejaVuSans-Bold.ttf'))
-pdfmetrics.registerFont(TTFont('DV-I', FD + 'DejaVuSans.ttf'))  # no oblique face installed; reuse regular
+pdfmetrics.registerFont(TTFont('DV-I', FD + 'DejaVuSans.ttf'))
 pdfmetrics.registerFont(TTFont('DVSer-B', FD + 'DejaVuSerif-Bold.ttf'))
 pdfmetrics.registerFont(TTFont('Mono-B', FD + 'DejaVuSansMono-Bold.ttf'))
 pdfmetrics.registerFontFamily('DV', normal='DV', bold='DV-B', italic='DV-I')
@@ -34,21 +35,16 @@ colw = (W - 2 * M - GUT) / 2
 
 out = os.path.join(os.path.dirname(__file__), '..', 'deliverables', 'Prompt_Anatomy_Cheat_Sheet.pdf')
 
-S_head = ParagraphStyle('h', fontName='DV-B', fontSize=8.2, leading=10.5, textColor=TEAL_D, spaceAfter=2)
-S_body = ParagraphStyle('b', fontName='DV', fontSize=7.0, leading=9.3, textColor=SLATE, spaceAfter=1.5)
+S_head = ParagraphStyle('h', fontName='DV-B', fontSize=8.4, leading=10.8, textColor=TEAL_D, spaceAfter=2)
+S_body = ParagraphStyle('b', fontName='DV', fontSize=7.4, leading=9.9, textColor=SLATE, spaceAfter=1.5)
 S_mode = ParagraphStyle('m', fontName='DV-B', fontSize=10, leading=12, textColor=TEAL_D, spaceAfter=1)
-S_modesub = ParagraphStyle('ms', fontName='DV-I', fontSize=6.8, leading=8.5, textColor=MUTE, spaceAfter=4)
+S_modesub = ParagraphStyle('ms', fontName='DV-I', fontSize=7.0, leading=8.8, textColor=MUTE, spaceAfter=4)
 
 
-def box(title, rows, fill, title_color=TEAL_D, key_mono=False, key_w=None):
+def box(title, rows, fill, title_color=TEAL_D):
     flow = [Paragraph(title, ParagraphStyle('t', parent=S_head, textColor=title_color))]
     for k, v in rows:
-        if k:
-            kf = 'Mono-B' if key_mono else 'DV-B'
-            kc = '#0A5B5A' if key_mono else '#232A31'
-            txt = f'<font face="{kf}" color="{kc}">{k}</font> {v}'
-        else:
-            txt = v
+        txt = f'<font face="DV-B" color="#232A31">{k}</font> {v}' if k else v
         flow.append(Paragraph(txt, S_body))
     t = Table([[flow]], colWidths=[colw])
     t.setStyle(TableStyle([
@@ -67,10 +63,10 @@ def header_footer(cv, doc):
     cv.setFillColor(colors.HexColor('#5FB8B0')); cv.setFont('DV-B', 7)
     cv.drawString(M, H - 0.24 * inch, 'FROM PROMPTS TO AGENTS  ·  CHEAT SHEET  ·  SEPTEMBER 2026')
     cv.setFillColor(colors.white); cv.setFont('DVSer-B', 14.5)
-    cv.drawString(M, H - 0.48 * inch, 'One skill, two modes: prompts that write — and prompts that work')
+    cv.drawString(M, H - 0.48 * inch, 'A prompt is a small work specification')
     cv.setFillColor(MUTE); cv.setFont('DV', 6.2)
-    cv.drawString(M, 0.18 * inch, 'Concepts: tokens = the bricks · context window = the desk · RAG = open-book exam · fluency is not evidence.')
-    cv.drawRightString(W - M, 0.18 * inch, 'Templates: prompt-library/ · sources: notes/research/')
+    cv.drawString(M, 0.18 * inch, 'Verification = meets the written criteria · Validation = serves the actual need. Both, every time.')
+    cv.drawRightString(W - M, 0.18 * inch, 'Full menus: Requirements_by_Artifact.md · editable source: src/build_cheatsheet.py')
     cv.restoreState()
 
 
@@ -84,95 +80,84 @@ doc.addPageTemplates([PageTemplate(id='two', frames=[f1, f2], onPage=header_foot
 E = []
 gap = Spacer(1, 6)
 
-# ---------------- LEFT: GENERATIVE ----------------
-E.append(Paragraph('GENERATIVE — a prompt that writes', S_mode))
-E.append(Paragraph('you ask → it produces text → you read it and act', S_modesub))
+# ---------------- LEFT: write the specification ----------------
+E.append(Paragraph('WRITE IT — like a requirement', S_mode))
+E.append(Paragraph('task and audience first · then only the requirements that resolve ambiguity', S_modesub))
 
-E.append(box('THE ANATOMY — SEVEN ELEMENTS (THE DESIGN LAYER)', [
-    ('Role', '— behaviours, not titles (“never invent numbers”). Shapes tone and framing, not IQ.'),
-    ('Task', '— one clear ask with a verb, the audience, and a success criterion.'),
-    ('Context', '— raw material, glossary, constraints; explain WHY a rule exists.'),
-    ('Format', '— structure, length cap, tone; say what TO do, not what to avoid.'),
-    ('Examples', '— 2–3 realistic samples of “good”, one edge case included.'),
-    ('The Out', '— the escape route for missing info: “anything not stated: write UNKNOWN — never estimate; list the gaps.”'),
-    ('The Stop', '— where the action ends: “deliver X, then stop — nothing beyond.”'),
-], PANEL))
-E.append(gap)
-
-E.append(box('THE TOOLKIT IS A LOOP — PLAN · DO · CHECK · ACT', [
-    ('PLAN', '— design the ask: the seven elements, filled; be specific and say why; separate your ask from pasted material.'),
-    ('DO', '— run it in order: NUMBERED steps; “wait for my OK” where you want control; documents on top, ask at the end.'),
-    ('CHECK', '— verify before you trust: name the failed element; self-check against NAMED criteria (never “are you sure?”); blind review; reconcile numbers to a known total.'),
-    ('ACT', '— deliver + improve: fix ONE element and rerun; metaprompt; works twice? name it, version it; re-baseline on model upgrades.'),
-    ('Layers', '— you WRITE with the anatomy; you IMPROVE with the loop. In agentic work the loop is written INTO the brief — which is why it works best there.'),
+E.append(box('THE SKELETON — EVERY PROMPT', [
+    ('Purpose & audience:', 'help [reader] make [decision] or complete [task].'),
+    ('Sources & scope:', 'use [source / version / period]; include [scope]; exclude [items].'),
+    ('Selected requirements:', 'only the types that resolve ambiguity for THIS artifact — a simple task needs a few, not all.'),
+    ('Acceptance evidence:', 'check [specific result] against [source, calculation, or observable test].'),
+    ('Missing info & boundaries:', 'if [gap or conflict]: state it, ask, or stop. Actions needing review: [actions].'),
 ], TEAL_T))
 E.append(gap)
 
-E.append(box('THE EVIDENCE — WORKS · MYTH · EXPIRED', [
-    ('Works:', 'specificity with success criteria · one tested template · docs top, ask at the END · the checkable out + citations · named-criteria self-check · numeric budgets · metaprompting.'),
-    ('Myth:', '“genius” personas · tips &amp; threats · magic phrases · length for its own sake · bare “don’t hallucinate” (backfires) · “are you sure?” — it folds, it doesn’t check.'),
-    ('Expired:', '“think step by step” · example piles · ### layouts · hand-run voting — the product absorbed them; re-baseline on every model upgrade.'),
-    ('Sycophancy:', 'AI affirms you ~49% more than humans would. Never reveal your preferred answer; ask for the case AGAINST; paste your draft as “a colleague’s.”'),
-    ('', 'The why behind every line: Field Guide part 5 · sources: PLAYBOOK tab of the Course Workbook.'),
+E.append(box('REQUIREMENT TYPES — THE MENU (pick, don’t fill)', [
+    ('Functional behavior', '— what it must do: filter, calculate, extract, compare, explain.'),
+    ('Data & provenance', '— allowed inputs, definitions, period, traceability.'),
+    ('Scope & exclusions', '— in, out, and explicitly outside the task.'),
+    ('Audience & use', '— who uses it, for which decision.'),
+    ('Role & working behavior', '— a perspective plus observable conduct; a title alone is weak.'),
+    ('Content & completeness', '— required topics, fields, limitations.'),
+    ('Method & business rules', '— formulas, denominators, missing-data treatment.'),
+    ('Structure & interface', '— sections, tabs, slides, columns, controls.'),
+    ('Tone & presentation', '— voice, reading level, units, formats.'),
+    ('Accessibility & usability', '— labels, contrast, keyboard, understandable language.'),
+    ('Quality & acceptance', '— observable correctness and completeness criteria.'),
+    ('Constraints & authority', '— allowed tools, approvals, stop conditions.'),
+    ('Delivery & compatibility', '— file type, editability, offline use, destination.'),
+    ('Maintenance & reuse', '— refresh procedure, versions, reusable parameters.'),
 ], PANEL))
 E.append(gap)
 
-E.append(box('TASK CHEATS — TEMPLATES G1–G8', [
-    ('Analysis (G2):', 'exact columns + what one row means; all numbers via code; reconcile to a known total; numbered questions, then stop.'),
-    ('Writing (G1):', 'feed raw material; hard word cap; “add no facts”; edit beats draft.'),
-    ('Evaluate (G3):', 'anchored rubric; quotes as evidence; “not addressed = 1.”'),
-    ('Sheets (G4):', 'name exact columns; README tab; formulas, not pasted values.'),
-    ('Decks (G5):', 'titles = findings with numbers; approve text before rendering.'),
-    ('HTML (G6):', 'single file, data embedded, works offline; show formulas on screen.'),
-    ('Research (G7):', 'a question, not a topic; every bullet gets link + date; demand the gaps section.'),
-    ('Documents (G8):', 'summaries serve a decision; verbatim quotes for anything contractual or numeric.'),
-], PANEL))
+E.append(box('REQUIREMENT QUALITY — IS EACH ONE…', [
+    ('', 'necessary · clear · complete enough · consistent · feasible · singular · <b>verifiable</b>. A requirement you cannot check is a wish. Separate required outcomes from preferences; make trade-offs explicit.'),
+], GREEN_T, GREEN))
+E.append(gap)
 
-# ---------------- RIGHT: AGENTIC ----------------
+E.append(box('BEFORE / AFTER — THE SUPPLIER CASE', [
+    ('Before:', '“Analyze the supplier data and tell me which supplier is worst.” — the model picks the rows, the metric, and “worst” for you, silently.'),
+    ('After:', '“Data tab, detail rows only (exclude the TOTAL row; the “n/a” is missing, not zero). Return rate = total returns ÷ total shipped per supplier, 2025-09 to 2026-08 — sums, never averaged percentages; defects stay separate. Rank, show numerator and denominator, reconcile to the TOTAL row, state one limitation, stop.”'),
+    ('Why it wins:', 'each added line is a requirement type fixing one named weakness.'),
+], AMBER_T, AMBER))
+
+# ---------------- RIGHT: the tasks + checking + delegation ----------------
 E.append(FrameBreak())
-E.append(Paragraph('AGENTIC — a prompt that works', S_mode))
-E.append(Paragraph('you brief a job → it plans, uses tools, checks itself, reports with evidence', S_modesub))
+E.append(Paragraph('RUN IT — five tasks, one habit', S_mode))
+E.append(Paragraph('produce the artifact, then check it against its own acceptance evidence', S_modesub))
 
-E.append(box('THE MISSION BRIEF — 12 BLOCKS (TEMPLATE A1)', [
-    ('&lt;role&gt;', 'behaviours, not job titles'),
-    ('&lt;mission&gt;', 'goal, audience, deadline, “done looks like…”'),
-    ('&lt;context&gt;', 'glossary, quirks, targets — the tribal knowledge'),
-    ('&lt;environment&gt;', 'read-only inputs / outputs / forbidden actions'),
-    ('&lt;inputs&gt;', 'each source: location, format, grain, trust level'),
-    ('&lt;plan&gt;', 'steps in order; methods allowed vs ask-first'),
-    ('&lt;checks&gt;', 'HARD = stop the run · SOFT = flag and continue'),
-    ('&lt;outputs&gt;', 'exact filenames + CHANGES / FINDINGS / OPEN_ITEMS logs'),
-    ('&lt;process&gt;', 'phases with human gates'),
-    ('&lt;rules&gt;', 'never invent data; version outputs; log assumptions'),
-    ('&lt;quality_bar&gt;', 'definition of done as an auditable checklist'),
-    ('&lt;reporting&gt;', 'status · headline · evidence · open items, under 25 lines'),
-    ('', 'Design thick, ship lean: design against all 12 — SHIP the four-section PLAN·DO·CHECK·ACT brief, one screen long.'),
-], TEAL_T, key_mono=True))
+E.append(box('THE FIVE COURSE TASKS (workbook tabs 1–5)', [
+    ('1 Analyze data', '— define the metric and denominator; reconcile; state limits.'),
+    ('2 Build a dashboard', '— specify behavior in plain language: range, filters, grouping, metric switch, drill-down, Reset; one selection re-scopes every view.'),
+    ('3 Present findings', '— one message per slide; findings separated from recommendations; nothing invented.'),
+    ('4 Summarize email', '— current state; decisions WITH conditions; owners and dates; “Not stated” for gaps; replies stay drafts.'),
+    ('5 Explain clearly', '— fifth-grade reading level, adult tone; analogy limits stated; meaning preserved; 3-question check.'),
+], TEAL_T))
 E.append(gap)
 
-E.append(box('GATES — CATCH ERRORS AT THE CHEAP END', [
-    ('Gate 1:', 'definitions confirmed before any data is touched.'),
-    ('Gate 2:', 'numbers reconciled to a total you already trust.'),
-    ('Gate 3:', 'headlines approved as plain text before anything renders.'),
-    ('Autonomy:', 'between gates, proceed. Stop and ask if: a HARD check fails · an input isn’t as described · a definition is ambiguous · a published number would change.'),
+E.append(box('ACCEPTANCE CHECKS — BEFORE YOU TRUST IT', [
+    ('Trace', '— one output number back to its source records.'),
+    ('Recompute', '— one calculation independently (code or by hand).'),
+    ('Reconcile', '— totals against a number you already trust.'),
+    ('Exercise', '— every requested behavior once (filter, sort, reset, empty case).'),
+    ('Coverage', '— compare against the requirement list; missing = not done.'),
+    ('Read as the reader', '— can the audience act on it? That is validation.'),
+    ('', 'Never accept “looks done”: ask for evidence — the test it ran and what it returned.'),
+], PANEL))
+E.append(gap)
+
+E.append(box('ASK vs DELEGATE', [
+    ('ASK', '— request an answer or draft; you read, check, decide. The specification above is enough.'),
+    ('DELEGATE', '— assign bounded work: add the inputs register, the checks that stop the run, permissions, gates for irreversible steps, and the finished-report format.'),
+    ('The boundary:', 'prompt instructions request compliance — actual permissions and configured controls determine what a tool can DO. Reversible → proceed; irreversible → ask.'),
 ], AMBER_T, AMBER))
 E.append(gap)
 
-E.append(box('GUARDRAILS', [
-    ('', 'Reversible → proceed. Irreversible (delete / send / publish / overwrite) → ask first.'),
-    ('', 'Least privilege: the minimum folders, tools, and accounts for the job.'),
-    ('', 'Anything the agent reads can carry hostile instructions (prompt injection). Highest risk when private data + untrusted content + outbound channels combine.'),
-    ('', 'Vet third-party skills/plugins like software. Demand evidence of “done,” then spot-check.'),
-    ('', 'A gate in the prompt is a suggestion; a gate in the harness is a control — put approvals in tool permissions too.'),
-], RED_T, RED))
-E.append(gap)
-
-E.append(box('MANAGE PROMPTS LIKE ASSETS', [
-    ('Ladder:', 'one-off → personal doc → team library → skills/instructions → repo (as code).'),
-    ('Trigger:', 'explained the same task more than once? Package it.'),
-    ('Each entry:', 'name · owner · version + change note · model tested · a filled example.'),
-    ('Eval lite:', 'three gold cases (typical · edge · should-abstain) + a rubric; a new version must BEAT the current one; re-run on model upgrades.'),
-    ('Governance:', 'prompts contain data — classify the library like the documents it quotes; secrets/PII never in a template ({{placeholders}} at run time).'),
+E.append(box('SAVE WHAT WORKS', [
+    ('Each reusable prompt:', 'name · owner · version · the example that proved it · its acceptance check.'),
+    ('Where:', 'the Course Workbook carries the five course prompts; the Template Creator and Configurator offer the same five task families with their requirement menus.'),
+    ('Refresh:', 'facts about products and models expire — date them and re-verify before big reuse.'),
 ], GREEN_T, GREEN))
 
 doc.build(E)

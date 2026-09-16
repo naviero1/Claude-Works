@@ -1290,6 +1290,23 @@ Mapping by filename infix → target (name at embed):
 
 ---
 
+## ROUND 17 — the 60-minute course package revision · 2026-09-16 · ✅ APPLIED (v2.0)
+
+Owner handoff (notes/intake/round17/Package_Instructions.md): revise the complete
+training package around his new 96-slide facilitated 60-minute baseline. The
+training determines the exercises → the exercises determine the reusable prompts →
+the builder supports those prompts. Full change record:
+**deliverables/CHANGE_LOG_Round17.md**; design rationale:
+notes/design/round17_sequence.md; verification evidence throughout both.
+Highlights: connected five-task Part 4 (one supplier case) · new documents
+demonstration (timing rebalanced, total exactly 60:00) · verified assets
+(self-checking dashboard, mock deck, email thread + keys, plain-language pack) ·
+workbook tabs 1–5 + computed instructor keys · task-first builder + configurator
+(both bug fixes machine-tested) · handouts reorganized on the requirement-quality
+spine · facilitation plan regenerated · PACKAGE_INDEX for reviewers.
+
+---
+
 ## ROUND 16 — the dashboard exercise (EX-Dashboard) · 2026-09-16 · ✅ APPLIED (v1.15)
 
 Owner: "add an exercise example — create an HTML visual dashboard based on data

@@ -141,6 +141,23 @@ Accessible language must preserve meaning, conditions, and useful detail.
 
 **Missing information and boundaries:** If [gap/conflict], [state it, ask, or stop]. Actions requiring review: [actions].
 
+## How this catalog is used (maintenance map)
+
+This file is the shared source for every artifact that presents requirement
+menus. Change it here, then rebuild; keep examples and acceptance checks
+consistent everywhere it flows:
+
+| Consumer | How it consumes this file |
+|---|---|
+| Prompt_Template_Creator.html | `src/build_builder.py` parses the five artifact tables into the task-family menus. |
+| Prompt_Template_Configurator.xlsx | `src/build_configurator_xlsx.py` parses the same tables into the Tasks sheet. |
+| Elements_of_Prompting_Field_Guide.pdf | `src/build_elements_guide.py` prints the five tables as Part 6. |
+| Course deck (slides 91–96) | The reference pages carry the same menus; update them together with this file. |
+| Course_Workbook tabs 1–5 | The requirement-type annotations in the WHY column name types from these tables. |
+
+The five reusable course prompts live in `src/assets/course_prompts.json`
+(builder + configurator + field guide) and, with commentary, in the workbook tabs.
+
 ## Writing principles and references
 
 Use necessary, clear, sufficiently complete, singular, feasible, consistent, and verifiable requirements. Keep the business reason and source available. Verification asks whether the output meets the written criteria; validation asks whether it serves the actual need. These principles improve prompt clarity and evaluation without guaranteeing model compliance.

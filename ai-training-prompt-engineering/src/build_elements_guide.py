@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # The Elements of Prompting — multi-page field guide PDF (house style)
-import os
+import os, json
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
 from reportlab.lib import colors
@@ -53,7 +53,7 @@ def hf(cv, doc):
         cv.setFillColor(colors.white); cv.setFont('DVSer-B', 21)
         cv.drawString(M, H - 0.68 * inch, 'The Elements of Prompting — Field Guide')
         cv.setFillColor(colors.HexColor('#A9BBC4')); cv.setFont('DV', 8.5)
-        cv.drawString(M, H - 0.9 * inch, 'Every element defined — mechanism, strong vs. weak fills, the failure it prevents — plus the evidence compendium: works, myth, expired, and why.')
+        cv.drawString(M, H - 0.9 * inch, 'Requirement quality · the elements as requirement types · menus by artifact · the five exercises, worked · the evidence: works, myth, expired, and why.')
     else:
         cv.setFillColor(MUTE); cv.setFont('DV', 7)
         cv.drawString(M, H - 0.42 * inch, 'THE ELEMENTS OF PROMPTING · FIELD GUIDE')
@@ -91,6 +91,32 @@ t.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), TEAL_T),
 E.append(KeepTogether([Paragraph('THE DIAGNOSIS GRID', S['kicker']), t]))
 E.append(Spacer(1, 8))
 
+# ---------------------------------------------------------------------------
+# R17 · PART 1 — REQUIREMENT QUALITY (prompts as small work specifications)
+# ---------------------------------------------------------------------------
+E.append(Paragraph('PART 1 — REQUIREMENT QUALITY', S['kicker']))
+E.append(Paragraph('Write requirements, not wishes', S['h1']))
+E.append(Paragraph('You already write work specifications: requirements, standard operating procedures, acceptance criteria, test protocols. A prompt is the same craft at small scale — it specifies the content, behavior, and quality of a reply or artifact. Two ideas carry the whole course: <b>requirement type</b> (WHAT must be specified for this artifact — parts 2, 3, and 6) and <b>requirement quality</b> (how well each one is written — this page). The quality bar below applies the writing principles summarized by NASA and INCOSE; it improves clarity and checkability without guaranteeing model compliance.', S['body']))
+E.append(Spacer(1, 4))
+q_rows = [[Paragraph('Quality', S['cellh']), Paragraph('For a prompt, it means', S['cellh']), Paragraph('The failure it prevents', S['cellh'])],
+    [Paragraph('Necessary', S['cellb']), Paragraph('Every line earns its place; a simple task needs only a few requirements.', S['cell']), Paragraph('Rule piles that bury the ones that matter.', S['cell'])],
+    [Paragraph('Clear', S['cellb']), Paragraph('One reading; named columns, defined terms, no "etc."', S['cell']), Paragraph('The model resolving ambiguity its own way, silently.', S['cell'])],
+    [Paragraph('Complete enough', S['cellb']), Paragraph('The consequential facts and rules are stated — not every fact.', S['cell']), Paragraph('Gaps filled with the most plausible guess.', S['cell'])],
+    [Paragraph('Consistent', S['cellb']), Paragraph('No requirement contradicts another; trade-offs made explicit.', S['cell']), Paragraph('The model reconciling you with yourself, its way.', S['cell'])],
+    [Paragraph('Feasible', S['cellb']), Paragraph('Possible with the data and tools actually supplied.', S['cell']), Paragraph('Confident output resting on data that cannot support it.', S['cell'])],
+    [Paragraph('Singular', S['cellb']), Paragraph('One requirement per line — separable, checkable, revisable.', S['cell']), Paragraph('Half-followed compound instructions nobody can audit.', S['cell'])],
+    [Paragraph('Verifiable', S['cellb']), Paragraph('An observable check exists: a number to reconcile, a behavior to exercise, a list to cover.', S['cell']), Paragraph('"Looks done" standing in for done.', S['cell'])]]
+tq = Table(q_rows, colWidths=[CW * 0.16, CW * 0.46, CW * 0.38])
+tq.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), TEAL_T),
+                        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, PANEL]),
+                        ('GRID', (0, 0), (-1, -1), 0.5, LINE), ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+                        ('LEFTPADDING', (0, 0), (-1, -1), 6), ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+                        ('TOPPADDING', (0, 0), (-1, -1), 3.5), ('BOTTOMPADDING', (0, 0), (-1, -1), 3.5)]))
+E.append(tq)
+E.append(Spacer(1, 5))
+E.append(Paragraph('<font face="DV-B" color="#232A31">Three boundary rules.</font> A role title is a starting point — observable behavior makes it useful. Context also supplies background facts: turn the consequential ones into explicit instructions when their use matters. And prompt instructions request compliance — actual permissions and configured controls determine which actions a tool can take. <font face="DV-B" color="#0A5B5A">Verification</font> asks whether the output meets the written criteria; <font face="DV-B" color="#0A5B5A">validation</font> asks whether it serves the actual need — check both, every time.', S['body']))
+E.append(Spacer(1, 8))
+
 
 def box(text_pairs, fill):
     rows = [[Paragraph(f'<font face="DV-B" color="#232A31">{k}</font> {v}', S['boxbody'])] for k, v in text_pairs]
@@ -118,7 +144,7 @@ def emit(number, name, tagline, paras, ws=None, mono=False):
     E.extend(rest)
 
 
-E.append(Paragraph('PART 1 — GENERATIVE ELEMENTS', S['kicker']))
+E.append(Paragraph('PART 2 — GENERATIVE ELEMENTS: THE SEVEN REQUIREMENT TYPES OF A REPLY', S['kicker']))
 E.append(Paragraph('A prompt that writes: five elements, two safety valves', S['h1']))
 E.append(Paragraph('A generative prompt commissions <b>one piece of text you will read and act on</b>. Everything you need to control fits in five elements — plus two one-sentence safety valves that shut off the two signature failures.', S['body']))
 
@@ -172,7 +198,7 @@ tv.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), TEAL_T),
 E.append(KeepTogether([Paragraph('THE TWO SAFETY VALVES', S['kicker']), tv]))
 
 E.append(PageBreak())
-E.append(Paragraph('PART 2 — AGENTIC ELEMENTS', S['kicker']))
+E.append(Paragraph('PART 3 — AGENTIC ELEMENTS: REQUIREMENTS FOR DELEGATED WORK', S['kicker']))
 E.append(Paragraph('A prompt that works: the twelve blocks of the mission brief', S['h1']))
 E.append(Paragraph('An agentic prompt commissions <b>a job, not a text</b>: the agent plans, acts through tools, checks results, and iterates — mostly while you are not watching. Every generative element still applies. The additional blocks exist for one reason: <b>text that fails costs you a re-prompt; actions that fail change the world</b> — files overwritten, emails sent, wrong numbers published. So the agentic elements govern <i>conduct</i>: where the agent may act, how it must verify itself, when it must stop and ask, and how it proves what it did. (Template A1; worked version A2.)', S['body']))
 
@@ -215,7 +241,7 @@ emit('12', 'reporting', 'the interface back to you', [
 ], mono=True)
 
 E.append(PageBreak())
-E.append(Paragraph('PART 3 — THE MAPPING', S['kicker']))
+E.append(Paragraph('PART 4 — THE MAPPING', S['kicker']))
 E.append(Paragraph('The agentic brief is the generative anatomy, grown up to survive autonomy', S['h1']))
 mp = [[Paragraph('Generative element', S['cellh']), Paragraph('Agentic descendant(s)', S['cellh']), Paragraph('What was added, and why', S['cellh'])],
       [Paragraph('Role', S['cellb']), Paragraph('&lt;role&gt;', S['cell']), Paragraph('persists across unsupervised decisions → behaviors only', S['cell'])],
@@ -235,7 +261,7 @@ tm.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), TEAL_T),
 E.append(tm)
 
 E.append(Spacer(1, 10))
-E.append(Paragraph('PART 4 — BUILDING YOUR OWN TEMPLATES', S['kicker']))
+E.append(Paragraph('PART 5 — BUILDING YOUR OWN TEMPLATES', S['kicker']))
 E.append(Paragraph('A template is elements + reasons, assembled against failure modes', S['h1']))
 steps = [('1.', 'Name the task’s three most expensive failure modes (wrong denominator? invented facts? unusable format? irreversible action?).'),
          ('2.', 'Pick the element that owns each failure — the diagnosis grid on page 1; reversibility → autonomy rules.'),
@@ -244,6 +270,79 @@ steps = [('1.', 'Name the task’s three most expensive failure modes (wrong den
          ('5.', 'Test on 3–5 real cases (one edge case), version it, name an owner, add it to the library.')]
 for n, t_ in steps:
     E.append(Paragraph(f'<font face="DV-B" color="#0A5B5A">{n}</font> {t_}', S['body']))
+
+# ---------------------------------------------------------------------------
+# R17 · PART 6 — REQUIREMENTS BY ARTIFACT (generated from Requirements_by_Artifact.md)
+# ---------------------------------------------------------------------------
+def _parse_catalog(md, heading):
+    i = md.find('## ' + heading)
+    assert i >= 0, heading
+    rows_ = []
+    for line in md[i:].split('\n')[1:]:
+        if line.startswith('## '):
+            break
+        if line.startswith('|') and not set(line) <= set('|- '):
+            cells = [c.strip() for c in line.strip('|').split('|')]
+            if len(cells) >= 3 and cells[0] != 'Requirement type':
+                rows_.append(cells[:3])
+    assert len(rows_) >= 10, heading
+    return rows_
+
+_catalog = open(os.path.join(os.path.dirname(__file__), '..', 'Requirements_by_Artifact.md')).read()
+_cps = json.load(open(os.path.join(os.path.dirname(__file__), 'assets', 'course_prompts.json')))
+
+E.append(PageBreak())
+E.append(Paragraph('PART 6 — REQUIREMENTS BY ARTIFACT', S['kicker']))
+E.append(Paragraph('The menu, per artifact: pick what resolves ambiguity', S['h1']))
+E.append(Paragraph('The artifact decides which requirement types matter: calculation rules for a spreadsheet, behavior and state for a dashboard, narrative and editability for a presentation, chronology and evidence for an email brief, reading level and fidelity for a document. For each selected type write: <b>requirement → example → acceptance evidence</b>. These menus are maintained in Requirements_by_Artifact.md (the shared catalog behind the Template Creator and the Configurator); this is a teaching taxonomy, not a formal standard.', S['body']))
+for _head, _label in [
+    ('Spreadsheet analysis: requirements to choose', 'Spreadsheet analysis'),
+    ('HTML dashboards: requirements to choose', 'Interactive dashboards'),
+    ('Presentations: requirements to choose', 'Presentations'),
+    ('Email summaries: requirements to choose', 'Email summaries'),
+    ('Plain-language documents: requirements to choose', 'Plain-language documents')]:
+    _rows = _parse_catalog(_catalog, _head)
+    data_ = [[Paragraph('Requirement type', S['cellh']), Paragraph('Example instruction', S['cellh']), Paragraph('How to check it', S['cellh'])]]
+    for r_ in _rows:
+        data_.append([Paragraph(r_[0], S['cellb']), Paragraph(r_[1], S['cell']), Paragraph(r_[2], S['cell'])])
+    t_ = Table(data_, colWidths=[CW * 0.2, CW * 0.47, CW * 0.33], repeatRows=1)
+    t_.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), TEAL_T),
+                            ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, PANEL]),
+                            ('GRID', (0, 0), (-1, -1), 0.5, LINE), ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+                            ('LEFTPADDING', (0, 0), (-1, -1), 5), ('RIGHTPADDING', (0, 0), (-1, -1), 5),
+                            ('TOPPADDING', (0, 0), (-1, -1), 2.5), ('BOTTOMPADDING', (0, 0), (-1, -1), 2.5)]))
+    E.append(KeepTogether([Paragraph(_label.upper(), S['kicker']), Spacer(1, 1)]))
+    E.append(t_)
+    E.append(Spacer(1, 8))
+
+# ---------------------------------------------------------------------------
+# R17 · PART 7 — THE FIVE EXERCISES, WORKED (reusable prompts + their checks)
+# ---------------------------------------------------------------------------
+S['mono'] = ParagraphStyle('mono', fontName='Mono', fontSize=7.8, leading=10.4, textColor=SLATE)
+E.append(Paragraph('PART 7 — THE FIVE EXERCISES, WORKED', S['kicker']))
+E.append(Paragraph('The course prompts — copy, adapt, keep the checks', S['h1']))
+E.append(Paragraph('One fictional supplier case runs through the first three: analyze → dashboard → presentation, on the same cleaned records and definitions. Full step-by-step versions with iteration commentary: Course_Workbook tabs 1–5. Every prompt below is designed to be copied straight into an assistant.', S['body']))
+_ex = [
+    ('1 · Analyze spreadsheet data', 'analyze',
+     'Check: 144 detail rows · 224,902 shipped · 432 returns · highest return rate Bravo Plastics ≈ 0.349% (262 ÷ 75,184) · reconciles to the TOTAL row · defects (2,207) reported separately.'),
+    ('2 · Build an interactive dashboard', 'dashboard',
+     'Check: Berlin × Bravo Plastics, 2026-03..2026-08 → 6 records, 8,575 units, 21 returns, 0.245% — identical in tiles, chart, and table. Prepared output: Supplier_Quality_Dashboard.html (footer self-check).'),
+    ('3 · Prepare a presentation', 'present',
+     'Check: five slides mapped to the coverage list · every number reconciled · findings separated from recommendations · exported slides inspected. Prepared output: Supplier_Quality_Mock_Presentation.pptx.'),
+    ('4 · Summarize an email conversation', 'email',
+     'Check (the four traps): change date Sep 25 → Oct 2 conditional on sign-off · trial date Sep 25 supersedes Sep 18 · 18,000 cap holds, freight unresolved · drawing referenced but not accessible. Source: Packaging_Change_Thread.txt.'),
+    ('5 · Explain a topic clearly', 'explain',
+     'Check: main idea first · terms defined at first use · analogy limit stated · conditions preserved against the source · three answerable questions · adult tone. Samples: exercise-data/plain-language/.'),
+]
+for _name, _pid, _chk in _ex:
+    _box = Table([[Paragraph(_cps[_pid].replace('&', '&amp;').replace('<', '&lt;'), S['mono'])]], colWidths=[CW - 12])
+    _box.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), PANEL),
+                              ('LEFTPADDING', (0, 0), (-1, -1), 8), ('RIGHTPADDING', (0, 0), (-1, -1), 8),
+                              ('TOPPADDING', (0, 0), (-1, -1), 5), ('BOTTOMPADDING', (0, 0), (-1, -1), 5)]))
+    E.append(KeepTogether([Paragraph(_name, S['h2']), _box, Spacer(1, 2),
+                           Paragraph('<font face="DV-B" color="#0A5B5A">Acceptance evidence.</font> ' + _chk, S['boxbody'])]))
+    E.append(Spacer(1, 5))
+E.append(Spacer(1, 4))
 
 # ---------------------------------------------------------------------------
 # PART 5 — THE EVIDENCE COMPENDIUM (v1.1: proven-vs-myth slide + the 2026
@@ -275,7 +374,7 @@ def verdict_table(rows):
 
 
 E.append(PageBreak())
-E.append(Paragraph('PART 5 — THE EVIDENCE COMPENDIUM', S['kicker']))
+E.append(Paragraph('PART 8 — THE EVIDENCE COMPENDIUM', S['kicker']))
 E.append(Paragraph('What works, what’s myth, what expired — and why', S['h1']))
 E.append(Paragraph('Half the prompting advice in circulation is folklore from 2023. This chapter is the course’s evidence layer in one place — every technique given a verdict, with the <b>why</b> behind it. Three verdicts: <font face="DV-B" color="#3B8560">WORKS</font> (replicated — use it) · <font face="DV-B" color="#AF3230">MYTH</font> (never survived replication, including some standard 2023 advice) · <font face="DV-B" color="#46545F">EXPIRED</font> (was genuinely right, then the product absorbed it). Researched September 2026 — this field moves; the study behind every line is in the PLAYBOOK tab of the Course Workbook and <font face="Mono-B">notes/research/</font>.', S['body']))
 E.append(Spacer(1, 4))
@@ -396,7 +495,7 @@ E.append(Paragraph('<font face="DV-B" color="#232A31">Contested — honest edges
 # (no PageBreak: Part 5 ends light — Part 6 pulls up to fill the page)
 # ---------------------------------------------------------------------------
 E.append(Spacer(1, 10))
-E.append(Paragraph('PART 6 — THE FAILURE MODES', S['kicker']))
+E.append(Paragraph('PART 9 — TROUBLESHOOTING: THE FAILURE MODES', S['kicker']))
 E.append(Paragraph('Hallucination’s four characters — and the run-time grid', S['h1']))
 E.append(Paragraph('The mechanism: models are optimized for the most <i>plausible</i> next token, not the most true one — trouble concentrates where training data is thin (rare facts, citations, numbers, names). Benchmarks reward confident guessing over “I don’t know,” so models learn to be good test-takers; the better word is <b>confabulation</b> — gaps filled with plausible material, in-format, so fake citations LOOK like citations. Models trained to say “I don’t know” produce roughly 3× fewer false claims. <font face="DV-B">Fluency is not evidence.</font> And none of the defenses below eliminates hallucination — they convert unverifiable claims into verifiable ones.', S['body']))
 E.append(Spacer(1, 4))
@@ -452,7 +551,7 @@ E.append(Paragraph('<font face="DV-B" color="#232A31">“Why did it ignore me?�
 # spectrum, Sep 2026 snapshot; chat / workflow / agent)
 # ---------------------------------------------------------------------------
 E.append(Spacer(1, 10))
-E.append(Paragraph('PART 7 — CHOOSING THE ENGINE AND THE VEHICLE', S['kicker']))
+E.append(Paragraph('PART 10 — CHOOSING THE ENGINE AND THE VEHICLE', S['kicker']))
 E.append(Paragraph('Fast vs. thinking, the model spectrum, and chat vs. workflow vs. agent', S['h1']))
 E.append(Paragraph('Every vendor ships a <b>fast tier</b> — one pass, instant, cheap — and a <b>thinking tier</b> that drafts, checks and revises internally before answering (it isn’t literally “thinking”: it generates intermediate tokens that improve the final answer). The bill: thinking is charged as output tokens, the expensive kind — a hard question can quietly cost 5–20× a simple one, and deep-research modes run order-of-magnitude 100×+. The discipline: pick the smallest mode that can succeed; <b>escalate on failure, not by default</b>.', S['body']))
 E.append(KeepTogether([box([
@@ -466,7 +565,7 @@ veh = [[Paragraph('CHAT<br/><font face="DV">you are the loop</font>', S['cellb']
        [Paragraph('WORKFLOW<br/><font face="DV">the loop is frozen</font>', S['cellb']),
         Paragraph('Known path, few tools, same steps every time — script it (n8n, Zapier, Power Automate). Cheaper, predictable, auditable; no judgment needed mid-run. A pipeline can also enforce output schemas at the system level.', S['cell'])],
        [Paragraph('AGENT<br/><font face="DV">the loop runs inside</font>', S['cellb']),
-        Paragraph('Unknown path — the next step depends on what it finds. Brief it (Part 2 of this guide), with gates where the judgment stays yours. Your control lives in the brief, not the conversation.', S['cell'])]]
+        Paragraph('Unknown path — the next step depends on what it finds. Brief it (Part 3 of this guide), with gates where the judgment stays yours. Your control lives in the brief, not the conversation.', S['cell'])]]
 tv2 = Table(veh, colWidths=[CW * 0.2, CW * 0.8])
 tv2.setStyle(TableStyle([('ROWBACKGROUNDS', (0, 0), (-1, -1), [colors.white, PANEL]),
                          ('GRID', (0, 0), (-1, -1), 0.5, LINE), ('VALIGN', (0, 0), (-1, -1), 'TOP'),
@@ -526,7 +625,7 @@ E.append(Spacer(1, 8))
 # PART 8 — TEN THINGS + GLOSSARY (v1.1: the deck's wrap-up + reference, in print)
 # ---------------------------------------------------------------------------
 E.append(Spacer(1, 6))
-E.append(Paragraph('PART 8 — TEN THINGS WORTH REMEMBERING', S['kicker']))
+E.append(Paragraph('PART 11 — TEN THINGS WORTH REMEMBERING', S['kicker']))
 E.append(Paragraph('The whole course in ten lines', S['h1']))
 ten_things = [
     'The prompt is the whole steering wheel — everything the model knows about your task must be in it (or in files it can read).',

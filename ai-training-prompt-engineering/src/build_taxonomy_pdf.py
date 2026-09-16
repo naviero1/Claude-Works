@@ -174,7 +174,7 @@ emit_mode('agentic', agn['elements'])
 E.append(PageBreak())
 E.append(Paragraph('PART 3 — INSTANCES', S['kicker']))
 E.append(Paragraph('The template library as saved configurations', S['h1']))
-E.append(Paragraph('Each library template is an <b>instance</b> of the class system — a saved set of element choices. '
+E.append(Paragraph('The PRIMARY path into the tools is the five course task families (Analyze data · Build a dashboard · Prepare a presentation · Summarize email · Explain clearly) — no template code needed. Each legacy library template below remains available as an optional <b>instance</b> of the class system — a saved set of element choices. '
                    'Load any of these in the Template Creator (the "Start from a template" menu) and inspect which options it picked; '
                    'that inspection is the fastest way to learn the taxonomy.', S['body']))
 rows = [[Paragraph('Instance', S['cellb']), Paragraph('Mode', S['cellb']), Paragraph('Elements in play', S['cellb']), Paragraph('Options pre-selected', S['cellb'])]]
@@ -216,6 +216,26 @@ E.append(Paragraph('The separation this taxonomy makes — WHAT you want (elemen
                    '“fundamental contextual statements” and its usage. The course teaches the HOW as one loop (PDCA) rather than a '
                    'numbered technique list: every technique in this reference is a method inside Plan, Do, Check, or Act. '
                    'The full sources live in notes/research/ (t1–t6).', S['body']))
+E.append(Spacer(1, 5))
+E.append(Paragraph('ELEMENTS AS REQUIREMENT TYPES', S['kicker']))
+E.append(Paragraph('Every element in this taxonomy specifies requirements for a reply or artifact. The mapping below connects the anatomy to the requirement-type menu used across the course (full per-artifact menus with instruction and acceptance examples: Requirements_by_Artifact.md and the Field Guide, part 6):', S['body']))
+map_rows = [[Paragraph('You write…', S['cellb']), Paragraph('You are specifying…', S['cellb'])],
+    [Paragraph('Role', S['cell']), Paragraph('role & working behavior — a perspective plus observable conduct; a title alone is weak', S['cell'])],
+    [Paragraph('Task', S['cell']), Paragraph('functional behavior + audience & use — what it must do, for whom, toward which decision', S['cell'])],
+    [Paragraph('Context & sources', S['cell']), Paragraph('data & provenance + scope & exclusions — allowed inputs, definitions, period; consequential facts become explicit instructions', S['cell'])],
+    [Paragraph('Tone', S['cell']), Paragraph('tone & presentation — voice, reading level, units, formats', S['cell'])],
+    [Paragraph('Format', S['cell']), Paragraph('structure & interface + delivery & compatibility — sections, tabs, controls; file type, editability, offline use', S['cell'])],
+    [Paragraph('Methods', S['cell']), Paragraph('method & business rules — formulas, denominators, missing-data treatment, precedence', S['cell'])],
+    [Paragraph('Interaction (agentic)', S['cell']), Paragraph('functional behavior + constraints & authority — controls and behaviors; when to proceed, when to stop and ask', S['cell'])],
+    [Paragraph('Boundaries (Out & Stop)', S['cell']), Paragraph('content & completeness + constraints & authority — the missing-information rule and the scope edge', S['cell'])],
+    [Paragraph('Checks', S['cell']), Paragraph('quality & acceptance — observable evidence: reconcile, recompute, exercise, cover', S['cell'])]]
+mt = Table(map_rows, colWidths=[CW * 0.24, CW * 0.76], repeatRows=1)
+mt.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), TEAL_T),
+                        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, PANEL]),
+                        ('GRID', (0, 0), (-1, -1), 0.5, LINE), ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+                        ('LEFTPADDING', (0, 0), (-1, -1), 6), ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+                        ('TOPPADDING', (0, 0), (-1, -1), 3), ('BOTTOMPADDING', (0, 0), (-1, -1), 3)]))
+E.append(mt)
 
 doc.build(E)
 print('taxonomy PDF written:', out)
