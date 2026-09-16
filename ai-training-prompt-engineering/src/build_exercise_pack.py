@@ -1,8 +1,8 @@
 # Builds the v1.6 hands-on exercise pack (all data fictional, generated, generic):
 #   deliverables/exercise-data/Course_Workbook.xlsx           README + Data (raw, NO formulas - the AI
 #                                                             does the math) + one named tab per exercise
-#                                                             (EX1..EX8, G2-DataAnalysis, EX-Quotes,
-#                                                             EX-Email, EX-Report) + PLAYBOOK (8+8+8)
+#                                                             (EX1..EX7, G2-DataAnalysis, EX-Quotes,
+#                                                             EX-Email, EX-Dashboard, EX-Report) + PLAYBOOK (8+8+8)
 #   deliverables/exercise-data/Quote_Alpha_Components.pdf     (three comparable supplier quotations,
 #   deliverables/exercise-data/Quote_Bravo_Plastics.pdf        deliberately non-comparable at first
 #   deliverables/exercise-data/Quote_Cardinal_Metals.pdf       glance: currency/per-1000/EXW traps)
@@ -43,7 +43,7 @@ readme = [
     ['WHAT THIS IS', 'Your one take-home workbook: every exercise prompt from the course in a named tab (copy-paste, don\'t retype), the practice dataset for the Part 4 data walkthrough, and the full 2026 prompting playbook.'],
     ['HOW TO USE IT', 'During the course: when a slide points at a tab (e.g. "tab EX3-Tokens"), open it and copy the prompt. For the data walkthrough: upload this whole workbook to your AI and follow tab G2-DataAnalysis - profile first, then numbered questions.'],
     [''],
-    ['THE TABS', 'EX1-TwoModes .. EX7-MoE = the seven numbered course prompts · G2-DataAnalysis = the data walkthrough (uses the Data tab) · EX-Quotes = the three-quotations exercise (PDFs in the pack) · EX-Email = the inbox play (thread file in the pack) · EX-Report = the Part 3 rep (your course, reported; grid + bonus rebuild drill) · BONUS-Ladder = a self-study triage drill · PLAYBOOK = Do / Don\'t / Expired, with sources.'],
+    ['THE TABS', 'EX1-TwoModes .. EX7-MoE = the seven numbered course prompts · G2-DataAnalysis = the data walkthrough (uses the Data tab) · EX-Quotes = the three-quotations exercise (PDFs in the pack) · EX-Email = the inbox play (thread file in the pack) · EX-Dashboard = the dashboard build: shape it, build it, check it (uses the Data tab; includes the dashboard vocabulary) · EX-Report = the Part 3 rep (your course, reported; grid + bonus rebuild drill) · BONUS-Ladder = a self-study triage drill · PLAYBOOK = Do / Don\'t / Expired, with sources.'],
     [''],
     ['THE DATA TAB', 'Twelve months of fictional supplier-delivery data across four sites and three suppliers, for practicing AI data analysis (Copilot, chat assistants with file upload, or a company RAG assistant).'],
     [''],
@@ -344,6 +344,67 @@ prompt_tab('EX-Email', 'Part 4 walkthrough · The inbox play (uses Email_Thread_
      'Picking the shape IS the skill — the brief is the default.'),
 ], note='The practice thread has four planted traps: a moved date, an approval WITH a condition, an unanswered question, and a mentioned attachment that isn\'t there. A good brief catches all four.')
 
+prompt_tab('EX-Dashboard', 'Part 4 follow-on · A dashboard from data — shape it, build it, check it (uses the Data tab of THIS workbook)', [
+    ('STEP 0 · SHAPE', 'Work with the Data tab of this workbook (144 data rows; exclude the TOTAL row; one Inspection_Hours cell is "n/a" — treat it as missing and say so). I want a monthly supplier-quality dashboard for a plant manager who has 60 seconds. Before you build ANYTHING, propose the shape: 1) the 3-4 KPIs worth tracking — for each: a name, its exact formula from these columns, its current value, and a sensible target; 2) one chart per question the manager will actually ask — name the chart type and what is on each axis; 3) a one-line layout sketch: what sits top-left, and why. Show me the proposal and STOP — no code yet.',
+     'Design is a gate: approve KPIs and layout as PLAIN TEXT before anything renders. A wrong KPI caught here costs a sentence; caught after the dashboard circulates, it costs a retraction.'),
+    ('STEP 1 · BUILD', 'Approved, with these changes: [your edits — or "none"]. Build it as ONE self-contained HTML file: the Data tab embedded in the file — no server, no external calls; it must open from disk, offline, on a work laptop. Views: 1) a KPI row — the tiles we agreed, each showing the value, its state vs target, and a trend arrow with the change vs the prior month; 2) the charts we agreed, filterable by Site and Supplier; 3) a sortable, searchable data table of the underlying rows. Every number computed from the embedded data — nothing hard-coded; show each KPI\'s formula in a tooltip or footnote so it can be audited. Anything that cannot be computed from the data: show "—", never a guess. Footer: the as-of month, the data source ("Course Workbook Data tab — fictional training data"), and an owner-and-refresh line.',
+     'The G6 pattern. Four constraints make an AI-built tool trustworthy: single file · offline · data embedded · formulas visible.'),
+    ('STEP 2 · CHECK', 'Before I trust it: 1) reconcile — sum Units_Shipped across the data embedded in your dashboard and compare it to the TOTAL row of the Data tab; show both numbers; 2) pick one month and one site and recompute one KPI tile by hand, showing the arithmetic; 3) list every assumption the dashboard makes (the "n/a" cell, the excluded TOTAL row, any rounding). Fix any mismatch before answering.',
+     'The trust check, same as the data walkthrough: one reconciliation anchor plus one hand-recomputed tile beats admiring the design.'),
+    ('STEP 3 · REFINE', 'One improvement pass: [name ONE change — e.g. "add a target line at 2% on the defect-rate trend chart" or "add last-month deltas to every tile"]. Change only that. Tell me what you changed, and re-verify any number the change touched.',
+     'Fix one element and re-run — the improvement loop, applied to software instead of prose.'),
+], note='Needs a tool that writes and packages code — Claude (Artifacts), ChatGPT (Canvas), Gemini (Canvas), typically paid tiers; Copilot chat can\'t build this today. Two cautions: the file EMBEDS the data — classify and share it like the spreadsheet it came from (share the FILE, not a public link) · it is a snapshot, not a live system — for refreshing data you need a BI tool. The generic template behind this exercise is G6 in prompt-library/.')
+
+# EX-Dashboard extras: what makes a KPI + the dashboard vocabulary (owner request, Round 16)
+td = wb['EX-Dashboard']
+td.append([])
+td.append(['WHAT MAKES A KPI', 'A KPI is a number someone ACTS on — not decoration. Each one needs four things:', ''])
+td.cell(row=td.max_row, column=1).font = Font(bold=True, color='FFFFFF')
+td.cell(row=td.max_row, column=1).fill = TAB_FILL
+td.cell(row=td.max_row, column=2).font = Font(bold=True)
+for k, v in (
+        ('A decision', 'If nobody would do anything differently when it moves, it is trivia, not a KPI — cut it.'),
+        ('A formula', 'Named columns, exact arithmetic — e.g. defect rate = (Defects_Found + Units_Returned) / Units_Shipped. If you can\'t write the formula, you can\'t track the number.'),
+        ('A target', 'A value is a fact; value-vs-target is a status. Targets turn a dashboard from a report into an alarm.'),
+        ('The trio of views', 'Every KPI answers three questions: LEVEL (where are we) · TREND (which way is it moving) · GAP (how far from target). Tiles show level+gap; the chart shows trend.'),
+):
+    td.append([k, v])
+    td.cell(row=td.max_row, column=1).font = Font(bold=True, color='0E7C7B')
+td.append([])
+td.append(['THE VOCABULARY', 'Name the parts and you can ask for them — this vocabulary carries across all data-analytics and BI tools (Power BI, Tableau, Excel dashboards alike).', 'ASK FOR IT LIKE THIS'])
+td.cell(row=td.max_row, column=1).font = Font(bold=True, color='FFFFFF')
+td.cell(row=td.max_row, column=1).fill = TAB_FILL
+td.cell(row=td.max_row, column=2).font = Font(bold=True)
+td.cell(row=td.max_row, column=3).font = Font(bold=True)
+DASH_VOCAB = [
+    ('KPI', 'Key Performance Indicator — a number tied to a decision, with a formula and a target.', '"Propose 3-4 KPIs with formula, current value and target — then stop."'),
+    ('KPI tile / stat tile', 'The big-number card in the headline row: value + vs-target state + trend arrow.', '"A KPI row of four tiles across the top."'),
+    ('Hero number', 'The single most important figure, oversized — the one number a skimmer leaves with.', '"Make on-time % the hero number."'),
+    ('Delta', 'The change vs the previous period, shown beside the value (▲ +0.3 pt).', '"Each tile shows the delta vs last month."'),
+    ('Sparkline', 'A tiny, axis-less trend line inside a tile or table row — trend without a full chart.', '"Add a 12-month sparkline inside each tile."'),
+    ('Time series', 'A line chart of a value over time — the "is it getting better?" view.', '"A monthly time series of defect rate, one line per supplier."'),
+    ('Ranked bars', 'A bar chart sorted by value — the "who is biggest / worst?" view.', '"Ranked bars of return rate by site, worst first."'),
+    ('Stacked bar', 'One bar split into parts — composition and total in the same mark.', '"Stack the bar by supplier so I see each site\'s mix."'),
+    ('Heatmap', 'A grid colored by value — patterns across two dimensions at a glance (site × month).', '"A site-by-month heatmap of on-time %."'),
+    ('Target line', 'The reference line a metric should stay above or below; also called a threshold.', '"Draw the 2% target line on the trend chart."'),
+    ('Traffic-light status', 'Color that encodes state — on target / warning / breach — ALWAYS paired with an icon or label, never color alone.', '"Traffic-light the tiles vs target, with a label, not just color."'),
+    ('Filter / slicer', 'The control that narrows every view at once (site, supplier). "Slicer" is the Power BI / Excel word.', '"Site and Supplier filters that apply to all views."'),
+    ('Date-range picker', 'The filter for time — from/to, or presets like "last 3 months".', '"A date-range picker with a last-quarter preset."'),
+    ('Cross-filtering', 'Clicking a mark in one chart filters the other views to match.', '"Clicking a site\'s bar should filter the trend chart."'),
+    ('Drill-down', 'Click a summary number to open the rows behind it.', '"Drill-down from each tile to its underlying rows."'),
+    ('Tooltip', 'The detail card that appears on hover — exact values without cluttering the chart.', '"Tooltips with exact value, n, and the formula."'),
+    ('Legend', 'The key mapping colors/shapes to series — every multi-series chart needs one.', '"A legend, plus direct labels on the last points."'),
+    ('Detail grid', 'The sortable, searchable table of raw rows behind the charts — the digger\'s view.', '"A sortable detail grid under the charts."'),
+    ('Grain', 'What ONE row of the data represents (here: one month × site × supplier). Every correct denominator depends on it.', '"State the grain before proposing any KPI."'),
+    ('As-of date', 'When the data was last refreshed, stated on the page. A dashboard without one is stale-but-credible.', '"Footer: as-of date, source, owner, refresh cadence."'),
+]
+for term, what, ask in DASH_VOCAB:
+    td.append([term, what, ask])
+    td.cell(row=td.max_row, column=1).font = Font(bold=True, color='0E7C7B')
+for row in td.iter_rows():
+    for c in row:
+        c.alignment = Alignment(vertical='top', wrap_text=True)
+
 prompt_tab('EX-Report', 'Part 3 rep · Your course, reported (3 minutes)', [
     ('THE GRID', 'Inspect with this — which element failed? wrong altitude, tone, or posture -> ROLE · answers a different (or vaguer) question -> TASK · generically right, specifically wrong for us -> CONTEXT · right content, unusable shape or length -> FORMAT · doesn\'t match the standard in your head -> EXAMPLES · confidently invented -> THE OUT is missing · sprawls past what you asked -> THE STOP is missing.',
      'The symptom-to-element diagnosis grid — name the failed element, fix that ONE, rerun.'),
@@ -419,7 +480,7 @@ for row in pb.iter_rows():
 
 xlsx_path = os.path.join(OUT, 'Course_Workbook.xlsx')
 wb.save(xlsx_path)
-print('wrote', xlsx_path, f'({n_data_rows} data rows + README + 12 exercise tabs + PLAYBOOK)')
+print('wrote', xlsx_path, f'({n_data_rows} data rows + README + 13 exercise tabs + PLAYBOOK)')
 
 # NOTE (v1.13, owner request): the standalone Playbook_One_Pager.pdf was retired — the
 # playbook now lives merged in the Field Guide (part 5, the full works/myth/expired

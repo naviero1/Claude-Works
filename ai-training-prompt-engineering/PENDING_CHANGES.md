@@ -1290,6 +1290,43 @@ Mapping by filename infix → target (name at embed):
 
 ---
 
+## ROUND 16 — the dashboard exercise (EX-Dashboard) · 2026-09-16 · ✅ APPLIED (v1.15)
+
+Owner: "add an exercise example — create an HTML visual dashboard based on data
+from spreadsheets/CSVs/a database. How to give it shape, what KPIs to track,
+walk it through with data you provide in the excel sheets. Come up with NAMES
+of the different functionalities shown in a dashboard — this vocabulary will
+be important in general for data analytics and data visualization."
+
+**New workbook tab EX-Dashboard** (between EX-Email and EX-Report; data = the
+workbook's own 144-row Data tab, so no new dataset needed and the quirks
+transfer):
+- Four staged prompts mapping the loop onto software: STEP 0 SHAPE (KPIs +
+  chart-per-question + layout proposed as PLAIN TEXT, then STOP — the
+  headlines-before-rendering gate applied to design) · STEP 1 BUILD (G6
+  pattern: single file, offline, data embedded, formulas visible, "—" never a
+  guess, footer with as-of/source/owner) · STEP 2 CHECK (reconcile to the
+  TOTAL row + hand-recompute one tile + list assumptions) · STEP 3 REFINE
+  (one change, re-verify what it touched).
+- WHAT MAKES A KPI: a decision · a formula from named columns · a target ·
+  the level/trend/gap trio.
+- THE VOCABULARY: 20 named dashboard parts (KPI, stat tile, hero number,
+  delta, sparkline, time series, ranked bars, stacked bar, heatmap, target
+  line, traffic-light status, filter/slicer, date-range picker,
+  cross-filtering, drill-down, tooltip, legend, detail grid, grain, as-of
+  date), each with a definition AND an "ask for it like this" prompt
+  phrasing — the vocabulary taught as prompting vocabulary.
+- NOTE row: capability (code-capable tools, mostly paid; Copilot chat can't) ·
+  data-classification + snapshot cautions · pointer to G6 in prompt-library.
+Pointers wired: workbook README THE TABS · pack header comment + print count
+(13 exercise tabs) · demo-slide grey band now points at the tab · slide notes
+carry the homework framing ("the vocabulary is the transferable part") ·
+README.md workbook row. Verified by a 3-agent workflow (trainee simulation
+executing all steps against the real workbook · adversarial content review vs
+house rules/G6/dataviz references · coherence sweep).
+
+---
+
 ## ROUND 15 — de-update scrub + model chart + redundancy rulings · 2026-09-13 · ✅ APPLIED (v1.14)
 
 Owner, three directives: "don't mention anything in terms of what has been

@@ -891,7 +891,7 @@ module.exports = function buildPartThree(pres, H) {
   s.addText('The deliverable is a tool, not a text. What made it trustworthy: single file · offline · data embedded · formulas visible. Say aloud: a snapshot, not a live system — share the FILE, not a link.', { x: 8.7, y: 4.4, w: 3.8, h: 1.2, fontFace: F.body, fontSize: 10.8, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.04 });
   H.callout(s, 0.55, 5.8, 12.2, 0.6, C.PANEL, [
     { text: 'Backup plan: ', options: { bold: true, color: C.INK, fontSize: 11 } },
-    { text: 'if generation runs long, open the pre-built copy from your desktop and narrate the prompt — the room still sees prompt → working software.', options: { color: C.SLATE, fontSize: 11 } },
+    { text: 'if generation runs long, open the pre-built copy and narrate the prompt. Build it yourself later: tab EX-Dashboard — shape → build → check, plus the dashboard vocabulary.', options: { color: C.SLATE, fontSize: 11 } },
   ], { iconName: 'refresh', iconFill: C.SLATE, size: 11, line: C.LINE });
   H.callout(s, 0.55, 6.52, 12.2, 0.6, C.AMBER_TINT, [
     { text: 'Who can run this: ', options: { bold: true, color: C.AMBER, fontSize: 10.5 } },
@@ -914,6 +914,7 @@ module.exports = function buildPartThree(pres, H) {
     'CONTENT —\n' +
     'v1.6: capability strip added (owner asked: “this won’t be able to be created by all AIs, maybe just Claude or a paid subscription, correct?” — correct: single-file HTML needs a code/canvas-capable tool; capability verified Sep 2026: Claude Artifacts, ChatGPT Canvas, Gemini Canvas — largely paid; Copilot chat in-tenant cannot).\n' +
     'Pre-stage the data table and the G6 prompt in a text file so the demo is paste-paste-run. Budget 6–8 minutes.\n' +
+    'v1.15 (owner request): the hands-on version lives in workbook tab EX-Dashboard — four staged prompts on the workbook’s own Data tab (SHAPE as a plain-text gate → BUILD single-file offline → CHECK by reconciling + hand-recomputing one tile → REFINE one element), plus WHAT MAKES A KPI (decision · formula · target · level/trend/gap) and the 20-term dashboard vocabulary with ask-for-it-like-this phrasings. Point the room there for homework — say: “the vocabulary is the transferable part; it works in Power BI and Tableau conversations too.”\n' +
     'ART — the laptop-dashboard illustration in the amber card is owner-generated (R16): what the deliverable looks like, before the live one exists.');
 
   // ---------- 40. WALKTHROUGH 2 · EMAIL — THE FIVE SHAPES ----------
