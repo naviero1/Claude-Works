@@ -891,11 +891,11 @@ module.exports = function buildPartThree(pres, H) {
   s.addText('The deliverable is a tool, not a text. What made it trustworthy: single file · offline · data embedded · formulas visible. Say aloud: a snapshot, not a live system — share the FILE, not a link.', { x: 8.7, y: 4.4, w: 3.8, h: 1.2, fontFace: F.body, fontSize: 10.8, color: C.SLATE, margin: 0, lineSpacingMultiple: 1.04 });
   H.callout(s, 0.55, 5.8, 12.2, 0.6, C.PANEL, [
     { text: 'Backup plan: ', options: { bold: true, color: C.INK, fontSize: 11 } },
-    { text: 'if generation runs long, open the pre-built copy and narrate the prompt. Build it yourself later: tab EX-Dashboard — shape → build → check, plus the dashboard vocabulary.', options: { color: C.SLATE, fontSize: 11 } },
+    { text: 'if generation runs long, open the pre-built copy and narrate the prompt. Build it yourself later: tab EX-Dashboard — shape → build → check → refine, plus the dashboard vocabulary.', options: { color: C.SLATE, fontSize: 11 } },
   ], { iconName: 'refresh', iconFill: C.SLATE, size: 11, line: C.LINE });
   H.callout(s, 0.55, 6.52, 12.2, 0.6, C.AMBER_TINT, [
     { text: 'Who can run this: ', options: { bold: true, color: C.AMBER, fontSize: 10.5 } },
-    { text: 'it needs a tool that writes and packages code — Claude (Artifacts), ChatGPT (Canvas), Gemini (Canvas), typically on paid tiers; Copilot chat can’t build this today. No access? Hand the same spec to IT — or ask for the Excel version.', options: { color: C.SLATE, fontSize: 10.5 } },
+    { text: 'it needs a tool that writes and packages code — Claude (Artifacts), ChatGPT (Canvas), Gemini (Canvas), typically on paid tiers; in Copilot that means Pages, not plain chat. No access? Hand the same spec to IT — or ask for the Excel version.', options: { color: C.SLATE, fontSize: 10.5 } },
   ], { iconName: 'key', iconFill: C.AMBER, size: 10.5 });
   s.addNotes(
     'HOW TO PRESENT —\n' +

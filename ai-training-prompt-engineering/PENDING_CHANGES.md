@@ -1321,9 +1321,23 @@ transfer):
 Pointers wired: workbook README THE TABS · pack header comment + print count
 (13 exercise tabs) · demo-slide grey band now points at the tab · slide notes
 carry the homework framing ("the vocabulary is the transferable part") ·
-README.md workbook row. Verified by a 3-agent workflow (trainee simulation
-executing all steps against the real workbook · adversarial content review vs
-house rules/G6/dataviz references · coherence sweep).
+README.md workbook row.
+
+**Verification (3-agent workflow, all findings applied):** trainee simulation
+executed every step against the real workbook end-to-end (built the dashboard,
+reconciliation matched, all factual claims in the prompts exact). Fixes from
+the review: filter row now re-scopes EVERYTHING (tiles+charts+table) so the
+CHECK step's filter-then-recompute is executable and matches the tab's own
+slicer definition (was the one major) · "current value" pinned to the latest
+month · percentage-aggregation choice (unit-weighted vs simple) forced into
+the open in SHAPE and CHECK · REFINE examples swapped to genuinely additive
+ones (sparkline, heatmap — both in the vocabulary) · tile status = label/icon
+plus color, never color alone + color-blind-safe + units on axes (G6 design
+block restored) · Drill-down entry corrected to the down-vs-through
+distinction (BI-accurate) · Copilot line now capability-shaped and names
+Pages-not-chat (aligned with G6's Works-in; "today" removed from trainee
+cells) · descriptors everywhere now say shape → build → check → refine ·
+BONUS-Ladder added to the pack header comment and README.md enumerations.
 
 ---
 
