@@ -162,6 +162,40 @@
   #mbar button{border:none; background:var(--teal); color:#fff; border-radius:8px; padding:8px 16px; font-weight:700; font-size:12.5px; cursor:pointer;}
   @media (max-width:1100px){ #mbar{display:flex;} }
   footer{padding:10px 22px 26px; font-size:11px; color:var(--mute);}
+  /* ---- R17 task-first view ---- */
+  body[data-view="task"] .steps, body[data-view="task"] .layout, body[data-view="task"] #modeBtns, body[data-view="task"] #galleryBtn{display:none;}
+  body[data-view="legacy"] #taskView{display:none;}
+  #taskView{padding:14px 22px 8px; max-width:1500px;}
+  .tsteps{font-size:12px; color:var(--mute); margin:0 0 12px;}
+  .taskcards{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;}
+  .taskcard{flex:1 1 200px; min-width:185px; text-align:left; border:1.5px solid var(--line); background:var(--panel); border-radius:10px; padding:10px 12px; cursor:pointer; font:inherit; color:inherit;}
+  .taskcard b{display:block; font-size:13.5px; margin-bottom:3px;}
+  .taskcard span{font-size:11.5px; color:var(--mute); line-height:1.35; display:block;}
+  .taskcard.on{border-color:var(--teal); background:rgba(14,124,123,.10);}
+  .tlayout{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:16px; align-items:start;}
+  @media (max-width:1000px){ .tlayout{grid-template-columns:1fr;} }
+  .tpanel{border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:var(--panel);}
+  .tpanel label{display:block; font-size:11px; font-weight:700; letter-spacing:.4px; color:var(--teal); margin:10px 0 4px;}
+  .tpanel textarea{width:100%; box-sizing:border-box; border:1px solid var(--line); border-radius:8px; padding:8px 10px; font:12.5px/1.45 Consolas,Menlo,monospace; background:var(--bg); color:inherit; resize:vertical;}
+  .treq{border:1px solid var(--line); border-radius:8px; padding:7px 9px; margin:6px 0; background:var(--bg);}
+  .treq .rh{display:flex; gap:8px; align-items:baseline;}
+  .treq .rh input{accent-color:var(--teal);}
+  .treq .rh b{font-size:12.5px;}
+  .treq input.rtext{width:100%; box-sizing:border-box; border:1px dashed var(--line); border-radius:6px; padding:5px 8px; margin-top:5px; font:12px/1.4 Consolas,Menlo,monospace; background:transparent; color:inherit;}
+  .treq .rcheck{font-size:11px; color:var(--mute); margin-top:4px;}
+  .tstatus{border-radius:8px; padding:7px 10px; font-size:12px; font-weight:700; margin-bottom:8px;}
+  .tstatus.draft{background:rgba(196,122,31,.14); color:#B96A1B; border:1px solid #C47A1F;}
+  .tstatus.ready{background:rgba(59,133,96,.14); color:#2F7A54; border:1px solid #3B8560;}
+  #tGuard{display:none; border:1px solid #C47A1F; background:rgba(196,122,31,.12); color:#8a5514; border-radius:8px; padding:7px 10px; font-size:12px; margin:8px 0; align-items:center; gap:8px; flex-wrap:wrap;}
+  #tGuard button{border:1px solid #C47A1F; background:transparent; color:#8a5514; border-radius:6px; padding:3px 10px; font-size:11.5px; font-weight:700; cursor:pointer;}
+  #tOut{min-height:320px;}
+  .tbtns{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;}
+  .tbtns button{border:1px solid var(--line); background:var(--panel); color:inherit; border-radius:8px; padding:8px 14px; font-weight:700; font-size:12.5px; cursor:pointer;}
+  .tbtns button.copy{background:var(--teal); border-color:var(--teal); color:#fff;}
+  .tadv{font-size:12px; color:var(--mute); margin-top:10px;}
+  .tadv button, #backTasks{border:none; background:none; color:var(--teal); font-weight:700; cursor:pointer; font-size:12px; text-decoration:underline;}
+  #editGuard{display:none; border:1px solid #C47A1F; background:rgba(196,122,31,.12); border-radius:8px; padding:7px 10px; font-size:11.5px; color:#F0C27A; margin-bottom:8px; align-items:center; gap:8px; flex-wrap:wrap;}
+  #editGuard button{border:1px solid #F0C27A; background:transparent; color:#F0C27A; border-radius:6px; padding:3px 10px; font-size:11px; font-weight:700; cursor:pointer;}
 </style>
 </head>
 <body>
@@ -176,6 +210,36 @@
     <button id="helpBtn">How it works</button>
   </div>
 </header>
+
+<!-- ==== R17: task-first view (primary). The full taxonomy stays available as Advanced. ==== -->
+<div id="taskView">
+  <div class="tsteps"><b>1</b> Pick the task · <b>2</b> tick the requirements that resolve ambiguity — a simple task needs only a few · <b>3</b> edit any wording, add your own · <b>4</b> copy into your assistant.</div>
+  <div class="taskcards" id="tCards"></div>
+  <div class="tlayout" id="tWork" hidden>
+    <div class="tpanel">
+      <label for="tTask">THE TASK — purpose and audience (required)</label>
+      <textarea id="tTask" rows="2"></textarea>
+      <label>REQUIREMENTS MENU — tick what resolves ambiguity; edit the wording to your case</label>
+      <div id="tReqs"></div>
+      <label for="tFree">ANYTHING ELSE — free-form requirements and facts that constrain the work</label>
+      <textarea id="tFree" rows="2" placeholder="e.g. British spelling · the reader has 60 seconds · numbers in thousands"></textarea>
+      <div class="tadv">Prefer the full element taxonomy and the 18 legacy templates? <button id="advBtn">Open the advanced builder →</button></div>
+    </div>
+    <div class="tpanel">
+      <div class="tstatus draft" id="tStatus"></div>
+      <div id="tGuard"><span>You edited the prompt by hand, so selection changes no longer overwrite it.</span><button id="tRebuild">Rebuild from selections</button><button id="tKeep">Keep my text</button></div>
+      <textarea id="tOut" spellcheck="false" aria-label="Assembled prompt"></textarea>
+      <div class="tbtns">
+        <button class="copy" id="tCopy">Copy prompt</button>
+        <button id="tCourse">Insert the course prompt</button>
+        <button id="tDl">Download</button>
+        <button id="tReset">Reset this task</button>
+      </div>
+      <div class="note" style="font-size:11px; color:var(--mute); margin-top:6px;">A course exercise works by copying its prompt straight into your assistant — this builder is the convenience that follows the training. Nothing you type leaves this file.</div>
+    </div>
+  </div>
+</div>
+
 <div class="steps">
   <span class="st"><b>1</b> Start from a <button id="stepTpl">template</button> (or blank)</span>
   <span class="st"><b>2</b> Adjust the pieces — click options, add your own text</span>
@@ -197,6 +261,7 @@
     <div class="restored" id="restored" hidden><span>Restored your last session.</span><button id="freshBtn">Start fresh</button></div>
     <div class="stats" id="stats"></div>
     <div class="phbar" id="phbar" hidden></div>
+    <div id="editGuard"><span>You edited the prompt by hand — selection changes no longer overwrite it.</span><button id="egRebuild">Rebuild from selections</button><button id="egKeep">Keep my text</button></div>
     <div class="empty" id="emptyState" hidden>
       <b>Nothing here yet — three ways to start:</b><br>
       ① Pick a ready template (fastest) · ② tick pieces on the left and choose options · ③ type your own text into any box.
@@ -512,34 +577,56 @@ function placeholders(txt){
   const m=txt.match(/{{[^}]*}}/g)||[];
   return m;
 }
+let LGen='', LEdited=false;   /* R17: manual edits to the output survive selection changes */
+function taskFilled(){
+  const eid = S.mode==='agentic' ? 'a_mission' : 'task';
+  if(!S.enabled[eid]) return false;
+  const pfx = eid + '.';
+  const selHas = Object.keys(S.sel).some(k=>k.startsWith(pfx) && S.sel[k] && S.sel[k].length);
+  const cusHas = Object.keys(S.custom).some(k=>k.startsWith(pfx) && S.custom[k] && S.custom[k].trim());
+  return selHas || cusHas;
+}
 function renderOut(){
   const txt=assemble();
   const ta=document.getElementById('output');
-  ta.value=txt;
-  const toks=Math.round(txt.length/4), words=(txt.trim().match(/\S+/g)||[]).length;
-  const phs=placeholders(txt);
+  const guard=document.getElementById('editGuard');
+  if(LEdited && ta.value!==txt){
+    guard.style.display='flex';
+  } else {
+    ta.value=txt; LGen=txt; LEdited=false; guard.style.display='none';
+  }
+  const shown=ta.value;
+  const toks=Math.round(shown.length/4), words=(shown.trim().match(/\S+/g)||[]).length;
+  const phs=placeholders(shown);
   const stats=document.getElementById('stats');
   const empty=document.getElementById('emptyState');
   const phbar=document.getElementById('phbar');
-  if(!txt){
+  if(!shown){
     stats.textContent=''; empty.hidden=false; phbar.hidden=true; ta.style.display='none';
   } else {
     empty.hidden=true; ta.style.display='';
-    stats.textContent='≈ '+toks+' tokens · '+words+' words';
+    stats.textContent='≈ '+toks+' tokens · '+words+' words'+(LEdited?' · manually edited':'');
     if(phs.length){
       phbar.hidden=false; phbar.classList.remove('done');
       phbar.innerHTML='<span><b>'+phs.length+'</b> placeholder'+(phs.length>1?'s':'')+' to fill with your specifics</span>';
       const b=el('button','','Find next');
       b.onclick=jumpToPlaceholder;
       phbar.appendChild(b);
+    } else if(!taskFilled() && !LEdited){
+      phbar.hidden=false; phbar.classList.remove('done');
+      phbar.innerHTML='<span>⚠ No task stated yet — a prompt without its task is not ready. Tick the Task piece and give it content.</span>';
     } else {
       phbar.hidden=false; phbar.classList.add('done');
       phbar.innerHTML='<span>✓ No placeholders left — ready to copy.</span>';
     }
   }
-  document.getElementById('mstats').textContent = txt? ('≈ '+toks+' tokens · '+(phs.length? phs.length+' {{ }} to fill':'ready')) : 'Nothing assembled yet';
+  const readyWord = (!phs.length && (taskFilled()||LEdited)) ? 'ready' : 'not ready yet';
+  document.getElementById('mstats').textContent = shown? ('≈ '+toks+' tokens · '+(phs.length? phs.length+' {{ }} to fill':readyWord)) : 'Nothing assembled yet';
   try{ localStorage.setItem('ptc-state-v2', JSON.stringify(S)); }catch(e){}
 }
+document.getElementById('output').addEventListener('input', function(){ LEdited = (this.value !== LGen); });
+document.getElementById('egRebuild').onclick=function(){ LEdited=false; renderOut(); };
+document.getElementById('egKeep').onclick=function(){ document.getElementById('editGuard').style.display='none'; };
 let phCursor=0;
 function jumpToPlaceholder(){
   const ta=document.getElementById('output');
@@ -669,8 +756,115 @@ setMode(S.mode||TAX.modes[0].id, hadSave);
 if(hadSave && (Object.keys(S.sel).length||Object.keys(S.custom).length)){
   document.getElementById('restored').hidden=false;
 } else if(!hadSave){
-  openGallery();
+  /* R17: the task-first view is the landing screen; the gallery no longer auto-opens. */
 }
+
+/* ================= R17: task-first view ================= */
+const TASKS = /*__TASKS_JSON__*/;
+(function(){
+  const $$ = id => document.getElementById(id);
+  const T = { id:null, on:{}, text:{}, free:'', desc:'', gen:'', edited:false };
+  document.body.dataset.view = 'task';
+
+  /* view switcher */
+  $$('advBtn') && ($$('advBtn').onclick = () => { document.body.dataset.view='legacy'; ensureBack(); });
+  function ensureBack(){
+    if($$('backTasks')) return;
+    const b = document.createElement('button');
+    b.id='backTasks'; b.textContent='← Back to the five tasks';
+    b.onclick = () => { document.body.dataset.view='task'; };
+    document.querySelector('header .hbtns').prepend(b);
+  }
+
+  /* task cards */
+  const cards = $$('tCards');
+  TASKS.forEach(t => {
+    const b = document.createElement('button');
+    b.className='taskcard'; b.type='button';
+    b.innerHTML = '<b>'+esc(t.name)+'</b><span>'+esc(t.blurb)+'</span>';
+    b.onclick = () => pick(t.id, b);
+    cards.appendChild(b);
+  });
+  function pick(id, btn){
+    document.querySelectorAll('.taskcard').forEach(c=>c.classList.remove('on'));
+    btn.classList.add('on');
+    T.id=id; T.on={}; T.text={}; T.free=''; T.desc=''; T.gen=''; T.edited=false;
+    const t = TASKS.find(x=>x.id===id);
+    $$('tTask').value=''; $$('tTask').placeholder = t.taskHint;
+    $$('tFree').value='';
+    $$('tWork').hidden=false;
+    renderReqs(); refresh();
+    $$('tTask').focus();
+  }
+  function renderReqs(){
+    const t = TASKS.find(x=>x.id===T.id); const host = $$('tReqs'); host.innerHTML='';
+    t.reqs.forEach((r,i)=>{
+      const d = document.createElement('div'); d.className='treq';
+      const key='r'+i;
+      d.innerHTML = '<div class="rh"><input type="checkbox" id="tq'+i+'"><b>'+esc(r.type)+'</b></div>'
+        + '<input class="rtext" id="tt'+i+'" value="'+esc(r.example)+'" aria-label="Instruction wording">'
+        + '<div class="rcheck">How to check it: '+esc(r.check)+'</div>';
+      host.appendChild(d);
+      const cb=$$('tq'+i), tx=$$('tt'+i);
+      tx.style.display='none';
+      cb.onchange=()=>{ T.on[key]=cb.checked; tx.style.display=cb.checked?'':'none'; refresh(); };
+      tx.oninput =()=>{ T.text[key]=tx.value; refresh(); };
+    });
+  }
+  function assembleTask(){
+    const t = TASKS.find(x=>x.id===T.id); if(!t) return '';
+    const desc = $$('tTask').value.trim();
+    const lines=[], checks=[];
+    t.reqs.forEach((r,i)=>{ const key='r'+i;
+      if(T.on[key]){ const w=(T.text[key]!==undefined?T.text[key]:r.example).trim(); if(w) lines.push('- '+w); checks.push('- '+r.check); }});
+    const free = $$('tFree').value.trim();
+    let out = desc || '';
+    if(lines.length) out += (out?'\n\n':'') + 'Requirements:\n' + lines.join('\n');
+    if(free) out += (out?'\n\n':'') + 'Also:\n' + free;
+    if(checks.length) out += (out?'\n\n':'') + 'How I will check the result:\n' + checks.join('\n');
+    return out;
+  }
+  function refresh(){
+    const out=$$('tOut');
+    const txt=assembleTask();
+    if(T.edited && out.value!==txt){ $$('tGuard').style.display='flex'; }
+    else { out.value=txt; T.gen=txt; T.edited=false; $$('tGuard').style.display='none'; }
+    status();
+  }
+  function status(){
+    const st=$$('tStatus');
+    const desc=$$('tTask').value.trim();
+    const hasBody=$$('tOut').value.trim().length>0;
+    const n=Object.values(T.on).filter(Boolean).length;
+    if(!desc){ st.className='tstatus draft'; st.textContent='Draft — describe the task first (who is it for, what decision or outcome).'; }
+    else if(!hasBody){ st.className='tstatus draft'; st.textContent='Draft — nothing assembled yet.'; }
+    else { st.className='tstatus ready'; st.textContent='Ready to copy · '+n+' requirement'+(n===1?'':'s')+' + '+n+' acceptance check'+(n===1?'':'s')+(T.edited?' · manually edited':''); }
+    $$('tCopy').disabled = !desc || !hasBody;
+  }
+  $$('tTask').addEventListener('input', refresh);
+  $$('tFree').addEventListener('input', refresh);
+  $$('tOut').addEventListener('input', ()=>{ T.edited = ($$('tOut').value !== T.gen); status(); });
+  $$('tRebuild').onclick=()=>{ T.edited=false; refresh(); };
+  $$('tKeep').onclick=()=>{ $$('tGuard').style.display='none'; };
+  $$('tCourse').onclick=()=>{
+    const t=TASKS.find(x=>x.id===T.id); if(!t) return;
+    $$('tOut').value=t.prompt; T.edited=true;
+    if(!$$('tTask').value.trim()) $$('tTask').value=t.taskHint;
+    toast('Course prompt inserted — replace the [brackets] with your specifics.');
+    status();
+  };
+  $$('tCopy').onclick=()=>{ navigator.clipboard.writeText($$('tOut').value).then(()=>toast('Prompt copied.')); };
+  $$('tDl').onclick=()=>{
+    const blob=new Blob([$$('tOut').value],{type:'text/plain'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='prompt-'+(T.id||'task')+'.txt'; a.click(); URL.revokeObjectURL(a.href);
+  };
+  $$('tReset').onclick=()=>{
+    T.on={}; T.text={}; T.edited=false; T.gen='';
+    $$('tTask').value=''; $$('tFree').value=''; $$('tOut').value='';
+    renderReqs(); refresh(); toast('Task reset.');
+  };
+})();
 </script>
 </body>
 </html>

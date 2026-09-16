@@ -60,10 +60,56 @@ for p in tax['presets']:
 n_attrs = sum(len(v) for v in paths.values())
 n_opts = sum(len(a.get('options', [])) for v in paths.values() for a in v.values())
 
+# ---- R17: the five task families (from the shared catalog + course prompts) ----
+def parse_catalog_table(md, heading):
+    """Return [(type, example, check)] from the pipe table under a '## heading'."""
+    i = md.find('## ' + heading)
+    assert i >= 0, f'catalog heading not found: {heading}'
+    rows = []
+    for line in md[i:].split('\n')[1:]:
+        if line.startswith('## '):
+            break
+        if line.startswith('|') and not set(line) <= set('|- '):
+            cells = [c.strip() for c in line.strip('|').split('|')]
+            if len(cells) >= 3 and cells[0] not in ('Requirement type',):
+                rows.append({'type': cells[0], 'example': cells[1], 'check': cells[2]})
+    assert len(rows) >= 10, f'{heading}: only {len(rows)} rows parsed'
+    return rows
+
+
+catalog = open(os.path.join(here, '..', 'Requirements_by_Artifact.md')).read()
+prompts = json.load(open(os.path.join(here, 'assets', 'course_prompts.json')))
+TASKS = [
+    {'id': 'analyze', 'name': 'Analyze spreadsheet data',
+     'blurb': 'One question, defined metrics, checked numbers. The supplier case is the worked example.',
+     'taskHint': 'Help [reader] decide [decision] using [file / sheet], period [range], detail rows only.',
+     'prompt': prompts['analyze'], 'reqs': parse_catalog_table(catalog, 'Spreadsheet analysis: requirements to choose')},
+    {'id': 'dashboard', 'name': 'Build an interactive dashboard',
+     'blurb': 'Specify behavior in plain language: filters, grouping, metric switches, drill-down, states.',
+     'taskHint': 'A self-contained offline dashboard for [audience] to explore [data] and answer [question].',
+     'prompt': prompts['dashboard'], 'reqs': parse_catalog_table(catalog, 'HTML dashboards: requirements to choose')},
+    {'id': 'present', 'name': 'Prepare a presentation',
+     'blurb': 'A decision audience, one message per slide, verified numbers, honest limitations.',
+     'taskHint': 'A [n]-slide deck for [audience] to decide [decision], using only [verified source].',
+     'prompt': prompts['present'], 'reqs': parse_catalog_table(catalog, 'Presentations: requirements to choose')},
+    {'id': 'email', 'name': 'Summarize an email conversation',
+     'blurb': 'Current state, decisions with conditions, actions with owners — evidence-cited, nothing invented.',
+     'taskHint': 'Brief the conversation about [topic] so [reader] knows the current state and what they owe.',
+     'prompt': prompts['email'], 'reqs': parse_catalog_table(catalog, 'Email summaries: requirements to choose')},
+    {'id': 'explain', 'name': 'Explain a topic clearly',
+     'blurb': 'Plain language that preserves meaning, conditions, and caveats — with a comprehension check.',
+     'taskHint': 'Explain [topic] from [source] for a reader at [reading level] who needs to [do / understand].',
+     'prompt': prompts['explain'], 'reqs': parse_catalog_table(catalog, 'Plain-language documents: requirements to choose')},
+]
+
 tpl = open(tpl_path).read()
 payload = json.dumps(tax, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+tasks_payload = json.dumps(TASKS, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
 html = tpl.replace('/*__TAXONOMY_JSON__*/', payload)
-assert html != tpl, 'placeholder not found'
-open(out_path, 'w').write(html)
-print(f'builder written: {out_path} ({len(html)//1024} KB) — '
+assert html != tpl, 'taxonomy placeholder not found'
+html2 = html.replace('/*__TASKS_JSON__*/', tasks_payload)
+assert html2 != html, 'tasks placeholder not found'
+open(out_path, 'w').write(html2)
+print(f'builder written: {out_path} ({len(html2)//1024} KB) — 5 task families '
+      f'({sum(len(t["reqs"]) for t in TASKS)} requirement rows) + legacy: '
       f'{len(tax["elements"])} elements, {n_attrs} attributes, {n_opts} options, {len(tax["presets"])} presets')

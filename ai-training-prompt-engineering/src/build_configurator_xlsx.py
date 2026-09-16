@@ -210,7 +210,8 @@ rows = [
     ('b', f"v{meta['meta']['version']} · {meta['meta']['date']} · owner {meta['meta']['owner']} · generated from prompt-library/taxonomy/ (the source of truth — edit there, rebuild with src/build_configurator_xlsx.py)"),
     ('s', ''),
     ('h2', 'How to use'),
-    ('b', '1. Open Builder_Gen (chat prompts) or Builder_Agent (agent mission briefs).'),
+    ('b', 'START ON THE Tasks SHEET: pick one of the five course tasks, mark the requirements you need Yes, edit the yellow wording, and copy the assembled prompt (or the course prompt directly). The sheets below are the advanced, element-level builder.'),
+    ('b', '1. Advanced: open Builder_Gen (chat prompts) or Builder_Agent (agent mission briefs).'),
     ('b', '2. Fill the YELLOW cells only: pick options from the dropdowns; add or override with custom text. Attributes marked "choice 1/2/3" accept several picks.'),
     ('b', '3. The prompt assembles itself on Prompt_Gen / Prompt_Agent — copy cell A4 into your AI tool.'),
     ('b', '4. Search the assembled prompt for {{ before you run — placeholders left unfilled mean you are not done.'),
@@ -256,5 +257,89 @@ for row in gb_ws.iter_rows(min_row=2, max_col=6):
         row[4].value = 'Example (replace): what is the return rate by site for Q2 vs the 2.0% target?'
         break
 
+# ---------------- R17: Tasks sheet (the five course task families) ----------------
+def parse_catalog_table(md, heading):
+    i = md.find('## ' + heading)
+    assert i >= 0, heading
+    rows_ = []
+    for line in md[i:].split('\n')[1:]:
+        if line.startswith('## '):
+            break
+        if line.startswith('|') and not set(line) <= set('|- '):
+            cells = [c.strip() for c in line.strip('|').split('|')]
+            if len(cells) >= 3 and cells[0] != 'Requirement type':
+                rows_.append((cells[0], cells[1], cells[2]))
+    assert len(rows_) >= 10, heading
+    return rows_
+
+catalog = open(os.path.join(here, '..', 'Requirements_by_Artifact.md')).read()
+cps = json.load(open(os.path.join(here, 'assets', 'course_prompts.json')))
+TASKS_CFG = [
+    ('Analyze spreadsheet data', 'analyze', 'Spreadsheet analysis: requirements to choose',
+     'Help [reader] decide [decision] using [file / sheet], period [range], detail rows only.'),
+    ('Build an interactive dashboard', 'dashboard', 'HTML dashboards: requirements to choose',
+     'A self-contained offline dashboard for [audience] to explore [data] and answer [question].'),
+    ('Prepare a presentation', 'present', 'Presentations: requirements to choose',
+     'A [n]-slide deck for [audience] to decide [decision], using only [verified source].'),
+    ('Summarize an email conversation', 'email', 'Email summaries: requirements to choose',
+     'Brief the conversation about [topic] so [reader] knows the current state and what they owe.'),
+    ('Explain a topic clearly', 'explain', 'Plain-language documents: requirements to choose',
+     'Explain [topic] from [source] for a reader at [reading level] who needs to [do / understand].'),
+]
+ts = wb.create_sheet('Tasks', 1)
+ts.column_dimensions['A'].width = 10
+ts.column_dimensions['B'].width = 26
+ts.column_dimensions['C'].width = 70
+ts.column_dimensions['D'].width = 46
+ts.column_dimensions['E'].width = 90
+ts.column_dimensions['F'].width = 2
+yn = DataValidation(type='list', formula1='"Yes,No"', allow_blank=True)
+ts.add_data_validation(yn)
+tr = 1
+c0 = ts.cell(tr, 1, 'THE FIVE COURSE TASKS — mark Include? = Yes, edit the yellow wording, copy the ASSEMBLED PROMPT (column E). A simple task needs only a few rows.')
+c0.font = Font(name='Arial', size=12, bold=True, color=TEAL_D); tr += 2
+for name, pid, heading, hint in TASKS_CFG:
+    reqs = parse_catalog_table(catalog, heading)
+    h = ts.cell(tr, 1, name.upper())
+    h.font = F_HEAD; h.fill = FILL_HEAD
+    for c in range(2, 6):
+        ts.cell(tr, c).fill = FILL_HEAD
+    tr += 1
+    ts.cell(tr, 2, 'The course prompt (copy-ready):').font = F_ATTR
+    pc = ts.cell(tr, 3, cps[pid]); pc.font = F_MONO; pc.alignment = WRAP
+    ts.row_dimensions[tr].height = 88
+    tr += 1
+    ts.cell(tr, 2, 'Your task line (edit):').font = F_ATTR
+    tl = ts.cell(tr, 3, hint); tl.fill = FILL_INPUT; tl.alignment = WRAP; tl.border = THIN
+    task_cell = f'C{tr}'
+    tr += 1
+    hdr_r = tr
+    for c, htxt in enumerate(['Include?', 'Requirement type', 'Your instruction (edit)', 'How to check it'], 1):
+        cell = ts.cell(tr, c, htxt); cell.font = F_ATTR; cell.fill = FILL_ELEM; cell.border = THIN
+    tr += 1
+    first = tr
+    for rtype, rex, rchk in reqs:
+        inc = ts.cell(tr, 1, 'No'); inc.fill = FILL_INPUT; inc.border = THIN
+        yn.add(inc)
+        ts.cell(tr, 2, rtype).font = F_ATTR
+        ic = ts.cell(tr, 3, rex); ic.fill = FILL_INPUT; ic.alignment = WRAP; ic.border = THIN
+        ck = ts.cell(tr, 4, rchk); ck.font = F_BODY_I; ck.alignment = WRAP
+        ts.cell(tr, 6, f'=IF($A{tr}="Yes","- "&$C{tr},"")')
+        tr += 1
+    last = tr - 1
+    ts.cell(tr, 2, 'Free-form additions (optional):').font = F_ATTR
+    fc = ts.cell(tr, 3, ''); fc.fill = FILL_INPUT; fc.border = THIN
+    free_cell = f'C{tr}'
+    tr += 1
+    ts.cell(tr, 2, 'ASSEMBLED PROMPT →').font = Font(name='Arial', size=10, bold=True, color=TEAL_D)
+    af = (f'={task_cell}&IF(COUNTIF(A{first}:A{last},"Yes")>0,CHAR(10)&CHAR(10)&"Requirements:"&CHAR(10)&'
+          f'_xlfn.TEXTJOIN(CHAR(10),TRUE,F{first}:F{last}),"")&IF({free_cell}<>"",CHAR(10)&CHAR(10)&"Also:"&CHAR(10)&{free_cell},"")')
+    ac = ts.cell(tr, 5, af); ac.alignment = WRAP; ac.font = F_MONO
+    ts.row_dimensions[tr].height = 110
+    tr += 2
+ts.column_dimensions['F'].hidden = True
+ts.freeze_panes = 'A3'
+
 wb.save(out)
-print('configurator written:', out)
+print('configurator written:', out, '(Tasks sheet: 5 task families,',
+      sum(len(parse_catalog_table(catalog, h)) for _, _, h, _ in TASKS_CFG), 'requirement rows)')

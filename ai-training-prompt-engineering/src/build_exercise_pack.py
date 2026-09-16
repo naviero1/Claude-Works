@@ -479,9 +479,181 @@ for row in pb.iter_rows():
     for c in row:
         c.alignment = Alignment(vertical='top', wrap_text=True)
 
+# ================================================================ R17: the five-task
+# course sequence (60-minute facilitated course). The training determines the
+# exercises; these tabs carry the reusable prompts; the builder mirrors them.
+# Legacy tabs (README, EX1..EX7, G2, EX-Quotes, EX-Email, EX-Dashboard, EX-Report,
+# BONUS-Ladder, PLAYBOOK) stay for the long-format course — INDEX marks them optional.
+
+# -- Data_Clean: the 144 detail rows, TOTAL excluded, 'n/a' -> blank (missing stays missing)
+dc = wb.create_sheet('Data_Clean')
+dc.append(HDR)
+detail_rows = []
+for r in ws.iter_rows(min_row=2, values_only=True):
+    if r[0] == 'TOTAL':
+        continue
+    rr = list(r)
+    if rr[6] == 'n/a':
+        rr[6] = None
+    detail_rows.append(rr)
+    dc.append(rr)
+for c in range(1, len(HDR) + 1):
+    cell = dc.cell(row=1, column=c)
+    cell.font = Font(bold=True, color='FFFFFF')
+    cell.fill = PatternFill('solid', fgColor='1E2761')
+    dc.column_dimensions[get_column_letter(c)].width = 16
+dc.freeze_panes = 'A2'
+
+# -- independently computed key numbers (never hardcoded twice)
+def _agg(rows_, keyfn):
+    out = {}
+    for r in rows_:
+        d = out.setdefault(keyfn(r), {'u': 0, 'ret': 0, 'def': 0, 'cost_w': 0.0, 'ot': []})
+        d['u'] += r[3]; d['ret'] += r[4]; d['def'] += r[5]
+        d['cost_w'] += r[3] * r[7]; d['ot'].append(r[8])
+    return out
+SUP_AGG = _agg(detail_rows, lambda r: r[2])
+TOT_U = sum(v['u'] for v in SUP_AGG.values()); TOT_R = sum(v['ret'] for v in SUP_AGG.values())
+TOT_D = sum(v['def'] for v in SUP_AGG.values())
+assert (TOT_U, TOT_R) == (tot_ship, tot_ret)
+
+prompt_tab('1-Analyze-Data', 'Task 1 of 5 · Analyze the data — one question, one improving prompt (Data tab of THIS workbook)', [
+    ('STEP 0 · STARTER', 'Analyze the supplier data and tell me which supplier is worst.',
+     'Run it once, then list what it decided FOR you: which rows, which metric, what "worst" means. Those gaps are the requirements you add next.'),
+    ('STEP 1 · IMPROVED', 'Use Course_Workbook.xlsx, Data tab, detail rows only — exclude the TOTAL row (144 rows; one Inspection_Hours cell is "n/a": treat it as missing, not zero, and disclose it). One row = one month × site × supplier; period 2025-09 to 2026-08 inclusive. Question: which supplier has the highest RETURN RATE, defined as total Units_Returned ÷ total Units_Shipped per supplier over the full period — computed from sums, never by averaging monthly percentages. Keep Defects_Found separate from returns; do not add them together. Rank the three suppliers showing numerator and denominator, reconcile total shipped and returned against the TOTAL row, and state one limitation of the comparison. Then stop.',
+     'Each added line fixes one named weakness: source scope · row grain · period · metric definition · denominator rule · missing-data rule · separate measures · reconciliation · limitation. (Requirement types: data & provenance, method & business rules, quality & acceptance.)'),
+    ('STEP 2 · TREND', 'For the highest-return supplier: monthly return rate (that month\'s returns ÷ that month\'s shipments) for 2025-09 to 2026-08, as a table. Is it improving, worsening, or volatile? Describe the pattern only — do not claim a cause.',
+     'Change over time, with the denominator stated per month and causal claims off-limits.'),
+    ('STEP 3 · SITES', 'Return rate by site (same definition, same period), ranked. Do particular sites drive the supplier difference? Compare only on equal scope.',
+     'Segmentation — every comparison on the same filter scope.'),
+    ('STEP 4 · DENOMINATORS', 'Can this data support an overall on-time delivery rate? Explain using only the columns available, and name the extra data that would be needed.',
+     'Expected answer: NO. On_Time_Percent is a monthly percentage with no delivery counts, so its average is not a true overall delivery rate. This is the denominator lesson.'),
+    ('TRANSFER', 'Rewrite the improved prompt for a dataset from your own work: keep every requirement type, change only the specifics.',
+     'The requirement types are the transferable part; the filled prompt is your reusable asset.'),
+], note=f'Check yourself (expected output): 144 detail rows · {TOT_U:,} shipped · {TOT_R} returns · {TOT_D:,} defect occurrences (a separate measure). Highest return rate: Bravo Plastics ≈ {SUP_AGG["Bravo Plastics"]["ret"]/SUP_AGG["Bravo Plastics"]["u"]*100:.3f}%. Full worked key: tab KEY-Analysis (instructor). The analysis feeds tasks 2 and 3 — save it.')
+
+prompt_tab('2-Build-Dashboard', 'Task 2 of 5 · Build the dashboard — specify behavior in plain language (uses Supplier_Data_Clean.csv)', [
+    ('PROMPT V1 · CORE', 'From the attached Supplier_Data_Clean.csv (144 rows, one per month × site × supplier, period 2025-09 to 2026-08; one Inspection_Hours value is blank — missing, not zero), build ONE self-contained HTML file that works offline from disk. Views: summary tiles (units shipped, units returned, return rate, defect rate — rates = sums ÷ sums), one chart, and a sortable table of the records. Embed the data in the file; compute every number from the embedded records — nothing hard-coded. Footer: metric definitions, the snapshot date, and "static data snapshot, not a live system".',
+     'The core artifact: input contract, metric definitions, delivery constraints. Interactions come as revisions.'),
+    ('PROMPT V2 · BEHAVIOR', 'Add these controls, wired so one selection re-scopes EVERY view — tiles, chart, and table always agree: a month-range selector, inclusive endpoints, defaulting to the full range ("show records between the selected start and end months") · Supplier and Site filters ("let me select one or more suppliers or sites") · a comparison switch ("switch the comparison between supplier and site") · a granularity switch ("switch the trend between monthly and quarterly views") · a metric selector ("switch between units shipped, defect rate, and return rate") · drill-down ("click a chart segment to show its underlying records") · ranking ("rank suppliers from highest to lowest on the selected measure") · Reset ("clear all selections and restore the full dataset").',
+     'The behavior vocabulary — every quoted phrase is reusable wording. Use Type/Class/Status controls only when the source really has those fields; this dataset does not.'),
+    ('PROMPT V3 · STATES', 'Show the active selections at all times. An empty selection must say "no matching records" — distinguish it from a real zero. Missing values stay blank; a zero denominator shows "—", never an error.',
+     'Empty, missing, and zero are three different situations; the dashboard must say which one is on screen.'),
+    ('THE CHECK', 'Filter to Site = Berlin, Supplier = Bravo Plastics, months 2026-03 to 2026-08. Expect exactly 6 records, 8,575 units shipped, 21 returns, return rate 0.245% — in the tiles, the chart, AND the table. Verify independently by filtering the Data tab the same way.',
+     'One verified filtered result beats admiring the design. The prepared output runs this exact self-check in its footer.'),
+    ('WHEN EACH CONTROL HELPS', 'Month range + granularity answer "when did it change?" · category filters and compare-by answer "who is different?" · the metric selector answers "different on what?" · drill-down answers "which records back this number?" · Reset makes exploration safe.',
+     'Add a control only when its business question matters — controls are questions, not decoration.'),
+], note='The page provides the structure (HTML); JavaScript supplies the interactive behavior — you specify behavior in plain language and let the assistant write the code. Prepared output: Supplier_Quality_Dashboard.html (open it offline; footer self-check must say PASSED). Needs a code-capable tool — if yours only chats, hand this spec to IT.')
+
+prompt_tab('3-Present-Findings', 'Task 3 of 5 · Present the findings — a five-slide mock management deck (uses Task 1\'s verified analysis)', [
+    ('THE PROMPT', 'Create an editable five-slide management presentation using only the verified supplier analysis. The audience must decide what follow-up is warranted. Cover: the business question and scope · the supplier comparison · one useful time or site view · a proposed follow-up · limitations with next steps. Give each slide one main message, readable evidence, accurate units and reporting period, and brief speaker notes. Preserve uncertainty and missing-data limits. Do not invent causes or unsupported benefits. Check every number against the analysis and inspect the exported slides for clipping and readability.',
+     'Requirement types: purpose & audience · scope & slide count · story structure · message hierarchy · data fidelity · chart semantics · speaker notes · editability & delivery.'),
+    ('THE SEPARATION RULE', 'Findings are what the workbook supports; recommendations are labeled proposals. No invented causes, benefits, or commitments anywhere.',
+     'The trust move that survives every audience question.'),
+    ('THE CHECKS', 'Count five slides and map each to the coverage list. Reconcile every displayed number to the analysis. Read only the titles — do they tell the story alone? Open the exported file: clipping, readability at projection size, notes present on every slide.',
+     'Acceptance evidence, artifact-shaped: coverage, fidelity, narrative, delivery.'),
+], note='Prepared output: Supplier_Quality_Mock_Presentation.pptx — the sample this prompt produced; audit it against THE CHECKS before reusing the prompt. Keep the mock business deck visually distinct from the course deck.')
+
+prompt_tab('4-Summarize-Email', 'Task 4 of 5 · Summarize the email conversation (uses Packaging_Change_Thread.txt)', [
+    ('THE PROMPT', 'Review the selected conversation about [topic] using only the messages and attachments you can access. Create a brief of the current situation, followed by tables of decisions and actions. For each decision: status, conditions, supporting message. For each action: task, explicitly stated owner, due date, status, supporting message. Distinguish current dates from superseded dates. List unanswered questions, conflicts, missing information, and referenced attachments you cannot access. Preserve approval conditions. Write "Not stated" for missing details. Separate source facts from your interpretation. End with the next clarification needed. If requested, draft a reply for review; do not send it.',
+     'Requirement types: source scope · current state · decisions & conditions · actions & ownership · date meaning · evidence traceability · attachments · authority boundary.'),
+    ('FOLLOW-UP · REPLY', 'Draft my reply for review: answer what the thread can answer, confirm decisions WITH their conditions, and propose one next step per unresolved item. Leave [brackets] where I must decide. Do not send anything.',
+     'The optional follow-up. A draft is the boundary — sending stays human.'),
+    ('THE TRAPS', 'A good summary catches all of these: the change date moved Sep 25 → Oct 2, conditional on quality sign-off · the trial date is Sep 25 (superseding Sep 18) · the 18,000 cap still applies and freight is NOT approved · Luis\'s revised plan is due Sep 16 · freight responsibility is unresolved · the drawing is referenced but not accessible.',
+     'Compare with the deck\'s answer key (slides 88–89) or tab KEY-Email.'),
+], note='Source: Packaging_Change_Thread.txt (paste it into any approved assistant). Native path, verified Sep 2026 (notes/research/r28): Outlook\'s "Summary by Copilot" on an open thread, with numbered citations — availability depends on your organization\'s Copilot license, and the pasted-text version always works. Never practice on real confidential threads.')
+
+prompt_tab('5-Explain-Clearly', 'Task 5 of 5 · Explain a topic clearly — plain language with fidelity (uses exercise-data/plain-language/)', [
+    ('THE PROMPT', 'Using [source], explain [topic] so a reader at a fifth-grade reading level can understand it. State the main idea first. Use familiar words, short sentences, meaningful headings, and one concrete example. Define necessary technical terms when first used. Use an analogy only if it is accurate, and explain where it stops being useful. Preserve important conditions and uncertainty. Do not invent facts or use a childish tone. End with three comprehension questions and a short answer key. Check the explanation against the source and identify any simplification that changes the meaning.',
+     'Requirement types: reader & purpose · vocabulary · structure · examples & analogies · fidelity & caveats · tone · comprehension check.'),
+    ('LIVE TOPIC', 'Source: exercise-data/plain-language/inventory_replenishment.md (its SOURCE section). Topic: reorder points and safety stock.',
+     'The demonstration topic — a sample output with its own fidelity note sits in the same file.'),
+    ('VARIATIONS', 'The water cycle · how an internet message travels — sources, sample outputs, and keys in exercise-data/plain-language/.',
+     'Different content, identical requirement types — that is the point.'),
+    ('THE CHECK', 'Main idea in the first sentence? Every surviving technical term defined at first use? Analogy limit stated? Conditions preserved (compare sentence by sentence)? Three questions answerable from the text alone? Clear adult tone?',
+     'Readability scores are supporting evidence; a human comprehension check is the real test.'),
+], note='Respectful language for adult readers throughout — plain is not childish. Simplifications that change meaning are defects, and finding them is part of the exercise.')
+
+# -- instructor keys (clearly separated)
+def key_tab(name, title, rows):
+    t = wb.create_sheet(name)
+    t.append([title]); t['A1'].font = Font(bold=True, size=12, color='AF3230')
+    t.append(['INSTRUCTOR MATERIAL — do not distribute before the exercise.'])
+    t['A2'].font = Font(bold=True, color='AF3230')
+    t.append([])
+    for r in rows:
+        t.append(list(r))
+        t.cell(row=t.max_row, column=1).font = Font(bold=True, color='0A5B5A')
+    t.column_dimensions['A'].width = 26
+    t.column_dimensions['B'].width = 100
+    for row in t.iter_rows():
+        for c in row:
+            c.alignment = Alignment(vertical='top', wrap_text=True)
+    return t
+
+_sup_line = lambda s: (f'{SUP_AGG[s]["u"]:,} units · {SUP_AGG[s]["ret"]} returns · return rate '
+                       f'{SUP_AGG[s]["ret"]/SUP_AGG[s]["u"]*100:.3f}% · {SUP_AGG[s]["def"]:,} defect occurrences · '
+                       f'units-weighted cost ${SUP_AGG[s]["cost_w"]/SUP_AGG[s]["u"]:.4f} · '
+                       f'unweighted mean monthly on-time {sum(SUP_AGG[s]["ot"])/len(SUP_AGG[s]["ot"]):.2f}% (NOT an overall delivery rate)')
+key_tab('KEY-Analysis', 'Instructor key · Task 1 — supplier analysis (all values computed from the Data tab at build time)', [
+    ('TOTALS', f'{TOT_U:,} units shipped · {TOT_R} returns (overall {TOT_R/TOT_U*100:.3f}%) · {TOT_D:,} defect occurrences. 144 detail rows; the TOTAL row reconciles exactly.'),
+    ('Alpha Components', _sup_line('Alpha Components')),
+    ('Bravo Plastics', _sup_line('Bravo Plastics')),
+    ('Cardinal Metals', _sup_line('Cardinal Metals')),
+    ('STEP 2 · TREND', 'Bravo Plastics monthly return rate is elevated and volatile — peak ≈0.737% (2026-04), quiet months ≈0.14% (2026-06/07), most recent ≈0.465% (2026-08). Accept "volatile, no steady improvement"; reject any causal claim.'),
+    ('STEP 4 · DENOMINATORS', 'Correct answer: an overall on-time delivery rate CANNOT be computed — On_Time_Percent has no delivery counts to weight by. Needed: deliveries (or shipments) per month as the denominator. An averaged percentage must be labeled "unweighted mean of monthly percentages".'),
+    ('COMMON WRONG TURNS', 'Averaging monthly return-rate percentages (wrong denominator) · adding defects + returns as "defective units" (double counting different measures) · treating the "n/a" as zero · including the TOTAL row (double counting) · claiming Bravo\'s packaging CAUSES returns (not in the data).'),
+    ('MISSING VALUE', 'Exactly one Inspection_Hours cell is "n/a". Missing ≠ zero; it does not affect return-rate math, and any analysis that excludes it must say so.'),
+])
+key_tab('KEY-Email', 'Instructor key · Task 4 — packaging-change thread', [
+    ('EXPECTED BRIEF', 'Change planned for Oct 2 (supersedes Sep 25), pending Ben\'s quality sign-off, which waits on the drawing. Trial targeted Sep 25 (supersedes Sep 18); Luis\'s revised plan due Sep 16; material arrives Sep 23. Finance approval only within the 18,000 cap; freight responsibility unresolved.'),
+    ('DECISIONS', 'Oct 2 change: proposed/planned, NOT finally approved (conditional on sign-off) · budget: approved ≤18,000 + quality condition, freight extras explicitly not approved · trial Sep 25: current plan.'),
+    ('ACTIONS', 'Luis — revised trial plan — Sep 16 — committed · Ben — quality sign-off — "Not stated" — open, depends on drawing access · freight decision — owner "Not stated" — open · drawing to Ben — claimed sent, attachment not accessible.'),
+    ('THE FOUR TRAPS', '1) Two different date changes (change date vs trial date — do not conflate Oct 2 and Sep 25). 2) Conditional approval (18,000 + sign-off; bare "approved" is wrong). 3) Freight question never answered. 4) Drawing referenced but not supplied — its content must not be summarized.'),
+    ('FULL VERSION', 'deliverables/exercise-data/instructor-keys/Packaging_Change_Expected_Brief.md and deck slides 88–89.'),
+])
+
+# -- INDEX tab, placed first
+ix = wb.create_sheet('INDEX', 0)
+IX = [
+    ['FROM PROMPTS TO AGENTS — PACKAGE INDEX (60-minute facilitated course)'],
+    [''],
+    ['OPEN IN THIS ORDER', ''],
+    ['1', 'From_Prompts_to_Agents_Facilitated_60_Minute.pptx — the course (70 live slides + reference appendix; speaker notes carry MODE/TIME/purpose).'],
+    ['2', 'This workbook — tabs 1-Analyze-Data … 5-Explain-Clearly are the five course tasks, in order; Data = raw records, Data_Clean = the checked detail set the tasks use.'],
+    ['3', 'Prepared outputs — Supplier_Quality_Dashboard.html (task 2) and Supplier_Quality_Mock_Presentation.pptx (task 3): every live demonstration has a fallback.'],
+    ['4', 'Sources — Supplier_Data_Clean.csv · Packaging_Change_Thread.txt · plain-language/ (task 5 topics) · Quote_*.pdf (optional extension).'],
+    ['5', 'Reference — Elements_of_Prompting_Field_Guide.pdf · Prompt_Anatomy_Cheat_Sheet.pdf · Prompt_Element_Taxonomy_Reference.pdf · Prompt_Template_Creator.html (the builder) · Requirements_by_Artifact.md.'],
+    [''],
+    ['INSTRUCTOR ONLY', 'Tabs KEY-Analysis and KEY-Email · exercise-data/instructor-keys/ · the facilitation plan. Keep these out of participant hand-outs.'],
+    [''],
+    ['THE FIVE TASKS', 'Analyze spreadsheet data → build an interactive dashboard → prepare a presentation → summarize an email conversation → explain a topic clearly. One fictional supplier case connects tasks 1–3; the builder (Prompt_Template_Creator.html) offers the same five task families.'],
+    [''],
+    ['LEGACY / OPTIONAL', 'Tabs README, EX1-TwoModes … EX7-MoE, G2-DataAnalysis, EX-Quotes, EX-Email, EX-Dashboard, EX-Report, BONUS-Ladder and PLAYBOOK belong to the long-format course and remain usable as optional extensions.'],
+    [''],
+    ['DATA NOTE', 'All data and names are fictional, generated for training (seeded — stable across rebuilds). The Data tab TOTAL row and one "n/a" Inspection_Hours cell are deliberate teaching quirks.'],
+]
+for row in IX:
+    ix.append(row)
+ix['A1'].font = Font(bold=True, size=13, color='0E7C7B')
+for rn in (3, 10, 12, 14, 16):
+    ix.cell(row=rn, column=1).font = Font(bold=True)
+    ix.cell(row=rn, column=2).font = Font(bold=True)
+ix.column_dimensions['A'].width = 20
+ix.column_dimensions['B'].width = 118
+for row in ix.iter_rows():
+    for c in row:
+        c.alignment = Alignment(vertical='top', wrap_text=True)
+
+# -- sheet order: INDEX · Data · Data_Clean · tasks 1-5 · keys · legacy
+ORDER = ['INDEX', 'Data', 'Data_Clean', '1-Analyze-Data', '2-Build-Dashboard', '3-Present-Findings',
+         '4-Summarize-Email', '5-Explain-Clearly', 'KEY-Analysis', 'KEY-Email', 'README']
+rest = [s.title for s in wb._sheets if s.title not in ORDER]
+wb._sheets = [wb[t] for t in ORDER + rest]
+
 xlsx_path = os.path.join(OUT, 'Course_Workbook.xlsx')
 wb.save(xlsx_path)
-print('wrote', xlsx_path, f'({n_data_rows} data rows + README + 13 exercise tabs + PLAYBOOK)')
+print('wrote', xlsx_path, f'({n_data_rows} data rows · {len(wb.sheetnames)} tabs: INDEX + Data/Data_Clean + 5 tasks + 2 instructor keys + legacy)')
 
 # NOTE (v1.13, owner request): the standalone Playbook_One_Pager.pdf was retired — the
 # playbook now lives merged in the Field Guide (part 5, the full works/myth/expired

@@ -162,6 +162,40 @@
   #mbar button{border:none; background:var(--teal); color:#fff; border-radius:8px; padding:8px 16px; font-weight:700; font-size:12.5px; cursor:pointer;}
   @media (max-width:1100px){ #mbar{display:flex;} }
   footer{padding:10px 22px 26px; font-size:11px; color:var(--mute);}
+  /* ---- R17 task-first view ---- */
+  body[data-view="task"] .steps, body[data-view="task"] .layout, body[data-view="task"] #modeBtns, body[data-view="task"] #galleryBtn{display:none;}
+  body[data-view="legacy"] #taskView{display:none;}
+  #taskView{padding:14px 22px 8px; max-width:1500px;}
+  .tsteps{font-size:12px; color:var(--mute); margin:0 0 12px;}
+  .taskcards{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;}
+  .taskcard{flex:1 1 200px; min-width:185px; text-align:left; border:1.5px solid var(--line); background:var(--panel); border-radius:10px; padding:10px 12px; cursor:pointer; font:inherit; color:inherit;}
+  .taskcard b{display:block; font-size:13.5px; margin-bottom:3px;}
+  .taskcard span{font-size:11.5px; color:var(--mute); line-height:1.35; display:block;}
+  .taskcard.on{border-color:var(--teal); background:rgba(14,124,123,.10);}
+  .tlayout{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:16px; align-items:start;}
+  @media (max-width:1000px){ .tlayout{grid-template-columns:1fr;} }
+  .tpanel{border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:var(--panel);}
+  .tpanel label{display:block; font-size:11px; font-weight:700; letter-spacing:.4px; color:var(--teal); margin:10px 0 4px;}
+  .tpanel textarea{width:100%; box-sizing:border-box; border:1px solid var(--line); border-radius:8px; padding:8px 10px; font:12.5px/1.45 Consolas,Menlo,monospace; background:var(--bg); color:inherit; resize:vertical;}
+  .treq{border:1px solid var(--line); border-radius:8px; padding:7px 9px; margin:6px 0; background:var(--bg);}
+  .treq .rh{display:flex; gap:8px; align-items:baseline;}
+  .treq .rh input{accent-color:var(--teal);}
+  .treq .rh b{font-size:12.5px;}
+  .treq input.rtext{width:100%; box-sizing:border-box; border:1px dashed var(--line); border-radius:6px; padding:5px 8px; margin-top:5px; font:12px/1.4 Consolas,Menlo,monospace; background:transparent; color:inherit;}
+  .treq .rcheck{font-size:11px; color:var(--mute); margin-top:4px;}
+  .tstatus{border-radius:8px; padding:7px 10px; font-size:12px; font-weight:700; margin-bottom:8px;}
+  .tstatus.draft{background:rgba(196,122,31,.14); color:#B96A1B; border:1px solid #C47A1F;}
+  .tstatus.ready{background:rgba(59,133,96,.14); color:#2F7A54; border:1px solid #3B8560;}
+  #tGuard{display:none; border:1px solid #C47A1F; background:rgba(196,122,31,.12); color:#8a5514; border-radius:8px; padding:7px 10px; font-size:12px; margin:8px 0; align-items:center; gap:8px; flex-wrap:wrap;}
+  #tGuard button{border:1px solid #C47A1F; background:transparent; color:#8a5514; border-radius:6px; padding:3px 10px; font-size:11.5px; font-weight:700; cursor:pointer;}
+  #tOut{min-height:320px;}
+  .tbtns{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;}
+  .tbtns button{border:1px solid var(--line); background:var(--panel); color:inherit; border-radius:8px; padding:8px 14px; font-weight:700; font-size:12.5px; cursor:pointer;}
+  .tbtns button.copy{background:var(--teal); border-color:var(--teal); color:#fff;}
+  .tadv{font-size:12px; color:var(--mute); margin-top:10px;}
+  .tadv button, #backTasks{border:none; background:none; color:var(--teal); font-weight:700; cursor:pointer; font-size:12px; text-decoration:underline;}
+  #editGuard{display:none; border:1px solid #C47A1F; background:rgba(196,122,31,.12); border-radius:8px; padding:7px 10px; font-size:11.5px; color:#F0C27A; margin-bottom:8px; align-items:center; gap:8px; flex-wrap:wrap;}
+  #editGuard button{border:1px solid #F0C27A; background:transparent; color:#F0C27A; border-radius:6px; padding:3px 10px; font-size:11px; font-weight:700; cursor:pointer;}
 </style>
 </head>
 <body>
@@ -176,6 +210,36 @@
     <button id="helpBtn">How it works</button>
   </div>
 </header>
+
+<!-- ==== R17: task-first view (primary). The full taxonomy stays available as Advanced. ==== -->
+<div id="taskView">
+  <div class="tsteps"><b>1</b> Pick the task · <b>2</b> tick the requirements that resolve ambiguity — a simple task needs only a few · <b>3</b> edit any wording, add your own · <b>4</b> copy into your assistant.</div>
+  <div class="taskcards" id="tCards"></div>
+  <div class="tlayout" id="tWork" hidden>
+    <div class="tpanel">
+      <label for="tTask">THE TASK — purpose and audience (required)</label>
+      <textarea id="tTask" rows="2"></textarea>
+      <label>REQUIREMENTS MENU — tick what resolves ambiguity; edit the wording to your case</label>
+      <div id="tReqs"></div>
+      <label for="tFree">ANYTHING ELSE — free-form requirements and facts that constrain the work</label>
+      <textarea id="tFree" rows="2" placeholder="e.g. British spelling · the reader has 60 seconds · numbers in thousands"></textarea>
+      <div class="tadv">Prefer the full element taxonomy and the 18 legacy templates? <button id="advBtn">Open the advanced builder →</button></div>
+    </div>
+    <div class="tpanel">
+      <div class="tstatus draft" id="tStatus"></div>
+      <div id="tGuard"><span>You edited the prompt by hand, so selection changes no longer overwrite it.</span><button id="tRebuild">Rebuild from selections</button><button id="tKeep">Keep my text</button></div>
+      <textarea id="tOut" spellcheck="false" aria-label="Assembled prompt"></textarea>
+      <div class="tbtns">
+        <button class="copy" id="tCopy">Copy prompt</button>
+        <button id="tCourse">Insert the course prompt</button>
+        <button id="tDl">Download</button>
+        <button id="tReset">Reset this task</button>
+      </div>
+      <div class="note" style="font-size:11px; color:var(--mute); margin-top:6px;">A course exercise works by copying its prompt straight into your assistant — this builder is the convenience that follows the training. Nothing you type leaves this file.</div>
+    </div>
+  </div>
+</div>
+
 <div class="steps">
   <span class="st"><b>1</b> Start from a <button id="stepTpl">template</button> (or blank)</span>
   <span class="st"><b>2</b> Adjust the pieces — click options, add your own text</span>
@@ -197,6 +261,7 @@
     <div class="restored" id="restored" hidden><span>Restored your last session.</span><button id="freshBtn">Start fresh</button></div>
     <div class="stats" id="stats"></div>
     <div class="phbar" id="phbar" hidden></div>
+    <div id="editGuard"><span>You edited the prompt by hand — selection changes no longer overwrite it.</span><button id="egRebuild">Rebuild from selections</button><button id="egKeep">Keep my text</button></div>
     <div class="empty" id="emptyState" hidden>
       <b>Nothing here yet — three ways to start:</b><br>
       ① Pick a ready template (fastest) · ② tick pieces on the left and choose options · ③ type your own text into any box.
@@ -512,34 +577,56 @@ function placeholders(txt){
   const m=txt.match(/{{[^}]*}}/g)||[];
   return m;
 }
+let LGen='', LEdited=false;   /* R17: manual edits to the output survive selection changes */
+function taskFilled(){
+  const eid = S.mode==='agentic' ? 'a_mission' : 'task';
+  if(!S.enabled[eid]) return false;
+  const pfx = eid + '.';
+  const selHas = Object.keys(S.sel).some(k=>k.startsWith(pfx) && S.sel[k] && S.sel[k].length);
+  const cusHas = Object.keys(S.custom).some(k=>k.startsWith(pfx) && S.custom[k] && S.custom[k].trim());
+  return selHas || cusHas;
+}
 function renderOut(){
   const txt=assemble();
   const ta=document.getElementById('output');
-  ta.value=txt;
-  const toks=Math.round(txt.length/4), words=(txt.trim().match(/\S+/g)||[]).length;
-  const phs=placeholders(txt);
+  const guard=document.getElementById('editGuard');
+  if(LEdited && ta.value!==txt){
+    guard.style.display='flex';
+  } else {
+    ta.value=txt; LGen=txt; LEdited=false; guard.style.display='none';
+  }
+  const shown=ta.value;
+  const toks=Math.round(shown.length/4), words=(shown.trim().match(/\S+/g)||[]).length;
+  const phs=placeholders(shown);
   const stats=document.getElementById('stats');
   const empty=document.getElementById('emptyState');
   const phbar=document.getElementById('phbar');
-  if(!txt){
+  if(!shown){
     stats.textContent=''; empty.hidden=false; phbar.hidden=true; ta.style.display='none';
   } else {
     empty.hidden=true; ta.style.display='';
-    stats.textContent='≈ '+toks+' tokens · '+words+' words';
+    stats.textContent='≈ '+toks+' tokens · '+words+' words'+(LEdited?' · manually edited':'');
     if(phs.length){
       phbar.hidden=false; phbar.classList.remove('done');
       phbar.innerHTML='<span><b>'+phs.length+'</b> placeholder'+(phs.length>1?'s':'')+' to fill with your specifics</span>';
       const b=el('button','','Find next');
       b.onclick=jumpToPlaceholder;
       phbar.appendChild(b);
+    } else if(!taskFilled() && !LEdited){
+      phbar.hidden=false; phbar.classList.remove('done');
+      phbar.innerHTML='<span>⚠ No task stated yet — a prompt without its task is not ready. Tick the Task piece and give it content.</span>';
     } else {
       phbar.hidden=false; phbar.classList.add('done');
       phbar.innerHTML='<span>✓ No placeholders left — ready to copy.</span>';
     }
   }
-  document.getElementById('mstats').textContent = txt? ('≈ '+toks+' tokens · '+(phs.length? phs.length+' {{ }} to fill':'ready')) : 'Nothing assembled yet';
+  const readyWord = (!phs.length && (taskFilled()||LEdited)) ? 'ready' : 'not ready yet';
+  document.getElementById('mstats').textContent = shown? ('≈ '+toks+' tokens · '+(phs.length? phs.length+' {{ }} to fill':readyWord)) : 'Nothing assembled yet';
   try{ localStorage.setItem('ptc-state-v2', JSON.stringify(S)); }catch(e){}
 }
+document.getElementById('output').addEventListener('input', function(){ LEdited = (this.value !== LGen); });
+document.getElementById('egRebuild').onclick=function(){ LEdited=false; renderOut(); };
+document.getElementById('egKeep').onclick=function(){ document.getElementById('editGuard').style.display='none'; };
 let phCursor=0;
 function jumpToPlaceholder(){
   const ta=document.getElementById('output');
@@ -669,8 +756,115 @@ setMode(S.mode||TAX.modes[0].id, hadSave);
 if(hadSave && (Object.keys(S.sel).length||Object.keys(S.custom).length)){
   document.getElementById('restored').hidden=false;
 } else if(!hadSave){
-  openGallery();
+  /* R17: the task-first view is the landing screen; the gallery no longer auto-opens. */
 }
+
+/* ================= R17: task-first view ================= */
+const TASKS = [{"id":"analyze","name":"Analyze spreadsheet data","blurb":"One question, defined metrics, checked numbers. The supplier case is the worked example.","taskHint":"Help [reader] decide [decision] using [file / sheet], period [range], detail rows only.","prompt":"Use Course_Workbook.xlsx, Data tab, detail rows only — exclude the TOTAL row (144 rows; one Inspection_Hours cell is \"n/a\": treat it as missing, not zero, and disclose it). One row = one month × site × supplier; period 2025-09 to 2026-08 inclusive. Question: which supplier has the highest RETURN RATE, defined as total Units_Returned ÷ total Units_Shipped per supplier over the full period — computed from sums, never by averaging monthly percentages. Keep Defects_Found separate from returns; do not add them together. Rank the three suppliers showing numerator and denominator, reconcile total shipped and returned against the TOTAL row, and state one limitation of the comparison. Then stop.","reqs":[{"type":"Row grain","example":"State that each detail row is a month–site–supplier observation.","check":"Confirm grouping keys before aggregation."},{"type":"Reporting period","example":"Use an explicit inclusive month range from Month.","check":"Check the first and last included months."},{"type":"Field types and units","example":"Treat Month as a month; identify counts, percentages, hours, and currency.","check":"Check parsing and unit labels."},{"type":"Duplicates and summary rows","example":"Exclude the existing TOTAL row and investigate duplicate keys.","check":"Compare row counts and a duplicate-key report."},{"type":"Metric definition","example":"Define return rate as sum of Units_Returned divided by sum of Units_Shipped.","check":"Recompute the numerator, denominator, and displayed rate."},{"type":"Weighting and denominators","example":"Do not infer overall on-time delivery from monthly percentages without delivery counts.","check":"Flag the missing denominator instead of claiming an overall rate."},{"type":"Missing and invalid values","example":"Retain the missing Inspection_Hours value; disclose any exclusion.","check":"Inspect missing-value counts and affected calculations."},{"type":"Segmentation and comparison","example":"Compare suppliers on the same selected period and sites.","check":"Confirm equal filter scope for each comparison."},{"type":"Rounding and number formats","example":"Display return rates to three decimal places while retaining calculation precision.","check":"Check displayed 0.349% against the underlying ratio."},{"type":"Formula traceability","example":"Use inspectable formulas or an included calculation log.","check":"Trace one output to its input rows."},{"type":"Structure and usability","example":"Provide a scorecard tab and a definitions tab with meaningful headers.","check":"Open both tabs and identify the measure without outside explanation."},{"type":"Verification and limitations","example":"Reconcile counts and sums; distinguish association from a causal explanation.","check":"Compare totals and challenge unsupported explanations."},{"type":"Delivery and portability","example":"Deliver an editable Excel workbook (.xlsx) with no broken external references.","check":"Open the file in the intended spreadsheet application."}]},{"id":"dashboard","name":"Build an interactive dashboard","blurb":"Specify behavior in plain language: filters, grouping, metric switches, drill-down, states.","taskHint":"A self-contained offline dashboard for [audience] to explore [data] and answer [question].","prompt":"From the attached data file, build ONE self-contained HTML file that works offline from disk. Views: summary tiles, one chart, and a sortable table of the records — data embedded, every number computed from the embedded records, metric definitions and the snapshot date in the footer. Controls, wired so one selection re-scopes every view: a month-range selector with inclusive endpoints · category multi-select filters · a comparison switch · a monthly/quarterly granularity switch · a metric selector · drill-down from a chart segment to its underlying records · ranking on the selected measure · Reset. Show active selections; an empty selection says \"no matching records\"; missing values stay blank; a zero denominator shows \"—\". Label the file a static data snapshot with its date.","reqs":[{"type":"Input contract","example":"Embed the checked supplier detail data and identify the snapshot date.","check":"Compare record count and source identifiers."},{"type":"Date range","example":"Use month selectors matching the source granularity; include both endpoints.","check":"Test a single month and the full range."},{"type":"Category controls","example":"Offer Supplier and Site multi-select controls; Type or Class requires a real source field.","check":"Compare each option with actual distinct values."},{"type":"Grouping and granularity","example":"Allow grouping by supplier, site, or month when relevant to the decision.","check":"Check counts and totals after changing the grouping."},{"type":"Metric selection","example":"Offer named measures with definitions and units.","check":"Verify that labels, scales, and calculations all change together."},{"type":"Filter combination","example":"Apply selected filters consistently, with an explicit AND/OR rule.","check":"Use a known intersection and compare included records."},{"type":"Coordinated views","example":"Charts, totals, and tables must represent the same selected records.","check":"Reconcile a chart total with its underlying table."},{"type":"Sorting and drill-down","example":"Sort numerically and allow inspection of supporting rows.","check":"Compare sorted order and inspect a selected group."},{"type":"Empty, missing, and zero states","example":"Distinguish no matching records from a valid zero; avoid division by zero.","check":"Exercise all three cases."},{"type":"Reset and visible state","example":"Show active selections and restore the default state with Reset.","check":"Change multiple controls, reset, and compare the initial view."},{"type":"Accessibility and layout","example":"Use labeled controls, visible focus, readable contrast, and a usable narrow layout.","check":"Navigate by keyboard and test a smaller window."},{"type":"Portability and dependencies","example":"Deliver one self-contained HyperText Markup Language (.html) file with embedded data and no required network calls.","check":"Open offline and inspect for missing assets."},{"type":"Performance","example":"Choose a measurable response target on the training laptop for this dataset.","check":"Time a representative filter change; do not invent a universal target."},{"type":"Export and reconciliation","example":"If export is needed, export the filtered data and retain the chosen scope.","check":"Compare exported rows with the displayed selection."}]},{"id":"present","name":"Prepare a presentation","blurb":"A decision audience, one message per slide, verified numbers, honest limitations.","taskHint":"A [n]-slide deck for [audience] to decide [decision], using only [verified source].","prompt":"Create an editable five-slide management presentation using only the verified analysis. The audience must decide what follow-up is warranted. Cover: the business question and scope · the comparison · one useful time or segment view · a proposed follow-up · limitations with next steps. Give each slide one main message, readable evidence, accurate units and reporting period, and brief speaker notes. Preserve uncertainty and missing-data limits. Do not invent causes or unsupported benefits. Check every number against the analysis and inspect the exported slides for clipping and readability.","reqs":[{"type":"Purpose and audience","example":"Name the decision, audience knowledge, and intended action.","check":"A reviewer can identify the decision and next step."},{"type":"Scope and slide count","example":"For the mock presentation, request five slides with a defined coverage list.","check":"Count slides and map each required topic."},{"type":"Story structure","example":"Move from business question to evidence, implications, and next action.","check":"Read only the titles and check the narrative."},{"type":"Message hierarchy","example":"Use one main message per slide; make evidence support that message.","check":"Ask a reader what to remember first."},{"type":"Data fidelity","example":"Use only checked findings and preserve period, units, and limitations.","check":"Reconcile displayed values with the workbook."},{"type":"Chart semantics","example":"Choose an appropriate chart, truthful axes, and clearly labeled categories.","check":"Check that the encoding supports the claimed comparison."},{"type":"Typography and readability","example":"Set readable projected text and avoid dense paragraphs on teaching slides.","check":"Inspect at presentation size and the expected viewing distance."},{"type":"Visual consistency","example":"Use a restrained palette, aligned margins, and consistent emphasis.","check":"Compare consecutive slides as a set."},{"type":"Speaker notes","example":"Provide purpose, talking points, transitions, and exercise instructions.","check":"Inspect notes on every relevant slide."},{"type":"Timing and mode","example":"Classify TEACH, DO, REFERENCE, and DIVIDER; protect 30 practice minutes.","check":"Sum notes and rehearse the live path."},{"type":"Reference completeness","example":"Make self-study slides understandable without the facilitator.","check":"Have a reader explain the example from the slide and notes."},{"type":"Accessibility","example":"Use readable contrast and descriptive alternatives for meaningful visuals.","check":"Review with the target presentation application’s accessibility tools."},{"type":"Delivery and editability","example":"Deliver an editable PowerPoint (.pptx), retaining notes and usable charts.","check":"Open, edit, and present the exported file."}]},{"id":"email","name":"Summarize an email conversation","blurb":"Current state, decisions with conditions, actions with owners — evidence-cited, nothing invented.","taskHint":"Brief the conversation about [topic] so [reader] knows the current state and what they owe.","prompt":"Review the selected conversation about [topic] using only the messages and attachments you can access. Create a brief of the current situation, followed by tables of decisions and actions. For each decision: status, conditions, supporting message. For each action: task, explicitly stated owner, due date, status, supporting message. Distinguish current dates from superseded dates. List unanswered questions, conflicts, missing information, and referenced attachments you cannot access. Preserve approval conditions. Write \"Not stated\" for missing details. Separate source facts from your interpretation. End with the next clarification needed. If requested, draft a reply for review; do not send it.","reqs":[{"type":"Source scope","example":"Name the selected thread, relevant date range, and available attachments.","check":"List the messages and attachments actually used."},{"type":"Current state","example":"Separate the latest position from earlier proposals.","check":"Trace each changed date to the message that superseded it."},{"type":"Decision extraction","example":"Distinguish approved, proposed, rejected, and unresolved items.","check":"Compare decision status with the source wording."},{"type":"Conditional approval","example":"Keep the cost cap and quality sign-off attached to the approval.","check":"Reject a summary that says simply approved."},{"type":"Actions and ownership","example":"Extract action, explicit owner, due date, and status.","check":"Check each field; use Not stated for missing details."},{"type":"Date meaning","example":"Distinguish a trial date, change date, and action due date.","check":"Check that September 25 and October 2 are not conflated."},{"type":"Open questions and conflicts","example":"List unresolved freight responsibility and contradictory statements.","check":"Locate the source question and any subsequent resolution."},{"type":"Evidence traceability","example":"Use message dates, senders, and supporting excerpts or available links.","check":"Open the referenced message and verify the claim."},{"type":"Attachments and missing input","example":"Flag a mentioned drawing that is not available to the assistant.","check":"Do not summarize content of an unavailable attachment."},{"type":"Format and tone","example":"Provide a neutral current-state brief and a separate action table.","check":"Check that opinions are labeled and actions are easy to scan."},{"type":"Access and tool availability","example":"Use only mail and attachments available in the actual Copilot and Outlook setup.","check":"Confirm retrieval scope; use the supplied-text exercise when needed."},{"type":"Authority and delivery","example":"Prepare any reply as a draft for human review; do not send automatically.","check":"Inspect the draft and action record."}]},{"id":"explain","name":"Explain a topic clearly","blurb":"Plain language that preserves meaning, conditions, and caveats — with a comprehension check.","taskHint":"Explain [topic] from [source] for a reader at [reading level] who needs to [do / understand].","prompt":"Using [source], explain [topic] so a reader at a fifth-grade reading level can understand it. State the main idea first. Use familiar words, short sentences, meaningful headings, and one concrete example. Define necessary technical terms when first used. Use an analogy only if it is accurate, and explain where it stops being useful. Preserve important conditions and uncertainty. Do not invent facts or use a childish tone. End with three comprehension questions and a short answer key. Check the explanation against the source and identify any simplification that changes the meaning.","reqs":[{"type":"Reader and purpose","example":"Write for a reader at a fifth-grade reading level who needs to understand or do a named task.","check":"A representative reader can state the purpose."},{"type":"Source and factual scope","example":"Use the supplied source and identify unsupported or missing information.","check":"Trace factual claims to the source."},{"type":"Concept coverage","example":"List the ideas the reader must understand before drafting.","check":"Compare the document with the coverage list."},{"type":"Vocabulary","example":"Prefer familiar words and define necessary technical terms at first use.","check":"Review unfamiliar terms and their definitions."},{"type":"Sentence and paragraph structure","example":"Use short direct sentences and one main idea per paragraph.","check":"Read aloud and inspect complex sentences."},{"type":"Organization","example":"Use meaningful headings and ordered steps when order matters.","check":"Ask a reader to locate the first action and a key explanation."},{"type":"Examples and analogies","example":"Include a concrete everyday example and state the limit of any analogy.","check":"Check that the analogy does not change the underlying idea."},{"type":"Tone and respect","example":"Use a clear adult tone without condescension or childish phrasing.","check":"Review wording with the intended audience."},{"type":"Accuracy and caveats","example":"Preserve important conditions, uncertainty, exceptions, and warnings from the source.","check":"Compare the simplified version with the original meaning."},{"type":"Readability evidence","example":"Use reading-level estimates as one signal, plus human comprehension checks.","check":"Do not claim exact grade-level comprehension from a score alone."},{"type":"Visual support and accessibility","example":"Use a labeled diagram or example only when it improves understanding.","check":"Ask what the visual helps the reader explain."},{"type":"Comprehension check","example":"Provide three questions and a short answer key grounded in the document.","check":"Confirm the answers can be found or inferred from the text."},{"type":"Delivery and reuse","example":"Specify an editable document, useful headings, and reusable topic placeholders.","check":"Open the output and adapt one topic without losing the structure."}]}];
+(function(){
+  const $$ = id => document.getElementById(id);
+  const T = { id:null, on:{}, text:{}, free:'', desc:'', gen:'', edited:false };
+  document.body.dataset.view = 'task';
+
+  /* view switcher */
+  $$('advBtn') && ($$('advBtn').onclick = () => { document.body.dataset.view='legacy'; ensureBack(); });
+  function ensureBack(){
+    if($$('backTasks')) return;
+    const b = document.createElement('button');
+    b.id='backTasks'; b.textContent='← Back to the five tasks';
+    b.onclick = () => { document.body.dataset.view='task'; };
+    document.querySelector('header .hbtns').prepend(b);
+  }
+
+  /* task cards */
+  const cards = $$('tCards');
+  TASKS.forEach(t => {
+    const b = document.createElement('button');
+    b.className='taskcard'; b.type='button';
+    b.innerHTML = '<b>'+esc(t.name)+'</b><span>'+esc(t.blurb)+'</span>';
+    b.onclick = () => pick(t.id, b);
+    cards.appendChild(b);
+  });
+  function pick(id, btn){
+    document.querySelectorAll('.taskcard').forEach(c=>c.classList.remove('on'));
+    btn.classList.add('on');
+    T.id=id; T.on={}; T.text={}; T.free=''; T.desc=''; T.gen=''; T.edited=false;
+    const t = TASKS.find(x=>x.id===id);
+    $$('tTask').value=''; $$('tTask').placeholder = t.taskHint;
+    $$('tFree').value='';
+    $$('tWork').hidden=false;
+    renderReqs(); refresh();
+    $$('tTask').focus();
+  }
+  function renderReqs(){
+    const t = TASKS.find(x=>x.id===T.id); const host = $$('tReqs'); host.innerHTML='';
+    t.reqs.forEach((r,i)=>{
+      const d = document.createElement('div'); d.className='treq';
+      const key='r'+i;
+      d.innerHTML = '<div class="rh"><input type="checkbox" id="tq'+i+'"><b>'+esc(r.type)+'</b></div>'
+        + '<input class="rtext" id="tt'+i+'" value="'+esc(r.example)+'" aria-label="Instruction wording">'
+        + '<div class="rcheck">How to check it: '+esc(r.check)+'</div>';
+      host.appendChild(d);
+      const cb=$$('tq'+i), tx=$$('tt'+i);
+      tx.style.display='none';
+      cb.onchange=()=>{ T.on[key]=cb.checked; tx.style.display=cb.checked?'':'none'; refresh(); };
+      tx.oninput =()=>{ T.text[key]=tx.value; refresh(); };
+    });
+  }
+  function assembleTask(){
+    const t = TASKS.find(x=>x.id===T.id); if(!t) return '';
+    const desc = $$('tTask').value.trim();
+    const lines=[], checks=[];
+    t.reqs.forEach((r,i)=>{ const key='r'+i;
+      if(T.on[key]){ const w=(T.text[key]!==undefined?T.text[key]:r.example).trim(); if(w) lines.push('- '+w); checks.push('- '+r.check); }});
+    const free = $$('tFree').value.trim();
+    let out = desc || '';
+    if(lines.length) out += (out?'\n\n':'') + 'Requirements:\n' + lines.join('\n');
+    if(free) out += (out?'\n\n':'') + 'Also:\n' + free;
+    if(checks.length) out += (out?'\n\n':'') + 'How I will check the result:\n' + checks.join('\n');
+    return out;
+  }
+  function refresh(){
+    const out=$$('tOut');
+    const txt=assembleTask();
+    if(T.edited && out.value!==txt){ $$('tGuard').style.display='flex'; }
+    else { out.value=txt; T.gen=txt; T.edited=false; $$('tGuard').style.display='none'; }
+    status();
+  }
+  function status(){
+    const st=$$('tStatus');
+    const desc=$$('tTask').value.trim();
+    const hasBody=$$('tOut').value.trim().length>0;
+    const n=Object.values(T.on).filter(Boolean).length;
+    if(!desc){ st.className='tstatus draft'; st.textContent='Draft — describe the task first (who is it for, what decision or outcome).'; }
+    else if(!hasBody){ st.className='tstatus draft'; st.textContent='Draft — nothing assembled yet.'; }
+    else { st.className='tstatus ready'; st.textContent='Ready to copy · '+n+' requirement'+(n===1?'':'s')+' + '+n+' acceptance check'+(n===1?'':'s')+(T.edited?' · manually edited':''); }
+    $$('tCopy').disabled = !desc || !hasBody;
+  }
+  $$('tTask').addEventListener('input', refresh);
+  $$('tFree').addEventListener('input', refresh);
+  $$('tOut').addEventListener('input', ()=>{ T.edited = ($$('tOut').value !== T.gen); status(); });
+  $$('tRebuild').onclick=()=>{ T.edited=false; refresh(); };
+  $$('tKeep').onclick=()=>{ $$('tGuard').style.display='none'; };
+  $$('tCourse').onclick=()=>{
+    const t=TASKS.find(x=>x.id===T.id); if(!t) return;
+    $$('tOut').value=t.prompt; T.edited=true;
+    if(!$$('tTask').value.trim()) $$('tTask').value=t.taskHint;
+    toast('Course prompt inserted — replace the [brackets] with your specifics.');
+    status();
+  };
+  $$('tCopy').onclick=()=>{ navigator.clipboard.writeText($$('tOut').value).then(()=>toast('Prompt copied.')); };
+  $$('tDl').onclick=()=>{
+    const blob=new Blob([$$('tOut').value],{type:'text/plain'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='prompt-'+(T.id||'task')+'.txt'; a.click(); URL.revokeObjectURL(a.href);
+  };
+  $$('tReset').onclick=()=>{
+    T.on={}; T.text={}; T.edited=false; T.gen='';
+    $$('tTask').value=''; $$('tFree').value=''; $$('tOut').value='';
+    renderReqs(); refresh(); toast('Task reset.');
+  };
+})();
 </script>
 </body>
 </html>
