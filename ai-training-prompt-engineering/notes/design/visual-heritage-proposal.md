@@ -78,6 +78,28 @@ with recorded attribution (asset register). Adding them to the full pass
 requires an explicit recorded decision superseding that rule for the listed
 assets, plus per-slide fit specs from Beebop as with the pilot treatments.
 
+## Owner-directed workstreams added 2026-09-17 (in-session instruction)
+
+**C — Graphs where they help.** Oscar wants data graphs in the deck, with
+Beebop recommending where a chart genuinely aids comprehension. Constraints:
+native editable construction (like the slide-87 bars), driven only by
+recorded, verifiable numbers — canon dataset values, or externally sourced
+figures re-verified and dated at build time. No fabricated or decorative
+charts; that rule stands.
+
+**D — Generated illustrations via Oscar (Nano Banana).** Oscar has activated
+the illustration pipeline recorded in
+`notes/visual-polish/gemini-image-requests.md`: Beebop submits complete
+requests — stable asset code, exact slide, instructional purpose, measured
+box/aspect/pixels, palette/background (compatible with the approved #F7F8F6
+surfaces and the existing 22-asset flat-illustration style), composition,
+required and forbidden elements, filename, a copy-ready generation prompt,
+and acceptance criteria. Rocksteady relays each batch to Oscar in session;
+Oscar generates with Nano Banana (Gemini image generation) and returns
+candidates; candidates are inspected against acceptance criteria before any
+slide placement, and uploading a candidate does not approve its slide
+treatment.
+
 ## Proposed sequencing
 
 Bundle with the pilot verdict: (1) Oscar verifies the pilot; (2) completion
