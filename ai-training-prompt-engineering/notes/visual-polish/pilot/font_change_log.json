@@ -1,0 +1,20 @@
+[
+ {
+  "slide": 37,
+  "sid": 294,
+  "shape": "prompt quote (row-0-body)",
+  "text": "\u201cUsing the returned Supplier_Data_Analyzed.xlsx workbook ...",
+  "orig_pt": 17,
+  "new_pt": 18,
+  "reason": "legibility of the anchor prompt (approved <20 pt exception)"
+ },
+ {
+  "slide": 37,
+  "sid": 294,
+  "shape": "teaching-line body",
+  "text": "You do not need to write the code. You need to describe t...",
+  "orig_pt": 17,
+  "new_pt": 18,
+  "reason": "legibility of the spoken teaching line (approved <20 pt exception)"
+ }
+]
