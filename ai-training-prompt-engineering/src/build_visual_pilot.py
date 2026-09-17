@@ -246,9 +246,6 @@ def build_s23(slide):
     assert p1.startswith("For a manager") and "TOTAL row" in p2 and "ranked table" in p3
     delete_shape(mp)
 
-    # one white specification panel behind all three groups
-    add_panel(slide, "pilot-spec-panel", 2.60, 2.02, 10.07, 3.60, fill=PANEL, line=RULE, weight=1.0)
-
     groups = [
         # (y, text, phrases-to-underlay, label paragraphs)
         (2.12, p1, ["For a manager choosing supplier follow-up", "supplied workbook"],
@@ -259,9 +256,15 @@ def build_s23(slide):
                     "State missing information and reconcile totals"],
          "format + tone + check"),
     ]
+    heights = [0.12 + wrap_lines(t, 24, 9.72) * 0.42 for _, t, _, _ in groups]
+    # one white specification panel behind all three groups, sized to the
+    # measured content so the last bracket stays inside it
+    panel_bottom = groups[-1][0] + heights[-1] + 0.14
+    add_panel(slide, "pilot-spec-panel", 2.60, 2.02, 10.07, panel_bottom - 2.02,
+              fill=PANEL, line=RULE, weight=1.0)
+
     for i, (y, text, phrases, label) in enumerate(groups):
-        lines = wrap_lines(text, 24, 9.72)
-        gh = 0.12 + lines * 0.42
+        gh = heights[i]
         add_box(slide, f"pilot-group-{i}", 2.75, y, 9.92, gh,
                 [segmented(text, phrases, 24)])
         # bracket opening toward the text
