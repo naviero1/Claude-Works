@@ -1,22 +1,36 @@
 # Approval record
 
-Status at checkpoint 1: assessment and repository uploads authorized; presentation implementation not authorized under the new brief.
+Current status, 2026-09-17: Oscar has authorized the six-slide pilot with Rocksteady's recommendations incorporated. Implement under [the final handoff](rocksteady-handoff.md). The next owner approval is review of the completed pilot before expansion.
 
-Oscar's supplied `Pasted text.txt` is the current instruction. It supersedes conflicting earlier font enlargement, text movement, layout expansion, and two-sample approvals. The summaries remain the content baseline. No rollback is proposed or authorized.
+## Owner authorization
 
-## Confirmed upload authorization
+After Beebop reviewed Rocksteady's replies 12 and 13 and recommended the revised pilot, Oscar wrote:
 
-On 2026-09-17, after Beebop identified the automatic approval rejection and requested confirmation to upload this completed review package to the private course branch, Oscar replied: **“upload”**. This explicitly authorizes the 27 review documents, preservation records, and unchanged baseline previews under `ai-training-prompt-engineering/notes/visual-polish/` and `ai-training-prompt-engineering/deliverables/visual-polish/review-evidence/` on branch `claude/training-course-polish-oxohwj` of `naviero1/Claude-Works`, plus the existing coordination handoff link. It does not approve presentation changes, the pilot, new illustrations, sequence changes, or content/notes exceptions.
+> I would like you to agree with him and give him the final instructions again. Accept his recommendations, unless you have hard objections, if so, discuss that with me, otherwise, compile and upload
 
-| ID | Proposed decision | Status |
+Beebop has no hard objection. This accepts the recommendations for the pilot and authorizes publication of the consolidated instructions. It supersedes the earlier blanket font-size freeze only through the scoped exception below. It does not authorize full-deck expansion or unrelated companion content repairs.
+
+| ID | Decision | Current status and scope |
 |---|---|---|
-| BASE | Accept the confirmed 103-slide owner/repository baseline and preservation inventory | Submitted for confirmation |
-| PILOT | Authorize only the six-slide pilot: original 23, 28, 34, 37, 53, 87; current positions unchanged | Awaiting Oscar |
-| VISUAL | Accept the selective native-visual approach and formatting classifications as a plan; full expansion still requires pilot approval | Awaiting Oscar |
-| LABEL | Approve the specifically listed new/duplicated editable visual labels in image-needs.md, including 'Schematic' on 37 | Awaiting Oscar |
-| SEQUENCE | Keep physical order; approve only the listed live-navigation and transition repairs in sequence-review.md | Awaiting Oscar |
-| NOTES | Approve selected note/index/archive repairs from the separate decision queue | Awaiting Oscar, item by item |
-| CONTENT | Approve selected visible-content or companion corrections from the separate decision queue | Awaiting Oscar, item by item |
-| FULL | Expand approved pilot treatment across remaining selected slides and regenerate approved companion outputs | Not yet eligible; requires pilot review |
+| BASE | Use the 103-slide summarized deck, closing at 70 | Approved pilot baseline; blob e83fd87a8b3e8c868942bdeda668ce085a44c8e4, material commit 5afda8e2162a2924d578708b4516dcba2dccd2b9 |
+| PILOT | Original/current slides 23, 28, 34, 37, 53, 87 | Approved in a versioned 103-slide copy with existing order and native identities |
+| VISUAL | Specified native annotations, cycle, wireframe, authority diagram, and proportional bars | Approved for the pilot only |
+| LABEL | Labels specified for these pilot visuals, including “Schematic” on 37 | Approved for the pilot; no added factual claims or results |
+| BACKGROUND | Soft off-white background and restrained light panels | Approved on six pilot slides; exemplar color #F7F8F6 with existing mode accents |
+| FONT | Increase existing text whose baseline size is below 20 points, with wording unchanged | Approved within the six pilot slides without per-run reapproval. Preserve families and emphasis. Log original/resulting sizes. Permission to increase where helpful, not a global minimum or normalization mandate. |
+| S34-ALT | Formatting-only treatment and an authentic participant-workbook crop alternative | Approved. Retain both complete prompts and show the alternative separately in review evidence. Keep 103 slides in each version. |
+| WORKSPACE | Pilot and review evidence under notes/visual-polish/ | Approved. Relocate the two baseline evidence files without changing their bytes and update current links. |
+| TIME-PLAN | Flexible approximately 60-minute core with data arc and email protected; quotes and research as named live extensions | Accepted in the pilot facilitation plan. Report the current 72:50 full allocation. Active notes and individual durations remain unchanged in this visual pilot. |
+| SEQUENCE | Existing physical order | Preserve. Separate transition proposals remain queued. |
+| NOTES / CONTENT | Note, index, archive, and companion corrections from the assessment | Remain separately scoped work outside the visual pilot |
+| FULL | Expand remaining slides, replace main deliverable, regenerate companions | Awaiting completed pilot review and approval |
 
-Record each actual approval with date, exact owner wording, approved IDs/slides/labels, permitted exceptions, and excluded work. Do not mark the entire plan approved from a partial response. Silence and asset uploads are not approval. No implementation decision has been inferred from this assessment upload.
+## Earlier publication authorization
+
+Oscar's earlier “upload” authorized the 27 review files and unchanged baseline previews published at 137101e95937df09c0030027646badc4cf6a4eb7. That was publication-only approval at the time. The authorization above is the later implementation decision; it is not inferred from that upload or silence.
+
+## Boundaries
+
+Keep wording, meaning, values, units, caveats, complete prompts, font families, existing emphasis, notes, native slide identities, modes, count, and order. FONT is the sole typography exception. New labels are limited to the specified pilot labels and a workbook filename caption if needed.
+
+Rocksteady must restate the accepted scope once in his acknowledgment, then implement. No second approval of these same decisions is needed. Report any issue requiring wider scope. Return the actual pilot and rendered evidence, then stop for Oscar's review.

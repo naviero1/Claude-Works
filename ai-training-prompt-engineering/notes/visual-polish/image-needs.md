@@ -1,6 +1,6 @@
 # Prioritized image-needs plan
 
-Status: proposed concepts and measured native-construction specifications only. No new visual has been produced or approved. Current = original slide number throughout. Coordinates are inches on the actual 13⅓ × 7½-inch canvas. Diagram boxes are proposed fit envelopes, not a claim that revised text has already been rendered.
+Status updated 2026-09-17: pilot treatments and specified labels for slides 23, 28, 34, 37, 53, 87 are approved for production under [the final handoff](rocksteady-handoff.md). No revised visual has been produced yet. Its soft background, below-20-point increase permission, and slide-34 crop alternative supersede conflicting statements below. Other candidates remain proposals. Coordinates are initial fit envelopes on the 13⅓ × 7½-inch canvas and may be adjusted within the approved preservation rules.
 
 **26 candidates (25.2% of the deck): 24 new native treatments and two refinements to existing diagrams.** The approximate 30-slide guidance is not a quota. Slides 38 and 61 remain simpler because a new graphic would amplify an already supplied answer or repeat the task. Slides 90 and 98 already communicate their sequence; preserve their content and handle any spacing only. Successful visuals on 4, 5, 18, 72–75, 80–81, 86 and tables 21, 22, 47, 91–96 stay.
 

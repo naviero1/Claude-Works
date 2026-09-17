@@ -1,6 +1,6 @@
 # Checkpoint 1 — keep the summaries and refine the presentation
 
-**Decision requested: approve a six-slide visual pilot and choose any separate notes/content repairs. No presentation changes have been made.**
+**Updated 2026-09-17: Oscar has approved the six-slide pilot with Rocksteady's recommendations. The [approval record](approvals.md) and [final handoff](rocksteady-handoff.md) now govern. This assessment preserves the original findings; deferred background, blanket font freeze, and slide-34 no-image recommendations below are superseded for the pilot. Separate notes/content repairs remain queued.**
 
 The current summarized course is the right baseline. Keep its 103-slide physical order and comprehensive reference layer. The application sequence is coherent in both the deck and the current 83-page extended PDF (Portable Document Format). The priority is clearer visual relationships, prompt grouping, correct mode colors, and a few precise handoff and reference corrections. A rollback or broad rewrite would undo useful progress.
 
@@ -72,7 +72,7 @@ The proposed six-slide pilot is:
 | 53 | Instructions and enforceable controls | Distinguish the written brief from an environment boundary and approval checkpoint |
 | 87 | Supplier analysis: answer key | Proportional bars in the existing return-rate table; preserve every cell and caveat |
 
-See [complete classification](slide-classification.md), [measured visual specifications](image-needs.md), [asset register](asset-register.md), and the [unmodified pilot originals](../../deliverables/visual-polish/review-evidence/pilot-originals.html). The preview contains original slides only; it is not a redesigned pilot.
+See [complete classification](slide-classification.md), [measured visual specifications](image-needs.md), [asset register](asset-register.md), and the [unmodified pilot originals](review-evidence/pilot-originals.html). The preview contains original slides only; it is not a redesigned pilot.
 
 Preserve current font families, sizes, emphasis and wording. Use layout, spacing, and appropriate native diagrams to improve legibility. The pilot must demonstrate fit under those constraints; if it cannot, report the exact problem and ask for a scoped exception. No automatic shrink-to-fit or wholesale template replacement.
 
@@ -88,8 +88,8 @@ Current active notes total **72:50**, including **45:00 of DO practice**. The pr
 
 The decision queue separates transition repairs, stale indices/cues, historical note quarantine, timing description, unsupported quote wording, reference terminology, and companion lineage/distribution. Keep all unapproved wording and notes unchanged. In particular, the old email key on 82 must not be mixed with the current thread, and slide 51's active note should not imply that a written brief alone makes unsafe action difficult.
 
-## Approval requested
+## Original checkpoint decision queue
 
-Approve **PILOT** to authorize the six slides and their explicitly specified labels only. Choose **SEQ-01–06**, **NOTE-01–03**, **TIME-01**, and any separate **CONTENT-01–02 / companion C01–C05** individually if desired. [Approvals](approvals.md) will record the exact scope. Full implementation remains blocked until the pilot is reviewed and approved.
+The pilot and its scoped exceptions are authorized in [approvals.md](approvals.md). **SEQ-01–06**, **NOTE-01–03**, active-note **TIME-01**, and **CONTENT-01–02 / companion C01–C05** remain separately scoped follow-up work. Accepted timing guidance is in [pilot-facilitation-plan.md](pilot-facilitation-plan.md). Full expansion requires review of the completed pilot.
 
-Until then, the deck and extended PDF remain unchanged. This assessment and its supporting records are the checkpoint-1 deliverable.
+The main deck and extended PDF remain the baseline while Rocksteady builds the authorized pilot in a versioned copy.

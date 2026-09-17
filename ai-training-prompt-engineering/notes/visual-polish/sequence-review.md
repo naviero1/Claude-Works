@@ -1,6 +1,6 @@
 # Sequence and active-notes assessment — checkpoint 1
 
-Status: assessment only. No slide changes, mode changes, physical moves, or notes changes are implemented or approved by this report.
+Status: assessment only. No physical moves, mode changes, or slide-note edits are approved by this report. On 2026-09-17 Oscar accepted the practical timing recommendation captured in [pilot-facilitation-plan.md](pilot-facilitation-plan.md): protect the connected data arc and email, retain quotes/research as live extensions, and report actual allocations alongside the flexible target. This operating guidance supersedes any bare timing relabel below; the active-note repair remains queued outside the visual pilot.
 
 ## Conclusion
 

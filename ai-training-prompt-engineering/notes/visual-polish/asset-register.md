@@ -1,6 +1,6 @@
 # Asset register
 
-Checkpoint 1: no new candidate or approved asset files exist. This register distinguishes delivered specifications from future production. A planned path is not a verified asset upload.
+Updated 2026-09-17: treatments for slides 23, 28, 34, 37, 53, 87 are approved for production under [the final handoff](rocksteady-handoff.md). No revised assets exist yet; other rows remain proposals. Produce pilot copies under `notes/visual-polish/pilot/` and previews under `notes/visual-polish/review-evidence/`. Baseline `pilot-originals.html` and `baseline-render-provenance.json` moved from `deliverables/visual-polish/review-evidence/` to that evidence folder with their original blob hashes retained. Update asset rows with actual produced paths, versions, crop provenance, and verification after building; planned paths are not completed uploads.
 
 The actual existing assets remain embedded in the immutable baseline PowerPoint at `ai-training-prompt-engineering/deliverables/From_Prompts_to_Agents_Facilitated_60_Minute.pptx`, Git blob `e83fd87a8b3e8c868942bdeda668ce085a44c8e4`. Full embedded media, native shape and chart provenance are recorded in [baseline-inventory.json](baseline-inventory.json) and its per-slide parts. Existing owner-supplied images keep their original attribution; this review does not grant new rights.
 
