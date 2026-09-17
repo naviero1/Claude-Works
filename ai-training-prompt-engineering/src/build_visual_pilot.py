@@ -42,6 +42,11 @@ FONT_LOG_MD = os.path.join(ROOT, "notes", "visual-polish", "font-change-log.md")
 CROP_MD = os.path.join(ROOT, "notes", "visual-polish", "crop-provenance.md")
 
 TARGETS = {23: 278, 28: 283, 34: 291, 37: 294, 53: 308, 87: 342}
+# Owner verdict 2026-09-17 (in session): 23, 28, 34 (version A), 53 approved;
+# 37 and 87 declined - those slides stay at the untouched baseline. The
+# version-B alternative was superseded by the owner choosing A.
+APPROVED = {23, 28, 34, 53}
+BUILD_B = False
 
 # Palette (established deck colors only)
 BG = "F7F8F6"        # approved soft off-white (BACKGROUND decision)
@@ -629,53 +634,64 @@ def main():
         assert int(sldIds[pos - 1].get("id")) == sid, f"slide {pos} identity mismatch"
 
     capture_s34(prs.slides[33])
-    build_s23(prs.slides[22])
-    build_s28(prs.slides[27])
-    build_s34_a(prs.slides[33])
-    build_s37(prs.slides[36])
-    build_s53(prs.slides[52])
-    build_s87(prs.slides[86])
+    if 23 in APPROVED:
+        build_s23(prs.slides[22])
+    if 28 in APPROVED:
+        build_s28(prs.slides[27])
+    if 34 in APPROVED:
+        build_s34_a(prs.slides[33])
+    if 37 in APPROVED:
+        build_s37(prs.slides[36])
+    if 53 in APPROVED:
+        build_s53(prs.slides[52])
+    if 87 in APPROVED:
+        build_s87(prs.slides[86])
     prs.save(OUT_A)
     print("saved", OUT_A)
 
-    # version B: reopen A, change only slide 34
-    (cw_px, ch_px), n_rows = make_crop()
-    aspect = cw_px / ch_px
-    prsb = Presentation(OUT_A)
-    build_s34_b(prsb.slides[33], CROP_PNG, aspect, 1.0)
-    prsb.save(OUT_B)
-    print("saved", OUT_B)
+    if BUILD_B:
+        # version B: reopen A, change only slide 34
+        (cw_px, ch_px), n_rows = make_crop()
+        aspect = cw_px / ch_px
+        prsb = Presentation(OUT_A)
+        build_s34_b(prsb.slides[33], CROP_PNG, aspect, 1.0)
+        prsb.save(OUT_B)
+        print("saved", OUT_B)
 
     # font-change log
     with open(FONT_LOG_MD, "w") as f:
         f.write("# Pilot font-change log\n\n")
         f.write("Approved standing exception: text below 20 pt may be enlarged with wording,\n"
                 "families, and emphasis unchanged (approvals.md, FONT). No reductions; nothing\n"
-                "at or above 20 pt was changed. Only the increases in the table below were\n"
-                "applied. Slide 34's increase was evaluated but NOT applied in either version:\n"
-                "version A's 18 pt trial did not pass the conservative substitute-font fit\n"
-                "check, and version B's workbook crop consumes the vertical space the increase\n"
-                "needs, so both versions keep the 17 pt baseline; see crop-provenance.md and\n"
-                "the change report.\n\n")
+                "at or above 20 pt was changed. Owner verdict 2026-09-17: treatments approved\n"
+                "on slides 23, 28, 34 (version A), 53; declined on 37 and 87 (those slides\n"
+                "stay at the untouched baseline). In the approved pilot NO font size changed:\n"
+                "slide 34's 18 pt trial did not pass the conservative substitute-font fit\n"
+                "check (17 pt baseline retained), and the two slide-37 increases fell away\n"
+                "with that slide's declined treatment. The table below lists any applied\n"
+                "increases (empty means none).\n\n")
         f.write("| Slide | Stable ID | Shape | Text | Original | Result | Reason |\n")
         f.write("|---|---|---|---|---|---|---|\n")
         for e in FONT_LOG:
             f.write(f"| {e['slide']} | sid-{e['sid']} | {e['shape']} | {e['text']} "
                     f"| {e['orig_pt']} pt | {e['new_pt']} pt | {e['reason']} |\n")
         f.write("\n## Increases evaluated but NOT applied (reported per handoff §4)\n\n"
-                "- Slide 37 (sid-294), requirements body (\"Date-range selector · …\"): "
-                "an 18 pt trial did not fit the left block beside the approved wireframe "
-                "without crowding the teaching line; baseline 17 pt retained.\n"
-                "- Slide 34, both versions, prompt labels and bodies: in version A the "
-                "18 pt trial did not pass the conservative substitute-font fit check; in "
-                "version B the workbook crop consumes the vertical space the increase "
-                "needs. Baseline 17 pt retained in both.\n\n"
-                "All other text on the six pilot slides keeps its baseline size, family, "
-                "and emphasis. New annotation/wireframe labels are new objects at their "
+                "- Slide 34 (version A), prompt labels and bodies: the 18 pt trial did not "
+                "pass the conservative substitute-font fit check; baseline 17 pt retained.\n"
+                "- Slide 37: the anchor-prompt and teaching-line increases belonged to the "
+                "wireframe treatment the owner declined; the slide is untouched baseline.\n\n"
+                "All other text on the approved pilot slides keeps its baseline size, "
+                "family, and emphasis. New annotation labels are new objects at their "
                 "specified sizes, not size changes to existing text.\n")
     print("wrote", FONT_LOG_MD)
 
-    # crop provenance
+    with open(os.path.join(PILOT_DIR, "font_change_log.json"), "w") as f:
+        json.dump(FONT_LOG, f, indent=1)
+
+    # crop provenance (only when the superseded version B is rebuilt;
+    # otherwise the committed provenance file stays as historical evidence)
+    if not BUILD_B:
+        return
     with open(CROP_MD, "w") as f:
         f.write("# Slide 34 version B crop provenance\n\n")
         f.write(f"- Source file: `references/exercise-data/Supplier_Data_Exercise.xlsx`\n")

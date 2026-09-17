@@ -2,6 +2,10 @@
 
 Date: 2026-09-17. Built under [approvals.md](approvals.md) and [rocksteady-handoff.md](rocksteady-handoff.md) (owner approval confirmed in session). Builder: `src/build_visual_pilot.py` (deterministic; verifier: `src/verify_visual_pilot.py`).
 
+## OWNER VERDICT (2026-09-17, in session — supersedes the six-slide state below)
+
+Oscar reviewed the six before/after comparisons and the A/B pair and ruled per slide: **approved — 23, 28, 34 (version A), 53; declined — 37 and 87** ("don't make changes" / "no change"). The pilot deck was rebuilt to the verdict state: slides 37 and 87 restored to the untouched baseline, only the four approved treatments present, re-verified in full (99 slides pixel-identical to baseline; four approved slides changed; zero font-size changes — the two slide-37 increases fell away with the declined treatment, so the font log is empty). Version B is superseded by the choice of A and retained only as comparison evidence. The declined wireframe (37) and bars (87) remain documented in this report and the composites as what was piloted and not kept.
+
 ## Source and outputs
 
 - Source verified before work: `deliverables/From_Prompts_to_Agents_Facilitated_60_Minute.pptx`, Git blob `e83fd87a8b3e8c868942bdeda668ce085a44c8e4`, SHA-256 `117f60b30c292527d1ac8444ab3efafdbb0ef8d0f3ff159b68149e5804bd24fa` — unchanged at branch head. The main deliverable is untouched by this pilot.
