@@ -651,9 +651,12 @@ def main():
         f.write("# Pilot font-change log\n\n")
         f.write("Approved standing exception: text below 20 pt may be enlarged with wording,\n"
                 "families, and emphasis unchanged (approvals.md, FONT). No reductions; nothing\n"
-                "at or above 20 pt was changed. Version B keeps slide 34 body at the 17 pt\n"
-                "baseline because the workbook crop consumes the vertical space the increase\n"
-                "needs; see crop-provenance.md and the change report.\n\n")
+                "at or above 20 pt was changed. Only the increases in the table below were\n"
+                "applied. Slide 34's increase was evaluated but NOT applied in either version:\n"
+                "version A's 18 pt trial did not pass the conservative substitute-font fit\n"
+                "check, and version B's workbook crop consumes the vertical space the increase\n"
+                "needs, so both versions keep the 17 pt baseline; see crop-provenance.md and\n"
+                "the change report.\n\n")
         f.write("| Slide | Stable ID | Shape | Text | Original | Result | Reason |\n")
         f.write("|---|---|---|---|---|---|---|\n")
         for e in FONT_LOG:
@@ -663,9 +666,10 @@ def main():
                 "- Slide 37 (sid-294), requirements body (\"Date-range selector · …\"): "
                 "an 18 pt trial did not fit the left block beside the approved wireframe "
                 "without crowding the teaching line; baseline 17 pt retained.\n"
-                "- Slide 34 version B, both prompts: baseline 17 pt retained because the "
-                "workbook crop consumes the vertical space the 18 pt increase needs; "
-                "version A carries the increase.\n\n"
+                "- Slide 34, both versions, prompt labels and bodies: in version A the "
+                "18 pt trial did not pass the conservative substitute-font fit check; in "
+                "version B the workbook crop consumes the vertical space the increase "
+                "needs. Baseline 17 pt retained in both.\n\n"
                 "All other text on the six pilot slides keeps its baseline size, family, "
                 "and emphasis. New annotation/wireframe labels are new objects at their "
                 "specified sizes, not size changes to existing text.\n")

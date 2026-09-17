@@ -2,9 +2,12 @@
 
 Approved standing exception: text below 20 pt may be enlarged with wording,
 families, and emphasis unchanged (approvals.md, FONT). No reductions; nothing
-at or above 20 pt was changed. Version B keeps slide 34 body at the 17 pt
-baseline because the workbook crop consumes the vertical space the increase
-needs; see crop-provenance.md and the change report.
+at or above 20 pt was changed. The only applied increases are the two
+slide-37 changes in the table below. Slide 34's increase was evaluated but
+NOT applied in either version: version A's 18 pt trial did not pass the
+conservative substitute-font fit check, and version B's workbook crop
+consumes the vertical space the increase needs, so both versions keep the
+17 pt baseline; see crop-provenance.md and the change report.
 
 | Slide | Stable ID | Shape | Text | Original | Result | Reason |
 |---|---|---|---|---|---|---|
@@ -14,6 +17,6 @@ needs; see crop-provenance.md and the change report.
 ## Increases evaluated but NOT applied (reported per handoff §4)
 
 - Slide 37 (sid-294), requirements body ("Date-range selector · …"): an 18 pt trial did not fit the left block beside the approved wireframe without crowding the teaching line; baseline 17 pt retained.
-- Slide 34 version B, both prompts: baseline 17 pt retained because the workbook crop consumes the vertical space the 18 pt increase needs; version A carries the increase.
+- Slide 34, both versions, prompt labels and bodies: in version A the 18 pt trial did not pass the conservative substitute-font fit check; in version B the workbook crop consumes the vertical space the increase needs. Baseline 17 pt retained in both.
 
 All other text on the six pilot slides keeps its baseline size, family, and emphasis. New annotation/wireframe labels are new objects at their specified sizes, not size changes to existing text.
