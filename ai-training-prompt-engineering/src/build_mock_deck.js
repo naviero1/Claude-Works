@@ -141,5 +141,5 @@ s.addText([
 footer(s, 5);
 s.addNotes('PURPOSE: earn trust by naming what the analysis cannot say.\nTALKING POINTS: every limitation is also an instruction for the next analysis. End on the single decision requested.\nTRANSITION: none — invite the decision.');
 
-const out = path.join(__dirname, '..', 'deliverables', 'exercise-data', 'Supplier_Quality_Mock_Presentation.pptx');
+const out = path.join(__dirname, '..', 'references', 'exercise-data', 'Supplier_Quality_Mock_Presentation.pptx');
 p.writeFile({ fileName: out }).then(() => console.log('mock deck written:', out));

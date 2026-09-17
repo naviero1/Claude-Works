@@ -14,5 +14,5 @@ require('./deck_pt3')(pres, H); // Part III+IV — prompt engineering + applied 
 require('./deck_pt4')(pres, H); // Part V+VI — agentic prompting + prompt management
 require('./deck_close')(pres, H); // wrap-up, exercises, glossary, sources, reading
 
-const out = path.join(__dirname, '..', 'deliverables', 'From_Prompts_to_Agents_Training.pptx');
+const out = path.join(__dirname, '..', 'references', 'From_Prompts_to_Agents_Training.pptx');
 pres.writeFile({ fileName: out }).then(() => console.log('deck written:', out));

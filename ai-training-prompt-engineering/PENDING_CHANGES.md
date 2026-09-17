@@ -1733,3 +1733,29 @@ holds may now build on these with r26's slide-safe wordings.
   nothing from the deck).
 - Still open, conservative defaults: run-of-show stays retired (revisit only if
   deputies teach) · 30-day success criterion stays out (owner decision B7).
+
+## ROUND 18 (2026-09-17) — the five-deliverable package · APPLIED
+
+Owner directives, verbatim intent: (1) "We don't need so many artifacts either.
+Just the presentation, the course workbook, the prompt creator …, the course PDF
+and Course cheat sheet. The course PDF should be the extended version of the
+course. Please save the rest as reference." (2) "Indicate Deliverables in one
+file, and the rest of references and aids on another file." (3) deliverables/
+holds ONLY the five; the rest under references/.
+
+- deliverables/ = the five: Facilitated_60_Minute.pptx · Course_Workbook.xlsx
+  (up from exercise-data/) · Prompt_Template_Creator.html ·
+  From_Prompts_to_Agents_Course.pdf (NEW — extended written edition;
+  content src/assets/course_content.json, renderer src/build_course_pdf.py) ·
+  From_Prompts_to_Agents_Cheat_Sheet.pdf (renamed; page unchanged).
+- references/ = facilitation plan · exercise-data/ (sources, prepared
+  fallbacks, instructor-keys) · field guide · taxonomy reference ·
+  configurator · long-format 69-slide deck · CHANGE_LOG_Round17.md.
+- Index split: DELIVERABLES.md + REFERENCES.md at root; PACKAGE_INDEX.md
+  retired. README rewritten around the five.
+- Deck: src/round18_path_pass.py — slides 36/44/100 notes/body updated to the
+  new paths (5 text-run edits, no timing/layout change). Facilitation plan
+  row 44 path updated. Workbook INDEX/tab pointers updated in
+  build_exercise_pack.py. All build-script output paths repointed.
+- Share copy: package mirrored to the owner-created public repo for external
+  agent review (naviero1/Agents_Link).

@@ -9,7 +9,7 @@ from openpyxl.utils import get_column_letter
 
 here = os.path.dirname(os.path.abspath(__file__))
 tax_dir = os.path.join(here, '..', 'prompt-library', 'taxonomy')
-out = os.path.join(here, '..', 'deliverables', 'Prompt_Template_Configurator.xlsx')
+out = os.path.join(here, '..', 'references', 'Prompt_Template_Configurator.xlsx')
 
 
 def load(name):

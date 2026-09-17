@@ -29,7 +29,7 @@ CW = W - 2 * M
 
 here = os.path.dirname(os.path.abspath(__file__))
 tax_dir = os.path.join(here, '..', 'prompt-library', 'taxonomy')
-out = os.path.join(here, '..', 'deliverables', 'Prompt_Element_Taxonomy_Reference.pdf')
+out = os.path.join(here, '..', 'references', 'Prompt_Element_Taxonomy_Reference.pdf')
 
 
 def load(name):

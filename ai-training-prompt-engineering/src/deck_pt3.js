@@ -738,7 +738,7 @@ module.exports = function buildPartThree(pres, H) {
     '\n' +
     'CONTENT —\n' +
     'v1.6: sequence rebuilt as the vertical ①②③ flow (owner: order was confusing); dataset folded into Course_Workbook.xlsx (Data + README tabs) so trainees carry ONE file.\n' +
-    'The workbook lives in deliverables/exercise-data/ and regenerates from src/build_exercise_pack.py (seeded — the numbers quoted on these slides stay true after a rebuild).\n' +
+    'The workbook lives in deliverables/ and regenerates from src/build_exercise_pack.py (seeded — the numbers quoted on these slides stay true after a rebuild).\n' +
     'Planted quirks: TOTAL row at the bottom; “n/a” text in Inspection_Hours around row 38. Both documented in the README tab.\n' +
     'All data fictional and generated — safe to upload anywhere policy allows.');
 

@@ -33,7 +33,7 @@ FOOTER_H = 0.32 * inch
 GUT = 0.22 * inch
 colw = (W - 2 * M - GUT) / 2
 
-out = os.path.join(os.path.dirname(__file__), '..', 'deliverables', 'Prompt_Anatomy_Cheat_Sheet.pdf')
+out = os.path.join(os.path.dirname(__file__), '..', 'deliverables', 'From_Prompts_to_Agents_Cheat_Sheet.pdf')
 
 S_head = ParagraphStyle('h', fontName='DV-B', fontSize=8.4, leading=10.8, textColor=TEAL_D, spaceAfter=2)
 S_body = ParagraphStyle('b', fontName='DV', fontSize=7.4, leading=9.9, textColor=SLATE, spaceAfter=1.5)

@@ -4,69 +4,63 @@ A focused training on **prompt engineering** across two modes: **generative AI**
 write) and **agentic AI** (prompts that work). Built August 2026 as the companion to
 "Working Smart with AI."
 
-> **Round 17 — the delivered course is now the 60-minute facilitated deck.**
-> Start at `deliverables/PACKAGE_INDEX.md`. The five-task connected sequence
-> (analyze → dashboard → present → email → explain) runs on one fictional
-> supplier case; `deliverables/CHANGE_LOG_Round17.md` records what changed.
-> The long-format 69-slide deck below remains as the reference layer.
+> **Start at `DELIVERABLES.md`** — the five artifacts of the course. Everything
+> else (instructor material, exercise sources, prepared fallbacks, deeper
+> reference, build sources) is indexed in `REFERENCES.md`.
 
-## What's in here
+## The five deliverables (`deliverables/`)
 
-| Path | What it is |
+| File | What it is |
 |---|---|
-| `deliverables/From_Prompts_to_Agents_Facilitated_60_Minute.pptx` | **The delivered course** (101 slides: 70 live = 60:00 with 32:00 protected application + 31 reference pages; MODE/TIME speaker notes throughout). |
-| `deliverables/From_Prompts_to_Agents_Facilitation_Plan.md` | Instructor run plan: timing, anchors, protected exercises, per-slide audit. |
-| `deliverables/PACKAGE_INDEX.md` · `CHANGE_LOG_Round17.md` | What to open in what order · the Round-17 change record. |
-| `Requirements_by_Artifact.md` | The shared requirements catalog (teaching taxonomy; feeds the builder, configurator, field guide, and deck reference pages — maintenance map inside). |
-| `deliverables/exercise-data/Supplier_Quality_Dashboard.html` · `Supplier_Quality_Mock_Presentation.pptx` · `Packaging_Change_Thread.txt` · `Supplier_Data_Clean.csv` · `plain-language/` · `instructor-keys/` | The five-task exercise sources, prepared outputs (fallbacks), and instructor keys — all verified against the workbook. |
-| `deliverables/From_Prompts_to_Agents_Training.pptx` | The training deck (69 slides: the hardware-story primer, two evidence-map reference slides, seven numbered course-log PROMPT exercises in TYPE-THIS/WHY step format, the PDCA-loop toolkit + the two-layers slide ("you write with the anatomy — you improve with the loop"), the chat/workflow/agent decision slide, the run-time context-failure grid, two end-to-end walkthroughs, two requirements/questions conclusion slides, and 19 owner-generated illustrations in house palette). Speaker notes on every slide use the spaced template: HOW TO PRESENT / BRIDGE / TRY IT (on prompt slides) / ACRONYMS / CONTENT, one item per line. Delivered as three blocks (Foundations · The craft · Delegation), each an 80-minute core expandable to ~120. |
-| `deliverables/Prompt_Anatomy_Cheat_Sheet.pdf` | One-page printable: generative anatomy + agentic mission brief side by side, incl. the compact Works · Myth · Expired evidence box. |
-| `prompt-library/` | 13 copy-ready templates — 8 generative (G1–G8), 5 agentic (A1–A5) — plus `ELEMENTS.md` (the element field guide) and the library's management conventions in its README. |
-| `prompt-library/taxonomy/` | The machine-readable element ontology (19 elements · 78 attributes · 286 options · 18 presets — counted including nested sub-attributes, as the tools count). v1.1: every attribute carries a research-backed `why` — what that dial does to the output, with its evidence (citations in `notes/research/`). Source of truth for the three tools below; introduced in the deck as the Part 3 "field map" handout slide. |
-| `deliverables/Prompt_Template_Creator.html` | Interactive template builder: toggle elements, pick options, watch the prompt assemble; loads any library template as a starting instance. Single file, works offline. |
-| `deliverables/Prompt_Element_Taxonomy_Reference.pdf` | The full ontology in print: every element, attribute, and option with guidance (25 pp). |
-| `deliverables/Prompt_Template_Configurator.xlsx` | Spreadsheet version: dropdown pickers per attribute, prompt assembles by formula. |
-| `deliverables/Elements_of_Prompting_Field_Guide.pdf` | Deep definitions of every element — mechanism, weak-vs-strong fills, failure modes — plus the evidence compendium: works / myth / expired with the why behind every line (the 2026 playbook, merged in), hallucination's four kinds with defenses, the run-time diagnosis grid, fast-vs-thinking + the measured speed-vs-capability chart (five vendor panels, r27) + the Sep-2026 model spectrum table, chat/workflow/agent, ten things, and the 20-term glossary (14 pp). No version/update language on the page — reads clean to a first-time audience. |
-| `notes/research-notes.md` | Synthesis of the research behind every slide; headline verified facts; UNVERIFIED list. |
-| `notes/research/` | Twenty-one research files with inline source URLs (r1–r10 + t1–t6 verified Aug 21, 2026; r11–r21 verified Sep 9, 2026: vendor trust/servers, 2026 tool landscape, assistant reputations + R1 chart data, hallucination incidents, per-element evidence, email summarization, explainer prompts, mode names, slide design, the Do/Don't/Expired playbook, requirements↔prompts + asking good questions). |
-| `deliverables/exercise-data/` | The practice pack (all fictional, regenerated by `src/build_exercise_pack.py`): **Course_Workbook.xlsx** — README + the 144-row supplier-delivery dataset (two planted quirks) + one named tab per course exercise (EX1-TwoModes … EX7-MoE, G2-DataAnalysis, EX-Quotes, EX-Email, EX-Dashboard — the dashboard build: shape → build → check → refine staged prompts + the 20-term dashboard vocabulary — EX-Report, and BONUS-Ladder; every prompt copy-paste ready) + the PLAYBOOK tab (full Do/Don't/Expired 8+8+8 with sources) — plus three deliberately non-comparable supplier quotation PDFs and a messy 10-message email thread (txt + PDF). (The playbook one-pager was retired in v1.13 — its content lives merged in the Field Guide and the cheat sheet.) |
-| `src/` | Build sources: `node deck_main.js` rebuilds the deck (pptxgenjs); `python3 build_cheatsheet.py` rebuilds the cheat sheet (reportlab); `assets/make_icons.js` regenerates icon PNGs. |
+| `From_Prompts_to_Agents_Facilitated_60_Minute.pptx` | **The presentation** — the 60-minute facilitated course (70 live slides + 31 reference pages; full speaker notes). |
+| `Course_Workbook.xlsx` | **The course workbook** — the fictional supplier dataset + the five task tabs `1-Analyze-Data … 5-Explain-Clearly` (open INDEX first). |
+| `Prompt_Template_Creator.html` | **The prompt creator** — task-first builder over the requirement menus; offline, single file; full taxonomy behind "Advanced". |
+| `From_Prompts_to_Agents_Course.pdf` | **The course PDF** — the extended written edition of the course, cover to cover, for self-study. |
+| `From_Prompts_to_Agents_Cheat_Sheet.pdf` | **The course cheat sheet** — one printable page: skeleton, 14-type menu, quality bar, before/after, ASK vs DELEGATE. |
+
+One fictional supplier case (analyze → dashboard → present → email → explain)
+connects all five. `references/` holds the facilitation plan, exercise sources
+and prepared fallbacks, instructor keys, the field guide and taxonomy PDFs, the
+configurator, and the long-format 69-slide deck — see `REFERENCES.md`.
 
 ## The training at a glance
 
-1. **The primer** — four eras of AI; tokens, context windows, RAG, the escalation ladder, the token economy (fast vs thinking models, the feature menu), hallucination (kinds + the hall of shame).
-2. **Models & tools** — the Sep-2026 landscape with an evidence-backed "known for" per assistant; the DeepSeek moment (MoE defined, R1-vs-o1 chart); servers, geography & trust.
-3. **Prompt engineering** — the universal anatomy drawn as the body of a prompt (with the Out formally defined); seven elements with two weak→strong pairs each; the taxonomy field-map handout; the toolkit as a PDCA loop with its Deming/Toyota provenance; the two-layers slide (write with the anatomy, improve with the loop); proven-vs-myth; the AI-mirrors-you slide; the Do/Don't/Expired 2026 playbook; the course-report rep (the course log reports itself).
-4. **The playbook** — two end-to-end walkthroughs (AI data analysis on the workbook's dataset + quotation comparison; email-thread summarization incl. Copilot mechanics with a stylized Outlook strip), the dashboard live demo, and the future-plays menu.
-5. **Agentic prompting** — chat vs workflow vs agent; the inheritance map; the mission brief (12 blocks); the ETL→Presentation worked example; the agent gallery (names you'll hear); gates, autonomy rules, guardrails; the run-time context-failure grid; standing memory (CLAUDE.md, reuse by diff).
-6. **Prompt management** — the promotion ladder; where prompts live per tool; conventions and governance.
+1. **Foundations** — how these systems produce answers; tokens, context, grounding; fast vs thinking; verification belongs in the task; failure patterns and the check they need.
+2. **Models & tools** — compare assistants on your task, not on rankings; the right workspace for the data.
+3. **Prompt engineering** — a prompt is a small work specification; good requirements make prompts testable; the elements as requirement types; the improvement loop.
+4. **Putting prompts to work** — the five worked tasks on one supplier case: spreadsheet analysis, HTML dashboard, presentation, email summary, plain-language explanation.
+5. **Agentic work** — ASK vs DELEGATE; the mission brief; instructions vs enforceable controls; diagnosing a failed run.
+6. **Reusable prompts** — the promotion ladder; where prompts live; a small review process; save one for Monday.
 
 ## Rebuilding
 
 ```bash
 cd src
-npm install            # pptxgenjs, react-icons, sharp (once)
-node assets/make_icons.js   # regenerate icons (once)
-node deck_main.js      # -> deliverables/From_Prompts_to_Agents_Training.pptx (long-format reference deck)
-python3 build_dashboard.py     # -> exercise-data/Supplier_Quality_Dashboard.html (embeds Data tab; self-check)
-node build_mock_deck.js        # -> exercise-data/Supplier_Quality_Mock_Presentation.pptx
-# The 60-minute course deck is maintained as a .pptx (baseline: notes/intake/round17/;
-# edit script: src/round17_deck_content_pass.py — not regenerated by deck_main.js).
-python3 build_speed_chart.py # -> src/assets/speed_accuracy_chart.png (embedded by the field guide; data r27)
-python3 build_cheatsheet.py # -> deliverables/Prompt_Anatomy_Cheat_Sheet.pdf
-python3 build_exercise_pack.py # -> deliverables/exercise-data/ (Course_Workbook.xlsx, quotations, email thread)
+npm install                     # pptxgenjs, react-icons, sharp (once)
+node assets/make_icons.js       # regenerate icons (once)
+python3 build_exercise_pack.py  # -> deliverables/Course_Workbook.xlsx + references/exercise-data/ (seeded)
+python3 build_dashboard.py      # -> references/exercise-data/Supplier_Quality_Dashboard.html (self-check)
+node build_mock_deck.js         # -> references/exercise-data/Supplier_Quality_Mock_Presentation.pptx
+python3 build_course_pdf.py     # -> deliverables/From_Prompts_to_Agents_Course.pdf (content: src/assets/course_content.json)
+python3 build_cheatsheet.py     # -> deliverables/From_Prompts_to_Agents_Cheat_Sheet.pdf
+python3 build_builder.py        # -> deliverables/Prompt_Template_Creator.html
+python3 build_configurator_xlsx.py # -> references/Prompt_Template_Configurator.xlsx
+python3 build_speed_chart.py    # -> src/assets/speed_accuracy_chart.png (embedded by the field guide)
+python3 build_elements_guide.py # -> references/Elements_of_Prompting_Field_Guide.pdf
+python3 build_taxonomy_pdf.py   # -> references/Prompt_Element_Taxonomy_Reference.pdf
+node deck_main.js               # -> references/From_Prompts_to_Agents_Training.pptx (long-format deck)
+# The 60-minute course deck is maintained as a .pptx (pristine baseline:
+# notes/intake/round17/; edit scripts: src/round17_deck_content_pass.py,
+# src/round18_path_pass.py — not regenerated by deck_main.js).
 ```
 
 ## Maintenance & ownership
 
-**Owner: Oscar Penny — all content and cadence.** The dated material (assistant landscape,
-agent gallery, task matrix, storage map — marked `[REFRESH QUARTERLY]` in speaker notes)
-gets a quarterly pass: re-verify names/features, edit sources, rebuild. Delivery: three blocks
-(Foundations 1–2 · The craft 3–4 · Delegation 5–6), each an 80-minute core expandable to
-~120; the per-slide presenting direction lives in each slide's speaker notes (HOW TO
-PRESENT / BRIDGE / TRY IT / ACRONYMS / CONTENT — the Run of Show PDF was retired in v1.3
-in favor of the notes). Project state and continuation instructions:
-`PROJECT_STATE.md`.
+**Owner: Oscar Penny — all content and cadence.** Dated material (model
+landscape, Copilot mechanics, the speed-vs-capability chart — marked
+`[REFRESH QUARTERLY]` where it appears) gets a quarterly pass: re-verify,
+edit sources, rebuild. Project state and continuation instructions:
+`PROJECT_STATE.md`; the change ledger: `PENDING_CHANGES.md`.
 
 ## House rules baked into the material
 

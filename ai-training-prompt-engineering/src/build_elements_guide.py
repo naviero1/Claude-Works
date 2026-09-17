@@ -28,7 +28,7 @@ DARK = colors.HexColor('#1C272E')
 W, H = letter
 M = 0.75 * inch
 CW = W - 2 * M
-out = os.path.join(os.path.dirname(__file__), '..', 'deliverables', 'Elements_of_Prompting_Field_Guide.pdf')
+out = os.path.join(os.path.dirname(__file__), '..', 'references', 'Elements_of_Prompting_Field_Guide.pdf')
 
 S = {
     'h1': ParagraphStyle('h1', fontName='DVSer-B', fontSize=17, leading=21, textColor=INK, spaceBefore=4, spaceAfter=6),

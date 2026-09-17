@@ -9,7 +9,7 @@ import os, json, datetime
 import openpyxl
 
 HERE = os.path.dirname(__file__)
-wb = openpyxl.load_workbook(os.path.join(HERE, '..', 'deliverables', 'exercise-data', 'Course_Workbook.xlsx'))
+wb = openpyxl.load_workbook(os.path.join(HERE, '..', 'deliverables', 'Course_Workbook.xlsx'))
 ws = wb['Data']
 rows = []
 for r in ws.iter_rows(min_row=2, values_only=True):
@@ -216,6 +216,6 @@ init();
 </script></body></html>
 """
 
-out = os.path.join(HERE, '..', 'deliverables', 'exercise-data', 'Supplier_Quality_Dashboard.html')
+out = os.path.join(HERE, '..', 'references', 'exercise-data', 'Supplier_Quality_Dashboard.html')
 open(out, 'w').write(HTML.replace('__DATA__', DATA).replace('__TODAY__', TODAY))
 print('dashboard written:', out, f'({os.path.getsize(out)//1024} KB, {len(rows)} rows embedded)')

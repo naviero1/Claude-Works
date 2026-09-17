@@ -1,13 +1,13 @@
 # Builds the v1.6 hands-on exercise pack (all data fictional, generated, generic):
-#   deliverables/exercise-data/Course_Workbook.xlsx           README + Data (raw, NO formulas - the AI
+#   deliverables/Course_Workbook.xlsx                         README + Data (raw, NO formulas - the AI
 #                                                             does the math) + one named tab per exercise
 #                                                             (EX1..EX7, G2-DataAnalysis, EX-Quotes,
 #                                                             EX-Email, EX-Dashboard, EX-Report,
 #                                                             BONUS-Ladder) + PLAYBOOK (8+8+8)
-#   deliverables/exercise-data/Quote_Alpha_Components.pdf     (three comparable supplier quotations,
-#   deliverables/exercise-data/Quote_Bravo_Plastics.pdf        deliberately non-comparable at first
-#   deliverables/exercise-data/Quote_Cardinal_Metals.pdf       glance: currency/per-1000/EXW traps)
-#   deliverables/exercise-data/Email_Thread_Packaging_Change.txt / .pdf  (messy 10-message thread)
+#   references/exercise-data/Quote_Alpha_Components.pdf       (three comparable supplier quotations,
+#   references/exercise-data/Quote_Bravo_Plastics.pdf          deliberately non-comparable at first
+#   references/exercise-data/Quote_Cardinal_Metals.pdf         glance: currency/per-1000/EXW traps)
+#   references/exercise-data/Email_Thread_Packaging_Change.txt / .pdf  (messy 10-message thread)
 # Deterministic (seeded) so the numbers on the walkthrough slides stay true after a rebuild.
 # Prompt texts in the tabs MUST match the deck (R10/R11) - edit deck_pt*.js and this file together.
 import os
@@ -21,7 +21,7 @@ from reportlab.lib.colors import HexColor
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 
-OUT = os.path.join(os.path.dirname(__file__), '..', 'deliverables', 'exercise-data')
+OUT = os.path.join(os.path.dirname(__file__), '..', 'references', 'exercise-data')
 os.makedirs(OUT, exist_ok=True)
 random.seed(42)
 
@@ -563,12 +563,12 @@ prompt_tab('4-Summarize-Email', 'Task 4 of 5 · Summarize the email conversation
      'Compare with the deck\'s answer key (slides 88–89) or tab KEY-Email.'),
 ], note='Source: Packaging_Change_Thread.txt (paste it into any approved assistant). Native path, verified Sep 2026 (notes/research/r28): Outlook\'s "Summary by Copilot" on an open thread, with numbered citations — availability depends on your organization\'s Copilot license, and the pasted-text version always works. Never practice on real confidential threads.')
 
-prompt_tab('5-Explain-Clearly', 'Task 5 of 5 · Explain a topic clearly — plain language with fidelity (uses exercise-data/plain-language/)', [
+prompt_tab('5-Explain-Clearly', 'Task 5 of 5 · Explain a topic clearly — plain language with fidelity (uses references/exercise-data/plain-language/)', [
     ('THE PROMPT', 'Using [source], explain [topic] so a reader at a fifth-grade reading level can understand it. State the main idea first. Use familiar words, short sentences, meaningful headings, and one concrete example. Define necessary technical terms when first used. Use an analogy only if it is accurate, and explain where it stops being useful. Preserve important conditions and uncertainty. Do not invent facts or use a childish tone. End with three comprehension questions and a short answer key. Check the explanation against the source and identify any simplification that changes the meaning.',
      'Requirement types: reader & purpose · vocabulary · structure · examples & analogies · fidelity & caveats · tone · comprehension check.'),
-    ('LIVE TOPIC', 'Source: exercise-data/plain-language/inventory_replenishment.md (its SOURCE section). Topic: reorder points and safety stock.',
+    ('LIVE TOPIC', 'Source: references/exercise-data/plain-language/inventory_replenishment.md (its SOURCE section). Topic: reorder points and safety stock.',
      'The demonstration topic — a sample output with its own fidelity note sits in the same file.'),
-    ('VARIATIONS', 'The water cycle · how an internet message travels — sources, sample outputs, and keys in exercise-data/plain-language/.',
+    ('VARIATIONS', 'The water cycle · how an internet message travels — sources, sample outputs, and keys in references/exercise-data/plain-language/.',
      'Different content, identical requirement types — that is the point.'),
     ('THE CHECK', 'Main idea in the first sentence? Every surviving technical term defined at first use? Analogy limit stated? Conditions preserved (compare sentence by sentence)? Three questions answerable from the text alone? Clear adult tone?',
      'Readability scores are supporting evidence; a human comprehension check is the real test.'),
@@ -610,7 +610,7 @@ key_tab('KEY-Email', 'Instructor key · Task 4 — packaging-change thread', [
     ('DECISIONS', 'Oct 2 change: proposed/planned, NOT finally approved (conditional on sign-off) · budget: approved ≤18,000 + quality condition, freight extras explicitly not approved · trial Sep 25: current plan.'),
     ('ACTIONS', 'Luis — revised trial plan — Sep 16 — committed · Ben — quality sign-off — "Not stated" — open, depends on drawing access · freight decision — owner "Not stated" — open · drawing to Ben — claimed sent, attachment not accessible.'),
     ('THE FOUR TRAPS', '1) Two different date changes (change date vs trial date — do not conflate Oct 2 and Sep 25). 2) Conditional approval (18,000 + sign-off; bare "approved" is wrong). 3) Freight question never answered. 4) Drawing referenced but not supplied — its content must not be summarized.'),
-    ('FULL VERSION', 'deliverables/exercise-data/instructor-keys/Packaging_Change_Expected_Brief.md and deck slides 88–89.'),
+    ('FULL VERSION', 'references/exercise-data/instructor-keys/Packaging_Change_Expected_Brief.md and deck slides 88–89.'),
 ])
 
 # -- INDEX tab, placed first
@@ -621,11 +621,11 @@ IX = [
     ['OPEN IN THIS ORDER', ''],
     ['1', 'From_Prompts_to_Agents_Facilitated_60_Minute.pptx — the course (70 live slides + reference appendix; speaker notes carry MODE/TIME/purpose).'],
     ['2', 'This workbook — tabs 1-Analyze-Data … 5-Explain-Clearly are the five course tasks, in order; Data = raw records, Data_Clean = the checked detail set the tasks use.'],
-    ['3', 'Prepared outputs — Supplier_Quality_Dashboard.html (task 2) and Supplier_Quality_Mock_Presentation.pptx (task 3): every live demonstration has a fallback.'],
-    ['4', 'Sources — Supplier_Data_Clean.csv · Packaging_Change_Thread.txt · plain-language/ (task 5 topics) · Quote_*.pdf (optional extension).'],
-    ['5', 'Reference — Elements_of_Prompting_Field_Guide.pdf · Prompt_Anatomy_Cheat_Sheet.pdf · Prompt_Element_Taxonomy_Reference.pdf · Prompt_Template_Creator.html (the builder) · Requirements_by_Artifact.md.'],
+    ['3', 'Prepared outputs (in references/exercise-data/) — Supplier_Quality_Dashboard.html (task 2) and Supplier_Quality_Mock_Presentation.pptx (task 3): every live demonstration has a fallback.'],
+    ['4', 'Sources (in references/exercise-data/) — Supplier_Data_Clean.csv · Packaging_Change_Thread.txt · plain-language/ (task 5 topics) · Quote_*.pdf (optional extension).'],
+    ['5', 'Companions (beside this workbook in deliverables/) — From_Prompts_to_Agents_Course.pdf (the extended course, cover to cover) · From_Prompts_to_Agents_Cheat_Sheet.pdf (one page) · Prompt_Template_Creator.html (the builder). Deeper reference in references/: Elements_of_Prompting_Field_Guide.pdf · Prompt_Element_Taxonomy_Reference.pdf · Requirements_by_Artifact.md.'],
     [''],
-    ['INSTRUCTOR ONLY', 'Tabs KEY-Analysis and KEY-Email · exercise-data/instructor-keys/ · the facilitation plan. Keep these out of participant hand-outs.'],
+    ['INSTRUCTOR ONLY', 'Tabs KEY-Analysis and KEY-Email · references/exercise-data/instructor-keys/ · the facilitation plan (references/). Keep these out of participant hand-outs.'],
     [''],
     ['THE FIVE TASKS', 'Analyze spreadsheet data → build an interactive dashboard → prepare a presentation → summarize an email conversation → explain a topic clearly. One fictional supplier case connects tasks 1–3; the builder (Prompt_Template_Creator.html) offers the same five task families.'],
     [''],
@@ -651,7 +651,7 @@ ORDER = ['INDEX', 'Data', 'Data_Clean', '1-Analyze-Data', '2-Build-Dashboard', '
 rest = [s.title for s in wb._sheets if s.title not in ORDER]
 wb._sheets = [wb[t] for t in ORDER + rest]
 
-xlsx_path = os.path.join(OUT, 'Course_Workbook.xlsx')
+xlsx_path = os.path.join(os.path.dirname(__file__), '..', 'deliverables', 'Course_Workbook.xlsx')
 wb.save(xlsx_path)
 print('wrote', xlsx_path, f'({n_data_rows} data rows · {len(wb.sheetnames)} tabs: INDEX + Data/Data_Clean + 5 tasks + 2 instructor keys + legacy)')
 
