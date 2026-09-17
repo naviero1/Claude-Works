@@ -250,6 +250,45 @@ toc.dotsMinLevel = 0
 story.append(toc)
 story.append(PageBreak())
 
+# ---- how this book follows the course ----------------------------------
+story.append(Paragraph('HOW THIS BOOK FOLLOWS THE COURSE', S['kicker']))
+story.append(Paragraph('The same course, in the same order', S['h1']))
+story.append(Paragraph(sanitize(
+    'This book is the facilitated course, compiled cover to cover. Chapters follow the deck\u2019s '
+    'parts, sections follow the slides in their live order, and the deck\u2019s reference appendix is '
+    'folded into each chapter at the matching section \u2014 so the book reads in the same sequence the '
+    'course is taught, with the depth the live hour has no room for.'), S['chintro']))
+map_rows = [
+    ('Part 1 \u00b7 Foundations', 'Slides 2\u201315 (+ detail pages 72\u201374)', 'Chapter 1'),
+    ('Part 2 \u00b7 Models and tools', 'Slides 16\u201319', 'Chapter 2'),
+    ('Part 3 \u00b7 Prompt engineering', 'Slides 20\u201332 (+ detail pages 75\u201381, 90\u201391, 102)', 'Chapter 3'),
+    ('Part 4 \u00b7 The application block', 'Slides 33\u201344, the nine-step sequence (+ pages 82, 87\u201389, 92\u2013101, 103)', 'Chapter 4'),
+    ('Part 5 \u00b7 Agentic work', 'Slides 45\u201356 (+ detail pages 83\u201386)', 'Chapter 5'),
+    ('Part 6 \u00b7 Reusable prompts + close', 'Slides 57\u201364 and 70', 'Chapter 6'),
+    ('Reference block', 'Slides 65\u201369', 'Chapter 7'),
+]
+mt = Table([[Paragraph(a, ParagraphStyle('mpa', parent=S['cellh'], textColor=TEAL_D)),
+             Paragraph(b, S['cell']), Paragraph(c, S['cell'])] for a, b, c in map_rows],
+           colWidths=[AVAIL * 0.30, AVAIL * 0.52, AVAIL * 0.18])
+mt.setStyle(TableStyle([
+    ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+    ('LINEABOVE', (0, 0), (-1, 0), 0.7, LINE),
+    ('LINEBELOW', (0, -1), (-1, -1), 0.7, LINE),
+    ('LINEBELOW', (0, 0), (-1, -2), 0.3, LINE),
+    ('TOPPADDING', (0, 0), (-1, -1), 5), ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
+]))
+story.append(mt)
+story.append(Spacer(1, 14))
+story.append(Paragraph('How to read this book', S['h2']))
+story.append(Paragraph(sanitize(
+    'Three conventions carry the working material. A shaded monospace box is a copy-paste prompt, '
+    'used verbatim in the course; its caption names the Course_Workbook tab that holds the same text, '
+    'so you can copy from either place. A \u201cSuccess check\u201d callout is the acceptance evidence for an '
+    'exercise \u2014 run the step, then hold your result against it. And every exercise names its input '
+    'file; the fictional dataset, thread, quotations, and reference pack all ship in the package, so '
+    'each step can be run and checked exactly as taught.'), S['cell']))
+story.append(PageBreak())
+
 # ---- chapters ----------------------------------------------------------
 for ci, ch in enumerate(chapters):
     if ci:
