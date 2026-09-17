@@ -1759,3 +1759,21 @@ holds ONLY the five; the rest under references/.
   build_exercise_pack.py. All build-script output paths repointed.
 - Share copy: package mirrored to the owner-created public repo for external
   agent review (naviero1/Agents_Link).
+
+## CLEANUP PASS (2026-09-17, Beebop iteration 03, owner-approved) · APPLIED
+
+Two bounded items, verification-first, no scope change:
+1. The 41.1% study citation normalized to "Yang et al., 2025; revised 2026"
+   (arXiv:2505.13360; submitted 2025, revised v3 2026 per r15) — 11 source
+   normalizations (deck sources, field guide, workbook PLAYBOOK line, course
+   book content, r20/r21) + 7 paragraphs in the 60-minute deck
+   (src/pass02_deck.py). Sweep of every generated artifact: 0 stale forms,
+   14 canonical occurrences.
+2. Dashboard reversed month selection: the active-scope label now displays
+   the normalized inclusive range the calculation uses, with a "(reversed
+   selection — normalized)" note; normal selections unchanged. Behavioral
+   evidence: 4/4 reversed-range checks + the 14-check suite re-run clean.
+Artifacts regenerated: 60-min deck, workbook, field guide, course PDF,
+legacy deck, dashboard. Agents_Link replies 02 (pass-01 results, slimmed per
+the no-detailed-data channel rule) and 03 (cleanup understanding) posted with
+owner approval; mirrored with iteration 03 in notes/agents/.

@@ -6,7 +6,7 @@ of the 2025–26 vendor guides. [NEW] = anchor not previously in the repo.
 
 ## TO DO (reliably helps today)
 1. State the task precisely — verb, constraints, success criteria, and the WHY behind
-   each rule (Anthropic 2026; Yang 2026: unstated requirements guessed right only 41.1%).
+   each rule (Anthropic 2026; Yang et al., 2025; revised 2026: unstated requirements guessed right only 41.1%).
 2. Structure with delimiters (XML/Markdown) and standardize ONE tested, versioned
    template (Anthropic · OpenAI · Google guides; He 2024: wrapper alone swings up to 40%).
 3. Zero-shot first; add 3–5 targeted, diverse examples only when format/tone matters

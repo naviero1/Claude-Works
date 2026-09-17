@@ -48,7 +48,7 @@ structure to prompts… The importance of asking good questions as well.").
   requirements-clarification loop lifts GPT-4 average Pass@1 across five
   benchmarks 62.43% → 69.60% (ChatGPT 54.32 → 62.37); with real human answers
   +13.87 pts on MBPP-sanitized (70.96 → 80.80).
-- Already in the deck: Yang 2025 (41.1% unstated-requirement guesses; +4.8%
+- Already in the deck: Yang et al., 2025; revised 2026 (41.1% unstated-requirement guesses; +4.8%
   requirements-aware optimization, arXiv:2505.13360); explicit I/O specs
   drive detailed-prompt gains (arXiv:2508.03678).
 - NO direct study found showing requirements-TRAINED PEOPLE prompt better —

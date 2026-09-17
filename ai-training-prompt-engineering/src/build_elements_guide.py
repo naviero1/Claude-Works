@@ -382,7 +382,7 @@ E.append(Spacer(1, 4))
 E.append(KeepTogether([band('WORKS — replicated, reliably helps today', GREEN), verdict_table([
     ('Be specific: task, constraints, success criteria.',
      'The model optimizes toward the target you state — every unstated need is filled with the most plausible average guess, which matches your intent only ~41% of the time, and vague prompts double the risk of a wrong turn.',
-     'Yang 2026 (41.1%)'),
+     'Yang et al., 2025; revised 2026 (41.1%)'),
     ('One tested, versioned template — delimiters separating instructions from material.',
      'Models are exquisitely sensitive to wrapper and layout: formatting alone swings accuracy by up to 76 points, the wrapper alone by up to 40%. A tested template removes that lottery and makes runs comparable.',
      'Sclar, ICLR 2024 · He 2024'),
@@ -432,7 +432,7 @@ E.append(verdict_table([
      'SycEval, AIES 2025 · Huang, ICLR 2024'),
     ('“The AI knows what I mean.”',
      'It fills every unstated requirement with the most statistically plausible filler — right ~41% of the time. Deliberately the same number as WORKS №1: “say what you mean” is the cure for this myth.',
-     'Yang 2026'),
+     'Yang et al., 2025; revised 2026'),
     ('Bare “do not hallucinate” commands.',
      'A ban with no honest alternative triggers over-refusal — the model starts refusing facts that ARE in the context (researchers call it the “Safety Tax”). Say what TO do instead: the out, plus required citations.',
      'arXiv:2601.02023, Jan 2026'),

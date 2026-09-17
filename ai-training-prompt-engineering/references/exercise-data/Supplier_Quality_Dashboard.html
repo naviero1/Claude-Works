@@ -117,7 +117,8 @@ function render(){
   const a=agg(rs0);
   // active-selection line
   const su=picked($('fsup')), si=picked($('fsite'));
-  $('active').innerHTML = 'Showing <b>'+rs0.length+'</b> of 144 records · months <b>'+$('m1').value+'</b>–<b>'+$('m2').value+'</b>'
+  const _a=$('m1').value, _b=$('m2').value, _lo=_a<_b?_a:_b, _hi=_a<_b?_b:_a; /* label shows the normalized inclusive range the calculation uses */
+  $('active').innerHTML = 'Showing <b>'+rs0.length+'</b> of 144 records · months <b>'+_lo+'</b>–<b>'+_hi+'</b>'+(_a>_b?' <span style="color:var(--amber)">(reversed selection — normalized)</span>':'')
     + ' · suppliers <b>'+(su.length===SUPS.length?'all':su.join(', ')||'none')+'</b>'
     + ' · sites <b>'+(si.length===SITES.length?'all':si.join(', ')||'none')+'</b>'
     + (drill? ' · <b style="color:var(--amber)">drill-down: '+drill.val+'</b> — applied to the '+(drill.key==='sup'?'supplier':'site')+' filter, so every view above and below agrees (Reset restores all)':'');

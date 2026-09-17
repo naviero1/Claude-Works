@@ -421,7 +421,7 @@ prompt_tab('EX-Report', 'Part 3 rep · Your course, reported (3 minutes)', [
 
 # ---------------------------------------------------------------- 5. PLAYBOOK tab (full 8+8+8, r20)
 PB_TODO = [
-    ('1', 'State the task precisely — verb, constraints, success criteria, and the WHY behind each rule', 'Anthropic 2026 · Yang 2026: unstated requirements guessed right only 41.1%'),
+    ('1', 'State the task precisely — verb, constraints, success criteria, and the WHY behind each rule', 'Anthropic 2026 · Yang et al., 2025; revised 2026: unstated requirements guessed right only 41.1%'),
     ('2', 'Structure with delimiters (XML/Markdown) and standardize ONE tested, versioned template', 'Anthropic/OpenAI/Google guides · He 2024: wrapper alone swings up to 40%'),
     ('3', 'Zero-shot first; add 3-5 targeted, diverse examples only when format or tone matters', 'OpenAI reasoning best practices · Anthropic 2026'),
     ('4', 'Long inputs: documents at the TOP, instructions at the END — bookend BOTH ends when very long', 'Anthropic: up to ~30% · GPT-4.1 guide 2025: both ends beat either alone'),

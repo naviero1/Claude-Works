@@ -103,7 +103,7 @@ module.exports = function buildPartThree(pres, H) {
   elemCard(4.2, 2.42, 'Task', 'verb + object + audience + success criterion — and the SEQUENCE, when order matters',
     'an answer to YOUR question, sized for its audience — and a model that knows when it is done.',
     'every requirement you leave unsaid is a coin flip: models guess unstated intent right only ~41% of the time. A precise ask carries its own completion test — and when order matters, sequence IS the task: say what happens first, and what must wait.',
-    'Yang et al. 2025',
+    'Yang et al., 2025; revised 2026',
     [['“Analyze the returns data.”', '“What is the return rate by site for Q2, vs the 2% target?”'],
      ['“Improve this report.”', '“First: list the three weakest sections, then WAIT. Rewrite only the one I pick.”']]);
   s.addNotes(
@@ -121,7 +121,7 @@ module.exports = function buildPartThree(pres, H) {
     '\n' +
     'CONTENT —\n' +
     'v1.5 rebuild (owner: the old definition slides “didn’t tell much” — every card now answers what-you-get / why / with evidence).\n' +
-    'Evidence (full citations in notes/research/r15_element_evidence.md): personas-no-accuracy = Zheng et al. EMNLP 2024 + Wharton Prompting Science Report 4 (Dec 2025, six models — low-knowledge personas significantly hurt); personas-shape-voice = PersonaLLM, NAACL 2024 Findings (traits identifiable up to 80%); unstated intent 41.1% and 2× regression = Yang et al., arXiv 2505.13360.');
+    'Evidence (full citations in notes/research/r15_element_evidence.md): personas-no-accuracy = Zheng et al. EMNLP 2024 + Wharton Prompting Science Report 4 (Dec 2025, six models — low-knowledge personas significantly hurt); personas-shape-voice = PersonaLLM, NAACL 2024 Findings (traits identifiable up to 80%); unstated intent 41.1% and 2× regression = Yang et al., 2025; revised 2026 — arXiv:2505.13360.');
 
   // ---------- 24. ELEMENTS 2 of 3 · CONTEXT + FORMAT ----------
   s = H.slide('PART 3 · THE ELEMENTS', 24);
@@ -434,7 +434,7 @@ module.exports = function buildPartThree(pres, H) {
     'none new on this slide.\n' +
     '\n' +
     'CONTENT —\n' +
-    'v1.7: expanded to a full 6+6 slide (owner request); evidence per line in notes/research/r25_proven_myth_mirror.md + r20/r15: specificity = Yang 2026 (41.1%) · template = Sclar ICLR 2024 (76 pts) + He 2024 · placement = Anthropic ~30% + GPT-4.1 bookends · the out = Omar 2025 (66→44%) · named-criteria check = CoVe ACL 2024 (55.9→71.4) · metaprompting = OPRO ICLR 2024 (+50% BBH) + GEPA 2026 + vendor prompt improvers (Anthropic/OpenAI/Google, official) · personas = Zheng 2024 + Wharton R4 · tips/threats = Wharton R3 + Salinas 2024; EmotionPrompt recalc ~2.6% honest average · magic phrases = OPRO post-mortem + IEEE Spectrum Mar 2024 · length = Levy ACL 2024 (0.92→0.68 at ~3K padded tokens) + IFScale ~150-rule cliff · are-you-sure = SycEval AIES 2025 (58.2% flips, 14.7% right→wrong) + Huang ICLR 2024 + Sharma 2023.\n' +
+    'v1.7: expanded to a full 6+6 slide (owner request); evidence per line in notes/research/r25_proven_myth_mirror.md + r20/r15: specificity = Yang et al., 2025; revised 2026 (41.1%) · template = Sclar ICLR 2024 (76 pts) + He 2024 · placement = Anthropic ~30% + GPT-4.1 bookends · the out = Omar 2025 (66→44%) · named-criteria check = CoVe ACL 2024 (55.9→71.4) · metaprompting = OPRO ICLR 2024 (+50% BBH) + GEPA 2026 + vendor prompt improvers (Anthropic/OpenAI/Google, official) · personas = Zheng 2024 + Wharton R4 · tips/threats = Wharton R3 + Salinas 2024; EmotionPrompt recalc ~2.6% honest average · magic phrases = OPRO post-mortem + IEEE Spectrum Mar 2024 · length = Levy ACL 2024 (0.92→0.68 at ~3K padded tokens) + IFScale ~150-rule cliff · are-you-sure = SycEval AIES 2025 (58.2% flips, 14.7% right→wrong) + Huang ICLR 2024 + Sharma 2023.\n' +
     '“Say the WHY behind a rule” is VENDOR GUIDANCE (Anthropic docs), not independently measured — keep it folded into specificity, never as its own proven line (r25 downgrade).\n' +
     'If someone says “I heard prompt engineering is dead”: the JOB TITLE faded (Indeed searches collapsed 2023→25; the $200K role is gone) — but phrasing still swings results by double digits on frontier models, and all three vendors shipped new prompting guides in 2025–26. The skill moved into everyone’s job description. (Sources in r25.)\n' +
     'The 2025 Wharton replication wave (25–100 runs per question) independently confirms both columns.');
@@ -562,7 +562,7 @@ module.exports = function buildPartThree(pres, H) {
     'CoT = Chain-of-Thought — the old “think step by step” style, now built into thinking models.\n' +
     '\n' +
     'CONTENT —\n' +
-    'v1.6: rebuilt as the three-column playbook (owner request); full lists + anchors in notes/research/r20_do_dont_expired.md. Key anchors: Yang 2026 (41.1%) · He 2024 (wrapper swings ~40%) · GPT-4.1 guide (bookending) · Omar 2025 (out: 66→44%) · GPT-5.1 guide (length adherence) · Safety Tax arXiv:2601.02023 · Wharton R3 + Salinas 2024 (tips/threats) · Cheng Science 2026 (+49%) · IFScale arXiv:2507.11538 (~150-rule cliff) · Kojima 2022 (10.4→40.7 GSM8K origin) · Sprague ICLR 2025 · Zheng 2024/Wharton R4 (personas) · OPRO 2024 (magic-phrase post-mortem) · EmotionPrompt recalc arXiv:2409.20303 (honest average ~2.6%) · GPT-5.5 guide via Willison Apr 2026 (re-baseline).\n' +
+    'v1.6: rebuilt as the three-column playbook (owner request); full lists + anchors in notes/research/r20_do_dont_expired.md. Key anchors: Yang et al., 2025; revised 2026 (41.1%) · He 2024 (wrapper swings ~40%) · GPT-4.1 guide (bookending) · Omar 2025 (out: 66→44%) · GPT-5.1 guide (length adherence) · Safety Tax arXiv:2601.02023 · Wharton R3 + Salinas 2024 (tips/threats) · Cheng Science 2026 (+49%) · IFScale arXiv:2507.11538 (~150-rule cliff) · Kojima 2022 (10.4→40.7 GSM8K origin) · Sprague ICLR 2025 · Zheng 2024/Wharton R4 (personas) · OPRO 2024 (magic-phrase post-mortem) · EmotionPrompt recalc arXiv:2409.20303 (honest average ~2.6%) · GPT-5.5 guide via Willison Apr 2026 (re-baseline).\n' +
     'What did NOT change (say if the room looks nervous): clarity, context, format, the out, grounding, iteration — the anatomy applies to every model they will ever use; scaffolding tricks retire, briefing skills compound.\n' +
     'v1.13 (owner request): the standalone playbook one-pager was RETIRED — its content merged into the Field Guide (part 5: the full works/myth/expired compendium with the why per line) and the cheat sheet (compact box). The PLAYBOOK workbook tab remains the sources reference.');
 

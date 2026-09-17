@@ -128,7 +128,7 @@
      },
      {
       "type": "p",
-      "text": "The first send scatters across plausible guesses - budget, staffing, quality. The second orbits May 3 and April 20. Grade the directions, not the sentences: your facts deleted wrong guesses. That is your contribution to every answer: the task, the source material, the definitions, and a way to check the result. Compare 'Explain the delay' with 'Explain the delay using these three dated messages' - only the second can be checked. A model filling unstated requirements with its most plausible guess matches what the requester meant only about 41% of the time (Yang, 2026); this course is about closing that gap on purpose."
+      "text": "The first send scatters across plausible guesses - budget, staffing, quality. The second orbits May 3 and April 20. Grade the directions, not the sentences: your facts deleted wrong guesses. That is your contribution to every answer: the task, the source material, the definitions, and a way to check the result. Compare 'Explain the delay' with 'Explain the delay using these three dated messages' - only the second can be checked. A model filling unstated requirements with its most plausible guess matches what the requester meant only about 41% of the time (Yang et al., 2025; revised 2026); this course is about closing that gap on purpose."
      }
     ]
    },
@@ -553,7 +553,7 @@
      },
      {
       "type": "p",
-      "text": "The stakes: a model guesses an unstated requirement right only about 41 percent of the time (Yang, 2026); a written specification deletes the guessing. Software moved first — GitHub's Spec Kit (2025) makes the written spec \"the source of truth\" AI agents build from, and Sean Grove of OpenAI drew the conclusion: <i>\"Whoever writes the spec... is now the programmer.\"</i> One caution: this evidence is structural, measured on clarified prompts — and a model can still misinterpret a clear instruction, so verification stays necessary."
+      "text": "The stakes: a model guesses an unstated requirement right only about 41 percent of the time (Yang et al., 2025; revised 2026); a written specification deletes the guessing. Software moved first — GitHub's Spec Kit (2025) makes the written spec \"the source of truth\" AI agents build from, and Sean Grove of OpenAI drew the conclusion: <i>\"Whoever writes the spec... is now the programmer.\"</i> One caution: this evidence is structural, measured on clarified prompts — and a model can still misinterpret a clear instruction, so verification stays necessary."
      },
      {
       "type": "callout",
@@ -2662,7 +2662,7 @@
       "type": "callout",
       "kind": "works",
       "title": "Be specific: task, constraints, success criteria",
-      "body": "The model fills every unstated need with the most plausible average guess, which matches your intent only about 41% of the time (Yang 2026)."
+      "body": "The model fills every unstated need with the most plausible average guess, which matches your intent only about 41% of the time (Yang et al., 2025; revised 2026)."
      },
      {
       "type": "callout",
