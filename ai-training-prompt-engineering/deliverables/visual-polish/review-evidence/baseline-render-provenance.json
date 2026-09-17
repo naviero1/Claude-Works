@@ -1,0 +1,741 @@
+{
+  "baseline_sha256": "117f60b30c292527d1ac8444ab3efafdbb0ef8d0f3ff159b68149e5804bd24fa",
+  "source_review_files": {
+    "Bebop_Rocksteady_Visual_Polish_Brief.md": {
+      "bytes": 75465,
+      "sha256": "ee2a19feb05465f3a94bc7d2be5ee3ef951e5a84a24cf1d9d6b34d599fe18130"
+    },
+    "Training_Visual_Review_Package.zip": {
+      "bytes": 9026149,
+      "sha256": "6d9b4c96f0841d53c3a34ec5acaf092cbcc908aae60a94f5b7039887477ffdad"
+    },
+    "Training_Slide_by_Slide_Visual_Review.html": {
+      "bytes": 13768279,
+      "sha256": "81e328c981e25e8756dc031e39b62413e7472f80eb3422792f1ef794caf179fd"
+    }
+  },
+  "images": [
+    {
+      "slide": 1,
+      "title": "From Prompts to Agents",
+      "sha256": "1772ce9d52d45125e80e5c1db2efb29ea97d451a7c4222b606a588e4819e6dc2",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 2,
+      "title": "One skill, two ways to work",
+      "sha256": "a2796e949b65267ffcd6dfe1de0345f2329d9d82265220b23252779486e2b3cd",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 3,
+      "title": "Where this came from, and how it actually works",
+      "sha256": "be77ef7f0c448b772c080e83c2eedf524e3962e07f2df6309fe8f7dddca2a52d",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 4,
+      "title": "Four eras: rules → learning → generative → agentic",
+      "sha256": "9383010247e8c60b16a497d5e6c950dd8e9b859959d9afe2ae40e73289a68daa",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet. Full-size render inspected additionally."
+    },
+    {
+      "slide": 5,
+      "title": "Each leap has a name — 2017 → 2026",
+      "sha256": "f6befd7ad67fe9d04e0afce62f19638dab699ca4b85c467d88501139a07636e7",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet. Full-size render inspected additionally."
+    },
+    {
+      "slide": 6,
+      "title": "The hardware behind model development",
+      "sha256": "c2ec4157e47bcf2f0bde83e326f15b1c0acc934cd36d015d6d696530bc482082",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 7,
+      "title": "How a language model produces an answer",
+      "sha256": "6fc2dcc192ea0db1460d0d25e7a73bb224b07a3d977bb72199c9c0f08d8a160e",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 8,
+      "title": "Tokens and practical limits",
+      "sha256": "19d7217fc297099ecf55c7baf60508f4404127f47e857e50d61c3b20f9b49268",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 9,
+      "title": "Context, saved history, and memory",
+      "sha256": "43f5d913a3db4cecb322cb4af8dd15704bf3a4044d5fbac7c9828b20b161f875",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 10,
+      "title": "Answers grounded in documents",
+      "sha256": "ec25b9389994a7815f244f6818c5c05dce104c558ff6556decf9311f758a30d7",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 11,
+      "title": "Instructions, sources, and model adaptation",
+      "sha256": "108dabb51fee766815e845780504092b4764e9ebc286d7e599643b44c208ee33",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 12,
+      "title": "Reasoning effort and the task",
+      "sha256": "c529947dda722448586af00d6e8d66e42401cdedc588a808428676817dc81b59",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 13,
+      "title": "Capabilities to look for in an assistant",
+      "sha256": "927fd0599b48a0fbb1f42ad7493d67f31af26054abbe285143e6238ad4f14c96",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 14,
+      "title": "Verification belongs in the task",
+      "sha256": "fea9e7237a6115f4cb67ff51bb60874efd3158bd28473a52987b0ec4f9faa44e",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 15,
+      "title": "Failure patterns and the check they need",
+      "sha256": "40dc966d5ba95020589eb6d44b4900bcece3458b8bf7c4a94b0eb46ee9cd3fe3",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 16,
+      "title": "The landscape, September 2026",
+      "sha256": "4c1adc5c0afff25cad7e0064a3be47c507a48c22da170964ec442c2bc36ad2e0",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 17,
+      "title": "A task-based way to compare assistants",
+      "sha256": "2dfdb33ca095ee8a200bf96027ea035ee75da035595179db470ca40d5e749261",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 18,
+      "title": "January 2025: frontier ability, ~27× cheaper",
+      "sha256": "cead7111516f7011d767000edda197969f89cbcc194aca302e6674c08a884dd1",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet. Full-size render inspected additionally."
+    },
+    {
+      "slide": 19,
+      "title": "The right workspace for the data",
+      "sha256": "f0572fbfec8bc3ed231b738badb8ae88b74065ef797f506639741d3cd69efc5c",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 20,
+      "title": "The craft: getting what you actually meant",
+      "sha256": "5b8ac7166a045fd5010774a967e937d193c66b735a9d3df8bc1be76e17ac6ee1",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 21,
+      "title": "You already write work specifications",
+      "sha256": "17de4a30f742efe0ed12f0161feb279a8ff87daa70f901db3d1a741e27be82db",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 22,
+      "title": "Good requirements make prompts testable",
+      "sha256": "025e95c47095bb4137fce85f34b49706cc97a42407309da4c4b5113345a0ea7a",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet. Full-size render inspected additionally."
+    },
+    {
+      "slide": 23,
+      "title": "A prompt is a small work specification",
+      "sha256": "bf492d92cec857c5884cd98cd953345164fd8c99163118b37cd4fffeebb5c73a",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet. Full-size render inspected additionally."
+    },
+    {
+      "slide": 24,
+      "title": "Useful roles describe behavior",
+      "sha256": "e45029b0ca14a1482d02151323e28f7bc157c96eaecdb40047f8cfe68855d7cb",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 25,
+      "title": "Prompt elements are requirement types",
+      "sha256": "36667dd2d0a1d7f43547d622c24393264f3e90bfbaf2fecebabb9008645abea2",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 26,
+      "title": "Examples, uncertainty, and stopping",
+      "sha256": "ed00f08892b58f96f970dcf48a23d88110a80401046ad90113730adcf55b3339",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 27,
+      "title": "A menu of requirements for each artifact",
+      "sha256": "19c4fedf8fcf80d18a260d28154dafd1d60d196064aaae167544b906cf3ebf9e",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 28,
+      "title": "The improvement loop",
+      "sha256": "5bc7e643257279b980e3510aaf39192e9204c36206186f7eebaa2d616dd42523",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet. Full-size render inspected additionally."
+    },
+    {
+      "slide": 29,
+      "title": "One task through the improvement loop",
+      "sha256": "066c5e3fe196670d608d262e898807df73c09277a90f73e5be0a35a2e1de8e88",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 30,
+      "title": "Prompt techniques to test on your task",
+      "sha256": "3758f700bac57d6fce2e149d93deb78b1e08315518a4705619c8f3b0c9171fb3",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 31,
+      "title": "A neutral rubric reduces leading feedback",
+      "sha256": "91da1522ad66d46f438d9a952c46fcf85d6b611435e6856560230cd7b4894a90",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 32,
+      "title": "A practical prompt review checklist",
+      "sha256": "a83e35b0b72ab112fab77ec8914494428df89137da93458773736e0ec6b4f77d",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet at readable scale."
+    },
+    {
+      "slide": 33,
+      "title": "Data Analytics Exercise",
+      "sha256": "9e3657a330202698c061a282381a365ebe0f5d7c72c7101aaac26a9e3fc6bb76",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet. Full-size render inspected additionally."
+    },
+    {
+      "slide": 34,
+      "title": "Upload the Data File and Run These Two Prompts",
+      "sha256": "d38e59b22dbdf469d7734b5f717f94dd90719909955b121932cc2523464eb5fd",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet. Full-size render inspected additionally."
+    },
+    {
+      "slide": 35,
+      "title": "Ask a Follow-Up Question",
+      "sha256": "8065e06e906d1e4245945b1bd3eb9e8634849703f020677e8c25c87b365b1491",
+      "reviewed": true,
+      "coverage": "Viewed in six-slide contact sheet. Full-size render inspected additionally."
+    },
+    {
+      "slide": 36,
+      "title": "Add the Charts and Return the Excel File",
+      "sha256": "7e39114a7e31e340343120ca64011491fc60ee1450ee29b9240c6fdfb3f8376b",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 37,
+      "title": "Describe the Dashboard You Want",
+      "sha256": "feb63e24570dc2c0457acb18a6c7bbe804a538b1d1b45b1c59a0701f748cd8d6",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; also viewed fullsize."
+    },
+    {
+      "slide": 38,
+      "title": "Build and Test the Dashboard",
+      "sha256": "8ad72ab7105d6194ca1122c72e749a0d925d506023b1b09e2f8394633a4e44ff",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 39,
+      "title": "Turn the Findings into a Five-Slide Management Mock-up",
+      "sha256": "99141c5cdfb79d1f7b2f46874aeb0e1f402ea6e8bebc47a42a5961e757892d16",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; also viewed fullsize."
+    },
+    {
+      "slide": 40,
+      "title": "Organize an Email Thread in Outlook",
+      "sha256": "efc0df80e32e635acc26922fc17e61edf87b87c591342258e43e59af78a54883",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 41,
+      "title": "Outlook Exercise: Decisions, Actions, and Open Questions",
+      "sha256": "23fe24530ccaab7c172ed223aefa1b2f8e1b0743e7f320fb392c1c433505749f",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 42,
+      "title": "Extract Supplier Quotes into Excel",
+      "sha256": "6e6663a7e8ff1a0c43d1c42ee996b23c33afa087016bbab2556bc195803bc4ee",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 43,
+      "title": "Normalize and Compare the Supplier Quotes",
+      "sha256": "d8314b1d91bb3f55d6f3fce26b38fb0339d805b9d57194f27e453bf8f13cfda7",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 44,
+      "title": "Turn Reference Files into a Research Spreadsheet",
+      "sha256": "8981a1aa5aea72c21da8c454e3cdb697394282ed7dff9c5ba949756f7e769cf2",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; also viewed fullsize."
+    },
+    {
+      "slide": 45,
+      "title": "From asking to delegating",
+      "sha256": "f01ee71a5a328699cf873421461dc3939cfead45f4147afa9f331542ebab10fb",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 46,
+      "title": "What makes a workflow agentic?",
+      "sha256": "4c9c7fa977cae8d64d72ba3b97c94b1eecc65ad6253a70c741f37ffff0e86857",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 47,
+      "title": "ASK and DELEGATE",
+      "sha256": "1ebb5abba8ae40c7fff3e91a3d7637a30a3942b2ee6ed7ff1ddc91f3316992ee",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 48,
+      "title": "Discussion: which way of working fits?",
+      "sha256": "a5ef7a0ea273e641215cefe471b0090179415163281dcc17f0d479bc87390ae7",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 49,
+      "title": "The agentic brief is the anatomy, grown up to survive autonomy",
+      "sha256": "0935241bf5410a8310dc53196a13b379d5cee201faf216c2a29164cdf34832f3",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 50,
+      "title": "A mission brief for bounded work",
+      "sha256": "2b8c331b888aa331a84df8b2343b44e97f1961f0360979e02d382abd36bf2ca6",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 51,
+      "title": "Exercise: turn the analysis into a mission brief",
+      "sha256": "602aa8aaac9fb708b59c6116e74a58a5b8e78a7e57f8b37aa1088949bd21870f",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 52,
+      "title": "Choosing an environment for delegated work",
+      "sha256": "5025427ae770021ce50fa3c90182a5d74b2d12044035f2fe686538f24cbacc5c",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 53,
+      "title": "Instructions and enforceable controls",
+      "sha256": "3b0790a3590661e54104162feb487830dcc8c5ee3f989fc55232ba98698c112b",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; also viewed fullsize."
+    },
+    {
+      "slide": 54,
+      "title": "Diagnosing a failed run",
+      "sha256": "571d38ae9bbbe12c697fd7d1be04a64857002f4675c09a4e2db8381af7cee020",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 55,
+      "title": "Write the brief once — the workspace remembers",
+      "sha256": "f048781f19453825bafd1fe7c929033eed3303f1017ff1ac666c4c56179db21d",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 56,
+      "title": "Exercise: one gate and one hard check",
+      "sha256": "7b44d31a600b32f34e46f866a0fde7bbf4087a0c44ff2445c5ff17b14a84eac1",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 57,
+      "title": "Prompts are assets. Manage them like it.",
+      "sha256": "e881ef57ec5b916760e2e0357949def9af42c53c83bb66b2f4461dd391b76361",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 58,
+      "title": "A useful prompt becomes a reusable asset",
+      "sha256": "add7d4534a5be3cbbbe8298b7a37686d4736dc9991df931a08ba455080514256",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 59,
+      "title": "Where reusable prompts can live",
+      "sha256": "3931af414ff65d919163897954b94667c0241cecbbaf59b0ec96271f94549e04",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 60,
+      "title": "A small review process for shared prompts",
+      "sha256": "f83717e80c9b068a1b4e98cdd3c499273e878e1ebf1666bd49235afeb75f79b0",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 61,
+      "title": "Exercise: save one prompt for Monday",
+      "sha256": "9fe612df3f30c0e8614fdcfda02f051b1d203b8bc1ac799b959479b9f4ee30ea",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 62,
+      "title": "Clarifying questions reveal missing requirements",
+      "sha256": "98de635b09f9d57fb7aadba30dab1002c5150bad76d2dacd9178b4611677191f",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 63,
+      "title": "The habits to carry into work",
+      "sha256": "351fe0876515e234628eae882af0a0b6050c6eef14c62b1983889c9e89299206",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 64,
+      "title": "Capstone: one task, one checked result",
+      "sha256": "fd4160d6a862ef34d27305a730ae4c776bf760470ffe40905a6b4d72e836bb43",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 65,
+      "title": "Glossary — twenty terms that matter",
+      "sha256": "fada33087c574db6cff43c58d3867b8a58fcc4d5466d9551ee0e6d987f26926f",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 66,
+      "title": "Why each dial matters — the generative criteria",
+      "sha256": "7e10342705d912464371534c59bca307fff7f73ac68cd72884f0390d8a83de63",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 67,
+      "title": "Why each dial matters — the agentic criteria",
+      "sha256": "7199666b4e5ecccad537f3ed3cbd0f56035504d5dab5785e1a38e995746a3a64",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 68,
+      "title": "Sources this training is built on",
+      "sha256": "3b87d7a4ab24f06f629a9c15e43cc8bed5b3702a05a386e2a1598a1f0056d37f",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 69,
+      "title": "Recommended reading — start practical, go deep",
+      "sha256": "d6c80c4edcd2c9a61a32939d507856854a4c3a5180312ec85d473c6bb12d4e5e",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 70,
+      "title": "One task. A clear brief. A checked result.",
+      "sha256": "a27b2cc1fb827fddc8b6eb8b70945f01af908a9a5dc91c315364485b16549a0d",
+      "reviewed": true,
+      "coverage": "Viewed supplied rendered image in six-slide montage; native text and font declarations inspected."
+    },
+    {
+      "slide": 71,
+      "title": "Detailed explanations and exercise keys",
+      "sha256": "28f69e1017f0c5bd039fef5c16be0ab004c21b88e5cb0bdd39ce4a053a18edf8",
+      "reviewed": true,
+      "coverage": "rendered/slide-71.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 72,
+      "title": "A prediction engine, sent to finishing school",
+      "sha256": "10c0929682d074f1544170e7bfe3fb2446b406e77bcb18e7aab7bf1ecf396e25",
+      "reviewed": true,
+      "coverage": "rendered/slide-72.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 73,
+      "title": "A desk, not a filing cabinet",
+      "sha256": "17fd6d0adce9e01ee293ed3f0a5630e3351e80a53bfa63c3a7b36a860efbf8ce",
+      "reviewed": true,
+      "coverage": "rendered/slide-73.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 74,
+      "title": "An open-book exam — audit the librarian",
+      "sha256": "96d13fefe4e66232e0f3a0b27dd5aa21b90b528cf3874dd6e85c246b31bac753",
+      "reviewed": true,
+      "coverage": "rendered/slide-74.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 75,
+      "title": "Seven parts, one body — what good looks like",
+      "sha256": "a4dc84c84f38a3431d43711fdfab26c21513a3f7157c30d437e70dbd6eeb67b1",
+      "reviewed": true,
+      "coverage": "rendered/slide-75.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 76,
+      "title": "Role & Task: the posture, and the question",
+      "sha256": "f0690b393c4a793efd4297ff441e45aeeb1ede06b677b9a53e18c920ba5499df",
+      "reviewed": true,
+      "coverage": "rendered/slide-76.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 77,
+      "title": "Context & Format: the facts, and the contract",
+      "sha256": "0351b661a36e77845b394f60e1ec33286ad113a87135dd3306b8c5607ba54ed0",
+      "reviewed": true,
+      "coverage": "rendered/slide-77.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 78,
+      "title": "Examples — and the two one-sentence safety valves",
+      "sha256": "d0f8b5e067549fce6aa0a72f4f1689ef2acf633b656199e0c871e413e7ab1400",
+      "reviewed": true,
+      "coverage": "rendered/slide-78.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 79,
+      "title": "The toolkit is a loop",
+      "sha256": "caf091119136da4a47c861109535af6a6332cb9d5e196cd1f13e115cda48987f",
+      "reviewed": true,
+      "coverage": "rendered/slide-79.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 80,
+      "title": "Two layers, one craft",
+      "sha256": "743037c4625e9303a063e58c132467c516822c8d981d6662d867ed010a86e55b",
+      "reviewed": true,
+      "coverage": "rendered/slide-80.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 81,
+      "title": "The prompt is a document, not a sentence",
+      "sha256": "97006eb2aa34cc9a3e2587fd6c6529d1736613f6c48e5f162ee3f1e40b827041",
+      "reviewed": true,
+      "coverage": "rendered/slide-81.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 82,
+      "title": "Five shapes — pick the one for the job",
+      "sha256": "95f85e8b536df264ea05ae88f209716a3e3a23afaa6e6d3305b2e097292896b2",
+      "reviewed": true,
+      "coverage": "rendered/slide-82.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 83,
+      "title": "ASK for an output. DELEGATE bounded work.",
+      "sha256": "98b876e7fd3b8b614a96c35dadcc0345e76b26998e77dbff710ddc2a3cc3c560",
+      "reviewed": true,
+      "coverage": "rendered/slide-83.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 84,
+      "title": "The mission brief: twelve blocks, each preventing a failure",
+      "sha256": "29d13f89487c8de547ce2c7f58e3ee5494bc5fe3ec63bab41eecb30b3b1dac37",
+      "reviewed": true,
+      "coverage": "rendered/slide-84.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 85,
+      "title": "One prompt, five links: data in, defensible slide out",
+      "sha256": "f2e104455069c069fa6028fc5b2780d53697aacc34ccb7e28a186c270b2652c8",
+      "reviewed": true,
+      "coverage": "rendered/slide-85.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 86,
+      "title": "Arms need supervision: five rules for delegating",
+      "sha256": "eb46bda56b20a03bd8336fd71ea7d23be18eee466d082d24e3bbfeb261771699",
+      "reviewed": true,
+      "coverage": "rendered/slide-86.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 87,
+      "title": "Supplier analysis: answer key",
+      "sha256": "8aa2ab35d19ef31a42fa05b271733b64d7927d344d99ac715ca7e3cbef001078",
+      "reviewed": true,
+      "coverage": "rendered/slide-87.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 88,
+      "title": "Packaging-change conversation: messages 1–5",
+      "sha256": "06fed7c262997d69f8cb11e01f538bfe0e2e0d7b139492a455ad17ddccca49a8",
+      "reviewed": true,
+      "coverage": "rendered/slide-88.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 89,
+      "title": "Packaging-change conversation: messages 6–10",
+      "sha256": "b5312308ac4c28efc5f59f014ae9e966ef6ae5d12ef11cd4675d606cb3461d3c",
+      "reviewed": true,
+      "coverage": "rendered/slide-89.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 90,
+      "title": "Requirements writing: reference and example",
+      "sha256": "82286350d6c9c347003c4d1787de7e006e529a29287b0cc518f73f4c1a40b836",
+      "reviewed": true,
+      "coverage": "rendered/slide-90.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 91,
+      "title": "Prompt elements are requirement types",
+      "sha256": "904cfcdd71cf285b56e6f53c03f5dc1223eaded3d141d5daedc45bcb1705c6bc",
+      "reviewed": true,
+      "coverage": "rendered/slide-91.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 92,
+      "title": "Spreadsheet analysis: requirements to choose",
+      "sha256": "1bc0ce7b31056e01721d3ed022dcf47b42925fd95bb26c5c544afc16d969cba2",
+      "reviewed": true,
+      "coverage": "rendered/slide-92.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 93,
+      "title": "HTML dashboards: requirements to choose",
+      "sha256": "58906e66086ab7d18c0f09519a5ce7ee8ec969873c031705579abf3615c78870",
+      "reviewed": true,
+      "coverage": "rendered/slide-93.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 94,
+      "title": "Presentations: requirements to choose",
+      "sha256": "ee273ed0c11577698634ff0c36c9fa21d3a3e76c1fcfc1c680aa3b06ff080a1a",
+      "reviewed": true,
+      "coverage": "rendered/slide-94.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 95,
+      "title": "Email summaries: requirements to choose",
+      "sha256": "28b6e6ddf3db020389e460a070e41e9e837de9668fcc318b1eb293518a6b20e9",
+      "reviewed": true,
+      "coverage": "rendered/slide-95.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 96,
+      "title": "Plain-language documents: requirements to choose",
+      "sha256": "16b8b21b96b8dfe30dbf3c43abd003f9ec05495a8d449c8d1d3cc4f326351d95",
+      "reviewed": true,
+      "coverage": "rendered/slide-96.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 97,
+      "title": "Pick what we drill next — the method transfers",
+      "sha256": "21afbaa532165b11278835f24121b992bdde45a96538a9e0508c78b59c8bf7fe",
+      "reviewed": true,
+      "coverage": "rendered/slide-97.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 98,
+      "title": "Full exercise: build the supplier dashboard",
+      "sha256": "36d29d42fef4d7ace1723d20bce006b86fad09f01710137a3be21cb0cea139b3",
+      "reviewed": true,
+      "coverage": "rendered/slide-98.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 99,
+      "title": "Full exercise: the five-slide mock presentation",
+      "sha256": "10d3404183ac8ec9c96bc30bef4b6d878278059052b43479f9953e1fb9f7a3ac",
+      "reviewed": true,
+      "coverage": "rendered/slide-99.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 100,
+      "title": "Full exercise: explain a topic clearly",
+      "sha256": "2beff1a72637bfe39f779ae686e8ce561268fb6285a48826359bece752347931",
+      "reviewed": true,
+      "coverage": "rendered/slide-100.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 101,
+      "title": "The email-summary prompt, in full",
+      "sha256": "071ac02cf070e48d9f172a23c7d590d66b864bb771258311cce5821c1f6a6f9f",
+      "reviewed": true,
+      "coverage": "rendered/slide-101.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 102,
+      "title": "Optional practice: a course-log study aid",
+      "sha256": "1f652972ec9a0f9c4233591118b47042dae08009212064e1136dd0273e609904",
+      "reviewed": true,
+      "coverage": "rendered/slide-102.jpg inspected individually at supplied full image size"
+    },
+    {
+      "slide": 103,
+      "title": "Optional extension: compare supplier quotations",
+      "sha256": "4b9354604ba41b8d3d8a3699b5c5e4c23a54e6ac79becb4c0aa047486fca8ff1",
+      "reviewed": true,
+      "coverage": "rendered/slide-103.jpg inspected individually at supplied full image size"
+    }
+  ],
+  "coverage": "All103 supplied renders visually reviewed. Original JPEG previews, no slide modifications."
+}

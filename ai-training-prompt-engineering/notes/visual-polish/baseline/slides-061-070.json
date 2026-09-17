@@ -1,0 +1,6150 @@
+[
+ {
+  "original_slide": 61,
+  "current_slide": 61,
+  "proposed_slide": 61,
+  "stable_id": "sid-316",
+  "native_id": 316,
+  "title": "Exercise: save one prompt for Monday",
+  "mode": "DO",
+  "active_seconds": 120,
+  "notes": "MODE: DO\n\nTIME: 2:00\n\nPURPOSE: Create observable practice and a result participants can check.\n\nLAND THIS: Participants save one checked prompt they can use again.\n\nSAY:\n- Use the prompt they have already improved today; do not start another task.\n- Ask for a realistic storage location, not a new software system.\n- Point out the single source assumption most likely to change.\n\nDO: 0:00–0:20 choose the prompt; 0:20–1:20 save the prompt and example; 1:20–2:00 add the check, version, and intended use.\n\nBRIDGE: Move to “Clarifying questions reveal missing requirements”.\n\nIF LATE: KEEP\n\nPROTECTED APPLICATION: Use prepared inputs and fallback outputs. Compress reference material before reducing this activity.\n\nSOURCE DETAIL FOR SELF-STUDY\nTHREE-MINUTE REP · PART 6\n59\nTHREE-MINUTE REP\nPick your rung, pick your prompt\n3:00\nWhich rung of the promotion ladder are you on today — one-off typing, personal doc, team library, packaged, as-code?\nName the ONE prompt you already reuse from memory. That is your first library entry.\nWrite where it will live and its v1.0 line — you have just started your prompt library.\n1 · one-off\n2 · personal doc\n3 · team library\n4 · packaged\n5 · as-code\nThis one is not skippable — it is the whole training cashing out.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT — 1) 3:00 badge — but this one is PROTECTED: never cut it, even if everything else ran long. 2) Three prompts on screen: pick your rung (use the pill row as the picker) → name the ONE prompt you already reuse from memory → write where it will live and its v1.0 line. 3) Walk the room while they write; get two people to say their entry out loud — public commitment sticks. 4) Close: “you have just started your prompt library.”\nACRONYMS — v1.0 = first-version label.\nCONTENT — Final rep — a named prompt with a home and a version number is the behavior change the training exists for.\n59\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "fe501736b929123c537465f61eace5804fb79781984fcaf3c04648ff053a2771",
+  "notes_xml_sha256": "327836e1f018225cdb0af671083f1268ad3a3ba951d252933d343722a9adc039",
+  "part": "/ppt/slides/slide61.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.083333
+    ],
+    "xml_sha256": "6d3b57ec7b0261d07ced6a496415405eacf4fcd0472bb6ff3c612f11c46f9a02",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "d458e1d376111d209bc21c57054f1a119b8dd10a67eaa977980af417520de30c",
+    "paragraphs": [
+     {
+      "text": "DO   2:00",
+      "runs": [
+       {
+        "text": "DO   2:00",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-104"
+       }
+      ],
+      "paragraph_properties_ref": "style-103"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "9caa1abdbc7a6945584471784914314204225262ed2a820250607ff52c498f2d",
+    "paragraphs": [
+     {
+      "text": "Exercise: save one prompt for Monday",
+      "runs": [
+       {
+        "text": "Exercise: save one prompt for Monday",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "main-prompt",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.135417,
+     12.0,
+     3.854167
+    ],
+    "xml_sha256": "967257a5b23c2789f5324e79c9631bd87ef466a1cf8de36c4f6d4cab8dc5112d",
+    "paragraphs": [
+     {
+      "text": "Choose one prompt you will use again.",
+      "runs": [
+       {
+        "text": "Choose one prompt you will use again.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     },
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "",
+        "family": null,
+        "size_pt": null,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-70"
+       }
+      ]
+     },
+     {
+      "text": "Save it with a useful name, a filled example, its source assumptions, and a check.",
+      "runs": [
+       {
+        "text": "Save it with a useful name, a filled example, its source assumptions, and a check.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     },
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "",
+        "family": null,
+        "size_pt": null,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-70"
+       }
+      ]
+     },
+     {
+      "text": "Add a version and owner if you plan to share it.",
+      "runs": [
+       {
+        "text": "Add a version and owner if you plan to share it.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "5e0997ffe20aca79186b00f1f63dde04c43ed166348462961d1ae77ded8fc9ee",
+    "paragraphs": [
+     {
+      "text": "Success check: another person can tell when to use it and how to check its output.",
+      "runs": [
+       {
+        "text": "Success check: another person can tell when to use it and how to check its output.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "469819705e9eecf31e684dca46a40fafe655254ebaab478bb5d5db3a311ae830",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "cf7eaa1083e200721efe51ab3a659efe8616cb01cc357e8ef6bcf027c97f687b",
+    "paragraphs": [
+     {
+      "text": "61",
+      "runs": [
+       {
+        "text": "61",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 62,
+  "current_slide": 62,
+  "proposed_slide": 62,
+  "stable_id": "sid-317",
+  "native_id": 317,
+  "title": "Clarifying questions reveal missing requirements",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: Ask a few questions only when missing information would change the result.\n\nSAY:\n- Ask clarifying questions when an unknown would materially change the work.\n- Otherwise state a reasonable assumption and produce a reviewable draft.\n\nDO: None.\n\nBRIDGE: Move to “The habits to carry into work”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nCONCLUSION · ASK BETTER QUESTIONS\n61\nTHE BEST PROMPT IS A QUESTION\nSometimes theirs — let the AI interview you\nThe flip — one line you can paste today\n“Before answering, ask me clarifying questions until you’re 95% confident you understand what I need.”\nWhy it works: unstated needs get guessed right 41.1% of the time — when the model asks FIRST, accuracy jumps ~7–14 points (ClarifyGPT, FSE 2024). Answering its questions is quality control.\nYou’ve run this before — it was Prompt 1/7, step 2, on slide two. The course opened and closes on the same move.\nThe question toolkit — for you, not the AI\nFive Whys — Ohno, Toyota: “by repeating why five times… the solution becomes clear.” Same factory as PDCA.\nOpen → closed funnel — Open to explore (“what’s driving this?”), closed to verify (“so the cap is 18k — yes or no?”).\nThe Socratic check — Interrogate any AI answer: what’s assumed? what’s the evidence? what if we’re wrong?\n“Figuring out what questions to ask will be more important than figuring out the answer.”  — Sam Altman, 2025\n“[Computers] are useless. They can only give you answers.”  — Pablo Picasso, 1964. Sixty years apart, same conclusion.\nThe two skills are one: the seven elements are a requirements spec in miniature — and the element you CAN’T fill in yet is the exact question to ask, or to let the AI ask you.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Open with the flip: all course long they wrote prompts; the last skill is making the AI interview THEM. Read the paste-line; note the callback — it was Prompt 1/7 step 2, the very first exercise. Full circle, on purpose.\n2) The numbers, in one breath: 41.1% guessed right unstated → asking first recovers ~7–14 points → “answer its questions” is quality control.\n3) RIGHT toolkit — for HUMANS: Five Whys (say the Toyota tie: same factory as the PDCA slide) · open→closed funnel · the Socratic check for interrogating any AI answer.\n4) Quote band: Altman, then the Picasso echo — sixty years apart, same conclusion. (Picasso wording verified to the 1964 Paris Review interview; the popular “computers are useless” phrasing is a later smoothing.)\n5) Teal band is the course’s closing thesis — read it verbatim, then advance to the ten things.\n\nBRIDGE —\n“Ten things worth remembering — the photograph slide.”\n\nACRONYMS —\nFSE = the ACM Foundations of Software Engineering conference (ClarifyGPT’s venue). HBR (if cited aloud) = Harvard Business Review.\n\nCONTENT —\nv1.6 new slide (owner request). Sources verified in notes/research/r21_requirements_questions.md: ClarifyGPT (GPT-4 62.43→69.60 mean Pass@1; +13.87 with human answers) · CLAM 2022 (qualitative) · Ohno, Toyota Production System · Altman via ReThinking/CNBC Jan 2025 · Picasso via Quote Investigator.\nExtra toolkit for questions, if the room wants more: HBR’s five leader questions (investigative what’s known · speculative what if · productive now what · interpretive so what · subjective what’s unsaid), May–Jun 2024.\nDO NOT attribute: Einstein 55-minutes (apocryphal) · Voltaire judge-by-questions (de Lévis, 1808).\n61\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "223c582cbc73add07c60269aed8f32dbe8443736b01e545b3b4325b995cdddd1",
+  "notes_xml_sha256": "e525610cc9203c040ac6e8948b312641e760a38b3f8e0c164d686852bab4bbbc",
+  "part": "/ppt/slides/slide62.xml",
+  "shapes": [
+   {
+    "id": 13,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "89613d62ae75b1ed69bd167dfb1684ff7272f5c09ba522d6576c4143130ba18d",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "08e744f3080f71eed206baa2097c8252d42d763dcfee44658e9df32bce4089f7",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   0:10",
+      "runs": [
+       {
+        "text": "REFERENCE   0:10",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "be57790bc625f453672b57174d7d79185b9ef6fd7a91307221bec1e467140979",
+    "paragraphs": [
+     {
+      "text": "Clarifying questions reveal missing requirements",
+      "runs": [
+       {
+        "text": "Clarifying questions reveal missing requirements",
+        "family": "Calibri",
+        "size_pt": 33.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-105"
+       }
+      ],
+      "paragraph_properties_ref": "style-109"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "848e796acd15d282af5320c7f59499770f8f8c2a46a084c23bc6ab7b9c2ec189",
+    "paragraphs": [
+     {
+      "text": "Material unknown",
+      "runs": [
+       {
+        "text": "Material unknown",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "857505b40676b87ad26bd0e254499a7c8a9b2251ebf250967965f4fbda4e8365",
+    "paragraphs": [
+     {
+      "text": "Ask when the answer would change the task, output, or acceptance check.",
+      "runs": [
+       {
+        "text": "Ask when the answer would change the task, output, or acceptance check.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.322917,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "2b7341ef9954a9df9599990005981b7ad9dcca027f65f164ce89a5da3dae35cd",
+    "paragraphs": [
+     {
+      "text": "Reasonable assumption",
+      "runs": [
+       {
+        "text": "Reasonable assumption",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.322917,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "5f610be09cb84f4d96a483236e459a922c0d9e24978f1d83897412c61a702c4d",
+    "paragraphs": [
+     {
+      "text": "State an assumption when it allows useful, reversible progress.",
+      "runs": [
+       {
+        "text": "State an assumption when it allows useful, reversible progress.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.53125,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "cf5c44830ddfa990c95ad71eb5e0858a6b86aaed17e00e1b6180190caf34b9e9",
+    "paragraphs": [
+     {
+      "text": "Useful question",
+      "runs": [
+       {
+        "text": "Useful question",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.53125,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "1d77a34ca696e5cff75b36135f582a6a72ec2f4fd4bf02c017602fcbed4846b2",
+    "paragraphs": [
+     {
+      "text": "“Which decision should this report support?” is more actionable than “Tell me more.”",
+      "runs": [
+       {
+        "text": "“Which decision should this report support?” is more actionable than “Tell me more.”",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "5ba5eee86fc963858672b4a2727b084fa972dbe3a29205e786f32a87c1a1e4cc",
+    "paragraphs": [
+     {
+      "text": "A missing requirement type often tells you which question to ask.",
+      "runs": [
+       {
+        "text": "A missing requirement type often tells you which question to ask.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "50e7f1d84f368ca46ffe782e18334ae6f71641a449efa417181851d1ade4f9b6",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "81962086eacd9a7be83b8b3c89750ae04330d132b56dd35e7b317df08c937fa9",
+    "paragraphs": [
+     {
+      "text": "62",
+      "runs": [
+       {
+        "text": "62",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 63,
+  "current_slide": 63,
+  "proposed_slide": 63,
+  "stable_id": "sid-318",
+  "native_id": 318,
+  "title": "The habits to carry into work",
+  "mode": "TEACH",
+  "active_seconds": 25,
+  "notes": "MODE: TEACH\n\nTIME: 0:25\n\nPURPOSE: Build a concept required for the next application.\n\nLAND THIS: The durable habits are specify, verify, and delegate with appropriate authority.\n\nSAY:\n- Return to the requirements analogy without repeating the earlier explanation.\n- Ask participants to recall one failure the workbook or email exercise exposed.\n- Transition directly to their own application.\n\nDO: None.\n\nBRIDGE: Move to “Capstone: one task, one checked result”.\n\nIF LATE: COMPRESS\n\nCONNECTING INSIGHT\nRole, context, tone, format, source rules, and acceptance checks specify requirements for the response or artifact. Requirement type names what must be specified; requirement quality describes how well it is written. Context also supplies background facts. Specify how consequential facts constrain the work. The selected artifact determines which types matter: calculation rules for a spreadsheet, behavior and state for a dashboard, narrative and editability for a presentation, chronology and evidence for an email brief, or reading level and fidelity for a document. A role title alone does not guarantee expertise.\n\nSOURCE DETAIL FOR SELF-STUDY\nWRAP-UP\n62\nWRAP-UP\nTen things worth remembering\n1\nThe prompt is the whole steering wheel — everything the model knows about your task must be in it (or in files it can read).\n2\nAnatomy beats inspiration: Role · Task · Context · Format · Examples — plus the Out and the Stop. A prompt is a requirement, new audience.\n3\nThe context window is a desk, not a filing cabinet: documents at the top, question at the end, fresh chat per topic.\n4\nNumbers come from code execution, quotes come from documents, current facts come from search — never from free recall.\n5\nFluency is not evidence. Uncited claims are drafts. Give the model an out and demand citations.\n6\nNever reveal your preferred answer when asking for judgment — AI affirms you ~49% more than a human would.\n7\nOn thinking models: drop the step-by-step scripts, keep the clarity. Contradictions now cost real money.\n8\nA generative prompt says what to write; an agentic prompt is a work order: mission, environment, checks, gates, autonomy.\n9\nGates catch errors cheapest: definitions before data, reconciliation before analysis, headlines before rendering.\n10\nPrompts that work are assets: name them, version them, store them where the team (and the agent) can find them.\nAnd if you keep only one sentence: a prompt deletes wrong guesses, binds the job, and decides what sits on the desk.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT — 1) Announce: “this is the slide people photograph — go ahead.” 2) Read all ten SLOWLY, in order, left column then right, 1→10. No commentary between them; the compression is the point. 3) If asked where one came from, the map: 1–2 anatomy, 3–5 concepts, 6–7 evidence, 8–9 agentic, 10 management. 4) Close on the italic footer — the whole course in one sentence: a prompt deletes wrong guesses (Part 1), binds the job (Parts 3–5), and decides what sits on the desk (context — Parts 1 and 5). 5) Bridge: “three exercises to make it stick.”\nACRONYMS — none new on this slide.\nCONTENT — Each maps back to a part: 1–2 anatomy, 3–5 concepts, 6–7 evidence, 8–9 agentic, 10 management. v1.8: the one-sentence wrap-up added (external-review adoption, 9B-ext) — it compresses the course’s three moves into one line.\n62\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "b1e093c358e60b71a75db8eccc4032ba1c17cd40cfaa5f5e7d42e3efe336729c",
+  "notes_xml_sha256": "6cfd0f752df58bf614b243b0069ac18b287eae8a5e94a030eb8b84b919f54d59",
+  "part": "/ppt/slides/slide63.xml",
+  "shapes": [
+   {
+    "id": 13,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "1510023c447932aa59d0660b9d94c284da9fccc8f0b28abcbff8be3260187966",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "66cb7c019a933253622f97c37f835a750cfa8d8dec444b0dc9aa88e0d33a2da1",
+    "paragraphs": [
+     {
+      "text": "TEACH   0:25",
+      "runs": [
+       {
+        "text": "TEACH   0:25",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "c448c9581e95380c67fc38dcc80ef3f69306d01e8e0e71ded83954668bc979db",
+    "paragraphs": [
+     {
+      "text": "The habits to carry into work",
+      "runs": [
+       {
+        "text": "The habits to carry into work",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-16"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "5bab91fb88871a46f16ef06e3fbd91243f1effd5332b917c605b0bacd57b6957",
+    "paragraphs": [
+     {
+      "text": "Specify",
+      "runs": [
+       {
+        "text": "Specify",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "4e77cd65e065b9b7f04dc108be5a8dbd899a6a62caaa8e66717015ba3995c16b",
+    "paragraphs": [
+     {
+      "text": "Choose requirement types for the artifact: content, behavior, format, and checks.",
+      "runs": [
+       {
+        "text": "Choose requirement types for the artifact: content, behavior, format, and checks.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.322917,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "127625af94e5f3a42420afc0003f98b5c45a2e3812e9cd77b372e00de7a6bd64",
+    "paragraphs": [
+     {
+      "text": "Verify",
+      "runs": [
+       {
+        "text": "Verify",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.322917,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "36d547c1d0ae32b1e3e0b5a1248199c604f53ac0fcecb6d7489228b637c5e873",
+    "paragraphs": [
+     {
+      "text": "Check the result against evidence appropriate to the task.",
+      "runs": [
+       {
+        "text": "Check the result against evidence appropriate to the task.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.53125,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "656d33dea68268fdb220ef26a87891b3cdd181ef076cd2aca9c9eeb29754e239",
+    "paragraphs": [
+     {
+      "text": "Delegate",
+      "runs": [
+       {
+        "text": "Delegate",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.53125,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "84df3d68a3a224f6148c10a3d13f95a4c25a8266232aa6f622d58a9ecac5cf20",
+    "paragraphs": [
+     {
+      "text": "Define the work, authority, completion checks, and review points.",
+      "runs": [
+       {
+        "text": "Define the work, authority, completion checks, and review points.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "60827649c31d8e1323178de35b50cd5e499acdebc51fb09eef384a50830cc656",
+    "paragraphs": [
+     {
+      "text": "A saved prompt is useful when you can explain why it works and where it can fail.",
+      "runs": [
+       {
+        "text": "A saved prompt is useful when you can explain why it works and where it can fail.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "900c3c60e428db7532cd9543051ca773f4fc46151e3ff2618becaf141c414bda",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "1401cdc9aa84498c373c1b757c0521486c74ece62d3759a77d3dbc1f8416409b",
+    "paragraphs": [
+     {
+      "text": "63",
+      "runs": [
+       {
+        "text": "63",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 64,
+  "current_slide": 64,
+  "proposed_slide": 64,
+  "stable_id": "sid-319",
+  "native_id": 319,
+  "title": "Capstone: one task, one checked result",
+  "mode": "DO",
+  "active_seconds": 300,
+  "notes": "MODE: DO\n\nTIME: 5:00\n\nPURPOSE: Demonstrate independent application on a real task.\n\nLAND THIS: Participants complete a real task and explain how they checked it.\n\nSAY:\n- Offer three routes: repair a prompt, review a document against a rubric, or write a mission brief.\n- One route is enough. A full agent run is not required to demonstrate briefing skill.\n- If generation is slow, use the prepared result and evaluate it against the same criteria.\n\nDO: 0:00–0:30 choose; 0:30–2:30 improve and run; 2:30–4:00 check and revise; 4:00–5:00 one volunteer shares the task, evidence, and revision.\n\nBRIDGE: Move to “Glossary — twenty terms that matter”.\n\nIF LATE: KEEP\n\nANCHOR: Yes. Keep the central concept if surrounding reference orientations are skipped.\n\nPROTECTED APPLICATION: Use prepared inputs and fallback outputs. Compress reference material before reducing this activity.\n\nSOURCE DETAIL FOR SELF-STUDY\nHANDS-ON\n63\nHANDS-ON · 15 MINUTES EACH\nThree exercises that make it stick\nExercise 1 · Anatomy rebuild  \nTake a prompt you actually used last week. Rebuild it with the seven-element anatomy (G-templates as reference). Run both; compare outputs. Then ask the model to improve your rebuilt prompt — metaprompting — and run that too.  \nYou’ll see the quality jump — and how cheap it was.\nExercise 2 · Blind review  \nPaste a document or plan you own as “a colleague’s draft” and run G3’s critique template: case against, three weakest points, what evidence would change the verdict. Do NOT hint at your view.  \nMost people meet their first honest AI review here.\nExercise 3 · First mission brief  \nPick a small recurring job with files (a folder to summarize, a tracker to update). Fill A1’s twelve blocks — placeholders and all. No agent needed today: writing the brief is the skill.  \nWhere the checks and gates feel awkward is where your process was fuzzy all along.\nFifteen minutes, your real work — starting now.\nShare-back: next team meeting, two volunteers show a before / after.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT — 1) Three cards TOP TO BOTTOM: anatomy rebuild → blind review → first mission brief; each is 15 minutes ON THEIR REAL WORK — say that twice; toy exercises don’t transfer. 2) Read the italic payoff line inside each card — it is the motivation. 3) Set the share-back (teal card): next team meeting, two volunteers show a before/after. 4) If time allows in-session, run exercise 1 live with a volunteer’s real prompt.\nACRONYMS — G-templates / G3 / A1 = library codes (generative set, the critique template, the mission brief).\nCONTENT — Exercises 2 and 3 work as homework with a share-back next meeting.\nART — the office scene is an owner-generated illustration (R16), placed here per the owner’s default (the closing hands-on slide): the room it depicts is the room doing the exercises.\n63\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "81aa6b3662e7bd7d345aa0194b4809fcc8817591b3a483a343f066a538c2b02c",
+  "notes_xml_sha256": "c4ca319bde8744f29e26aa15653457814cd44a06a179fc07973cc8cc8c797366",
+  "part": "/ppt/slides/slide64.xml",
+  "shapes": [
+   {
+    "id": 13,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.083333
+    ],
+    "xml_sha256": "f911c036f26fbb2cb7bdc465b6f20a607e01b447eceb5d93d9554f2bcb8afde4",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "757e423cc98775774792de2993765a2d246658096723f2b649f66a91aa39d22b",
+    "paragraphs": [
+     {
+      "text": "DO · ANCHOR   5:00",
+      "runs": [
+       {
+        "text": "DO · ANCHOR   5:00",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-104"
+       }
+      ],
+      "paragraph_properties_ref": "style-103"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "9a5bacad1913b836146011f5946cbfcf747068d384e176c0c798b9ba526065cf",
+    "paragraphs": [
+     {
+      "text": "Capstone: one task, one checked result",
+      "runs": [
+       {
+        "text": "Capstone: one task, one checked result",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "e72c259d56f6f3f0ede5154fd36cee6a24a0cca92d8454bee5da39e6c10d37d7",
+    "paragraphs": [
+     {
+      "text": "Choose",
+      "runs": [
+       {
+        "text": "Choose",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "b05232fa583b9932ed0690b6fe830ea6a9e575a54239fab37e0c14ea99fd39a7",
+    "paragraphs": [
+     {
+      "text": "Use a real prompt or the supplier/email example.",
+      "runs": [
+       {
+        "text": "Use a real prompt or the supplier/email example.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.322917,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "3b9bed588f860821b5c44b29cb7eeabf27ee5bb25100c8793f9ee126b37ce0f5",
+    "paragraphs": [
+     {
+      "text": "Improve and run",
+      "runs": [
+       {
+        "text": "Improve and run",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.322917,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "b4557eb3feb6c47d2cc2bea1344926c25b7973b38396e070c2a8321ae365c587",
+    "paragraphs": [
+     {
+      "text": "Clarify the missing requirement, then generate the result.",
+      "runs": [
+       {
+        "text": "Clarify the missing requirement, then generate the result.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.53125,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "18241278a74a005b1eaf38aa4ffbbc7f290b408b6d8b865f6886ca39404518fd",
+    "paragraphs": [
+     {
+      "text": "Check and explain",
+      "runs": [
+       {
+        "text": "Check and explain",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.53125,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "2ab33d7d806281f05cfa1e71008922692ef92a63624f15423371a4a9ccfe2f65",
+    "paragraphs": [
+     {
+      "text": "Show the evidence and name one revision you would make.",
+      "runs": [
+       {
+        "text": "Show the evidence and name one revision you would make.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "a93493947a99bd1f9d22a2bd063fbe34134569612d4d5dba37e16d5d8f761167",
+    "paragraphs": [
+     {
+      "text": "Success: a clear task, grounded output, an explicit check, and a reusable next version.",
+      "runs": [
+       {
+        "text": "Success: a clear task, grounded output, an explicit check, and a reusable next version.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "165412333e95fcc1b5627ae5500467a9cf25a2aaca35792e009fa6dc1687b52e",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "79adffd7bced1c61bafffe6c667bdb30397b63c51ab9e275acdeaf3ef4317b09",
+    "paragraphs": [
+     {
+      "text": "64",
+      "runs": [
+       {
+        "text": "64",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 65,
+  "current_slide": 65,
+  "proposed_slide": 65,
+  "stable_id": "sid-320",
+  "native_id": 320,
+  "title": "Glossary — twenty terms that matter",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: The remaining slides support later self-study.\n\nSAY:\n- This glossary defines the course vocabulary.\n- Participants can use it while reading the detailed reference slides.\n\nDO: None.\n\nBRIDGE: Move to “Why each dial matters — the generative criteria”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nREFERENCE\n64\nREFERENCE\nGlossary — twenty terms that matter\nEscalation ladder — prompt first, retrieve second, fine-tune last — capability triage (Part 1)\nPromotion ladder — one-off → personal → team → packaged → as-code — where a prompt lives (Part 6)\nToken — the text chunk a model actually reads (~¾ of a word); pricing and limits count these\nContext window — working memory per conversation — everything must fit; cleared when the chat ends\nKnowledge cutoff — where training data stops; anything after needs search or your documents\nRAG — retrieval-augmented generation — fetch relevant passages, answer from them, with citations\nEmbedding — a text’s coordinate in meaning-space; powers semantic search and RAG retrieval\nHallucination — fluent, confident, wrong — plausibility optimized instead of truth\nReasoning model — drafts and checks internally before answering; slower, costlier, better at hard problems\nFew-shot — teaching by 3–5 examples in the prompt\nChain-of-thought — prompting visible step-by-step reasoning — now built into thinking models\nMetaprompting — asking the model to critique or rewrite your prompt\nSycophancy — the trained tendency to agree with you; blind the review to defuse it\nAgent — model + tools + instructions in a loop, acting until done or stopped\nMCP — Model Context Protocol — the open standard for plugging tools into agents\nMission brief — an agentic prompt: goal, environment, inputs, process, checks, gates, reporting\nGate — a human checkpoint inside an agent’s process — approve before it proceeds\nOpen weights — a downloadable model you can self-host — the data-privacy end of the spectrum\nTaxonomy — the element → attribute → option catalog behind the Template Creator — your parts list\nContext engineering — choosing everything on the desk — prompt, files, history, tool results; parent of agentic prompting\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT — 1) Do not read it. One sentence: “print-friendly glossary — every term on it was used in context today.” 2) Point at two entries only: sycophancy (the one that changes behavior) and gate (the one that makes agents safe). 3) Advance.\nACRONYMS — RAG and MCP are expanded on the slide itself; nothing else to define.\nCONTENT — Print-friendly reference. All twenty were used in context during the training (taxonomy added in v1.2; the two ladders added in v1.5 to disambiguate them; context engineering added in v1.8 with the desk-slide line).\n64\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "ab882fa9e9265a3d6730402bc0ca4aa51bc424d554647d2b5b264f9528eec455",
+  "notes_xml_sha256": "9761c95493ac4914ec65423fb486a562fb5fa3c287eb14038f82d50791f1f613",
+  "part": "/ppt/slides/slide65.xml",
+  "shapes": [
+   {
+    "id": 4,
+    "name": "Text 2",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.3,
+     12.2,
+     0.3
+    ],
+    "xml_sha256": "7dce07f646a79ade4f45857d888581ea8b429173b13f9795e8d7bb00543a1bb1",
+    "paragraphs": [
+     {
+      "text": "REFERENCE",
+      "runs": [
+       {
+        "text": "REFERENCE",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-38"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Text 3",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.58,
+     12.2,
+     0.75
+    ],
+    "xml_sha256": "2fe7d237145b22d146bb3deb34386a0a984cf6bd2f7abef4cb6a99a7c8edab72",
+    "paragraphs": [
+     {
+      "text": "Glossary — twenty terms that matter",
+      "runs": [
+       {
+        "text": "Glossary — twenty terms that matter",
+        "family": "Cambria",
+        "size_pt": 30.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-39"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Text 4",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     1.55,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "a2296a4b436d7d69cc12d5189741278482259e1e7534b068f2176dd0e2fb9be6",
+    "paragraphs": [
+     {
+      "text": "Escalation ladder — prompt first, retrieve second, fine-tune last — capability triage (Part 1)",
+      "runs": [
+       {
+        "text": "Escalation ladder — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "prompt first, retrieve second, fine-tune last — capability triage (Part 1)",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Text 5",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     1.55,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "96c7de4ff99fb5c1e92e651cefb475bbb53bd8b91a29d8359abeb4c408e7b964",
+    "paragraphs": [
+     {
+      "text": "Promotion ladder — one-off → personal → team → packaged → as-code — where a prompt lives (Part 6)",
+      "runs": [
+       {
+        "text": "Promotion ladder — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "one-off → personal → team → packaged → as-code — where a prompt lives (Part 6)",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Text 6",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     2.09,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "97f4544b672ec92047d100a12e7358895b94daf43c59bef580e3820dbecb720e",
+    "paragraphs": [
+     {
+      "text": "Token — the text chunk a model actually reads (~¾ of a word); pricing and limits count these",
+      "runs": [
+       {
+        "text": "Token — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "the text chunk a model actually reads (~¾ of a word); pricing and limits count these",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Text 7",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     2.09,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "30e557ade4340e58700eca5f5c489b304c0921e292bf38931211a68a0eb29168",
+    "paragraphs": [
+     {
+      "text": "Context window — information available for a response; distinct from saved chat history",
+      "runs": [
+       {
+        "text": "Context window — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "information available for a response; distinct from saved chat history",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Text 8",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     2.63,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "7825180083606890910326bfb0320da24f87da23922e0e8f81c22ad2f440abb8",
+    "paragraphs": [
+     {
+      "text": "Knowledge cutoff — where training data stops; anything after needs search or your documents",
+      "runs": [
+       {
+        "text": "Knowledge cutoff — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "where training data stops; anything after needs search or your documents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Text 9",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     2.63,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "2db6a20253285709b043ff658982debafc2c56b7b244c0fd8e5c26c120ce99b3",
+    "paragraphs": [
+     {
+      "text": "RAG — retrieval-augmented generation — fetch relevant passages, answer from them, with citations",
+      "runs": [
+       {
+        "text": "RAG — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "retrieval-augmented generation — fetch relevant passages, answer from them, with citations",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Text 10",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     3.17,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "ab7ffdcc081b6657c9e3c5f02f0ce761b4be873ccd841da2fe6a43667e354184",
+    "paragraphs": [
+     {
+      "text": "Embedding — a text’s coordinate in meaning-space; powers semantic search and RAG retrieval",
+      "runs": [
+       {
+        "text": "Embedding — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "a text’s coordinate in meaning-space; powers semantic search and RAG retrieval",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Text 11",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     3.17,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "d26e24f878c656bb2f71173b9e6dfb62eb49e7b46316701bd2f45042cff17824",
+    "paragraphs": [
+     {
+      "text": "Hallucination — fluent, confident, wrong — plausibility optimized instead of truth",
+      "runs": [
+       {
+        "text": "Hallucination — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "fluent, confident, wrong — plausibility optimized instead of truth",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Text 12",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     3.71,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "bcbe9e9e5bac23636934bf9c91a0e490c52d77028f3df83154892092fbe8b4f0",
+    "paragraphs": [
+     {
+      "text": "Reasoning model — uses additional computation before answering; assess benefit and cost on your task",
+      "runs": [
+       {
+        "text": "Reasoning model — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "uses additional computation before answering; assess benefit and cost on your task",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Text 13",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     3.71,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "0f30ef62be48165f76fcfff00cd7b2525c4c603272565475dddbbfa9d9aa9bcc",
+    "paragraphs": [
+     {
+      "text": "Few-shot — providing a few examples in the prompt",
+      "runs": [
+       {
+        "text": "Few-shot — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "providing a few examples in the prompt",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "Text 14",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     4.25,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "e5f219ab2b78cde288ea7ac81de99e2a8708976550f1852588dfc170678e00b7",
+    "paragraphs": [
+     {
+      "text": "Chain-of-thought — a generated sequence of intermediate steps; it still needs verification",
+      "runs": [
+       {
+        "text": "Chain-of-thought — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "a generated sequence of intermediate steps; it still needs verification",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "name": "Text 15",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     4.25,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "f8a4bd61968c7e5e075fa4aadef45d7b0b1342282bba27e965fb86d560b27eb8",
+    "paragraphs": [
+     {
+      "text": "Metaprompting — asking the model to critique or rewrite your prompt",
+      "runs": [
+       {
+        "text": "Metaprompting — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "asking the model to critique or rewrite your prompt",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "Text 16",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     4.79,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "d16071fc6d2d751c8385eb938ddfb643a5b1ce4366ec4b3b2279fcfe0a3d4f43",
+    "paragraphs": [
+     {
+      "text": "Sycophancy — the trained tendency to agree with you; blind the review to defuse it",
+      "runs": [
+       {
+        "text": "Sycophancy — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "the trained tendency to agree with you; blind the review to defuse it",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 19,
+    "name": "Text 17",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     4.79,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "70d0b00ae5c1ae05b04f9f484d930820d4c2a8ae284a77c1b15f8fbc81eebf52",
+    "paragraphs": [
+     {
+      "text": "Agent — model + tools + instructions in a loop, acting until done or stopped",
+      "runs": [
+       {
+        "text": "Agent — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "model + tools + instructions in a loop, acting until done or stopped",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 20,
+    "name": "Text 18",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     5.33,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "731771428dc7201bd0601682ad5813b646cd2b25972d17ae0dbc1e16ec2b6a45",
+    "paragraphs": [
+     {
+      "text": "MCP — Model Context Protocol — the open standard for plugging tools into agents",
+      "runs": [
+       {
+        "text": "MCP — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "Model Context Protocol — the open standard for plugging tools into agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 21,
+    "name": "Text 19",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     5.33,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "32b682a2fbb3c108a9564301af85bef864d90f1488efa176368da29df0c1d8a8",
+    "paragraphs": [
+     {
+      "text": "Mission brief — an agentic prompt: goal, environment, inputs, process, checks, gates, reporting",
+      "runs": [
+       {
+        "text": "Mission brief — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "an agentic prompt: goal, environment, inputs, process, checks, gates, reporting",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 22,
+    "name": "Text 20",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     5.87,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "4b416f2d5eb2cb7c7b32ca84a40daa512b9bc9b1d5886f695d0e90b466e2572c",
+    "paragraphs": [
+     {
+      "text": "Gate — a human checkpoint inside an agent’s process — approve before it proceeds",
+      "runs": [
+       {
+        "text": "Gate — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "a human checkpoint inside an agent’s process — approve before it proceeds",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 23,
+    "name": "Text 21",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     5.87,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "cc8667738a9f87ddec684636bcd0ce465a5fed348698ce656cc97bbb2845227f",
+    "paragraphs": [
+     {
+      "text": "Open weights — a downloadable model weights; privacy depends on the deployment",
+      "runs": [
+       {
+        "text": "Open weights — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "a ",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       },
+       {
+        "text": "downloadable model weights; privacy depends on the deployment",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 24,
+    "name": "Text 22",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     6.41,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "68a80b4b68407a8052e28199d8a99b8df5ea71f1c1578ab08ffb7b6769aea41c",
+    "paragraphs": [
+     {
+      "text": "Taxonomy — the element → attribute → option catalog behind the Template Creator — your parts list",
+      "runs": [
+       {
+        "text": "Taxonomy — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "the element → attribute → option catalog behind the Template Creator — your parts list",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 25,
+    "name": "Text 23",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     6.41,
+     5.95,
+     0.56
+    ],
+    "xml_sha256": "20fdf67df2a6f28b72ff6373a453d13b6428d0164a8a6b7f2f3a47ca4f946e04",
+    "paragraphs": [
+     {
+      "text": "Context engineering — choosing everything on the desk — prompt, files, history, tool results; parent of agentic prompting",
+      "runs": [
+       {
+        "text": "Context engineering — ",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-94"
+       },
+       {
+        "text": "choosing everything on the desk — prompt, files, history, tool results; parent of agentic prompting",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-136"
+     }
+    ]
+   },
+   {
+    "id": 26,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.041667
+    ],
+    "xml_sha256": "a3e593c5fe3667f20ff55ba3f27c6f8e2ab4b6800c68547aa4c871bf4b3ba554",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 27,
+    "name": "FACILITATION_MODE_LABEL",
+    "type": 1,
+    "bounds_inches": [
+     10.416667,
+     0.177083,
+     2.552083,
+     0.3125
+    ],
+    "xml_sha256": "7344c50b3d6b7d10dc2679b983d310d4993eaa97288449008df71228896045a0",
+    "paragraphs": [
+     {
+      "text": "REFERENCE  0:10",
+      "runs": [
+       {
+        "text": "REFERENCE  0:10",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-52"
+       }
+      ],
+      "paragraph_properties_ref": "style-51"
+     }
+    ]
+   },
+   {
+    "id": 28,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.447917,
+     7.145833,
+     0.520833,
+     0.28125
+    ],
+    "xml_sha256": "71fcb8258e9963e918b21bd589df4656e6fd33b93a7d26274635ef02e341a924",
+    "paragraphs": [
+     {
+      "text": "65",
+      "runs": [
+       {
+        "text": "65",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 66,
+  "current_slide": 66,
+  "proposed_slide": 66,
+  "stable_id": "sid-321",
+  "native_id": 321,
+  "title": "Why each dial matters — the generative criteria",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: Evidence claims should retain their task, model, date, and limitation.\n\nSAY:\n- This evidence map links generative-prompt requirements to their rationale.\n- Read studies with their tasks, models, dates, and limitations.\n\nDO: None.\n\nBRIDGE: Move to “Why each dial matters — the agentic criteria”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nREFERENCE · EVIDENCE MAP 1 OF 2\n65\nREFERENCE\nWhy each dial matters — the generative criteria\nCriteria class\nWhat it does to your output\nEvidence\nIdentity & role\nSets voice, vocabulary, and caution level — which region of training answers. Titles add no accuracy: 162-persona testing found no gain.\nZheng 2024 · Salewski 2023\nBehavioral rules\nTurn “be careful” into rules checkable line-by-line in the output; grounding rules drastically cut invented content.\nAnthropic hallucination docs\nStance & blinding\nModels affirm users ~49% more than humans and mirror any side you reveal — a declared neutral or critic stance pre-empts the mirror.\nCheng, Science 2026 · Sharma 2023\nTask verb & question\nThe verb selects the operation; a precise question carries its own completion test. Ambiguity burns thinking tokens on reconciliation.\nGoogle guide · OpenAI GPT-5 guide\nPurpose — the why\nModels generalize from reasons: an explained rule gets applied in spirit to cases you never listed.\nAnthropic best practices\nContext & glossary\nReplaces the model’s most-plausible guess with your facts; every unstated quirk becomes an invented “fix.”\nOpenAI 2025, why LMs hallucinate\nMaterial placement\nDocuments at the top, question at the end: up to ~30% better answers; content buried mid-context sags.\nAnthropic long-context · Liu 2023\nFormat & length\nTiny format changes swing accuracy up to 76 points — a tested shape removes that variance. Numeric caps are enforceable; adjectives are moods.\nSclar, ICLR 2024\nExamples\nImitates format, tone, AND edge-case behavior; exemplar choice and order alone swing accuracy from chance to 90%+. Zero-shot first on thinking models.\nBrown 2020 · Lu 2021 · DeepSeek-R1\nThe Out & the Stop\nPermission to say “I don’t know” drastically cuts invented answers — training rewards guessing; numbered scope plus a stop rule bound the sprawl.\nAnthropic docs · OpenAI 2025\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT — 1) This is a reference slide — don’t walk all ten rows. Say what it IS: “every dial you met in Part 3, what it does to your output, and the evidence — the same notes now sit on every slot of your Taxonomy Reference.” 2) If time allows, read TWO rows aloud as proof of depth: Format & length (the 76-point swing) and Stance (the ~49% number). 3) Point them to the handout: “when you wonder whether a slot is worth filling, the why is printed next to it.”\nACRONYMS — ICLR = International Conference on Learning Representations (a top AI research venue).\nCONTENT — v1.4 layer (owner request): the per-attribute “why it matters” notes. Full citations with URLs live in notes/research/ (r3_techniques.md, t1_prompt_report.md). Every row compresses the whys stamped on the taxonomy attributes; the agentic half is the next slide.\n65\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "1a1b084bb859fee5d5bcb5e0beabc0c7b26a964d95c393d647a9183330e8c6ca",
+  "notes_xml_sha256": "181ee3c4bc47b3445a0550ddd7c1df4f4247d8d5087cfce7f3060141755600bf",
+  "part": "/ppt/slides/slide66.xml",
+  "shapes": [
+   {
+    "id": 4,
+    "name": "Text 2",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.3,
+     12.2,
+     0.3
+    ],
+    "xml_sha256": "979d2072d6530dd6c53a4263cfe0b7aff493de6575dca16c6e458bbed6d9c957",
+    "paragraphs": [
+     {
+      "text": "REFERENCE",
+      "runs": [
+       {
+        "text": "REFERENCE",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-38"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Text 3",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.58,
+     12.2,
+     0.75
+    ],
+    "xml_sha256": "4c41580646f0c4f9777f66859e37779ea773b916273a27638e364e4ad286d647",
+    "paragraphs": [
+     {
+      "text": "Why each dial matters — the generative criteria",
+      "runs": [
+       {
+        "text": "Why each dial matters — the generative criteria",
+        "family": "Cambria",
+        "size_pt": 30.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-39"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Text 4",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     1.58,
+     2.3,
+     0.3
+    ],
+    "xml_sha256": "8afbc88e604dbe8aef6b14cb0ca389bbd1635808f608c9b96249335b14f481b9",
+    "paragraphs": [
+     {
+      "text": "Criteria class",
+      "runs": [
+       {
+        "text": "Criteria class",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-137"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Text 5",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     1.58,
+     6.0,
+     0.3
+    ],
+    "xml_sha256": "d70a6f36a3319ac5f3bad6e623f5bfa65755ba50939d26f6ce3159a25d2d8538",
+    "paragraphs": [
+     {
+      "text": "What it does to your output",
+      "runs": [
+       {
+        "text": "What it does to your output",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-138"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Text 6",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     1.58,
+     3.25,
+     0.3
+    ],
+    "xml_sha256": "fd25944a340d5af474e74eaefc89ec0f265c580a1e2a134b78cd267eb2981445",
+    "paragraphs": [
+     {
+      "text": "Evidence",
+      "runs": [
+       {
+        "text": "Evidence",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-131"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Shape 7",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     1.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "4caed892ffff2665c7b4dd79ac05f80f1ab18a32cd39245d6ae891d7f8354394",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Text 8",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     1.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "9379197138c1610caa652b892f0f3df5e550af8a5911230f7b21cf4ba311911f",
+    "paragraphs": [
+     {
+      "text": "Identity & role",
+      "runs": [
+       {
+        "text": "Identity & role",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Text 9",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     1.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "85ce293fd8f6e286ee31997b48a1ef495123dcaa2ab0c4a6910f99f623267bf4",
+    "paragraphs": [
+     {
+      "text": "Sets voice, vocabulary, and caution level — which region of training answers. A role title alone does not establish accuracy.",
+      "runs": [
+       {
+        "text": "Sets voice, vocabulary, and caution level — which region of training answers. ",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": "A role title alone does not establish accuracy.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Text 10",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     1.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "9102b445112bc7e4cca92e540ecf8630ac8729237b9f7edd1f830eccc7e3a7b8",
+    "paragraphs": [
+     {
+      "text": "Zheng 2024 · Salewski 2023",
+      "runs": [
+       {
+        "text": "Zheng 2024 · Salewski 2023",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Shape 11",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     2.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "184e8eef130daa83767cfd7d7780a18bddb127aab9a3b85b6a5861bab17cdef1",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Text 12",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     2.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "b760c3872308946032ce38f73aa78a2fe4ac76357557ea968a9bd1b9799da7b4",
+    "paragraphs": [
+     {
+      "text": "Behavioral rules",
+      "runs": [
+       {
+        "text": "Behavioral rules",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Text 13",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     2.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "b3fb9fb0bc5070ce5ff58de228152a45e65514fff26d61f9a4d52cdfd8462e35",
+    "paragraphs": [
+     {
+      "text": "Turn “be careful” into rules checkable line-by-line in the output; grounding rules can help; verify the cited support.",
+      "runs": [
+       {
+        "text": "Turn “be careful” into rules checkable line-by-line in the output; ",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": "grounding rules can help; verify the cited support.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "Text 14",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     2.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "a33766410c871601b3393a951451568161512fe48f87f4e899af3e06fcd6287a",
+    "paragraphs": [
+     {
+      "text": "Anthropic hallucination docs",
+      "runs": [
+       {
+        "text": "Anthropic hallucination docs",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "name": "Shape 15",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     2.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "d9857bb645d8bccb93e164f748b67e5045fa9024ccfd36f9fb9a125bf5683162",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "Text 16",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     2.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "17805e196f43dcf36c3cecd048e9150e4b1f6a0159082ae498399a2b1534c5da",
+    "paragraphs": [
+     {
+      "text": "Stance & blinding",
+      "runs": [
+       {
+        "text": "Stance & blinding",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 19,
+    "name": "Text 17",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     2.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "76d846d41116d794752860124da6a9f036c0082db83153b0cfb1cfce9c1d69ab",
+    "paragraphs": [
+     {
+      "text": "Models can favor the user’s stated view. Use a neutral rubric and independently check the supporting evidence.",
+      "runs": [
+       {
+        "text": "Models can favor the user’s stated view. Use a neutral rubric and independently check the supporting evidence.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 20,
+    "name": "Text 18",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     2.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "d42560bc4bce9281d0849e0462c93baf32c56c5323cefa04b3254e8ebd22bd8d",
+    "paragraphs": [
+     {
+      "text": "Cheng, Science 2026 · Sharma 2023",
+      "runs": [
+       {
+        "text": "Cheng, Science 2026 · Sharma 2023",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 21,
+    "name": "Shape 19",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     3.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "ff3eafe274f0c0369347d7cca8d0f0efd91fbd0610612d22afe56e74ce8f4231",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 22,
+    "name": "Text 20",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     3.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "bb485b357dfebd336ca9bbd9517e6310abcdafab42c31dc02d5ba33cf60f1b90",
+    "paragraphs": [
+     {
+      "text": "Task verb & question",
+      "runs": [
+       {
+        "text": "Task verb & question",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 23,
+    "name": "Text 21",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     3.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "b9cfc1154841f06fcc73e1bdeb4d6ab47c764476f5e5c547f89e79e56d5534e1",
+    "paragraphs": [
+     {
+      "text": "The verb selects the operation; a precise question carries its own completion test. Ambiguity burns thinking tokens on reconciliation.",
+      "runs": [
+       {
+        "text": "The verb selects the operation; a precise question carries its own completion test. Ambiguity burns thinking tokens on reconciliation.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 24,
+    "name": "Text 22",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     3.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "6ed6413dc0a5433af74fdee7de3ef9a55befcbe2fb43e6266323ee5a131cd6bf",
+    "paragraphs": [
+     {
+      "text": "Google guide · OpenAI GPT-5 guide",
+      "runs": [
+       {
+        "text": "Google guide · OpenAI GPT-5 guide",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 25,
+    "name": "Shape 23",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     3.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "22e0b02728c0ae7f213fdd3233099585f59c7b71dcc5b59dfac0e45d66d017f6",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 26,
+    "name": "Text 24",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     3.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "f582f13cfed7218bcc4b800d183baa71d3773716525ff70edddc63f1000c4dc6",
+    "paragraphs": [
+     {
+      "text": "Purpose — the why",
+      "runs": [
+       {
+        "text": "Purpose — the why",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 27,
+    "name": "Text 25",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     3.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "66d504b15e044564c5102b49896fe02e0db1456ff5ba5948a055341fe0a01269",
+    "paragraphs": [
+     {
+      "text": "Models generalize from reasons: an explained rule gets applied in spirit to cases you never listed.",
+      "runs": [
+       {
+        "text": "Models generalize from reasons: an explained rule gets applied in spirit to cases you never listed.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 28,
+    "name": "Text 26",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     3.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "c1355c934d39edc6ecd7c04e24f02437a53843f4e2b2149e64de63c4fddc0f8c",
+    "paragraphs": [
+     {
+      "text": "Anthropic best practices",
+      "runs": [
+       {
+        "text": "Anthropic best practices",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 29,
+    "name": "Shape 27",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     4.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "04fae11489837f34f72e58c9b21cd8cc711c54bb9d5db4966e4eede6a97d1449",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 30,
+    "name": "Text 28",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     4.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "04b189d7e38e2dbbfa3ac71defa2e78fde4d77c80e8e7910db65d73f72befaba",
+    "paragraphs": [
+     {
+      "text": "Context & glossary",
+      "runs": [
+       {
+        "text": "Context & glossary",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 31,
+    "name": "Text 29",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     4.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "078defae5f7b2dd9aee4e63f1e217d046e10eb4af021b2fcd9c2abb6fb86e418",
+    "paragraphs": [
+     {
+      "text": "Replaces the model’s most-plausible guess with your facts; unstated quirks can lead to incorrect assumptions.",
+      "runs": [
+       {
+        "text": "Replaces the model’s most-plausible guess with your facts; ",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": "unstated quirks can lead to incorrect assumptions.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 32,
+    "name": "Text 30",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     4.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "4687bf232722cd9388bffd0e0266074eb4f6d01751e15048406947c320bbba52",
+    "paragraphs": [
+     {
+      "text": "OpenAI 2025, why LMs hallucinate",
+      "runs": [
+       {
+        "text": "OpenAI 2025, why LMs hallucinate",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 33,
+    "name": "Shape 31",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     4.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "0b113a7b28f260d07314b7f3b90f40ff54068aa2afe4e8ba966d052401b75f52",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 34,
+    "name": "Text 32",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     4.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "26a23bed0511f61bf4cc7dfe0c2e1ec2ff040dc9533d018863eaff41dbef9b9c",
+    "paragraphs": [
+     {
+      "text": "Material placement",
+      "runs": [
+       {
+        "text": "Material placement",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 35,
+    "name": "Text 33",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     4.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "9f73f47c2cf03fe5094fb4e321ab20f79cf3931e6ebb0ccfc761a1f9baa04e7e",
+    "paragraphs": [
+     {
+      "text": "Documents at the top, question at the end: effects depend on the task and model; content buried mid-context sags.",
+      "runs": [
+       {
+        "text": "Documents at the top, question at the end: ",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": "effects depend on the task and model",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": "; content buried mid-context sags.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 36,
+    "name": "Text 34",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     4.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "be4bd1b7e6041523f148c9939e631a55afbb9f47a936e40acba09afe5969e98e",
+    "paragraphs": [
+     {
+      "text": "Anthropic long-context · Liu 2023",
+      "runs": [
+       {
+        "text": "Anthropic long-context · Liu 2023",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 37,
+    "name": "Shape 35",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     5.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "64065d8ca3793499a0fa49951b358c422cd6df82bd8b6bf40a9e8d5fc114b898",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 38,
+    "name": "Text 36",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     5.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "02f66876c079bec5e7c2cb316642831efe08ff9bf05bd29169d6190fd2dc7f20",
+    "paragraphs": [
+     {
+      "text": "Format & length",
+      "runs": [
+       {
+        "text": "Format & length",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 39,
+    "name": "Text 37",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     5.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "ff9d942d65a697c9bd671b4f9ee253e5d6c3ff213de0fc3fc4695b946d4ee356",
+    "paragraphs": [
+     {
+      "text": "Formatting can affect results. Test the chosen structure, and check length or column requirements explicitly.",
+      "runs": [
+       {
+        "text": "Formatting can affect results. Test the chosen structure, and check length or column requirements explicitly.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 40,
+    "name": "Text 38",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     5.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "8aeaebfa789d837f59836ba9a82b2aca4c4934a51bfac1f77efb27063dce4905",
+    "paragraphs": [
+     {
+      "text": "Sclar, ICLR 2024",
+      "runs": [
+       {
+        "text": "Sclar, ICLR 2024",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 41,
+    "name": "Shape 39",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     5.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "effafc21b967d5d302d401b3c285f79dd3cc79a9de6ffd627d953f94c867964a",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 42,
+    "name": "Text 40",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     5.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "6bb4c9f693299baf5521c71e923250eab11fd847640f20d4fcd59bb5cb666817",
+    "paragraphs": [
+     {
+      "text": "Examples",
+      "runs": [
+       {
+        "text": "Examples",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 43,
+    "name": "Text 41",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     5.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "69bcf9a24725b92cf9c48d65acf2dcac4a114d78af489b5b59a30ab62f1085af",
+    "paragraphs": [
+     {
+      "text": "Imitates format, tone, AND edge-case behavior; the effect of example selection and order depends on the task and model.",
+      "runs": [
+       {
+        "text": "Imitates format, tone, AND edge-case behavior; ",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": "the effect of example selection and order depends on the task and model.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 44,
+    "name": "Text 42",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     5.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "f61f1a302b1791392a2c5435b7991455d4046745da378410a26e26c0c78db77f",
+    "paragraphs": [
+     {
+      "text": "Brown 2020 · Lu 2021 · DeepSeek-R1",
+      "runs": [
+       {
+        "text": "Brown 2020 · Lu 2021 · DeepSeek-R1",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 45,
+    "name": "Shape 43",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     6.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "4ba1cb67b29540b5172f71955bfa4ecb1eb8315dd2b6cdc1278e01fe273c7633",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 46,
+    "name": "Text 44",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     6.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "168ea52916a68cd9057ced76355a0e5265a3125972fea9848b0bc8ccd6807fa3",
+    "paragraphs": [
+     {
+      "text": "The Out & the Stop",
+      "runs": [
+       {
+        "text": "The Out & the Stop",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 47,
+    "name": "Text 45",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     6.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "0b251bf55f5733d4c90537cb15ac15d5829545ff6a7b4a975898917dd0261d72",
+    "paragraphs": [
+     {
+      "text": "Permission to say “I don’t know” can reduce unsupported claims on some tasks — training rewards guessing; numbered scope plus a stop rule bound the sprawl.",
+      "runs": [
+       {
+        "text": "Permission to say “I don’t know” ",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": "can reduce unsupported claims on some tasks",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": " — training rewards guessing; numbered scope plus a stop rule bound the sprawl.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 48,
+    "name": "Text 46",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     6.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "7a67d4079e233f31428c1a3dd1dc6bf20bd34ccfe775a8a64dd1f31971d606bc",
+    "paragraphs": [
+     {
+      "text": "Anthropic docs · OpenAI 2025",
+      "runs": [
+       {
+        "text": "Anthropic docs · OpenAI 2025",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 49,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.041667
+    ],
+    "xml_sha256": "a1d7da6292295abaca7d27f1d8007eb39bad7f1d96d5408292213c0985540057",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 50,
+    "name": "FACILITATION_MODE_LABEL",
+    "type": 1,
+    "bounds_inches": [
+     10.416667,
+     0.177083,
+     2.552083,
+     0.3125
+    ],
+    "xml_sha256": "7be6ae24e94b197d7414240a59686a4d24fa7b89d9807836eca0002fe48c9d90",
+    "paragraphs": [
+     {
+      "text": "REFERENCE  0:10",
+      "runs": [
+       {
+        "text": "REFERENCE  0:10",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-52"
+       }
+      ],
+      "paragraph_properties_ref": "style-51"
+     }
+    ]
+   },
+   {
+    "id": 51,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.447917,
+     7.145833,
+     0.520833,
+     0.28125
+    ],
+    "xml_sha256": "49f7560ffe471ba52e2571489e49fe9a8f2e5fa428b6e2c617c281fee13a5b3b",
+    "paragraphs": [
+     {
+      "text": "66",
+      "runs": [
+       {
+        "text": "66",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 67,
+  "current_slide": 67,
+  "proposed_slide": 67,
+  "stable_id": "sid-322",
+  "native_id": 322,
+  "title": "Why each dial matters — the agentic criteria",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: The evidence map is a reference, not required memorization.\n\nSAY:\n- This map explains why an agentic brief needs operational requirements.\n- Use it when a task introduces new tools, actions, or approval boundaries.\n\nDO: None.\n\nBRIDGE: Move to “Sources this training is built on”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nREFERENCE · EVIDENCE MAP 2 OF 2\n66\nREFERENCE\nWhy each dial matters — the agentic criteria\nCriteria class\nWhat it does to your output\nEvidence\nPosture & standing rules\nConduct that must survive hour three of an unsupervised run — rules live in re-read files, not in fading conversation context.\nAnthropic harness guidance\nDone + verifiable-by\nThe loop needs an exit it can TEST: mark work complete “only after end-to-end verification — not when the code is written.”\nAnthropic memory-tool (verbatim)\nEnvironment boundaries\nImmutable inputs and versioned outputs engineer reversibility in before the first action — blast radius is a design choice.\nClaude Code protected paths\nLeast-privilege tools\nName what exists, forbid the rest; risk-rate each tool low/medium/high by write access, reversibility, and impact.\nOpenAI practical guide · NCSC\nInput register & trust\nTrust level dictates validation depth; UNKNOWN beats a plausible guess — a guessed grain propagates through the whole run.\npipeline/register discipline\nPlan steps & methods\nNamed inputs and outputs per step keep intermediates inspectable; boring methods re-run identically; math runs as code.\nAnthropic chaining · Faith & Fate 2023\nChecks: anchor · hard · soft\nRules-based feedback is “the best form of feedback” an agent gets; one outside anchor catches whole-pipeline errors in a single comparison.\nAnthropic Agent SDK\nGates & autonomy\nApproval sits where errors are cheapest — plan, pre-irreversible, failure thresholds; autonomy is a design choice named by the role YOU keep.\nOpenAI guide · Feng et al. 2025\nLogs & reproducibility\nStructured updates and descriptive commits make a run auditable and recoverable; same inputs → same outputs is engineered, not hoped.\nAnthropic harness guidance\nReport shape & discipline\nA fixed status shape reads in 30 seconds; “done” means the check it ran, the output it got, the file re-opened — evidence, not assertion.\nSDK status enums · harness docs\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT — 1) Same treatment as the previous slide: name it, read TWO rows (Done + verifiable-by — the verbatim vendor rule — and Gates & autonomy), then point to the handout. 2) The line to land: “none of the twelve blocks is bureaucracy — each one exists because a documented failure taught someone to add it.”\nACRONYMS — SDK = Software Development Kit. NCSC = (UK) National Cyber Security Centre.\nCONTENT — v1.4 layer, agentic half. Feng et al. 2025 = “Levels of Autonomy for AI Agents” (operator → observer). Full citations: notes/research/t6_agentic_attrs.md.\n66\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "eae2f0dc0c53841be1449bfa5169fc5bdc76f4470fabe79389502d475da1e121",
+  "notes_xml_sha256": "c0530f6f74df99c1c960e50d66cdf478e905c25a3c4e680cd6b77691333b0d5f",
+  "part": "/ppt/slides/slide67.xml",
+  "shapes": [
+   {
+    "id": 4,
+    "name": "Text 2",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.3,
+     12.2,
+     0.3
+    ],
+    "xml_sha256": "3409015979697e4cadd4eb78a7720fa8ad2207078c11e15575da56046858f4c0",
+    "paragraphs": [
+     {
+      "text": "REFERENCE",
+      "runs": [
+       {
+        "text": "REFERENCE",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-38"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Text 3",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.58,
+     12.2,
+     0.75
+    ],
+    "xml_sha256": "03ef450c5a53ef6ad169b69578f7209fea61f86d033df37074e05f64f5bfefd9",
+    "paragraphs": [
+     {
+      "text": "Why each dial matters — the agentic criteria",
+      "runs": [
+       {
+        "text": "Why each dial matters — the agentic criteria",
+        "family": "Cambria",
+        "size_pt": 30.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-39"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Text 4",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     1.58,
+     2.3,
+     0.3
+    ],
+    "xml_sha256": "ac9cc8e0653e4e979de24b48c805aebe9c40fcf917c386919a87eec975405829",
+    "paragraphs": [
+     {
+      "text": "Criteria class",
+      "runs": [
+       {
+        "text": "Criteria class",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-137"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Text 5",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     1.58,
+     6.0,
+     0.3
+    ],
+    "xml_sha256": "7432aa4076b2279129f5b83011f07c683f87a926d71140c59e59639512f7312b",
+    "paragraphs": [
+     {
+      "text": "What it does to your output",
+      "runs": [
+       {
+        "text": "What it does to your output",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-138"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Text 6",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     1.58,
+     3.25,
+     0.3
+    ],
+    "xml_sha256": "2dedc0dbd094645daa15ca34aeea16d1e388f2d33cb3a68dad0bd77c0e426701",
+    "paragraphs": [
+     {
+      "text": "Evidence",
+      "runs": [
+       {
+        "text": "Evidence",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-131"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Shape 7",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     1.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "029e37d25a02216988184e00d8bfa557d02e0b95e09968b8cce863cfc9f7d492",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Text 8",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     1.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "f7fae1e156c3163f9352ec44860142a81c5dc533744ba50244284931e89f5e65",
+    "paragraphs": [
+     {
+      "text": "Posture & standing rules",
+      "runs": [
+       {
+        "text": "Posture & standing rules",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Text 9",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     1.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "12a16088801e17be641f27f270aec98df213ccc13da40d058e91ac467eec0171",
+    "paragraphs": [
+     {
+      "text": "Conduct that must survive hour three of an unsupervised run — rules live in re-read files, not in fading conversation context.",
+      "runs": [
+       {
+        "text": "Conduct that must survive hour three of an unsupervised run — rules live in re-read files, not in fading conversation context.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Text 10",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     1.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "5873de8d123ec42d249c3e5c7fffbde8274c84c4bf15606a47d67ea5a48fdda0",
+    "paragraphs": [
+     {
+      "text": "Anthropic harness guidance",
+      "runs": [
+       {
+        "text": "Anthropic harness guidance",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Shape 11",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     2.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "2553901aeeb236f449649799ba5e10d5e87d48f4e041ee2218c21647352b5337",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Text 12",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     2.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "c998eff86eba2e51a2436a3256baecaa3729f8dc46738b7127307385763912be",
+    "paragraphs": [
+     {
+      "text": "Done + verifiable-by",
+      "runs": [
+       {
+        "text": "Done + verifiable-by",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Text 13",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     2.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "0d792aee607aaf77118fdebb425ee624480e8fafb577cf5305ee718b5ab914a9",
+    "paragraphs": [
+     {
+      "text": "The loop needs an exit it can TEST: mark work complete “only after end-to-end verification — not when the code is written.”",
+      "runs": [
+       {
+        "text": "The loop needs an exit it can TEST: mark work complete “only after end-to-end verification — not when the code is written.”",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "Text 14",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     2.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "9511293168d58fcb089c074e2006c01d3d86643dda72c0aa8deda5126833114c",
+    "paragraphs": [
+     {
+      "text": "Anthropic memory-tool (verbatim)",
+      "runs": [
+       {
+        "text": "Anthropic memory-tool (verbatim)",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "name": "Shape 15",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     2.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "3205c027bdd6215e48d3163c258632332e9c3684fce24aafaf1cc6f69dcdb262",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "Text 16",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     2.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "58251e028bc4631a4d7a13eb708b35b72a72eb9b35ae707d60ac890065d12c49",
+    "paragraphs": [
+     {
+      "text": "Environment boundaries",
+      "runs": [
+       {
+        "text": "Environment boundaries",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 19,
+    "name": "Text 17",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     2.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "a4f5aebce9a3280af9da75b9be3c2b47074160bc2cf14f29e605c6888b076074",
+    "paragraphs": [
+     {
+      "text": "Immutable inputs and versioned outputs engineer reversibility in before the first action — blast radius is a design choice.",
+      "runs": [
+       {
+        "text": "Immutable inputs and versioned outputs engineer reversibility in before the first action — blast radius is a design choice.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 20,
+    "name": "Text 18",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     2.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "c3abe2b617aea085c3dd8d8b4c4304f42f65e65c036bc8bab75c217cba483d23",
+    "paragraphs": [
+     {
+      "text": "Claude Code protected paths",
+      "runs": [
+       {
+        "text": "Claude Code protected paths",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 21,
+    "name": "Shape 19",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     3.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "e87ea4cefb54e411f0e43453a9427d53e29b781c2cba74ddcca4728e6c54a3e1",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 22,
+    "name": "Text 20",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     3.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "e1f49f8a53b714b93f34a9efcfd9a0c476ce4db2e44f784b0cc5131b69dd6457",
+    "paragraphs": [
+     {
+      "text": "Least-privilege tools",
+      "runs": [
+       {
+        "text": "Least-privilege tools",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 23,
+    "name": "Text 21",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     3.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "5414eb1e07f650a40459b4e82b55d28c5f19c49e91e0539f78e48b11916dc670",
+    "paragraphs": [
+     {
+      "text": "Name what exists, forbid the rest; risk-rate each tool low/medium/high by write access, reversibility, and impact.",
+      "runs": [
+       {
+        "text": "Name what exists, forbid the rest; risk-rate each tool low/medium/high by write access, reversibility, and impact.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 24,
+    "name": "Text 22",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     3.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "3fba77826e42a0f96196c1c27f94d5144d5404625a1976051b1ac4b3aa5c1699",
+    "paragraphs": [
+     {
+      "text": "OpenAI practical guide · NCSC",
+      "runs": [
+       {
+        "text": "OpenAI practical guide · NCSC",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 25,
+    "name": "Shape 23",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     3.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "6264394f172aa1799d87e6701e130f240ec6a84b27aa768202662822c5069d06",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 26,
+    "name": "Text 24",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     3.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "5775b8d8649cf01222ea0ac6bbe2670a6c935d75179793aa8b3e7a92339f2cdd",
+    "paragraphs": [
+     {
+      "text": "Input register & trust",
+      "runs": [
+       {
+        "text": "Input register & trust",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 27,
+    "name": "Text 25",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     3.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "815c02fff7a4a6506ad883b54ae0fdbd53f9f86dc5193adde8e053ad85e0e1d8",
+    "paragraphs": [
+     {
+      "text": "Trust level dictates validation depth; UNKNOWN beats a plausible guess — a guessed grain propagates through the whole run.",
+      "runs": [
+       {
+        "text": "Trust level dictates validation depth; UNKNOWN beats a plausible guess — a guessed grain propagates through the whole run.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 28,
+    "name": "Text 26",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     3.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "e29a0d08b62d10b23dbaef8496ad34aa9c09b128e066506f048f239a9cfec286",
+    "paragraphs": [
+     {
+      "text": "pipeline/register discipline",
+      "runs": [
+       {
+        "text": "pipeline/register discipline",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 29,
+    "name": "Shape 27",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     4.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "436b13ad24ae60047747c322591955dc46e58ac3ac1a9c8a8d4ea6e076a1a08e",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 30,
+    "name": "Text 28",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     4.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "7d518f60c4abf9969aafcf3c8cd55db92442d7dae29602308f3d0adfceedd8ff",
+    "paragraphs": [
+     {
+      "text": "Plan steps & methods",
+      "runs": [
+       {
+        "text": "Plan steps & methods",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 31,
+    "name": "Text 29",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     4.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "fd208269ea0d8611c19636afc88c48af0fe6fd2a44f93410a6515d785c9bd873",
+    "paragraphs": [
+     {
+      "text": "Named inputs and outputs per step keep intermediates inspectable; boring methods re-run identically; math runs as code.",
+      "runs": [
+       {
+        "text": "Named inputs and outputs per step keep intermediates inspectable; boring methods re-run identically; math runs as code.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 32,
+    "name": "Text 30",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     4.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "fc874e52765928b47b344c3ec846a7086d214a4c047dd20ef2951d93bb2a111d",
+    "paragraphs": [
+     {
+      "text": "Anthropic chaining · Faith & Fate 2023",
+      "runs": [
+       {
+        "text": "Anthropic chaining · Faith & Fate 2023",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 33,
+    "name": "Shape 31",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     4.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "6aa025760f3a07d9dc0aaffbdc5a9e2aef15ff8df9d2b19d2b743f8067ca854e",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 34,
+    "name": "Text 32",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     4.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "a96016bcb90317e0299e5959c7b7ceaa3cc4208f07f468c7a5298261ed9e35f6",
+    "paragraphs": [
+     {
+      "text": "Checks: anchor · hard · soft",
+      "runs": [
+       {
+        "text": "Checks: anchor · hard · soft",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 35,
+    "name": "Text 33",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     4.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "e94386cc5b17232047bf3c63fa7170963ba6f6a5bbf133bbff3183b9e7adaec8",
+    "paragraphs": [
+     {
+      "text": "Rules-based feedback is “the best form of feedback” an agent gets; one outside anchor checks a specific relationship; additional failure modes need their own checks.",
+      "runs": [
+       {
+        "text": "Rules-based feedback is “the best form of feedback” an agent gets; ",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": "one outside anchor checks a specific relationship; additional failure modes need their own checks",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       },
+       {
+        "text": ".",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 36,
+    "name": "Text 34",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     4.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "65caf89db45e4d51214dcd70ed5dc9271eaf7dc885d57b6d620e8bb34eea668f",
+    "paragraphs": [
+     {
+      "text": "Anthropic Agent SDK",
+      "runs": [
+       {
+        "text": "Anthropic Agent SDK",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 37,
+    "name": "Shape 35",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     5.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "d7a71f1f3107b9c3d5123650a112cd0291619273aa38b6e5bd1cd2ba729439f3",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 38,
+    "name": "Text 36",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     5.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "8cd578d3f6fccd4e01b9439f112ad8c4b81623917a26593fa320e22f7c217582",
+    "paragraphs": [
+     {
+      "text": "Gates & autonomy",
+      "runs": [
+       {
+        "text": "Gates & autonomy",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 39,
+    "name": "Text 37",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     5.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "9e25e98f09de67d203026f314ec42e7166e7a5e069e1d68d1850b585956d5815",
+    "paragraphs": [
+     {
+      "text": "Approval sits where errors are cheapest — plan, pre-irreversible, failure thresholds; autonomy is a design choice named by the role YOU keep.",
+      "runs": [
+       {
+        "text": "Approval sits where errors are cheapest — plan, pre-irreversible, failure thresholds; autonomy is a design choice named by the role YOU keep.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 40,
+    "name": "Text 38",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     5.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "231e639e509afdb66be6e95014ebc745587e87abd4434ff996d45acc875361c2",
+    "paragraphs": [
+     {
+      "text": "OpenAI guide · Feng et al. 2025",
+      "runs": [
+       {
+        "text": "OpenAI guide · Feng et al. 2025",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 41,
+    "name": "Shape 39",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     5.92,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "ee06bbd501a73c3e226068d4a1ec9ebedd2c7c87eaf0e3bb186f83ffcf49599a",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 42,
+    "name": "Text 40",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     5.94,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "f68cddc01ef2a7ecb98873b57b81f494e4cdb5317a97a7d6992ecd06edb9268c",
+    "paragraphs": [
+     {
+      "text": "Logs & reproducibility",
+      "runs": [
+       {
+        "text": "Logs & reproducibility",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 43,
+    "name": "Text 41",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     5.94,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "fbd8e2a123394d986933c065676c43d2c43d84ec0af7ff3738878e2fbeca4eb2",
+    "paragraphs": [
+     {
+      "text": "Structured updates and descriptive commits make a run auditable and recoverable; same inputs → same outputs is engineered, not hoped.",
+      "runs": [
+       {
+        "text": "Structured updates and descriptive commits make a run auditable and recoverable; same inputs → same outputs is engineered, not hoped.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 44,
+    "name": "Text 42",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     5.94,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "11109cc208bb9b5e3e6f86fac0e2a9cb645cdacad4118af1679eb9ba44489f96",
+    "paragraphs": [
+     {
+      "text": "Anthropic harness guidance",
+      "runs": [
+       {
+        "text": "Anthropic harness guidance",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 45,
+    "name": "Shape 43",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     6.42,
+     12.2,
+     0.44
+    ],
+    "xml_sha256": "dc5c8eb91f1293adbcac7cc85af5066c68c175afd9641330b2046b8b509e61f5",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 46,
+    "name": "Text 44",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     6.44,
+     2.3,
+     0.4
+    ],
+    "xml_sha256": "7b88caebf419c833083d058fe8246f08caa0fc11766f4933621787425f8c80ea",
+    "paragraphs": [
+     {
+      "text": "Report shape & discipline",
+      "runs": [
+       {
+        "text": "Report shape & discipline",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-140"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 47,
+    "name": "Text 45",
+    "type": 1,
+    "bounds_inches": [
+     3.15,
+     6.44,
+     6.0,
+     0.4
+    ],
+    "xml_sha256": "0fed2de39e9e5b01b66d7d85542a965b7c368984e2b3708d628d902c7bd74a57",
+    "paragraphs": [
+     {
+      "text": "A fixed status shape reads in 30 seconds; “done” means the check it ran, the output it got, the file re-opened — evidence, not assertion.",
+      "runs": [
+       {
+        "text": "A fixed status shape reads in 30 seconds; “done” means the check it ran, the output it got, the file re-opened — evidence, not assertion.",
+        "family": "Calibri",
+        "size_pt": 9.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-57"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 48,
+    "name": "Text 46",
+    "type": 1,
+    "bounds_inches": [
+     9.3,
+     6.44,
+     3.25,
+     0.4
+    ],
+    "xml_sha256": "289cfda2e449b22741f7b40e50f816c5cbde360974144681dde409e77b7f2c05",
+    "paragraphs": [
+     {
+      "text": "SDK status enums · harness docs",
+      "runs": [
+       {
+        "text": "SDK status enums · harness docs",
+        "family": "Calibri",
+        "size_pt": 9.0,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-141"
+       }
+      ],
+      "paragraph_properties_ref": "style-139"
+     }
+    ]
+   },
+   {
+    "id": 49,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.041667
+    ],
+    "xml_sha256": "77b931a8097b975006daa15fc96f20d0f2af8b6661cb2deb4b5bb2b57a8a53a1",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 50,
+    "name": "FACILITATION_MODE_LABEL",
+    "type": 1,
+    "bounds_inches": [
+     10.416667,
+     0.177083,
+     2.552083,
+     0.3125
+    ],
+    "xml_sha256": "627ca96b4b2ec5209509912e3ff2bf5124807e5bf610a3d20cde199735d3b903",
+    "paragraphs": [
+     {
+      "text": "REFERENCE  0:10",
+      "runs": [
+       {
+        "text": "REFERENCE  0:10",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-52"
+       }
+      ],
+      "paragraph_properties_ref": "style-51"
+     }
+    ]
+   },
+   {
+    "id": 51,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.447917,
+     7.145833,
+     0.520833,
+     0.28125
+    ],
+    "xml_sha256": "bfd6db3778fcd54ef9a650af819270e0cfcd7be7be169a7996cce295585211ed",
+    "paragraphs": [
+     {
+      "text": "67",
+      "runs": [
+       {
+        "text": "67",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 68,
+  "current_slide": 68,
+  "proposed_slide": 68,
+  "stable_id": "sid-323",
+  "native_id": 323,
+  "title": "Sources this training is built on",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: Sources need accessible links and enough detail to be checked.\n\nSAY:\n- The source list supports further reading and verification.\n- Check the original publication when a specific technical claim matters.\n\nDO: None.\n\nBRIDGE: Move to “Recommended reading — start practical, go deep”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nREFERENCE\n67\nREFERENCE\nSources this training is built on\nVendor guidance (fetched Aug 2026)\nAnthropic — Prompting best practices; long-context; reduce-hallucinations; Building Effective Agents; Claude Code; context engineering\nOpenAI — GPT-5 prompting guide; reasoning best practices; A Practical Guide to Building Agents; Model Spec\nGoogle — Gemini for Workspace guides (Persona-Task-Context-Format)\nMicrosoft — Copilot guidance (Goal-Context-Source-Expectations); Copilot agents docs\nResearch\nBrown et al. 2020 (few-shot) · Wei et al. 2022 & Kojima et al. 2022 (chain-of-thought) · Wang et al. 2023 (self-consistency)\nSclar et al. 2024 (format brittleness) · Zheng et al. 2024 (personas) · Salinas & Morstatter 2024 (tips/perturbations)\nCheng et al., Science 2026 (sycophancy) · Sharma et al. 2023 (why sycophancy) · Liu et al. 2023 (lost in the middle)\nOpenAI 2025 (why language models hallucinate) · Sprague et al. 2025 (when CoT helps)\nLandscape & governance\nStanford HAI AI Index 2026 · LMArena / Artificial Analysis / SWE-bench (Aug 2026 snapshots)\nOWASP LLM Top 10 (2025) + Top 10 for Agentic Applications (2026) · UK NCSC agentic-AI guidance · IMDA/CSA Singapore · Cisco AI Defense (skills audit) · Harmonic Security (shadow-AI prompts)\nVendor launch posts & reporting (Reuters, CNBC, TechCrunch, Bloomberg) for all product dates\nFull source list with URLs: notes/research/ in the training repo — every fact in this deck carries an “as of” date there.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT — 1) One sentence, then move: “nothing in this deck is vibes — every number has a URL and an as-of date in notes/research/ in the repo.” 2) If someone challenges a number later, this is where you point them.\nACRONYMS — OWASP = Open Worldwide Application Security Project. NCSC = (UK) National Cyber Security Centre. HAI = Stanford Institute for Human-Centered AI. LLM = Large Language Model. SWE-bench / LMArena = benchmark and leaderboard names.\nCONTENT — The point of this slide is auditability.\n67\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "4d910914aebe59382746fef079ce6474124728ea2f790afa897f851068603ecc",
+  "notes_xml_sha256": "ed3451b92713eeb94a3df577dcdc4d57b6ddb91ededec81e24563e45463069ef",
+  "part": "/ppt/slides/slide68.xml",
+  "shapes": [
+   {
+    "id": 4,
+    "name": "Text 2",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.3,
+     12.2,
+     0.3
+    ],
+    "xml_sha256": "1712e6b76a0162c04ba3dd9355de1ba6fb164fbb8f22ff9b1ce2da6e25225bed",
+    "paragraphs": [
+     {
+      "text": "REFERENCE",
+      "runs": [
+       {
+        "text": "REFERENCE",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-38"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Text 3",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.58,
+     12.2,
+     0.75
+    ],
+    "xml_sha256": "3db9c5c61ce4e62a8fa7a83b8302023b5ee30bc79c4d166f0f429c00dccc2607",
+    "paragraphs": [
+     {
+      "text": "Sources this training is built on",
+      "runs": [
+       {
+        "text": "Sources this training is built on",
+        "family": "Cambria",
+        "size_pt": 30.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-39"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Shape 4",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     1.62,
+     3.95,
+     5.0
+    ],
+    "xml_sha256": "e7824f634c98bca793ed5a22e797603ed07c6440216f410739fb6a3f0a440190",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Text 5",
+    "type": 1,
+    "bounds_inches": [
+     0.77,
+     1.8,
+     3.5,
+     0.55
+    ],
+    "xml_sha256": "4f81de69395825f12f791562b044d3f79877792904c6a28bdadbd0b503ebe1bc",
+    "paragraphs": [
+     {
+      "text": "Vendor guidance (fetched Aug 2026)",
+      "runs": [
+       {
+        "text": "Vendor guidance (fetched Aug 2026)",
+        "family": "Cambria",
+        "size_pt": 12.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-142"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Text 6",
+    "type": 1,
+    "bounds_inches": [
+     0.79,
+     2.42,
+     3.5,
+     4.0
+    ],
+    "xml_sha256": "f9f0ff956b029945fe5bb380115919937c5c15c299d91f4681e041d7e73de007",
+    "paragraphs": [
+     {
+      "text": "Anthropic — Prompting best practices; long-context; reduce-hallucinations; Building Effective Agents; Claude Code; context engineering",
+      "runs": [
+       {
+        "text": "Anthropic — Prompting best practices; long-context; reduce-hallucinations; Building Effective Agents; Claude Code; context engineering",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     },
+     {
+      "text": "OpenAI — GPT-5 prompting guide; reasoning best practices; A Practical Guide to Building Agents; Model Spec",
+      "runs": [
+       {
+        "text": "OpenAI — GPT-5 prompting guide; reasoning best practices; A Practical Guide to Building Agents; Model Spec",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     },
+     {
+      "text": "Google — Gemini for Workspace guides (Persona-Task-Context-Format)",
+      "runs": [
+       {
+        "text": "Google — Gemini for Workspace guides (Persona-Task-Context-Format)",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     },
+     {
+      "text": "Microsoft — Copilot guidance (Goal-Context-Source-Expectations); Copilot agents docs",
+      "runs": [
+       {
+        "text": "Microsoft — Copilot guidance (Goal-Context-Source-Expectations); Copilot agents docs",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Shape 7",
+    "type": 1,
+    "bounds_inches": [
+     4.73,
+     1.62,
+     3.95,
+     5.0
+    ],
+    "xml_sha256": "dc89d1ab91f4d2c8b8afee7bf37bb8b1dc592d99cd12decfff9625f08a63c523",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Text 8",
+    "type": 1,
+    "bounds_inches": [
+     4.95,
+     1.8,
+     3.5,
+     0.55
+    ],
+    "xml_sha256": "8dbd9bb16631608b5f7a99a4351332add875531db75d60b04f7d4d73d8772792",
+    "paragraphs": [
+     {
+      "text": "Research",
+      "runs": [
+       {
+        "text": "Research",
+        "family": "Cambria",
+        "size_pt": 12.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-142"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Text 9",
+    "type": 1,
+    "bounds_inches": [
+     4.97,
+     2.42,
+     3.5,
+     4.0
+    ],
+    "xml_sha256": "e1e87de5d8ba4bcc8d8c5d9b093861980146bb88de29a6f13aa8fe733c65b6f4",
+    "paragraphs": [
+     {
+      "text": "Brown et al. 2020 (few-shot) · Wei et al. 2022 & Kojima et al. 2022 (chain-of-thought) · Wang et al. 2023 (self-consistency)",
+      "runs": [
+       {
+        "text": "Brown et al. 2020 (few-shot) · Wei et al. 2022 & Kojima et al. 2022 (chain-of-thought) · Wang et al. 2023 (self-consistency)",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     },
+     {
+      "text": "Sclar et al. 2024 (format brittleness) · Zheng et al. 2024 (personas) · Salinas & Morstatter 2024 (tips/perturbations)",
+      "runs": [
+       {
+        "text": "Sclar et al. 2024 (format brittleness) · Zheng et al. 2024 (personas) · Salinas & Morstatter 2024 (tips/perturbations)",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     },
+     {
+      "text": "Cheng et al., Science 2026 (sycophancy) · Sharma et al. 2023 (why sycophancy) · Liu et al. 2023 (lost in the middle)",
+      "runs": [
+       {
+        "text": "Cheng et al., Science 2026 (sycophancy) · Sharma et al. 2023 (why sycophancy) · Liu et al. 2023 (lost in the middle)",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     },
+     {
+      "text": "OpenAI 2025 (why language models hallucinate) · Sprague et al. 2025 (when CoT helps)",
+      "runs": [
+       {
+        "text": "OpenAI 2025 (why language models hallucinate) · Sprague et al. 2025 (when CoT helps)",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Shape 10",
+    "type": 1,
+    "bounds_inches": [
+     8.91,
+     1.62,
+     3.95,
+     5.0
+    ],
+    "xml_sha256": "fb84bd1f3d983a0b1c92c5b0f6ab1b5cc0aadfaea712d3d55688ead86cafd9d5",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Text 11",
+    "type": 1,
+    "bounds_inches": [
+     9.13,
+     1.8,
+     3.5,
+     0.55
+    ],
+    "xml_sha256": "8c87e1a7f0b1899f222795987b0c2004aee50d93d8a4f6b7c3bcc454005d7120",
+    "paragraphs": [
+     {
+      "text": "Landscape & governance",
+      "runs": [
+       {
+        "text": "Landscape & governance",
+        "family": "Cambria",
+        "size_pt": 12.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-142"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Text 12",
+    "type": 1,
+    "bounds_inches": [
+     9.15,
+     2.42,
+     3.5,
+     4.0
+    ],
+    "xml_sha256": "2974d297c36b05c1a3487795ef7e5ea05c416e625434260096fafa03dfbd9b53",
+    "paragraphs": [
+     {
+      "text": "Stanford HAI AI Index 2026 · LMArena / Artificial Analysis / SWE-bench (Aug 2026 snapshots)",
+      "runs": [
+       {
+        "text": "Stanford HAI AI Index 2026 · LMArena / Artificial Analysis / SWE-bench (Aug 2026 snapshots)",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     },
+     {
+      "text": "OWASP LLM Top 10 (2025) + Top 10 for Agentic Applications (2026) · UK NCSC agentic-AI guidance · IMDA/CSA Singapore · Cisco AI Defense (skills audit) · Harmonic Security (shadow-AI prompts)",
+      "runs": [
+       {
+        "text": "OWASP LLM Top 10 (2025) + Top 10 for Agentic Applications (2026) · UK NCSC agentic-AI guidance · IMDA/CSA Singapore · Cisco AI Defense (skills audit) · Harmonic Security (shadow-AI prompts)",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     },
+     {
+      "text": "Vendor launch posts & reporting (Reuters, CNBC, TechCrunch, Bloomberg) for all product dates",
+      "runs": [
+       {
+        "text": "Vendor launch posts & reporting (Reuters, CNBC, TechCrunch, Bloomberg) for all product dates",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-134"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Text 13",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     6.75,
+     12.2,
+     0.35
+    ],
+    "xml_sha256": "4ebb72d04ee05c863f95d5a01c41f26e0ff22e0b112dcdb9b6b9a86ef7d1ee75",
+    "paragraphs": [
+     {
+      "text": "Consult the sources in the speaker notes. Additional original repository files were not supplied with this package.",
+      "runs": [
+       {
+        "text": "Consult the sources in the speaker notes. Additional original repository files were not supplied with this package.",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": true,
+        "properties_ref": "style-143"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.041667
+    ],
+    "xml_sha256": "cdff2aeb52347a64e941f0d55d5c63434ae3ee5cf1e31c10773aa636f1612a75",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "name": "FACILITATION_MODE_LABEL",
+    "type": 1,
+    "bounds_inches": [
+     10.416667,
+     0.177083,
+     2.552083,
+     0.3125
+    ],
+    "xml_sha256": "595d1016ba457fe08984b837e81f0815b38cfb60b9174ee96081501801e6a3e2",
+    "paragraphs": [
+     {
+      "text": "REFERENCE  0:10",
+      "runs": [
+       {
+        "text": "REFERENCE  0:10",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-52"
+       }
+      ],
+      "paragraph_properties_ref": "style-51"
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.447917,
+     7.145833,
+     0.520833,
+     0.28125
+    ],
+    "xml_sha256": "8868b779b14c20ed3013f82b91b18a7619859f0ba1853d94b329a696b550b225",
+    "paragraphs": [
+     {
+      "text": "68",
+      "runs": [
+       {
+        "text": "68",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 69,
+  "current_slide": 69,
+  "proposed_slide": 69,
+  "stable_id": "sid-324",
+  "native_id": 324,
+  "title": "Recommended reading — start practical, go deep",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: Use the reference path after the workshop to deepen the skill.\n\nSAY:\n- Choose a practical guide first, then a deeper source for the skill you need.\n- Further reading is optional; applying and checking one real task is the immediate goal.\n\nDO: None.\n\nBRIDGE: Move to “Your next workplace application”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nKEEP LEARNING\n68\nKEEP LEARNING\nRecommended reading — start practical, go deep\nPractical start\nMollick — Co-Intelligence (2024)\nthe working-with-AI mindset book; read first\nKneusel — How AI Works (2024)\nthe concepts of Part 1, gently and rigorously\nThe craft\nPhoenix & Taylor — Prompt Engineering for Generative AI (O’Reilly 2024)\nthe five principles, applied — closest to Parts 3–4\nBerryman & Ziegler — Prompt Engineering for LLMs (O’Reilly 2024)\nhow prompts actually meet the model; by GitHub Copilot creators\nGoing deep\nHuyen — AI Engineering (O’Reilly 2025)\nRAG, agents, evaluation — the engineering behind Part 5\nAlammar & Grootendorst — Hands-On Large Language Models (2024)\nvisual internals: tokens, embeddings, transformers\nAnd the fastest teacher of all: the prompt library in this repo. Copy a template, run it on your real work today, improve it, commit the improvement.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT — 1) Three shelves LEFT TO RIGHT: practical start → the craft → going deep; one line per book, no more. 2) Give the reading order explicitly: Mollick for mindset, Phoenix & Taylor for craft, Huyen when you’re building agents seriously. 3) End on the amber band: “the fastest teacher is the prompt library in the repo — copy a template, run it on real work today, improve it, commit the improvement.”\nACRONYMS — none new on this slide (O’Reilly = the technical publisher).\nCONTENT — All six books are real and in print — most are in the team’s shared library already.\n68\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "6193291613f593b24c714afc8dd15ad62c14d456e2559611b5f2625369e4eb01",
+  "notes_xml_sha256": "6ec0a12541d828f8deaffbd1cca801c8a94afa7bec16aa9cbb1b203da033e6f2",
+  "part": "/ppt/slides/slide69.xml",
+  "shapes": [
+   {
+    "id": 4,
+    "name": "Text 2",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.3,
+     12.2,
+     0.3
+    ],
+    "xml_sha256": "c3f590c7cc5148fd1ed1bf0f9c1784288a5d3262d003345f58448aecece2a8ee",
+    "paragraphs": [
+     {
+      "text": "KEEP LEARNING",
+      "runs": [
+       {
+        "text": "KEEP LEARNING",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-38"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Text 3",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.58,
+     12.2,
+     0.75
+    ],
+    "xml_sha256": "b0adb7b274487b8d8930b7785969530c0060abe482d2e179de4f17f7bc11b6a1",
+    "paragraphs": [
+     {
+      "text": "Recommended reading — start practical, go deep",
+      "runs": [
+       {
+        "text": "Recommended reading — start practical, go deep",
+        "family": "Cambria",
+        "size_pt": 30.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-39"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Shape 4",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     1.62,
+     3.95,
+     4.4
+    ],
+    "xml_sha256": "2fe15688b87061e5a779bf2810cbc42531216f189ac982b849e6e6e3ee9819ea",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Text 5",
+    "type": 1,
+    "bounds_inches": [
+     0.77,
+     1.8,
+     3.5,
+     0.4
+    ],
+    "xml_sha256": "e90049f4cb2a4d358936908b6ccd7c0fe696a6a70f5cd55075f26a0c16896a0c",
+    "paragraphs": [
+     {
+      "text": "Practical start",
+      "runs": [
+       {
+        "text": "Practical start",
+        "family": "Cambria",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-144"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Text 6",
+    "type": 1,
+    "bounds_inches": [
+     0.79,
+     2.3,
+     3.5,
+     1.7
+    ],
+    "xml_sha256": "bcf710804a7c15599e3e8c52c1346911061a48b4609b5974722bb328a732cc8b",
+    "paragraphs": [
+     {
+      "text": "Mollick — Co-Intelligence (2024)",
+      "runs": [
+       {
+        "text": "Mollick — Co-Intelligence (2024)",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-130"
+       }
+      ],
+      "paragraph_properties_ref": "style-145"
+     },
+     {
+      "text": "the working-with-AI mindset book; read first",
+      "runs": [
+       {
+        "text": "the working-with-AI mindset book; read first",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-32"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Text 7",
+    "type": 1,
+    "bounds_inches": [
+     0.79,
+     4.1,
+     3.5,
+     1.7
+    ],
+    "xml_sha256": "7a3a22127dd2139166f30eb31586d77b7ae67231bd0db4b29057f7aa16f1c318",
+    "paragraphs": [
+     {
+      "text": "Kneusel — How AI Works (2024)",
+      "runs": [
+       {
+        "text": "Kneusel — How AI Works (2024)",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-130"
+       }
+      ],
+      "paragraph_properties_ref": "style-145"
+     },
+     {
+      "text": "the concepts of Part 1, gently and rigorously",
+      "runs": [
+       {
+        "text": "the concepts of Part 1, gently and rigorously",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-32"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Shape 8",
+    "type": 1,
+    "bounds_inches": [
+     4.73,
+     1.62,
+     3.95,
+     4.4
+    ],
+    "xml_sha256": "e9a649e64a5f80ed76ac5a6b7dd124f6dd9321aa745d17dd63c38bddb6738e73",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Text 9",
+    "type": 1,
+    "bounds_inches": [
+     4.95,
+     1.8,
+     3.5,
+     0.4
+    ],
+    "xml_sha256": "45a70991a5cdca10f4981f214fd70b8780e7e823c1589ceca4cb422b8f96296f",
+    "paragraphs": [
+     {
+      "text": "The craft",
+      "runs": [
+       {
+        "text": "The craft",
+        "family": "Cambria",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-144"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Text 10",
+    "type": 1,
+    "bounds_inches": [
+     4.97,
+     2.3,
+     3.5,
+     1.7
+    ],
+    "xml_sha256": "f0481ef7ae0d285384e75caf5b02d548867c86e82c84aa1196f844029d16bc6c",
+    "paragraphs": [
+     {
+      "text": "Phoenix & Taylor — Prompt Engineering for Generative AI (O’Reilly 2024)",
+      "runs": [
+       {
+        "text": "Phoenix & Taylor — Prompt Engineering for Generative AI (O’Reilly 2024)",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-130"
+       }
+      ],
+      "paragraph_properties_ref": "style-145"
+     },
+     {
+      "text": "the five principles, applied — closest to Parts 3–4",
+      "runs": [
+       {
+        "text": "the five principles, applied — closest to Parts 3–4",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-32"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Text 11",
+    "type": 1,
+    "bounds_inches": [
+     4.97,
+     4.1,
+     3.5,
+     1.7
+    ],
+    "xml_sha256": "96d515f7b75bb4ee31dd751abc0feb1c559ccc0f9d714797158bc2a665edf084",
+    "paragraphs": [
+     {
+      "text": "Berryman & Ziegler — Prompt Engineering for LLMs (O’Reilly 2024)",
+      "runs": [
+       {
+        "text": "Berryman & Ziegler — Prompt Engineering for LLMs (O’Reilly 2024)",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-130"
+       }
+      ],
+      "paragraph_properties_ref": "style-145"
+     },
+     {
+      "text": "how prompts actually meet the model; by GitHub Copilot creators",
+      "runs": [
+       {
+        "text": "how prompts actually meet the model; by GitHub Copilot creators",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-32"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Shape 12",
+    "type": 1,
+    "bounds_inches": [
+     8.91,
+     1.62,
+     3.95,
+     4.4
+    ],
+    "xml_sha256": "7c448d5fe8c38d8ce1585b9cdab15adcb4ef89fa19b32065bb7759a79cda060a",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Text 13",
+    "type": 1,
+    "bounds_inches": [
+     9.13,
+     1.8,
+     3.5,
+     0.4
+    ],
+    "xml_sha256": "5af2e14e1bc13d72fcf0a454669d52dd782721b74dbca73851927cb4767122a8",
+    "paragraphs": [
+     {
+      "text": "Going deep",
+      "runs": [
+       {
+        "text": "Going deep",
+        "family": "Cambria",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-144"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "Text 14",
+    "type": 1,
+    "bounds_inches": [
+     9.15,
+     2.3,
+     3.5,
+     1.7
+    ],
+    "xml_sha256": "3bb951f802a54cb09cc8d4730db6d22d8664b38508ad4d1edf3edae49755db6d",
+    "paragraphs": [
+     {
+      "text": "Huyen — AI Engineering (O’Reilly 2025)",
+      "runs": [
+       {
+        "text": "Huyen — AI Engineering (O’Reilly 2025)",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-130"
+       }
+      ],
+      "paragraph_properties_ref": "style-145"
+     },
+     {
+      "text": "RAG, agents, evaluation — the engineering behind Part 5",
+      "runs": [
+       {
+        "text": "RAG, agents, evaluation — the engineering behind Part 5",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-32"
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "name": "Text 15",
+    "type": 1,
+    "bounds_inches": [
+     9.15,
+     4.1,
+     3.5,
+     1.7
+    ],
+    "xml_sha256": "4512b9c8186052e71a2ddd24f34c7f199fa084518d261f85e5b199b42f1f6da6",
+    "paragraphs": [
+     {
+      "text": "Alammar & Grootendorst — Hands-On Large Language Models (2024)",
+      "runs": [
+       {
+        "text": "Alammar & Grootendorst — Hands-On Large Language Models (2024)",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-130"
+       }
+      ],
+      "paragraph_properties_ref": "style-145"
+     },
+     {
+      "text": "visual internals: tokens, embeddings, transformers",
+      "runs": [
+       {
+        "text": "visual internals: tokens, embeddings, transformers",
+        "family": "Calibri",
+        "size_pt": 10.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-73"
+       }
+      ],
+      "paragraph_properties_ref": "style-32"
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "Shape 16",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     6.25,
+     12.2,
+     0.75
+    ],
+    "xml_sha256": "4d493b2911aeccc65d5759ec2ef07d9b6502686e32e8b32a2b2efb8511aca98d",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 19,
+    "name": "Shape 17",
+    "type": 1,
+    "bounds_inches": [
+     0.73,
+     6.415,
+     0.42,
+     0.42
+    ],
+    "xml_sha256": "4bbd35dda1e12069d07d5e5090d98c2e8b46ff6155c39c469508fc15e907fbec",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 46,
+    "name": "Image 0",
+    "type": 13,
+    "bounds_inches": [
+     0.839199,
+     6.524199,
+     0.2016,
+     0.2016
+    ],
+    "xml_sha256": "f48dcde70a444e6a45558bb166c9165f9892fbb53910bab635b84ba2b46a7906",
+    "image": {
+     "sha256": "b244af07345f50cc1d7a44335adf3749324ab67f3ef6d767f4c97faa0033a97a",
+     "content_type": "image/png",
+     "size_pixels": [
+      256,
+      256
+     ],
+     "crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   {
+    "id": 21,
+    "name": "Text 18",
+    "type": 1,
+    "bounds_inches": [
+     1.33,
+     6.33,
+     11.17,
+     0.59
+    ],
+    "xml_sha256": "e29c9f49dd4eb3b8e7a765ea299ccc388dca579bd375d26a69b387b174644d55",
+    "paragraphs": [
+     {
+      "text": "And the fastest teacher of all: a real task. Adapt a course example, run it, check the result, and save the improved prompt.",
+      "runs": [
+       {
+        "text": "And the fastest teacher of all: ",
+        "family": "Calibri",
+        "size_pt": 12.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-146"
+       },
+       {
+        "text": "a real task. Adapt a course example, run it, check the result, and save the improved prompt.",
+        "family": "Calibri",
+        "size_pt": 12.0,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-147"
+       }
+      ],
+      "paragraph_properties_ref": "style-48"
+     }
+    ]
+   },
+   {
+    "id": 26,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.041667
+    ],
+    "xml_sha256": "9fca09d1f2af84b504beced88508afdd96f0d61eb8f9c93148def926ab013a7d",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 27,
+    "name": "FACILITATION_MODE_LABEL",
+    "type": 1,
+    "bounds_inches": [
+     10.416667,
+     0.177083,
+     2.552083,
+     0.3125
+    ],
+    "xml_sha256": "b88414897349ca0ae9a65f1b5699361d3f000e6afdc7e1283ec2e6b2852dbd7a",
+    "paragraphs": [
+     {
+      "text": "REFERENCE  0:10",
+      "runs": [
+       {
+        "text": "REFERENCE  0:10",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-52"
+       }
+      ],
+      "paragraph_properties_ref": "style-51"
+     }
+    ]
+   },
+   {
+    "id": 28,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.447917,
+     7.145833,
+     0.520833,
+     0.28125
+    ],
+    "xml_sha256": "2859d999b09c50e3c22cb161b5ef7eccd3baef47b8e43ef0d9d03fef6befc1e4",
+    "paragraphs": [
+     {
+      "text": "69",
+      "runs": [
+       {
+        "text": "69",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 70,
+  "current_slide": 70,
+  "proposed_slide": 70,
+  "stable_id": "sid-325",
+  "native_id": 325,
+  "title": "One task. A clear brief. A checked result.",
+  "mode": "DIVIDER",
+  "active_seconds": 10,
+  "notes": "MODE: DIVIDER\n\nTIME: 0:10\n\nPURPOSE: Orient participants and reset attention.\n\nLAND THIS: Participants leave with a saved artifact and one next workplace application.\n\nSAY:\n- Name the next section and orient participants.\n- Move on without reading the reference content.\n\nDO: None.\n\nBRIDGE: Close the live session. The remaining pages are for optional self-study.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\n69\nFROM PROMPTS TO AGENTS\nDraft with AI.\nDecide with judgment.\nDelegate with a brief.\nand the last skill of all — let it ask you\nTemplates: prompt-library/ · Research & sources: notes/ · Questions and template improvements: open an issue or bring them to the next session.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT — 1) Read the three lines as a cadence, with a beat between each: draft with AI — decide with judgment — delegate with a brief. 2) Connect to the previous training: the first two lines are its habit line; the third is what this course added. 3) Gesture at the painting: the person’s question is lit; the robot’s is still forming — the caption is the course’s last lesson, from the best-prompt-is-a-question slide. 4) Last sentence: where everything lives, and bring template improvements to the next session. 5) Thank them — then stop talking; resist the recap urge.\nACRONYMS — none on this slide.\nCONTENT — Close by connecting to the previous training’s habit line — now extended with: delegate with a brief.\nART — the bench scene is an owner-generated illustration (R16). PLACEMENT NOTE (v1.8): the ledger slotted it on the best-prompt-is-a-question slide, but that slide has no room at full size without cutting the question toolkit — so it closes the deck instead, uncropped, as the final image the room sees. Flagged to the owner; easy to move if he prefers.\n69\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "1d9020fe558df4291e28374afd765a951d893fbd924eabd210e2b92c1a117251",
+  "notes_xml_sha256": "497b66909706ee56c287aa53538c2aefc1ce09cac3e73ad60ad101ede418b473",
+  "part": "/ppt/slides/slide70.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "a7efd33fee2ee581745b2e0b5736d3d9e1152afd35d70b3180690c1d4b87860f",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "divider-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.9375,
+     11.458333,
+     0.46875
+    ],
+    "xml_sha256": "f7492eabf68bad6687a3f8eee8ae247fb01ebb4b364eea3fe042445f108ef072",
+    "paragraphs": [
+     {
+      "text": "YOUR NEXT WORKPLACE APPLICATION",
+      "runs": [
+       {
+        "text": "YOUR NEXT WORKPLACE APPLICATION",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-2"
+       }
+      ],
+      "paragraph_properties_ref": "style-1"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "divider-title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     1.9375,
+     11.666667,
+     1.822917
+    ],
+    "xml_sha256": "28d5c73f1ccc6eb4b4dd522882d73e87fa0ffa992f0441ab235de20539b281f8",
+    "paragraphs": [
+     {
+      "text": "One task. A clear brief.",
+      "runs": [
+       {
+        "text": "One task. A clear brief.",
+        "family": "Calibri",
+        "size_pt": 46.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-4"
+       }
+      ],
+      "paragraph_properties_ref": "style-3"
+     },
+     {
+      "text": "A checked result.",
+      "runs": [
+       {
+        "text": "A checked result.",
+        "family": "Calibri",
+        "size_pt": 46.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-4"
+       }
+      ],
+      "paragraph_properties_ref": "style-3"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "divider-summary",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.083333,
+     11.666667,
+     0.833333
+    ],
+    "xml_sha256": "77982cecc1a90cb8498d7302fc3bf4ad7592711716e0fbbbf62d852b2b32dbc1",
+    "paragraphs": [
+     {
+      "text": "Decide with judgment. Delegate within clear boundaries.",
+      "runs": [
+       {
+        "text": "Decide with judgment. Delegate within clear boundaries.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-6"
+       }
+      ],
+      "paragraph_properties_ref": "style-5"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "divider-context",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     5.40625,
+     11.5625,
+     1.302083
+    ],
+    "xml_sha256": "5b571d4f31d69f8fdb50d20d8aa2944c40242914ae310818c1e741c43ceb0f83",
+    "paragraphs": [
+     {
+      "text": "Choose the requirement types your artifact needs.",
+      "runs": [
+       {
+        "text": "Choose the requirement types your artifact needs.",
+        "family": "Calibri",
+        "size_pt": 20.25,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-8"
+       }
+      ],
+      "paragraph_properties_ref": "style-7"
+     },
+     {
+      "text": "Use the appendix and requirements catalog for your next task.",
+      "runs": [
+       {
+        "text": "Use the appendix and requirements catalog for your next task.",
+        "family": "Calibri",
+        "size_pt": 20.25,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-8"
+       }
+      ],
+      "paragraph_properties_ref": "style-7"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "divider-mode",
+    "type": 1,
+    "bounds_inches": [
+     10.833333,
+     0.208333,
+     2.135417,
+     0.3125
+    ],
+    "xml_sha256": "7310be28468ba9427cd8764582e6aa2ee3622d321eb06f118dcfeb505724ae52",
+    "paragraphs": [
+     {
+      "text": "DIVIDER  0:10",
+      "runs": [
+       {
+        "text": "DIVIDER  0:10",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-10"
+       }
+      ],
+      "paragraph_properties_ref": "style-9"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.447917,
+     7.145833,
+     0.520833,
+     0.28125
+    ],
+    "xml_sha256": "718db4b796645e12fd267650a76206bec5c3943983740da4f7ed768d820e349e",
+    "paragraphs": [
+     {
+      "text": "70",
+      "runs": [
+       {
+        "text": "70",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-12"
+       }
+      ],
+      "paragraph_properties_ref": "style-11"
+     }
+    ]
+   }
+  ]
+ }
+]

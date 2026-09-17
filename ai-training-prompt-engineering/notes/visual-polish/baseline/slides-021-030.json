@@ -1,0 +1,3790 @@
+[
+ {
+  "original_slide": 21,
+  "current_slide": 21,
+  "proposed_slide": 21,
+  "stable_id": "sid-276",
+  "native_id": 276,
+  "title": "You already write work specifications",
+  "mode": "TEACH",
+  "active_seconds": 45,
+  "notes": "MODE: TEACH\n\nTIME: 0:45\n\nPURPOSE: Connect prompting to work skills participants already use.\n\nLAND THIS: Requirements, procedures, specifications, and test protocols already use the same core skill.\n\nSAY:\n- Introduce this connection before the first detailed prompt so participants have a familiar starting point.\n- Ask them to recognize a requirement, procedure, or test protocol from their own work.\n- The analogy is useful but imperfect: models can still misinterpret clear instructions, so verification remains necessary.\n\nDO: Ask: “Which of these do you already write or review?” Take one brief response.\n\nBRIDGE: Now define the qualities that make a requirement useful and checkable.\n\nIF LATE: KEEP\n\nCONNECTING INSIGHT\nRole, context, tone, format, source rules, and acceptance checks specify requirements for the response or artifact. Requirement type names what must be specified; requirement quality describes how well it is written. Context also supplies background facts. Specify how consequential facts constrain the work. The selected artifact determines which types matter: calculation rules for a spreadsheet, behavior and state for a dashboard, narrative and editability for a presentation, chronology and evidence for an email brief, or reading level and fidelity for a document. A role title alone does not guarantee expertise.\n\nANCHOR: Yes. Keep the central concept if surrounding reference orientations are skipped.\n\nSOURCE DETAIL FOR SELF-STUDY\nCONCLUSION · THE SISTER SKILL\n60\nYOU ALREADY WRITE PROMPTS FOR A LIVING — SAME SKILL, NEW AUDIENCE\nThey’re called requirements\n“Prompt engineering and requirements engineering are literally the same skill — using clarity, context, and intentionality to communicate your intent.”   — Andrew Stellman, O’Reilly, 2025\nSame structure, three ways\nUser story\n“As a [role], I want [goal], so that [benefit]”\nROLE + TASK — the so-that is the purpose clause\nAcceptance criteria\nGiven [state] · When [action] · Then [result]\nGiven = CONTEXT · When = TASK · Then = FORMAT + checks\nISO 29148 standard\nunambiguous · complete · singular · verifiable\nTASK precision · CONTEXT · STOP · FORMAT + self-check\nWhy it wins\n41.1%  — how often a model guesses an UNSTATED requirement right. A spec deletes the guessing.\nThe software world moved first: \nGitHub’s Spec Kit (2025) makes the written spec “the source of truth” AI agents build from — requirements writing, industrialized.\n“Whoever writes the spec… is now the programmer.”\n— Sean Grove, OpenAI, 2025\nWhat this means for this room: \nif you can write an SOP, a test protocol, or an acceptance criterion, you already own the hardest 80% of prompt engineering — the seven elements are a requirements document in miniature.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) The reveal, plainly: “you didn’t learn a NEW skill today — you learned a new audience for one you already have. Writing a prompt IS writing a requirement.” Then the Stellman quote, verbatim.\n2) LEFT card: three requirements forms this room may already write — user stories, Given-When-Then, the ISO characteristics — and each maps ONTO the anatomy. Read one mapping aloud (Given = Context, When = Task, Then = Format + checks is the cleanest).\n3) RIGHT card: the callback number — 41.1% — and the software world’s move: spec-driven development (GitHub Spec Kit), then Grove’s line: whoever writes the spec is now the programmer. His stronger line if the room is technical: “code is 10–20% of the value; the other 80–90% is structured communication.”\n4) Amber band — the point of the slide: SOPs, test protocols, acceptance criteria = the hardest 80%, already owned.\n5) One caution to respect (R7): the evidence is structural + measured on clarified PROMPTS (ClarifyGPT +7 pts; Yang et al., 2025; revised 2026 — +4.8%) — there is no study of requirements-trained PEOPLE prompting better; don’t claim one.\n\nBRIDGE —\n“And when you can’t fill an element in — that gap has a name too: a question.”\n\nACRONYMS —\nSOP = Standard Operating Procedure. ISO 29148 = the international requirements-engineering standard (ISO/IEC/IEEE). BDD (if asked) = Behavior-Driven Development, home of Given-When-Then. PM = product manager (in Grove’s quote).\n\nCONTENT —\nv1.6 new slide (owner request). All quotes verified verbatim, all forms traced to origin — notes/research/r21_requirements_questions.md: Stellman O’Reilly Sep 2025; Grove “The New Code” June 2025 (transcript-checked); Spec Kit github.blog Sep 2025; user story Connextra 2001; Given-When-Then Dan North mid-2000s; INVEST Bill Wake 2003; ISO 29148:2018 nine characteristics; ClarifyGPT ACM FSE 2024.\nDO NOT USE (misattributions people expect): Einstein’s “55 minutes on the problem” (apocryphal) and Voltaire’s “judge a man by his questions” (actually de Lévis, 1808).\n60\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "f980db737697e3e69a1f896f6c5e1672ddd0ca10a7a25f9c8a6d7a95e6b7ed3a",
+  "notes_xml_sha256": "2ceea61c6d1a05361be2f7cff93a749711a40c56b8380337a55b71d01db8a614",
+  "part": "/ppt/slides/slide21.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "9d19883464deac50738521355e031934849ca2f9f4bb88459bc51482c6a3e32b",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "69f75be565e711b28aa0f4ec47a6bcdff181e5fad972110e11b92ff257487142",
+    "paragraphs": [
+     {
+      "text": "TEACH · ANCHOR   0:45",
+      "runs": [
+       {
+        "text": "TEACH · ANCHOR   0:45",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "dbd7040b1b2ecf2480317663bac7492c0fc989a2be83aa3c37467857892daaf9",
+    "paragraphs": [
+     {
+      "text": "You already write work specifications",
+      "runs": [
+       {
+        "text": "You already write work specifications",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-16"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "",
+    "type": 19,
+    "bounds_inches": [
+     0.666667,
+     2.03125,
+     12.0,
+     3.90625
+    ],
+    "xml_sha256": "4d116288f37ab62503944056018f6ecc168604c26f7ed9b32831eb1204c35bb6",
+    "table": [
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Familiar practice",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Familiar practice",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-97"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.645833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "The same contribution to a prompt",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "The same contribution to a prompt",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-97"
+          }
+         ]
+        }
+       ],
+       "width_inches": 8.020833
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Requirements",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Requirements",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-98"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.645833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "The outcome, scope, and constraints",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "The outcome, scope, and constraints",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-98"
+          }
+         ]
+        }
+       ],
+       "width_inches": 8.020833
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Standard operating procedures",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Standard operating procedures",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-98"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.645833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "The steps, roles, and exceptions",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "The steps, roles, and exceptions",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-98"
+          }
+         ]
+        }
+       ],
+       "width_inches": 8.020833
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Specifications",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Specifications",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-98"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.645833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Definitions, units, and tolerances",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Definitions, units, and tolerances",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-98"
+          }
+         ]
+        }
+       ],
+       "width_inches": 8.020833
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Acceptance criteria and test protocols",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Acceptance criteria and test protocols",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-98"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.645833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Observable checks and evidence of completion",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Observable checks and evidence of completion",
+           "family": "Calibri",
+           "size_pt": 19.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-98"
+          }
+         ]
+        }
+       ],
+       "width_inches": 8.020833
+      }
+     ]
+    ]
+   },
+   {
+    "id": 5,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "f4e9b5f6a445033e3bbbb1bf9b4b386d9d3607ccda0d618124e33181803a79a8",
+    "paragraphs": [
+     {
+      "text": "Role, context, tone, format, and checks are requirements for the reply or artifact.",
+      "runs": [
+       {
+        "text": "Role, context, tone, format, and checks are requirements for the reply or artifact.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "7334de7dddf8c7a21bf8bb2c6156cf857d24c941323182649ff5663b69de0f74",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "4fb752c0080cde8decb8121853e188730ad977213fde1946a56e0e5a9ddf157f",
+    "paragraphs": [
+     {
+      "text": "21",
+      "runs": [
+       {
+        "text": "21",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 22,
+  "current_slide": 22,
+  "proposed_slide": 22,
+  "stable_id": "sid-277",
+  "native_id": 277,
+  "title": "Good requirements make prompts testable",
+  "mode": "TEACH",
+  "active_seconds": 120,
+  "notes": "MODE: TEACH\n\nTIME: 2:00\n\nPURPOSE: Separate requirement types (what to specify) from requirement quality (how well it is specified), then connect both to prompt engineering.\n\nLAND THIS: Clear, complete, feasible, and verifiable requirements make a prompt easier to execute and its output easier to check.\n\nSAY:\n- Requirements communicate the needed outcome and its acceptance conditions; avoid prescribing implementation without a reason.\n- Role, context, tone, and format are types of requirements. The table describes what makes any selected requirement well written.\n- Distinguish verification (meets the written criteria) from validation (serves the actual business need).\n- These principles improve clarity and testability. They do not make model behavior deterministic.\n\nDO: Point to the vague and specific supplier statements. Ask which source calculation would verify the specific version.\n\nBRIDGE: Apply these qualities to a concrete supplier-analysis prompt.\n\nIF LATE: KEEP\n\nANCHOR: Yes. Keep the central concept if surrounding reference orientations are skipped.\n\nREQUIREMENTS WRITING REFERENCE\nA useful requirement is necessary, appropriate to its level, clear, sufficiently complete, singular, feasible, and verifiable. Use consistent terms across the set, resolve conflicts, and retain the reason and source. Separate the required outcome from a preferred implementation. An acceptance check should identify what evidence demonstrates compliance. For a data prompt, specify the dataset and period, row boundaries, calculation definition, deliverable, missing-data treatment, and reconciliation. Check both whether the artifact meets those criteria and whether it supports the intended decision. This comparison is a teaching application of requirements principles; it is not a claim that a natural-language prompt is an enforceable software specification.\n\nSOURCES\nNational Aeronautics and Space Administration, Systems Engineering Handbook, Appendix C: https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/\nInternational Council on Systems Engineering, Guide to Writing Requirements, version 4 summary: https://www.incose.org/docs/default-source/working-groups/requirements-wg/guidetowritingrequirements/incose_rwg_gtwr_v4_summary_sheet.pdf",
+  "slide_xml_sha256": "53964121f933bc621f28476c675082ed7b65d9407ae59b6d51f931c767307231",
+  "notes_xml_sha256": "59763c9f6e72429bb8b51d79ee489c9798579b34973d20e74f0be52449e2c359",
+  "part": "/ppt/slides/slide22.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "e1a9d0d72000df144b84e580907be315e2b75f12f345b6cc5026522a9abcc06a",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "3401f46bb27afdbdc01b3e2367f46d195e1130ea4417563d8b17169c8b3b9c2a",
+    "paragraphs": [
+     {
+      "text": "TEACH · ANCHOR   2:00",
+      "runs": [
+       {
+        "text": "TEACH · ANCHOR   2:00",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "7cfe6c708ffd6853a60f510576ade18062417d8baff67800ae235167399fa3ec",
+    "paragraphs": [
+     {
+      "text": "Good requirements make prompts testable",
+      "runs": [
+       {
+        "text": "Good requirements make prompts testable",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-16"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "",
+    "type": 19,
+    "bounds_inches": [
+     0.666667,
+     2.03125,
+     12.0,
+     3.833333
+    ],
+    "xml_sha256": "428c073efaffe803c92597bc16e6ada1482831126284898b99073d5325de5b05",
+    "table": [
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Quality",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Quality",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-99"
+          }
+         ]
+        }
+       ],
+       "width_inches": 2.552083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "What to write",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "What to write",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-99"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.427083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Benefit for the prompt",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Benefit for the prompt",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-99"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.6875
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Clear",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Clear",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 2.552083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Define terms and units",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Define terms and units",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.427083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Fewer competing interpretations",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Fewer competing interpretations",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.6875
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Complete",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Complete",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 2.552083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "State scope, sources, conditions",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "State scope, sources, conditions",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.427083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Fewer unsupported assumptions",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Fewer unsupported assumptions",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.6875
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Singular and consistent",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Singular and consistent",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 2.552083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Separate obligations; resolve conflicts",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Separate obligations; resolve conflicts",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.427083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Easier execution and diagnosis",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Easier execution and diagnosis",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.6875
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Feasible",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Feasible",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 2.552083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Match available inputs and tools",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Match available inputs and tools",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.427083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "An achievable deliverable",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "An achievable deliverable",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.6875
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Verifiable",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Verifiable",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 2.552083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Set observable acceptance checks",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Set observable acceptance checks",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.427083
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "A testable result",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "A testable result",
+           "family": "Calibri",
+           "size_pt": 18.0,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-100"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.6875
+      }
+     ]
+    ]
+   },
+   {
+    "id": 6,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "314b4172f63ee600c46bc286a79a83ca98fc97e4b0281be8570a72466dd6d87c",
+    "paragraphs": [
+     {
+      "text": "Requirements sources and worked example: slide 90",
+      "runs": [
+       {
+        "text": "Requirements sources and worked example: slide 90",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "2d184063f53ff04150f8bdfd7399a293bcf201531d2d71a6ae980acb9bc99638",
+    "paragraphs": [
+     {
+      "text": "22",
+      "runs": [
+       {
+        "text": "22",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.770833,
+     12.0,
+     0.364583
+    ],
+    "xml_sha256": "86adba3fa017d5031ad154206417d3094e90bbbdd96c5106e0b280f0a3d0777e",
+    "paragraphs": [
+     {
+      "text": "Example: calculate returns ÷ units shipped by supplier and reconcile to the source.",
+      "runs": [
+       {
+        "text": "Example: calculate returns ÷ units shipped by supplier and reconcile to the source.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-101"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 23,
+  "current_slide": 23,
+  "proposed_slide": 23,
+  "stable_id": "sid-278",
+  "native_id": 278,
+  "title": "A prompt is a small work specification",
+  "mode": "TEACH",
+  "active_seconds": 110,
+  "notes": "MODE: TEACH\n\nTIME: 1:50\n\nPURPOSE: Introduce the minimum useful prompt structure before the deeper reference taxonomy.\n\nLAND THIS: A strong prompt specifies the task, source, output, and important boundaries.\n\nSAY:\n- Point to the business decision before naming requirement types.\n- Map each sentence to its type: audience, source, method, format, tone, or acceptance check.\n- Choose types that resolve ambiguity. A role label is useful only if it adds relevant behavior.\n\nDO: Ask participants which requirement prevents double counting, and which makes the answer checkable.\n\nBRIDGE: Move to “Useful roles describe behavior”.\n\nIF LATE: KEEP\n\nCONNECTING INSIGHT\nRole, context, tone, format, source rules, and acceptance checks specify requirements for the response or artifact. Requirement type names what must be specified; requirement quality describes how well it is written. Context also supplies background facts. Specify how consequential facts constrain the work. The selected artifact determines which types matter: calculation rules for a spreadsheet, behavior and state for a dashboard, narrative and editability for a presentation, chronology and evidence for an email brief, or reading level and fidelity for a document. A role title alone does not guarantee expertise.\n\nANCHOR: Yes. Keep the central concept if surrounding reference orientations are skipped.\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · THE ANATOMY\n21\nTHE UNIVERSAL ANATOMY\nSeven parts, one body — what good looks like\nROLE\n“You are a precise editor. You add no facts that are not in the source.”\nTASK\n“Summarize the attached Q2 returns report for the operations lead.”\nCONTEXT\n“We’re a mid-size electronics manufacturer. Return rate = returns ÷ shipped. The export has a totals row — exclude it.”\nFORMAT\n“≤ 150 words: the headline number first, then three bullets.”\nEXAMPLES\n<example> March’s summary — the one the team liked </example>\nTHE OUT\n“Anything the report doesn’t state: write UNKNOWN — never estimate. List the gaps at the end.”\nTHE STOP\n“Deliver the summary, then stop — nothing beyond.”\nNote the industry line: what business you’re in is CONTEXT — name your world; never assume it knows.\nThe Out, defined: the escape route for missing information — name the honest move (write UNKNOWN · never estimate · list the gaps), so the model never has to choose between obeying you and being honest.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Frame: “one prompt, seven parts — and the parts make a BODY. Everything in Part 3 is refinements of this picture.”\n2) Walk the FIGURE (owner-generated art) top to bottom, naming each organ: the head thinks in the right posture (Role) · the heart is why it beats at all (Task) · the bloodstream feeds every organ (Context) · the skeleton holds the shape (Format) · the hands show how it’s done (Examples) · the immune system rejects invented facts (the Out) · the skin is where the ACTION ends (the Stop — perform exactly the named action, then stop). Then the caption: miss an organ and it still walks — it just fails in a predictable way. That predictability is the diagnosis grid (tab EX-Report). (The image caption says the Stop is “where the job ends” — SAY it the owner’s way: where the ACTION ends.)\n3) RIGHT card: the same body written out — read it top to bottom as ONE continuous prompt (~90 words, under two minutes to write).\n4) SLOW on THE OUT row — the element people define worst, so define it fully: the Out is the ESCAPE ROUTE you write for missing information. It has three parts, all visible in the example: the CONDITION (“anything the report doesn’t state”), the HONEST MOVE (“write UNKNOWN — never estimate”), and the SURFACING (“list the gaps at the end” — so the gaps reach YOU instead of hiding). Then the why, in one sentence: a model is trained to always produce an answer — if you don’t specify the honest move, INVENTING is the only way it can obey your prompt. “Say so” alone is weaker: it names no form; UNKNOWN + a gap list is checkable in the output.\n5) The amber line — owner-requested and worth saying twice: YOUR INDUSTRY IS CONTEXT. “We’re a mid-size electronics manufacturer” changes every answer downstream; people constantly assume the AI knows their world. It doesn’t until you say so.\n6) Teal band: read the Out definition verbatim — it is the slide’s one formal definition.\n\nBRIDGE —\n“Now each element properly — and what each one BUYS you.”\n\nACRONYMS —\nQ2 = second quarter. XML-style tags = the angle-bracket fences around examples.\n\nCONTENT —\nv1.6: rebuilt around the body figure (owner: “let’s see how creative and artistic you can get”); the vendor-recipe panel moved off-slide (owner request) — keep in reserve for questions: Anthropic (role · clear task · context · format · examples), OpenAI (role & instructions · context · format · few-shot), Google (Persona·Task·Context·Format), Microsoft (Goal·Context·Source·Expectations) — four official guides, one anatomy: convergence, not our opinion.\nThe 21-words stat (moved off-slide in v1.10 to make room for the Out definition; say it if useful): Google’s Oct 2024 Workspace guide found the most fruitful prompts averaged ~21 words with context — most people type fewer than nine (directional, not gospel).\nv1.10 (owner request): the Out re-defined and its example upgraded — condition + honest move + surfacing (“anything the report doesn’t state: write UNKNOWN — never estimate; list the gaps at the end”), with the formal definition in the teal band. The same sharpened definition is on the element card (3 of 3), the cheat sheet, and tab EX-Report.\nAnthropic’s golden rule belongs in the room: show the prompt to a colleague with minimal context — if they’d be confused, the model will be too.\nIf the cold open was used: this slide is its debrief — the vague line is the returns-data prompt with every element filled in.\n21\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "41e3e94ea9d9a8efe336703875d9074b2466b11c3fb4917bf20c5d128d490f60",
+  "notes_xml_sha256": "463f8dd3692e92512f720c066f9af37bc0cc2ee7319c19a4557498e9f377eb93",
+  "part": "/ppt/slides/slide23.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "10f22880d66a8924e99ab813a30eca3f521739ce0b2b8c9bf9f04bcd78711cbf",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "aafb756d1f94d22c43a4a2e62a5383281e4939a7ec6205763daf64a83cea693c",
+    "paragraphs": [
+     {
+      "text": "TEACH · ANCHOR   1:50",
+      "runs": [
+       {
+        "text": "TEACH · ANCHOR   1:50",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "419ac2575f9972c5a73157f18cce3e033c98b94f91db54a374e80fb7c9327990",
+    "paragraphs": [
+     {
+      "text": "A prompt is a small work specification",
+      "runs": [
+       {
+        "text": "A prompt is a small work specification",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-16"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "main-prompt",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.135417,
+     12.0,
+     3.854167
+    ],
+    "xml_sha256": "ae7b99da5778ef6e0c15dfb8896ce16e1cef3fd6f2e59ae1aa41b9e96aa18c6d",
+    "paragraphs": [
+     {
+      "text": "For a manager choosing supplier follow-up, calculate return rate from the supplied workbook.",
+      "runs": [
+       {
+        "text": "For a manager choosing supplier follow-up, calculate return rate from the supplied workbook.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     },
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "",
+        "family": null,
+        "size_pt": null,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-70"
+       }
+      ]
+     },
+     {
+      "text": "Use total returns ÷ total units shipped. Exclude the existing TOTAL row.",
+      "runs": [
+       {
+        "text": "Use total returns ÷ total units shipped. Exclude the existing TOTAL row.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     },
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "",
+        "family": null,
+        "size_pt": null,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-70"
+       }
+      ]
+     },
+     {
+      "text": "Return a ranked table and a brief, neutral explanation. State missing information and reconcile totals to the source.",
+      "runs": [
+       {
+        "text": "Return a ranked table and a brief, neutral explanation. State missing information and reconcile totals to the source.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "abf4a1b5d67a4a86471b07f1e24c29cde54c2e78541fb4661adce344224a790a",
+    "paragraphs": [
+     {
+      "text": "Audience + source + method + format + tone + check: requirements for this result.",
+      "runs": [
+       {
+        "text": "Audience + source + method + format + tone + check: requirements for this result.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "48a8b218e4765eaad5149e60badd952b9ff2333db43035bbf3c28140e38c49d8",
+    "paragraphs": [
+     {
+      "text": "Detailed explanation: slide 75",
+      "runs": [
+       {
+        "text": "Detailed explanation: slide 75",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "c1df1b85dd2fbed22d4e35a597ee53da29592b00780072c2ad3a20455cd3d2c7",
+    "paragraphs": [
+     {
+      "text": "23",
+      "runs": [
+       {
+        "text": "23",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 24,
+  "current_slide": 24,
+  "proposed_slide": 24,
+  "stable_id": "sid-279",
+  "native_id": 279,
+  "title": "Useful roles describe behavior",
+  "mode": "TEACH",
+  "active_seconds": 40,
+  "notes": "MODE: TEACH\n\nTIME: 0:40\n\nPURPOSE: Build a concept required for the next application.\n\nLAND THIS: Role, task, and purpose establish who is doing what and why.\n\nSAY:\n- A role can guide tone and approach but does not guarantee expertise or accuracy.\n- Behavior is observable: a reader can see whether assumptions were stated.\n- Use one business question, such as return rate by supplier against a stated target.\n\nDO: None.\n\nBRIDGE: Move to “Prompt elements are requirement types”.\n\nIF LATE: COMPRESS\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · THE ELEMENTS\n22\nTHE ELEMENTS · WHAT EACH BUYS YOU — 1 OF 3\nRole & Task: the posture, and the question\nRole\nwho is answering — decompose it into personality statements: testable behaviors, not titles\nWhat you get — the right altitude and posture: an expert stance you can hold it to, line by line — and a consistent voice readers can feel.\nWhy — a role won’t make the model smarter — two studies (162 personas; a 2025 six-model replication) found zero accuracy gain — but it reliably reshapes voice and register. The craft is writing the RIGHT requirements: each personality statement is checkable in the output; a title is a vibe it can fake. (Zheng 2024 · Wharton 2025 · PersonaLLM 2024)\nweak   “You are a senior analyst.”\nstrong “You never invent numbers; you state n; you say what the data can’t answer.”\nweak   “You are a helpful assistant.”\nstrong “You challenge weak assumptions instead of agreeing; you flag uncertainty rather than smooth it over.”\nTask\nverb + object + audience + success criterion — and the SEQUENCE, when order matters\nWhat you get — an answer to YOUR question, sized for its audience — and a model that knows when it is done.\nWhy — every requirement you leave unsaid is a coin flip: models guess unstated intent right only ~41% of the time. A precise ask carries its own completion test — and when order matters, sequence IS the task: say what happens first, and what must wait. (Yang et al., 2025; revised 2026)\nweak   “Analyze the returns data.”\nstrong “What is the return rate by site for Q2, vs the 2% target?”\nweak   “Improve this report.”\nstrong “First: list the three weakest sections, then WAIT. Rewrite only the one I pick.”\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Frame: “each element now gets the full treatment: its job, what it BUYS you, why that works, and TWO weak-vs-strong pairs.”\n2) One card at a time, same rhythm: read BOTH weak fills aloud, flat → both strong fills → let the contrasts land → then “what you get” and the why.\n3) Role — the owner’s framing, say it his way: a role DECOMPOSES into personality statements — “you never invent numbers” is a requirement you can test in the output; “senior analyst” is a vibe. The craft is coming up with the RIGHT requirements. (And: a role does NOT add IQ — zero accuracy gain across 162 personas, replicated 2025; dumbed-down personas actually cost accuracy.)\n4) Task — two beats: leave a requirement unsaid and the model guesses right only ~4 times in 10; and SEQUENCE is part of the task — pair 2 shows “first list, then WAIT, then rewrite one” — order stated is order followed.\n\nBRIDGE —\n“The next pair is where most disappointment actually comes from.”\n\nACRONYMS —\nn = sample size (“you state n”). Q2 = second quarter.\n\nCONTENT —\nv1.5 rebuild (owner: the old definition slides “didn’t tell much” — every card now answers what-you-get / why / with evidence).\nEvidence (full citations in notes/research/r15_element_evidence.md): personas-no-accuracy = Zheng et al. EMNLP 2024 + Wharton Prompting Science Report 4 (Dec 2025, six models — low-knowledge personas significantly hurt); personas-shape-voice = PersonaLLM, NAACL 2024 Findings (traits identifiable up to 80%); unstated intent 41.1% and 2× regression = Yang et al., 2025; revised 2026 — arXiv:2505.13360.\n22\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "49ab8974f38d9bd797c5aa641ebc5af0e226be99f0d268c49e933ae8d0e7d918",
+  "notes_xml_sha256": "18f0aec8bc23161cad7d138969f66c8ff12f476e37658cbc85b5248b5045814e",
+  "part": "/ppt/slides/slide24.xml",
+  "shapes": [
+   {
+    "id": 11,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "11e63e8387a7eaf2290fb5de3ce0d30c4cf2b3cd9e98e57b36f41608cd733256",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "067f76f66599b3251c3748efc14b6c13d5b99de4f797c1edfa0e7ea8a86a03d7",
+    "paragraphs": [
+     {
+      "text": "TEACH   0:40",
+      "runs": [
+       {
+        "text": "TEACH   0:40",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "783cb043743b79279e34659d06fca28149f58fb0526a6a4256b929a5c0d6fb9f",
+    "paragraphs": [
+     {
+      "text": "Useful roles describe behavior",
+      "runs": [
+       {
+        "text": "Useful roles describe behavior",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-16"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "left-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.135417,
+     5.572917,
+     0.541667
+    ],
+    "xml_sha256": "7f711babd2509bc48a83ff32e2e7d37d647e89fea20473c88393a0c4b280c093",
+    "paragraphs": [
+     {
+      "text": "A TITLE ALONE",
+      "runs": [
+       {
+        "text": "A TITLE ALONE",
+        "family": "Calibri",
+        "size_pt": 18.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-18"
+       }
+      ],
+      "paragraph_properties_ref": "style-17"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "right-label",
+    "type": 1,
+    "bounds_inches": [
+     6.958333,
+     2.135417,
+     5.708333,
+     0.541667
+    ],
+    "xml_sha256": "321fee7172ef4d1b7a520971932d35cd3459615813605c58b240dcb38266cbdc",
+    "paragraphs": [
+     {
+      "text": "A TESTABLE INSTRUCTION",
+      "runs": [
+       {
+        "text": "A TESTABLE INSTRUCTION",
+        "family": "Calibri",
+        "size_pt": 18.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-18"
+       }
+      ],
+      "paragraph_properties_ref": "style-17"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "left-body",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.760417,
+     5.572917,
+     2.989583
+    ],
+    "xml_sha256": "371a18536717b55e64b5ed96a7401fef50b18d015444741cac43a91d896105e0",
+    "paragraphs": [
+     {
+      "text": "“Act as a senior analyst.”",
+      "runs": [
+       {
+        "text": "“Act as a senior analyst.”",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     },
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "",
+        "family": null,
+        "size_pt": null,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-70"
+       }
+      ]
+     },
+     {
+      "text": "This leaves the expected behavior unclear.",
+      "runs": [
+       {
+        "text": "This leaves the expected behavior unclear.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "right-body",
+    "type": 1,
+    "bounds_inches": [
+     6.958333,
+     2.760417,
+     5.708333,
+     2.989583
+    ],
+    "xml_sha256": "b4b20732d0706de72a3d2aa04a24442d18ff3a4a53d2c21cdd42bfae96b08d44",
+    "paragraphs": [
+     {
+      "text": "“State your assumptions, calculate from the source, and identify what the data cannot answer.”",
+      "runs": [
+       {
+        "text": "“State your assumptions, calculate from the source, and identify what the data cannot answer.”",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "53a0286d02bf3cf69344ab19d957ec7fbb00910f27caf0c1fde1436479e87e21",
+    "paragraphs": [
+     {
+      "text": "Pair the behavior with a concrete question and an intended audience.",
+      "runs": [
+       {
+        "text": "Pair the behavior with a concrete question and an intended audience.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "de29cb7a0959ba63ee64be7675c0546aa19cf2c7db473c35d9263e0d488270d0",
+    "paragraphs": [
+     {
+      "text": "Detailed explanation: slide 76",
+      "runs": [
+       {
+        "text": "Detailed explanation: slide 76",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "9b9b20b2ee51d0199fe69398e410a3ec99577ad2b219f63dcddb1bfdb24125db",
+    "paragraphs": [
+     {
+      "text": "24",
+      "runs": [
+       {
+        "text": "24",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 25,
+  "current_slide": 25,
+  "proposed_slide": 25,
+  "stable_id": "sid-280",
+  "native_id": 280,
+  "title": "Prompt elements are requirement types",
+  "mode": "TEACH",
+  "active_seconds": 40,
+  "notes": "MODE: TEACH\n\nTIME: 0:40\n\nPURPOSE: Build a concept required for the next application.\n\nLAND THIS: Context and output requirements make results usable and checkable.\n\nSAY:\n- Role, context, tone, and format specify aspects of the expected reply or artifact.\n- Context also supplies facts; make explicit how important facts constrain the task.\n- A role title does not guarantee expertise, and a formatting request is not an enforced schema.\n- Use slides 91–96 and the requirements catalog to choose additional types by artifact.\n\nDO: None.\n\nBRIDGE: Move to “Examples, uncertainty, and stopping”.\n\nIF LATE: COMPRESS\n\nCONNECTING INSIGHT\nRole, context, tone, format, source rules, and acceptance checks specify requirements for the response or artifact. Requirement type names what must be specified; requirement quality describes how well it is written. Context also supplies background facts. Specify how consequential facts constrain the work. The selected artifact determines which types matter: calculation rules for a spreadsheet, behavior and state for a dashboard, narrative and editability for a presentation, chronology and evidence for an email brief, or reading level and fidelity for a document. A role title alone does not guarantee expertise.\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · THE ELEMENTS\n23\nTHE ELEMENTS · WHAT EACH BUYS YOU — 2 OF 3\nContext & Format: the facts, and the contract\nContext\nwhat the model cannot know on its own\nWhat you get — answers that are right for US — your definitions, your quirks, your constraints — instead of generically right.\nWhy — the model fills every gap with the most plausible guess; context deletes wrong guesses (Part 1’s launch-date drill). Measured: answer-from-the-supplied-text instructions cut memory-override errors 35%→3% and lifted accuracy on unanswerable questions 31%→88%. Flip side: it trusts your context even when it’s wrong — quality is on you. (Zhou 2023 · Omar 2025)\nweak   “Use our standard definitions.”\nstrong “Return rate = returns ÷ shipped. Quirk: the export has a totals row — exclude it and say so.”\nweak   “You know our business.”\nstrong “We’re a mid-size electronics manufacturer; ‘returns’ means warranty returns, not cancelled orders.”\nFormat\nthe output contract — shape, cap, tone\nWhat you get — output you can use as-is: right shape, right length, no reformatting pass — and answers you can compare across runs.\nWhy — a numeric cap is enforceable; “short and professional” is a mood the model interprets freely. Spelling out structure is nearly free reliability — schema-enforced output went from under 40% to 100% compliant. (OpenAI 2024 · JSONSchemaBench 2025)\nweak   “Keep it short and professional.”\nstrong “≤ 120 words: the ask in sentence one, two facts with numbers, the deadline.”\nweak   “Make it a nice table.”\nstrong “A table with exactly: Site | Return rate | vs target | Trend — one row per site, worst first.”\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Same rhythm: weak aloud → strong aloud → what you get → why.\n2) Context — the numbers to say: grounding instructions cut “the model ignored what I gave it and answered from memory” errors from 35% to 3%. Then the warning: it will trust your context when it’s WRONG, too — planted errors get repeated in up to 83% of cases. Context quality is on you.\n3) Format — land “a numeric cap is enforceable; an adjective is a mood.” The myth to kill: “JSON makes models dumber” — the follow-up studies showed well-built format constraints cost nothing and often help.\n4) Footer line: Context fights hallucination; Format fights rework.\n\nBRIDGE —\n“One element left — plus the two safety valves.”\n\nACRONYMS —\nJSON = a structured data format (the strictest output contract).\n\nCONTENT —\nEvidence (r15): context-faithful prompting 35.2%→3.0% memorization-ratio and 30.6%→87.8% on unanswerable = Zhou et al., EMNLP 2023 Findings; planted-error propagation up to 83% = Omar et al., Communications Medicine 2025; schema compliance <40%→100% = OpenAI Structured Outputs (Aug 2024); format-constraints replication = JSONSchemaBench (2025) + dottxt rebuttal of Tam et al. 2024.\nTeaching nuance kept honest: “reason first, format second” is still a fine manual habit — but do NOT teach “format restrictions hurt reasoning” as settled fact.\nFont-policy pass: the on-slide footer line was removed — deliver “Context fights hallucination; Format fights rework” verbally (step 4).\n23\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "5c6a8f88acbc644bd499e5deac384cb3050f8c5240fd7aca750e50c37d2176d6",
+  "notes_xml_sha256": "a6308d1d6b4cd3db1666016cf4a96234d268ac7516755be4f0c600958c791a98",
+  "part": "/ppt/slides/slide25.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "2b3771d0511724ef9e3f277ae9131787d948827fd0fbf5f236ee5f8d41808ba1",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "f0f2cf32c177fc3ec68eea0b21adcabbbf174a7bed7958f43a957602c9ed4c23",
+    "paragraphs": [
+     {
+      "text": "TEACH   0:40",
+      "runs": [
+       {
+        "text": "TEACH   0:40",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "12f176604decb69ca7e7e84538488047854431db3fe2cad137da313b0017d740",
+    "paragraphs": [
+     {
+      "text": "Prompt elements are requirement types",
+      "runs": [
+       {
+        "text": "Prompt elements are requirement types",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-16"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "5bb6e4d84fc397d65ff8d9f93143ed6d4c387246fc32972669e68177f18af80a",
+    "paragraphs": [
+     {
+      "text": "Role → behavior",
+      "runs": [
+       {
+        "text": "Role → behavior",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "861642c0624b3b8a2e7c1786700316e4e135d87e8d3ac3143796e8c09b10e243",
+    "paragraphs": [
+     {
+      "text": "“Act as a reviewer: expose assumptions and gaps.”",
+      "runs": [
+       {
+        "text": "“Act as a reviewer: expose assumptions and gaps.”",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "145be285ef0d792c4d0d87e2077bf2d909a378a7bac55f9fc491d4945b181d25",
+    "paragraphs": [
+     {
+      "text": "Context → scope",
+      "runs": [
+       {
+        "text": "Context → scope",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "a31ee9225d3141be834ab8ca21523d8aa9aa771c191167d10d25818cd5b888ee",
+    "paragraphs": [
+     {
+      "text": "“Use this workbook, period, and definition.”",
+      "runs": [
+       {
+        "text": "“Use this workbook, period, and definition.”",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "87113db5564a35bb8917372503fb50b1615aa723877da4346e7bf1442e0c536f",
+    "paragraphs": [
+     {
+      "text": "Tone → communication",
+      "runs": [
+       {
+        "text": "Tone → communication",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "8b9a9477952a0ffa4f51fd488dabb66517bd9de9448db3d8402cd09bc3a0ca71",
+    "paragraphs": [
+     {
+      "text": "“Use neutral, plain language for managers.”",
+      "runs": [
+       {
+        "text": "“Use neutral, plain language for managers.”",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "00cdb97fd5aff70df93e46a2de87e42949261e8ee93a13d2fe13acf8b240e051",
+    "paragraphs": [
+     {
+      "text": "Format → structure",
+      "runs": [
+       {
+        "text": "Format → structure",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "c6be0c06886474333b6803f7a45494e7899d988b897021a6a51a6be99daaa6e4",
+    "paragraphs": [
+     {
+      "text": "“One row per supplier; highest return rate first.”",
+      "runs": [
+       {
+        "text": "“One row per supplier; highest return rate first.”",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "43c7961b8fa01b555d652613c7b053dddeea01b9a2dcc71760ba5ac1790a9c1a",
+    "paragraphs": [
+     {
+      "text": "Every artifact has requirements. Select the relevant types, then define how to check them.",
+      "runs": [
+       {
+        "text": "Every artifact has requirements. Select the relevant types, then define how to check them.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "b882d47820fe0291619807192c6b31074b0c73739f5e89d88e1c5522ab34ba85",
+    "paragraphs": [
+     {
+      "text": "Detailed explanation: slide 77",
+      "runs": [
+       {
+        "text": "Detailed explanation: slide 77",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "6dd616f9feab0afb9c9f349c68110a046b16f7228bf3997585ba7dabdd85541a",
+    "paragraphs": [
+     {
+      "text": "25",
+      "runs": [
+       {
+        "text": "25",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 26,
+  "current_slide": 26,
+  "proposed_slide": 26,
+  "stable_id": "sid-281",
+  "native_id": 281,
+  "title": "Examples, uncertainty, and stopping",
+  "mode": "TEACH",
+  "active_seconds": 40,
+  "notes": "MODE: TEACH\n\nTIME: 0:40\n\nPURPOSE: Build a concept required for the next application.\n\nLAND THIS: Examples, boundaries, and checks reduce ambiguity when they solve a real risk.\n\nSAY:\n- The sample should teach the intended structure without smuggling in obsolete facts.\n- Explicit handling of missing information helps, but cannot guarantee no invented claims.\n- A clear completion condition limits unnecessary expansion.\n\nDO: None.\n\nBRIDGE: Move to “A menu of requirements for each artifact”.\n\nIF LATE: COMPRESS\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · THE ELEMENTS\n24\nTHE ELEMENTS · WHAT EACH BUYS YOU — 3 OF 3\nExamples — and the two one-sentence safety valves\nExamples\n3–5 diverse demonstrations, edge case included\nWhat you get — work that matches the standard in your head — including how the hard cases get handled.\nWhy — the model imitates what it sees: examples teach format and style; on modern tuned models they steer shape more than facts. Include one edge case — it copies your edge-case handling too. (Brown 2020 · Min 2022)\nweak   three clones of the happy case\nstrong one typical + one edge + one reject case, clearly separated\nweak   “Write it like the good ones.”\nstrong “Match this: [March’s summary] — same tone, same length. Here’s one we rejected, and why.”\nThe Out\nthe escape route for missing information — condition · honest move · surfacing\nWhat you get — an honest UNKNOWN with the gaps listed — instead of an invented answer.\nWhy — a model is trained to always produce an answer; unless you specify the honest move, inventing is the only way to obey you. One sentence of permission cut hallucinations on planted-error questions from 53% to 23% (GPT-4o) — and under 8% on GPT-5. (Omar 2025 · OpenAI 2025)\nweak   “Do not hallucinate.” (bare bans backfire)\nstrong “Anything the document doesn’t state: write UNKNOWN — never estimate. List the gaps at the end.”\nThe Stop\nthe action to perform — and its boundary\nWhat you get — bounded work that ends where you said — not ten charts and no answer.\nWhy — converts open-ended capability into a scoped job with a finish line. In Part 5 it grows up to become gates and autonomy rules for agents.\nweak   “Keep it focused.”\nstrong “Answer these three questions, then stop — do not go exploring.”\nSeven elements — each moves something out of your head onto the page; when output disappoints, one stayed in your head.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Examples: land “the model imitates what it sees — including exactly how your examples handle the hard cases; so include one hard case.”\n2) The Out — the number to say slowly: one sentence of permission (“if it doesn’t say, say so”) cut invented answers by more than half in a clinical stress test, and to under 8% on the newest model tested. Cheapest safety feature in AI.\n3) The Stop: one sentence converts open-ended capability into a bounded job; file it away — it becomes agent gates in Part 5.\n4) Footer, verbatim — it is the unifying idea: every element moves something out of your head onto the page.\n\nBRIDGE —\n“All seven have a full catalog behind them — your field map.”\n\nACRONYMS —\nnone new on this slide.\n\nCONTENT —\nEvidence (r15): few-shot 64.3→71.2 TriviaQA = Brown et al. 2020; examples-teach-format-not-facts = Min et al. EMNLP 2022 (random labels barely hurt); example ORDER can swing results from near-random to near-SOTA = Lu et al. ACL 2022 — another reason to standardize templates; the Out measured = Omar et al. 2025 (66%→44% six-model mean; GPT-4o 53%→23%) + npj Digital Medicine 2026 (GPT-5, ~8% after mitigation); mechanism = OpenAI “Why language models hallucinate” 2025.\nThe old diagnosis grid lives on the iteration slide later this part — Inspect is where it belongs.\n24\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "eba34a742a890cb6f0f206ee83a88b3e6534aaed6ef38d4994ba3eb8a4d526d7",
+  "notes_xml_sha256": "f2a34cf75be9e722c53c0067a5c66ef02382ae52a481e86d121278ca0b6a2841",
+  "part": "/ppt/slides/slide26.xml",
+  "shapes": [
+   {
+    "id": 13,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "08a3cc7e433afad2dc18aad9811109b8e7914e90298da119e4cfd0ed9d2b75a1",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "a16341786637b7e764a85ec9d648324264ce1a7eeec90077b7f9e84a358dce42",
+    "paragraphs": [
+     {
+      "text": "TEACH   0:40",
+      "runs": [
+       {
+        "text": "TEACH   0:40",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "62e93ced865f1617934c380cd00b0088e52a438d15197f2cea189604a965c2cb",
+    "paragraphs": [
+     {
+      "text": "Examples, uncertainty, and stopping",
+      "runs": [
+       {
+        "text": "Examples, uncertainty, and stopping",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-16"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "c89d42eac4b38e1a6aa9b457e26663eff4c328bf8da1be8e589439850b643db8",
+    "paragraphs": [
+     {
+      "text": "Example",
+      "runs": [
+       {
+        "text": "Example",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "111db9b10895018631d31ea3c757ab8ef3d78894dc1b424239348433a3829202",
+    "paragraphs": [
+     {
+      "text": "Show a representative result and explain what makes it useful.",
+      "runs": [
+       {
+        "text": "Show a representative result and explain what makes it useful.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.322917,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "20a7bed1ff5d2630814a50b1cb9237338c8c14516574eed25174cb8c148923ac",
+    "paragraphs": [
+     {
+      "text": "Missing information",
+      "runs": [
+       {
+        "text": "Missing information",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.322917,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "8174752f889b37ff3c5ef8f300367dc08834b42221665ee03a4eb240c542dd01",
+    "paragraphs": [
+     {
+      "text": "“Write Not stated and list the gap.”",
+      "runs": [
+       {
+        "text": "“Write Not stated and list the gap.”",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.53125,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "5d4fd4d467fce171996d5357acda5f51c5fd76e3b6bbc57e31c722fd3f627a9b",
+    "paragraphs": [
+     {
+      "text": "Finish line",
+      "runs": [
+       {
+        "text": "Finish line",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.53125,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "2420c899d26f7f500afcc83d306b4405e8bdae5521f4b7a7b739b90c8a0c6e73",
+    "paragraphs": [
+     {
+      "text": "“Answer these questions, report limitations, then stop.”",
+      "runs": [
+       {
+        "text": "“Answer these questions, report limitations, then stop.”",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "f68a31faa7ab3e0dd290a6be9367c214dbff8d3b95fc157af478a9b6cb902faf",
+    "paragraphs": [
+     {
+      "text": "Use an edge case when it exposes a likely failure.",
+      "runs": [
+       {
+        "text": "Use an edge case when it exposes a likely failure.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "4707c62be24fcf042fd93c5d8848875a60a6f38586aba2fc50e7b2f9b4393c7b",
+    "paragraphs": [
+     {
+      "text": "Detailed explanation: slide 78",
+      "runs": [
+       {
+        "text": "Detailed explanation: slide 78",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "ca6b8b51dfec34be2139e47c6c52d4083e6506722e77c36467b39c2585fa1419",
+    "paragraphs": [
+     {
+      "text": "26",
+      "runs": [
+       {
+        "text": "26",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 27,
+  "current_slide": 27,
+  "proposed_slide": 27,
+  "stable_id": "sid-282",
+  "native_id": 282,
+  "title": "A menu of requirements for each artifact",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: The taxonomy is a lookup tool, not a form that every prompt must complete.\n\nSAY:\n- The taxonomy is a lookup aid for a problem you have identified.\n- A task does not need every field or preset.\n\nDO: None.\n\nBRIDGE: Move to “The improvement loop”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · YOUR FIELD MAP\n25\nYOUR FIELD MAP · A HANDOUT YOU KEEP\nThe taxonomy — the catalog behind the elements\nWhat it is, and why it exists: the seven elements you just met, industrialized into a catalog — so at the moment of doubt you pick a proven fill instead of improvising one.\nWhere it came from: distilled from the official vendor guides and the studies behind this part — built for this course, versioned and updated with it.\nEvery slot carries a plain-language “Why it matters” — the same what-you-get logic from the last three slides, with the research behind it.\nHow to use it: something disappointed → name the element → pick a stronger fill from the menu. You don’t study it; you look things up in it. (Two wings: 7 generative elements + the 12 agentic blocks of Part 5.)\nHow to read one entry\nELEMENT · Role\nwho is answering\nATTRIBUTE · identity — pick one\n“Careful analyst”\n“Precise editor”\n…\nOPTIONS — every option ships with when-to-use guidance, and every slot with its research-backed “Why it matters.” You pick from a vetted menu instead of composing from scratch.\n19\nelements\n(7 generative · 12 agentic)\n78\nattributes —\nthe slots you fill\n~290\nvetted options,\neach with guidance\n18\npresets — one-click\nstarting templates\nIn your handout pack — \nthe printed reference, the Template Creator, and the Configurator. When you fill a template in Part 4, this catalog is the menu you are choosing from.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Hold up the physical handout (or show the PDF) and name it: “the Prompt Element Taxonomy — your field map; everyone gets one.”\n2) Connect it BACKWARD, explicitly: “the last three slides walked the seven elements and what each buys you — this catalog is that, industrialized: every element, every slot, every vetted fill, with its why.”\n3) LEFT bullets top to bottom; land on the last: you don’t study it — you look things up in it, like a catalog.\n4) RIGHT card: walk the tree ONCE — element Role → attribute identity → options “Careful analyst” / “Precise editor.”\n5) Bottom band: sweep the four numbers (19 · 78 · ~290 · 18), then the pack.\n\nBRIDGE —\n“With the map in hand — the toolkit: one loop, four phases.”\n\nACRONYMS —\nHTML = HyperText Markup Language (the Template Creator runs offline as one file). XLSX = Excel format (the Configurator). PDF = the printed reference.\n\nCONTENT —\nv1.5: bullets rewritten to pull forward from the new element slides (owner request: “pulling from the concepts and expanding them, from the previous slides”).\nv1.7 queue (owner): the Template Creator + handouts get updated to mirror the reworked toolkit/PDCA framing BEFORE this slide is next taught in anger — then the slide demo becomes “we’ll use the tool” live. Pending the owner’s toolkit answers.\nSource of truth is prompt-library/taxonomy/*.json — 19 elements, 78 attributes, 286 options, 18 presets; regenerate, never hand-edit.\nIf an engineer asks about the structure: element = class, attribute = property, option = allowed value, template = saved instance (keep this in reserve — jargon off-slide).\n25\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "fe256a5f09af6382f3269e74393ea3f54a3fa1e959a22091283fab999751cb7b",
+  "notes_xml_sha256": "78e9779828b55ba4d12325b2c120d07be73be95fbbfff1c71e10374994146d13",
+  "part": "/ppt/slides/slide27.xml",
+  "shapes": [
+   {
+    "id": 13,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "34023e65fece379ba17b605919cc794a825d6accea825dcd74ff199d8f91f0c6",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "b0c8b7931c496eaaebe93cb2d7665aa2b5afd172126591dc9d98c5f6c24544a7",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   0:10",
+      "runs": [
+       {
+        "text": "REFERENCE   0:10",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "f45cab3b10b8fc11065684ba5a8c94fbb685195bd80e34cff86d1f6c12bd113e",
+    "paragraphs": [
+     {
+      "text": "A menu of requirements for each artifact",
+      "runs": [
+       {
+        "text": "A menu of requirements for each artifact",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "fc72feda47087da4706256eb70db264c89b598c7a9fbd0b48e7fdc832af435db",
+    "paragraphs": [
+     {
+      "text": "Recognize the artifact",
+      "runs": [
+       {
+        "text": "Recognize the artifact",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "795cb910d16fd35f16458547e64929ace907a82f7fea4c8620f2d96ca96bf64c",
+    "paragraphs": [
+     {
+      "text": "Spreadsheet, dashboard, presentation, email brief, or document.",
+      "runs": [
+       {
+        "text": "Spreadsheet, dashboard, presentation, email brief, or document.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.322917,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "143bcf1bee62622cb387cb01c057a3e033ab5017ef42b6890b2fd28778a637f7",
+    "paragraphs": [
+     {
+      "text": "Choose requirement types",
+      "runs": [
+       {
+        "text": "Choose requirement types",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.322917,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "359042b88ceddc6ba268fbc98ef8594ec2886505e6b5ff6129ccb4459c14b5db",
+    "paragraphs": [
+     {
+      "text": "Use the types that resolve ambiguity in this task. Add free-form requirements when needed.",
+      "runs": [
+       {
+        "text": "Use the types that resolve ambiguity in this task. Add free-form requirements when needed.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.53125,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "7253b35ae4b679f8d3c79e632d860dc34edffe44db6c1349252d0ad0496ba543",
+    "paragraphs": [
+     {
+      "text": "Write and check",
+      "runs": [
+       {
+        "text": "Write and check",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.53125,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "b881c4b004270f69bc409d4fdc72959a908d9a763573bb16f17cdca7e236e746",
+    "paragraphs": [
+     {
+      "text": "Give a concrete instruction and identify the evidence that would show it was met.",
+      "runs": [
+       {
+        "text": "Give a concrete instruction and identify the evidence that would show it was met.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "c891d8570ce452a928f24e1db89268d6ab65a4365ec0f6fb633eaf79fcce8f9c",
+    "paragraphs": [
+     {
+      "text": "Slides 91–96 and the companion catalog provide examples. The tool should support the task you are teaching.",
+      "runs": [
+       {
+        "text": "Slides 91–96 and the companion catalog provide examples. The tool should support the task you are teaching.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "bb38735391bc94e93bebba6605d14957704c377da18146f8922495c3df2ae634",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "eb00244937b7bb3f53e1dfb0ab4b85275fdf3bd3b5b7e24d0e5b6434b67b0b98",
+    "paragraphs": [
+     {
+      "text": "27",
+      "runs": [
+       {
+        "text": "27",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 28,
+  "current_slide": 28,
+  "proposed_slide": 28,
+  "stable_id": "sid-283",
+  "native_id": 283,
+  "title": "The improvement loop",
+  "mode": "TEACH",
+  "active_seconds": 95,
+  "notes": "MODE: TEACH\n\nTIME: 1:35\n\nPURPOSE: Give participants a repeatable improvement cycle they can use during every exercise.\n\nLAND THIS: Prompting improves through plan, run, check, and revise.\n\nSAY:\n- Use the familiar Plan, Do, Check, Act improvement cycle.\n- Demonstrate a concrete failure: a TOTAL row was counted twice.\n- Repair the data-range instruction, rerun, and reconcile. Model self-review can help find issues, but is not proof.\n\nDO: None.\n\nBRIDGE: Move to “One task through the improvement loop”.\n\nIF LATE: KEEP\n\nANCHOR: Yes. Keep the central concept if surrounding reference orientations are skipped.\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · THE TOOLKIT\n26\nTHE TOOLKIT · PLAN · DO · CHECK · ACT\nThe toolkit is a loop\nP\nPLAN — draft the ask\n· The anatomy: all seven elements, filled\n· Be specific — and say WHY behind each rule\n· Separate your ask from the pasted material\n· Show 2–3 examples, one edge case included\ndelegate it → “I need [X] for [audience], with [constraints]. Draft me a strong prompt, then wait.”\nD\nDO — run it, in order\n· Number the steps — order stated is order followed\n· Add “wait for my OK” where you want control\n· Documents on top, ask at the end · fresh chat per topic\ndelegate it → “1) Outline only. 2) Wait for my OK. 3) Draft section by section.”\nC\nCHECK — inspect before you trust\n· Name the failed element — the symptom→element grid, tab EX-Report\n· Self-check on NAMED criteria — never “are you sure?”\n· Blind review: paste it as “a colleague’s draft”\n· Numbers reconcile to a known total · citations + the out\ndelegate it → “Verify against these three criteria and list exactly what fails.”\nA\nACT — refine, then standardize\n· Fix ONE element, rerun — never reword at random\n· Metaprompt: have the AI rewrite the prompt itself\n· Works twice? Name it, version it, library (Part 6)\n· Re-baseline on every model upgrade\ndelegate it → “Rewrite this prompt so it more consistently produces X.”\nThis is PDCA — the Deming/Toyota improvement cycle, applied to prompts. The Lean Enterprise Institute now teaches “Prompt-Do-Check-Act.” Every phase is delegable — the white lines show how; the methods keep you in charge.\nW. EDWARDS DEMING · 1900–1993\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) The frame is the owner’s design — say it plainly: “there is no separate list of techniques. The toolkit IS the improvement loop you already know from the factory floor: Plan, Do, Check, Act — with the right prompting method for each phase.” In practice the four phases are simply: draft → inspect → refine → standardize.\n2) Walk the four quadrants P → D → C → A. Per quadrant: read the methods fast, then the WHITE LINE slowly — it is the copy-paste move, and it is also the delegation move: planning can be delegated (the AI drafts the prompt), checking can be delegated (against YOUR named criteria), acting can be delegated (metaprompt). You keep judgment; it does the labor.\n3) CHECK is the quadrant to slow on — four different verification methods, one per failure type: wrong element → the grid; quality → named criteria; bias → blind review; numbers → reconcile to an anchor. “Are you sure?” appears in none of them, on purpose (the mirror, two slides ahead).\n4) Amber band — the provenance, with the portrait: Deming is the American quality pioneer whose cycle Toyota built its production system around; this room already runs PDCA on processes — now run it on prompts. The credential: the Lean Enterprise Institute (Deming/Toyota home turf) published “Prompt, Do, Check, Act: the new PDCA” in May 2026; their line — the people who get the most from these tools are the ones willing to run the loop a few more times. And every phase is delegable; the white lines show how.\n5) At ACT/standardize, the Toyota phrase: standardized work — lock in the better way, then improve the standard (Part 6’s whole story). Anthropic’s golden rule, spoken: show your prompt to a colleague with minimal context — if they’d be confused, the model will be too.\n\nBRIDGE —\n“One clarification before the evidence — the two layers, on one worked prompt.”\n\nACRONYMS —\nPDCA = Plan-Do-Check-Act — the Deming/Toyota improvement cycle, core of kaizen (continuous improvement).\ngauge R&R = Gauge Repeatability & Reproducibility — a tested template kills prompt-to-prompt variation the way a calibrated gauge kills measurement variation.\n\nCONTENT —\nv1.7b: the two technique slides merged into this PDCA-structured toolkit (owner decision, 2026-09-10: “folded entirely into the PDCA loop… PDCA is the main structure; Act sometimes will be delegated to AI, same with planning, same with verifying — it’s all about having the right methods for each”).\nEvery method keeps its evidence (r15/r20/r25): specificity+why (Yang et al., 2025; revised 2026 — 41.1%; the WHY is vendor guidance) · examples (Brown/Min; order matters) · separation (He 2024 ~40% wrapper swings; XML/tags = power-user variant in heavy documents) · placement (Anthropic ~30%/GPT-4.1) · sequence-following (vendor guidance; chaining evidence) · named-criteria self-check (CoVe 55.9→71.4; “are you sure” HARMS — Huang ICLR 2024, SycEval) · blind review (Cheng Science 2026) · reconciliation (G2 practice) · metaprompting (OPRO +50% BBH; GEPA; official vendor improvers) · re-baseline (GPT-5.5 guide via Willison).\nThe Template Creator, taxonomy reference AND cheat sheet mirror this framing (v1.8).\nv1.10 CONSOLIDATION (owner: “slides 28, 29 and 33 overlap — summarize in 2 slides”): the separate “PDCA in practice” slide was folded in here — its draft/inspect/refine/standardize verbs live in the quadrant titles, its Deming/Toyota/LEI band is the amber band below, and its symptom→element diagnosis grid moved to workbook tab EX-Report (where the rep uses it). Citation: Art Smalley (Toyota veteran), “Prompt, Do, Check, Act: The New PDCA,” Lean Enterprise Institute, May 27 2026 — lean.org/the-lean-post (r15). Why standardize, with the number: identical asks formatted differently swung accuracy up to 76 points (Sclar) — the template IS the gauge-R&R answer.\n26\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "f13a1ed3a9f7851bea875568fcceaa6b2d171d481b3c2e46921f82954c1e5726",
+  "notes_xml_sha256": "374433e820d226401f39c69f827d242d188f5cdfd2d278f6766bd046bf8333c2",
+  "part": "/ppt/slides/slide28.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "2f377af303805863b14ed8828ad7ee5c01b7eddf0c0ecb63283e5e6753043bed",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "3e82af2edec93a46291c2a54281ff7606cf3e3a2190507301bd856295ada2d97",
+    "paragraphs": [
+     {
+      "text": "TEACH · ANCHOR   1:35",
+      "runs": [
+       {
+        "text": "TEACH · ANCHOR   1:35",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "3c39d14f67f60560e50a2e2a26034ffab7f9d09092f810023ab17fb4bd1e4a2d",
+    "paragraphs": [
+     {
+      "text": "The improvement loop",
+      "runs": [
+       {
+        "text": "The improvement loop",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-16"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "717818e4ac723fda72a049d22c89e2c489f399904d30f87e15ad68ca5a6e17b3",
+    "paragraphs": [
+     {
+      "text": "PLAN",
+      "runs": [
+       {
+        "text": "PLAN",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "6bf786dda7268aa15729e986a760e3c27ccbe02efc2f59752ab8c0e9783a5cfd",
+    "paragraphs": [
+     {
+      "text": "Define the task and the success check.",
+      "runs": [
+       {
+        "text": "Define the task and the success check.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "8358e1c2004701f3ef5d71bd4ec910136a141929a3a199f74484cce3a799e41d",
+    "paragraphs": [
+     {
+      "text": "DO",
+      "runs": [
+       {
+        "text": "DO",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "5b30b889b140d4a544fd4a2bf2189351baf521dcc67094e4c71db9152c825a52",
+    "paragraphs": [
+     {
+      "text": "Run the prompt against the supplied source.",
+      "runs": [
+       {
+        "text": "Run the prompt against the supplied source.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "46fb8e94873870436ba505b0cfe9bca9183ea961ecfa4d3a20520cfdb33327f1",
+    "paragraphs": [
+     {
+      "text": "CHECK",
+      "runs": [
+       {
+        "text": "CHECK",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "e7fb8f77e12277dc5832aff91b7f9419ff1a8d506de5fe1cae8e74bc882583f5",
+    "paragraphs": [
+     {
+      "text": "Compare the result with evidence or a known calculation.",
+      "runs": [
+       {
+        "text": "Compare the result with evidence or a known calculation.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "fd7a6c0e1bf7b8d661231d71e68129e82627382d5867373bc7232c0e759b1658",
+    "paragraphs": [
+     {
+      "text": "ACT",
+      "runs": [
+       {
+        "text": "ACT",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "14c8e8d45412ca4dd04d2f976759c066a3bae659386f4be1c9e21ccfaafdb3bd",
+    "paragraphs": [
+     {
+      "text": "Fix the specific failure and rerun the affected check.",
+      "runs": [
+       {
+        "text": "Fix the specific failure and rerun the affected check.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "e4976505ad1eac766b1544786249606402d0ca98d76d6e3d0cac1cd2a6a81924",
+    "paragraphs": [
+     {
+      "text": "Keep the change that improves the result on representative examples.",
+      "runs": [
+       {
+        "text": "Keep the change that improves the result on representative examples.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "42cd66385e1cf004876d73abfe49abf125dfa1c26572d049c59bb90aa55dc11e",
+    "paragraphs": [
+     {
+      "text": "Detailed explanation: slide 79",
+      "runs": [
+       {
+        "text": "Detailed explanation: slide 79",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "3759b4ebc0f0b95570425056d7a01f0a9764b9cd70145dfa514f8f6f724a9613",
+    "paragraphs": [
+     {
+      "text": "28",
+      "runs": [
+       {
+        "text": "28",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 29,
+  "current_slide": 29,
+  "proposed_slide": 29,
+  "stable_id": "sid-284",
+  "native_id": 284,
+  "title": "One task through the improvement loop",
+  "mode": "TEACH",
+  "active_seconds": 30,
+  "notes": "MODE: TEACH\n\nTIME: 0:30\n\nPURPOSE: Build a concept required for the next application.\n\nLAND THIS: The prompt defines the work; the improvement loop tests whether it worked.\n\nSAY:\n- Keep the example short so learners see cause and correction.\n- The source total is an independent check only when the scope, filters, and units match.\n- A successful test case supports reuse; it does not establish universal reliability.\n\nDO: None.\n\nBRIDGE: Move to “Prompt techniques to test on your task”.\n\nIF LATE: COMPRESS\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · THE DESIGN LAYER & THE PROCESS LAYER\n27\nYOU WRITE WITH THE ANATOMY · YOU IMPROVE WITH THE LOOP\nTwo layers, one craft\nTHE ANATOMY — design layer. What a prompt CONTAINS: the seven elements. Ask: is it complete?\nTHE LOOP — process layer. What you DO with it: Plan, Do, Check, Act. Ask: how does it get — and stay — good?\nP\nPLAN — the anatomy, all seven elements\nRole: careful retail analyst — never invent numbers. Task: monthly returns report from the attached export. Context: columns = SKU · reason code · refund €. Format: one-page summary + top-5 table. Example: last month’s report, attached. The out: field missing → say so, don’t guess. The stop: deliver the report — nothing beyond.\nD\nDO — numbered sequence, wait-gates\n1) Read the export; list the columns you actually see. 2) WAIT for my OK. 3) Build the table. 4) Draft the summary.\nC\nCHECK — named verification, stop-on-fail\nBefore showing me anything: reconcile the table to the export TOTAL. If it doesn’t reconcile, STOP and report the gap.\nA\nACT — deliver the final output + improve\nDeliver the final report. Then list what was ambiguous in this brief, so I can fix it for next month.\nOne brief, four sections — the loop written INTO the prompt: a wait-gate is a Do you kept; a stop-on-fail Check is a verification you refused to delegate.\nIn chat, you run the loop by hand. In agentic work, you write the loop into the brief — which is why it works best there. Part 5’s mission-brief template is exactly these four sections, grown up.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) The one-sentence thesis, verbatim: “You write with the anatomy — you improve with the loop.” Anatomy = what a prompt contains (design). PDCA = what you do with it (process). They are not rivals; they are layers.\n2) Point at the blueprint: the schematic robot is the anatomy — a design you can inspect for completeness; the amber ring around it is the loop — the process that runs around ANY design, forever.\n3) Walk the worked brief top to bottom, P → D → C → A. PLAN is simply the seven elements, filled, on a mundane monthly report. DO is the numbered sequence with the wait-gate. CHECK names a verification and STOPS on failure. ACT does BOTH of its jobs: deliver the final output, and name what to improve — the prompt asks for its own next revision.\n4) The italic line under the brief: in agentic mode the loop lives INSIDE the prompt — a wait-gate is a Do you kept for yourself; a stop-on-fail Check is a verification you refused to delegate.\n5) Close on the teal band, and tee Part 5: the mission brief is these four sections, grown up.\n\nBRIDGE —\n“Which of these methods survive scientific scrutiny — and which famous tricks don’t? The evidence corner.”\n\nACRONYMS —\nPDCA = Plan-Do-Check-Act (previous slide).\n\nCONTENT —\nv1.8 new slide (owner-endorsed clarification, Round 9C, 2026-09-10): “PDCA is a process lens, not a design lens… I want to be able to bring this clarification in a slide for sure. And indicate that indeed it works best for agentic prompting.” Canonical structure confirmed by the owner in chat: embedded PDCA with ACT = deliver the final output + improve.\nThe returns-report brief is generic/fictional (R3) — no company data.\nv1.10: this slide and the toolkit-loop slide before it are the consolidated pair the owner asked for (Rounds: 28+29+33 → two adjacent slides; no more jumping between PDCA slides). The old “PDCA in practice” slide is gone: its verbs live in the loop slide’s quadrant titles, its diagnosis grid in workbook tab EX-Report.\nART — the blueprint (robot schematic + amber loop) is an owner-generated illustration (R16): the anatomy drafted, the loop running around it.\n27\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "8dd3a1eeb50a34a39cf2e03aab6168b826297b20e21c4eef4a8c72a8f18118cf",
+  "notes_xml_sha256": "39e17c4806808ace2aef15f481965549d4865d81346e1df1f89d6f1e8e1f6bb6",
+  "part": "/ppt/slides/slide29.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "8c5814f689b11804850b604440bc65f453cc3a537a465cf415712a774c27ded5",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "037c9196ad6e7f54b4671851c296c474f44794e80d87080a164c54c6463b037c",
+    "paragraphs": [
+     {
+      "text": "TEACH   0:30",
+      "runs": [
+       {
+        "text": "TEACH   0:30",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "076810e1cda119f9984dad8ca22104ebf8897b1749db6ef69432c86aab525776",
+    "paragraphs": [
+     {
+      "text": "One task through the improvement loop",
+      "runs": [
+       {
+        "text": "One task through the improvement loop",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-16"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "e43d21454229f4fb6ca57a97c25efa3e2d73f279cfc1d6a2b95bfc9d4d2e75e8",
+    "paragraphs": [
+     {
+      "text": "Initial ask",
+      "runs": [
+       {
+        "text": "Initial ask",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "84f38af52ad1aa0967d6fe9873b06598e8a49409e891a5a57ddea628cc86ade9",
+    "paragraphs": [
+     {
+      "text": "“Summarize supplier returns.”",
+      "runs": [
+       {
+        "text": "“Summarize supplier returns.”",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "2febeeeb3a0159c19594f45f04598b6664863004653e54e62b428b80863c1b71",
+    "paragraphs": [
+     {
+      "text": "Observed problem",
+      "runs": [
+       {
+        "text": "Observed problem",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "d8b2b8991ffeafc5adb8d471213c94759e30c5f6c79cd39b7450d2661deb8350",
+    "paragraphs": [
+     {
+      "text": "The total includes a pre-calculated TOTAL row.",
+      "runs": [
+       {
+        "text": "The total includes a pre-calculated TOTAL row.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "7096e8142c2f93bbfccb6ccbaa08511e9616b048cab7fd9d98eaa0729c202e4a",
+    "paragraphs": [
+     {
+      "text": "Revision",
+      "runs": [
+       {
+        "text": "Revision",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "459d87437b98f019495950df5d60f4a1300f2df58597321f2941ff29e66b9df0",
+    "paragraphs": [
+     {
+      "text": "“Use detail rows only; exclude the TOTAL row.”",
+      "runs": [
+       {
+        "text": "“Use detail rows only; exclude the TOTAL row.”",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "2268da101c105ad697de8b7fcadfe298ceab9b8b21f625896144d62ac3dcbdd6",
+    "paragraphs": [
+     {
+      "text": "Verification",
+      "runs": [
+       {
+        "text": "Verification",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "f4b7fc61546bae93b4c5c4039112e3db8bdfa5b03b14550d47916e1e9c8967e3",
+    "paragraphs": [
+     {
+      "text": "Compare the result with the current source total.",
+      "runs": [
+       {
+        "text": "Compare the result with the current source total.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "b0975fc007fcbb7863c13ac8f4452fde5c081433b14bf5ef35b825a98b44def6",
+    "paragraphs": [
+     {
+      "text": "Change the instruction linked to the failure. Keep the business question stable.",
+      "runs": [
+       {
+        "text": "Change the instruction linked to the failure. Keep the business question stable.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "8cac5cde819c303b32ba63b1fe7aca4c3d0848156bd8f5611d11527482e9df6e",
+    "paragraphs": [
+     {
+      "text": "Detailed explanation: slide 80",
+      "runs": [
+       {
+        "text": "Detailed explanation: slide 80",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "ae79b0a5456f19ee8340d7e02e7861945707469ff4ae1883f28b31790846a53d",
+    "paragraphs": [
+     {
+      "text": "29",
+      "runs": [
+       {
+        "text": "29",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 30,
+  "current_slide": 30,
+  "proposed_slide": 30,
+  "stable_id": "sid-285",
+  "native_id": 285,
+  "title": "Prompt techniques to test on your task",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: Prompt advice depends on the model, task, and evidence.\n\nSAY:\n- These techniques are ideas to test against representative examples.\n- A result from one model or benchmark is not a universal effect size.\n\nDO: None.\n\nBRIDGE: Move to “A neutral rubric reduces leading feedback”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · WHAT THE EVIDENCE SAYS\n28\nEVIDENCE CORNER\nSix that work, six that don’t — in plain terms\nPROVEN TO WORK\nBe specific: task, constraints, success criteria\nunstated needs guessed right only ~41%\nOne tested, reused template\nformatting alone swings results up to 76 points\nLong inputs: documents on top, question at the END\nup to ~30% better answers\nGive it an out — “if you don’t know, say so”\ninvented answers cut by a third or more\nSelf-check against NAMED criteria\nfact scores jump 56→71 with planned checks\nAsk the AI to improve your prompt\nofficial tools at every vendor; optimizer prompts beat human ones\nMYTH — SAVE YOUR TYPING\n“Tell it it’s a genius and it gets smarter”\n162 personas tested: zero accuracy gain\n“Tips, threats, ‘important to my career’”\nnull on average; the famous 115% was the cherry-picked best case\n“There are magic phrases”\n“take a deep breath” won on one model & benchmark — never universal\n“Longer prompts are always better”\npadding drops accuracy at just ~3K tokens — density wins, not length\n“‘Are you sure?’ makes it double-check”\nit makes it FOLD: answers flip under pushback in 58% of cases\n“The AI knows what I mean”\nthe same ~41% — mind-reading is the myth behind every vague prompt\nEvery line has a study behind it — sources in the PLAYBOOK tab of your Course Workbook. And one myth got its own slide: the next one.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Frame: “everything on this slide survived replication — and everything on the right failed it. Twelve lines, plain terms.”\n2) GREEN column top to bottom, one beat each; slow on 6 — the newest habit: every vendor now ships an official prompt improver; describing what you want and letting the AI draft the prompt is a PROVEN move, not cheating.\n3) RED column; land the symmetry joke: myth 6 and proven 1 are the same number (~41%) — “the AI knows what I mean” is the myth; “say what you mean” is the cure.\n4) On myth 5, tease: “that one is so important it gets the next slide to itself.”\n\nBRIDGE —\n“The bias behind myth 5 — the mirror.”\n\nACRONYMS —\nnone new on this slide.\n\nCONTENT —\nv1.7: expanded to a full 6+6 slide (owner request); evidence per line in notes/research/r25_proven_myth_mirror.md + r20/r15: specificity = Yang et al., 2025; revised 2026 (41.1%) · template = Sclar ICLR 2024 (76 pts) + He 2024 · placement = Anthropic ~30% + GPT-4.1 bookends · the out = Omar 2025 (66→44%) · named-criteria check = CoVe ACL 2024 (55.9→71.4) · metaprompting = OPRO ICLR 2024 (+50% BBH) + GEPA 2026 + vendor prompt improvers (Anthropic/OpenAI/Google, official) · personas = Zheng 2024 + Wharton R4 · tips/threats = Wharton R3 + Salinas 2024; EmotionPrompt recalc ~2.6% honest average · magic phrases = OPRO post-mortem + IEEE Spectrum Mar 2024 · length = Levy ACL 2024 (0.92→0.68 at ~3K padded tokens) + IFScale ~150-rule cliff · are-you-sure = SycEval AIES 2025 (58.2% flips, 14.7% right→wrong) + Huang ICLR 2024 + Sharma 2023.\n“Say the WHY behind a rule” is VENDOR GUIDANCE (Anthropic docs), not independently measured — keep it folded into specificity, never as its own proven line (r25 downgrade).\nIf someone says “I heard prompt engineering is dead”: the JOB TITLE faded (Indeed searches collapsed 2023→25; the $200K role is gone) — but phrasing still swings results by double digits on frontier models, and all three vendors shipped new prompting guides in 2025–26. The skill moved into everyone’s job description. (Sources in r25.)\nThe 2025 Wharton replication wave (25–100 runs per question) independently confirms both columns.\n28\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "020184a9a5bcecc47ffe6a22ad59f70239b7b4a230bc7925770e4d825a61f6ee",
+  "notes_xml_sha256": "ff7014bba6b68f3d9d589b05124b47775a670c469ee90cae838df6dbefdb8040",
+  "part": "/ppt/slides/slide30.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "1c45df68e9a9cf42bb0e89f88b9b61f393e9712750320a13c9c3e6120b63073b",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "d1048de35936f8706f2c5dbbbe0592dc96fadb868e1073becdef89541083cc4d",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   0:10",
+      "runs": [
+       {
+        "text": "REFERENCE   0:10",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "f964f9a0d0aafdb45d1ea77ff6be5a549314d22a54d656afa779f4ccecc10188",
+    "paragraphs": [
+     {
+      "text": "Prompt techniques to test on your task",
+      "runs": [
+       {
+        "text": "Prompt techniques to test on your task",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "3587ec477c368a00b4effa8862cfcff52cd4ec116d30fcf414c4d00c072ba81c",
+    "paragraphs": [
+     {
+      "text": "Specificity",
+      "runs": [
+       {
+        "text": "Specificity",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "d23df331061a48bbb0faf9a90fbec69196eb081923c157789bdc17c574dc035e",
+    "paragraphs": [
+     {
+      "text": "Name the question, source, output, and acceptance check.",
+      "runs": [
+       {
+        "text": "Name the question, source, output, and acceptance check.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "afc267069b901bae4f57c3b44cf8a90390e259aee1a9074ae4138f4d9938dcea",
+    "paragraphs": [
+     {
+      "text": "Examples",
+      "runs": [
+       {
+        "text": "Examples",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "fb696ec21aadb2268f09fb2c86b1d261f9bec8dec93b8a6e99c0a79942768da8",
+    "paragraphs": [
+     {
+      "text": "Show a useful example and a relevant edge case.",
+      "runs": [
+       {
+        "text": "Show a useful example and a relevant edge case.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "e7acf2b24738c39c9881e2ac1da126cd634771305438d74f1327749291001128",
+    "paragraphs": [
+     {
+      "text": "Source grounding",
+      "runs": [
+       {
+        "text": "Source grounding",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "a8a2e1ef23ce5ae88347c581b5630bd16295da5a13a8a90aab4e9ef6fb463a26",
+    "paragraphs": [
+     {
+      "text": "Request support for important claims and an explicit response to missing information.",
+      "runs": [
+       {
+        "text": "Request support for important claims and an explicit response to missing information.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "90eeb72035fea63532f0702e0bc3d27ec208f3601a0103fd0a89eab7d32f7100",
+    "paragraphs": [
+     {
+      "text": "Evaluation",
+      "runs": [
+       {
+        "text": "Evaluation",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "921784cecddab02052cfaba97d2c1d00f34cc52e4f262e1f4aab187dd0b62523",
+    "paragraphs": [
+     {
+      "text": "Compare outputs against the same rubric and source evidence.",
+      "runs": [
+       {
+        "text": "Compare outputs against the same rubric and source evidence.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "3c99ed9e9bb84a1543edde38497cf0a8b6eec0a909cde40ec8eb4a7cad48d840",
+    "paragraphs": [
+     {
+      "text": "Research effects depend on the model, task, data, and measurement. The reference sources support further study.",
+      "runs": [
+       {
+        "text": "Research effects depend on the model, task, data, and measurement. The reference sources support further study.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "fffb7c802bace46231249dfa89f6e8ceb8387ff8119a3d3d5f792dc240564230",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "5b5c6a279427b40563b0a375fac508cef831dfb5c737cf7b6adef5cdd0db76b1",
+    "paragraphs": [
+     {
+      "text": "30",
+      "runs": [
+       {
+        "text": "30",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ }
+]

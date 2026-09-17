@@ -1,0 +1,2719 @@
+{
+  "baseline_sha256": "117f60b30c292527d1ac8444ab3efafdbb0ef8d0f3ff159b68149e5804bd24fa",
+  "slide_count": 103,
+  "live_boundary": 70,
+  "review_method": "Native text, tables and active-note/order inspection across all103; targeted rendered visual corroboration38 and89. Other slide visual assessments belong to parallel visual reviewers.",
+  "active_time_rule": "First MODE and first TIME in current notes; SOURCE DETAIL and ARCHIVED sections excluded.102/103 conflicts explicitly flagged, not added.",
+  "timing_seconds": {
+    "full_live_1_to_70": 4370,
+    "DO": 2700,
+    "TEACH": 1375,
+    "REFERENCE": 250,
+    "DIVIDER": 45,
+    "optional_appendix_71_to_103": 0,
+    "proposed_live_1_to_64_then70": 4320,
+    "all_reference_orientations_omitted_arithmetic_only": 4120,
+    "before_first_software_exercise34": 1020
+  },
+  "blocks": [
+    {
+      "slides": [
+        1,
+        32
+      ],
+      "seconds": 980
+    },
+    {
+      "slides": [
+        33,
+        39
+      ],
+      "seconds": 1240
+    },
+    {
+      "slides": [
+        40,
+        44
+      ],
+      "seconds": 720
+    },
+    {
+      "slides": [
+        45,
+        56
+      ],
+      "seconds": 820
+    },
+    {
+      "slides": [
+        57,
+        64
+      ],
+      "seconds": 550
+    },
+    {
+      "slides": [
+        65,
+        70
+      ],
+      "seconds": 60
+    },
+    {
+      "slides": [
+        71,
+        103
+      ],
+      "seconds": 0
+    }
+  ],
+  "current_physical_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103
+  ],
+  "proposed_physical_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103
+  ],
+  "current_live_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70
+  ],
+  "proposed_live_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    70
+  ],
+  "proposals": [
+    {
+      "id": "SEQ-01",
+      "category": "sequence",
+      "priority": "high",
+      "slides": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "change_type": "notes only",
+      "current": "Correct workbook-to-dashboard-to-presentation order; slide39 names verified findings but its active delivery cue does not explicitly name the workbook and reporting period.",
+      "proposal": "Retain36→37→38→39. Add a lineage cue to slide39 and verify the prepared artifacts separately.",
+      "exact_text": "SAY (append): Use Supplier_Data_Analyzed.xlsx and the findings already checked in the dashboard, with the same reporting period and metric definitions. If you open a new assistant session, supply that returned workbook and the checked findings.",
+      "benefit": "Keeps the presentation tied to the verified file instead of a fresh analysis or remembered totals.",
+      "dependency": "Prepared workbook/dashboard/mock-deck lineage must be checked against source files; this notes assessment cannot prove generator provenance.",
+      "tradeoff": "One short reminder; no new task, file requirement, or slide.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 36,
+          "current_number": 36,
+          "title": "Add the Charts and Return the Excel File",
+          "stable_slide_id": 290
+        },
+        {
+          "original_number": 37,
+          "current_number": 37,
+          "title": "Describe the Dashboard You Want",
+          "stable_slide_id": 294
+        },
+        {
+          "original_number": 38,
+          "current_number": 38,
+          "title": "Build and Test the Dashboard",
+          "stable_slide_id": 295
+        },
+        {
+          "original_number": 39,
+          "current_number": 39,
+          "title": "Turn the Findings into a Five-Slide Management Mock-up",
+          "stable_slide_id": 298
+        }
+      ]
+    },
+    {
+      "id": "SEQ-02",
+      "category": "sequence",
+      "priority": "medium",
+      "slides": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "change_type": "notes only",
+      "current": "Bridges name the next title but do not explain the shift of input.",
+      "proposal": "Keep39→40→41→42→43→44. Make the changed inputs explicit while preserving extraction before comparison.",
+      "exact_text": {
+        "slide39 BRIDGE": "The connected data exercise is complete. Now change inputs to a fictional email thread. Keep the same habits: specify the result, use available evidence, and check the claims.",
+        "slide41 BRIDGE": "Now switch from messages to three supplier quotation PDF (Portable Document Format) files. First extract the values exactly; comparison comes next.",
+        "slide43 BRIDGE": "Now switch to the supplied reference pack. Keep the same evidence discipline while organizing claims and instructions; keep conflicts visible.",
+        "slide44 PURPOSE": "Close the application block: unstructured references become linear, traceable knowledge."
+      },
+      "benefit": "Makes transfer visible without implying email, quotations, and research all use the supplier workbook.",
+      "dependency": "Separate named source packs must remain available.",
+      "tradeoff": "No content or mode changes; each bridge replaces a title-only cue.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 39,
+          "current_number": 39,
+          "title": "Turn the Findings into a Five-Slide Management Mock-up",
+          "stable_slide_id": 298
+        },
+        {
+          "original_number": 40,
+          "current_number": 40,
+          "title": "Organize an Email Thread in Outlook",
+          "stable_slide_id": 296
+        },
+        {
+          "original_number": 41,
+          "current_number": 41,
+          "title": "Outlook Exercise: Decisions, Actions, and Open Questions",
+          "stable_slide_id": 297
+        },
+        {
+          "original_number": 42,
+          "current_number": 42,
+          "title": "Extract Supplier Quotes into Excel",
+          "stable_slide_id": 357
+        },
+        {
+          "original_number": 43,
+          "current_number": 43,
+          "title": "Normalize and Compare the Supplier Quotes",
+          "stable_slide_id": 358
+        },
+        {
+          "original_number": 44,
+          "current_number": 44,
+          "title": "Turn Reference Files into a Research Spreadsheet",
+          "stable_slide_id": 299
+        }
+      ]
+    },
+    {
+      "id": "SEQ-03",
+      "category": "sequence",
+      "priority": "high",
+      "slides": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        56
+      ],
+      "change_type": "notes only",
+      "current": "Goal/tools/control are introduced46; authority and checkpoints47; choices48; a compact mission brief50; drafting exercise51; enforceable control distinction53. This is sufficient for drafting but leaves enforcement implicit at51.",
+      "proposal": "Keep physical50→51→52→53→54→55→56. Add one prerequisite sentence to50;53 remains the fuller explanation.",
+      "exact_text": "SAY (append on50): A brief asks for a boundary; file and tool permissions enforce it. In the next exercise, draft the brief only and keep the source files unchanged.",
+      "benefit": "Prevents learners from assuming that a written stop condition alone configures permissions.",
+      "dependency": "Use only a brief-writing exercise at51, as its existing DO instructions specify; an actual agent execution would require additional setup and authorization.",
+      "tradeoff": "Adds a small spoken scaffold within the existing minute; moving53 would interrupt the compact brief→practice pair and create more navigation work.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 46,
+          "current_number": 46,
+          "title": "What makes a workflow agentic?",
+          "stable_slide_id": 301
+        },
+        {
+          "original_number": 47,
+          "current_number": 47,
+          "title": "ASK and DELEGATE",
+          "stable_slide_id": 302
+        },
+        {
+          "original_number": 48,
+          "current_number": 48,
+          "title": "Discussion: which way of working fits?",
+          "stable_slide_id": 303
+        },
+        {
+          "original_number": 49,
+          "current_number": 49,
+          "title": "The agentic brief is the anatomy, grown up to survive autonomy",
+          "stable_slide_id": 304
+        },
+        {
+          "original_number": 50,
+          "current_number": 50,
+          "title": "A mission brief for bounded work",
+          "stable_slide_id": 305
+        },
+        {
+          "original_number": 51,
+          "current_number": 51,
+          "title": "Exercise: turn the analysis into a mission brief",
+          "stable_slide_id": 306
+        },
+        {
+          "original_number": 52,
+          "current_number": 52,
+          "title": "Choosing an environment for delegated work",
+          "stable_slide_id": 307
+        },
+        {
+          "original_number": 53,
+          "current_number": 53,
+          "title": "Instructions and enforceable controls",
+          "stable_slide_id": 308
+        },
+        {
+          "original_number": 56,
+          "current_number": 56,
+          "title": "Exercise: one gate and one hard check",
+          "stable_slide_id": 311
+        }
+      ]
+    },
+    {
+      "id": "SEQ-04",
+      "category": "sequence",
+      "priority": "medium",
+      "slides": [
+        61,
+        62,
+        63,
+        64
+      ],
+      "change_type": "notes only",
+      "current": "61 saves a previously improved prompt;62 is a reference callback;63 retrieves habits;64 applies them independently. The order is defensible, but64 does not explicitly save its newer checked version.",
+      "proposal": "Keep61→62→63→64. Add a save-back step to the final20seconds of64.",
+      "exact_text": "DO (replace on64): 0:00–0:30 choose; 0:30–2:30 improve and run; 2:30–4:00 check and revise; 4:00–4:40 one volunteer shares the task, evidence, and revision; 4:40–5:00 save the checked version using the name, source assumptions, and check from slide61.",
+      "benefit": "Learners leave with the final checked revision while retaining the earlier saving practice.",
+      "dependency": "A save location was selected at61.",
+      "tradeoff": "Volunteer share reduces from60 to40seconds; total5:00 unchanged. Keep62 a reference callback; explicit uncertainty handling was already taught26 and practiced34.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 61,
+          "current_number": 61,
+          "title": "Exercise: save one prompt for Monday",
+          "stable_slide_id": 316
+        },
+        {
+          "original_number": 62,
+          "current_number": 62,
+          "title": "Clarifying questions reveal missing requirements",
+          "stable_slide_id": 317
+        },
+        {
+          "original_number": 63,
+          "current_number": 63,
+          "title": "The habits to carry into work",
+          "stable_slide_id": 318
+        },
+        {
+          "original_number": 64,
+          "current_number": 64,
+          "title": "Capstone: one task, one checked result",
+          "stable_slide_id": 319
+        }
+      ]
+    },
+    {
+      "id": "SEQ-05",
+      "category": "sequence",
+      "priority": "medium",
+      "slides": [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "change_type": "live navigation and notes only",
+      "current": "64 is followed by five10second reference orientations before70 closes. All remain valuable self-study material.",
+      "proposal": "Keep physical64→65→66→67→68→69→70. Preferred live jump64→70;65–69 remain available for questions or after-class reading.",
+      "exact_text": {
+        "slide64 BRIDGE": "The glossary, evidence maps, sources, and reading on slides65–69 remain in your copy. For the live close, go to slide70.",
+        "slide70 SAY": "Name the task you will use next, the requirement you will specify, and the check you will keep. Your saved prompt and the reference material support that next use."
+      },
+      "benefit": "Connects capstone success directly to the workplace commitment.",
+      "dependency": "Facilitator uses the approved live route/custom show; do not reorder or hide content in the file without approval.",
+      "tradeoff": "Saves50seconds of reference orientation; nominal live allocation becomes72:00. The70 mode remains DIVIDER; its generic next-section cue is replaced by an actual close.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 64,
+          "current_number": 64,
+          "title": "Capstone: one task, one checked result",
+          "stable_slide_id": 319
+        },
+        {
+          "original_number": 65,
+          "current_number": 65,
+          "title": "Glossary — twenty terms that matter",
+          "stable_slide_id": 320
+        },
+        {
+          "original_number": 66,
+          "current_number": 66,
+          "title": "Why each dial matters — the generative criteria",
+          "stable_slide_id": 321
+        },
+        {
+          "original_number": 67,
+          "current_number": 67,
+          "title": "Why each dial matters — the agentic criteria",
+          "stable_slide_id": 322
+        },
+        {
+          "original_number": 68,
+          "current_number": 68,
+          "title": "Sources this training is built on",
+          "stable_slide_id": 323
+        },
+        {
+          "original_number": 69,
+          "current_number": 69,
+          "title": "Recommended reading — start practical, go deep",
+          "stable_slide_id": 324
+        },
+        {
+          "original_number": 70,
+          "current_number": 70,
+          "title": "One task. A clear brief. A checked result.",
+          "stable_slide_id": 325
+        }
+      ]
+    },
+    {
+      "id": "SEQ-06",
+      "category": "engagement",
+      "priority": "high",
+      "slides": [
+        34,
+        38,
+        41,
+        87,
+        88,
+        89,
+        98,
+        101
+      ],
+      "change_type": "notes only; existing answers preserved",
+      "current": "34 correctly protects supplier answers until attempt.38 displays a known filtered result deliberately.41 points participants to88–89 as source, but89 visibly prints the email key.",
+      "proposal": "Use Packaging_Change_Thread.txt alone for the initial email attempt; visit88–89 only in debrief. Keep38 as a supplied-value verification task. Keep87/98 answer graphics in reference after attempt.",
+      "exact_text": "SAY (append on41): Use Packaging_Change_Thread.txt for the attempt. Slides88–89 include the source and an answer-key strip; show them only during the debrief. The supplied dashboard numbers on slide38 are a verification target, not an unseen-answer test.",
+      "benefit": "Avoids giving away the thread exercise while preserving complete self-study material.",
+      "dependency": "The supplied text thread must match88–89; do not introduce visual answer clues in the participant prompts or blank gate exercise56.",
+      "tradeoff": "A participant who independently opens the reference deck can still see the key. Strict assessment separation would require a separately approved participant edition.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 34,
+          "current_number": 34,
+          "title": "Upload the Data File and Run These Two Prompts",
+          "stable_slide_id": 291
+        },
+        {
+          "original_number": 38,
+          "current_number": 38,
+          "title": "Build and Test the Dashboard",
+          "stable_slide_id": 295
+        },
+        {
+          "original_number": 41,
+          "current_number": 41,
+          "title": "Outlook Exercise: Decisions, Actions, and Open Questions",
+          "stable_slide_id": 297
+        },
+        {
+          "original_number": 87,
+          "current_number": 87,
+          "title": "Supplier analysis: answer key",
+          "stable_slide_id": 342
+        },
+        {
+          "original_number": 88,
+          "current_number": 88,
+          "title": "Packaging-change conversation: messages 1–5",
+          "stable_slide_id": 343
+        },
+        {
+          "original_number": 89,
+          "current_number": 89,
+          "title": "Packaging-change conversation: messages 6–10",
+          "stable_slide_id": 344
+        },
+        {
+          "original_number": 98,
+          "current_number": 98,
+          "title": "Full exercise: build the supplier dashboard",
+          "stable_slide_id": 353
+        },
+        {
+          "original_number": 101,
+          "current_number": 101,
+          "title": "The email-summary prompt, in full",
+          "stable_slide_id": 356
+        }
+      ]
+    },
+    {
+      "id": "NOTE-01",
+      "category": "notes",
+      "priority": "high",
+      "slides": [
+        1,
+        22,
+        97
+      ],
+      "change_type": "notes only",
+      "current": "1 anchor index incorrectly calls37 a supplier comparison;22 asks for a vague/specific pair not displayed;97 says presentation demo is41 instead of39.",
+      "proposal": "Repair exact stale cues; preserve visible wording.",
+      "exact_text": {
+        "slide1 ANCHORS line": "34: Upload the Data File and Run These Two Prompts",
+        "slide22 DO": "Point to the displayed supplier example. Ask which source calculation verifies the return rate and how the totals would be reconciled.",
+        "slide97 relocation sentence": "RELOCATED from the live sequence when the presentation demonstration took this content’s slot; the current management mock-up is slide39."
+      },
+      "benefit": "Facilitators point at content that actually exists.",
+      "dependency": "Final slide map; current physical order retained.",
+      "tradeoff": "No substantive instructional additions.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 1,
+          "current_number": 1,
+          "title": "From Prompts to Agents",
+          "stable_slide_id": 256
+        },
+        {
+          "original_number": 22,
+          "current_number": 22,
+          "title": "Good requirements make prompts testable",
+          "stable_slide_id": 277
+        },
+        {
+          "original_number": 97,
+          "current_number": 97,
+          "title": "Pick what we drill next — the method transfers",
+          "stable_slide_id": 352
+        }
+      ]
+    },
+    {
+      "id": "NOTE-02",
+      "category": "notes",
+      "priority": "high",
+      "slides": [
+        56,
+        82,
+        102,
+        103
+      ],
+      "change_type": "notes quarantine; approval required",
+      "current": "56 SOURCE DETAIL retains old3minute/skippable guidance and the wrong previous-cycle equality;82 ARCHIVED SOURCE NOTES contain another email thread answer;102/103 have duplicate0:00/0:10 apparent current headers.",
+      "proposal": "Preserve obsolete material as explicitly labeled history, not active delivery. Move the second header and its obsolete bridge on102/103 under an ARCHIVED FACILITATION section; keep a single active0:00 entry. No historical instructions promoted into the live route.",
+      "exact_text": {
+        "slide56 historical warning": "HISTORICAL EXAMPLE — not the current check or schedule. The current check reconciles matching scope, filters, and units against the current source; it does not force equality with a previous reporting period. The current exercise is2:00 and protected.",
+        "slide82 historical warning": "ARCHIVED EXERCISE — different source thread. Do not use the following historical key for the current Packaging_Change_Thread.txt exercise. The current source is on88–89 and its current key is in KEY-Email.",
+        "slides102/103 active line": "TIME: 0:00 (Optional self-study; no live allocation.)"
+      },
+      "benefit": "Prevents obsolete timings/answers from being mistaken for current guidance while preserving the audit trail.",
+      "dependency": "Owner approval to reorganize/add notes labels; active substance remains intact.",
+      "tradeoff": "History becomes longer but more clearly quarantined; automatic timing parser must use only the current facilitation block.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 56,
+          "current_number": 56,
+          "title": "Exercise: one gate and one hard check",
+          "stable_slide_id": 311
+        },
+        {
+          "original_number": 82,
+          "current_number": 82,
+          "title": "Five shapes — pick the one for the job",
+          "stable_slide_id": 337
+        },
+        {
+          "original_number": 102,
+          "current_number": 102,
+          "title": "Optional practice: a course-log study aid",
+          "stable_slide_id": 288
+        },
+        {
+          "original_number": 103,
+          "current_number": 103,
+          "title": "Optional extension: compare supplier quotations",
+          "stable_slide_id": 293
+        }
+      ]
+    },
+    {
+      "id": "TIME-01",
+      "category": "timing",
+      "priority": "high",
+      "slides": [
+        1,
+        34,
+        44,
+        48,
+        51,
+        56,
+        61,
+        64,
+        94,
+        102,
+        103
+      ],
+      "change_type": "owner schedule decision",
+      "current": "First active TIME fields1–70 sum72:50; slide1 FACILITATOR RUN claims60:00 and30:00 practice. ActualDO allocation is45:00.",
+      "proposal": "Approve a truthful facilitator-run note for the chosen route; do not alter the60minute title, individual durations, or practice allocations in the visual pass.",
+      "exact_text": "FACILITATOR RUN (proposed): Written allocations for slides1–70 total72:50: application45:00, teaching22:55, reference orientation4:10, dividers0:45. The approved64→70 live jump makes the planned allocation72:00. Slides65–69 and71–103 remain in the self-study copy. Use prepared outputs and protect participant practice.",
+      "benefit": "Makes facilitation decisions from actual allocations.",
+      "dependency": "Owner chooses standard route or live jump.",
+      "tradeoff": "Timing excludes unallocated technical/login/opening delays; an80minute slot leaves7:10 or8:00, respectively. This is arithmetic, not a rehearsal claim.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 1,
+          "current_number": 1,
+          "title": "From Prompts to Agents",
+          "stable_slide_id": 256
+        },
+        {
+          "original_number": 34,
+          "current_number": 34,
+          "title": "Upload the Data File and Run These Two Prompts",
+          "stable_slide_id": 291
+        },
+        {
+          "original_number": 44,
+          "current_number": 44,
+          "title": "Turn Reference Files into a Research Spreadsheet",
+          "stable_slide_id": 299
+        },
+        {
+          "original_number": 48,
+          "current_number": 48,
+          "title": "Discussion: which way of working fits?",
+          "stable_slide_id": 303
+        },
+        {
+          "original_number": 51,
+          "current_number": 51,
+          "title": "Exercise: turn the analysis into a mission brief",
+          "stable_slide_id": 306
+        },
+        {
+          "original_number": 56,
+          "current_number": 56,
+          "title": "Exercise: one gate and one hard check",
+          "stable_slide_id": 311
+        },
+        {
+          "original_number": 61,
+          "current_number": 61,
+          "title": "Exercise: save one prompt for Monday",
+          "stable_slide_id": 316
+        },
+        {
+          "original_number": 64,
+          "current_number": 64,
+          "title": "Capstone: one task, one checked result",
+          "stable_slide_id": 319
+        },
+        {
+          "original_number": 94,
+          "current_number": 94,
+          "title": "Presentations: requirements to choose",
+          "stable_slide_id": 349
+        },
+        {
+          "original_number": 102,
+          "current_number": 102,
+          "title": "Optional practice: a course-log study aid",
+          "stable_slide_id": 288
+        },
+        {
+          "original_number": 103,
+          "current_number": 103,
+          "title": "Optional extension: compare supplier quotations",
+          "stable_slide_id": 293
+        }
+      ]
+    },
+    {
+      "id": "CONTENT-01",
+      "category": "content",
+      "priority": "high",
+      "slides": [
+        43,
+        103
+      ],
+      "change_type": "separate wording approval required; no visual edit",
+      "current": "43 correctly refuses a winner with incomplete scope, but its trap sentence asserts that the cheapest-looking quote stops looking cheapest.103 invites an assumed exchange rate and a winner without the supplied-basis rule used42–43.",
+      "proposal": "Request separate approval to make the trap non-predictive and label103 as a historical alternate requiring an explicit conversion basis. Do not silently rewrite either during visual polish.",
+      "exact_text": "Proposed replacement for43 trap sentence: The trap: apparent prices cannot establish a fair ranking while tooling, freight, currency, and scope remain unresolved.",
+      "benefit": "Removes a promised finding that the incomplete evidence does not establish.",
+      "dependency": "Owner approves wording; actual quotation key/source values are verified separately.",
+      "tradeoff": "Preserves the comparison discipline, but changes visible content and therefore must be approved separately.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 43,
+          "current_number": 43,
+          "title": "Normalize and Compare the Supplier Quotes",
+          "stable_slide_id": 358
+        },
+        {
+          "original_number": 103,
+          "current_number": 103,
+          "title": "Optional extension: compare supplier quotations",
+          "stable_slide_id": 293
+        }
+      ]
+    },
+    {
+      "id": "CONTENT-02",
+      "category": "content",
+      "priority": "medium",
+      "slides": [
+        49,
+        92,
+        97,
+        100
+      ],
+      "change_type": "separate wording approval required",
+      "current": "49 says text-only prompts never needed checks/rules/quality requirements, in tension with14/22/25.92 uses scorecard/definitions tabs while live36 specifiesSummary.97 says today’s five artifacts;100 calls supplier quality the live example despite no live plain-language slot.",
+      "proposal": "Owner chooses narrowly scoped terminology fixes. These are not grounds to restore old dense slides.92 may remain a generic optional menu if explicitly presented that way.",
+      "exact_text": {
+        "slide49 meaning target": "Checks and constraints also apply to requested outputs; delegation adds operational authority and action controls.",
+        "slide97 replacement phrase": "the applications practiced today",
+        "slide100 replacement phrase": "Supplier quality (a prepared example)"
+      },
+      "benefit": "Keeps the reference layer consistent with the course actually taught.",
+      "dependency": "Explicit content approval for any changed visible words.",
+      "tradeoff": "92 may need only a note clarifying it is a generic menu; avoid adding mandatory tabs to the live workbook.",
+      "approval_status": "PROPOSED — owner approval required; not implemented",
+      "slide_refs": [
+        {
+          "original_number": 49,
+          "current_number": 49,
+          "title": "The agentic brief is the anatomy, grown up to survive autonomy",
+          "stable_slide_id": 304
+        },
+        {
+          "original_number": 92,
+          "current_number": 92,
+          "title": "Spreadsheet analysis: requirements to choose",
+          "stable_slide_id": 347
+        },
+        {
+          "original_number": 97,
+          "current_number": 97,
+          "title": "Pick what we drill next — the method transfers",
+          "stable_slide_id": 352
+        },
+        {
+          "original_number": 100,
+          "current_number": 100,
+          "title": "Full exercise: explain a topic clearly",
+          "stable_slide_id": 355
+        }
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "original_number": 1,
+      "current_number": 1,
+      "stable_slide_id": 256,
+      "title": "From Prompts to Agents",
+      "mode": "DIVIDER",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “One skill, two ways to work”."
+    },
+    {
+      "original_number": 2,
+      "current_number": 2,
+      "stable_slide_id": 257,
+      "title": "One skill, two ways to work",
+      "mode": "TEACH",
+      "active_seconds": 35,
+      "first_active_time_fields": [
+        [
+          "0",
+          "35"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Part 1: foundations”."
+    },
+    {
+      "original_number": 3,
+      "current_number": 3,
+      "stable_slide_id": 258,
+      "title": "Where this came from, and how it actually works",
+      "mode": "DIVIDER",
+      "active_seconds": 5,
+      "first_active_time_fields": [
+        [
+          "0",
+          "05"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Four eras: rules → learning → generative → agentic”."
+    },
+    {
+      "original_number": 4,
+      "current_number": 4,
+      "stable_slide_id": 259,
+      "title": "Four eras: rules → learning → generative → agentic",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Each leap has a name — 2017 → 2026”."
+    },
+    {
+      "original_number": 5,
+      "current_number": 5,
+      "stable_slide_id": 260,
+      "title": "Each leap has a name — 2017 → 2026",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “The hardware behind model development”."
+    },
+    {
+      "original_number": 6,
+      "current_number": 6,
+      "stable_slide_id": 261,
+      "title": "The hardware behind model development",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “How a language model produces an answer”."
+    },
+    {
+      "original_number": 7,
+      "current_number": 7,
+      "stable_slide_id": 262,
+      "title": "How a language model produces an answer",
+      "mode": "TEACH",
+      "active_seconds": 60,
+      "first_active_time_fields": [
+        [
+          "1",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Tokens and practical limits”."
+    },
+    {
+      "original_number": 8,
+      "current_number": 8,
+      "stable_slide_id": 263,
+      "title": "Tokens and practical limits",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Context, saved history, and memory”."
+    },
+    {
+      "original_number": 9,
+      "current_number": 9,
+      "stable_slide_id": 264,
+      "title": "Context, saved history, and memory",
+      "mode": "TEACH",
+      "active_seconds": 50,
+      "first_active_time_fields": [
+        [
+          "0",
+          "50"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Answers grounded in documents”."
+    },
+    {
+      "original_number": 10,
+      "current_number": 10,
+      "stable_slide_id": 265,
+      "title": "Answers grounded in documents",
+      "mode": "TEACH",
+      "active_seconds": 50,
+      "first_active_time_fields": [
+        [
+          "0",
+          "50"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Instructions, sources, and model adaptation”."
+    },
+    {
+      "original_number": 11,
+      "current_number": 11,
+      "stable_slide_id": 266,
+      "title": "Instructions, sources, and model adaptation",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Reasoning effort and the task”."
+    },
+    {
+      "original_number": 12,
+      "current_number": 12,
+      "stable_slide_id": 267,
+      "title": "Reasoning effort and the task",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Capabilities to look for in an assistant”."
+    },
+    {
+      "original_number": 13,
+      "current_number": 13,
+      "stable_slide_id": 268,
+      "title": "Capabilities to look for in an assistant",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Verification belongs in the task”."
+    },
+    {
+      "original_number": 14,
+      "current_number": 14,
+      "stable_slide_id": 269,
+      "title": "Verification belongs in the task",
+      "mode": "TEACH",
+      "active_seconds": 50,
+      "first_active_time_fields": [
+        [
+          "0",
+          "50"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Failure patterns and the check they need”."
+    },
+    {
+      "original_number": 15,
+      "current_number": 15,
+      "stable_slide_id": 270,
+      "title": "Failure patterns and the check they need",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Part 2: models and tools”."
+    },
+    {
+      "original_number": 16,
+      "current_number": 16,
+      "stable_slide_id": 271,
+      "title": "The landscape, September 2026",
+      "mode": "DIVIDER",
+      "active_seconds": 5,
+      "first_active_time_fields": [
+        [
+          "0",
+          "05"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “A task-based way to compare assistants”."
+    },
+    {
+      "original_number": 17,
+      "current_number": 17,
+      "stable_slide_id": 272,
+      "title": "A task-based way to compare assistants",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “January 2025: frontier ability, ~27× cheaper”."
+    },
+    {
+      "original_number": 18,
+      "current_number": 18,
+      "stable_slide_id": 273,
+      "title": "January 2025: frontier ability, ~27× cheaper",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “The right workspace for the data”."
+    },
+    {
+      "original_number": 19,
+      "current_number": 19,
+      "stable_slide_id": 274,
+      "title": "The right workspace for the data",
+      "mode": "TEACH",
+      "active_seconds": 50,
+      "first_active_time_fields": [
+        [
+          "0",
+          "50"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Part 3: prompt engineering”."
+    },
+    {
+      "original_number": 20,
+      "current_number": 20,
+      "stable_slide_id": 275,
+      "title": "The craft: getting what you actually meant",
+      "mode": "DIVIDER",
+      "active_seconds": 5,
+      "first_active_time_fields": [
+        [
+          "0",
+          "05"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “You already write work specifications”."
+    },
+    {
+      "original_number": 21,
+      "current_number": 21,
+      "stable_slide_id": 276,
+      "title": "You already write work specifications",
+      "mode": "TEACH",
+      "active_seconds": 45,
+      "first_active_time_fields": [
+        [
+          "0",
+          "45"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Now define the qualities that make a requirement useful and checkable."
+    },
+    {
+      "original_number": 22,
+      "current_number": 22,
+      "stable_slide_id": 277,
+      "title": "Good requirements make prompts testable",
+      "mode": "TEACH",
+      "active_seconds": 120,
+      "first_active_time_fields": [
+        [
+          "2",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Apply these qualities to a concrete supplier-analysis prompt."
+    },
+    {
+      "original_number": 23,
+      "current_number": 23,
+      "stable_slide_id": 278,
+      "title": "A prompt is a small work specification",
+      "mode": "TEACH",
+      "active_seconds": 110,
+      "first_active_time_fields": [
+        [
+          "1",
+          "50"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Useful roles describe behavior”."
+    },
+    {
+      "original_number": 24,
+      "current_number": 24,
+      "stable_slide_id": 279,
+      "title": "Useful roles describe behavior",
+      "mode": "TEACH",
+      "active_seconds": 40,
+      "first_active_time_fields": [
+        [
+          "0",
+          "40"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Prompt elements are requirement types”."
+    },
+    {
+      "original_number": 25,
+      "current_number": 25,
+      "stable_slide_id": 280,
+      "title": "Prompt elements are requirement types",
+      "mode": "TEACH",
+      "active_seconds": 40,
+      "first_active_time_fields": [
+        [
+          "0",
+          "40"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Examples, uncertainty, and stopping”."
+    },
+    {
+      "original_number": 26,
+      "current_number": 26,
+      "stable_slide_id": 281,
+      "title": "Examples, uncertainty, and stopping",
+      "mode": "TEACH",
+      "active_seconds": 40,
+      "first_active_time_fields": [
+        [
+          "0",
+          "40"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “A menu of requirements for each artifact”."
+    },
+    {
+      "original_number": 27,
+      "current_number": 27,
+      "stable_slide_id": 282,
+      "title": "A menu of requirements for each artifact",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “The improvement loop”."
+    },
+    {
+      "original_number": 28,
+      "current_number": 28,
+      "stable_slide_id": 283,
+      "title": "The improvement loop",
+      "mode": "TEACH",
+      "active_seconds": 95,
+      "first_active_time_fields": [
+        [
+          "1",
+          "35"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “One task through the improvement loop”."
+    },
+    {
+      "original_number": 29,
+      "current_number": 29,
+      "stable_slide_id": 284,
+      "title": "One task through the improvement loop",
+      "mode": "TEACH",
+      "active_seconds": 30,
+      "first_active_time_fields": [
+        [
+          "0",
+          "30"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Prompt techniques to test on your task”."
+    },
+    {
+      "original_number": 30,
+      "current_number": 30,
+      "stable_slide_id": 285,
+      "title": "Prompt techniques to test on your task",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “A neutral rubric reduces leading feedback”."
+    },
+    {
+      "original_number": 31,
+      "current_number": 31,
+      "stable_slide_id": 286,
+      "title": "A neutral rubric reduces leading feedback",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “A practical prompt review checklist”."
+    },
+    {
+      "original_number": 32,
+      "current_number": 32,
+      "stable_slide_id": 287,
+      "title": "A practical prompt review checklist",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Data Analytics Exercise”."
+    },
+    {
+      "original_number": 33,
+      "current_number": 33,
+      "stable_slide_id": 289,
+      "title": "Data Analytics Exercise",
+      "mode": "TEACH",
+      "active_seconds": 40,
+      "first_active_time_fields": [
+        [
+          "0",
+          "40"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Upload the Data File and Run These Two Prompts\"."
+    },
+    {
+      "original_number": 34,
+      "current_number": 34,
+      "stable_slide_id": 291,
+      "title": "Upload the Data File and Run These Two Prompts",
+      "mode": "DO",
+      "active_seconds": 360,
+      "first_active_time_fields": [
+        [
+          "6",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Ask a Follow-Up Question\"."
+    },
+    {
+      "original_number": 35,
+      "current_number": 35,
+      "stable_slide_id": 292,
+      "title": "Ask a Follow-Up Question",
+      "mode": "DO",
+      "active_seconds": 150,
+      "first_active_time_fields": [
+        [
+          "2",
+          "30"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Add the Charts and Return the Excel File\"."
+    },
+    {
+      "original_number": 36,
+      "current_number": 36,
+      "stable_slide_id": 290,
+      "title": "Add the Charts and Return the Excel File",
+      "mode": "DO",
+      "active_seconds": 240,
+      "first_active_time_fields": [
+        [
+          "4",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Describe the Dashboard You Want\" - the returned file is the dashboard's input."
+    },
+    {
+      "original_number": 37,
+      "current_number": 37,
+      "stable_slide_id": 294,
+      "title": "Describe the Dashboard You Want",
+      "mode": "TEACH",
+      "active_seconds": 60,
+      "first_active_time_fields": [
+        [
+          "1",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Build and Test the Dashboard\"."
+    },
+    {
+      "original_number": 38,
+      "current_number": 38,
+      "stable_slide_id": 295,
+      "title": "Build and Test the Dashboard",
+      "mode": "DO",
+      "active_seconds": 240,
+      "first_active_time_fields": [
+        [
+          "4",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Turn the Findings into a Five-Slide Management Mock-up\"."
+    },
+    {
+      "original_number": 39,
+      "current_number": 39,
+      "stable_slide_id": 298,
+      "title": "Turn the Findings into a Five-Slide Management Mock-up",
+      "mode": "DO",
+      "active_seconds": 150,
+      "first_active_time_fields": [
+        [
+          "2",
+          "30"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Organize an Email Thread in Outlook\"."
+    },
+    {
+      "original_number": 40,
+      "current_number": 40,
+      "stable_slide_id": 296,
+      "title": "Organize an Email Thread in Outlook",
+      "mode": "TEACH",
+      "active_seconds": 60,
+      "first_active_time_fields": [
+        [
+          "1",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Outlook Exercise: Decisions, Actions, and Open Questions\"."
+    },
+    {
+      "original_number": 41,
+      "current_number": 41,
+      "stable_slide_id": 297,
+      "title": "Outlook Exercise: Decisions, Actions, and Open Questions",
+      "mode": "DO",
+      "active_seconds": 180,
+      "first_active_time_fields": [
+        [
+          "3",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Extract Supplier Quotes into Excel\"."
+    },
+    {
+      "original_number": 42,
+      "current_number": 42,
+      "stable_slide_id": 357,
+      "title": "Extract Supplier Quotes into Excel",
+      "mode": "DO",
+      "active_seconds": 150,
+      "first_active_time_fields": [
+        [
+          "2",
+          "30"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Normalize and Compare the Supplier Quotes\"."
+    },
+    {
+      "original_number": 43,
+      "current_number": 43,
+      "stable_slide_id": 358,
+      "title": "Normalize and Compare the Supplier Quotes",
+      "mode": "DO",
+      "active_seconds": 150,
+      "first_active_time_fields": [
+        [
+          "2",
+          "30"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Turn Reference Files into a Research Spreadsheet\"."
+    },
+    {
+      "original_number": 44,
+      "current_number": 44,
+      "stable_slide_id": 299,
+      "title": "Turn Reference Files into a Research Spreadsheet",
+      "mode": "DO",
+      "active_seconds": 180,
+      "first_active_time_fields": [
+        [
+          "3",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to \"Part 5: agentic work\"."
+    },
+    {
+      "original_number": 45,
+      "current_number": 45,
+      "stable_slide_id": 300,
+      "title": "From asking to delegating",
+      "mode": "DIVIDER",
+      "active_seconds": 5,
+      "first_active_time_fields": [
+        [
+          "0",
+          "05"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “What makes a workflow agentic?”."
+    },
+    {
+      "original_number": 46,
+      "current_number": 46,
+      "stable_slide_id": 301,
+      "title": "What makes a workflow agentic?",
+      "mode": "TEACH",
+      "active_seconds": 45,
+      "first_active_time_fields": [
+        [
+          "0",
+          "45"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “ASK and DELEGATE”."
+    },
+    {
+      "original_number": 47,
+      "current_number": 47,
+      "stable_slide_id": 302,
+      "title": "ASK and DELEGATE",
+      "mode": "TEACH",
+      "active_seconds": 110,
+      "first_active_time_fields": [
+        [
+          "1",
+          "50"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Discussion: which way of working fits?”."
+    },
+    {
+      "original_number": 48,
+      "current_number": 48,
+      "stable_slide_id": 303,
+      "title": "Discussion: which way of working fits?",
+      "mode": "DO",
+      "active_seconds": 180,
+      "first_active_time_fields": [
+        [
+          "3",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “The agentic brief is the anatomy, grown up to survive autonomy”."
+    },
+    {
+      "original_number": 49,
+      "current_number": 49,
+      "stable_slide_id": 304,
+      "title": "The agentic brief is the anatomy, grown up to survive autonomy",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “A mission brief for bounded work”."
+    },
+    {
+      "original_number": 50,
+      "current_number": 50,
+      "stable_slide_id": 305,
+      "title": "A mission brief for bounded work",
+      "mode": "TEACH",
+      "active_seconds": 60,
+      "first_active_time_fields": [
+        [
+          "1",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Exercise: turn the analysis into a mission brief”."
+    },
+    {
+      "original_number": 51,
+      "current_number": 51,
+      "stable_slide_id": 306,
+      "title": "Exercise: turn the analysis into a mission brief",
+      "mode": "DO",
+      "active_seconds": 180,
+      "first_active_time_fields": [
+        [
+          "3",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Choosing an environment for delegated work”."
+    },
+    {
+      "original_number": 52,
+      "current_number": 52,
+      "stable_slide_id": 307,
+      "title": "Choosing an environment for delegated work",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Instructions and enforceable controls”."
+    },
+    {
+      "original_number": 53,
+      "current_number": 53,
+      "stable_slide_id": 308,
+      "title": "Instructions and enforceable controls",
+      "mode": "TEACH",
+      "active_seconds": 80,
+      "first_active_time_fields": [
+        [
+          "1",
+          "20"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Diagnosing a failed run”."
+    },
+    {
+      "original_number": 54,
+      "current_number": 54,
+      "stable_slide_id": 309,
+      "title": "Diagnosing a failed run",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Write the brief once — the workspace remembers”."
+    },
+    {
+      "original_number": 55,
+      "current_number": 55,
+      "stable_slide_id": 310,
+      "title": "Write the brief once — the workspace remembers",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Exercise: one gate and one hard check”."
+    },
+    {
+      "original_number": 56,
+      "current_number": 56,
+      "stable_slide_id": 311,
+      "title": "Exercise: one gate and one hard check",
+      "mode": "DO",
+      "active_seconds": 120,
+      "first_active_time_fields": [
+        [
+          "2",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Part 6: reusable prompts”."
+    },
+    {
+      "original_number": 57,
+      "current_number": 57,
+      "stable_slide_id": 312,
+      "title": "Prompts are assets. Manage them like it.",
+      "mode": "DIVIDER",
+      "active_seconds": 5,
+      "first_active_time_fields": [
+        [
+          "0",
+          "05"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “A useful prompt becomes a reusable asset”."
+    },
+    {
+      "original_number": 58,
+      "current_number": 58,
+      "stable_slide_id": 313,
+      "title": "A useful prompt becomes a reusable asset",
+      "mode": "TEACH",
+      "active_seconds": 40,
+      "first_active_time_fields": [
+        [
+          "0",
+          "40"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Where reusable prompts can live”."
+    },
+    {
+      "original_number": 59,
+      "current_number": 59,
+      "stable_slide_id": 314,
+      "title": "Where reusable prompts can live",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “A small review process for shared prompts”."
+    },
+    {
+      "original_number": 60,
+      "current_number": 60,
+      "stable_slide_id": 315,
+      "title": "A small review process for shared prompts",
+      "mode": "TEACH",
+      "active_seconds": 40,
+      "first_active_time_fields": [
+        [
+          "0",
+          "40"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Exercise: save one prompt for Monday”."
+    },
+    {
+      "original_number": 61,
+      "current_number": 61,
+      "stable_slide_id": 316,
+      "title": "Exercise: save one prompt for Monday",
+      "mode": "DO",
+      "active_seconds": 120,
+      "first_active_time_fields": [
+        [
+          "2",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Clarifying questions reveal missing requirements”."
+    },
+    {
+      "original_number": 62,
+      "current_number": 62,
+      "stable_slide_id": 317,
+      "title": "Clarifying questions reveal missing requirements",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “The habits to carry into work”."
+    },
+    {
+      "original_number": 63,
+      "current_number": 63,
+      "stable_slide_id": 318,
+      "title": "The habits to carry into work",
+      "mode": "TEACH",
+      "active_seconds": 25,
+      "first_active_time_fields": [
+        [
+          "0",
+          "25"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Capstone: one task, one checked result”."
+    },
+    {
+      "original_number": 64,
+      "current_number": 64,
+      "stable_slide_id": 319,
+      "title": "Capstone: one task, one checked result",
+      "mode": "DO",
+      "active_seconds": 300,
+      "first_active_time_fields": [
+        [
+          "5",
+          "00"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Glossary — twenty terms that matter”."
+    },
+    {
+      "original_number": 65,
+      "current_number": 65,
+      "stable_slide_id": 320,
+      "title": "Glossary — twenty terms that matter",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Why each dial matters — the generative criteria”."
+    },
+    {
+      "original_number": 66,
+      "current_number": 66,
+      "stable_slide_id": 321,
+      "title": "Why each dial matters — the generative criteria",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Why each dial matters — the agentic criteria”."
+    },
+    {
+      "original_number": 67,
+      "current_number": 67,
+      "stable_slide_id": 322,
+      "title": "Why each dial matters — the agentic criteria",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Sources this training is built on”."
+    },
+    {
+      "original_number": 68,
+      "current_number": 68,
+      "stable_slide_id": 323,
+      "title": "Sources this training is built on",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Recommended reading — start practical, go deep”."
+    },
+    {
+      "original_number": 69,
+      "current_number": 69,
+      "stable_slide_id": 324,
+      "title": "Recommended reading — start practical, go deep",
+      "mode": "REFERENCE",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Move to “Your next workplace application”."
+    },
+    {
+      "original_number": 70,
+      "current_number": 70,
+      "stable_slide_id": 325,
+      "title": "One task. A clear brief. A checked result.",
+      "mode": "DIVIDER",
+      "active_seconds": 10,
+      "first_active_time_fields": [
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": true,
+      "active_bridge": "BRIDGE: Close the live session. The remaining pages are for optional self-study."
+    },
+    {
+      "original_number": 71,
+      "current_number": 71,
+      "stable_slide_id": 326,
+      "title": "Detailed explanations and exercise keys",
+      "mode": "DIVIDER",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 72,
+      "current_number": 72,
+      "stable_slide_id": 327,
+      "title": "A prediction engine, sent to finishing school",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 73,
+      "current_number": 73,
+      "stable_slide_id": 328,
+      "title": "A desk, not a filing cabinet",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 74,
+      "current_number": 74,
+      "stable_slide_id": 329,
+      "title": "An open-book exam — audit the librarian",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 75,
+      "current_number": 75,
+      "stable_slide_id": 330,
+      "title": "Seven parts, one body — what good looks like",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 76,
+      "current_number": 76,
+      "stable_slide_id": 331,
+      "title": "Role & Task: the posture, and the question",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 77,
+      "current_number": 77,
+      "stable_slide_id": 332,
+      "title": "Context & Format: the facts, and the contract",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 78,
+      "current_number": 78,
+      "stable_slide_id": 333,
+      "title": "Examples — and the two one-sentence safety valves",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 79,
+      "current_number": 79,
+      "stable_slide_id": 334,
+      "title": "The toolkit is a loop",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 80,
+      "current_number": 80,
+      "stable_slide_id": 335,
+      "title": "Two layers, one craft",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 81,
+      "current_number": 81,
+      "stable_slide_id": 336,
+      "title": "The prompt is a document, not a sentence",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 82,
+      "current_number": 82,
+      "stable_slide_id": 337,
+      "title": "Five shapes — pick the one for the job",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 83,
+      "current_number": 83,
+      "stable_slide_id": 338,
+      "title": "ASK for an output. DELEGATE bounded work.",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 84,
+      "current_number": 84,
+      "stable_slide_id": 339,
+      "title": "The mission brief: twelve blocks, each preventing a failure",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 85,
+      "current_number": 85,
+      "stable_slide_id": 340,
+      "title": "One prompt, five links: data in, defensible slide out",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 86,
+      "current_number": 86,
+      "stable_slide_id": 341,
+      "title": "Arms need supervision: five rules for delegating",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 87,
+      "current_number": 87,
+      "stable_slide_id": 342,
+      "title": "Supplier analysis: answer key",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 88,
+      "current_number": 88,
+      "stable_slide_id": 343,
+      "title": "Packaging-change conversation: messages 1–5",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 89,
+      "current_number": 89,
+      "stable_slide_id": 344,
+      "title": "Packaging-change conversation: messages 6–10",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 90,
+      "current_number": 90,
+      "stable_slide_id": 345,
+      "title": "Requirements writing: reference and example",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 91,
+      "current_number": 91,
+      "stable_slide_id": 346,
+      "title": "Prompt elements are requirement types",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 92,
+      "current_number": 92,
+      "stable_slide_id": 347,
+      "title": "Spreadsheet analysis: requirements to choose",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 93,
+      "current_number": 93,
+      "stable_slide_id": 348,
+      "title": "HTML dashboards: requirements to choose",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 94,
+      "current_number": 94,
+      "stable_slide_id": 349,
+      "title": "Presentations: requirements to choose",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 95,
+      "current_number": 95,
+      "stable_slide_id": 350,
+      "title": "Email summaries: requirements to choose",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 96,
+      "current_number": 96,
+      "stable_slide_id": 351,
+      "title": "Plain-language documents: requirements to choose",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 97,
+      "current_number": 97,
+      "stable_slide_id": 352,
+      "title": "Pick what we drill next — the method transfers",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 98,
+      "current_number": 98,
+      "stable_slide_id": 353,
+      "title": "Full exercise: build the supplier dashboard",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 99,
+      "current_number": 99,
+      "stable_slide_id": 354,
+      "title": "Full exercise: the five-slide mock presentation",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 100,
+      "current_number": 100,
+      "stable_slide_id": 355,
+      "title": "Full exercise: explain a topic clearly",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 101,
+      "current_number": 101,
+      "stable_slide_id": 356,
+      "title": "The email-summary prompt, in full",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed."
+    },
+    {
+      "original_number": 102,
+      "current_number": 102,
+      "stable_slide_id": 288,
+      "title": "Optional practice: a course-log study aid",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ],
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Move to “Part 4: Putting Prompts to Work”."
+    },
+    {
+      "original_number": 103,
+      "current_number": 103,
+      "stable_slide_id": 293,
+      "title": "Optional extension: compare supplier quotations",
+      "mode": "REFERENCE",
+      "active_seconds": 0,
+      "first_active_time_fields": [
+        [
+          "0",
+          "00"
+        ],
+        [
+          "0",
+          "10"
+        ]
+      ],
+      "in_live_section": false,
+      "active_bridge": "BRIDGE: Move to “A deliverable needs artifact requirements”."
+    }
+  ]
+}

@@ -1,0 +1,1003 @@
+[
+ {
+  "original_slide": 101,
+  "current_slide": 101,
+  "proposed_slide": 101,
+  "stable_id": "sid-356",
+  "native_id": 356,
+  "title": "The email-summary prompt, in full",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the checked exercise material.\n\nLAND THIS: The email prompt is a portable specification: scope, extraction fields, evidence, and authority boundaries.\n\nSAY:\n- Verified Sep 2026 (r28): Outlook’s “Summary by Copilot” covers the native path with numbered citations; the supplied-text version works in any approved assistant; after the built-in summary, the custom prompt runs in the Copilot chat pane scoped to the same conversation.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nSOURCES: support.microsoft.com — Summarize an email thread with Copilot in Outlook; Draft an email message with Copilot in Outlook (retrieved 2026-09-16). The full trap answer key: slide 89 + instructor-keys/Packaging_Change_Expected_Brief.md.",
+  "slide_xml_sha256": "8ebd4c86987cb0e21d4c5383709589f49c82069df4ab9af611379b418923ac93",
+  "notes_xml_sha256": "affc2dc2045ffe9974181ac3d365f26acfeceaf2c3e80a490ff0039ad88e7b54",
+  "part": "/ppt/slides/slide101.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "00969c8a75d4d6d5de5d43b6dbc56bfea97758af91a04bbe16423c19aeccc6f0",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "54ce556fcb42afbac810fad0a3af0bd4045adf50e8cc9e56c8bd6de83b588943",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-215"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "c95046c7341db3d725cc576b14b47059d2096942682a66afd9e568800a6d4a80",
+    "paragraphs": [
+     {
+      "text": "The email-summary prompt, in full",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The email-summary prompt, in full",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-216"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "0abf0f1fd1dc543d6515062ff6528c9fc365f984698e2feb61dac58ea4fa9eb9",
+    "paragraphs": [
+     {
+      "text": "Scope & brief",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Scope & brief",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "d12a53afa6dd792141adc81542944adf73c40e413b069a8c4503bbb0f5c2e8b5",
+    "paragraphs": [
+     {
+      "text": "Review the selected conversation about [topic] using only the messages and attachments you can access. Brief the current situation, then tables of decisions and actions.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Review the selected conversation about [topic] using only the messages and attachments you can access. Brief the current situation, then tables of decisions and actions.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "a4f5893000584629a4180dda0bc53042cd9c0a8eaaea1e8225f44e3b7434783c",
+    "paragraphs": [
+     {
+      "text": "The tables",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The tables",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "7f072de7e9e6e2172d3dcc9d73f649c862bf022e748e23e9c856c60dd91e06ef",
+    "paragraphs": [
+     {
+      "text": "Decisions: status, conditions, supporting message. Actions: task, explicitly stated owner, due date, status, supporting message. Mark superseded dates as superseded.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Decisions: status, conditions, supporting message. Actions: task, explicitly stated owner, due date, status, supporting message. Mark superseded dates as superseded.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "159597c6aa58202fd4e2ea3ae9a8bf37d6da747be7280d66b821e31db97fcfd4",
+    "paragraphs": [
+     {
+      "text": "Honesty rules",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Honesty rules",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "245e737e47f1720835fd5145ec1fa997c8f25792f8a23b26cb61abc85620d106",
+    "paragraphs": [
+     {
+      "text": "List unanswered questions, conflicts, missing information, and inaccessible attachments · “Not stated” for gaps · separate source facts from your interpretation.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "List unanswered questions, conflicts, missing information, and inaccessible attachments · “Not stated” for gaps · separate source facts from your interpretation.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "686a218e1f8435c3ad52cc1b037cd317f78eeb4b05d8cdb29e52284e3e718556",
+    "paragraphs": [
+     {
+      "text": "Boundaries",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Boundaries",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "686b1bc31b4f23f4e0be3ab5abb3d46979c94560b35b3c6288cd23c81513c070",
+    "paragraphs": [
+     {
+      "text": "End with the next clarification needed. A reply, if requested, is a draft for human review — never sent automatically. Copilot access depends on your license.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "End with the next clarification needed. A reply, if requested, is a draft for human review — never sent automatically. Copilot access depends on your license.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "e7bb3364362a8c100adec965f5f0c9835df2203be5d2457c7b2c7b7b45738cc2",
+    "paragraphs": [
+     {
+      "text": "Copy-paste version: workbook tab 4-Summarize-Email · source thread: Packaging_Change_Thread.txt · key: slides 88–89.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Copy-paste version: workbook tab 4-Summarize-Email · source thread: Packaging_Change_Thread.txt · key: slides 88–89.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-115"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "4c37c8bb38c65db326efe622b0d7644c0c11f668bc2d5ac003373c39bafe92e9",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-116"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "89ff19890253b8482d04a22defd563d6074bd407186223fd0b81a1c88d6e0d00",
+    "paragraphs": [
+     {
+      "text": "101",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "101",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-117"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 102,
+  "current_slide": 102,
+  "proposed_slide": 102,
+  "stable_id": "sid-288",
+  "native_id": 288,
+  "title": "Optional practice: a course-log study aid",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\nTIME: 0:00 (Optional self-study; no live allocation. Formerly the live transition into the application block.)\nMODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: Generated reflection supports recall but does not prove skill.\n\nSAY:\n- This optional activity turns a course log into a study aid.\n- A generated summary supports recall but does not prove that the learner can do the task.\n\nDO: None.\n\nBRIDGE: Move to “Part 4: Putting Prompts to Work”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nTHREE-MINUTE REP · PART 3\n31\nYOUR TURN — TURN YOUR COURSE LOG INTO A REPORT\nOne prompt, one keepsake report\n3:00\nSTEP 1  ·  TYPE THIS → “List every prompt I have run in this course log, in order — one line each: what it did, and which element or move it taught.”\nWHY → the log replays your whole course — every numbered prompt is in there.\nSTEP 2  ·  TYPE THIS → “Now turn that into my one-page course report: the seven elements with my own example for each, the loop, and the three prompts I will reuse at work. Anything the log doesn’t show: write UNKNOWN — don’t invent. Deliver the report, then stop.”\nWHY → your examples, your report — with the Out and the Stop doing their jobs.\nBoth prompts are in tab EX-Report of your Course Workbook — run them in the course log you opened with Prompt 1.\nWhy this is the closing rep\nEvery numbered prompt you ran taught one move — and your log kept them all. The report writes itself because the raw material is real, yours, and already in the chat.\n\nStep 1 opened the course by telling the AI to remember; this is the payoff. The report IS your first library entry: name it, date it, keep it.\nThen compare with a neighbor: \nsame course, different logs — which three prompts made THEIR reuse list, and why? Different fills, same anatomy.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) 3:00 badge. Frame the payoff: “your very first prompt today told the AI to remember everything — now you collect.” Both steps run in the SAME chat they have used all course (the course log).\n2) STEP 1: the log lists every prompt it has seen, with what each taught. Let people scroll their own list — that quiet moment of “I did all that” is the point.\n3) STEP 2: the one-page course report — seven elements with THEIR examples, the loop, and their three reuse prompts. Note the craft inside the prompt itself: it carries an Out (UNKNOWN, don’t invent) and a Stop (deliver, then stop) — the course’s own rules, applied to the course.\n4) Neighbor compare: which three prompts made THEIR reuse list. Public commitment sticks.\n5) Recovery (someone started a fresh chat mid-course, or their tool lost the thread): pair them with a neighbor’s log, or point at tab EX-Report — the numbered prompts are all there to rebuild from. The HANDOFF move from Part 1 is exactly the repair tool.\n6) Skip only under extreme time pressure — this rep converts the course into an artifact they keep.\n\nACRONYMS —\nnone new on this slide.\n\nCONTENT —\nv1.12 (owner redesign): the rebuild-one-prompt rep is replaced by the COURSE-REPORT rep — “summarize all the prompts they’ve used through the course, so those informative examples give a full report.” Enabled by the new STEP 1 of Prompt 1/7 (the course-log acknowledgment). The old rebuild exercise (naive vs upgraded summary of the 60-word returns report) moved to tab EX-Report as a BONUS block for self-study; the symptom→element diagnosis grid stays at the top of the same tab.\nThe report doubles as Part 6 setup: it is literally their first library entry.\n31\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "eeab1dd464283ab3552396659e0c48ef95bffc798872d3a2fe0f3ec6065de19b",
+  "notes_xml_sha256": "c1ee29138fc4a7eeca940442643c16c0148e75477e150f5256d97931dd4be9bd",
+  "part": "/ppt/slides/slide102.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "5fa71b43b6dfd3808be1c4afa20d17811553f3fce7c15c57d01af03a4ea7e971",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "87479e07ee45eb18582ae5f8dda703da1d9bc0bc27f2524c850ca778b07bd121",
+    "paragraphs": [
+     {
+      "text": "REFERENCE  SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE  SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "80528441b3f62558d8975e3c56553c87c8a6ad61a60426d4c14118f59679027a",
+    "paragraphs": [
+     {
+      "text": "Optional practice: a course-log study aid",
+      "runs": [
+       {
+        "text": "Optional practice: a course-log study aid",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "main-prompt",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.135417,
+     12.0,
+     3.854167
+    ],
+    "xml_sha256": "5a8b751e597f53001ee1a69e6925414d5f253261d1dd7b62392df913c30d77c6",
+    "paragraphs": [
+     {
+      "text": "Using the course notes and prompts in this conversation, create a study aid.",
+      "runs": [
+       {
+        "text": "Using the course notes and prompts in this conversation, create a study aid.",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-219"
+       }
+      ],
+      "paragraph_properties_ref": "style-218"
+     },
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "",
+        "family": null,
+        "size_pt": null,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-70"
+       }
+      ]
+     },
+     {
+      "text": "List the concepts, one useful example of each, the checks I used, and two questions I still need to resolve.",
+      "runs": [
+       {
+        "text": "List the concepts, one useful example of each, the checks I used, and two questions I still need to resolve.",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-219"
+       }
+      ],
+      "paragraph_properties_ref": "style-218"
+     },
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "",
+        "family": null,
+        "size_pt": null,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-70"
+       }
+      ]
+     },
+     {
+      "text": "Separate what I demonstrated from what I only read about.",
+      "runs": [
+       {
+        "text": "Separate what I demonstrated from what I only read about.",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-219"
+       }
+      ],
+      "paragraph_properties_ref": "style-218"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "ed4a1bf8dbfe8137c42c2b279be5a9962adf911cfaa4e5a0d17341a0e57bafdd",
+    "paragraphs": [
+     {
+      "text": "Self-study activity. Use the capstone to demonstrate application during the live session.",
+      "runs": [
+       {
+        "text": "Self-study activity. Use the capstone to demonstrate application during the live session.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "b8f38d83e48e2bf62ec053afeae7b75ad2db89143dab24f989696cda9ce548d1",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "ca711dba186be9ff59ad038da3ddb75151be86d21beb8daed3ba15863de5a9c9",
+    "paragraphs": [
+     {
+      "text": "102",
+      "runs": [
+       {
+        "text": "102",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 103,
+  "current_slide": 103,
+  "proposed_slide": 103,
+  "stable_id": "sid-293",
+  "native_id": 293,
+  "title": "Optional extension: compare supplier quotations",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\nTIME: 0:00 (Optional self-study; no live allocation. The live course now runs the quotation work as two steps (slides 42-43); this page keeps the original one-step version.)\nMODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: Quote comparison requires complete cost inputs or clearly marked gaps.\n\nSAY:\n- Quote comparison requires normalization of price, quantity, currency, and commercial scope.\n- The three fictional quotation PDFs and workbook tab EX-Quotes ship in this package; run it as optional self-study.\n\nDO: None.\n\nBRIDGE: Move to “A deliverable needs artifact requirements”.\n\nIF LATE: SKIP\n\nMATERIALS: Quote_Alpha_Components.pdf, Quote_Bravo_Plastics.pdf, Quote_Cardinal_Metals.pdf + workbook tab EX-Quotes (all in the pack).\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 4 · WALKTHROUGH 1 · DATA\n36\nWALKTHROUGH · THREE QUOTES, ONE TABLE\nMessy documents in, decision-ready table out\nThe input (also in your pack)\nThree fictional supplier quotations (PDFs) answering the same RFQ — Alpha Components, Bravo Plastics, Cardinal Metals.\nDeliberately NOT comparable at first glance: one quotes in euros per 1,000 units, one excludes tooling, one includes shipping, warranties differ 6–24 months.\nWhat the room should notice: \nthe “cheapest” quote stops looking cheapest once currency, per-1,000 pricing, tooling and freight are normalized — exactly the kind of buried-terms error AI is good at catching, IF you ask for normalization explicitly. The AI’s exchange rate must be flagged as an assumption to verify.\n1\nExtract & normalize\nExtract every commercial term from these three quotations into one table: supplier, unit price, tooling, MOQ, lead time, payment terms, warranty, shipping terms, validity. Normalize prices to USD per unit at 5,000 units — state the EUR rate you use and flag it as an assumption — include tooling amortized over the 5,000 units, and note what shipping does and doesn’t include. Flag anything that is still not comparable.\n2\nRecommend, with caveats\nNow: which quote has the lowest true landed cost at 5,000 units? Which is the best overall value once warranty, lead time and payment terms count? And what would you negotiate with each supplier before deciding? Keep it to one page; separate facts from judgment.\nWorks the same in a chat upload, Copilot, or your company assistant — this is G8 grown teeth. ✂ Both prompts: tab EX-Quotes of your Course Workbook.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Frame: “same discipline, messier input: three PDFs answering one RFQ — and they don’t line up on purpose.”\n2) Name the traps out loud BEFORE running: Bravo quotes EUROS per 1,000 units and excludes tooling and freight (EXW); Alpha is straightforward but FOB; Cardinal looks priciest but includes shipping (DDP), waives tooling, and doubles the warranty.\n3) Run STEP 1; check the table catches: per-1,000 → per-unit conversion, the flagged EUR assumption, tooling amortization, shipping inclusions.\n4) STEP 2: the punchline — “cheapest” moves once terms are normalized; the negotiation question turns analysis into action.\n5) Land the safety line: the exchange rate is an ASSUMPTION the AI must flag — and you must verify (house rule from Part 1).\n\nBRIDGE —\n“Analysis is answers. Next: turning answers into a file you can circulate.”\n\nACRONYMS —\nRFQ = Request for Quotation. MOQ = Minimum Order Quantity.\nEXW / FOB / DDP = shipping terms (Incoterms): EXW = buyer collects at the factory; FOB = seller loads, buyer ships; DDP = delivered to your dock, duties paid.\n\nCONTENT —\nQuote contents (answer key, from the generated PDFs): Alpha $13.90/u + $8,500 tooling, FOB, Net 30, 12-mo, 60-day validity · Bravo €11,900 per 1,000 (≈€11.90/u) + €14,000 tooling excluded, EXW, Net 60, 6-mo, 30-day validity · Cardinal $16.40/u, tooling waived, DDP, Net 45, 24-mo, 90-day validity.\nAt ~1.08 USD/EUR: Bravo ≈ $12.85/u + $3.02/u tooling ≈ $15.87 + freight; Alpha ≈ $15.60 + freight; Cardinal $16.40 all-in with double warranty — the ranking genuinely depends on freight and terms, which is the point.\n36\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "6974b0280e5c24d476d208ed0ce2cedb87dba737987717c16e8d4f378c919213",
+  "notes_xml_sha256": "d9bdb53f5c2a098f2de40403721ed8dfedb5e611e2c73204bc2b975f3aea8cd9",
+  "part": "/ppt/slides/slide103.xml",
+  "shapes": [
+   {
+    "id": 13,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "a42f5c965520f29c13a93bcbf02068fed67a0337ffeee5d4e7f010c4a9d974b6",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "46cc6aa1f5e572fd0640bdcdb9e842284e730afd096bdbe557441f968ca8d0bd",
+    "paragraphs": [
+     {
+      "text": "REFERENCE  SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE  SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "bf1165fcdd9cd8a373395817cec051edf4ac10b5903822296c3995d551b0c532",
+    "paragraphs": [
+     {
+      "text": "Optional extension: compare supplier quotations",
+      "runs": [
+       {
+        "text": "Optional extension: compare supplier quotations",
+        "family": "Calibri",
+        "size_pt": 33.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-105"
+       }
+      ],
+      "paragraph_properties_ref": "style-109"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "1477ed88e5f71f3d282f7c4c2cb29b814bf805808bfdc0fa5e8659aa3b09bc28",
+    "paragraphs": [
+     {
+      "text": "Inputs",
+      "runs": [
+       {
+        "text": "Inputs",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "202b2fbba7bfeed4779cb724fd8926b88df9a602ed502ba4e7442afb4c18cefb",
+    "paragraphs": [
+     {
+      "text": "Three fictional quotations for the same commercial scope — the Quote_*.pdf files in your pack.",
+      "runs": [
+       {
+        "text": "Three fictional quotations for the same commercial scope — the Quote_*.pdf files in your pack.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.322917,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "9914b12bbe3c7d05dfeb0beba7429b2af1f79a2fad6ec5070c06d70a0b62bbca",
+    "paragraphs": [
+     {
+      "text": "Normalization",
+      "runs": [
+       {
+        "text": "Normalization",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.322917,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "3e4b4d4594ff9d4719c2949899fb43df7ab2abf077ed7935e5169a6528ac75d4",
+    "paragraphs": [
+     {
+      "text": "Align quantities, currencies, tooling, freight, lead times, and relevant terms.",
+      "runs": [
+       {
+        "text": "Align quantities, currencies, tooling, freight, lead times, and relevant terms.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.53125,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "d4cf9cdf49ea069748e4fa1395227b46e13b31c793bcc6bd3a5a293daba96032",
+    "paragraphs": [
+     {
+      "text": "Evidence and judgment",
+      "runs": [
+       {
+        "text": "Evidence and judgment",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.53125,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "887a7cf7c48b81c8c9ebdb29b49e8a4c3259e584e26341bba24a2afaa713d6d1",
+    "paragraphs": [
+     {
+      "text": "Trace values to the quotations, show assumptions, and distinguish lowest price from the best supported choice.",
+      "runs": [
+       {
+        "text": "Trace values to the quotations, show assumptions, and distinguish lowest price from the best supported choice.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "13c73c7daaef44ae82aadd1b8953d9c7a429eaeed6a202e0e18871f02ea7a825",
+    "paragraphs": [
+     {
+      "text": "Optional self-study: quotation PDFs + workbook tab EX-Quotes are in your pack — normalize before you compare.",
+      "runs": [
+       {
+        "text": "Optional self-study: quotation PDFs + workbook tab EX-Quotes are in your pack — normalize before you compare.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "6dfd4356cea52fd6bf60f247fb817a4d02ded8a4805cd38626ecbdd8783cc9b5",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "214fe3906e4233cbc3b846b65b7c4fd3e116862c6006c59cad3be46918406d10",
+    "paragraphs": [
+     {
+      "text": "103",
+      "runs": [
+       {
+        "text": "103",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ }
+]

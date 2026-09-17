@@ -1,0 +1,5686 @@
+[
+ {
+  "original_slide": 91,
+  "current_slide": 91,
+  "proposed_slide": 91,
+  "stable_id": "sid-346",
+  "native_id": 346,
+  "title": "Prompt elements are requirement types",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the detailed explanation or checked exercise material.\n\nLAND THIS: A prompt specifies the content, behavior, and quality of a reply or artifact.\n\nSAY:\n- This page provides prompt elements are requirement types.\n- Use it independently after the workshop and check important statements against the source.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nREQUIREMENT TYPE MENU\nFunctional behavior: What the artifact must do: filter, calculate, extract, compare, or explain.\nAcceptance evidence: Exercise each requested behavior.\n\nData and provenance: Allowed inputs, definitions, period, revision, and traceability.\nAcceptance evidence: Trace a result to the right source record.\n\nScope and exclusions: What is included, excluded, or explicitly outside the task.\nAcceptance evidence: Check boundary cases and excluded records.\n\nAudience and use: Who will use the result and the decision or action it supports.\nAcceptance evidence: Have a representative reader use the output.\n\nRole and working behavior: A perspective plus observable conduct; a title alone is weak guidance.\nAcceptance evidence: Check the requested conduct, such as stating assumptions.\n\nContent and completeness: Required topics, facts, fields, decisions, and limitations.\nAcceptance evidence: Compare output against a coverage checklist.\n\nMethod and business rules: Formulas, grouping rules, denominators, precedence, and missing-data treatment.\nAcceptance evidence: Independently recompute or trace a worked example.\n\nStructure and interface: Sections, tabs, slides, columns, controls, and navigation.\nAcceptance evidence: Inspect structure and exercise navigation.\n\nTone and presentation: Voice, reading level, units, number formats, and visual emphasis.\nAcceptance evidence: Use a concrete rubric and a representative example.\n\nAccessibility and usability: Readable contrast, meaningful labels, keyboard access, and understandable language.\nAcceptance evidence: Try the relevant reading or interaction tasks.\n\nQuality and acceptance: Observable correctness, completeness, reliability, and performance criteria.\nAcceptance evidence: Define the test input and expected result.\n\nConstraints and authority: Allowed tools, dependencies, data access, edits, approvals, and stop conditions.\nAcceptance evidence: Inspect actions and configured permissions where applicable.\n\nDelivery and compatibility: File type, editability, offline use, destination, and supported application.\nAcceptance evidence: Open the delivered file in the intended environment.\n\nMaintenance and reuse: Refresh procedure, source version, change notes, and reusable parameters.\nAcceptance evidence: Repeat the task with changed input and compare behavior.\n\nThis artifact taxonomy is an instructional application, not a formal standard. Context may contain facts as well as constraints. Use only the relevant, consistent, feasible requirements. See slide 90 for requirements-writing sources.",
+  "slide_xml_sha256": "48736c9c5625318f3ddccb1f71817b94af279785f4f916a1b1fd16f655fac2da",
+  "notes_xml_sha256": "c3ea8421be2691d613961ce8b2bc19b6cc4cf236598dc7c1e465a271c210ef71",
+  "part": "/ppt/slides/slide91.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "aebbdb51e1dc7778f0dd0a6481a8566d92f2911ca92ba0c438e92dd7ad44f453",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "fefa4d0ae8cc798820d9955f9d56f947affb330926185a0d91298a789806a71c",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "6117630ad4053ecc7e016a3ecfde8cab639be94d9b6d351d1f72d92f65139a30",
+    "paragraphs": [
+     {
+      "text": "Prompt elements are requirement types",
+      "runs": [
+       {
+        "text": "Prompt elements are requirement types",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "23390e986749b5516a40d0e2322735b0a33ad2eaa83b4d7064c9c3e397154eb3",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "a352cf9521dfb50877ba3fd456b2bda820f0a9ea8a474f7eb37cae3d3b773240",
+    "paragraphs": [
+     {
+      "text": "91",
+      "runs": [
+       {
+        "text": "91",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "",
+    "type": 19,
+    "bounds_inches": [
+     0.666667,
+     1.979167,
+     12.0,
+     4.21875
+    ],
+    "xml_sha256": "3b189d86a6343c5811578550bf7ea07499bea1d826ce7cc0d001fc609f3560d1",
+    "table": [
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Requirement type",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Requirement type",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Example instruction",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Example instruction",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Acceptance check",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Acceptance check",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Purpose and audience",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Purpose and audience",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Support a supplier follow-up decision",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Support a supplier follow-up decision",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Does it answer the question?",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Does it answer the question?",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Role and behavior",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Role and behavior",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Act as a reviewer; expose assumptions",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Act as a reviewer; expose assumptions",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Are assumptions visible?",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Are assumptions visible?",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Context and sources",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Context and sources",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Use this workbook and reporting period",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Use this workbook and reporting period",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Are scope and source correct?",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Are scope and source correct?",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Content and method",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Content and method",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Calculate returns ÷ units shipped",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Calculate returns ÷ units shipped",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Can the calculation be reproduced?",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Can the calculation be reproduced?",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Format and style",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Format and style",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Ranked table; plain, neutral language",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Ranked table; plain, neutral language",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Is it usable by its intended reader?",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Is it usable by its intended reader?",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Quality and boundaries",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Quality and boundaries",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Reconcile totals; report missing data",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Reconcile totals; report missing data",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Checks pass; gaps remain explicit",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Checks pass; gaps remain explicit",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ]
+    ]
+   },
+   {
+    "id": 10,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.770833,
+     12.0,
+     0.364583
+    ],
+    "xml_sha256": "ce10d0d049a89ffb2715793a66d94c417333163d68a318ef457cb0616862caec",
+    "paragraphs": [
+     {
+      "text": "More requirement types, examples, and checks: see the notes and companion catalog.",
+      "runs": [
+       {
+        "text": "More requirement types, examples, and checks: see the notes and companion catalog.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-101"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 92,
+  "current_slide": 92,
+  "proposed_slide": 92,
+  "stable_id": "sid-347",
+  "native_id": 347,
+  "title": "Spreadsheet analysis: requirements to choose",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the detailed explanation or checked exercise material.\n\nLAND THIS: Data requirements define which records and calculations are valid.\n\nSAY:\n- This page provides spreadsheet analysis: requirements to choose.\n- Use it independently after the workshop and check important statements against the source.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nREQUIREMENT TYPE MENU\nRow grain: State that each detail row is a month–site–supplier observation.\nAcceptance evidence: Confirm grouping keys before aggregation.\n\nReporting period: Use an explicit inclusive month range from Month.\nAcceptance evidence: Check the first and last included months.\n\nField types and units: Treat Month as a month; identify counts, percentages, hours, and currency.\nAcceptance evidence: Check parsing and unit labels.\n\nDuplicates and summary rows: Exclude the existing TOTAL row and investigate duplicate keys.\nAcceptance evidence: Compare row counts and a duplicate-key report.\n\nMetric definition: Define return rate as sum of Units_Returned divided by sum of Units_Shipped.\nAcceptance evidence: Recompute the numerator, denominator, and displayed rate.\n\nWeighting and denominators: Do not infer overall on-time delivery from monthly percentages without delivery counts.\nAcceptance evidence: Flag the missing denominator instead of claiming an overall rate.\n\nMissing and invalid values: Retain the missing Inspection_Hours value; disclose any exclusion.\nAcceptance evidence: Inspect missing-value counts and affected calculations.\n\nSegmentation and comparison: Compare suppliers on the same selected period and sites.\nAcceptance evidence: Confirm equal filter scope for each comparison.\n\nRounding and number formats: Display return rates to three decimal places while retaining calculation precision.\nAcceptance evidence: Check displayed 0.348% against the underlying ratio.\n\nFormula traceability: Use inspectable formulas or an included calculation log.\nAcceptance evidence: Trace one output to its input rows.\n\nStructure and usability: Provide a scorecard tab and a definitions tab with meaningful headers.\nAcceptance evidence: Open both tabs and identify the measure without outside explanation.\n\nVerification and limitations: Reconcile counts and sums; distinguish association from a causal explanation.\nAcceptance evidence: Compare totals and challenge unsupported explanations.\n\nDelivery and portability: Deliver an editable Excel workbook (.xlsx) with no broken external references.\nAcceptance evidence: Open the file in the intended spreadsheet application.\n\nThis artifact taxonomy is an instructional application, not a formal standard. Context may contain facts as well as constraints. Use only the relevant, consistent, feasible requirements. See slide 90 for requirements-writing sources.",
+  "slide_xml_sha256": "72e404b1b816c360a1e7b2361926c9d07f172932e1fabcbdd4c0e0e5a15292f2",
+  "notes_xml_sha256": "13e087770a4edcdadd490e1a26f09b9b7bd2875727a9e36e70e836fad64e5b50",
+  "part": "/ppt/slides/slide92.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "4a52c7be570536204564054e826c579b11011fdbf331742915fa456762028523",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "8897aebede8bb6a6149c646130046647139e1bb457863fc3660c17ad452af03a",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "47c0a81e666f4fe27110bdfef29ad48124a0a43e58d22868230928a34a0fce64",
+    "paragraphs": [
+     {
+      "text": "Spreadsheet analysis: requirements to choose",
+      "runs": [
+       {
+        "text": "Spreadsheet analysis: requirements to choose",
+        "family": "Calibri",
+        "size_pt": 33.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-105"
+       }
+      ],
+      "paragraph_properties_ref": "style-109"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "dfca82d66dfd1bce9b529d3ffa3325f1a39b3a3bf24bf53d1b66c24f06295446",
+    "paragraphs": [
+     {
+      "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+      "runs": [
+       {
+        "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "3aa09467e5741cf0b407c3645eefa7279a0fc7d4c6f01a31ca29dbb06800965f",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "4a62bc952c06d83189857f66805a6e2ae46a77927e452d7bf39a4e53dd369e59",
+    "paragraphs": [
+     {
+      "text": "92",
+      "runs": [
+       {
+        "text": "92",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "",
+    "type": 19,
+    "bounds_inches": [
+     0.666667,
+     1.979167,
+     12.0,
+     4.21875
+    ],
+    "xml_sha256": "20dc73cd1ae49eac061c61aba8788ce12977e98cec8bb390bd0c4a273b6f2306",
+    "table": [
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Requirement type",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Requirement type",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Example instruction",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Example instruction",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Acceptance check",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Acceptance check",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Source and scope",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Source and scope",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Use detail rows; exclude TOTAL",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Use detail rows; exclude TOTAL",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "144 detail rows",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "144 detail rows",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Metric and units",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Metric and units",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Returns ÷ units shipped",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Returns ÷ units shipped",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Recompute one supplier",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Recompute one supplier",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Aggregation",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Aggregation",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Divide sums; do not average rates",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Divide sums; do not average rates",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Bravo: 262 ÷ 75,184",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Bravo: 262 ÷ 75,184",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Missing data",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Missing data",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Keep missing hours missing",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Keep missing hours missing",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Do not convert absence to zero",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Do not convert absence to zero",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Workbook structure",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Workbook structure",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Scorecard and Definitions tabs",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Scorecard and Definitions tabs",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Both tabs open and explain use",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Both tabs open and explain use",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Acceptance evidence",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Acceptance evidence",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Reconcile current source totals",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Reconcile current source totals",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "224,902 shipped; 432 returned",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "224,902 shipped; 432 returned",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 93,
+  "current_slide": 93,
+  "proposed_slide": 93,
+  "stable_id": "sid-348",
+  "native_id": 348,
+  "title": "HTML dashboards: requirements to choose",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the detailed explanation or checked exercise material.\n\nLAND THIS: An interactive dashboard needs behavior and state requirements as well as visual requirements.\n\nSAY:\n- This page provides html dashboards: requirements to choose.\n- Use it independently after the workshop and check important statements against the source.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nREQUIREMENT TYPE MENU\nInput contract: Embed the checked supplier detail data and identify the snapshot date.\nAcceptance evidence: Compare record count and source identifiers.\n\nDate range: Use month selectors matching the source granularity; include both endpoints.\nAcceptance evidence: Test a single month and the full range.\n\nCategory controls: Offer Supplier and Site multi-select controls; Type or Class requires a real source field.\nAcceptance evidence: Compare each option with actual distinct values.\n\nGrouping and granularity: Allow grouping by supplier, site, or month when relevant to the decision.\nAcceptance evidence: Check counts and totals after changing the grouping.\n\nMetric selection: Offer named measures with definitions and units.\nAcceptance evidence: Verify that labels, scales, and calculations all change together.\n\nFilter combination: Apply selected filters consistently, with an explicit AND/OR rule.\nAcceptance evidence: Use a known intersection and compare included records.\n\nCoordinated views: Charts, totals, and tables must represent the same selected records.\nAcceptance evidence: Reconcile a chart total with its underlying table.\n\nSorting and drill-down: Sort numerically and allow inspection of supporting rows.\nAcceptance evidence: Compare sorted order and inspect a selected group.\n\nEmpty, missing, and zero states: Distinguish no matching records from a valid zero; avoid division by zero.\nAcceptance evidence: Exercise all three cases.\n\nReset and visible state: Show active selections and restore the default state with Reset.\nAcceptance evidence: Change multiple controls, reset, and compare the initial view.\n\nAccessibility and layout: Use labeled controls, visible focus, readable contrast, and a usable narrow layout.\nAcceptance evidence: Navigate by keyboard and test a smaller window.\n\nPortability and dependencies: Deliver one self-contained HyperText Markup Language (.html) file with embedded data and no required network calls.\nAcceptance evidence: Open offline and inspect for missing assets.\n\nPerformance: Choose a measurable response target on the training laptop for this dataset.\nAcceptance evidence: Time a representative filter change; do not invent a universal target.\n\nExport and reconciliation: If export is needed, export the filtered data and retain the chosen scope.\nAcceptance evidence: Compare exported rows with the displayed selection.\n\nThis artifact taxonomy is an instructional application, not a formal standard. Context may contain facts as well as constraints. Use only the relevant, consistent, feasible requirements. See slide 90 for requirements-writing sources.",
+  "slide_xml_sha256": "a58d56f7ec32b709c8dabe92ebeb92dd2c3b7c13ca1a6e204eec789480a51e7e",
+  "notes_xml_sha256": "a105c4d831f8dc706039aa2d696b3d9963d6dbecc8e6aaace01604468f5c3551",
+  "part": "/ppt/slides/slide93.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "f0d940ac7f60f07ae7422d46119820080ba400e257209f36bfd5963c025db377",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "ef66d0e9c7378f046a656218760ab952104fc6cb0d4a41acb540e8929ece3926",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "a92caeab3f8607173262651d716fe69d939eb3baf129a2b1b91a12b2f4845db2",
+    "paragraphs": [
+     {
+      "text": "HTML dashboards: requirements to choose",
+      "runs": [
+       {
+        "text": "HTML dashboards: requirements to choose",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "c85d4a8f355dc490b1f960793eaeef77a411ec6462fdd03e6c3b962b41561ddc",
+    "paragraphs": [
+     {
+      "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+      "runs": [
+       {
+        "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "88c294d868cefe464b0908757a677de661fc1f3b4e4dbad44b831c17a0b2257d",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "e37ddaafc214444f3f4abd9c7dca2f89920cae6abb956c634583d99b670da977",
+    "paragraphs": [
+     {
+      "text": "93",
+      "runs": [
+       {
+        "text": "93",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "",
+    "type": 19,
+    "bounds_inches": [
+     0.666667,
+     1.979167,
+     12.0,
+     4.21875
+    ],
+    "xml_sha256": "8206df8edadc83fc32302b7d5479dce5b6ebb925e4a11ccd01e06386b2980dfd",
+    "table": [
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Requirement type",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Requirement type",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Example instruction",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Example instruction",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Acceptance check",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Acceptance check",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Time selection",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Time selection",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Inclusive start and end months",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Inclusive start and end months",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Boundary months are included",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Boundary months are included",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Filters and grouping",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Filters and grouping",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Supplier and Site selections",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Supplier and Site selections",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Chart and table use one subset",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Chart and table use one subset",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Metric behavior",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Metric behavior",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Recompute rate from selected sums",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Recompute rate from selected sums",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Check one filtered denominator",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Check one filtered denominator",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "States and reset",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "States and reset",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Empty result, zero data, reset",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Empty result, zero data, reset",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Clear message; reset restores all",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Clear message; reset restores all",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Usability",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Usability",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Labeled controls; keyboard access",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Labeled controls; keyboard access",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Operate without a mouse",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Operate without a mouse",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Delivery",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Delivery",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "One offline HTML file with data",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "One offline HTML file with data",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Open with the network disabled",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Open with the network disabled",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 94,
+  "current_slide": 94,
+  "proposed_slide": 94,
+  "stable_id": "sid-349",
+  "native_id": 349,
+  "title": "Presentations: requirements to choose",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the detailed explanation or checked exercise material.\n\nLAND THIS: A presentation needs audience, narrative, visual, and delivery requirements.\n\nSAY:\n- This page provides presentations: requirements to choose.\n- Use it independently after the workshop and check important statements against the source.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nREQUIREMENT TYPE MENU\nPurpose and audience: Name the decision, audience knowledge, and intended action.\nAcceptance evidence: A reviewer can identify the decision and next step.\n\nScope and slide count: For the mock presentation, request five slides with a defined coverage list.\nAcceptance evidence: Count slides and map each required topic.\n\nStory structure: Move from business question to evidence, implications, and next action.\nAcceptance evidence: Read only the titles and check the narrative.\n\nMessage hierarchy: Use one main message per slide; make evidence support that message.\nAcceptance evidence: Ask a reader what to remember first.\n\nData fidelity: Use only checked findings and preserve period, units, and limitations.\nAcceptance evidence: Reconcile displayed values with the workbook.\n\nChart semantics: Choose an appropriate chart, truthful axes, and clearly labeled categories.\nAcceptance evidence: Check that the encoding supports the claimed comparison.\n\nTypography and readability: Set readable projected text and avoid dense paragraphs on teaching slides.\nAcceptance evidence: Inspect at presentation size and the expected viewing distance.\n\nVisual consistency: Use a restrained palette, aligned margins, and consistent emphasis.\nAcceptance evidence: Compare consecutive slides as a set.\n\nSpeaker notes: Provide purpose, talking points, transitions, and exercise instructions.\nAcceptance evidence: Inspect notes on every relevant slide.\n\nTiming and mode: Classify TEACH, DO, REFERENCE, and DIVIDER; protect 30 practice minutes.\nAcceptance evidence: Sum notes and rehearse the live path.\n\nReference completeness: Make self-study slides understandable without the facilitator.\nAcceptance evidence: Have a reader explain the example from the slide and notes.\n\nAccessibility: Use readable contrast and descriptive alternatives for meaningful visuals.\nAcceptance evidence: Review with the target presentation application’s accessibility tools.\n\nDelivery and editability: Deliver an editable PowerPoint (.pptx), retaining notes and usable charts.\nAcceptance evidence: Open, edit, and present the exported file.\n\nThis artifact taxonomy is an instructional application, not a formal standard. Context may contain facts as well as constraints. Use only the relevant, consistent, feasible requirements. See slide 90 for requirements-writing sources.",
+  "slide_xml_sha256": "578cc118a23c76c9da896bcfed5fc21f5c4895a1bab401bf364435f0c9d91113",
+  "notes_xml_sha256": "da68a596b60cfcc2db67342dc758bb8c159a8ba6f9afecbf3069ebf8edcb5c58",
+  "part": "/ppt/slides/slide94.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "e7668f7c7163d4787ffe1810555e1118acbab763892a7f9639031db8c3b9f1d3",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "cfbcd4738204c3ed9e027840b06fa6a6fd30cdc5b4b2dabe95224cd30cbb7dd1",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "2a7b149172e0911f5747c60225273140273b10af8300e3650f1dfd26e5aa902d",
+    "paragraphs": [
+     {
+      "text": "Presentations: requirements to choose",
+      "runs": [
+       {
+        "text": "Presentations: requirements to choose",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "02bd9b2e54dc10de2682c6cec16560fe04b9cecc3273ec8382330ff27d3e6614",
+    "paragraphs": [
+     {
+      "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+      "runs": [
+       {
+        "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "90bf4da9bdb7cc416615269af981819083c049507fdbaf8288c85df66268ea77",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "f1f12825c448ad43871981e6e8516753de439625095c645a2e2bd6317418c154",
+    "paragraphs": [
+     {
+      "text": "94",
+      "runs": [
+       {
+        "text": "94",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "",
+    "type": 19,
+    "bounds_inches": [
+     0.666667,
+     1.979167,
+     12.0,
+     4.21875
+    ],
+    "xml_sha256": "cda837908bb1a3d8d61a5da22c3846e0aa8001f2ad3fd93a5a50fcc90da5a201",
+    "table": [
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Requirement type",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Requirement type",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Example instruction",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Example instruction",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Acceptance check",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Acceptance check",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Audience and decision",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Audience and decision",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Managers planning follow-up",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Managers planning follow-up",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Decision is explicit",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Decision is explicit",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Narrative",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Narrative",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "One main message on each slide",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "One main message on each slide",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Titles tell a coherent story",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Titles tell a coherent story",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Evidence",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Evidence",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Use verified workbook findings",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Use verified workbook findings",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Numbers match the source",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Numbers match the source",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Visual hierarchy",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Visual hierarchy",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Readable chart, units, and labels",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Readable chart, units, and labels",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Inspect in presentation view",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Inspect in presentation view",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Delivery and editability",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Delivery and editability",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Editable PowerPoint; no clipping",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Editable PowerPoint; no clipping",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Open and edit the file",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Open and edit the file",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Facilitation",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Facilitation",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Notes, timing, and participant action",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Notes, timing, and participant action",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Rehearse the allocated time",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Rehearse the allocated time",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 95,
+  "current_slide": 95,
+  "proposed_slide": 95,
+  "stable_id": "sid-350",
+  "native_id": 350,
+  "title": "Email summaries: requirements to choose",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the detailed explanation or checked exercise material.\n\nLAND THIS: A useful summary preserves evidence, chronology, ownership, and conditions.\n\nSAY:\n- This page provides email summaries: requirements to choose.\n- Use it independently after the workshop and check important statements against the source.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nREQUIREMENT TYPE MENU\nSource scope: Name the selected thread, relevant date range, and available attachments.\nAcceptance evidence: List the messages and attachments actually used.\n\nCurrent state: Separate the latest position from earlier proposals.\nAcceptance evidence: Trace each changed date to the message that superseded it.\n\nDecision extraction: Distinguish approved, proposed, rejected, and unresolved items.\nAcceptance evidence: Compare decision status with the source wording.\n\nConditional approval: Keep the cost cap and quality sign-off attached to the approval.\nAcceptance evidence: Reject a summary that says simply approved.\n\nActions and ownership: Extract action, explicit owner, due date, and status.\nAcceptance evidence: Check each field; use Not stated for missing details.\n\nDate meaning: Distinguish a trial date, change date, and action due date.\nAcceptance evidence: Check that September 25 and October 2 are not conflated.\n\nOpen questions and conflicts: List unresolved freight responsibility and contradictory statements.\nAcceptance evidence: Locate the source question and any subsequent resolution.\n\nEvidence traceability: Use message dates, senders, and supporting excerpts or available links.\nAcceptance evidence: Open the referenced message and verify the claim.\n\nAttachments and missing input: Flag a mentioned drawing that is not available to the assistant.\nAcceptance evidence: Do not summarize content of an unavailable attachment.\n\nFormat and tone: Provide a neutral current-state brief and a separate action table.\nAcceptance evidence: Check that opinions are labeled and actions are easy to scan.\n\nAccess and tool availability: Use only mail and attachments available in the actual Copilot and Outlook setup.\nAcceptance evidence: Confirm retrieval scope; use the supplied-text exercise when needed.\n\nAuthority and delivery: Prepare any reply as a draft for human review; do not send automatically.\nAcceptance evidence: Inspect the draft and action record.\n\nThis artifact taxonomy is an instructional application, not a formal standard. Context may contain facts as well as constraints. Use only the relevant, consistent, feasible requirements. See slide 90 for requirements-writing sources.",
+  "slide_xml_sha256": "364aabd965c20c82a6f4f4d462529484268d17ecff1249e0f4ed48b704311f49",
+  "notes_xml_sha256": "b6fa06685971029e09f79a8153ed47fb2d4e47b422a90e6b86cc5ed0cc5a5cc0",
+  "part": "/ppt/slides/slide95.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "d96fa265aeda6f8f28d9b2c7d9ac097c4280094e3773734848215f86a812f6ce",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "34027d6f50a9d759e680cafe51302c5de2ba412bcd6106bc4c0b9bba8953b1a4",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "66873ec800df836414948bcc5f94f42206224a9f23b84285d42dedbaa85c09b4",
+    "paragraphs": [
+     {
+      "text": "Email summaries: requirements to choose",
+      "runs": [
+       {
+        "text": "Email summaries: requirements to choose",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "63bb5994e5edfc2f078f03b3ab8a83fb34de74694d3ce38f5dd7d19f7f63fd4a",
+    "paragraphs": [
+     {
+      "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+      "runs": [
+       {
+        "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "bad9db22534529774543c91e78e46776a8338e6260bd3186eab6affa1ebe81aa",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "dd8a5f88a24c235d6d363924b65977cbf62b3958db6a8714425e57396d48b127",
+    "paragraphs": [
+     {
+      "text": "95",
+      "runs": [
+       {
+        "text": "95",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "",
+    "type": 19,
+    "bounds_inches": [
+     0.666667,
+     1.979167,
+     12.0,
+     4.21875
+    ],
+    "xml_sha256": "2db23cd193e0d24443b0793fdf6690e2e7bbc25a1908fe21d4c72372d67ffba5",
+    "table": [
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Requirement type",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Requirement type",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Example instruction",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Example instruction",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Acceptance check",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Acceptance check",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Conversation scope",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Conversation scope",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Use only the selected thread",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Use only the selected thread",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Identify included messages",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Identify included messages",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Extraction fields",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Extraction fields",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Decision, owner, due date, question",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Decision, owner, due date, question",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Required fields are present",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Required fields are present",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Chronology",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Chronology",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Show current and superseded dates",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Show current and superseded dates",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Latest change date: October 2",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Latest change date: October 2",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Conditions",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Conditions",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Keep cost cap and quality condition",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Keep cost cap and quality condition",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "No unconditional approval claim",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "No unconditional approval claim",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Evidence and gaps",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Evidence and gaps",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Cite messages; mark Not stated",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Cite messages; mark Not stated",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "No invented owner or attachment",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "No invented owner or attachment",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Action boundary",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Action boundary",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Draft for review; do not send",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Draft for review; do not send",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "No message is sent",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "No message is sent",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 96,
+  "current_slide": 96,
+  "proposed_slide": 96,
+  "stable_id": "sid-351",
+  "native_id": 351,
+  "title": "Plain-language documents: requirements to choose",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the detailed explanation or checked exercise material.\n\nLAND THIS: Accessible language must preserve meaning, conditions, and useful detail.\n\nSAY:\n- This page provides plain-language documents: requirements to choose.\n- Use it independently after the workshop and check important statements against the source.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nREQUIREMENT TYPE MENU\nReader and purpose: Write for a reader at a fifth-grade reading level who needs to understand or do a named task.\nAcceptance evidence: A representative reader can state the purpose.\n\nSource and factual scope: Use the supplied source and identify unsupported or missing information.\nAcceptance evidence: Trace factual claims to the source.\n\nConcept coverage: List the ideas the reader must understand before drafting.\nAcceptance evidence: Compare the document with the coverage list.\n\nVocabulary: Prefer familiar words and define necessary technical terms at first use.\nAcceptance evidence: Review unfamiliar terms and their definitions.\n\nSentence and paragraph structure: Use short direct sentences and one main idea per paragraph.\nAcceptance evidence: Read aloud and inspect complex sentences.\n\nOrganization: Use meaningful headings and ordered steps when order matters.\nAcceptance evidence: Ask a reader to locate the first action and a key explanation.\n\nExamples and analogies: Include a concrete everyday example and state the limit of any analogy.\nAcceptance evidence: Check that the analogy does not change the underlying idea.\n\nTone and respect: Use a clear adult tone without condescension or childish phrasing.\nAcceptance evidence: Review wording with the intended audience.\n\nAccuracy and caveats: Preserve important conditions, uncertainty, exceptions, and warnings from the source.\nAcceptance evidence: Compare the simplified version with the original meaning.\n\nReadability evidence: Use reading-level estimates as one signal, plus human comprehension checks.\nAcceptance evidence: Do not claim exact grade-level comprehension from a score alone.\n\nVisual support and accessibility: Use a labeled diagram or example only when it improves understanding.\nAcceptance evidence: Ask what the visual helps the reader explain.\n\nComprehension check: Provide three questions and a short answer key grounded in the document.\nAcceptance evidence: Confirm the answers can be found or inferred from the text.\n\nDelivery and reuse: Specify an editable document, useful headings, and reusable topic placeholders.\nAcceptance evidence: Open the output and adapt one topic without losing the structure.\n\nThis artifact taxonomy is an instructional application, not a formal standard. Context may contain facts as well as constraints. Use only the relevant, consistent, feasible requirements. See slide 90 for requirements-writing sources.",
+  "slide_xml_sha256": "bc7a926656dcbded326cd9b1327307498636daec235e6ed0f7b86beefd2b0046",
+  "notes_xml_sha256": "60bd3d9180d7747c8991561aaea901fb15382a7222a2e557965a6517994bd3d6",
+  "part": "/ppt/slides/slide96.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "c980ac0a6b4f37ae3e725ba3f37eceab64db39d125469f3a63bc51638c1463e8",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "3b0eabdc6b23bbd1bcf3f207d072ffd93a7f960ae27013f481773fe8f1f3e5ca",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "11da7af222864fb0182e4d1692c1e6942c2e04fed85d41b9e78a2a7389373dfc",
+    "paragraphs": [
+     {
+      "text": "Plain-language documents: requirements to choose",
+      "runs": [
+       {
+        "text": "Plain-language documents: requirements to choose",
+        "family": "Calibri",
+        "size_pt": 33.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-105"
+       }
+      ],
+      "paragraph_properties_ref": "style-109"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "6e8f347a8fd4f10e820eb6c3ba29c4376e070c843357389a97bb4fa1f7633e98",
+    "paragraphs": [
+     {
+      "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+      "runs": [
+       {
+        "text": "Choose relevant types. More examples and acceptance checks are in the notes and companion catalog.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "7793822b76fcd61a0e8a1e188be4d7bbd1cb734dab6a7b4a7725cbee2805ed85",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "fe90cfa3d4ee43a8cfc12a3d9010ecdd5e604f02e1b0a2489a3903de274652ee",
+    "paragraphs": [
+     {
+      "text": "96",
+      "runs": [
+       {
+        "text": "96",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "",
+    "type": 19,
+    "bounds_inches": [
+     0.666667,
+     1.979167,
+     12.0,
+     4.21875
+    ],
+    "xml_sha256": "e0244e62c65d1a50c5ba58c10dcd0150aff8795fab15fe25d12f148ebed77e10",
+    "table": [
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Requirement type",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Requirement type",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Example instruction",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Example instruction",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Acceptance check",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Acceptance check",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": true,
+           "italic": null,
+           "properties_ref": "style-210"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Audience",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Audience",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "A reader at a fifth-grade level",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "A reader at a fifth-grade level",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Reader explains the main idea",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Reader explains the main idea",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Coverage",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Coverage",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "One topic with necessary caveats",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "One topic with necessary caveats",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Required ideas remain intact",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Required ideas remain intact",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Vocabulary",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Vocabulary",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Define unfamiliar words on first use",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Define unfamiliar words on first use",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "No unexplained technical terms",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "No unexplained technical terms",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Structure",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Structure",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Short sections, steps, and an example",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Short sections, steps, and an example",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Reader finds the needed action",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Reader finds the needed action",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Fidelity and tone",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Fidelity and tone",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Accurate and respectful",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Accurate and respectful",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "No distorted facts or baby talk",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "No distorted facts or baby talk",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ],
+     [
+      {
+       "paragraphs": [
+        {
+         "text": "Learning check",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Learning check",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 3.020833
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Three questions with an answer key",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Three questions with an answer key",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.84375
+      },
+      {
+       "paragraphs": [
+        {
+         "text": "Answers follow from the document",
+         "paragraph_properties_xml": null,
+         "runs": [
+          {
+           "text": "Answers follow from the document",
+           "family": "Calibri",
+           "size_pt": 16.5,
+           "bold": null,
+           "italic": null,
+           "properties_ref": "style-211"
+          }
+         ]
+        }
+       ],
+       "width_inches": 4.135417
+      }
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 97,
+  "current_slide": 97,
+  "proposed_slide": 97,
+  "stable_id": "sid-352",
+  "native_id": 352,
+  "title": "Pick what we drill next — the method transfers",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the checked exercise material.\n\nLAND THIS: Future applications follow the same source, output, and verification pattern.\n\nSAY:\n- This page lists candidate extensions for later sessions; each maps onto the same requirement types taught today.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nRELOCATED from the live sequence when the presentation demonstration took this content’s slot (that demonstration now sits at live slide 41).",
+  "slide_xml_sha256": "18ec985f76f2fd55e1b9c590ce9aba93682302cc9ecbdb16887fa25b2a1fbb4f",
+  "notes_xml_sha256": "ab894d1aa7881cee2fe8d2165fd5ae312166c2cdb24db5a11f331cbf7056fbfc",
+  "part": "/ppt/slides/slide97.xml",
+  "shapes": [
+   {
+    "id": 4,
+    "name": "Text 2",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.3,
+     12.2,
+     0.3
+    ],
+    "xml_sha256": "0ca7d2d3d67c1619e3d617e017993f2840c604e3a5148ad000517f98063d31e1",
+    "paragraphs": [
+     {
+      "text": "MORE PLAYS WE CAN DRILL NEXT",
+      "runs": [
+       {
+        "text": "MORE PLAYS WE CAN DRILL NEXT",
+        "family": "Calibri",
+        "size_pt": 11.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-38"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Text 3",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     0.58,
+     12.2,
+     0.75
+    ],
+    "xml_sha256": "1c77f0cd09faa4683f4354e421389ad5913ef33d7fa85bc3ecde0e22fbac3523",
+    "paragraphs": [
+     {
+      "text": "Pick what we drill next — the method transfers",
+      "runs": [
+       {
+        "text": "Pick what we drill next — the method transfers",
+        "family": "Cambria",
+        "size_pt": 30.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-39"
+       }
+      ],
+      "paragraph_properties_ref": "style-30"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Shape 4",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     1.62,
+     5.95,
+     1.38
+    ],
+    "xml_sha256": "0430525dabd6804ceb6ecd214a6873d91af19b08257940e5c44b14c5125e3896",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Shape 5",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     1.86,
+     0.46,
+     0.46
+    ],
+    "xml_sha256": "b37e90db5cce00c7efe9e7e1d53613c71c10e8983796145a8e23ba6a9a477ae7",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 64,
+    "name": "Image 0",
+    "type": 13,
+    "bounds_inches": [
+     0.8696,
+     1.9796,
+     0.220801,
+     0.220801
+    ],
+    "xml_sha256": "e7d760eb533ed02e0fa4bfe3d9fbd89de3df32599d078e7f6bfbb789817af6dd",
+    "image": {
+     "sha256": "ccb874971a23abb57bf9d1b2139ca050da8d806093c6e34d673d1e92e94d5d26",
+     "content_type": "image/png",
+     "size_pixels": [
+      256,
+      256
+     ],
+     "crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   {
+    "id": 9,
+    "name": "Text 6",
+    "type": 1,
+    "bounds_inches": [
+     1.35,
+     1.72,
+     5.0,
+     1.2
+    ],
+    "xml_sha256": "3f8708056dca2c8508aca9a57eea12fc3b69167103e55c031ee69d0e8bc97a7f",
+    "paragraphs": [
+     {
+      "text": "Document interpretation & Q&A",
+      "runs": [
+       {
+        "text": "Document interpretation & Q&A",
+        "family": "Calibri",
+        "size_pt": 12.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-146"
+       }
+      ],
+      "paragraph_properties_ref": "style-212"
+     },
+     {
+      "text": "Upload a contract, spec, or standard; ask clause-level questions with page-cited answers and an “it doesn’t say” rule.",
+      "runs": [
+       {
+        "text": "Upload a contract, spec, or standard; ask clause-level questions with page-cited answers and an “it doesn’t say” rule.",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-157"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Shape 7",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     1.62,
+     5.95,
+     1.38
+    ],
+    "xml_sha256": "b798cc00eb7d87a48e5258a528f31dec521a5dd6da63c790c527d27d197abcd1",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Shape 8",
+    "type": 1,
+    "bounds_inches": [
+     6.95,
+     1.86,
+     0.46,
+     0.46
+    ],
+    "xml_sha256": "c8f6f035f9250b450c62e91189516cc66b27d6f27c1da847b81cc08c7ac8cc0a",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 68,
+    "name": "Image 1",
+    "type": 13,
+    "bounds_inches": [
+     7.0696,
+     1.9796,
+     0.220801,
+     0.220801
+    ],
+    "xml_sha256": "0f758faf7b9f8423ca02e90ac705499241fc79e7bfa126600352cdfca9fff446",
+    "image": {
+     "sha256": "9aa8f95683fd8fb6a4145a5c862ad8d9b5157ac72b830604e596eaf2d986f4f5",
+     "content_type": "image/png",
+     "size_pixels": [
+      256,
+      256
+     ],
+     "crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   {
+    "id": 13,
+    "name": "Text 9",
+    "type": 1,
+    "bounds_inches": [
+     7.55,
+     1.72,
+     5.0,
+     1.2
+    ],
+    "xml_sha256": "66fbb2e6ddc0469576e5134bd188fe47725976465ab6e30433e3bc602a538e3d",
+    "paragraphs": [
+     {
+      "text": "Image creation for work",
+      "runs": [
+       {
+        "text": "Image creation for work",
+        "family": "Calibri",
+        "size_pt": 12.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-146"
+       }
+      ],
+      "paragraph_properties_ref": "style-212"
+     },
+     {
+      "text": "Decks, one-pagers, training visuals — the commercially-safe lane (Firefly) vs the built-in chatbot lane, and prompt patterns for each.",
+      "runs": [
+       {
+        "text": "Decks, one-pagers, training visuals — the commercially-safe lane (Firefly) vs the built-in chatbot lane, and prompt patterns for each.",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-157"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Shape 10",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     3.12,
+     5.95,
+     1.38
+    ],
+    "xml_sha256": "28c3281c78b816361b67cefdf6d9fb1cc26f46765d7089baee666ad49aaf83ec",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Shape 11",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     3.36,
+     0.46,
+     0.46
+    ],
+    "xml_sha256": "bb1432ba5908dfa30e70f46a976dad289cbc8b49dbcfbe75425d3d08fdb5fc0c",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 72,
+    "name": "Image 2",
+    "type": 13,
+    "bounds_inches": [
+     0.8696,
+     3.4796,
+     0.220801,
+     0.220801
+    ],
+    "xml_sha256": "2f9ca56eb03b0de78b62aaf8e563929cc79ced8f34314c2d62442d5c94534890",
+    "image": {
+     "sha256": "71572b00290c4d34229550bd7ba60764e30c7ae7fce1663701c3bbb5a8f93179",
+     "content_type": "image/png",
+     "size_pixels": [
+      256,
+      256
+     ],
+     "crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   {
+    "id": 17,
+    "name": "Text 12",
+    "type": 1,
+    "bounds_inches": [
+     1.35,
+     3.22,
+     5.0,
+     1.2
+    ],
+    "xml_sha256": "06611d9f5fa3e4d5eb03685763ade04b1a5198bcf8b032eec03c3dac2f17ced8",
+    "paragraphs": [
+     {
+      "text": "Inbox triage & scheduled digests",
+      "runs": [
+       {
+        "text": "Inbox triage & scheduled digests",
+        "family": "Calibri",
+        "size_pt": 12.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-146"
+       }
+      ],
+      "paragraph_properties_ref": "style-212"
+     },
+     {
+      "text": "Beyond one thread: “summarize unanswered emails from the past day, rank 1–5, draft replies for the top ones” — on a schedule.",
+      "runs": [
+       {
+        "text": "Beyond one thread: “summarize unanswered emails from the past day, rank 1–5, draft replies for the top ones” — on a schedule.",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-157"
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "Shape 13",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     3.12,
+     5.95,
+     1.38
+    ],
+    "xml_sha256": "3ff24945c963b0b19383e8dfbe7de9b150fcf614c51a3a1819c1d17bbaddd3ae",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 19,
+    "name": "Shape 14",
+    "type": 1,
+    "bounds_inches": [
+     6.95,
+     3.36,
+     0.46,
+     0.46
+    ],
+    "xml_sha256": "f5e0577729e062b967e41a4a589d0c282d5b67032abdfcdf78f912ef2818d0e9",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 76,
+    "name": "Image 3",
+    "type": 13,
+    "bounds_inches": [
+     7.0696,
+     3.4796,
+     0.220801,
+     0.220801
+    ],
+    "xml_sha256": "87768ef313e7ffd74df2cffdd5cd218be760674da982117933d496b00ccc42d6",
+    "image": {
+     "sha256": "0dc44bde59e76b8f3c57a73937ca18690146068c0e793680c75a03b8941453b9",
+     "content_type": "image/png",
+     "size_pixels": [
+      256,
+      256
+     ],
+     "crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   {
+    "id": 21,
+    "name": "Text 15",
+    "type": 1,
+    "bounds_inches": [
+     7.55,
+     3.22,
+     5.0,
+     1.2
+    ],
+    "xml_sha256": "434fbb37b30e21b2fc723f495b324159cfb93c4a3bc88370a6b4eaeeac1ba0e4",
+    "paragraphs": [
+     {
+      "text": "Meetings → minutes & actions",
+      "runs": [
+       {
+        "text": "Meetings → minutes & actions",
+        "family": "Calibri",
+        "size_pt": 12.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-146"
+       }
+      ],
+      "paragraph_properties_ref": "style-212"
+     },
+     {
+      "text": "Transcript in; decisions, actions with owners, and a circulated summary out — same shapes as the email play.",
+      "runs": [
+       {
+        "text": "Transcript in; decisions, actions with owners, and a circulated summary out — same shapes as the email play.",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-157"
+     }
+    ]
+   },
+   {
+    "id": 22,
+    "name": "Shape 16",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     4.62,
+     5.95,
+     1.38
+    ],
+    "xml_sha256": "a79ccae984e2b93919af1925f0998efcd531220affbdf78c17df0d97d0a44993",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 23,
+    "name": "Shape 17",
+    "type": 1,
+    "bounds_inches": [
+     0.75,
+     4.86,
+     0.46,
+     0.46
+    ],
+    "xml_sha256": "e56a58684bf09ca3a2bc1e9e539adb9b6331c6da4caf5c11a9201074ea74496c",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 80,
+    "name": "Image 4",
+    "type": 13,
+    "bounds_inches": [
+     0.8696,
+     4.9796,
+     0.220801,
+     0.220801
+    ],
+    "xml_sha256": "eaee695948059c18f3abf3d4d3117355d47e88d45281b1f883a936c79581a18e",
+    "image": {
+     "sha256": "14b80f93cf6cf1b2c7c28a082dc11123fb8b7a6b797076fe9bab498d459b6ceb",
+     "content_type": "image/png",
+     "size_pixels": [
+      256,
+      256
+     ],
+     "crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   {
+    "id": 25,
+    "name": "Text 18",
+    "type": 1,
+    "bounds_inches": [
+     1.35,
+     4.72,
+     5.0,
+     1.2
+    ],
+    "xml_sha256": "6a967310ea7d8f9c4cf9d953a4a3eeaff93319015dce4b64a979ea95dba1c865",
+    "paragraphs": [
+     {
+      "text": "Translation & tone shifts",
+      "runs": [
+       {
+        "text": "Translation & tone shifts",
+        "family": "Calibri",
+        "size_pt": 12.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-146"
+       }
+      ],
+      "paragraph_properties_ref": "style-212"
+     },
+     {
+      "text": "Regulated-grade translation and audience rewrites: same content, five audiences, five registers.",
+      "runs": [
+       {
+        "text": "Regulated-grade translation and audience rewrites: same content, five audiences, five registers.",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-157"
+     }
+    ]
+   },
+   {
+    "id": 26,
+    "name": "Shape 19",
+    "type": 1,
+    "bounds_inches": [
+     6.75,
+     4.62,
+     5.95,
+     1.38
+    ],
+    "xml_sha256": "44a6581559a719db474a0145543d45c9e8f329d80360145dfa783005a0c12367",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 27,
+    "name": "Shape 20",
+    "type": 1,
+    "bounds_inches": [
+     6.95,
+     4.86,
+     0.46,
+     0.46
+    ],
+    "xml_sha256": "423f7c3ea56c941aa193d3bf1371b3d12fd0d69a1bd989f5d6d0625bbe8998c9",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 84,
+    "name": "Image 5",
+    "type": 13,
+    "bounds_inches": [
+     7.0696,
+     4.9796,
+     0.220801,
+     0.220801
+    ],
+    "xml_sha256": "8f73b0fc4b920e9aaa8b3c889232181739033f012b94dbe9952d080a1bcf1fb5",
+    "image": {
+     "sha256": "51f9f5e9f462a76b3dbece04774031d0ffeb995775d8b107bcf42a0db745664d",
+     "content_type": "image/png",
+     "size_pixels": [
+      256,
+      256
+     ],
+     "crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   {
+    "id": 29,
+    "name": "Text 21",
+    "type": 1,
+    "bounds_inches": [
+     7.55,
+     4.72,
+     5.0,
+     1.2
+    ],
+    "xml_sha256": "2b778c8af41755bd8ee658254d9dc739a2987a4df664146bdbacb57004963730",
+    "paragraphs": [
+     {
+      "text": "Recurring data pipelines",
+      "runs": [
+       {
+        "text": "Recurring data pipelines",
+        "family": "Calibri",
+        "size_pt": 12.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-146"
+       }
+      ],
+      "paragraph_properties_ref": "style-212"
+     },
+     {
+      "text": "This block’s data play, delegated end-to-end to an agent on a schedule — that is exactly Part 5.",
+      "runs": [
+       {
+        "text": "This block’s data play, delegated end-to-end to an agent on a schedule — that is exactly Part 5.",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-44"
+       }
+      ],
+      "paragraph_properties_ref": "style-157"
+     }
+    ]
+   },
+   {
+    "id": 30,
+    "name": "Shape 22",
+    "type": 1,
+    "bounds_inches": [
+     0.55,
+     6.3,
+     12.2,
+     0.65
+    ],
+    "xml_sha256": "3755fd0e7e450276e1940cf63168cac10caed670d1a0d39dd832a7e1dcf4bdb7",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 31,
+    "name": "Shape 23",
+    "type": 1,
+    "bounds_inches": [
+     0.73,
+     6.415,
+     0.42,
+     0.42
+    ],
+    "xml_sha256": "863f8ccdf027ea67b4e79927350d0da3d00eb2da461a288fe4c100bb16a0b5d4",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 88,
+    "name": "Image 6",
+    "type": 13,
+    "bounds_inches": [
+     0.839199,
+     6.524199,
+     0.2016,
+     0.2016
+    ],
+    "xml_sha256": "e82e12f10b6d376f8a0b562c8d739f4c81619929df3818a738a0daf86dc5b57e",
+    "image": {
+     "sha256": "2dd5ee86443d7c29b2ccbc817b2590047fe7765531e9030cb64321ea5e8a51e0",
+     "content_type": "image/png",
+     "size_pixels": [
+      256,
+      256
+     ],
+     "crop": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   {
+    "id": 33,
+    "name": "Text 24",
+    "type": 1,
+    "bounds_inches": [
+     1.33,
+     6.38,
+     11.17,
+     0.49
+    ],
+    "xml_sha256": "be5b2e1683dcb0560483033ada8b30e7bc25202dd088a3faa1446b3c18feff2d",
+    "paragraphs": [
+     {
+      "text": "Extensions to request after the course — each follows the same source → output → verification pattern as today’s five artifacts.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Extensions to request after the course — each follows the same source → output → verification pattern as today’s five artifacts.",
+        "family": "Calibri",
+        "size_pt": 11.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-213"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 50,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.041667
+    ],
+    "xml_sha256": "92c32ac30935dfac3e7326426bc7e25ea64a083dc0918b5e5154f121055c35ac",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 51,
+    "name": "FACILITATION_MODE_LABEL",
+    "type": 1,
+    "bounds_inches": [
+     10.416667,
+     0.177083,
+     2.552083,
+     0.3125
+    ],
+    "xml_sha256": "0ec5a98e6769babd8e428e9a162352d3a9e36cc71c528ac461cd7ed4c8937425",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-214"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 52,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.447917,
+     7.145833,
+     0.520833,
+     0.28125
+    ],
+    "xml_sha256": "71a871e8f249458e93c391e4bd2d5cb98c284830501a19262ba393368794dd11",
+    "paragraphs": [
+     {
+      "text": "97",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "97",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-116"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 98,
+  "current_slide": 98,
+  "proposed_slide": 98,
+  "stable_id": "sid-353",
+  "native_id": 353,
+  "title": "Full exercise: build the supplier dashboard",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the checked exercise material.\n\nLAND THIS: Interaction behavior is specified in plain language, control by control, with a checkable state rule.\n\nSAY:\n- The three prompt versions build on each other; the vocabulary table in workbook tab 2-Build-Dashboard names every control with reusable wording.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nRELATED: live demonstration slide 38; Supplier_Data_Analyzed.xlsx (the returned workbook); the dashboard’s footer self-check.",
+  "slide_xml_sha256": "5729167233cf0c2e6c7ef0400fcb6bd74e141c4063b3cc167cb2f8d42949fcde",
+  "notes_xml_sha256": "aabcb1905bf406c34dc74b5491ae46a6d4686a4d55470507d2494f634de120da",
+  "part": "/ppt/slides/slide98.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "00969c8a75d4d6d5de5d43b6dbc56bfea97758af91a04bbe16423c19aeccc6f0",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "54ce556fcb42afbac810fad0a3af0bd4045adf50e8cc9e56c8bd6de83b588943",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-215"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "508171b3f53e770c8690eb2826425fa9989d589b80d139652e5778b1560db636",
+    "paragraphs": [
+     {
+      "text": "Full exercise: build the supplier dashboard",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Full exercise: build the supplier dashboard",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-216"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "aeec0f76239c64d2e0869c4e3960dc048bbe0016ba98608e45ea9a21f53702ff",
+    "paragraphs": [
+     {
+      "text": "Prompt v1 — the core",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Prompt v1 — the core",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "0b42ac852d2c64e789b4ccbdad80d6798b9afd887e8f68eb1ee08e14c48d94a1",
+    "paragraphs": [
+     {
+      "text": "One self-contained offline HTML file from the returned Supplier_Data_Analyzed.xlsx workbook: summary tiles, one chart, a sortable table — data embedded, definitions and snapshot date visible.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "One self-contained offline HTML file from the returned Supplier_Data_Analyzed.xlsx workbook: summary tiles, one chart, a sortable table — data embedded, definitions and snapshot date visible.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "3d70dc4c146c05ecefc01ac9f7049b0b0be195cfe4e80397bd9ccd5207df3e8a",
+    "paragraphs": [
+     {
+      "text": "Prompt v2 — behavior",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Prompt v2 — behavior",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "a004206ca34293ef91afd4c704c5e3baa84e45808ab0d6f508db95084f814865",
+    "paragraphs": [
+     {
+      "text": "Add controls by name: month range (inclusive) · Supplier and Site multi-select · compare by supplier or site · monthly/quarterly trend · metric selector · drill-down · sort · Reset.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Add controls by name: month range (inclusive) · Supplier and Site multi-select · compare by supplier or site · monthly/quarterly trend · metric selector · drill-down · sort · Reset.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "a10e315bbf8c0ef05f68be5f28f003dd463c8c757c8b93783659dc357f5bdb35",
+    "paragraphs": [
+     {
+      "text": "Prompt v3 — the states",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Prompt v3 — the states",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "c520595f440a0a9e8b6e793f1658cf56a95d53a5d88ff6bc62c163472e8735f5",
+    "paragraphs": [
+     {
+      "text": "Active selections visible · one filter rule re-scopes every view · empty results explained · missing ≠ zero · zero denominators show “—”.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Active selections visible · one filter rule re-scopes every view · empty results explained · missing ≠ zero · zero denominators show “—”.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "386fa7280ab96b2d43153b3a8eb1e1b3557c09c70e6d65a33066fa2b0653282c",
+    "paragraphs": [
+     {
+      "text": "The checks",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The checks",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "ac169dd07e82a44cd4471633df1c05970976604619332dfc6cd483ee19673616",
+    "paragraphs": [
+     {
+      "text": "Berlin × Bravo Plastics, 2026-03..2026-08 → 8,575 units, 21 returns, 0.245%. Rates recomputed from filtered sums; every view must agree.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Berlin × Bravo Plastics, 2026-03..2026-08 → 8,575 units, 21 returns, 0.245%. Rates recomputed from filtered sums; every view must agree.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "206028fda2a88ee11b9e355dddbe578692568be638f95b93f0da42363b41e5df",
+    "paragraphs": [
+     {
+      "text": "Copy-paste prompts: workbook tab 2-Build-Dashboard · prepared output: Supplier_Quality_Dashboard.html.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Copy-paste prompts: workbook tab 2-Build-Dashboard · prepared output: Supplier_Quality_Dashboard.html.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-115"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "4c37c8bb38c65db326efe622b0d7644c0c11f668bc2d5ac003373c39bafe92e9",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-116"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "d89cb0c79086637ad8c8f8f094240ccaf76f56ce122afa1a3760a8e6af80e178",
+    "paragraphs": [
+     {
+      "text": "98",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "98",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-117"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 99,
+  "current_slide": 99,
+  "proposed_slide": 99,
+  "stable_id": "sid-354",
+  "native_id": 354,
+  "title": "Full exercise: the five-slide mock presentation",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the checked exercise material.\n\nLAND THIS: A presentation is an artifact with narrative, fidelity, and delivery requirements — not decorated bullet points.\n\nSAY:\n- The mock deck is deliberately auditable: every number traces to the workbook and the limitations slide names what the data cannot say.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nRELATED: slide 39 (live orientation); workbook tab 3-Present-Findings.",
+  "slide_xml_sha256": "7be0a4ad6f234abb535bc29041bda00ed41e7add89d56ebc396df7ffd58426a7",
+  "notes_xml_sha256": "9344911800be18546f8b06b45b08beeb884c9e092224516286334067d9035a29",
+  "part": "/ppt/slides/slide99.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "00969c8a75d4d6d5de5d43b6dbc56bfea97758af91a04bbe16423c19aeccc6f0",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "54ce556fcb42afbac810fad0a3af0bd4045adf50e8cc9e56c8bd6de83b588943",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-215"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "e1a92f715e775b08017a0d0944f12f815c04a51cfb8102305f7c4b05dfba4ac5",
+    "paragraphs": [
+     {
+      "text": "Full exercise: the five-slide mock presentation",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Full exercise: the five-slide mock presentation",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-216"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "9f5f039c043f90b4ba20824b8781b3ab8028f0b0c3af75213462e0eecbe21fca",
+    "paragraphs": [
+     {
+      "text": "Coverage",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Coverage",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "c95ca04255cccb4bb6fef2488cd18ca11a02abda140669c5d8d7b0451e8cb894",
+    "paragraphs": [
+     {
+      "text": "Question & scope · supplier comparison · one time or site view · proposed follow-up · limitations and next steps — one main message per slide.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Question & scope · supplier comparison · one time or site view · proposed follow-up · limitations and next steps — one main message per slide.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "cdfd7fd65a65c81bc3772416d41c8aede9577521e03853bde013eb2b5fbd0be8",
+    "paragraphs": [
+     {
+      "text": "Fidelity rules",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Fidelity rules",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "b3ccd6db57ffbd12fe953fc5895553f5fc466febd7df78bb0de19eb2b4c3e28f",
+    "paragraphs": [
+     {
+      "text": "Only verified findings · units and period accurate · uncertainty and missing-data limits preserved · findings separated from recommendations · no invented causes or benefits.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Only verified findings · units and period accurate · uncertainty and missing-data limits preserved · findings separated from recommendations · no invented causes or benefits.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "740d154fabd76665d3dc226a2e7b4d8fa17f945a70d70e1a46730bf83e85b49f",
+    "paragraphs": [
+     {
+      "text": "Delivery",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Delivery",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "0916d54e85ca0c6f5b0926a93035fb6ea3bb40497473e3ca0d2e6ad09a88014f",
+    "paragraphs": [
+     {
+      "text": "An editable .pptx with brief speaker notes; truthful, labeled charts; every number checked against the analysis; exported slides inspected for clipping and readability.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "An editable .pptx with brief speaker notes; truthful, labeled charts; every number checked against the analysis; exported slides inspected for clipping and readability.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "a007519168d5e5721867f17b100e99e4d9d3d98cbf07b238d201330e1e570e50",
+    "paragraphs": [
+     {
+      "text": "The prepared output",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The prepared output",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "2cacb74237e288d1e2f1f999f3f45391af6e40f5e3a834a28887f055557d29ef",
+    "paragraphs": [
+     {
+      "text": "Supplier_Quality_Mock_Presentation.pptx — the sample this prompt produced; audit it against this checklist before reusing the prompt.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Supplier_Quality_Mock_Presentation.pptx — the sample this prompt produced; audit it against this checklist before reusing the prompt.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "4284835e0d77a2d3f97b37c0db6e5afdb8c93d71642b61ce66480aa468775429",
+    "paragraphs": [
+     {
+      "text": "Copy-paste prompt: workbook tab 3-Present-Findings · live orientation: slide 39.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Copy-paste prompt: workbook tab 3-Present-Findings · live orientation: slide 39.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-115"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "4c37c8bb38c65db326efe622b0d7644c0c11f668bc2d5ac003373c39bafe92e9",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-116"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "49d55ea0beb91b248f0544ca1fd63489d6a5e654f524d4f4074f0e2ea8df133c",
+    "paragraphs": [
+     {
+      "text": "99",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "99",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-117"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 100,
+  "current_slide": 100,
+  "proposed_slide": 100,
+  "stable_id": "sid-355",
+  "native_id": 355,
+  "title": "Full exercise: explain a topic clearly",
+  "mode": "REFERENCE",
+  "active_seconds": 0,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:00 (optional self-study; no live allocation)\n\nPURPOSE: Support independent study with the checked exercise material.\n\nLAND THIS: Accessible language preserves meaning, conditions, and useful detail — fidelity is the hard requirement.\n\nSAY:\n- Each sample file shows the source, the sample output, and its own fidelity note — the note is part of the deliverable.\n\nDO: None.\n\nBRIDGE: Optional self-study. Return to the related live slide or continue the reference material as needed.\n\nIF LATE: SKIP\n\nRELATED: reference-layer exercise (no live slot); references/exercise-data/plain-language/.",
+  "slide_xml_sha256": "bef3cc7fbe0bbc56745245ef0a44d5dcd5a1c4577cb4abdce590e63284d7db2a",
+  "notes_xml_sha256": "0b8ad1d4cbfff4488c85b497649a2693ed700b9f14e147113be8b9c941e806c1",
+  "part": "/ppt/slides/slide100.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "00969c8a75d4d6d5de5d43b6dbc56bfea97758af91a04bbe16423c19aeccc6f0",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "54ce556fcb42afbac810fad0a3af0bd4045adf50e8cc9e56c8bd6de83b588943",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   SELF-STUDY",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "REFERENCE   SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-215"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "97739cf3e1149b3082525908240c3204abd039b1043902a129938c2c5ff1e656",
+    "paragraphs": [
+     {
+      "text": "Full exercise: explain a topic clearly",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Full exercise: explain a topic clearly",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-216"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "5fe34c689c7cc99be46714caadfc18b7a385fd53ce2e92b8d63b0b5881896642",
+    "paragraphs": [
+     {
+      "text": "The prompt’s core",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The prompt’s core",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "866866cffe732775867d0e6d579b8005dab2981a7b96fb16d7d4932e9476af0c",
+    "paragraphs": [
+     {
+      "text": "Main idea first · familiar words, short sentences, meaningful headings · one concrete example · technical terms defined at first use · clear adult tone.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Main idea first · familiar words, short sentences, meaningful headings · one concrete example · technical terms defined at first use · clear adult tone.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "c817d6eb59946ae61ed4a89b25017d27781315731f2040987adcb60b78b9ffdb",
+    "paragraphs": [
+     {
+      "text": "Fidelity",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Fidelity",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "a164d87cd96d766db13c848bc34837f495993a7dc75e080a385de836271288e2",
+    "paragraphs": [
+     {
+      "text": "Analogies only when accurate, with the limit stated · conditions and uncertainty preserved · no invented facts · meaning-changing simplifications flagged.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Analogies only when accurate, with the limit stated · conditions and uncertainty preserved · no invented facts · meaning-changing simplifications flagged.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "6788444d0b061047a55e79fb1c4f3b9634ae133b15fa40abaa0a4a6748545815",
+    "paragraphs": [
+     {
+      "text": "The learning check",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The learning check",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "b4361060b577f5ebc86e643fdd57c69e87a7231fb3efdcb03605ae8cda98aceb",
+    "paragraphs": [
+     {
+      "text": "Three comprehension questions with a short answer key, answerable from the text alone. Readability scores are supporting evidence, not proof of understanding.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Three comprehension questions with a short answer key, answerable from the text alone. Readability scores are supporting evidence, not proof of understanding.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "6c44a37ce25abccfb8ce19f1c35fb2e8a1d33e6008a62720899a755ce4fb5552",
+    "paragraphs": [
+     {
+      "text": "Practice topics",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Practice topics",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "abc09533474a76efc70efa8a10fc90e5f8146a23c91056e88d06f59745434ec8",
+    "paragraphs": [
+     {
+      "text": "Supplier quality (the live example) · household budgeting · the water cycle · how an internet message travels — sources and sample outputs in references/exercise-data/plain-language/.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Supplier quality (the live example) · household budgeting · the water cycle · how an internet message travels — sources and sample outputs in references/exercise-data/plain-language/.",
+        "family": "Calibri",
+        "size_pt": 14.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-217"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "07e8e92a28bcbac688cfcdc5febc25ba68b22c80ec9929d7489d92107a292c07",
+    "paragraphs": [
+     {
+      "text": "Copy-paste prompt: workbook tab 5-Explain-Clearly · reference exercise (no live slot).",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Copy-paste prompt: workbook tab 5-Explain-Clearly · reference exercise (no live slot).",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-115"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "4c37c8bb38c65db326efe622b0d7644c0c11f668bc2d5ac003373c39bafe92e9",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-116"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "9fcbd679a7c24e7b2a622c0eabb04c80169ad22378e9c9a1484f938626a72e3e",
+    "paragraphs": [
+     {
+      "text": "100",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "100",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-117"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]

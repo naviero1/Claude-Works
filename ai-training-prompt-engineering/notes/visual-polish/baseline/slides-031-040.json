@@ -1,0 +1,3236 @@
+[
+ {
+  "original_slide": 31,
+  "current_slide": 31,
+  "proposed_slide": 31,
+  "stable_id": "sid-286",
+  "native_id": 286,
+  "title": "A neutral rubric reduces leading feedback",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: A neutral review rubric reduces the influence of the requester’s preference.\n\nSAY:\n- A leading question can bias an evaluation toward the requester’s view.\n- Use an explicit rubric and ask what evidence would change the conclusion.\n\nDO: None.\n\nBRIDGE: Move to “A practical prompt review checklist”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · THE BIAS TO DESIGN AGAINST\n29\nAI MIRRORS YOU\nThe flattery bias — measured, and all over the news\n+49%\nhow often it says you’re right — a person = 100\na person\n100\nthe AI\n149\n11 leading models (Stanford/CMU, Science 2026). Root cause: trained on human preferences — and we prefer agreement.\nIt made the news\nAPR 2025\nOpenAI rolls back a ChatGPT update — its own words: “overly flattering or agreeable… sycophantic.” Its metrics had rewarded the mirror.\nJUN 2025\nNew York Times: chatbots validating false beliefs send some users “spiraling” — agreement as a safety problem.\nAUG 2025\nMicrosoft’s AI chief warns of unhealthy AI validation — “not confined to people already at risk.”\n2026\nThe Science study measures it (+49%) — and the flattery bias draws regulatory attention.\nThe countermeasures — usable today: \nnever reveal your preferred answer when asking for a review · ask for the case AGAINST (“three weakest points”) · paste your draft as “a colleague’s” · never treat “are you sure?” as verification.\nSEE IT YOURSELF — two chats, same paragraph:\nChat 1: “A colleague wrote this — rate it 1–10 and list its three biggest weaknesses.”   Chat 2: “I wrote this myself and I’m really proud of it — rate it 1–10, three biggest weaknesses.”\nDid the score move — and the criticism soften — once it knew you were the author?\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Say it as one sentence first: “the AI is a mirror — it agrees with you about half again as often as a person would.” Then the +49%.\n2) The timeline is the credibility: this isn’t a lab curiosity — OpenAI itself shipped, then ROLLED BACK, a too-flattering ChatGPT (Apr 2025) and admitted their thumbs-up data had rewarded the mirror; the NYT covered users spiraling; Microsoft’s AI chief warned about it; by 2026 it’s measured in Science and on regulators’ desks.\n3) Countermeasures — read all four; the first changes behavior TODAY.\n4) The see-it-yourself box: genuinely encourage them to run it tonight on a real paragraph — the two-chat contrast is self-demonstrating. The read-more prompt has the out built in (“say not verified”) — that’s Proven #4, practiced.\n\nBRIDGE —\n“So what’s current best practice, all in one place? The playbook.”\n\nACRONYMS —\nCMU = Carnegie Mellon University (co-authors of the Science study).\n\nCONTENT —\nv1.7: sycophancy promoted to its own slide (owner request) — full instance file + reading list in notes/research/r25_proven_myth_mirror.md. Timeline sources: OpenAI “Sycophancy in GPT-4o” Apr 29 2025 + “Expanding on what we missed” May 2 2025 (their own words quoted) · NYT (Kashmir Hill) Jun 13 2025 · Suleyman warnings Aug 2025 (Fortune Aug 22; “AI psychosis” is a media label, not a diagnosis — attribute, don’t diagnose) · Cheng et al., Science 2026 · Fortune Mar 31 2026 (regulatory attention).\nDeeper research if asked (r25): SycEval (AIES 2025): pushback flips answers 58.2% of the time, 14.7% right→wrong · ELEPHANT (2025/26): models save the user’s face 45 pts more than humans; affirm BOTH sides of the same conflict in 48% of cases (same lab as the Science paper — not independent) · npj Digital Medicine Oct 2025: models complied with 100% of illogical drug requests they KNEW were false; permission-to-refuse fixed most of it.\nReading list for the curious (give on request): OpenAI’s own Apr 2025 post · NYT Jun 13 2025 · Nature news feature Oct 2025 (“AI chatbots are sycophants”) · Stanford Report Mar 2026. Litigation (Raine v. OpenAI): active case, OpenAI denies — phrase as “a lawsuit alleges” or leave it out.\nHandled with care: no medical claims from the “AI psychosis” coverage; countermeasures are the deck’s standing blind-review discipline.\nv1.10 ART — the mirror illustration (owner-generated, R16): a person holds up a page; the reflection is a beaming robot giving a thumbs-up, stars and all. Point at it when you say the opening sentence — the reflection is the flattery; both pages are blank because the CONTENT never mattered to the mirror.\nFont-policy pass: the on-slide read-more line was removed (owner: fewer footnotes) — give it verbally or on request: ask your AI to “search the web for the April 2025 ChatGPT sycophancy rollback and two 2025+ studies — cite sources, say ‘not verified’ if unsure.”\n29\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "d94f76c6ea375e4abb19132e7eba5184d9f9b627bb3aea3bfef8d6e6f1482aa5",
+  "notes_xml_sha256": "9091e8c268493f8fcff181e8db6646cc1a816b04fa68cc3447107fe8ae8facf2",
+  "part": "/ppt/slides/slide31.xml",
+  "shapes": [
+   {
+    "id": 11,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "4efb383295e6823e3317ef18faeedd1a7ee7504daa315e9c4f5f578a6c97153d",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "e99ac5253de4be0dc773dc0c5baa61eb5c7ddb989ac9cf457fe9d22065f3fda6",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   0:10",
+      "runs": [
+       {
+        "text": "REFERENCE   0:10",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "30d4f379f3a5c9c28f73b46751f0b780e9f698b699bb9eca97ed0f2ff98ea5d7",
+    "paragraphs": [
+     {
+      "text": "A neutral rubric reduces leading feedback",
+      "runs": [
+       {
+        "text": "A neutral rubric reduces leading feedback",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "left-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.135417,
+     5.572917,
+     0.541667
+    ],
+    "xml_sha256": "35599674a10ba80f4814ee8923a9fce2de78c8f65bfa14ed7a7c809d70f12503",
+    "paragraphs": [
+     {
+      "text": "A LEADING REQUEST",
+      "runs": [
+       {
+        "text": "A LEADING REQUEST",
+        "family": "Calibri",
+        "size_pt": 18.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-18"
+       }
+      ],
+      "paragraph_properties_ref": "style-17"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "right-label",
+    "type": 1,
+    "bounds_inches": [
+     6.958333,
+     2.135417,
+     5.708333,
+     0.541667
+    ],
+    "xml_sha256": "782c045874381b1496043666941bec5934d0a5edf9f22c1f24299630240e7fef",
+    "paragraphs": [
+     {
+      "text": "A MORE NEUTRAL REQUEST",
+      "runs": [
+       {
+        "text": "A MORE NEUTRAL REQUEST",
+        "family": "Calibri",
+        "size_pt": 18.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-18"
+       }
+      ],
+      "paragraph_properties_ref": "style-17"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "left-body",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.760417,
+     5.572917,
+     2.989583
+    ],
+    "xml_sha256": "405ff393d426848fe17ebcddae61c0afce9d03f32da6e27f14331e203409c068",
+    "paragraphs": [
+     {
+      "text": "“I think this is excellent. Tell me why it works.”",
+      "runs": [
+       {
+        "text": "“I think this is excellent. Tell me why it works.”",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     },
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "",
+        "family": null,
+        "size_pt": null,
+        "bold": null,
+        "italic": null,
+        "properties_ref": "style-70"
+       }
+      ]
+     },
+     {
+      "text": "The preferred conclusion is embedded in the task.",
+      "runs": [
+       {
+        "text": "The preferred conclusion is embedded in the task.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "right-body",
+    "type": 1,
+    "bounds_inches": [
+     6.958333,
+     2.760417,
+     5.708333,
+     2.989583
+    ],
+    "xml_sha256": "782b79afce4560b3c4ebaac3bef409941a20a4c3f2a6c9cbb9b7d273d7a9df5d",
+    "paragraphs": [
+     {
+      "text": "“Evaluate this against clarity, evidence, and completeness. Identify weaknesses and what would change your assessment.”",
+      "runs": [
+       {
+        "text": "“Evaluate this against clarity, evidence, and completeness. Identify weaknesses and what would change your assessment.”",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-20"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "c7355717fdffa9681519bab391ae7d51f58e502291d58245c6bb4fa6610e1d67",
+    "paragraphs": [
+     {
+      "text": "Compare the reasoning and supporting evidence. A harsher answer is not automatically more accurate.",
+      "runs": [
+       {
+        "text": "Compare the reasoning and supporting evidence. A harsher answer is not automatically more accurate.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "4bc650a05bcb895c1b2cbe8c80e32331db2e633debd33e3e5136b6a516fdb7fc",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "08d59d9a097ddbf145b6eeea8c1c68ce729ac5dd897e2c710ff43eaebda15daa",
+    "paragraphs": [
+     {
+      "text": "31",
+      "runs": [
+       {
+        "text": "31",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 32,
+  "current_slide": 32,
+  "proposed_slide": 32,
+  "stable_id": "sid-287",
+  "native_id": 287,
+  "title": "A practical prompt review checklist",
+  "mode": "REFERENCE",
+  "active_seconds": 10,
+  "notes": "MODE: REFERENCE\n\nTIME: 0:10\n\nPURPOSE: Preserve depth for self-study without consuming live practice time.\n\nLAND THIS: Treat universal prompt rules as hypotheses to test, not laws.\n\nSAY:\n- Use this playbook as a reference when diagnosing an unsatisfactory answer.\n- Avoid turning model-dependent advice into universal rules.\n\nDO: None.\n\nBRIDGE: Move to “Data Analytics Exercise”.\n\nIF LATE: SKIP\n\nSOURCE DETAIL FOR SELF-STUDY\nPART 3 · THE 2026 PLAYBOOK\n30\nDO · DON’T · EXPIRED — TOP FIVE EACH\nThe 2026 prompting playbook\nTO DO — reliably helps\n1  State the task precisely — verb, constraints, success criteria, and the WHY behind each rule\n2  Separate instructions from material; standardize ONE tested, versioned template\n3  Long inputs: documents at the top, instructions at the END (bookend both ends when very long)\n4  Give an out + require citations\n5  Numeric budgets for anything measurable — words, bullets, steps\nNOT TO DO — hurts or wastes\n1  Contradictory instructions — reasoning models burn tokens reconciling them\n2  Tips, threats, emotional pressure — null on average, chaos per question\n3  Bare “do not hallucinate” commands — they trigger over-refusal; use the out + citations instead\n4  Revealing your preferred answer, or “are you sure?” as verification\n5  Piling micro-rules — quality degrades past ~150 instructions; smallest prompt that keeps the contract\nEXPIRED — was right in 2023\n1  “Think step by step” → pick a reasoning model, set the effort dial\n2  Piles of examples → zero-shot first, then 3–5 format-definers\n3  “You are a world-class expert” for accuracy → persona for voice only\n4  Magic phrases (“take a deep breath”, “my career depends on it”) → clarity; real stakes as factual context\n5  Carrying your 2023 prompt stack to each new model → re-baseline on every upgrade (next slide’s loop)\nThe full 8 + 8 + 8, with the study behind every line: tab PLAYBOOK of your Course Workbook — and your Field Guide explains the WHY behind every line. Notice column 1, rule 4 IS column 2, rule 3 said positively: say what TO do.\n\nARCHIVED SOURCE NOTES\nHOW TO PRESENT —\n1) Why this slide exists, in one line: “half the prompting advice on the internet is from 2023 — here is the 2026 state of play, in three columns: keep, avoid, unlearn.”\n2) GREEN column, fast — these five are Part 3 itself, condensed; nothing new, that’s the point.\n3) RED column — slow on 3 and 4: bare “do not hallucinate” backfires (models start refusing facts that ARE in the context — researchers call it a Safety Tax; the positive out-and-cite pattern is the fix), and “are you sure?” is not verification (last slide’s mirror).\n4) EXPIRED column — tell one origin story so the room trusts the column: “think step by step” was REAL (it took one math benchmark from 10% to 41% in 2022) — then vendors built the stepping in, and OpenAI’s own guide now says avoid chain-of-thought prompts. Advice expires when the product absorbs it. Every expired row ends with its replacement after the arrow.\n5) Teal band: the full 8+8+8 with sources lives in the PLAYBOOK tab; the Field Guide’s compendium chapter (part 5) carries the WHY behind every line. And the coherence beat: give-an-out is “don’t hallucinate” said positively — a live demo of “say what TO do.”\n\nCOHERENCE SEAMS (if someone spots a “contradiction”) —\nNumeric caps vs no-absolutes: caps constrain QUANTITY; ALWAYS/NEVER locks JUDGMENT — reserve absolutes for true invariants.\nBookending vs no-repetition: repeat verbatim at both ends of LONG context, or not at all — paraphrased blanket repetition is the anti-pattern.\nTask detail vs rule-piling: detail = information density (helps); piling = rule COUNT (past ~150, quality sags, early rules win).\nCoT expired only on frontier reasoning models — still legitimate on small/local/non-thinking models.\n\nBRIDGE —\n“The craft is stable — here’s the habit that compounds it.”\n\nACRONYMS —\nCoT = Chain-of-Thought — the old “think step by step” style, now built into thinking models.\n\nCONTENT —\nv1.6: rebuilt as the three-column playbook (owner request); full lists + anchors in notes/research/r20_do_dont_expired.md. Key anchors: Yang et al., 2025; revised 2026 (41.1%) · He 2024 (wrapper swings ~40%) · GPT-4.1 guide (bookending) · Omar 2025 (out: 66→44%) · GPT-5.1 guide (length adherence) · Safety Tax arXiv:2601.02023 · Wharton R3 + Salinas 2024 (tips/threats) · Cheng Science 2026 (+49%) · IFScale arXiv:2507.11538 (~150-rule cliff) · Kojima 2022 (10.4→40.7 GSM8K origin) · Sprague ICLR 2025 · Zheng 2024/Wharton R4 (personas) · OPRO 2024 (magic-phrase post-mortem) · EmotionPrompt recalc arXiv:2409.20303 (honest average ~2.6%) · GPT-5.5 guide via Willison Apr 2026 (re-baseline).\nWhat did NOT change (say if the room looks nervous): clarity, context, format, the out, grounding, iteration — the anatomy applies to every model they will ever use; scaffolding tricks retire, briefing skills compound.\nv1.13 (owner request): the standalone playbook one-pager was RETIRED — its content merged into the Field Guide (part 5: the full works/myth/expired compendium with the why per line) and the cheat sheet (compact box). The PLAYBOOK workbook tab remains the sources reference.\n30\n\nUse the current facilitation guidance above for timing and delivery. Historical numerical claims in the source notes retain their original scope and should not be treated as current product guidance.",
+  "slide_xml_sha256": "0ab1014f5be717208a01924aa8e68a9cdd19a61af4102dfe0fe28e45805bc981",
+  "notes_xml_sha256": "64f004010b57dd3001e0039b5e404a104ab5a35f364928cdd29d73c42b4ddfe0",
+  "part": "/ppt/slides/slide32.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "97925f0d9104c59a8fdcae6a7e72b1e9c0b35d5d2ea8c1a9d3d3992b9f6ab58a",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "bc39433763d144b020f7457b8bc0ad839c6423e33cab83c2493790d5f4dd979d",
+    "paragraphs": [
+     {
+      "text": "REFERENCE   0:10",
+      "runs": [
+       {
+        "text": "REFERENCE   0:10",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-61"
+       }
+      ],
+      "paragraph_properties_ref": "style-60"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "a139a782630dfb6efea365901e3152c96fb8e68f70d9f22c4ba22a82805279db",
+    "paragraphs": [
+     {
+      "text": "A practical prompt review checklist",
+      "runs": [
+       {
+        "text": "A practical prompt review checklist",
+        "family": "Calibri",
+        "size_pt": 36.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-63"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "cce1c24ada1a8314ca5f693607db5ac71e4c39055eb89465bed2e8ee15eef432",
+    "paragraphs": [
+     {
+      "text": "Clarity",
+      "runs": [
+       {
+        "text": "Clarity",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "b0f72696478b5d171138a2e94f8f583cfadf6ea52d95ebbdc9fcb817c15ccb8a",
+    "paragraphs": [
+     {
+      "text": "One identifiable task, explicit definitions, and a useful output.",
+      "runs": [
+       {
+        "text": "One identifiable task, explicit definitions, and a useful output.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "fa01b492f3fc8d84ed32aca48e4b9e3250aecbc48cc3a23d0dc8470fb8bd34d3",
+    "paragraphs": [
+     {
+      "text": "Relevance",
+      "runs": [
+       {
+        "text": "Relevance",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "2b398f8039cd2d9333f9124c79b84570a2df8a646b4abbea8d762636afb2ef2c",
+    "paragraphs": [
+     {
+      "text": "Only instructions and source material that help the task.",
+      "runs": [
+       {
+        "text": "Only instructions and source material that help the task.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "dfc3f162714ef8ee5b8cf552eb993e31850d5156d4b2e54be15d4d29662e1838",
+    "paragraphs": [
+     {
+      "text": "Boundaries",
+      "runs": [
+       {
+        "text": "Boundaries",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "d900661113b85770ceee6f2305f89c24416398c58e32789d53dd0eeb41dde4f8",
+    "paragraphs": [
+     {
+      "text": "Missing-information behavior, completion condition, and authority when needed.",
+      "runs": [
+       {
+        "text": "Missing-information behavior, completion condition, and authority when needed.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "9693082be3fa53c0c5be37b31c3efa85989d87a9e7e7ec14b9e99f690d4cbb56",
+    "paragraphs": [
+     {
+      "text": "Evidence",
+      "runs": [
+       {
+        "text": "Evidence",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-65"
+       }
+      ],
+      "paragraph_properties_ref": "style-64"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "876f24705400c4e8baa1df4a2994adeeaf48c59b375a54970f8677f644598b6e",
+    "paragraphs": [
+     {
+      "text": "A source check, calculation check, or observable acceptance test.",
+      "runs": [
+       {
+        "text": "A source check, calculation check, or observable acceptance test.",
+        "family": "Calibri",
+        "size_pt": 22.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-67"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "5811c544d3fd861095a272655dae3692287c7e3c8cad78aaa06410a50b9b842f",
+    "paragraphs": [
+     {
+      "text": "Test advice in your actual workflow. More words, stronger praise, or a magic phrase cannot guarantee a better result.",
+      "runs": [
+       {
+        "text": "Test advice in your actual workflow. More words, stronger praise, or a magic phrase cannot guarantee a better result.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "b646ea86fc95ef995a5fd85b263b519fd532ca64b4ee507fb3a4053104df7b36",
+    "paragraphs": [
+     {
+      "text": "REFERENCE · SELF-STUDY",
+      "runs": [
+       {
+        "text": "REFERENCE · SELF-STUDY",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "eb42068cec0778637545855c08e88a4c9d16514371cf7e99f131fd750b187c5e",
+    "paragraphs": [
+     {
+      "text": "32",
+      "runs": [
+       {
+        "text": "32",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 33,
+  "current_slide": 33,
+  "proposed_slide": 33,
+  "stable_id": "sid-289",
+  "native_id": 289,
+  "title": "Data Analytics Exercise",
+  "mode": "TEACH",
+  "active_seconds": 40,
+  "notes": "MODE: TEACH\nTIME: 0:40\nPURPOSE: Open the application block with the whole arc in one breath.\nLAND THIS: One dataset, uploaded once, becomes an analysis, charts, a returned file, a dashboard, and a presentation.\nSAY: Everything in this block runs on one workbook you upload at the start. You will analyze it, question it, get it back with editable charts, feed the returned file to a dashboard, and end with a management mock-up.\nSAY: Each added instruction in a prompt exists to resolve a specific ambiguity. A basic ask like \"analyze the supplier data and tell me which supplier is worst\" makes the model pick the rows, the metric, and \"worst\" for you, silently. The prompts you are about to run name the file, define the metric from sums, handle the missing value, and demand reconciliation - each line closes one gap. That lesson used to be its own slide; it now travels with every prompt you run today.\nDO: Nothing yet - the upload comes on the next slide.\nBRIDGE: Move to \"Upload the Data File and Run These Two Prompts\".\nIF LATE: COMPRESS to the arc sentence.",
+  "slide_xml_sha256": "582ca8cd10e16c8f9c70d338bc3c358e352062ae97389410770da86c08e7ea1b",
+  "notes_xml_sha256": "87c8f69eb8525542af27849e3ed90347248d90823cddbae59c3fde95559dd6e7",
+  "part": "/ppt/slides/slide33.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "97036e400b220faf75cfefdf94d91880b6d8f3f38183189045a98b1590f93b9d",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "divider-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.9375,
+     11.458333,
+     0.46875
+    ],
+    "xml_sha256": "05847a33666688722f440b21f4a83bcc832ef6dfd507e43dcfc708baa230a7ac",
+    "paragraphs": [
+     {
+      "text": "PART 4 · APPLICATION",
+      "runs": [
+       {
+        "text": "PART 4 · APPLICATION",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-2"
+       }
+      ],
+      "paragraph_properties_ref": "style-1"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "divider-title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     1.9375,
+     11.666667,
+     1.822917
+    ],
+    "xml_sha256": "c9e1d1a47b62ad3f29abe393377470ce7801db8c65d5198084b3a37bc5a40cc9",
+    "paragraphs": [
+     {
+      "text": "Data Analytics Exercise",
+      "runs": [
+       {
+        "text": "Data Analytics Exercise",
+        "family": "Calibri",
+        "size_pt": 46.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-4"
+       }
+      ],
+      "paragraph_properties_ref": "style-3"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "divider-summary",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.083333,
+     11.666667,
+     0.833333
+    ],
+    "xml_sha256": "37b98d686c5a4d4e3267af769e833c652daadd8aebdf8a3a5ffbae9b15f67aa5",
+    "paragraphs": [
+     {
+      "text": "One workbook. Questions. Charts. A returned file.",
+      "runs": [
+       {
+        "text": "One workbook. Questions. Charts. A returned file.",
+        "family": "Calibri",
+        "size_pt": 24.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-6"
+       }
+      ],
+      "paragraph_properties_ref": "style-5"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "divider-context",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     5.40625,
+     11.5625,
+     1.302083
+    ],
+    "xml_sha256": "9d1c706d8e42a6bd1deed29f6264bd1295eb92002472bcccabdebabb3caa135a",
+    "paragraphs": [
+     {
+      "text": "Analyze the data in Excel, return the workbook with editable charts, then reuse it for the dashboard and presentation mock-up.",
+      "runs": [
+       {
+        "text": "Analyze the data in Excel, return the workbook with editable charts, then reuse it for the dashboard and presentation mock-up.",
+        "family": "Calibri",
+        "size_pt": 20.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-102"
+       }
+      ],
+      "paragraph_properties_ref": "style-7"
+     },
+     {
+      "text": "",
+      "runs": [
+       {
+        "text": "",
+        "family": "Calibri",
+        "size_pt": 20.25,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-8"
+       }
+      ],
+      "paragraph_properties_ref": "style-7"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "divider-mode",
+    "type": 1,
+    "bounds_inches": [
+     10.833333,
+     0.208333,
+     2.135417,
+     0.3125
+    ],
+    "xml_sha256": "f68b63b2caebefb2ef676d0ea7482f5c4048be013cbfc20ef9220e25942eeaaa",
+    "paragraphs": [
+     {
+      "text": "TEACH  0:40",
+      "runs": [
+       {
+        "text": "TEACH  0:40",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-10"
+       }
+      ],
+      "paragraph_properties_ref": "style-9"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.447917,
+     7.145833,
+     0.520833,
+     0.28125
+    ],
+    "xml_sha256": "4c5ee1a00ed50f301cd51de49fb07ae181240026de738167be7ce4c1bcfa4194",
+    "paragraphs": [
+     {
+      "text": "33",
+      "runs": [
+       {
+        "text": "33",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-12"
+       }
+      ],
+      "paragraph_properties_ref": "style-11"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 34,
+  "current_slide": 34,
+  "proposed_slide": 34,
+  "stable_id": "sid-291",
+  "native_id": 291,
+  "title": "Upload the Data File and Run These Two Prompts",
+  "mode": "DO",
+  "active_seconds": 360,
+  "notes": "MODE: DO\nTIME: 6:00\nPURPOSE: The single intake for the whole block - inspect before calculating, then compute checked rates.\nLAND THIS: Inspection is a separate prompt that ends with \"then wait\" - the model must not calculate until the scope is agreed.\nSAY: Upload the exercise file, run the inspect prompt, and read what comes back before you let it calculate.\nDO: 0:00-1:00 upload and run PROMPT 1; 1:00-2:30 compare inspection findings across the room; 2:30-5:00 run PROMPT 2; 5:00-6:00 check rankings and reconciliation together.\nANSWER KEY (instructor only - not shown to participants before they attempt): 144 detail rows plus one TOTAL row; one missing Inspection_Hours value (missing, not zero); 224,902 units shipped and 432 returns; Bravo Plastics highest at about 0.348 percent (262 / 75,184); Cardinal 0.129 percent; Alpha 0.099 percent; the data do not establish causation. Full key: workbook tab KEY-Analysis.\nBRIDGE: Move to \"Ask a Follow-Up Question\".\nIF LATE: KEEP - this is the anchor exercise of the block.",
+  "slide_xml_sha256": "fae1e7386f29d099e44e312a6a99a28bf3d26db89becd19778604ac81cbe7155",
+  "notes_xml_sha256": "ee260e4bd141a7bcbd21930add1090afa847249a48517b54da41335d0476b064",
+  "part": "/ppt/slides/slide34.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.083333
+    ],
+    "xml_sha256": "2beb2f5b38c35ea53913c3f098a9a96693879815509e520e1b662019d58e31c8",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "0f1f38369731f8c62079af8e8704cc7f0ae199026d4c763338778f7765eab831",
+    "paragraphs": [
+     {
+      "text": "DO   6:00",
+      "runs": [
+       {
+        "text": "DO   6:00",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-104"
+       }
+      ],
+      "paragraph_properties_ref": "style-103"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "aa58259ec49e119d85804c8f07a5735004f82b9e9ad1844ec96f1b3a1e841b48",
+    "paragraphs": [
+     {
+      "text": "Upload the Data File and Run These Two Prompts",
+      "runs": [
+       {
+        "text": "Upload the Data File and Run These Two Prompts",
+        "family": "Calibri",
+        "size_pt": 33.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-105"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "main-prompt",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.135417,
+     12.0,
+     3.854167
+    ],
+    "xml_sha256": "f26dec2df8758670b9fc707f9d60288f2caf9f949e2e177d5b227c886c8061b0",
+    "paragraphs": [
+     {
+      "text": "File: Supplier_Data_Exercise.xlsx — upload it, attach nothing else.",
+      "runs": [
+       {
+        "text": "File: Supplier_Data_Exercise.xlsx — upload it, attach nothing else.",
+        "family": null,
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "properties_ref": "style-106"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     },
+     {
+      "text": "PROMPT 1 — INSPECT",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "PROMPT 1 — INSPECT",
+        "family": null,
+        "size_pt": 17.0,
+        "bold": true,
+        "italic": false,
+        "properties_ref": "style-107"
+       }
+      ]
+     },
+     {
+      "text": "“Before calculating anything, inspect the file. Tell me what one row represents, how many detail rows it contains, whether any values are missing, and whether any total or summary row could be counted twice. Tell me what you would include or exclude, then wait.”",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "“Before calculating anything, inspect the file. Tell me what one row represents, how many detail rows it contains, whether any values are missing, and whether any total or summary row could be counted twice. Tell me what you would include or exclude, then wait.”",
+        "family": null,
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": false,
+        "properties_ref": "style-108"
+       }
+      ]
+     },
+     {
+      "text": "PROMPT 2 — ANALYZE",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "PROMPT 2 — ANALYZE",
+        "family": null,
+        "size_pt": 17.0,
+        "bold": true,
+        "italic": false,
+        "properties_ref": "style-107"
+       }
+      ]
+     },
+     {
+      "text": "“Using detail rows only, calculate each supplier’s return rate as total Units_Returned divided by total Units_Shipped. Rank suppliers from highest to lowest. Show the totals used, reconcile the overall totals to the source file, and state one limitation of the comparison.”",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "“Using detail rows only, calculate each supplier’s return rate as total Units_Returned divided by total Units_Shipped. Rank suppliers from highest to lowest. Show the totals used, reconcile the overall totals to the source file, and state one limitation of the comparison.”",
+        "family": null,
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": false,
+        "properties_ref": "style-108"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "75a88352515083f9b043b33997129c21f90dfa637a46b623dc1771ece224c01b",
+    "paragraphs": [
+     {
+      "text": "Attempt first — the verified key stays with the instructor and the workbook keys.",
+      "runs": [
+       {
+        "text": "Attempt first — the verified key stays with the instructor and the workbook keys.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "28a44bdad662fa17209fe1452c75b7be15b49f74935f0b607a56ee63ad43509e",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "423310c52ef5d90a23fab2b97e775afac12e397fea309d5f35187641f2c34af0",
+    "paragraphs": [
+     {
+      "text": "34",
+      "runs": [
+       {
+        "text": "34",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 35,
+  "current_slide": 35,
+  "proposed_slide": 35,
+  "stable_id": "sid-292",
+  "native_id": 292,
+  "title": "Ask a Follow-Up Question",
+  "mode": "DO",
+  "active_seconds": 150,
+  "notes": "MODE: DO\nTIME: 2:30\nPURPOSE: Business questioning of the same data - and the findings-versus-causes discipline.\nLAND THIS: The model may offer explanations; the data only support patterns.\nSAY: Ask the follow-up, then look for any causal language in the answer - that is the teaching moment.\nDO: 1:30 run and read; 1:00 name one causal claim someone's answer made and strip it back to the finding.\nBRIDGE: Move to \"Add the Charts and Return the Excel File\".\nIF LATE: COMPRESS to the prompt and one example pattern.",
+  "slide_xml_sha256": "e6766a7782702c0fd6682a9f62e2d8d08b0cfc23f095889cfcec1c32c5e3fcda",
+  "notes_xml_sha256": "5810be70443653bbfb40745bef671ddca1d19a655dce2b643e1f1211d254068d",
+  "part": "/ppt/slides/slide35.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.083333
+    ],
+    "xml_sha256": "7de880fd3d149e47d22e19c7d3718cdfccb38b2ab2bcf4aa72e83ef87cab0558",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "4f2b0934bf8824c539423aad31502806ac345bc9f565d7d5e1a7f5a4bb401e36",
+    "paragraphs": [
+     {
+      "text": "DO   2:30",
+      "runs": [
+       {
+        "text": "DO   2:30",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-104"
+       }
+      ],
+      "paragraph_properties_ref": "style-103"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "8948f9022f7921ad1c9c90b0f4a059ba17176e87884bc2c692de6eeb3bf62279",
+    "paragraphs": [
+     {
+      "text": "Ask a Follow-Up Question",
+      "runs": [
+       {
+        "text": "Ask a Follow-Up Question",
+        "family": "Calibri",
+        "size_pt": 33.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-105"
+       }
+      ],
+      "paragraph_properties_ref": "style-109"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "main-prompt",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.135417,
+     12.0,
+     3.854167
+    ],
+    "xml_sha256": "1c29df3a9fc0404928f3cea6f3becd7f0ccbac63b01e5c7fc1f9bef425d1e897",
+    "paragraphs": [
+     {
+      "text": "Same chat, same data — one more prompt:",
+      "runs": [
+       {
+        "text": "Same chat, same data — one more prompt:",
+        "family": null,
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "properties_ref": "style-106"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     },
+     {
+      "text": "“Using the same data, compare return rate by month and site. Identify the clearest increase, decrease, or unusual pattern. Show the values behind it. Do not claim a cause. List the additional data needed to investigate why it happened.”",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "“Using the same data, compare return rate by month and site. Identify the clearest increase, decrease, or unusual pattern. Show the values behind it. Do not claim a cause. List the additional data needed to investigate why it happened.”",
+        "family": null,
+        "size_pt": 18.0,
+        "bold": false,
+        "italic": false,
+        "properties_ref": "style-110"
+       }
+      ]
+     },
+     {
+      "text": "A finding names a pattern and shows its values. A cause needs data this file does not contain — the honest answer lists what to collect next.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "A finding names a pattern and shows its values. A cause needs data this file does not contain — the honest answer lists what to collect next.",
+        "family": null,
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": true,
+        "properties_ref": "style-111"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "f3a2d0e9fcb08c4f56e20aa197cad72f858b76c0fe14a37e98f4368d843a038f",
+    "paragraphs": [
+     {
+      "text": "Findings, not causes — the pattern, its values, and the data you would need next.",
+      "runs": [
+       {
+        "text": "Findings, not causes — the pattern, its values, and the data you would need next.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "39053c34a8d89911a4b8aaa28fa5e1105a1db7e74ca00583f8ef0d2cdbafb3fa",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "ea01a94ddd25f21b77d4c3ae36cf3a2f68a8d2e5545c7ab0c011ec225d0fd34e",
+    "paragraphs": [
+     {
+      "text": "35",
+      "runs": [
+       {
+        "text": "35",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 36,
+  "current_slide": 36,
+  "proposed_slide": 36,
+  "stable_id": "sid-290",
+  "native_id": 290,
+  "title": "Add the Charts and Return the Excel File",
+  "mode": "DO",
+  "active_seconds": 240,
+  "notes": "MODE: DO\nTIME: 4:00\nPURPOSE: The assistant returns a real, editable artifact - and participants verify it is real.\nLAND THIS: Native charts you can click and edit, formulas you can trace - not a picture of an analysis.\nSAY: Run the full prompt from tab Excel-Charts. When the file comes back, we open it together.\nDO: 2:00 run the prompt; 2:00 open the returned file, inspect Summary, click the column chart and show its editable source range; if generation stalls, open the prepared Supplier_Data_Analyzed.xlsx instead.\nBRIDGE: Move to \"Describe the Dashboard You Want\" - the returned file is the dashboard's input.\nIF LATE: Show the prepared fallback and click one chart; skip the live generation.",
+  "slide_xml_sha256": "24af948a7c1d67667afb2423369f2b81fe628255118f7c414e6896d616953908",
+  "notes_xml_sha256": "0d5583f07c71ffc472692f5911c607f1e6f99483c13917bfe631c9f4fb1b67b8",
+  "part": "/ppt/slides/slide36.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "852775708ba9a97f5e9d6b9bd4f794c8c9b4cdbcb8d9f515744e8748e48e88e5",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "067ec2b71ca3be376ed1dba3632f97df397669057510dc692084996dd42fc639",
+    "paragraphs": [
+     {
+      "text": "DO   4:00",
+      "runs": [
+       {
+        "text": "DO   4:00",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-104"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "0e626e1e5f4682991122ca06fde8d571e2256869f10ab163ad875e803a346ee3",
+    "paragraphs": [
+     {
+      "text": "Add the Charts and Return the Excel File",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Add the Charts and Return the Excel File",
+        "family": "Calibri",
+        "size_pt": 33.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-112"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "ce7e6365589d248be52b5dea1fd3cc7e43028eb7ad35bfce60a0c3a5dc7a3c54",
+    "paragraphs": [
+     {
+      "text": "The prompt",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The prompt",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-113"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "3a11347f03a5bc8e9d4cbe0be9def4c911db226335a5c8f76efe40e163740d68",
+    "paragraphs": [
+     {
+      "text": "Update the uploaded workbook and return an editable Excel file named Supplier_Data_Analyzed.xlsx — original data unchanged, analysis on a new Summary sheet.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Update the uploaded workbook and return an editable Excel file named Supplier_Data_Analyzed.xlsx — original data unchanged, analysis on a new Summary sheet.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-114"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "646de0b23c362505a6186e1f4363215a6c4a185db25d1de5dc56f4179837134e",
+    "paragraphs": [
+     {
+      "text": "Summary sheet",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Summary sheet",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-113"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "ee6c057b5f59f9a084213cc5f3d72e90af0ce2ba35c2f5930bb1b838d27381f3",
+    "paragraphs": [
+     {
+      "text": "Comparison table: units shipped, returned, return rate, defect rate · native editable column chart (supplier rates) · native line chart (rate by month) · period, definitions, limitations note.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Comparison table: units shipped, returned, return rate, defect rate · native editable column chart (supplier rates) · native line chart (rate by month) · period, definitions, limitations note.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-114"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "7c071c501f60db49c9a7cb8be27332e3d91200c552b4e6e15296de24b36007d5",
+    "paragraphs": [
+     {
+      "text": "The rules",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The rules",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-113"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "cac27a1fd86811fa0968c914e98500591e4d9eefddac42a13254f70e597e243d",
+    "paragraphs": [
+     {
+      "text": "Traceable Excel logic — formulas or PivotTables, never hard-coded chart values · missing values stay missing · totals reconcile to the source before the file returns.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Traceable Excel logic — formulas or PivotTables, never hard-coded chart values · missing values stay missing · totals reconcile to the source before the file returns.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-114"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "e32ed824b9b488700f30afdd6225bc049990b6d090876f633c31a0c6b8d1d56a",
+    "paragraphs": [
+     {
+      "text": "Prove it",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Prove it",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-113"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "99ae4677e30a934abe3dc2cdfa3f6ee962a8d95ad2e53929cb548c11b290f38f",
+    "paragraphs": [
+     {
+      "text": "Open the returned workbook, inspect the Summary sheet, click one chart — its source range or PivotTable must be editable.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Open the returned workbook, inspect the Summary sheet, click one chart — its source range or PivotTable must be editable.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-114"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "6a775a645817062bfa08eb72c3fb85b9efbf833d8a2b86f9287edfd6188fb237",
+    "paragraphs": [
+     {
+      "text": "Full prompt: workbook tab Excel-Charts · prepared fallback: Supplier_Data_Analyzed.xlsx.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Full prompt: workbook tab Excel-Charts · prepared fallback: Supplier_Data_Analyzed.xlsx.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-115"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "61068254fd5c9ce60530add049e44a91d9cf89ed557a4f3561ef07ee9a232018",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-116"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "9fa26de2fba86601471596f02e84b3eeea1069bd5178bafbd98fa3bbb4afaa5e",
+    "paragraphs": [
+     {
+      "text": "36",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "36",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-117"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 37,
+  "current_slide": 37,
+  "proposed_slide": 37,
+  "stable_id": "sid-294",
+  "native_id": 294,
+  "title": "Describe the Dashboard You Want",
+  "mode": "TEACH",
+  "active_seconds": 60,
+  "notes": "MODE: TEACH\nTIME: 1:00\nPURPOSE: Requirements for interactive behavior, in plain language, before anything renders.\nLAND THIS: You do not need to write the code. You need to describe the behavior.\nSAY: Read the prompt aloud - every clause is a behavior you could check by clicking.\nBRIDGE: Move to \"Build and Test the Dashboard\".\nIF LATE: COMPRESS to the teaching line.",
+  "slide_xml_sha256": "3eeb8336d9271fb71f80b8923d8a8c37ffe750ec6b0653e550d8fe7bf181934b",
+  "notes_xml_sha256": "f7968012898339fbd591aeb1f735eb7b9b567810baed28422e885741f1b83316",
+  "part": "/ppt/slides/slide37.xml",
+  "shapes": [
+   {
+    "id": 13,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "437ccfe8f4bbb0ddaa2c3d8f2518bc8c07d347f05e306d5ffd7b09159bec7982",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "62466e2ff5d821bfe6148a7498e4d14e6bcfa90f682a95ad97825025c2983c4f",
+    "paragraphs": [
+     {
+      "text": "TEACH   1:00",
+      "runs": [
+       {
+        "text": "TEACH   1:00",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "d51cb2eb7bc21081bd5f68d871121058874680b4e1889f7c7a89dcaba3da75a6",
+    "paragraphs": [
+     {
+      "text": "Describe the Dashboard You Want",
+      "runs": [
+       {
+        "text": "Describe the Dashboard You Want",
+        "family": "Calibri",
+        "size_pt": 33.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-118"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "08e86d325fccc36059b023edfbd480d84af0ec1439d255105cae38a61ca6beea",
+    "paragraphs": [
+     {
+      "text": "The prompt",
+      "runs": [
+       {
+        "text": "The prompt",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "9db066a18362d0f0767354c7cd8253a60bab05fcd5478f752caac6033cf9e943",
+    "paragraphs": [
+     {
+      "text": "“Using the returned Supplier_Data_Analyzed.xlsx workbook and its verified definitions, create one self-contained HTML dashboard that works offline.”",
+      "runs": [
+       {
+        "text": "“Using the returned Supplier_Data_Analyzed.xlsx workbook and its verified definitions, create one self-contained HTML dashboard that works offline.”",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-119"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.322917,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "079b4ab1ef98f7076d82d483df24198de626dfbb915516cd8cd1c1f7e85a73d8",
+    "paragraphs": [
+     {
+      "text": "It must include",
+      "runs": [
+       {
+        "text": "It must include",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.322917,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "4a70e1e15ece9b00e4a9c6f72aa031424f7cb5491713e84f39b17a4c42195798",
+    "paragraphs": [
+     {
+      "text": "Date-range selector · supplier and site filters · metric selector · summary values · trend chart · sortable detail table · reset control. Every filter updates every view; show the selected period and metric definitions; display a clear message when no rows match.",
+      "runs": [
+       {
+        "text": "Date-range selector · supplier and site filters · metric selector · summary values · trend chart · sortable detail table · reset control. Every filter updates every view; show the selected period and metric definitions; display a clear message when no rows match.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-119"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.53125,
+     3.020833,
+     1.145833
+    ],
+    "xml_sha256": "f989d9060e6f3e04b4cddf808e27665acef04e7ff2996a0d6e3c3663d8497c5b",
+    "paragraphs": [
+     {
+      "text": "The teaching line",
+      "runs": [
+       {
+        "text": "The teaching line",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-69"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.53125,
+     8.6875,
+     1.145833
+    ],
+    "xml_sha256": "9916bb7d3243dfe8b11d004ee159df691da6c4afc0bf081ad6ff34d71a66e370",
+    "paragraphs": [
+     {
+      "text": "You do not need to write the code. You need to describe the behavior.",
+      "runs": [
+       {
+        "text": "You do not need to write the code. You need to describe the behavior.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-119"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "a4fa2afeacab26b86d8856228b4e79f247d1b4ef1ee6be2d2feee9223f608557",
+    "paragraphs": [
+     {
+      "text": "Extended dashboard vocabulary: Course_Workbook.xlsx and the reference layer — not this slide.",
+      "runs": [
+       {
+        "text": "Extended dashboard vocabulary: Course_Workbook.xlsx and the reference layer — not this slide.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "7df9d522b9521529a6bc324ece9602e42f356eb00f64ca67f962dae1e37c6cb9",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "f503c131cd7aeeaa906f5ee9be41a5a0bbe8e11a2cb8756ba539e05bd0fb3abd",
+    "paragraphs": [
+     {
+      "text": "37",
+      "runs": [
+       {
+        "text": "37",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 38,
+  "current_slide": 38,
+  "proposed_slide": 38,
+  "stable_id": "sid-295",
+  "native_id": 295,
+  "title": "Build and Test the Dashboard",
+  "mode": "DO",
+  "active_seconds": 240,
+  "notes": "MODE: DO\nTIME: 4:00\nPURPOSE: The dashboard consumes the verified workbook - and is trusted only after the filtered check.\nLAND THIS: Same data, same definitions, same numbers - the dashboard is the analysis wearing a different interface.\nSAY: Three actions only: open, filter, verify. Then you name one refinement.\nDO: 1:30 generate or open the prepared references/exercise-data/Supplier_Quality_Dashboard.html; 1:30 run the three actions; 1:00 collect refinement asks from the room.\nBRIDGE: Move to \"Turn the Findings into a Five-Slide Management Mock-up\".\nIF LATE: Run the three actions on the prepared file; skip refinements.",
+  "slide_xml_sha256": "e081d18f7139656c9c0d9be94b51c24ea914131979d4f746646ccb2d54f6e840",
+  "notes_xml_sha256": "716576505486dc5656c7211ca22c9786f1a72f1be719cdb4daf82fdca9fc92e3",
+  "part": "/ppt/slides/slide38.xml",
+  "shapes": [
+   {
+    "id": 8,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.083333
+    ],
+    "xml_sha256": "0858f05f2ea8175890752c765e2b15f46c90542971a6885bb8ad8ca6c5b71fc7",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "4df9be3f20605da383b4405a64657206abd2f5b5ee162011a4a87e49cc41b6c6",
+    "paragraphs": [
+     {
+      "text": "DO   4:00",
+      "runs": [
+       {
+        "text": "DO   4:00",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-104"
+       }
+      ],
+      "paragraph_properties_ref": "style-103"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "602f06cd0722da0958e72864ed19b55026f78fcc5c0639bf38304e067c1cb829",
+    "paragraphs": [
+     {
+      "text": "Build and Test the Dashboard",
+      "runs": [
+       {
+        "text": "Build and Test the Dashboard",
+        "family": "Calibri",
+        "size_pt": 33.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-105"
+       }
+      ],
+      "paragraph_properties_ref": "style-62"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "main-prompt",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.135417,
+     12.0,
+     3.854167
+    ],
+    "xml_sha256": "3d3250f006962ec37288c374894dfab80c24f37e136c8f51ee10450cb9c8211b",
+    "paragraphs": [
+     {
+      "text": "Input: Supplier_Data_Analyzed.xlsx — the returned workbook: same data, definitions, and period.",
+      "runs": [
+       {
+        "text": "Input: Supplier_Data_Analyzed.xlsx — the returned workbook: same data, definitions, and period.",
+        "family": null,
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": false,
+        "properties_ref": "style-106"
+       }
+      ],
+      "paragraph_properties_ref": "style-19"
+     },
+     {
+      "text": "1  Open the generated HTML file.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "1  Open the generated HTML file.",
+        "family": null,
+        "size_pt": 18.0,
+        "bold": false,
+        "italic": false,
+        "properties_ref": "style-110"
+       }
+      ]
+     },
+     {
+      "text": "2  Filter to Berlin, Bravo Plastics, March through August 2026.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "2  Filter to Berlin, Bravo Plastics, March through August 2026.",
+        "family": null,
+        "size_pt": 18.0,
+        "bold": false,
+        "italic": false,
+        "properties_ref": "style-110"
+       }
+      ]
+     },
+     {
+      "text": "3  Verify 8,575 units, 21 returns, and a 0.245 percent return rate against the source.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "3  Verify 8,575 units, 21 returns, and a 0.245 percent return rate against the source.",
+        "family": null,
+        "size_pt": 18.0,
+        "bold": false,
+        "italic": false,
+        "properties_ref": "style-110"
+       }
+      ]
+     },
+     {
+      "text": "Then ask for ONE refinement using the vocabulary — a different date range, grouping, metric, drill-down, sort, or reset behavior.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Then ask for ONE refinement using the vocabulary — a different date range, grouping, metric, drill-down, sort, or reset behavior.",
+        "family": null,
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": true,
+        "properties_ref": "style-111"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "c10c397fe322e2044337bf9068165e8bf52405a2fdc608baf5cf67ff072b2412",
+    "paragraphs": [
+     {
+      "text": "Check: 8,575 units · 21 returns · 0.245% — the same numbers, from the same verified file.",
+      "runs": [
+       {
+        "text": "Check: 8,575 units · 21 returns · 0.245% — the same numbers, from the same verified file.",
+        "family": "Calibri",
+        "size_pt": 18.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-22"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "e85e5fe94447070b1d8ef553f8e6048aad138f53c42c2d198f503a7d47e02251",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "049885c1fe4fa3bac354fefec62b10ff4eece4130602f73f49b97034fd9702f0",
+    "paragraphs": [
+     {
+      "text": "38",
+      "runs": [
+       {
+        "text": "38",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 39,
+  "current_slide": 39,
+  "proposed_slide": 39,
+  "stable_id": "sid-298",
+  "native_id": 298,
+  "title": "Turn the Findings into a Five-Slide Management Mock-up",
+  "mode": "DO",
+  "active_seconds": 150,
+  "notes": "MODE: DO\nTIME: 2:30\nPURPOSE: Close the data arc on a decision artifact built only from verified findings.\nLAND THIS: Exploration and decision are different jobs - the same verified numbers wear two interfaces.\nSAY: Fill the audience and the decision, run it, and open the fallback beside the result.\nDO: 1:30 run with a chosen [audience]/[decision]; 1:00 compare one slide against the prepared mock deck's discipline (findings left, judgment right).\nBRIDGE: Move to \"Organize an Email Thread in Outlook\".\nIF LATE: Open the prepared mock deck and show slide 4's findings/recommendations split.",
+  "slide_xml_sha256": "458b7ac7f269e3f2ae744cea0285147c1b168015c9612cd39b5da66728b48741",
+  "notes_xml_sha256": "e5fe53a632c65ce66be79f60936572f4456d8e77be3b14db5f615668bfc15f79",
+  "part": "/ppt/slides/slide39.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "7099cd28c0769412ddee69b586141c32e2c94ee426a77792429c1cf32e9f11aa",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "ef42a5c19f5aaa44af2ee5ed7e8ef8ae286625ea5662feb18bf6cb63c544c068",
+    "paragraphs": [
+     {
+      "text": "DO   2:30",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "DO   2:30",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-120"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "cfc018e49284f2e814139cc7be79733d6207d4bb958c132e26940b11bb62607f",
+    "paragraphs": [
+     {
+      "text": "Turn the Findings into a Five-Slide Management Mock-up",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Turn the Findings into a Five-Slide Management Mock-up",
+        "family": "Calibri",
+        "size_pt": 30.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-121"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "5fe219a9a149a086dafe0c5df87c8073469846593a3ff3b0297fad00834be4f1",
+    "paragraphs": [
+     {
+      "text": "The prompt",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The prompt",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "322ce1ad73aac64d61ffc6661b6b4dbca3fe5379a74c02737e7ff61b0870cd7f",
+    "paragraphs": [
+     {
+      "text": "“Using only the verified findings from this exercise, create an editable five-slide PowerPoint mock-up for [audience] to support [decision].”",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "“Using only the verified findings from this exercise, create an editable five-slide PowerPoint mock-up for [audience] to support [decision].”",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-114"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "3695f31acbf73c5e5c4eaa3591029f37e88357c62b696f26b4d2de05baba13e2",
+    "paragraphs": [
+     {
+      "text": "The five slides",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The five slides",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "9446362315beb89e34253fabd9d5197755f00d0f044030e54413cf8a31988a7a",
+    "paragraphs": [
+     {
+      "text": "1 Question and scope · 2 Supplier comparison · 3 The most important trend · 4 Recommended follow-up · 5 Limitations and next steps.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "1 Question and scope · 2 Supplier comparison · 3 The most important trend · 4 Recommended follow-up · 5 Limitations and next steps.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-114"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "231eb5ac6e9fd9accc01625ea17ad908461908bf69f5b55f5e839df7a5024660",
+    "paragraphs": [
+     {
+      "text": "The rules",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The rules",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "22195cfec792e20061c6324e2124401242a63c32632128ceb6a1d5e1da855d18",
+    "paragraphs": [
+     {
+      "text": "One main message per slide · readable charts, concise visible text, speaker notes · findings separated from recommendations · no invented causes or commitments.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "One main message per slide · readable charts, concise visible text, speaker notes · findings separated from recommendations · no invented causes or commitments.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-114"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "70409ba6934c84e67d3a2013b05ffb49e8a0b11f9ca97e76d78e0d4e7d5da0d7",
+    "paragraphs": [
+     {
+      "text": "Why it differs",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Why it differs",
+        "family": "Calibri",
+        "size_pt": 21.75,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-122"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "8d821197ef73c3428a6962f47ee860e3ec3ada0c4fc1d769bb99af651c17a7e9",
+    "paragraphs": [
+     {
+      "text": "The dashboard supports exploration; the presentation supports a management decision — the final step of the connected data exercise.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "The dashboard supports exploration; the presentation supports a management decision — the final step of the connected data exercise.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-114"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "b5807dbf8e44c6d0c7c7e7d05a8c47be79b377076aba3781d73ad3138e5fb77c",
+    "paragraphs": [
+     {
+      "text": "Full prompt: workbook tab 3-Present-Findings · reference page 99 · fallback: Supplier_Quality_Mock_Presentation.pptx.",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Full prompt: workbook tab 3-Present-Findings · reference page 99 · fallback: Supplier_Quality_Mock_Presentation.pptx.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-123"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "5167ab6fa6cc37259b920954fbd877c787764b1941fb1bb06bd013c9919528e2",
+    "paragraphs": [
+     {
+      "text": "From Prompts to Agents",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "From Prompts to Agents",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-116"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "e0ae178aa5b26141982fd742ed3a5377cd5081e6f5ddf1646b96f795722e0692",
+    "paragraphs": [
+     {
+      "text": "39",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "39",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-117"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "original_slide": 40,
+  "current_slide": 40,
+  "proposed_slide": 40,
+  "stable_id": "sid-296",
+  "native_id": 296,
+  "title": "Organize an Email Thread in Outlook",
+  "mode": "TEACH",
+  "active_seconds": 60,
+  "notes": "MODE: TEACH\nTIME: 1:00\nPURPOSE: One thread, five results - choosing the result IS the prompt.\nLAND THIS: Pick the outcome first; the prompt is one sentence once you have.\nSAY: Workflow: run Outlook's built-in Copilot summary first, then use Copilot to refine it with one of these. If that feature is unavailable, paste the supplied fictional thread into an approved assistant - same prompts, same results.\nACCOUNT NOTE (verified Sep 2026, notes/research/r28): the full Copilot-in-Outlook experience depends on the organization's Copilot license and current Outlook version; the pasted-text path always works. Never practice on real confidential threads.\nBRIDGE: Move to \"Outlook Exercise: Decisions, Actions, and Open Questions\".\nIF LATE: COMPRESS to Catch-me-up and Prepare-my-reply.",
+  "slide_xml_sha256": "10091dc09ced064b656ad9c181dd89432961ccf820c8ab7ee78067c7784a0ba7",
+  "notes_xml_sha256": "653e2ffd6d648f06f442c841050f267f92c96271a50897fe0072a83ce6c415f2",
+  "part": "/ppt/slides/slide40.xml",
+  "shapes": [
+   {
+    "id": 15,
+    "name": "FACILITATION_MODE_BAR",
+    "type": 1,
+    "bounds_inches": [
+     0.0,
+     0.0,
+     13.333333,
+     0.0625
+    ],
+    "xml_sha256": "000dbfb27b48241b04f4b76745eb5908571999e296fda765596557ed4e346da9",
+    "paragraphs": [
+     {
+      "text": "",
+      "paragraph_properties_xml": null,
+      "runs": []
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "mode",
+    "type": 1,
+    "bounds_inches": [
+     9.166667,
+     0.25,
+     3.5,
+     0.364583
+    ],
+    "xml_sha256": "8643dce7afa7f2ac47d563fab29cce5701a563c4274e8471c6b6a47a8f00bdaa",
+    "paragraphs": [
+     {
+      "text": "TEACH   1:00",
+      "runs": [
+       {
+        "text": "TEACH   1:00",
+        "family": "Calibri",
+        "size_pt": 13.5,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-14"
+       }
+      ],
+      "paragraph_properties_ref": "style-13"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "title",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     0.8125,
+     12.0,
+     1.125
+    ],
+    "xml_sha256": "fd7d3d0bd001963bfc1df234589bb85893abb742c1c1d0fd04b77c5c3bdd3558",
+    "paragraphs": [
+     {
+      "text": "Organize an Email Thread in Outlook",
+      "runs": [
+       {
+        "text": "Organize an Email Thread in Outlook",
+        "family": null,
+        "size_pt": 32.0,
+        "bold": true,
+        "italic": false,
+        "properties_ref": "style-124"
+       }
+      ],
+      "paragraph_properties_ref": "style-15"
+     },
+     {
+      "text": "Choose the result you need",
+      "paragraph_properties_xml": null,
+      "runs": [
+       {
+        "text": "Choose the result you need",
+        "family": null,
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": true,
+        "properties_ref": "style-111"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "row-0-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     2.114583,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "1d0a736796a225a3163eacee80dc07b46fcb5fcd2330718cac0b21d5d52faceb",
+    "paragraphs": [
+     {
+      "text": "Catch me up",
+      "runs": [
+       {
+        "text": "Catch me up",
+        "family": "Calibri",
+        "size_pt": 19.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-125"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "row-0-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     2.114583,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "4f3fdbcff65a370a8021c307644784a4c9dee20322bc58f599ac9abe58f4dcbc",
+    "paragraphs": [
+     {
+      "text": "“Summarize the current situation in three sentences.”",
+      "runs": [
+       {
+        "text": "“Summarize the current situation in three sentences.”",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-119"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "row-1-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     3.0625,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "07c43197d4a76af96e9df867bae9e92bdac63fec1dfa0264c338281ac15b7499",
+    "paragraphs": [
+     {
+      "text": "What changed · Who owes what",
+      "runs": [
+       {
+        "text": "What changed · Who owes what",
+        "family": "Calibri",
+        "size_pt": 19.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-125"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "row-1-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     3.0625,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "e9387b3e78566c1be53efc0f8651ac8ef1c112bbba3071cd7582c0470d2d1e81",
+    "paragraphs": [
+     {
+      "text": "“List changed dates or decisions and show the latest version.” · “Create a table with task, owner, due date, and dependency.”",
+      "runs": [
+       {
+        "text": "“List changed dates or decisions and show the latest version.” · “Create a table with task, owner, due date, and dependency.”",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-119"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "row-2-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.010417,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "e72b55d1b6ae91533dad1251213ed1953d8fc1c50bfa2716eee9cecda26ad485",
+    "paragraphs": [
+     {
+      "text": "What remains open",
+      "runs": [
+       {
+        "text": "What remains open",
+        "family": "Calibri",
+        "size_pt": 19.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-125"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "row-2-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.010417,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "51c97b8089c5edcea1eb36764724e0c9ec38b59501fd18cfe9a6e31bd448adc1",
+    "paragraphs": [
+     {
+      "text": "“List unanswered questions, approval conditions, and missing attachments.”",
+      "runs": [
+       {
+        "text": "“List unanswered questions, approval conditions, and missing attachments.”",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-119"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "row-3-label",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     4.958333,
+     3.020833,
+     0.885417
+    ],
+    "xml_sha256": "7492e068089c73ce9b59ee517db7843c67b8b32a8e6d6c02ac46eb81d2bcbe99",
+    "paragraphs": [
+     {
+      "text": "Prepare my reply",
+      "runs": [
+       {
+        "text": "Prepare my reply",
+        "family": "Calibri",
+        "size_pt": 19.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-125"
+       }
+      ],
+      "paragraph_properties_ref": "style-68"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "row-3-body",
+    "type": 1,
+    "bounds_inches": [
+     3.979167,
+     4.958333,
+     8.6875,
+     0.885417
+    ],
+    "xml_sha256": "593aab0171c2489a1e1464d90580439e6aceae6c50027c78d4ce347de29ab29d",
+    "paragraphs": [
+     {
+      "text": "“Draft a concise response. Use brackets where I still need to decide. Do not invent commitments.”",
+      "runs": [
+       {
+        "text": "“Draft a concise response. Use brackets where I still need to decide. Do not invent commitments.”",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-119"
+       }
+      ],
+      "paragraph_properties_ref": "style-66"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "takeaway",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     6.302083,
+     12.0,
+     0.729167
+    ],
+    "xml_sha256": "1b699fb8290d22b170e231a4d13b88b9a9eae735cbaa87339e187f3ae57328a6",
+    "paragraphs": [
+     {
+      "text": "Use only messages and attachments you can access · write “Not stated” instead of guessing · cite the supporting sender and date · do not send anything.",
+      "runs": [
+       {
+        "text": "Use only messages and attachments you can access · write “Not stated” instead of guessing · cite the supporting sender and date · do not send anything.",
+        "family": "Calibri",
+        "size_pt": 17.0,
+        "bold": true,
+        "italic": null,
+        "properties_ref": "style-126"
+       }
+      ],
+      "paragraph_properties_ref": "style-21"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "footer",
+    "type": 1,
+    "bounds_inches": [
+     0.666667,
+     7.1875,
+     10.416667,
+     0.260417
+    ],
+    "xml_sha256": "50994dcb17ed398ff6b8739c65daff56c3e10dba83670a96704b46a9f0a39f16",
+    "paragraphs": [
+     {
+      "text": "Detailed explanation: slide 82",
+      "runs": [
+       {
+        "text": "Detailed explanation: slide 82",
+        "family": "Calibri",
+        "size_pt": 10.5,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-24"
+       }
+      ],
+      "paragraph_properties_ref": "style-23"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "page-number",
+    "type": 1,
+    "bounds_inches": [
+     12.083333,
+     7.15625,
+     0.583333,
+     0.28125
+    ],
+    "xml_sha256": "b9c31d425d3060c489a581a708554107fe6e14df8624c4f99e843f81359a97e4",
+    "paragraphs": [
+     {
+      "text": "40",
+      "runs": [
+       {
+        "text": "40",
+        "family": "Calibri",
+        "size_pt": 12.75,
+        "bold": false,
+        "italic": null,
+        "properties_ref": "style-26"
+       }
+      ],
+      "paragraph_properties_ref": "style-25"
+     }
+    ]
+   }
+  ]
+ }
+]

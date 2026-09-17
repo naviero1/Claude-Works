@@ -1,0 +1,474 @@
+Beebop,
+
+You are managing Rocksteady’s refinement of the “From Prompts to Agents” training presentation. Rocksteady is the Claude Code agent implementing the presentation; you are the managing agent responsible for reviewing the instructional sequence, leading the visual work, coordinating with me, and verifying the implementation.
+
+This assignment has three connected objectives:
+1. Check the presentation’s sequence and instructional coherence.
+2. Create or obtain selective, meaningful visual assets.
+3. Polish formatting and legibility without changing the summarized content or font sizes.
+
+Your first deliverable must be an assessment and proposed plan—not a modified presentation.
+
+Tell me what should change, which images are needed, what you can handle, and exactly where you need my help. Wait for my approval before implementing presentation changes.
+
+
+1. RESPONSIBILITIES AND APPROVAL AUTHORITY
+
+BEEBOP — MANAGING AGENT AND VISUAL LEAD
+
+For this project, I consider you better suited than Rocksteady to gathering images and selecting visual assets. Take direct responsibility for that work. Do not simply tell Rocksteady to “find better pictures.”
+
+You are responsible for:
+- Reviewing sequence, coherence, and the relationship between slides.
+- Deciding where a visual would genuinely improve understanding.
+- Defining the visual concept and its instructional purpose.
+- Finding, creating, or commissioning the actual assets.
+- Telling me which images require my help through Nano Banana in Gemini.
+- Organizing and uploading the resulting materials to GitHub.
+- Giving Rocksteady precise implementation instructions.
+- Inspecting the actual rendered results and reporting whether they meet the approved requirements.
+
+ROCKSTEADY — PRESENTATION IMPLEMENTATION
+
+Rocksteady implements approved slide moves, formatting repairs, image placement, editable diagrams and charts, navigation updates, and rendering.
+
+Rocksteady can build precise PowerPoint-native diagrams, connectors, annotations, wireframes, and charts under your direction. That is different from delegating the visual research and selection process back to him.
+
+Rocksteady must flag a fitting problem rather than shrink text, rewrite content, distort an image, or substitute an unrelated asset.
+
+OSCAR — APPROVALS AND IMAGE-GENERATION COLLABORATION
+
+I retain the final approval authority.
+
+When you need my help using Nano Banana in Gemini, tell me exactly what image you need and provide a complete copy-and-paste generation prompt. I will work with you on generating and selecting the image.
+
+I should not have to invent the concept, guess the dimensions, or determine where the image belongs. You define the need; I help produce the image when necessary; you inspect and organize the result.
+
+Do not assume access to my Gemini account. Do not ask me to handle GitHub folder organization or uploads when you can perform those steps through the authorized connection.
+
+
+2. ESTABLISH THE CORRECT BASELINE
+
+Use the latest owner-approved presentation currently being used by Rocksteady.
+
+The previously reviewed baseline is:
+From_Prompts_to_Agents_Facilitated_60_Minute(1).pptx
+
+That reviewed deck contains 103 slides, with the live closing at slide 70 and reference material both within the live route and afterward. Confirm the actual structure of the working version rather than assuming it is unchanged.
+
+Consult these review materials when available:
+- Bebop_Rocksteady_Visual_Polish_Brief.md
+- Training_Slide_by_Slide_Visual_Review.html
+- Training_Visual_Review_Package.zip
+
+Use the existing naviero1/Claude-Works repository. Inspect it to identify the correct branch, project directory, presentation source, and agent-instructions folder. Do not assume that an older branch or a filename containing “latest” is authoritative.
+
+Record the baseline file, repository revision, slide count, order, titles, modes, visible text, font families, font sizes, notes, and existing assets. Preserve the original and work in a versioned copy.
+
+Match recommendations by original slide number AND exact title. Maintain that mapping if slides move.
+
+Review rendered slide images as well as extracted text and active speaker notes. Text extraction alone is not a visual inspection. If you cannot render or view a slide, identify that limitation rather than marking it visually reviewed.
+
+Treat earlier review findings as items to verify against the current deck. Distinguish active guidance from archived source notes, and do not restore obsolete content merely because it appears in an older version.
+
+
+3. NON-NEGOTIABLE PRESERVATION RULES
+
+This is a refinement—not a rewrite, expansion, or full rebuild.
+
+Preserve:
+- Visible wording and substantive meaning.
+- Examples, calculations, numerical values, units, caveats, and limitations.
+- Current font families and font sizes.
+- Substantive speaker notes and exercise instructions.
+- The summarized teaching approach and reference layer.
+- Existing successful visuals and tables.
+
+Do not delete, merge, split, duplicate, or reorder slides without approval. Do not change teaching modes or move visible content into notes to create space.
+
+Reordering requires approval. Rewriting requires separate approval. Approval of the visual approach does not authorize either.
+
+Layout changes may alter positioning, spacing, wrapping, column widths, grouping, and panel dimensions without changing the words or font sizes.
+
+When a graphic does not fit, simplify it, resize it, reposition it, replace it, or omit it. Do not solve the problem by shrinking text or removing content.
+
+Flag any readability problem that cannot be resolved within these constraints. Explain the trade-off and propose an exception for approval rather than silently applying one.
+
+For new labels, reuse existing slide wording where possible. Any new explanatory statement or meaning-changing annotation must be included explicitly in the proposed plan.
+
+
+4. AUDIT SEQUENCE AND INSTRUCTIONAL COHERENCE FIRST
+
+Evaluate the complete deck order and the actual live teaching route separately.
+
+Check whether:
+- Concepts are introduced before participants need them.
+- Examples follow the concepts they demonstrate.
+- Exercises have the necessary preparation, inputs, and instructions.
+- Related ideas remain connected.
+- Transitions explain why the next topic follows.
+- References support the live material without unnecessarily interrupting it.
+- The ending connects application, reuse, and the next workplace task.
+
+Distinguish a genuine sequencing problem from an intentional preview, useful repetition, or closing callback. Prefer the smallest effective change. A better transition or live-navigation adjustment may be preferable to physically moving a slide.
+
+Pay particular attention to these areas in the reviewed baseline:
+
+Slides 33–39 — Connected data exercise:
+Preserve the workbook → analysis → editable charts → dashboard → management presentation progression. Check that each step receives the correct output from the preceding step.
+
+Slides 40–44 — Additional applications:
+Check the transitions into email, quotations, and research. Explain the transferable method without implying that every exercise uses the same input. Preserve quotation extraction before normalization on slides 42–43.
+
+Slides 50–56 — Mission briefs and controls:
+Determine whether participants have sufficient preparation before being asked to define authority, approval gates, and checks. Specifically assess the relationship between the mission-brief exercise and the later explanation of enforceable controls.
+
+Slide 62 — Clarifying questions:
+Evaluate whether this belongs earlier or works best as an intentional closing callback. Consider its current reference designation. Do not assume a move is necessary.
+
+Slides 61 and 64 — Saving a prompt and the capstone:
+Evaluate whether the existing order is sensible or whether completing the capstone before saving its result would create a stronger finish.
+
+Slides 65–70 — Resources and closing:
+Check whether the resource handoff supports the ending or interrupts it. Consider a live-navigation adjustment before recommending physical moves.
+
+Also inspect answer-key exposure. Do not introduce new visual clues or move answers ahead of the intended exercise attempt. If an existing source slide already contains an answer-key element, report the conflict and propose a treatment; do not silently delete it.
+
+Verify that required concepts are not available only in reference slides the facilitator is expected to skip.
+
+Your sequence report must include:
+- What already works and should remain.
+- Each proposed change, identified by original slide number and exact title.
+- Current placement and proposed placement or transition repair.
+- The specific learning benefit, dependencies, trade-offs, and priority.
+- Current and proposed order for the affected sections.
+- Any proposed teaching-mode or notes changes, identified separately.
+
+Recalculate timing from current active notes, distinguishing live allocations, optional reference material, and archived timings. Flag inconsistencies instead of silently resolving them.
+
+Timing is not a reason to destroy the learning value or cut protected practice. I have facilitation flexibility; present the actual allocation and implications so I can decide.
+
+Keep feedback organized into content, sequence, engagement, and visual presentation. Do not let visual shortcomings dominate the assessment of the training’s substance.
+
+
+5. PREPARE AN IMAGE-NEEDS PLAN
+
+Inspect every slide and classify it as:
+A. Keep mostly unchanged.
+B. Formatting only.
+C. Formatting plus one meaningful visual treatment.
+
+Aim for approximately 30 percent of the deck—roughly 30 slides in the reviewed version—but treat this as guidance, not a quota. Count refinements to existing diagrams where appropriate. Do not force images onto successful slides.
+
+Prioritize visuals that make a relationship easier to understand:
+- Sequence or transformation.
+- Comparison or distinction.
+- Cycle or feedback loop.
+- Evidence and verification.
+- Permission or approval boundary.
+- Chronology or changing conditions.
+
+The deck should remain a practical training, not become a marketing brochure. Avoid unrelated stock imagery, generic robots, ornamental charts, and visual clutter.
+
+For every proposed visual, record:
+- A stable asset code.
+- Original slide number, current number if different, and exact title.
+- The specific visual needed.
+- What it helps the learner understand.
+- Intended placement, aspect ratio, dimensions, and available space.
+- Production route.
+- Priority.
+- Approval and production status.
+- Exactly what you need from me—or “Nothing needed.”
+
+Use these production routes deliberately:
+
+REUSE:
+Retain or adapt an existing suitable asset without restoring old dense content.
+
+NATIVE CONSTRUCTION:
+Have Rocksteady build precise, editable PowerPoint diagrams, charts, annotations, or wireframes from your specifications.
+
+BEEBOP PRODUCTION:
+Source or generate the actual asset using your available, authorized tools.
+
+OSCAR + GEMINI:
+Request my help producing a specific illustration through Nano Banana in Gemini.
+
+Do not send me to Gemini for a visual better built from editable shapes. Do not return only a list of ideas when the approved implementation requires actual assets.
+
+
+6. HIGH-VALUE VISUAL CANDIDATES
+
+Confirm these against the working deck. They are strong candidates, not mandatory additions or an exhaustive list.
+
+Slide 9 — Context, saved history, and memory:
+Three distinct containers or visual spaces. Do not imply these are sequential stages or that closing a conversation deletes saved history.
+
+Slide 10 — Answers grounded in documents:
+A source → answer → verification path, with verification visibly returning to the source passage.
+
+Slide 23 — A prompt is a small work specification:
+Annotate the existing prompt to reveal audience, source, method, format, tone, and checks without rewriting it.
+
+Slide 28 — The improvement loop:
+A genuine Plan → Do → Check → Act → Plan cycle, using the existing wording.
+
+Slide 33 — Data Analytics Exercise:
+A connected strip showing one workbook becoming analysis, editable charts, a returned file, a dashboard, and a management presentation.
+
+Slide 36 — Add the Charts and Return the Excel File:
+A workbook schematic distinguishing unchanged source data from the new Summary sheet and editable analysis.
+
+Slide 37 — Describe the Dashboard You Want:
+A restrained schematic wireframe showing the requested selectors, filters, summary areas, chart, table, and reset behavior. Do not invent numerical results.
+
+Slide 39 — Five-Slide Management Mock-up:
+Five storyboard frames using the existing five-slide sequence.
+
+Slide 46 — What makes a workflow agentic?
+An action loop within an authority boundary, connected to the goal and available tools.
+
+Slide 53 — Instructions and enforceable controls:
+Contrast a written brief with a bounded execution environment and an approval checkpoint. Do not imply that an instruction alone enforces permission.
+
+Slide 56 — One gate and one hard check:
+Visually distinguish an approval checkpoint from a result test. Keep participant blanks blank.
+
+Slide 87 — Supplier analysis: answer key:
+Use proportional bars based on the supplied return rates while retaining the complete table, units, definitions, and limitations. Keep this answer-key graphic in its intended reference location.
+
+Slides 88–89 — Packaging-change conversation:
+A chronological rail alongside the unchanged messages, preserving senders, dates, conditions, unresolved matters, and distinctions between message dates and event dates.
+
+Most of these require diagrams, annotations, or wireframes—not generated illustrations or additional quantitative charts.
+
+Preserve successful comparison tables, including those on slides 21, 22, 47, and 91–96, unless a specific issue is demonstrated. Keep activity slides open enough for participants to think.
+
+Do not fabricate numbers, causes, relationships, approvals, benchmarks, or evidence to make a visual work. Quantitative charts must be built from traceable data, not generated as artwork. Label schematic interfaces as schematic rather than presenting them as tested screenshots.
+
+
+7. COLLABORATE WITH ME ON GEMINI IMAGES
+
+After we approve the visual plan, tell me which specific illustrations need my help.
+
+Group related requests into manageable batches, normally three to five images at a time, prioritizing the pilot and highest-value slides. Do not overwhelm me with every possible image at once.
+
+For each image, provide this completed brief:
+
+IMAGE REQUEST
+Asset code:
+Target slide title:
+Original and current slide number:
+Instructional purpose:
+Why an illustration is appropriate:
+Intended placement:
+Aspect ratio and desired dimensions:
+Style and palette:
+Background treatment:
+Composition and required negative space:
+Elements that must appear:
+Elements that must not appear:
+Reference images to attach:
+Suggested output filename:
+
+COPY-AND-PASTE GEMINI PROMPT
+Provide the complete prompt, ready to run.
+
+ACCEPTANCE CHECK
+State the observable features that make the image suitable.
+
+RETURN INSTRUCTION
+Tell me how to return the generated image to you.
+
+Derive dimensions, placement, and style from the actual deck. Ask me only about genuine creative choices or information you cannot resolve from the materials.
+
+Unless specifically approved otherwise, request illustrations without embedded text. Rocksteady should add accurate, editable labels in PowerPoint.
+
+Do not ask Gemini to create full-slide screenshots, fabricated charts, answer keys, or factual evidence.
+
+I may return images in our conversation or through an agreed upload location. You then inspect, name, organize, and upload them to GitHub.
+
+When I return an image, evaluate it against the brief and the target slide. If it fails, explain the specific problem and give me a targeted revision prompt—not a generic request to try again.
+
+Preserve the original returned image. Save crops or optimized versions separately. Do not treat my uploading a candidate image as automatic approval of the final slide treatment.
+
+Do not claim an image has been generated until you have received and inspected the actual result.
+
+
+8. SOURCE, PACKAGE, AND UPLOAD THE ASSETS TO GITHUB
+
+My request authorizes uploading this assignment’s review documents, image requests, candidate assets, approved assets, and implementation handoffs within the existing authorized project location.
+
+Uploading a plan or candidate asset is not approval to modify the presentation.
+
+Reuse the existing repository organization where practical. If dedicated folders are needed, adapt this structure to the actual project:
+
+<project-root>/
+  notes/visual-polish/
+    sequence-review.md
+    image-needs.md
+    gemini-image-requests.md
+    asset-register.md
+    approvals.md
+    rocksteady-handoff.md
+
+  assets/visual-polish/
+    originals/
+    candidates/
+    approved/
+
+  deliverables/visual-polish/
+    pilot/
+    final/
+    review-evidence/
+
+Use stable asset codes and versioned filenames. Keep asset codes stable if slide numbers change.
+
+The asset register must connect each asset to:
+- Its slide and instructional purpose.
+- Its actual repository path.
+- Its creator, source, or generation method.
+- Usage-rights evidence and required attribution.
+- Its version and approval status.
+- Placement and cropping instructions.
+- A brief accessibility description.
+
+For online images, inspect the original source and verify permitted use. A search result is not permission. Do not use watermarked assets, make purchases without approval, or claim that an image is commercially safe merely because it was generated.
+
+Use only the material necessary for image production. Do not upload confidential information to unapproved external services.
+
+For native diagrams and charts, retain the editable construction and provide a preview.
+
+A search link is not a delivered image.
+A generation prompt is not a completed asset.
+A placeholder is not a finished visual.
+A local file is not a verified GitHub upload.
+
+Before writing to GitHub, check for concurrent changes. Do not overwrite Rocksteady’s work, force-push, merge into the default branch, change repository visibility or permissions, or edit unrelated files.
+
+Verify each upload through the repository. Report the actual branch, paths, and commit links. If a write fails, explain what failed and provide the files without claiming they were committed.
+
+Update the existing agent-instructions location with the approved handoff and links. Rocksteady should not have to guess where assets are or whether they are authorized for use.
+
+
+9. FORMATTING AND IMPLEMENTATION PRIORITIES
+
+Refine the current design system rather than introducing a new one.
+
+Improve alignment, margins, spacing, grouping, column widths, panel sizes, contrast, and consistent emphasis. Preserve the distinction between teaching, practice, reference, and divider slides using written mode labels as well as the established colors.
+
+Verify these earlier review findings against the current deck:
+
+Slides 36, 39, and 44:
+Check that their visual treatment matches their practice designation and the established practice color.
+
+Slides 34, 41, and 42:
+Improve prompt grouping and separation. On slide 34, preserve the distinction between inspection ending in “then wait” and the calculation prompt that follows.
+
+Slides 36–40:
+Check narrow label columns, awkward wrapping, and unused space.
+
+Slides 22 and 78:
+Check low-positioned content and separation from the footer.
+
+Slides 39, 42, 44, 98, and 101:
+Protect long filename bands and reference pointers from crowding or clipping.
+
+Do not apply a global typography reset, automatic shrink-to-fit, or font substitution as a fitting solution. Do not stretch images, flatten editable content, or replace a useful table with a less useful infographic.
+
+Beebop must give Rocksteady the actual approved asset or an exact native-construction specification, together with target slide, placement, dimensions, crop limits, spacing, and editable-label instructions.
+
+Flag content and notes issues separately. Examples include the archived email answer key on slide 82, facilitation cues that do not match visible content, outdated navigation references, and conflicting timing fields.
+
+Report the evidence and propose the correction. Do not silently reconcile or overwrite conflicting material during formatting.
+
+
+10. APPROVAL CHECKPOINTS
+
+CHECKPOINT 1 — ASSESSMENT AND PLAN
+
+Return:
+- The confirmed baseline and actual review coverage.
+- Sequence and coherence findings.
+- Proposed changes and the affected slide order.
+- The complete slide classification.
+- The prioritized image-needs plan.
+- What you will handle, what Rocksteady will build, and what you need from me.
+- Separate content, notes, or timing issues requiring decisions.
+
+Save these review materials to GitHub, but leave the presentation unchanged.
+
+Stop for my approval. Record exactly which recommendations I approve. Partial approval is not approval of the entire plan.
+
+CHECKPOINT 2 — APPROVED SEQUENCE CHANGES AND PILOT
+
+Implement only the approved sequence changes in a versioned copy.
+
+Then complete a six-slide pilot using original slides 23, 28, 34, 37, 53, and 87, mapped to their current positions.
+
+This pilot tests annotation, a cycle, formatting-only repair, a dashboard wireframe, an authority diagram, and a quantitative graphic.
+
+Have Rocksteady restate the approved scope before implementation. Beebop supplies assets and directions; Rocksteady implements; Beebop inspects the rendered results.
+
+Return actual asset previews, before-and-after slide comparisons, content and font-preservation checks, and unresolved fitting issues.
+
+Wait for my approval before expanding the treatment across the deck.
+
+CHECKPOINT 3 — FULL IMPLEMENTATION
+
+Apply the approved approach to the remaining selected slides.
+
+Continue approved, unblocked work when one image is pending. Do not substitute an unapproved asset or cross an approval boundary to avoid waiting.
+
+Maintain the original-to-new slide map. Update approved numbering, navigation, reference pointers, section indicators, and transition notes. Keep moved slides’ notes and assets attached to the correct content.
+
+Make incremental changes rather than rebuilding the entire presentation.
+
+After implementation, Rocksteady reports exactly what changed. Beebop independently checks that report against the actual outputs.
+
+
+11. FINAL VERIFICATION AND DELIVERABLES
+
+Render and inspect every final slide, not only the slides with new images.
+
+Verify:
+- Visible wording is preserved apart from explicitly approved changes.
+- Font families and font sizes remain unchanged.
+- Values, definitions, units, caveats, and exercise boundaries are preserved.
+- There is no unintended clipping, overlap, awkward wrapping, or footer collision.
+- Images are clear, undistorted, and appropriate at their final size.
+- Mode labels and colors are consistent.
+- Charts use the correct data and truthful proportional scales.
+- Notes, numbering, links, and references match the final order.
+- The live sequence and reference layer remain coherent.
+- The presentation opens successfully and its editable elements remain editable.
+- Assets are embedded appropriately rather than depending on external image links.
+
+Compare original and final text and font sizes by stable slide identity, not by position alone. Allow only approved exceptions and harmless layout-related whitespace changes.
+
+Disclose limitations in rendering, font availability, or testing in the intended PowerPoint environment. Do not report a check as passed unless it was actually performed.
+
+Return:
+1. The updated editable PowerPoint, with the baseline preserved.
+2. The organized package of actual visual assets and editable originals where applicable.
+3. The asset register, source and usage-rights records, and a visual preview sheet.
+4. The original-to-new slide map.
+5. A change summary separating approved sequence changes, formatting-only repairs, added visuals, unchanged slides, and omitted proposals.
+6. Before-and-after evidence for the pilot and other materially revised slides.
+7. The verification report and any outstanding decisions.
+8. Verified GitHub locations and commit links for the deliverables.
+
+FIRST ACTION
+
+Confirm the working version, inspect the slides, and return the sequence assessment and image-needs plan.
+
+Tell me plainly:
+- What should change and why.
+- What already works and should remain.
+- Which visuals are needed.
+- What you can source or create.
+- What Rocksteady should construct directly.
+- Which specific images require my help through Gemini.
+
+Do not start by rebuilding the deck, implementing unapproved changes, or asking me to generate unspecified pictures.
