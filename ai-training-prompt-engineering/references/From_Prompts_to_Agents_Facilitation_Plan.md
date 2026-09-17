@@ -16,7 +16,7 @@ packaging email thread (live) → explain a topic clearly (live demonstration). 
 practice versions of the demonstrations live in the reference appendix (pages
 97–101) and Course_Workbook tabs 1–5; five complete workshops are NOT pretended to
 fit in 30 minutes. The requirements lesson (slide 22) precedes prompt construction;
-the artifact menus live on reference pages 91–96 and in Requirements_by_Artifact.md.
+the artifact menus live on reference pages 91–96 and in references/Requirements_by_Artifact.md.
 
 ## Timing
 

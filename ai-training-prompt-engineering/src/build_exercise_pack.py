@@ -317,7 +317,7 @@ prompt_tab('EX7-MoE', 'Prompt 7/7 · The specialist hospital, explained', [
 prompt_tab('G2-DataAnalysis', 'Part 4 walkthrough · AI data analysis on the Data tab of THIS workbook', [
     ('STEP 0', 'Work only with the Data tab of this workbook. Before any analysis: profile it — rows, columns, types, missing or odd values, and anything that would trip a calculation. Show me the profile and STOP. Do not analyze yet.',
      'Profile first, analyze second. A good profile finds the TOTAL row and the "n/a" cell.'),
-    ('STEP 1', 'Working only on the 144 data rows (exclude the TOTAL row; treat the "n/a" as missing and say so): 1) Which supplier has the highest defect rate — (Defects_Found + Units_Returned) / Units_Shipped — overall, and is it getting better or worse across the year? 2) Is there a relationship between Inspection_Hours and Units_Returned? Compute the correlation by running code, show your working, and describe it as an association, not a cause. 3) Rank the sites by On_Time_Percent. Answer in that order, then stop.',
+    ('STEP 1', 'Working only on the 144 data rows (exclude the TOTAL row; treat the "n/a" as missing and say so): 1) Which supplier has the highest defect rate — Defects_Found ÷ Units_Shipped; returns are a separate measure, never added — overall, and is it getting better or worse across the year? 2) Is there a relationship between Inspection_Hours and Units_Returned? Compute the correlation by running code, show your working, and describe it as an association, not a cause. 3) Rank the sites by On_Time_Percent. Answer in that order, then stop.',
      'Numbered questions, quirks handled explicitly, code not mental math, then STOP.'),
     ('STEP 2', 'Build a supplier scorecard: one row per supplier — defect rate, return rate, average unit cost, average on-time % — best value per column marked. Then one paragraph: if we had to consolidate to one supplier, which one, and what does this data NOT tell us about that decision?',
      'The comparative view — and the habit of asking what the data does NOT say.'),
@@ -365,7 +365,7 @@ td.cell(row=td.max_row, column=1).fill = TAB_FILL
 td.cell(row=td.max_row, column=2).font = Font(bold=True)
 for k, v in (
         ('A decision', 'If nobody would do anything differently when it moves, it is trivia, not a KPI — cut it.'),
-        ('A formula', 'Named columns, exact arithmetic — e.g. defect rate = (Defects_Found + Units_Returned) / Units_Shipped. If you can\'t write the formula, you can\'t track the number.'),
+        ('A formula', 'Named columns, exact arithmetic — e.g. defect rate = Defects_Found ÷ Units_Shipped (returns are a separate measure — never add the two). If you can\'t write the formula, you can\'t track the number.'),
         ('A target', 'A value is a fact; value-vs-target is a status. Targets turn a dashboard from a report into an alarm.'),
         ('The trio of views', 'Every KPI answers three questions: LEVEL (where are we) · TREND (which way is it moving) · GAP (how far from target). Tiles show level+gap; the chart shows trend.'),
 ):

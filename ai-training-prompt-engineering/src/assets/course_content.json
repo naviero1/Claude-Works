@@ -141,7 +141,7 @@
      },
      {
       "type": "p",
-      "text": "Three practical consequences. Everything is priced and limited in tokens - and output typically costs around five times input, because generation is serial - so paste-heavy prompts burn budget and context fast. Non-English and dense technical text cost more tokens for the same meaning. And character-level precision is not the model's native ability: use AI for language and software for characters - counts, checksums, exact IDs."
+      "text": "Three practical consequences. Everything is priced and limited in tokens - and output typically costs around five times input (as of August 2026), because generation is serial - so paste-heavy prompts burn budget and context fast. Non-English and dense technical text cost more tokens for the same meaning. And character-level precision is not the model's native ability: use AI for language and software for characters - counts, checksums, exact IDs."
      },
      {
       "type": "callout",
@@ -553,7 +553,7 @@
      },
      {
       "type": "p",
-      "text": "The stakes: a model guesses an unstated requirement right only about 41 percent of the time (Yang et al., 2025); a written specification deletes the guessing. Software moved first — GitHub's Spec Kit (2025) makes the written spec \"the source of truth\" AI agents build from, and Sean Grove of OpenAI drew the conclusion: <i>\"Whoever writes the spec... is now the programmer.\"</i> One caution: this evidence is structural, measured on clarified prompts — and a model can still misinterpret a clear instruction, so verification stays necessary."
+      "text": "The stakes: a model guesses an unstated requirement right only about 41 percent of the time (Yang, 2026); a written specification deletes the guessing. Software moved first — GitHub's Spec Kit (2025) makes the written spec \"the source of truth\" AI agents build from, and Sean Grove of OpenAI drew the conclusion: <i>\"Whoever writes the spec... is now the programmer.\"</i> One caution: this evidence is structural, measured on clarified prompts — and a model can still misinterpret a clear instruction, so verification stays necessary."
      },
      {
       "type": "callout",
@@ -2838,7 +2838,7 @@
      },
      {
       "type": "p",
-      "text": "Everything else sits under references/: the Elements_of_Prompting_Field_Guide.pdf with the full evidence compendium, the Prompt_Element_Taxonomy_Reference.pdf, the Prompt_Template_Configurator.xlsx, the facilitation plan, and exercise-data/ with the supplier materials — the clean CSV, the dashboard, the mock presentation, the email thread, the three quotation PDFs, the plain-language sources under references/exercise-data/plain-language/, and the instructor keys. The supplier scenario (Alpha Components, Bravo Plastics, Cardinal Metals) is entirely fictional: realistic data, no real company information."
+      "text": "Everything else sits under references/ (the build sources in src/ and the legacy prompt library sit beside the package root): the Elements_of_Prompting_Field_Guide.pdf with the full evidence compendium, the Prompt_Element_Taxonomy_Reference.pdf, the Prompt_Template_Configurator.xlsx, the facilitation plan, and exercise-data/ with the supplier materials — the clean CSV, the dashboard, the mock presentation, the email thread, the three quotation PDFs, the plain-language sources under references/exercise-data/plain-language/, and the instructor keys. The supplier scenario (Alpha Components, Bravo Plastics, Cardinal Metals) is entirely fictional: realistic data, no real company information."
      },
      {
       "type": "callout",

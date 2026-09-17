@@ -118,7 +118,7 @@ s.addText([
   { text: `${lo} — ${num(sup[lo].returns)} / ${num(sup[lo].units)} = ${pct3(rate(lo))}\n\n`, options: { fontSize: 12.5, color: SLATE } },
   { text: 'All rates are totals ÷ totals over the same 12 months and 4 sites — never an average of monthly percentages.', options: { fontSize: 11.5, italic: true, color: SLATE } },
 ], { x: 8.75, y: 1.65, w: 3.8, h: 3.0, fontFace: 'Calibri', isTextBox: true, margin: 0, lineSpacingMultiple: 1.1 });
-s.addText(`Shipment volumes are nearly equal (${kk(sup[lo].units)} / ${kk(sup[mid].units)} / ${kk(sup[hi].units)} units), so the rate gap is not a volume artifact.`, {
+s.addText(`Shipment volumes are nearly equal (${hi.split(' ')[0]} ${kk(sup[hi].units)} / ${mid.split(' ')[0]} ${kk(sup[mid].units)} / ${lo.split(' ')[0]} ${kk(sup[lo].units)} units), so the rate gap is not a volume artifact.`, {
   x: 8.5, y: 5.0, w: 4.25, h: 0.9, fontFace: 'Calibri', fontSize: 12, color: SLATE, isTextBox: true, margin: 0 });
 footer(s, 2);
 s.addNotes(`PURPOSE: the comparison, on one honest scale.\nTALKING POINTS: same scope for all three; totals over totals; near-equal volumes make the comparison fair. ${num(totR)} total returns on ${num(totU)} units (${pct3(totR / totU)} overall). The headline ratios: ${x1(rHiMid)} ${mid}, ${x1(rHiLo)} ${lo} — computed from the full-period rates.\nTRANSITION: "Is this recent, or persistent? The trend."`);

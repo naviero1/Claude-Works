@@ -218,7 +218,7 @@ E.append(Paragraph('The separation this taxonomy makes — WHAT you want (elemen
                    'The full sources live in notes/research/ (t1–t6).', S['body']))
 E.append(Spacer(1, 5))
 E.append(Paragraph('ELEMENTS AS REQUIREMENT TYPES', S['kicker']))
-E.append(Paragraph('Every element in this taxonomy specifies requirements for a reply or artifact. The mapping below connects the anatomy to the requirement-type menu used across the course (full per-artifact menus with instruction and acceptance examples: Requirements_by_Artifact.md and the Field Guide, part 6):', S['body']))
+E.append(Paragraph('Every element in this taxonomy specifies requirements for a reply or artifact. The mapping below connects the anatomy to the requirement-type menu used across the course (full per-artifact menus with instruction and acceptance examples: references/Requirements_by_Artifact.md and the Field Guide, part 6):', S['body']))
 map_rows = [[Paragraph('You write…', S['cellb']), Paragraph('You are specifying…', S['cellb'])],
     [Paragraph('Role', S['cell']), Paragraph('role & working behavior — a perspective plus observable conduct; a title alone is weak', S['cell'])],
     [Paragraph('Task', S['cell']), Paragraph('functional behavior + audience & use — what it must do, for whom, toward which decision', S['cell'])],

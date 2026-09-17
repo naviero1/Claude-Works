@@ -1,5 +1,9 @@
 # Change log — Round 17 (2026-09-16)
 
+> Superseded in part by the correction pass of 2026-09-17 (live order now
+> dashboard → present → email → explain; Bravo rate displays 0.348%): see the
+> facilitation plan’s "Correction pass" section and PENDING_CHANGES.md.
+
 Baseline: the uploaded 96-slide facilitated 60-minute deck + facilitation plan +
 Requirements_by_Artifact catalog (preserved unmodified in notes/intake/round17/).
 Principle applied throughout: the training determines the exercises; the exercises

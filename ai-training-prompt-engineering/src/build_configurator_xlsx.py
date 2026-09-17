@@ -272,7 +272,7 @@ def parse_catalog_table(md, heading):
     assert len(rows_) >= 10, heading
     return rows_
 
-catalog = open(os.path.join(here, '..', 'Requirements_by_Artifact.md')).read()
+catalog = open(os.path.join(here, '..', 'references', 'Requirements_by_Artifact.md')).read()
 cps = json.load(open(os.path.join(here, 'assets', 'course_prompts.json')))
 TASKS_CFG = [
     ('Analyze spreadsheet data', 'analyze', 'Spreadsheet analysis: requirements to choose',
@@ -307,7 +307,8 @@ for name, pid, heading, hint in TASKS_CFG:
     tr += 1
     ts.cell(tr, 2, 'The course prompt (copy-ready):').font = F_ATTR
     pc = ts.cell(tr, 3, cps[pid]); pc.font = F_MONO; pc.alignment = WRAP
-    ts.row_dimensions[tr].height = 88
+    # row height sized to the prompt (~86 chars/line at this width) so no line clips
+    ts.row_dimensions[tr].height = max(88, 14 * (len(cps[pid]) // 86 + 2))
     tr += 1
     ts.cell(tr, 2, 'Your task line (edit):').font = F_ATTR
     tl = ts.cell(tr, 3, hint); tl.fill = FILL_INPUT; tl.alignment = WRAP; tl.border = THIN
@@ -324,7 +325,7 @@ for name, pid, heading, hint in TASKS_CFG:
         ts.cell(tr, 2, rtype).font = F_ATTR
         ic = ts.cell(tr, 3, rex); ic.fill = FILL_INPUT; ic.alignment = WRAP; ic.border = THIN
         ck = ts.cell(tr, 4, rchk); ck.font = F_BODY_I; ck.alignment = WRAP
-        ts.cell(tr, 6, f'=IF(AND($A{tr}="Yes",$C{tr}<>""),"- "&$C{tr},"")')
+        ts.cell(tr, 6, f'=IF(AND($A{tr}="Yes",TRIM($C{tr})<>""),"- "&TRIM($C{tr}),"")')
         ts.cell(tr, 7, f'=IF($A{tr}="Yes","- "&$D{tr},"")')
         tr += 1
     last = tr - 1

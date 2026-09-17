@@ -33,7 +33,7 @@ Every live generation step in the course has a prepared fallback here.
 | `references/Prompt_Element_Taxonomy_Reference.pdf` | The full element ontology in print, with the elements-to-requirement-types mapping up front. |
 | `references/Prompt_Template_Configurator.xlsx` | The spreadsheet twin of the prompt creator (Tasks sheet + element-level builder sheets). |
 | `references/From_Prompts_to_Agents_Training.pptx` | The long-format 69-slide deck the 60-minute course distills; remains usable for extended sessions. |
-| `Requirements_by_Artifact.md` | The shared requirements catalog — the single source the creator, configurator, field guide, and deck reference pages draw their menus from (maintenance map inside). |
+| `references/Requirements_by_Artifact.md` | The shared requirements catalog — the single source the creator, configurator, field guide, and deck reference pages draw their menus from (maintenance map inside). |
 | `prompt-library/` | 13 copy-ready legacy templates plus the machine-readable element taxonomy (`taxonomy/`). |
 
 ## Editable sources and research (`src/`, `notes/`)

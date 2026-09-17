@@ -77,7 +77,7 @@ def parse_catalog_table(md, heading):
     return rows
 
 
-catalog = open(os.path.join(here, '..', 'Requirements_by_Artifact.md')).read()
+catalog = open(os.path.join(here, '..', 'references', 'Requirements_by_Artifact.md')).read()
 prompts = json.load(open(os.path.join(here, 'assets', 'course_prompts.json')))
 TASKS = [
     {'id': 'analyze', 'name': 'Analyze spreadsheet data',

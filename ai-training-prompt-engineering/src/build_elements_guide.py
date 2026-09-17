@@ -288,7 +288,7 @@ def _parse_catalog(md, heading):
     assert len(rows_) >= 10, heading
     return rows_
 
-_catalog = open(os.path.join(os.path.dirname(__file__), '..', 'Requirements_by_Artifact.md')).read()
+_catalog = open(os.path.join(os.path.dirname(__file__), '..', 'references', 'Requirements_by_Artifact.md')).read()
 _cps = json.load(open(os.path.join(os.path.dirname(__file__), 'assets', 'course_prompts.json')))
 
 E.append(PageBreak())
@@ -332,7 +332,7 @@ _ex = [
     ('4 · Summarize an email conversation', 'email',
      'Check (the four traps): change date Sep 25 → Oct 2 conditional on sign-off · trial date Sep 25 supersedes Sep 18 · 18,000 cap holds, freight unresolved · drawing referenced but not accessible. Source: Packaging_Change_Thread.txt.'),
     ('5 · Explain a topic clearly', 'explain',
-     'Check: main idea first · terms defined at first use · analogy limit stated · conditions preserved against the source · three answerable questions · adult tone. Samples: exercise-data/plain-language/.'),
+     'Check: main idea first · terms defined at first use · analogy limit stated · conditions preserved against the source · three answerable questions · adult tone. Samples: references/exercise-data/plain-language/.'),
 ]
 for _name, _pid, _chk in _ex:
     _box = Table([[Paragraph(_cps[_pid].replace('&', '&amp;').replace('<', '&lt;'), S['mono'])]], colWidths=[CW - 12])

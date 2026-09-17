@@ -67,7 +67,7 @@ def header_footer(cv, doc):
     cv.setFillColor(MUTE); cv.setFont('DV', 6.2)
     # measured at 6.2pt: left+right leave a >15pt gap — the two lines cannot collide
     cv.drawString(M, 0.18 * inch, 'Verification = meets the written criteria · Validation = serves the actual need.')
-    cv.drawRightString(W - M, 0.18 * inch, 'Menus: Requirements_by_Artifact.md · source: src/build_cheatsheet.py')
+    cv.drawRightString(W - M, 0.18 * inch, 'Menus: references/Requirements_by_Artifact.md · source: src/build_cheatsheet.py')
     cv.restoreState()
 
 
