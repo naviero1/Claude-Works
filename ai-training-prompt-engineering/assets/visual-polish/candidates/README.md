@@ -9,7 +9,13 @@ How it works:
 1. Beebop issues an image request with a stable asset code (e.g.
    `VP-S015-EMBLEMS`), a copy-ready generation prompt, and acceptance
    criteria; Rocksteady relays it to Oscar in session.
-2. Oscar generates with Nano Banana and uploads the candidate(s) here.
+2. Oscar generates with Nano Banana and deposits the candidate(s) in his
+   Google Drive folder "AI training"
+   (https://drive.google.com/drive/folders/1PYsgL1fVmw1CV92xLh10jjhwAhRrxTDC
+   — access verified 2026-09-17). Rocksteady pulls new images from that
+   folder via the Drive connector and commits them here with provenance
+   (Drive file id, name, modified time, SHA-256). Direct GitHub upload to
+   this folder also works as a fallback (drag-and-drop link below).
    Naming: `<ASSET-CODE>_v01_candidate1.png` (increment candidate number
    for alternatives, version for revised prompts). Any reasonable name
    works — the asset code somewhere in the filename is what matters.
