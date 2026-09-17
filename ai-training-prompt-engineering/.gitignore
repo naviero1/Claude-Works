@@ -1,3 +1,4 @@
 src/node_modules/
 src/assets/icons/
 src/build/
+src/__pycache__/
