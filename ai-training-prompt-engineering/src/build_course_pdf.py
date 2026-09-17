@@ -29,7 +29,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 FD = '/usr/share/fonts/truetype/dejavu/'
 pdfmetrics.registerFont(TTFont('DV', FD + 'DejaVuSans.ttf'))
 pdfmetrics.registerFont(TTFont('DV-B', FD + 'DejaVuSans-Bold.ttf'))
-pdfmetrics.registerFont(TTFont('DV-O', FD + 'DejaVuSans-Oblique.ttf'))
+pdfmetrics.registerFont(TTFont('DV-O', FD + 'DejaVuSans.ttf'))  # no oblique installed; upright stands in (house convention, see build_cheatsheet.py)
 pdfmetrics.registerFont(TTFont('DVSer', FD + 'DejaVuSerif.ttf'))
 pdfmetrics.registerFont(TTFont('DVSer-B', FD + 'DejaVuSerif-Bold.ttf'))
 pdfmetrics.registerFont(TTFont('Mono', FD + 'DejaVuSansMono.ttf'))

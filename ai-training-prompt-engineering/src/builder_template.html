@@ -786,14 +786,23 @@ const TASKS = /*__TASKS_JSON__*/;
     cards.appendChild(b);
   });
   function pick(id, btn){
+    T.saved = T.saved || {};
+    if(T.id && T.id!==id){ /* preserve the outgoing task's work, edited or not */
+      T.saved[T.id] = { desc:$$('tTask').value, free:$$('tFree').value, on:T.on, text:T.text,
+                        out:$$('tOut').value, gen:T.gen, edited:T.edited };
+    }
     document.querySelectorAll('.taskcard').forEach(c=>c.classList.remove('on'));
     btn.classList.add('on');
-    T.id=id; T.on={}; T.text={}; T.free=''; T.desc=''; T.gen=''; T.edited=false;
     const t = TASKS.find(x=>x.id===id);
-    $$('tTask').value=''; $$('tTask').placeholder = t.taskHint;
-    $$('tFree').value='';
+    const s = T.saved[id];
+    T.id=id; T.on=(s?s.on:{}); T.text=(s?s.text:{}); T.gen=(s?s.gen:''); T.edited=!!(s&&s.edited);
+    $$('tTask').value=(s?s.desc:''); $$('tTask').placeholder = t.taskHint;
+    $$('tFree').value=(s?s.free:'');
     $$('tWork').hidden=false;
-    renderReqs(); refresh();
+    renderReqs();
+    if(s && s.edited){ $$('tOut').value=s.out; }
+    refresh();
+    if(s && s.edited){ toast('Your earlier draft for this task was restored.'); }
     $$('tTask').focus();
   }
   function renderReqs(){
@@ -806,7 +815,8 @@ const TASKS = /*__TASKS_JSON__*/;
         + '<div class="rcheck">How to check it: '+esc(r.check)+'</div>';
       host.appendChild(d);
       const cb=$$('tq'+i), tx=$$('tt'+i);
-      tx.style.display='none';
+      cb.checked=!!T.on[key]; tx.style.display=cb.checked?'':'none';
+      if(T.text[key]!==undefined) tx.value=T.text[key];
       cb.onchange=()=>{ T.on[key]=cb.checked; tx.style.display=cb.checked?'':'none'; refresh(); };
       tx.oninput =()=>{ T.text[key]=tx.value; refresh(); };
     });
@@ -836,8 +846,10 @@ const TASKS = /*__TASKS_JSON__*/;
     const desc=$$('tTask').value.trim();
     const hasBody=$$('tOut').value.trim().length>0;
     const n=Object.values(T.on).filter(Boolean).length;
+    const ph=($$('tOut').value.match(/\[[^\[\]\n]{1,60}\]/g)||[]).concat($$('tOut').value.match(/\{\{[^}]{1,60}\}\}/g)||[]);
     if(!desc){ st.className='tstatus draft'; st.textContent='Draft — describe the task first (who is it for, what decision or outcome).'; }
     else if(!hasBody){ st.className='tstatus draft'; st.textContent='Draft — nothing assembled yet.'; }
+    else if(ph.length){ st.className='tstatus draft'; st.textContent='Not ready — '+ph.length+' placeholder'+(ph.length===1?'':'s')+' like '+ph[0]+' still need'+(ph.length===1?'s':'')+' your specifics'+(T.edited?' · manually edited':'')+'.'; }
     else { st.className='tstatus ready'; st.textContent='Ready to copy · '+n+' requirement'+(n===1?'':'s')+' + '+n+' acceptance check'+(n===1?'':'s')+(T.edited?' · manually edited':''); }
     $$('tCopy').disabled = !desc || !hasBody;
   }
@@ -853,7 +865,16 @@ const TASKS = /*__TASKS_JSON__*/;
     toast('Course prompt inserted — replace the [brackets] with your specifics.');
     status();
   };
-  $$('tCopy').onclick=()=>{ navigator.clipboard.writeText($$('tOut').value).then(()=>toast('Prompt copied.')); };
+  $$('tCopy').onclick=async()=>{
+    const t=$$('tOut');
+    const n=((t.value.match(/\[[^\[\]\n]{1,60}\]/g)||[]).length)+((t.value.match(/\{\{[^}]{1,60}\}\}/g)||[]).length);
+    let ok=true;
+    try{ await navigator.clipboard.writeText(t.value); }
+    catch(e){ try{ t.focus(); t.select(); ok=document.execCommand('copy'); }catch(e2){ ok=false; } }
+    toast(!ok ? 'Copy blocked by the browser — the text is selected; press Ctrl+C.'
+              : (n ? 'Copied — but '+n+' placeholder'+(n===1?'':'s')+' still need'+(n===1?'s':'')+' your specifics.'
+                   : 'Prompt copied.'));
+  };
   $$('tDl').onclick=()=>{
     const blob=new Blob([$$('tOut').value],{type:'text/plain'});
     const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
@@ -861,6 +882,7 @@ const TASKS = /*__TASKS_JSON__*/;
   };
   $$('tReset').onclick=()=>{
     T.on={}; T.text={}; T.edited=false; T.gen='';
+    if(T.saved && T.id) delete T.saved[T.id];
     $$('tTask').value=''; $$('tFree').value=''; $$('tOut').value='';
     renderReqs(); refresh(); toast('Task reset.');
   };

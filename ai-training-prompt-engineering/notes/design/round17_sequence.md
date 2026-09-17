@@ -19,7 +19,7 @@ supplier dataset (Course_Workbook.xlsx, seeded — data is stable across rebuild
 
 Verified case facts (independently recomputed 2026-09-16, pandas/openpyxl):
 144 detail rows + 1 TOTAL row · shipped 224,902 · returns 432 · defects 2,207 ·
-Alpha 75,060 / 74 / 0.099% · Bravo 75,184 / 262 / 0.349% · Cardinal 74,658 / 96 /
+Alpha 75,060 / 74 / 0.099% · Bravo 75,184 / 262 / 0.348% · Cardinal 74,658 / 96 /
 0.129% · one missing Inspection_Hours ("n/a" ≠ 0) · period 2025-09..2026-08 ·
 grain = month × site × supplier · no delivery counts → monthly On_Time_Percent
 averages are NOT an overall delivery rate.

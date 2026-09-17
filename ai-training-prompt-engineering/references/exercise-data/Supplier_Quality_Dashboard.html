@@ -61,7 +61,7 @@
 <div class="grids">
   <div class="card"><h2 id="trendTitle"></h2><div id="trend"></div></div>
   <div class="card"><h2 id="rankTitle"></h2><div id="rank"></div>
-    <div style="font-size:11.5px;color:var(--mute);margin-top:4px">Bars are ranked highest→lowest on the selected metric. Click a bar to drill down to its records in the table.</div></div>
+    <div style="font-size:11.5px;color:var(--mute);margin-top:4px">Bars are ranked highest→lowest on the selected metric. Click a bar to drill down: it applies that supplier or site to the filters, re-scoping every view to the segment's records.</div></div>
 </div>
 <div class="card" style="margin-top:16px"><h2 id="tabTitle">Records in the current selection</h2><div id="tab"></div></div>
 
@@ -112,7 +112,7 @@ const fmt = (v,m)=> v==null? '—' : m==='units'? v.toLocaleString('en-US') : v.
 
 function render(){
   const rs0 = filtered();
-  const rs = drill ? rs0.filter(r=> (drill.key==='sup'? r.sup : r.site)===drill.val) : rs0;
+  const rs = rs0; /* drill-down re-scopes the filters, so every view shares one record set */
   const met=$('met').value, grpKey=$('grp').value, grpLab= grpKey==='sup'?'supplier':'site';
   const a=agg(rs0);
   // active-selection line
@@ -120,8 +120,8 @@ function render(){
   $('active').innerHTML = 'Showing <b>'+rs0.length+'</b> of 144 records · months <b>'+$('m1').value+'</b>–<b>'+$('m2').value+'</b>'
     + ' · suppliers <b>'+(su.length===SUPS.length?'all':su.join(', ')||'none')+'</b>'
     + ' · sites <b>'+(si.length===SITES.length?'all':si.join(', ')||'none')+'</b>'
-    + (drill? ' · <b style="color:var(--amber)">drill-down: '+drill.val+'</b> (click Reset or change a filter to clear)':'');
-  // tiles (always the FILTERED set, so every view agrees)
+    + (drill? ' · <b style="color:var(--amber)">drill-down: '+drill.val+'</b> — applied to the '+(drill.key==='sup'?'supplier':'site')+' filter, so every view above and below agrees (Reset restores all)':'');
+  // tiles — same filtered set as trend, ranking, and table: every view agrees
   $('tiles').innerHTML = rs0.length===0 ? '' : [
     ['UNITS SHIPPED', a.u.toLocaleString('en-US'), 'sum over selection'],
     ['UNITS RETURNED', a.re.toLocaleString('en-US'), 'escapes to customers'],
@@ -171,7 +171,11 @@ function rankSVG(rs, met, key){
       +'<text x="'+(126+bw)+'" y="'+(yy+14)+'" font-size="11" font-weight="bold" fill="#232A31">'+fmt(it.v,met)+'</text>'; });
   return s+'</svg>';
 }
-function drillTo(key,val){ drill={key,val}; render(); }
+function drillTo(key,val){
+  const sel = $(key==='sup' ? 'fsup' : 'fsite');
+  [...sel.options].forEach(o=> o.selected = (o.value===val));
+  drill={key,val}; render();
+}
 function tableHTML(rs){
   const cols=[['m','Month'],['site','Site'],['sup','Supplier'],['u','Shipped'],['ret','Returned'],['def','Defects'],['ih','Insp. hours'],['cost','Unit cost $'],['ot','On-time %']];
   const sorted=[...rs].sort((a,b)=>{ const k=cols[sortCol][0]; const av=a[k]??-1, bv=b[k]??-1;

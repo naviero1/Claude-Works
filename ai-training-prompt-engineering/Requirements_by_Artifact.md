@@ -43,7 +43,7 @@ Data requirements define which records and calculations are valid.
 | Weighting and denominators | Do not infer overall on-time delivery from monthly percentages without delivery counts. | Flag the missing denominator instead of claiming an overall rate. |
 | Missing and invalid values | Retain the missing Inspection_Hours value; disclose any exclusion. | Inspect missing-value counts and affected calculations. |
 | Segmentation and comparison | Compare suppliers on the same selected period and sites. | Confirm equal filter scope for each comparison. |
-| Rounding and number formats | Display return rates to three decimal places while retaining calculation precision. | Check displayed 0.349% against the underlying ratio. |
+| Rounding and number formats | Display return rates to three decimal places while retaining calculation precision. | Check displayed 0.348% against the underlying ratio. |
 | Formula traceability | Use inspectable formulas or an included calculation log. | Trace one output to its input rows. |
 | Structure and usability | Provide a scorecard tab and a definitions tab with meaningful headers. | Open both tabs and identify the measure without outside explanation. |
 | Verification and limitations | Reconcile counts and sums; distinguish association from a causal explanation. | Compare totals and challenge unsupported explanations. |

@@ -52,8 +52,8 @@ def hf(cv, doc):
         cv.drawString(M, H - 0.38 * inch, 'FROM PROMPTS TO AGENTS  ·  COMPANION TO THE PROMPT LIBRARY  ·  SEPTEMBER 2026')
         cv.setFillColor(colors.white); cv.setFont('DVSer-B', 21)
         cv.drawString(M, H - 0.68 * inch, 'The Elements of Prompting — Field Guide')
-        cv.setFillColor(colors.HexColor('#A9BBC4')); cv.setFont('DV', 8.5)
-        cv.drawString(M, H - 0.9 * inch, 'Requirement quality · the elements as requirement types · menus by artifact · the five exercises, worked · the evidence: works, myth, expired, and why.')
+        cv.setFillColor(colors.HexColor('#A9BBC4')); cv.setFont('DV', 7.6)  # 7.6pt: 497pt < 504pt available, no clipping
+        cv.drawString(M, H - 0.9 * inch, 'Requirement quality · elements as requirement types · menus by artifact · the five exercises, worked · the evidence compendium.')
     else:
         cv.setFillColor(MUTE); cv.setFont('DV', 7)
         cv.drawString(M, H - 0.42 * inch, 'THE ELEMENTS OF PROMPTING · FIELD GUIDE')
@@ -197,7 +197,7 @@ tv.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), TEAL_T),
                         ('TOPPADDING', (0, 0), (-1, -1), 5), ('BOTTOMPADDING', (0, 0), (-1, -1), 5)]))
 E.append(KeepTogether([Paragraph('THE TWO SAFETY VALVES', S['kicker']), tv]))
 
-E.append(PageBreak())
+# no PageBreak: the safety valves end light — Part 3 pulls up to fill the page
 E.append(Paragraph('PART 3 — AGENTIC ELEMENTS: REQUIREMENTS FOR DELEGATED WORK', S['kicker']))
 E.append(Paragraph('A prompt that works: the twelve blocks of the mission brief', S['h1']))
 E.append(Paragraph('An agentic prompt commissions <b>a job, not a text</b>: the agent plans, acts through tools, checks results, and iterates — mostly while you are not watching. Every generative element still applies. The additional blocks exist for one reason: <b>text that fails costs you a re-prompt; actions that fail change the world</b> — files overwritten, emails sent, wrong numbers published. So the agentic elements govern <i>conduct</i>: where the agent may act, how it must verify itself, when it must stop and ask, and how it proves what it did. (Template A1; worked version A2.)', S['body']))
@@ -240,7 +240,7 @@ emit('12', 'reporting', 'the interface back to you', [
     ('', 'The agentic Format for the message, fixed in shape: <b>status</b> (done / stopped at gate n / blocked) · <b>headline answer with the number</b> · deliverable paths · checks summary · open items needing a human · risks. Under 25 lines; <b>evidence, not assertions</b> — the test it ran and what it returned, not “everything went well.” Details live in the files. <font face="DV-B">Prevents:</font> a narrative essay where a status should be.'),
 ], mono=True)
 
-E.append(PageBreak())
+# no PageBreak: element 12 ends light — Part 4 pulls up to fill the page
 E.append(Paragraph('PART 4 — THE MAPPING', S['kicker']))
 E.append(Paragraph('The agentic brief is the generative anatomy, grown up to survive autonomy', S['h1']))
 mp = [[Paragraph('Generative element', S['cellh']), Paragraph('Agentic descendant(s)', S['cellh']), Paragraph('What was added, and why', S['cellh'])],
@@ -324,7 +324,7 @@ E.append(Paragraph('The course prompts — copy, adapt, keep the checks', S['h1'
 E.append(Paragraph('One fictional supplier case runs through the first three: analyze → dashboard → presentation, on the same cleaned records and definitions. Full step-by-step versions with iteration commentary: Course_Workbook tabs 1–5. Every prompt below is designed to be copied straight into an assistant.', S['body']))
 _ex = [
     ('1 · Analyze spreadsheet data', 'analyze',
-     'Check: 144 detail rows · 224,902 shipped · 432 returns · highest return rate Bravo Plastics ≈ 0.349% (262 ÷ 75,184) · reconciles to the TOTAL row · defects (2,207) reported separately.'),
+     'Check: 144 detail rows · 224,902 shipped · 432 returns · highest return rate Bravo Plastics ≈ 0.348% (262 ÷ 75,184) · reconciles to the TOTAL row · defects (2,207) reported separately.'),
     ('2 · Build an interactive dashboard', 'dashboard',
      'Check: Berlin × Bravo Plastics, 2026-03..2026-08 → 6 records, 8,575 units, 21 returns, 0.245% — identical in tiles, chart, and table. Prepared output: Supplier_Quality_Dashboard.html (footer self-check).'),
     ('3 · Prepare a presentation', 'present',

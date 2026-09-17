@@ -22,10 +22,11 @@ Reordering works best when you order **before** you run out — at a planned
 stock level called the reorder point — not when the shelf is already empty.
 
 ### When to reorder
-The reorder point is the stock level that tells you "order now." You find it
-with two facts: how much you use each day, and how many days a new order takes
-to arrive. Example: if a bakery uses 10 bags of flour a day and delivery takes
-4 days, it needs to reorder no later than 40 bags — plus a little extra.
+The reorder point is the stock level that tells you "order now." It has three
+parts: how much you use each day, how many days a new order takes to arrive,
+and a safety cushion on top. Example: if a bakery uses 10 bags of flour a day
+and delivery takes 4 days, it needs to reorder no later than 40 bags — plus
+that cushion, which the next section explains.
 
 ### The extra cushion
 That extra is called **safety stock**: spare inventory that protects you when
@@ -44,7 +45,8 @@ because it relies on the past predicting the future. A promotion, a new
 customer, or a supply problem can make yesterday's numbers wrong.
 
 ### Check yourself
-1. What two facts set the reorder point? *(Daily use and delivery time.)*
+1. What sets the reorder point? *(Daily use multiplied by delivery days, plus
+   safety stock — all three parts, per the source formula.)*
 2. What is safety stock for? *(Demand spikes and late deliveries.)*
 3. Why review reorder points regularly? *(They assume the past predicts the
    future; promotions, new customers, or disruptions break that assumption.)*

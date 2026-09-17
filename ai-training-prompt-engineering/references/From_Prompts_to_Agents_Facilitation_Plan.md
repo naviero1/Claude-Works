@@ -36,7 +36,7 @@ mock deck, sample documents) rather than consuming practice time.
 
 Anchors: 21 · 22 · 23 · 28 · 37 · 47 · 50 · 53 · 64 (unchanged).
 Protected application: 36 (3:00 inspect the workbook) · 37 (5:00 compare suppliers,
-anchor) · 40 (4:00 dashboard demonstration) · 42 (3:00 email thread) · 44 (2:00
+anchor) · 40 (4:00 dashboard demonstration) · 43 (3:00 email thread) · 44 (2:00
 explain-it-clearly demonstration — NEW) · 48 (3:00 discussion) · 51 (3:00 mission
 brief) · 56 (2:00 gate + hard check) · 61 (2:00 save one prompt) · 64 (5:00
 capstone, anchor).
@@ -54,6 +54,21 @@ capstone, anchor).
 - Every live generation step has a prepared fallback shipped in the pack.
 - Visual system, note fields (MODE/TIME/PURPOSE/LAND THIS/SAY/DO/BRIDGE/IF LATE),
   and the ASK/DELEGATE distinction preserved from the baseline.
+
+## Correction pass (2026-09-17)
+
+- Live order corrected to match the five-task arc: the presentation
+  orientation now sits at slide 41, directly after the dashboard, followed by
+  the email lesson (42), the email exercise (43), and the documents
+  demonstration (44). Times shift within the same envelope; every total is
+  unchanged (DIVIDER 0:50 · TEACH 22:30 · REFERENCE 4:40 · DO 32:00 = 60:00).
+- Bravo Plastics' return rate displays as 0.348% everywhere (262 / 75,184 =
+  0.348478%); the mock presentation now computes every displayed number from
+  Supplier_Data_Clean.csv at build time.
+- Slides 35 and 44 teaching text enlarged from 14pt to 16pt.
+- Timing is a working target, not an acceptance gate: plan for 60:00, expect
+  ±10 minutes, and up to 20 additional minutes can be absorbed by the
+  reference layer when the room wants depth. Protect the exercises first.
 
 ## Slide-by-slide classification and audit
 
@@ -102,9 +117,9 @@ changes. Start and end times describe the recommended live run.
 | 38 | 36 | Optional extension: compare supplier quotations | REFERENCE | 0:10 | 25:35–25:45 |  | SKIP | R17: the three fictional quotation PDFs and workbook tab EX-Quotes ARE included in this package — usable optional self-study now. |
 | 39 | 37 | A deliverable needs artifact requirements | TEACH | 0:45 | 25:45–26:30 |  | COMPRESS | Reduce projected copy to one concept and a concrete example; increase text size and remove competing panels. |
 | 40 | 38 | Demonstration: a dashboard you can check | DO | 4:00 | 26:30–30:30 | Protected | KEEP | R17: connected to the supplier case — prepared Supplier_Quality_Dashboard.html built from the same cleaned records; live check Berlin × Bravo 2026-03..08 = 8,575 units / 21 returns / 0.245% (the page footer runs the same self-check). Control vocabulary in workbook tab 2-Build-Dashboard. |
-| 41 | 39 | An email summary has a job to do | TEACH | 0:30 | 30:30–31:00 |  | COMPRESS | Reduce projected copy to one concept and a concrete example; increase text size and remove competing panels. Preserve the detailed source explanation in the appendix. |
-| 42 | 40 | Exercise: find the decision behind the thread | DO | 3:00 | 31:00–34:00 | Protected | KEEP | R17: standalone source file Packaging_Change_Thread.txt supplied; reusable prompt in workbook tab 4-Summarize-Email + reference page 101; Copilot/Outlook path verified Sep 2026 (r28). |
-| 43 | 41 | Self-study demonstration: present the findings | REFERENCE | 0:10 | 34:00–34:10 |  | SKIP | R17: repurposed — the five-slide mock presentation demonstration (prepared Supplier_Quality_Mock_Presentation.pptx; workbook tab 3-Present-Findings; full version reference page 99). The former "More plays" content moved to reference page 97. |
+| 41 | 41 | Self-study demonstration: present the findings | REFERENCE | 0:10 | 30:30–30:40 |  | SKIP | R17: repurposed — the five-slide mock presentation demonstration (prepared Supplier_Quality_Mock_Presentation.pptx; workbook tab 3-Present-Findings; full version reference page 99). The former "More plays" content moved to reference page 97. Correction pass: moved to directly follow the dashboard so the live order matches the five-task arc. |
+| 42 | 39 | An email summary has a job to do | TEACH | 0:30 | 30:40–31:10 |  | COMPRESS | Reduce projected copy to one concept and a concrete example; increase text size and remove competing panels. Preserve the detailed source explanation in the appendix. |
+| 43 | 40 | Exercise: find the decision behind the thread | DO | 3:00 | 31:10–34:10 | Protected | KEEP | R17: standalone source file Packaging_Change_Thread.txt supplied; reusable prompt in workbook tab 4-Summarize-Email + reference page 101; Copilot/Outlook path verified Sep 2026 (r28). Correction pass: the notes now name where the custom prompt runs after "Summary by Copilot" (the Copilot chat pane on the same conversation); pasted-text fallback remains primary. |
 | 44 | 42 | Demonstration: explain it clearly | DO | 2:00 | 34:10–36:10 | Protected | COMPRESS | R17: new live demonstration — the plain-language prompt on the inventory-replenishment source (samples + two variations in references/exercise-data/plain-language/; workbook tab 5-Explain-Clearly). Replaces the stale block-recap reference page; TEACH time was compressed elsewhere to keep 60:00. |
 | 45 | 43 | Part 5: agentic work | DIVIDER | 0:05 | 36:10–36:15 |  | SKIP | Retain the charcoal navigation treatment; keep the spoken transition brief. |
 | 46 | 44 | What makes a workflow agentic? | TEACH | 0:45 | 36:15–37:00 |  | COMPRESS | Reduce projected copy to one concept and a concrete example; increase text size and remove competing panels. R17: TEACH time compressed to fund the new documents demonstration (slide 44). |

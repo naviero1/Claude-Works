@@ -324,7 +324,8 @@ for name, pid, heading, hint in TASKS_CFG:
         ts.cell(tr, 2, rtype).font = F_ATTR
         ic = ts.cell(tr, 3, rex); ic.fill = FILL_INPUT; ic.alignment = WRAP; ic.border = THIN
         ck = ts.cell(tr, 4, rchk); ck.font = F_BODY_I; ck.alignment = WRAP
-        ts.cell(tr, 6, f'=IF($A{tr}="Yes","- "&$C{tr},"")')
+        ts.cell(tr, 6, f'=IF(AND($A{tr}="Yes",$C{tr}<>""),"- "&$C{tr},"")')
+        ts.cell(tr, 7, f'=IF($A{tr}="Yes","- "&$D{tr},"")')
         tr += 1
     last = tr - 1
     ts.cell(tr, 2, 'Free-form additions (optional):').font = F_ATTR
@@ -332,12 +333,19 @@ for name, pid, heading, hint in TASKS_CFG:
     free_cell = f'C{tr}'
     tr += 1
     ts.cell(tr, 2, 'ASSEMBLED PROMPT →').font = Font(name='Arial', size=10, bold=True, color=TEAL_D)
-    af = (f'={task_cell}&IF(COUNTIF(A{first}:A{last},"Yes")>0,CHAR(10)&CHAR(10)&"Requirements:"&CHAR(10)&'
-          f'_xlfn.TEXTJOIN(CHAR(10),TRUE,F{first}:F{last}),"")&IF({free_cell}<>"",CHAR(10)&CHAR(10)&"Also:"&CHAR(10)&{free_cell},"")')
+    # Same blocks, order, and wording as the browser builder's assembleTask():
+    # task line -> Requirements -> Also -> How I will check the result.
+    jf = f'_xlfn.TEXTJOIN(CHAR(10),TRUE,F{first}:F{last})'
+    jg = f'_xlfn.TEXTJOIN(CHAR(10),TRUE,G{first}:G{last})'
+    af = (f'=_xlfn.TEXTJOIN(CHAR(10)&CHAR(10),TRUE,{task_cell},'
+          f'IF({jf}="","","Requirements:"&CHAR(10)&{jf}),'
+          f'IF({free_cell}="","","Also:"&CHAR(10)&{free_cell}),'
+          f'IF({jg}="","","How I will check the result:"&CHAR(10)&{jg}))')
     ac = ts.cell(tr, 5, af); ac.alignment = WRAP; ac.font = F_MONO
-    ts.row_dimensions[tr].height = 110
+    ts.row_dimensions[tr].height = 170
     tr += 2
 ts.column_dimensions['F'].hidden = True
+ts.column_dimensions['G'].hidden = True
 ts.freeze_panes = 'A3'
 
 wb.save(out)
