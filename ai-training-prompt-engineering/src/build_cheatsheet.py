@@ -119,21 +119,22 @@ E.append(gap)
 
 E.append(box('BEFORE / AFTER — THE SUPPLIER CASE', [
     ('Before:', '“Analyze the supplier data and tell me which supplier is worst.” — the model picks the rows, the metric, and “worst” for you, silently.'),
-    ('After:', '“Data tab, detail rows only (exclude the TOTAL row; the “n/a” is missing, not zero). Return rate = total returns ÷ total shipped per supplier, 2025-09 to 2026-08 — sums, never averaged percentages; defects stay separate. Rank, show numerator and denominator, reconcile to the TOTAL row, state one limitation, stop.”'),
+    ('After:', '“Supplier_Data_Exercise.xlsx, Data sheet, detail rows only (exclude the TOTAL row; one blank Inspection_Hours cell is missing, not zero). Return rate = total returns ÷ total shipped per supplier, 2025-09 to 2026-08 — sums, never averaged percentages; defects stay separate. Rank, show numerator and denominator, reconcile to the TOTAL row, state one limitation, stop.”'),
     ('Why it wins:', 'each added line is a requirement type fixing one named weakness.'),
 ], AMBER_T, AMBER))
 
 # ---------------- RIGHT: the tasks + checking + delegation ----------------
 E.append(FrameBreak())
-E.append(Paragraph('RUN IT — five tasks, one habit', S_mode))
+E.append(Paragraph('RUN IT — the course tasks, one habit', S_mode))
 E.append(Paragraph('produce the artifact, then check it against its own acceptance evidence', S_modesub))
 
-E.append(box('THE FIVE COURSE TASKS (workbook tabs 1–5)', [
+E.append(box('THE CORE COURSE TASKS (workbook tabs, training order)', [
     ('1 Analyze data', '— define the metric and denominator; reconcile; state limits.'),
     ('2 Build a dashboard', '— specify behavior in plain language: range, filters, grouping, metric switch, drill-down, Reset; one selection re-scopes every view.'),
     ('3 Present findings', '— one message per slide; findings separated from recommendations; nothing invented.'),
     ('4 Summarize email', '— current state; decisions WITH conditions; owners and dates; “Not stated” for gaps; replies stay drafts.'),
     ('5 Explain clearly', '— fifth-grade reading level, adult tone; analogy limits stated; meaning preserved; 3-question check.'),
+    ('+ the extensions', '— Excel charts (returned workbook) · quote extraction · quote comparison · research workbook — same discipline; tabs named in the workbook INDEX.'),
 ], TEAL_T))
 E.append(gap)
 
@@ -157,7 +158,7 @@ E.append(gap)
 
 E.append(box('SAVE WHAT WORKS', [
     ('Each reusable prompt:', 'name · owner · version · the example that proved it · its acceptance check.'),
-    ('Where:', 'the Course Workbook carries the five course prompts; the Template Creator and Configurator offer the same five task families with their requirement menus.'),
+    ('Where:', 'the Course Workbook carries every course prompt in a named tab, in training order (including the Excel-charts, quotation, and research steps); the Template Creator and Configurator offer the same task families with their requirement menus.'),
     ('Refresh:', 'facts about products and models expire — date them and re-verify before big reuse.'),
 ], GREEN_T, GREEN))
 

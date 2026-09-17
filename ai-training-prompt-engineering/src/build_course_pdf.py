@@ -112,6 +112,8 @@ def col_widths(n):
         return [AVAIL * 0.30, AVAIL * 0.70]
     if n == 3:
         return [AVAIL * 0.26, AVAIL * 0.37, AVAIL * 0.37]
+    if n == 9:  # the appendix data table: text columns wider, numerics narrow
+        return [AVAIL * w for w in (0.095, 0.105, 0.17, 0.105, 0.105, 0.105, 0.105, 0.105, 0.105)]
     return [AVAIL / n] * n
 
 
@@ -265,7 +267,10 @@ map_rows = [
     ('Part 4 \u00b7 The application block', 'Slides 33\u201344, the nine-step sequence (+ pages 82, 87\u201389, 92\u2013101, 103)', 'Chapter 4'),
     ('Part 5 \u00b7 Agentic work', 'Slides 45\u201356 (+ detail pages 83\u201386)', 'Chapter 5'),
     ('Part 6 \u00b7 Reusable prompts + close', 'Slides 57\u201364 and 70', 'Chapter 6'),
-    ('Reference block', 'Slides 65\u201369', 'Chapter 7'),
+    ('Reference block', 'Slides 65\u201369 \u2014 closing with the full bibliography', 'Chapter 7'),
+    ('Practice material', 'Every exercise source, verbatim: dataset, thread, quotations, research pack, plain-language', 'Appendix A'),
+    ('Answer keys', 'The worked keys \u2014 attempt each exercise first', 'Appendix B'),
+    ('The cheat sheet', 'The printable one-page course cheat sheet, unchanged from the separate file', 'Appendix C'),
 ]
 mt = Table([[Paragraph(a, ParagraphStyle('mpa', parent=S['cellh'], textColor=TEAL_D)),
              Paragraph(b, S['cell']), Paragraph(c, S['cell'])] for a, b, c in map_rows],
@@ -309,6 +314,25 @@ doc = CourseDoc(out, pagesize=letter,
                 author='Oscar Penny')
 frame = Frame(M, 0.62 * inch, AVAIL, H - 0.72 * inch - 0.62 * inch, id='main')
 doc.addPageTemplates([PageTemplate(id='page', frames=[frame], onPage=on_page)])
+# ---- appendix C divider (the cheat sheet page is merged below) ----------
+story.append(PageBreak())
+story.append(Paragraph('APPENDIX C \u00b7 THE CHEAT SHEET', S['kicker']))
+story.append(Paragraph('The one-page cheat sheet', S['h1']))
+story.append(Paragraph(sanitize(
+    'The next page is the printable course cheat sheet \u2014 the requirement skeleton, the '
+    'requirement-type menu, the quality bar, a before/after example, acceptance checks, ASK vs '
+    'DELEGATE, and the works/myth/expired box, on one page. It is identical to the separate '
+    'deliverables/From_Prompts_to_Agents_Cheat_Sheet.pdf; print that file at full size for desks.'),
+    S['chintro']))
+
 doc.multiBuild(story)
 
-print(f'course pdf written: {out} ({doc.page} pages, {len(chapters)} chapters)')
+# ---- merge the cheat sheet as the final page(s) -------------------------
+cheat = os.path.join(here, '..', 'deliverables', 'From_Prompts_to_Agents_Cheat_Sheet.pdf')
+if os.path.exists(cheat):
+    import subprocess
+    merged = out + '.merged'
+    subprocess.run(['pdfunite', out, cheat, merged], check=True)
+    os.replace(merged, out)
+    print('cheat sheet merged as the final page')
+print(f'course pdf written: {out} ({doc.page}+ pages, {len(chapters)} chapters)')

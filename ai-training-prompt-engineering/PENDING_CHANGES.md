@@ -1801,3 +1801,19 @@ repairs included: slide-76 typography restored run-level; Yang citation
 canonical everywhere (0 stale). Behavioral evidence: builder 12/12 + verbatim
 19/19, dashboard 14/14 + reversed 4/4, configurator recalc 392 formulas /
 0 errors; renders of all rewritten slides QA'd.
+
+## ALL-IN-ONE EDITION + BIBLIOGRAPHY (2026-09-17, owner request) · APPLIED
+
+The course PDF became the all-in-one edition (83 pages): Appendix A prints the
+complete practice pack verbatim, generated from the shipped files (the full
+145-row dataset, the email thread, the three quotation transcriptions, the
+research pack, the plain-language pack); Appendix B carries the four answer
+keys; Appendix C merges the printable cheat sheet page (pdfunite). Chapter 7's
+sources section expanded into a full grouped Bibliography (research papers
+with arXiv identifiers, vendor guidance with fetch dates, standards and
+governance, dated landscape snapshots, books) — every entry verified against
+notes/research/. Cheat sheet staleness fixed in passing (five-tasks framing →
+core tasks + extensions line; the "n/a" example → the blank-cell canon).
+Separate files unchanged. Scripts: src/pass07_allinone.py + renderer merge
+step. Beebop asked (reply 07, owner-directed) to complement the bibliography
+and all-in-one material.

@@ -3020,67 +3020,99 @@
     ]
    },
    {
-    "heading": "Sources this training is built on",
+    "heading": "Bibliography",
     "blocks": [
      {
       "type": "p",
-      "text": "Every evidence claim in this course traces to a vendor document, a study, or a dated snapshot."
+      "text": "Every evidence claim in this course traces to a study, a vendor document, a standard, or a dated snapshot. This bibliography expands the deck’s sources page into full entries, grouped by kind. Volatile items (leaderboards, product claims) carry their retrieval date and are refreshed quarterly; the dated research record behind each entry ships with the package source (notes/research/, files r1–r28 and t1–t6, each with retrieval dates)."
      },
      {
       "type": "h3",
-      "text": "Vendor guidance (fetched August 2026)"
+      "text": "Research papers and studies"
      },
      {
       "type": "bullets",
       "items": [
-       "<b>Anthropic</b> — Prompting best practices; long-context; reduce-hallucinations; Building Effective Agents; Claude Code; context engineering.",
-       "<b>OpenAI</b> — GPT-5 prompting guide; reasoning best practices; A Practical Guide to Building Agents; the Model Spec.",
-       "<b>Google</b> — Gemini for Workspace guides (Persona-Task-Context-Format).",
-       "<b>Microsoft</b> — Copilot guidance (Goal-Context-Source-Expectations); Copilot agents docs."
+       "Brown, T., et al. (2020). “Language Models are Few-Shot Learners.” NeurIPS 2020. arXiv:2005.14165. — few-shot prompting.",
+       "Wei, J., et al. (2022). “Chain-of-Thought Prompting Elicits Reasoning in Large Language Models.” NeurIPS 2022. arXiv:2201.11903.",
+       "Kojima, T., et al. (2022). Zero-shot chain-of-thought (“Let’s think step by step”). NeurIPS 2022. arXiv:2205.11916.",
+       "Wang, X., et al. (2023). Self-consistency over sampled reasoning paths. ICLR 2023. arXiv:2203.11171.",
+       "Liu, N. F., et al. (2024). “Lost in the Middle” — long-context position effects. TACL. arXiv:2307.03172.",
+       "Sharma, M., et al. (2023). “Towards Understanding Sycophancy in Language Models.” Anthropic. arXiv:2310.13548.",
+       "Sclar, M., et al. (2024). Prompt-format sensitivity — up to 76 accuracy points from trivial formatting changes. ICLR 2024. arXiv:2310.11324.",
+       "Zheng, M., et al. (2024). “When ‘A Helpful Assistant’ Is Not Really Helpful.” EMNLP 2024 Findings. arXiv:2311.10054. — personas and accuracy.",
+       "PersonaLLM (2024). NAACL 2024 Findings (ACL Anthology 2024.findings-naacl.229). — personas shape voice, not correctness.",
+       "Salinas, A., and Morstatter, F. (2024). Prompt perturbations — “even the smallest of perturbations … can cause the LLM to change its answer.” arXiv:2401.03729.",
+       "Wharton Prompting Science Reports 1–4 (2025; Report 4: Dec 7, 2025, SSRN 5879722). — politeness, tips/threats, and the six-model persona replication.",
+       "Sprague, Z., et al. (2025). “To CoT or not to CoT?” — meta-analysis of 100+ papers; chain-of-thought helps mainly on math and symbolic tasks. ICLR 2025. arXiv:2409.12183.",
+       "Yang et al. (2025; revised 2026). Requirements-aware prompt optimization: models infer unspecified requirements correctly only 41.1% of the time; requirements-aware optimization +4.8% on average. arXiv:2505.13360.",
+       "Kalai, A. T., et al. (OpenAI, 2025). “Why Language Models Hallucinate.” arXiv:2509.04664.",
+       "Cheng, et al. (2026). Sycophancy across 11 models (+49%). Science. — with the follow-up “social sycophancy” work from the same lab.",
+       "Chain-of-Verification (CoVe). ACL Findings 2024. — self-check against named criteria, blinded from generation (FactScore 55.9→71.4).",
+       "OPRO (ICLR 2024) and GEPA (ICLR 2026, arXiv:2507.19457). — metaprompting: letting the model draft and improve the prompt.",
+       "OpenAI Instruction Hierarchy (2024). arXiv:2404.13208. — the chain of command behind system/developer/user layers."
       ]
      },
      {
       "type": "h3",
-      "text": "Research"
+      "text": "Vendor guidance (fetched August 2026 unless dated)"
      },
      {
       "type": "bullets",
       "items": [
-       "Brown et al. 2020 (few-shot); Wei et al. 2022 and Kojima et al. 2022 (chain-of-thought); Wang et al. 2023 (self-consistency).",
-       "Sclar et al. 2024 (format brittleness); Zheng et al. 2024 (personas); Salinas and Morstatter 2024 (tips and perturbations).",
-       "Cheng et al., Science 2026 (sycophancy); Sharma et al. 2023 (why sycophancy); Liu et al. 2023 (lost in the middle).",
-       "OpenAI 2025 (why language models hallucinate); Sprague et al. 2025 (when chain-of-thought helps)."
+       "<b>Anthropic</b> — Prompting best practices; long-context tips; reduce-hallucinations guide; “Building Effective Agents”; context-engineering guidance; Claude Code documentation.",
+       "<b>OpenAI</b> — GPT-5 prompting guide; reasoning best practices; “A Practical Guide to Building Agents”; the Model Spec (model-spec.openai.com, 2025-09-12 edition, checked 2026-08-18).",
+       "<b>Google</b> — Gemini for Workspace prompting guides (Persona · Task · Context · Format).",
+       "<b>Microsoft</b> — Copilot prompting guidance (Goal · Context · Source · Expectations); Copilot agents documentation; Copilot-in-Outlook behavior verified September 2026 (research note r28)."
       ]
      },
      {
       "type": "h3",
-      "text": "Landscape and governance"
+      "text": "Standards, governance, and security"
      },
      {
       "type": "bullets",
       "items": [
-       "Stanford HAI AI Index 2026; LMArena, Artificial Analysis, and SWE-bench (August 2026 snapshots).",
-       "OWASP LLM Top 10 (2025) and Top 10 for Agentic Applications (2026); UK NCSC agentic-AI guidance; IMDA/CSA Singapore; Cisco AI Defense; Harmonic Security.",
-       "Vendor launch posts and reporting (Reuters, CNBC, TechCrunch, Bloomberg) for all product dates."
+       "NASA — “Appendix C: How to Write a Good Requirement” (nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/).",
+       "INCOSE — Guide to Writing Requirements, version 4 summary sheet (incose.org).",
+       "OWASP — LLM Top 10 (2025) and “Top 10 for Agentic Applications for 2026” (genai.owasp.org, fetched 2026-09-10).",
+       "UK NCSC — “Thinking carefully before adopting agentic AI” (ncsc.gov.uk) and “Prompt injection is not SQL injection (it may be worse)” (Dec 8, 2025).",
+       "Singapore IMDA — responsible-deployment case study; CSA advisory AD-2026-005 (2026-05-28)."
       ]
      },
      {
       "type": "h3",
-      "text": "Recommended reading: start practical, go deep"
+      "text": "Landscape and benchmarks (dated snapshots — refresh quarterly)"
      },
      {
       "type": "bullets",
       "items": [
-       "<b>Practical start</b> — Mollick, Co-Intelligence (2024): the working-with-AI mindset book, read first. Kneusel, How AI Works (2024): the concepts of Part 1, gently and rigorously.",
-       "<b>The craft</b> — Phoenix and Taylor, Prompt Engineering for Generative AI (O'Reilly 2024): the principles applied. Berryman and Ziegler, Prompt Engineering for LLMs (O'Reilly 2024): how prompts meet the model.",
-       "<b>Going deep</b> — Huyen, AI Engineering (O'Reilly 2025): RAG, agents, evaluation. Alammar and Grootendorst, Hands-On Large Language Models (2024): visual internals, tokens to transformers."
+       "Stanford HAI — AI Index 2026 (adoption and capability-gap figures, cited as of Mar/Apr 2026).",
+       "Artificial Analysis — model leaderboard (artificialanalysis.ai/leaderboards/models), transcribed 2026-09-13 for the speed-vs-capability chart; three independent fetches agreed.",
+       "LMArena and SWE-bench Verified — August–September 2026 snapshots (vendor launch figures named as such).",
+       "Product dates and pricing — vendor launch posts and business reporting (Reuters, CNBC, TechCrunch, Bloomberg), each dated where cited."
+      ]
+     },
+     {
+      "type": "h3",
+      "text": "Books (the recommended-reading shelf)"
+     },
+     {
+      "type": "bullets",
+      "items": [
+       "Mollick, E. — <b>Co-Intelligence</b> (2024). The working-with-AI mindset book; read first.",
+       "Kneusel, R. — <b>How AI Works</b> (2024). The concepts of Part 1, gently and rigorously.",
+       "Phoenix, J., and Taylor, M. — <b>Prompt Engineering for Generative AI</b> (O’Reilly, 2024). The five principles applied; closest to Parts 3–4.",
+       "Berryman, J., and Ziegler, A. — <b>Prompt Engineering for LLMs</b> (O’Reilly, 2024). How prompts actually meet the model.",
+       "Huyen, C. — <b>AI Engineering: Building Applications with Foundation Models</b> (O’Reilly, 2025). RAG, agents, evaluation — the engineering behind Part 5.",
+       "Alammar, J., and Grootendorst, M. — <b>Hands-On Large Language Models</b> (2024). Visual internals: tokens, embeddings, transformers."
       ]
      },
      {
       "type": "callout",
-      "kind": "try",
+      "kind": "key",
       "title": "The fastest teacher of all",
-      "body": "A real task. Adapt a course example, run it, check the result, and save the improved prompt. Further reading is optional; one checked real task is the immediate goal."
+      "body": "A real task. Adapt a course example, run it, check the result against its source, and save the improved prompt. The bibliography is where the evidence lives; the habit is what the course is for."
      }
     ]
    },
@@ -3110,6 +3142,1877 @@
       "kind": "check",
       "title": "Leaving the appendix",
       "body": "You are done with this course when you can name the requirement types your next artifact needs, write them into a brief, and point at the check that would catch the most likely failure."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "The practice pack: every exercise source, in full",
+  "kicker": "APPENDIX A · PRACTICE MATERIAL",
+  "intro": "Everything the exercises consume, printed verbatim so this book is self-contained: the supplier dataset, the email thread, the three quotations, the research pack, and the plain-language sources with their samples. The same content ships as separate files in references/exercise-data/ — use the files when working, this appendix when reading. All names, companies, and numbers are fictional.",
+  "sections": [
+   {
+    "heading": "A.1 · The supplier dataset (Supplier_Data_Exercise.xlsx)",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "The single input for the data arc, printed in full: 144 detail rows plus the deliberate TOTAL row, one row per month × site × supplier, period 2025-09 to 2026-08. The two planted quirks are here to find: the TOTAL row (exclude it from every calculation, reconcile against it), and one blank Inspection_Hours cell (missing, not zero). All data fictional and seeded — stable across rebuilds and identical to the shipped file."
+     },
+     {
+      "type": "table",
+      "cols": [
+       "Month",
+       "Site",
+       "Supplier",
+       "Shipped",
+       "Ret.",
+       "Def.",
+       "Hrs",
+       "Cost USD",
+       "OT %"
+      ],
+      "rows": [
+       [
+        "2025-09",
+        "Austin",
+        "Alpha Components",
+        "1781",
+        "2",
+        "8",
+        "22.8",
+        "12.67",
+        "89.2"
+       ],
+       [
+        "2025-09",
+        "Austin",
+        "Bravo Plastics",
+        "1590",
+        "8",
+        "14",
+        "15",
+        "9.85",
+        "86.3"
+       ],
+       [
+        "2025-09",
+        "Austin",
+        "Cardinal Metals",
+        "1569",
+        "1",
+        "13",
+        "34.8",
+        "13.89",
+        "87.4"
+       ],
+       [
+        "2025-09",
+        "Berlin",
+        "Alpha Components",
+        "1291",
+        "0",
+        "9",
+        "36.3",
+        "12.16",
+        "92.1"
+       ],
+       [
+        "2025-09",
+        "Berlin",
+        "Bravo Plastics",
+        "1564",
+        "6",
+        "14",
+        "17",
+        "10.09",
+        "91.1"
+       ],
+       [
+        "2025-09",
+        "Berlin",
+        "Cardinal Metals",
+        "1499",
+        "1",
+        "13",
+        "45.1",
+        "14.22",
+        "91.8"
+       ],
+       [
+        "2025-09",
+        "Osaka",
+        "Alpha Components",
+        "2167",
+        "1",
+        "14",
+        "41.6",
+        "12.64",
+        "98.4"
+       ],
+       [
+        "2025-09",
+        "Osaka",
+        "Bravo Plastics",
+        "1947",
+        "5",
+        "16",
+        "21.4",
+        "9.7",
+        "97.4"
+       ],
+       [
+        "2025-09",
+        "Osaka",
+        "Cardinal Metals",
+        "2088",
+        "3",
+        "13",
+        "25.8",
+        "13.94",
+        "99.7"
+       ],
+       [
+        "2025-09",
+        "Monterrey",
+        "Alpha Components",
+        "1226",
+        "0",
+        "9",
+        "37.3",
+        "12.36",
+        "85.8"
+       ],
+       [
+        "2025-09",
+        "Monterrey",
+        "Bravo Plastics",
+        "1317",
+        "3",
+        "22",
+        "31.8",
+        "10.08",
+        "88.5"
+       ],
+       [
+        "2025-09",
+        "Monterrey",
+        "Cardinal Metals",
+        "1087",
+        "2",
+        "8",
+        "22.6",
+        "14.61",
+        "85.2"
+       ],
+       [
+        "2025-10",
+        "Austin",
+        "Alpha Components",
+        "1863",
+        "1",
+        "12",
+        "35",
+        "12.82",
+        "89.7"
+       ],
+       [
+        "2025-10",
+        "Austin",
+        "Bravo Plastics",
+        "1645",
+        "8",
+        "20",
+        "22.4",
+        "10.12",
+        "92.6"
+       ],
+       [
+        "2025-10",
+        "Austin",
+        "Cardinal Metals",
+        "1698",
+        "1",
+        "14",
+        "45.9",
+        "13.77",
+        "93.4"
+       ],
+       [
+        "2025-10",
+        "Berlin",
+        "Alpha Components",
+        "1469",
+        "1",
+        "9",
+        "27.5",
+        "12.36",
+        "94.3"
+       ],
+       [
+        "2025-10",
+        "Berlin",
+        "Bravo Plastics",
+        "1575",
+        "2",
+        "23",
+        "45.1",
+        "9.51",
+        "93.4"
+       ],
+       [
+        "2025-10",
+        "Berlin",
+        "Cardinal Metals",
+        "1443",
+        "0",
+        "11",
+        "34.5",
+        "14.11",
+        "91"
+       ],
+       [
+        "2025-10",
+        "Osaka",
+        "Alpha Components",
+        "2014",
+        "1",
+        "14",
+        "42",
+        "12.46",
+        "98.9"
+       ],
+       [
+        "2025-10",
+        "Osaka",
+        "Bravo Plastics",
+        "2184",
+        "2",
+        "26",
+        "34.4",
+        "9.61",
+        "100"
+       ],
+       [
+        "2025-10",
+        "Osaka",
+        "Cardinal Metals",
+        "2140",
+        "1",
+        "16",
+        "38.9",
+        "13.68",
+        "96.8"
+       ],
+       [
+        "2025-10",
+        "Monterrey",
+        "Alpha Components",
+        "1302",
+        "0",
+        "12",
+        "40.6",
+        "12.08",
+        "88.7"
+       ],
+       [
+        "2025-10",
+        "Monterrey",
+        "Bravo Plastics",
+        "1290",
+        "10",
+        "17",
+        "16.7",
+        "9.55",
+        "88.5"
+       ],
+       [
+        "2025-10",
+        "Monterrey",
+        "Cardinal Metals",
+        "1110",
+        "1",
+        "11",
+        "31.6",
+        "14.54",
+        "81.2"
+       ],
+       [
+        "2025-11",
+        "Austin",
+        "Alpha Components",
+        "1706",
+        "1",
+        "10",
+        "31.3",
+        "12.2",
+        "88.3"
+       ],
+       [
+        "2025-11",
+        "Austin",
+        "Bravo Plastics",
+        "1785",
+        "3",
+        "26",
+        "30.6",
+        "9.66",
+        "100"
+       ],
+       [
+        "2025-11",
+        "Austin",
+        "Cardinal Metals",
+        "1677",
+        "4",
+        "12",
+        "21.4",
+        "13.75",
+        "90.5"
+       ],
+       [
+        "2025-11",
+        "Berlin",
+        "Alpha Components",
+        "1549",
+        "4",
+        "8",
+        "16.3",
+        "12.61",
+        "92.9"
+       ],
+       [
+        "2025-11",
+        "Berlin",
+        "Bravo Plastics",
+        "1351",
+        "1",
+        "18",
+        "43.9",
+        "9.83",
+        "94.8"
+       ],
+       [
+        "2025-11",
+        "Berlin",
+        "Cardinal Metals",
+        "1344",
+        "2",
+        "9",
+        "27.8",
+        "14.14",
+        "90.5"
+       ],
+       [
+        "2025-11",
+        "Osaka",
+        "Alpha Components",
+        "2126",
+        "1",
+        "13",
+        "45.5",
+        "12.38",
+        "94.9"
+       ],
+       [
+        "2025-11",
+        "Osaka",
+        "Bravo Plastics",
+        "1931",
+        "4",
+        "21",
+        "28.4",
+        "9.7",
+        "100"
+       ],
+       [
+        "2025-11",
+        "Osaka",
+        "Cardinal Metals",
+        "1931",
+        "3",
+        "15",
+        "28.2",
+        "14.22",
+        "100"
+       ],
+       [
+        "2025-11",
+        "Monterrey",
+        "Alpha Components",
+        "1280",
+        "1",
+        "12",
+        "43.6",
+        "12.17",
+        "92.8"
+       ],
+       [
+        "2025-11",
+        "Monterrey",
+        "Bravo Plastics",
+        "1196",
+        "3",
+        "17",
+        "26.8",
+        "9.77",
+        "91.1"
+       ],
+       [
+        "2025-11",
+        "Monterrey",
+        "Cardinal Metals",
+        "1268",
+        "3",
+        "11",
+        "27.5",
+        "14.66",
+        "87.7"
+       ],
+       [
+        "2025-12",
+        "Austin",
+        "Alpha Components",
+        "1314",
+        "3",
+        "7",
+        "",
+        "12.87",
+        "84.7"
+       ],
+       [
+        "2025-12",
+        "Austin",
+        "Bravo Plastics",
+        "1364",
+        "2",
+        "19",
+        "32.7",
+        "10.09",
+        "86.2"
+       ],
+       [
+        "2025-12",
+        "Austin",
+        "Cardinal Metals",
+        "1210",
+        "4",
+        "8",
+        "16.6",
+        "14.26",
+        "87"
+       ],
+       [
+        "2025-12",
+        "Berlin",
+        "Alpha Components",
+        "993",
+        "2",
+        "6",
+        "21.9",
+        "12.57",
+        "88.7"
+       ],
+       [
+        "2025-12",
+        "Berlin",
+        "Bravo Plastics",
+        "1057",
+        "3",
+        "16",
+        "30.7",
+        "9.65",
+        "89.7"
+       ],
+       [
+        "2025-12",
+        "Berlin",
+        "Cardinal Metals",
+        "1052",
+        "2",
+        "7",
+        "23.6",
+        "14.42",
+        "88.6"
+       ],
+       [
+        "2025-12",
+        "Osaka",
+        "Alpha Components",
+        "1394",
+        "0",
+        "8",
+        "46",
+        "12.09",
+        "93.4"
+       ],
+       [
+        "2025-12",
+        "Osaka",
+        "Bravo Plastics",
+        "1657",
+        "2",
+        "26",
+        "42.1",
+        "9.61",
+        "94.5"
+       ],
+       [
+        "2025-12",
+        "Osaka",
+        "Cardinal Metals",
+        "1626",
+        "1",
+        "13",
+        "33.6",
+        "14.32",
+        "96.7"
+       ],
+       [
+        "2025-12",
+        "Monterrey",
+        "Alpha Components",
+        "863",
+        "0",
+        "7",
+        "44",
+        "12.13",
+        "84.4"
+       ],
+       [
+        "2025-12",
+        "Monterrey",
+        "Bravo Plastics",
+        "829",
+        "5",
+        "12",
+        "22.7",
+        "10",
+        "85.6"
+       ],
+       [
+        "2025-12",
+        "Monterrey",
+        "Cardinal Metals",
+        "857",
+        "0",
+        "9",
+        "43",
+        "13.77",
+        "89.4"
+       ],
+       [
+        "2026-01",
+        "Austin",
+        "Alpha Components",
+        "1706",
+        "5",
+        "7",
+        "14.1",
+        "12.58",
+        "91.6"
+       ],
+       [
+        "2026-01",
+        "Austin",
+        "Bravo Plastics",
+        "1751",
+        "11",
+        "19",
+        "14.3",
+        "10.11",
+        "96.9"
+       ],
+       [
+        "2026-01",
+        "Austin",
+        "Cardinal Metals",
+        "1873",
+        "1",
+        "17",
+        "40.7",
+        "13.82",
+        "93.8"
+       ],
+       [
+        "2026-01",
+        "Berlin",
+        "Alpha Components",
+        "1547",
+        "1",
+        "11",
+        "41.5",
+        "12.21",
+        "95.2"
+       ],
+       [
+        "2026-01",
+        "Berlin",
+        "Bravo Plastics",
+        "1361",
+        "2",
+        "20",
+        "39",
+        "9.78",
+        "93.2"
+       ],
+       [
+        "2026-01",
+        "Berlin",
+        "Cardinal Metals",
+        "1556",
+        "1",
+        "15",
+        "45.2",
+        "14.55",
+        "93.2"
+       ],
+       [
+        "2026-01",
+        "Osaka",
+        "Alpha Components",
+        "1840",
+        "3",
+        "10",
+        "24.6",
+        "12.72",
+        "99.4"
+       ],
+       [
+        "2026-01",
+        "Osaka",
+        "Bravo Plastics",
+        "1938",
+        "14",
+        "22",
+        "17.5",
+        "10.09",
+        "94.2"
+       ],
+       [
+        "2026-01",
+        "Osaka",
+        "Cardinal Metals",
+        "1920",
+        "2",
+        "14",
+        "28.7",
+        "14.46",
+        "97.1"
+       ],
+       [
+        "2026-01",
+        "Monterrey",
+        "Alpha Components",
+        "1126",
+        "0",
+        "9",
+        "41.7",
+        "12.27",
+        "88.9"
+       ],
+       [
+        "2026-01",
+        "Monterrey",
+        "Bravo Plastics",
+        "1233",
+        "2",
+        "24",
+        "45.4",
+        "10.15",
+        "95.9"
+       ],
+       [
+        "2026-01",
+        "Monterrey",
+        "Cardinal Metals",
+        "1122",
+        "3",
+        "10",
+        "22.5",
+        "14.11",
+        "95"
+       ],
+       [
+        "2026-02",
+        "Austin",
+        "Alpha Components",
+        "1812",
+        "1",
+        "12",
+        "33.4",
+        "12.36",
+        "90"
+       ],
+       [
+        "2026-02",
+        "Austin",
+        "Bravo Plastics",
+        "1805",
+        "2",
+        "28",
+        "43.6",
+        "10",
+        "90.9"
+       ],
+       [
+        "2026-02",
+        "Austin",
+        "Cardinal Metals",
+        "1817",
+        "3",
+        "14",
+        "25.7",
+        "14.33",
+        "90.7"
+       ],
+       [
+        "2026-02",
+        "Berlin",
+        "Alpha Components",
+        "1533",
+        "2",
+        "9",
+        "23.6",
+        "12.38",
+        "95.5"
+       ],
+       [
+        "2026-02",
+        "Berlin",
+        "Bravo Plastics",
+        "1405",
+        "8",
+        "16",
+        "18.1",
+        "10.15",
+        "92.1"
+       ],
+       [
+        "2026-02",
+        "Berlin",
+        "Cardinal Metals",
+        "1466",
+        "1",
+        "11",
+        "31.5",
+        "13.96",
+        "90.1"
+       ],
+       [
+        "2026-02",
+        "Osaka",
+        "Alpha Components",
+        "2004",
+        "1",
+        "12",
+        "35",
+        "12.41",
+        "97.5"
+       ],
+       [
+        "2026-02",
+        "Osaka",
+        "Bravo Plastics",
+        "2196",
+        "11",
+        "27",
+        "19.4",
+        "9.86",
+        "99.2"
+       ],
+       [
+        "2026-02",
+        "Osaka",
+        "Cardinal Metals",
+        "2087",
+        "1",
+        "15",
+        "40.2",
+        "14.34",
+        "97.2"
+       ],
+       [
+        "2026-02",
+        "Monterrey",
+        "Alpha Components",
+        "1085",
+        "1",
+        "7",
+        "29.2",
+        "12.09",
+        "90.6"
+       ],
+       [
+        "2026-02",
+        "Monterrey",
+        "Bravo Plastics",
+        "1179",
+        "9",
+        "19",
+        "20.2",
+        "9.85",
+        "88.2"
+       ],
+       [
+        "2026-02",
+        "Monterrey",
+        "Cardinal Metals",
+        "1081",
+        "0",
+        "12",
+        "38.6",
+        "14.1",
+        "93.8"
+       ],
+       [
+        "2026-03",
+        "Austin",
+        "Alpha Components",
+        "1620",
+        "1",
+        "12",
+        "30.6",
+        "12.24",
+        "93.9"
+       ],
+       [
+        "2026-03",
+        "Austin",
+        "Bravo Plastics",
+        "1837",
+        "3",
+        "36",
+        "45.6",
+        "10.16",
+        "89.3"
+       ],
+       [
+        "2026-03",
+        "Austin",
+        "Cardinal Metals",
+        "1869",
+        "1",
+        "17",
+        "37",
+        "14.5",
+        "85.9"
+       ],
+       [
+        "2026-03",
+        "Berlin",
+        "Alpha Components",
+        "1503",
+        "2",
+        "8",
+        "22.3",
+        "12.58",
+        "92.7"
+       ],
+       [
+        "2026-03",
+        "Berlin",
+        "Bravo Plastics",
+        "1509",
+        "2",
+        "27",
+        "34.1",
+        "9.56",
+        "93.6"
+       ],
+       [
+        "2026-03",
+        "Berlin",
+        "Cardinal Metals",
+        "1381",
+        "4",
+        "8",
+        "18.4",
+        "14.36",
+        "95.6"
+       ],
+       [
+        "2026-03",
+        "Osaka",
+        "Alpha Components",
+        "2117",
+        "2",
+        "10",
+        "27",
+        "12.39",
+        "97.6"
+       ],
+       [
+        "2026-03",
+        "Osaka",
+        "Bravo Plastics",
+        "2197",
+        "3",
+        "36",
+        "36.3",
+        "10.03",
+        "99"
+       ],
+       [
+        "2026-03",
+        "Osaka",
+        "Cardinal Metals",
+        "1984",
+        "3",
+        "11",
+        "25.3",
+        "14.52",
+        "99"
+       ],
+       [
+        "2026-03",
+        "Monterrey",
+        "Alpha Components",
+        "1259",
+        "0",
+        "10",
+        "33.3",
+        "12.22",
+        "86.8"
+       ],
+       [
+        "2026-03",
+        "Monterrey",
+        "Bravo Plastics",
+        "1184",
+        "6",
+        "18",
+        "24.8",
+        "9.78",
+        "90.3"
+       ],
+       [
+        "2026-03",
+        "Monterrey",
+        "Cardinal Metals",
+        "1110",
+        "5",
+        "7",
+        "14.9",
+        "14.23",
+        "91.9"
+       ],
+       [
+        "2026-04",
+        "Austin",
+        "Alpha Components",
+        "1569",
+        "4",
+        "8",
+        "18.3",
+        "12.07",
+        "90.5"
+       ],
+       [
+        "2026-04",
+        "Austin",
+        "Bravo Plastics",
+        "1673",
+        "9",
+        "30",
+        "26.1",
+        "10.08",
+        "93.4"
+       ],
+       [
+        "2026-04",
+        "Austin",
+        "Cardinal Metals",
+        "1647",
+        "5",
+        "8",
+        "14.6",
+        "14.66",
+        "89.4"
+       ],
+       [
+        "2026-04",
+        "Berlin",
+        "Alpha Components",
+        "1513",
+        "1",
+        "11",
+        "38.1",
+        "12.2",
+        "96.3"
+       ],
+       [
+        "2026-04",
+        "Berlin",
+        "Bravo Plastics",
+        "1295",
+        "8",
+        "15",
+        "18",
+        "9.89",
+        "94.6"
+       ],
+       [
+        "2026-04",
+        "Berlin",
+        "Cardinal Metals",
+        "1509",
+        "1",
+        "11",
+        "33.4",
+        "13.79",
+        "97"
+       ],
+       [
+        "2026-04",
+        "Osaka",
+        "Alpha Components",
+        "2163",
+        "4",
+        "10",
+        "17.5",
+        "12.3",
+        "94.8"
+       ],
+       [
+        "2026-04",
+        "Osaka",
+        "Bravo Plastics",
+        "1991",
+        "15",
+        "24",
+        "16.4",
+        "9.94",
+        "92.5"
+       ],
+       [
+        "2026-04",
+        "Osaka",
+        "Cardinal Metals",
+        "1871",
+        "1",
+        "15",
+        "41.2",
+        "13.8",
+        "100"
+       ],
+       [
+        "2026-04",
+        "Monterrey",
+        "Alpha Components",
+        "1163",
+        "2",
+        "8",
+        "25.9",
+        "12.32",
+        "87.3"
+       ],
+       [
+        "2026-04",
+        "Monterrey",
+        "Bravo Plastics",
+        "1283",
+        "14",
+        "22",
+        "17.4",
+        "9.94",
+        "91"
+       ],
+       [
+        "2026-04",
+        "Monterrey",
+        "Cardinal Metals",
+        "1184",
+        "1",
+        "13",
+        "44.9",
+        "14.47",
+        "82.5"
+       ],
+       [
+        "2026-05",
+        "Austin",
+        "Alpha Components",
+        "1746",
+        "2",
+        "11",
+        "27.9",
+        "12.26",
+        "95.4"
+       ],
+       [
+        "2026-05",
+        "Austin",
+        "Bravo Plastics",
+        "1590",
+        "11",
+        "28",
+        "21.8",
+        "9.92",
+        "87.5"
+       ],
+       [
+        "2026-05",
+        "Austin",
+        "Cardinal Metals",
+        "1691",
+        "1",
+        "13",
+        "41.2",
+        "13.89",
+        "92.8"
+       ],
+       [
+        "2026-05",
+        "Berlin",
+        "Alpha Components",
+        "1542",
+        "2",
+        "9",
+        "22.8",
+        "12.85",
+        "92.3"
+       ],
+       [
+        "2026-05",
+        "Berlin",
+        "Bravo Plastics",
+        "1314",
+        "5",
+        "25",
+        "29.6",
+        "9.98",
+        "92.6"
+       ],
+       [
+        "2026-05",
+        "Berlin",
+        "Cardinal Metals",
+        "1517",
+        "4",
+        "8",
+        "21.1",
+        "13.98",
+        "92.2"
+       ],
+       [
+        "2026-05",
+        "Osaka",
+        "Alpha Components",
+        "2066",
+        "1",
+        "12",
+        "31",
+        "12.68",
+        "95.5"
+       ],
+       [
+        "2026-05",
+        "Osaka",
+        "Bravo Plastics",
+        "1940",
+        "10",
+        "22",
+        "17.9",
+        "9.59",
+        "99.7"
+       ],
+       [
+        "2026-05",
+        "Osaka",
+        "Cardinal Metals",
+        "2047",
+        "5",
+        "12",
+        "19.9",
+        "14.15",
+        "96.1"
+       ],
+       [
+        "2026-05",
+        "Monterrey",
+        "Alpha Components",
+        "1205",
+        "3",
+        "6",
+        "17.2",
+        "12.23",
+        "77.2"
+       ],
+       [
+        "2026-05",
+        "Monterrey",
+        "Bravo Plastics",
+        "1123",
+        "2",
+        "21",
+        "31.1",
+        "10.17",
+        "82.2"
+       ],
+       [
+        "2026-05",
+        "Monterrey",
+        "Cardinal Metals",
+        "1110",
+        "2",
+        "11",
+        "29.7",
+        "14.24",
+        "86"
+       ],
+       [
+        "2026-06",
+        "Austin",
+        "Alpha Components",
+        "1722",
+        "3",
+        "9",
+        "19.9",
+        "12.84",
+        "86.5"
+       ],
+       [
+        "2026-06",
+        "Austin",
+        "Bravo Plastics",
+        "1698",
+        "2",
+        "31",
+        "34.1",
+        "9.61",
+        "92.8"
+       ],
+       [
+        "2026-06",
+        "Austin",
+        "Cardinal Metals",
+        "1755",
+        "1",
+        "15",
+        "45.8",
+        "14.43",
+        "87.8"
+       ],
+       [
+        "2026-06",
+        "Berlin",
+        "Alpha Components",
+        "1354",
+        "1",
+        "8",
+        "28.4",
+        "12.77",
+        "91.8"
+       ],
+       [
+        "2026-06",
+        "Berlin",
+        "Bravo Plastics",
+        "1573",
+        "2",
+        "29",
+        "33.9",
+        "10.01",
+        "95.3"
+       ],
+       [
+        "2026-06",
+        "Berlin",
+        "Cardinal Metals",
+        "1350",
+        "3",
+        "8",
+        "19",
+        "13.75",
+        "93.6"
+       ],
+       [
+        "2026-06",
+        "Osaka",
+        "Alpha Components",
+        "1831",
+        "1",
+        "11",
+        "33",
+        "12.23",
+        "96.2"
+       ],
+       [
+        "2026-06",
+        "Osaka",
+        "Bravo Plastics",
+        "2014",
+        "3",
+        "38",
+        "43.6",
+        "9.93",
+        "94"
+       ],
+       [
+        "2026-06",
+        "Osaka",
+        "Cardinal Metals",
+        "2098",
+        "3",
+        "16",
+        "27.6",
+        "14.32",
+        "100"
+       ],
+       [
+        "2026-06",
+        "Monterrey",
+        "Alpha Components",
+        "1097",
+        "2",
+        "6",
+        "23.8",
+        "12.52",
+        "83.9"
+       ],
+       [
+        "2026-06",
+        "Monterrey",
+        "Bravo Plastics",
+        "1149",
+        "2",
+        "25",
+        "36",
+        "10.15",
+        "83.3"
+       ],
+       [
+        "2026-06",
+        "Monterrey",
+        "Cardinal Metals",
+        "1099",
+        "1",
+        "8",
+        "27.8",
+        "13.92",
+        "88"
+       ],
+       [
+        "2026-07",
+        "Austin",
+        "Alpha Components",
+        "1591",
+        "1",
+        "13",
+        "40.8",
+        "12.85",
+        "96.5"
+       ],
+       [
+        "2026-07",
+        "Austin",
+        "Bravo Plastics",
+        "1653",
+        "2",
+        "31",
+        "38.2",
+        "9.95",
+        "92"
+       ],
+       [
+        "2026-07",
+        "Austin",
+        "Cardinal Metals",
+        "1877",
+        "1",
+        "15",
+        "32.7",
+        "14.16",
+        "94.3"
+       ],
+       [
+        "2026-07",
+        "Berlin",
+        "Alpha Components",
+        "1385",
+        "0",
+        "10",
+        "41.4",
+        "12.63",
+        "95"
+       ],
+       [
+        "2026-07",
+        "Berlin",
+        "Bravo Plastics",
+        "1372",
+        "2",
+        "32",
+        "40",
+        "9.82",
+        "93.3"
+       ],
+       [
+        "2026-07",
+        "Berlin",
+        "Cardinal Metals",
+        "1568",
+        "2",
+        "12",
+        "30.5",
+        "14.33",
+        "95.6"
+       ],
+       [
+        "2026-07",
+        "Osaka",
+        "Alpha Components",
+        "2050",
+        "4",
+        "9",
+        "20",
+        "12.68",
+        "94.6"
+       ],
+       [
+        "2026-07",
+        "Osaka",
+        "Bravo Plastics",
+        "1912",
+        "3",
+        "36",
+        "43.7",
+        "9.98",
+        "94.6"
+       ],
+       [
+        "2026-07",
+        "Osaka",
+        "Cardinal Metals",
+        "1879",
+        "1",
+        "16",
+        "33.5",
+        "13.83",
+        "94.6"
+       ],
+       [
+        "2026-07",
+        "Monterrey",
+        "Alpha Components",
+        "1102",
+        "0",
+        "10",
+        "43.2",
+        "12.13",
+        "86.4"
+       ],
+       [
+        "2026-07",
+        "Monterrey",
+        "Bravo Plastics",
+        "1279",
+        "2",
+        "32",
+        "36.9",
+        "9.69",
+        "93.7"
+       ],
+       [
+        "2026-07",
+        "Monterrey",
+        "Cardinal Metals",
+        "1138",
+        "3",
+        "10",
+        "26.3",
+        "14.18",
+        "78.3"
+       ],
+       [
+        "2026-08",
+        "Austin",
+        "Alpha Components",
+        "1864",
+        "4",
+        "12",
+        "22.8",
+        "12.39",
+        "95.3"
+       ],
+       [
+        "2026-08",
+        "Austin",
+        "Bravo Plastics",
+        "1844",
+        "11",
+        "31",
+        "23.6",
+        "10.19",
+        "90.6"
+       ],
+       [
+        "2026-08",
+        "Austin",
+        "Cardinal Metals",
+        "1729",
+        "1",
+        "13",
+        "31.2",
+        "14.22",
+        "88.8"
+       ],
+       [
+        "2026-08",
+        "Berlin",
+        "Alpha Components",
+        "1382",
+        "0",
+        "8",
+        "36.3",
+        "12.23",
+        "93.4"
+       ],
+       [
+        "2026-08",
+        "Berlin",
+        "Bravo Plastics",
+        "1512",
+        "2",
+        "28",
+        "37.8",
+        "10.06",
+        "91.8"
+       ],
+       [
+        "2026-08",
+        "Berlin",
+        "Cardinal Metals",
+        "1525",
+        "2",
+        "14",
+        "29.9",
+        "14.17",
+        "95.9"
+       ],
+       [
+        "2026-08",
+        "Osaka",
+        "Alpha Components",
+        "2070",
+        "1",
+        "14",
+        "42",
+        "12.48",
+        "93.9"
+       ],
+       [
+        "2026-08",
+        "Osaka",
+        "Bravo Plastics",
+        "1996",
+        "14",
+        "29",
+        "18.9",
+        "10.17",
+        "97.9"
+       ],
+       [
+        "2026-08",
+        "Osaka",
+        "Cardinal Metals",
+        "1967",
+        "1",
+        "16",
+        "34.8",
+        "14.52",
+        "98.2"
+       ],
+       [
+        "2026-08",
+        "Monterrey",
+        "Alpha Components",
+        "1155",
+        "1",
+        "10",
+        "38.3",
+        "12.06",
+        "85"
+       ],
+       [
+        "2026-08",
+        "Monterrey",
+        "Bravo Plastics",
+        "1096",
+        "3",
+        "29",
+        "43.5",
+        "10.02",
+        "86.3"
+       ],
+       [
+        "2026-08",
+        "Monterrey",
+        "Cardinal Metals",
+        "1232",
+        "3",
+        "12",
+        "28.2",
+        "14.57",
+        "88.7"
+       ],
+       [
+        "TOTAL",
+        "",
+        "",
+        "224902",
+        "432",
+        "2207",
+        "",
+        "",
+        ""
+       ]
+      ],
+      "note": "Columns as in the file: Month, Site, Supplier, Units_Shipped, Units_Returned, Defects_Found, Inspection_Hours, Unit_Cost_USD, On_Time_Percent."
+     }
+    ]
+   },
+   {
+    "heading": "A.2 · The email thread (Packaging_Change_Thread.txt)",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "The fictional ten-message conversation for the email exercise, verbatim — paste it into any approved assistant with the structured brief from chapter 4, step 6."
+     },
+     {
+      "type": "mono",
+      "text": "PACKAGING-CHANGE CONVERSATION — fictional training thread (copy-paste source)\nTen messages, oldest first. The attachment mentioned in message 5 is\nintentionally NOT supplied. No real people, companies, or projects.\nMatches the reference pages of the facilitated course deck.\n----------------------------------------------------------------------\n\n1. Sep 7, 09:00 — Maya, project lead\nTarget the packaging change for September 25. Luis, please confirm the trial plan.\n\n2. Sep 7, 10:20 — Luis, operations\nI can run the trial on September 18, subject to quality review.\n\n3. Sep 8, 08:40 — Priya, finance\nApproved provided the total trial cost does not exceed 18,000 and quality signs off.\n\n4. Sep 8, 11:00 — Ben, quality\nThe revised drawing is mentioned in the plan. Please send it before I can approve the trial.\n\n5. Sep 9, 13:15 — Elena, supplier contact\nThe updated drawing is attached. The material shipment will arrive on September 23.\n[Attachment referenced: revised packaging drawing — NOT supplied with this exercise]\n\n6. Sep 9, 15:00 — Maya, project lead\nSeptember 25 is no longer feasible. The proposed change date is now October 2. Luis, update the trial plan by September 16.\n\n7. Sep 10, 09:30 — Omar, logistics\nWho will pay the extra freight for the later material shipment?\n\n8. Sep 10, 14:10 — Luis, operations\nI will submit the revised trial plan by September 16. The new trial date is September 25."
+     },
+     {
+      "type": "mono",
+      "text": "9. Sep 11, 08:50 — Priya, finance\nThe 18,000 cap still applies. I have not approved additional freight charges.\n\n10. Sep 11, 11:20 — Maya, project lead\nPlan for October 2, pending Ben's quality sign-off. Luis owns the revised trial plan. We still need the freight decision.\n",
+      "caption": "Verbatim copy of Packaging_Change_Thread.txt (references/exercise-data/)."
+     }
+    ]
+   },
+   {
+    "heading": "A.3 · The supplier quotations (Quote_*.pdf)",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "The three quotation documents for steps 7–8, transcribed from the shipped PDFs (Quote_Alpha_Components.pdf, Quote_Bravo_Plastics.pdf, Quote_Cardinal_Metals.pdf). They are engineered to be non-comparable as quoted: different currencies, delivery terms, and inclusions."
+     },
+     {
+      "type": "mono",
+      "text": "Alpha Components Inc.\n2200 Commerce Park Drive · Austin, TX · USA\n\nQUOTATION — ref. AC-26-0912 · in response to RFQ-2026-114\nItem: EN-450 anodized aluminum enclosure, per drawing rev. D. Requested quantity: 5,000 units (option:\n10,000).\n\n  Unit price                               USD 13.90 / unit at 5,000 pcs · USD 12.60 / unit at 10,000 pcs\n\n  Tooling                                  USD 8,500 one-time (3 weeks)\n\n  Minimum order                            1,000 units\n\n  Lead time                                4 weeks after tooling approval\n\n  Payment terms                            Net 30\n\n  Warranty                                 12 months, workmanship\n\n  Shipping                                 FOB Austin (buyer arranges freight)\n\n  Validity                                 60 days\nNotes: Prices include standard black anodizing. Expedite program available (+8%, lead time 2 weeks).\n\nFictional document generated for the \"From Prompts to Agents\" training. Not a real company, offer, or price.",
+      "caption": "Transcription of Quote_Alpha_Components.pdf."
+     },
+     {
+      "type": "mono",
+      "text": "Bravo Plastics GmbH\nIndustriestraße 14 · Hamburg · Germany\n\nQUOTATION — ref. BP-2026-3341 · in response to RFQ-2026-114\nItem: EN-450 anodized aluminum enclosure, per drawing rev. D. Requested quantity: 5,000 units (option:\n10,000).\n\n  Price                                    EUR 11,900 per 1,000 units (5,000-unit tier) · EUR 10,950 per 1,000 units\n                                           (10,000-unit tier)\n\n  Tooling                                  EUR 14,000 — not included in the prices above\n\n  Minimum order                            5,000 units\n\n  Lead time                                9 weeks including tooling\n\n  Payment terms                            Net 60\n\n  Warranty                                 6 months\n\n  Shipping                                 EXW Hamburg (buyer collects; freight and import duties not included)\n\n  Validity                                 30 days\nNotes: Quoted in euros. Surface per DIN standard; color matching on request. Prices exclude VAT.\n\nFictional document generated for the \"From Prompts to Agents\" training. Not a real company, offer, or price.",
+      "caption": "Transcription of Quote_Bravo_Plastics.pdf."
+     },
+     {
+      "type": "mono",
+      "text": "Cardinal Metals Ltd.\nAttercliffe Works · Sheffield · United Kingdom\n\nQUOTATION — ref. CM/26/RFQ114 · in response to RFQ-2026-114\nItem: EN-450 anodized aluminum enclosure, per drawing rev. D. Requested quantity: 5,000 units (option:\n10,000).\n\n  Unit price                               USD 16.40 / unit at 5,000 pcs · USD 15.20 / unit at 10,000 pcs\n\n  Tooling                                  Waived for orders of 5,000 units or more\n\n  Minimum order                            2,500 units\n\n  Lead time                                6 weeks, all-in\n\n  Payment terms                            Net 45\n\n  Warranty                                 24 months, including anodizing defects\n\n  Shipping                                 DDP your dock — freight and duties included\n\n  Validity                                 90 days\nNotes: Price includes lot-level material certs and PPAP level 3 documentation.\n\nFictional document generated for the \"From Prompts to Agents\" training. Not a real company, offer, or price.",
+      "caption": "Transcription of Quote_Cardinal_Metals.pdf."
+     }
+    ]
+   },
+   {
+    "heading": "A.4 · The research pack (research-pack/)",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "The four reference files for step 9, verbatim. Two of them disagree on review cadence and one carries no date — deliberately: the exercise is scored on keeping that visible."
+     },
+     {
+      "type": "mono",
+      "text": "# Source 1 — Supplier Quality Manual, section 7 (excerpt)\nFictional Manufacturing Co. · Rev C · dated 2026-02-10 · pages 12-13\n\n7.1 Each approved supplier shall be reviewed **quarterly**. The review shall\ncover: delivered quality (return rate computed as total units returned divided\nby total units shipped in the period), inspection findings (defects found at\nincoming inspection, reported separately from returns), on-time performance,\nand the status of open corrective actions.\n\n7.2 Return rate and defect rate shall never be added together: they measure\ndifferent failure points (escaped versus caught).\n\n7.3 A supplier whose return rate exceeds twice the site average for two\nconsecutive reviews shall be placed on a corrective-action plan with a named\nowner and a re-measurement date. The plan format is defined in section 9.\n\n7.4 Data used in the review must reconcile to the receiving system's period\ntotals before the meeting. Unreconciled figures shall not be presented.",
+      "caption": "Verbatim copy of src1_quality_manual_excerpt.md."
+     },
+     {
+      "type": "mono",
+      "text": "# Source 2 — Plant quality newsletter (excerpt)\nFictional Manufacturing Co. · issue 2026-06 · page 2\n\n\"Since January the supplier board reviews scores **monthly** — the quarterly\ncycle hid slow drifts for up to ninety days,\" writes the plant quality lead.\nThe newsletter credits the shorter cycle with catching one supplier's packaging\nissue two months earlier than the previous cadence would have.\n\nIt also reminds readers that a review pack \"is a decision document, not a data\ndump\": one page per supplier, the trend chart first, and a recommendation the\nplant manager can approve or reject in the meeting.\n\nThe newsletter does not say whether the monthly cadence applies to every\nsupplier or only to those already on a corrective-action plan.",
+      "caption": "Verbatim copy of src2_quality_newsletter.md."
+     },
+     {
+      "type": "mono",
+      "text": "Source 3 - Supplier scorecard guideline (one-page internal aid)\nFictional Manufacturing Co. - undated\n\n- Score each supplier on four measures: return rate, defect rate, on-time\n  percent, and responsiveness to corrective actions.\n- Weight by units shipped when combining periods; never average monthly\n  percentages.\n- Show numerator and denominator next to every rate.\n- Missing data is shown as missing, never as zero.\n- The scorecard states the reporting period and the data source on its face.\n- Responsiveness is scored from corrective-action closure dates; the guideline\n  does not define the scale.",
+      "caption": "Verbatim copy of src3_scorecard_guideline.txt."
+     },
+     {
+      "type": "mono",
+      "text": "Source 4 — Eight-Discipline (8D) problem solving, one-pager (fictional)\nFictional Manufacturing Co. · training aid · dated 2025-11-03 · page 1\n\nWhen a supplier issue is confirmed, open an 8D: D1 team · D2 problem description with the data behind it\n(period, numerator, denominator) · D3 containment · D4 root cause · D5-D6 corrective action chosen and\nimplemented · D7 prevention · D8 closure with re-measurement. A supplier review that raises an issue\nwithout opening a numbered 8D, or closes one without re-measurement, is incomplete.\n\nThe one-pager does not state who may close an 8D, and gives no target closure time.",
+      "caption": "Transcription of src4_8d_onepager.pdf."
+     }
+    ]
+   },
+   {
+    "heading": "A.5 · The plain-language pack (plain-language/)",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "The reference exercise’s four topics — each file holds a SOURCE text to hand the assistant and a sample output produced with the plain-language prompt (chapter 4). Printed verbatim; run the prompt on a SOURCE before reading its sample."
+     },
+     {
+      "type": "h3",
+      "text": "inventory_replenishment.md"
+     },
+     {
+      "type": "mono",
+      "text": "# Topic: inventory replenishment (live demonstration)\n\n## SOURCE (give this to the assistant)\n\nInventory replenishment is the process of reordering stock before it runs out.\nA reorder point is the inventory level that triggers a new order; it is set by\nmultiplying expected daily demand by the supplier lead time in days, then adding\nsafety stock. Safety stock is extra inventory held to absorb demand spikes and\nlate deliveries; more variability in demand or lead time requires more safety\nstock. Ordering too late causes stockouts and lost sales; ordering too early or\ntoo much increases holding costs (storage, capital tied up, spoilage or\nobsolescence risk). The reorder quantity is a separate decision from the reorder\npoint and is often set to balance ordering costs against holding costs. These\nformulas assume demand history predicts future demand; a promotion, a new\ncustomer, or a supply disruption can invalidate that assumption, so reorder\nparameters should be reviewed periodically rather than set once.\n\n## SAMPLE OUTPUT (what a good result looks like)\n\n### The main idea\nReordering works best when you order **before** you run out — at a planned\nstock level called the reorder point — not when the shelf is already empty."
+     },
+     {
+      "type": "mono",
+      "text": "### When to reorder\nThe reorder point is the stock level that tells you \"order now.\" It has three\nparts: how much you use each day, how many days a new order takes to arrive,\nand a safety cushion on top. Example: if a bakery uses 10 bags of flour a day\nand delivery takes 4 days, it needs to reorder no later than 40 bags — plus\nthat cushion, which the next section explains.\n\n### The extra cushion\nThat extra is called **safety stock**: spare inventory that protects you when\nyou suddenly need more than usual, or when a delivery is late. The less\npredictable your needs or your supplier, the bigger the cushion should be.\n\n### The trade-off\nOrdering too late means running out and losing sales. Ordering too much means\npaying to store things — and some stock can spoil or go out of date. How MUCH\nto order each time is a separate decision from WHEN to order.\n\nAn analogy: the reorder point is like your car's fuel light. It comes on early\nenough to reach a gas station. But the analogy stops there — a fuel light is set\nonce by the carmaker, while a reorder point must be **reviewed regularly**,\nbecause it relies on the past predicting the future. A promotion, a new\ncustomer, or a supply problem can make yesterday's numbers wrong."
+     },
+     {
+      "type": "mono",
+      "text": "### Check yourself\n1. What sets the reorder point? *(Daily use multiplied by delivery days, plus\n   safety stock — all three parts, per the source formula.)*\n2. What is safety stock for? *(Demand spikes and late deliveries.)*\n3. Why review reorder points regularly? *(They assume the past predicts the\n   future; promotions, new customers, or disruptions break that assumption.)*\n\n### Fidelity note (part of the check)\nPreserved: the point/quantity distinction, the variability rule, both failure\ncosts, and the review caveat. No fixed numbers were invented; the bakery example\nillustrates the formula in the source.",
+      "caption": "Verbatim copy of plain-language/inventory_replenishment.md."
+     },
+     {
+      "type": "h3",
+      "text": "household_budgeting.md"
+     },
+     {
+      "type": "mono",
+      "text": "# Topic: household budgeting (self-study variation)\n\n## SOURCE (give this to the assistant)\n\nA household budget is a plan that allocates expected income to expected\nexpenses over a period, usually a month. Expenses are commonly split into\nfixed costs, which stay the same each period (rent, insurance, loan\npayments), and variable costs, which change with usage or choices\n(groceries, fuel, entertainment). A budget is balanced when planned expenses\nplus planned savings do not exceed expected income. Savings set aside for\nirregular but predictable expenses — annual insurance premiums, car\nmaintenance, holiday gifts — are called sinking funds; without them, these\nexpenses appear as surprises even though they are foreseeable. An emergency\nfund is different: it covers genuinely unpredictable events such as job loss\nor urgent repairs, and a common guideline is three to six months of\nessential expenses. Guidelines such as allocating 50% of income to needs,\n30% to wants, and 20% to savings are starting points, not rules; households\nwith high fixed costs or irregular income must adapt the ratios. A budget\nbased on estimated numbers drifts from reality, so spending should be\nreviewed against the plan regularly, and the plan revised when income or\ncircumstances change.\n\n## SAMPLE OUTPUT (what a good result looks like)\n\n### The main idea\nA budget is a plan made **before** the money is spent: you decide where your\nincome should go each month, instead of finding out afterwards where it went."
+     },
+     {
+      "type": "mono",
+      "text": "### Two kinds of spending\nSome costs are the same every month — rent, insurance, loan payments. These\nare called **fixed costs**. Other costs change depending on what you do —\nfood, fuel, fun. These are **variable costs**. A budget lists both and adds\nplanned savings. The plan works when all of it together is not more than the\nmoney coming in.\n\n### Saving for things you can see coming\nSome expenses do not happen every month but are not surprises either: a\nyearly insurance bill, car repairs, holiday gifts. Money set aside a little\nat a time for these is called a **sinking fund**. Without one, a bill you\ncould have predicted feels like an emergency.\n\n### Saving for things you cannot see coming\nA real **emergency fund** is for events you cannot predict — losing a job,\nan urgent repair. A common guideline is enough to cover three to six months\nof essential costs. Guideline, not rule: the same is true of the well-known\n50/30/20 split (needs/wants/savings). If your rent is high or your income\nchanges month to month, your numbers will look different — and that is fine.\n\nAn analogy: a budget is like a shopping list. You write it before entering\nthe store, so the store does not decide for you. But the analogy stops\nthere — a shopping list is finished after one trip, while a budget must be\n**checked and revised regularly**, because it is built on estimates that\ndrift away from real life."
+     },
+     {
+      "type": "mono",
+      "text": "### Check yourself\n1. What is the difference between fixed and variable costs? *(Fixed stay the\n   same each period, like rent; variable change with usage or choices, like\n   groceries.)*\n2. What is a sinking fund for? *(Irregular but predictable expenses —\n   foreseeable bills that would otherwise feel like surprises.)*\n3. Is the 50/30/20 split a rule? *(No — a starting point; households with\n   high fixed costs or irregular income must adapt the ratios.)*\n\n### Fidelity note (part of the check)\nPreserved: the fixed/variable distinction, the sinking-fund vs\nemergency-fund distinction, the \"guideline not rule\" caveat on both the\nthree-to-six-months figure and the 50/30/20 split, and the review caveat.\nNo numbers were invented beyond those in the source.",
+      "caption": "Verbatim copy of plain-language/household_budgeting.md."
+     },
+     {
+      "type": "h3",
+      "text": "water_cycle.md"
+     },
+     {
+      "type": "mono",
+      "text": "# Topic: the water cycle (self-study variation)\n\n## SOURCE (give this to the assistant)\n\nThe water cycle describes the continuous movement of water on, above, and below\nEarth's surface. Solar energy drives evaporation from oceans, lakes, and soil;\nplants release additional water vapor through transpiration. As moist air rises\nand cools, vapor condenses into droplets, forming clouds. When droplets grow\nheavy enough they fall as precipitation — rain or snow depending on temperature.\nPrecipitation either runs off into rivers and eventually the ocean, soaks into\nthe ground to recharge groundwater, or is stored temporarily as ice and snow.\nResidence times vary enormously: water may stay in the atmosphere about nine\ndays on average, but in glaciers or deep aquifers for centuries or longer. The\ncycle conserves total water: it changes form and location but is neither created\nnor destroyed in the process.\n\n## SAMPLE OUTPUT (what a good result looks like)\n\n### The main idea\nEarth keeps reusing the same water, moving it in a loop between the sea, the\nsky, and the land."
+     },
+     {
+      "type": "mono",
+      "text": "### How the loop works\nThe sun warms water in oceans and lakes and turns some of it into **water\nvapor** — water in the form of a gas. Plants add vapor to the air too. High in\nthe sky, the vapor cools and turns back into tiny droplets that make clouds.\nWhen droplets get heavy, they fall as rain — or snow, when it is cold. That\nwater then flows to rivers and the sea, soaks into the ground, or is stored as\nice, and the loop begins again.\n\n### The part people miss\nWater does not move through the loop at one speed. A drop may spend about nine\ndays in the air — but centuries locked in a glacier or deep underground.\n\nAn analogy: the cycle is like a giant recycling system — nothing is thrown\naway, everything is reused. The analogy stops here: real recycling changes\nproducts into new products, while the water cycle keeps the water itself the\nsame and only changes its **form** (liquid, vapor, ice) and its **place**.\n\n### Check yourself\n1. What powers the water cycle? *(The sun's energy.)*\n2. Name the three places rain can go after it falls. *(Rivers/sea, into the\n   ground, stored as ice or snow.)*\n3. Is new water created in the cycle? *(No — the same water changes form and\n   place.)*\n\n### Fidelity note (part of the check)\nPreserved: transpiration (as \"plants add vapor\"), the residence-time contrast,\nand conservation of water. Simplification flagged in review: \"about nine days\"\nis an average, not a rule — the word \"may\" keeps that honest.",
+      "caption": "Verbatim copy of plain-language/water_cycle.md."
+     },
+     {
+      "type": "h3",
+      "text": "internet_message.md"
+     },
+     {
+      "type": "mono",
+      "text": "# Topic: how an internet message travels (self-study variation)\n\n## SOURCE (give this to the assistant)\n\nWhen a message is sent over the internet, it is first divided into packets —\nsmall blocks of data, each carrying the destination address and a sequence\nnumber. Routers pass each packet toward its destination hop by hop, choosing a\nnext step from routing tables; packets from the same message may take different\npaths and arrive out of order. The receiving device uses the sequence numbers to\nreassemble the message and requests retransmission of any packet that was lost.\nThis design, packet switching, lets many conversations share the same lines\nefficiently and routes around failures, but it does not guarantee a fixed path\nor arrival time; delays vary with congestion. Protocols such as TCP provide the\nchecking and reordering that make delivery reliable on top of this best-effort\nnetwork.\n\n## SAMPLE OUTPUT (what a good result looks like)\n\n### The main idea\nThe internet does not send your message in one piece. It cuts the message into\nsmall pieces, sends each piece separately, and puts them back together at the\nother end."
+     },
+     {
+      "type": "mono",
+      "text": "### The journey\nEach piece is called a **packet** — a small block of data with the delivery\naddress and its place in line written on it. Machines called **routers** pass\neach packet along, one hop at a time, each choosing the next step. Pieces of\nthe same message can travel different roads and arrive in the wrong order. The\nreceiving device uses the numbers to put them back in order — and asks for a\nnew copy of any piece that got lost.\n\n### Why do it this way\nSharing the lines packet by packet lets millions of conversations use the same\nwires, and traffic can steer around broken links. The cost: no piece is\npromised a fixed road or arrival time — busy moments mean delays. A set of\nrules called **TCP** does the checking and re-ordering that makes delivery\ndependable anyway.\n\nAn analogy: it is like mailing a long letter as many postcards, each numbered,\npossibly traveling by different routes. The analogy stops here: the post office\nnever notices a lost postcard, but the internet's rules detect a missing packet\nand automatically ask the sender for it again.\n\n### Check yourself\n1. What two things are written on every packet? *(The destination address and\n   its sequence number.)*\n2. Why can pieces arrive out of order? *(They may take different paths.)*\n3. What happens when a piece is lost? *(The receiver requests it again.)*"
+     },
+     {
+      "type": "mono",
+      "text": "### Fidelity note (part of the check)\nPreserved: best-effort delivery, variable delay under congestion, and TCP as\nthe reliability layer. Nothing promises speed or a fixed route — the source's\n\"no guarantee\" condition survives in \"no piece is promised a fixed road.\"",
+      "caption": "Verbatim copy of plain-language/internet_message.md."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Answer keys: check yourself after attempting",
+  "kicker": "APPENDIX B · ANSWER KEYS",
+  "intro": "The worked keys for every exercise — the same material a facilitator holds. In a live session these stay with the instructor; for self-study, attempt each exercise first, then grade your result here. Reading a key before attempting removes exactly the practice the exercise exists to give.",
+  "sections": [
+   {
+    "heading": "B.1 · Supplier analysis — the worked key",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "The full expected results for the data arc, computed from the dataset (they rebuild with it)."
+     },
+     {
+      "type": "table",
+      "cols": [
+       "Item",
+       "Expected result"
+      ],
+      "rows": [
+       [
+        "Profile",
+        "144 detail rows; one TOTAL row to exclude (and reconcile against); one blank Inspection_Hours value (2025-12, Austin, Alpha Components) — missing, not zero."
+       ],
+       [
+        "Totals",
+        "224,902 units shipped · 432 returns (overall 0.192%) · 2,207 defect occurrences (a separate measure, never added to returns)."
+       ],
+       [
+        "Ranking",
+        "Bravo Plastics 0.348% (262 / 75,184) — highest, ≈ 3.5× Alpha · Cardinal Metals 0.129% (96 / 74,658) · Alpha Components 0.099% (74 / 75,060)."
+       ],
+       [
+        "Trend (follow-up)",
+        "Bravo is elevated and volatile, not steadily worsening: peak ≈0.737% (2026-04), quiet months ≈0.14% (2026-06/07), ≈0.465% (2026-08). Patterns only — any causal claim fails."
+       ],
+       [
+        "Denominator lesson",
+        "No overall on-time delivery rate can be computed: On_Time_Percent has no delivery counts behind it. An averaged percentage must be labeled an unweighted mean of monthly percentages."
+       ],
+       [
+        "Dashboard check",
+        "Berlin × Bravo Plastics, 2026-03..2026-08 → exactly 6 records, 8,575 units, 21 returns, 0.245% — in tiles, chart, AND table."
+       ],
+       [
+        "Wrong turns",
+        "Averaging monthly percentages · adding defects to returns · treating the blank as zero · including the TOTAL row · claiming a cause the data cannot show."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "heading": "B.2 · Email brief — the expected result and the four traps",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "The instructor key for the email exercise, verbatim."
+     },
+     {
+      "type": "mono",
+      "text": "# INSTRUCTOR KEY — Packaging-change thread: expected brief\n\nFacilitator material. Do not hand out before the exercise. Source:\nPackaging_Change_Thread.txt (10 fictional messages, Sep 7–11).\n\n## Expected current-state brief (three sentences)\n\nThe packaging change is now planned for **October 2** (superseding September 25),\n**pending Ben's quality sign-off**, which itself waits on review of the revised\ndrawing. The trial is targeted for **September 25** (Luis, msg 8 — superseding the\noriginal September 18), with Luis's **revised trial plan due September 16** and the\nmaterial shipment arriving September 23. Finance approval stands **only within the\n18,000 cost cap**, and **freight responsibility for the later shipment is unresolved**.\n\n## Decisions vs. proposals\n\n| Item | Status | Conditions | Evidence |\n|---|---|---|---|\n| Change date October 2 | Proposed/planned — NOT finally approved | Ben's quality sign-off | msg 6, msg 10 |\n| Trial budget | Approved | ≤ 18,000 AND quality sign-off; no freight extras approved | msg 3, msg 9 |\n| Trial date September 25 | Current plan (supersedes Sep 18) | revised plan due Sep 16 | msg 2 → msg 8 |\n| Original change date September 25 | Superseded | — | msg 1 → msg 6 |\n\n## Action table (expected)"
+     },
+     {
+      "type": "mono",
+      "text": "| Task | Owner | Due | Status | Dependency | Evidence |\n|---|---|---|---|---|---|\n| Submit revised trial plan | Luis | Sep 16 | Committed | — | msg 6, 8, 10 |\n| Review drawing, quality sign-off | Ben | Not stated | Open | access to the drawing | msg 4, 10 |\n| Decide freight responsibility | Not stated | Not stated | Open | — | msg 7, 9, 10 |\n| Provide revised drawing to Ben | Elena/Maya | Not stated | Claimed sent; attachment not accessible | — | msg 5 |\n\n## The four traps (all must be caught)\n\n1. **Changed dates** — change date Sep 25 → Oct 2 (msg 6); trial date Sep 18 → Sep 25\n   (msg 8). Oct 2 is the *change* date, Sep 25 the *trial* date — do not conflate.\n2. **Conditional approval** — Priya's approval is conditional (≤18,000 + quality\n   sign-off) and explicitly excludes extra freight (msg 9). \"Approved\" alone is wrong.\n3. **Unresolved question** — freight responsibility (msg 7) is never answered.\n4. **Missing attachment** — the revised drawing is referenced (msg 5) but not\n   supplied; its content must not be summarized, and Ben's sign-off still depends on it.\n\nAlso correct: \"Not stated\" for the freight owner and Ben's due date; no final\napproval of October 2 exists anywhere in the thread; any reply is a draft for human\nreview, never sent automatically.",
+      "caption": "Verbatim copy of instructor-keys/Packaging_Change_Expected_Brief.md."
+     }
+    ]
+   },
+   {
+    "heading": "B.3 · Quotation comparison — the key",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "The expected extraction and normalized values — and the expected outcome: no best quote while the basis is incomplete."
+     },
+     {
+      "type": "mono",
+      "text": "# Instructor key — quotation extraction and comparison\n\nStep 1 (extraction) is complete when every commercial value is verbatim,\ncited to its source file, and gaps read \"Not stated\" — notably: Alpha freight\namount and taxes; Bravo freight, duties, and the EUR→USD basis; Cardinal taxes.\n\nStep 2 (comparison) at the 5,000-unit tier, tooling amortized over 5,000:\n- Alpha: USD 13.90 + 8,500/5,000 = **USD 15.60 / unit**, freight NOT included.\n- Bravo: EUR 11,900/1,000 + 14,000/5,000 = **EUR 14.70 / unit**, freight and\n  duties NOT included, VAT excluded — NOT convertible without a supplied rate.\n- Cardinal: USD 16.40 + 0 = **USD 16.40 / unit**, freight and duties INCLUDED\n  (DDP), certs + PPAP included, longest warranty and validity.\n\nThe correct conclusion is that NO best quote can be named yet: the blocking\ngaps are the EUR→USD basis, Alpha/Bravo freight (and Bravo duties), and tax\ntreatment. A submission that crowns a winner without resolving these fails\nthe exercise; one that ranks by stated unit price alone falls for the trap.",
+      "caption": "Verbatim copy of instructor-keys/Quote_Comparison_Key.md."
+     }
+    ]
+   },
+   {
+    "heading": "B.4 · Research workbook — the key",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "What a complete evidence workbook shows, including the planted conflict kept visible."
+     },
+     {
+      "type": "mono",
+      "text": "# Instructor key — research workbook\n\nTraceability: every Evidence row cites file + page/section and quotes a short\nexcerpt; nothing appears that cannot be traced (12 expected rows, ±2).\n\nMust-catch items:\n1. The CADENCE CONFLICT — manual quarterly (2026-02) vs newsletter monthly\n   (2026-06). Kept as two rows, surfaced in Synthesis as a decision, never\n   silently merged.\n2. \"Not stated\" entries — undated guideline; responsiveness scale; 8D closure\n   authority and target time; monthly-cadence scope; §9 plan format.\n3. Separate-measures and sums-not-averages rules carried into the synthesis.\n4. Synthesis ordered foundations → content → escalation → conflict → gaps →\n   implication; Sources sheet indexes all four files.\n\nA workbook that invents a fifth source, fills gaps with guesses, or resolves\nthe cadence conflict by picking one side without flagging it fails the check.",
+      "caption": "Verbatim copy of instructor-keys/Research_Workbook_Key.md."
      }
     ]
    }
