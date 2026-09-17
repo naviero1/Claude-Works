@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Supplier Quality Dashboard — the prepared output for exercise 2 (Round 17).
-# Reads the workbook Data tab, embeds the 144 clean detail rows, and emits one
+# Reads the analyzed workbook’s Data sheet, embeds the 144 clean detail rows, and emits one
 # self-contained offline HTML file with the controls the exercise teaches.
 # The page runs a visible SELF-CHECK on load: Berlin x Bravo Plastics,
 # 2026-03..2026-08 must equal 8,575 units / 21 returns / 0.245% (verified
@@ -9,7 +9,7 @@ import os, json, datetime
 import openpyxl
 
 HERE = os.path.dirname(__file__)
-wb = openpyxl.load_workbook(os.path.join(HERE, '..', 'deliverables', 'Course_Workbook.xlsx'))
+wb = openpyxl.load_workbook(os.path.join(HERE, '..', 'references', 'exercise-data', 'Supplier_Data_Analyzed.xlsx'))
 ws = wb['Data']
 rows = []
 for r in ws.iter_rows(min_row=2, values_only=True):
@@ -93,7 +93,7 @@ HTML = """<!DOCTYPE html>
   Defect rate = sum(Defects_Found) ÷ sum(Units_Shipped) · rates shown to three decimals; sums, never averaged row percentages.
   Defects (caught at inspection) and returns (escaped to customers) are separate measures.
   One Inspection_Hours value is missing in the source and is shown blank — missing is not zero.<br>
-  <b>Data snapshot</b> — embedded from Course_Workbook.xlsx (Data tab, 144 detail rows; TOTAL row excluded), generated __TODAY__.
+  <b>Data snapshot</b> — embedded from the returned Supplier_Data_Analyzed.xlsx (Data sheet, 144 detail rows; TOTAL row excluded), generated __TODAY__.
   This file is a static snapshot, not a live reporting system — regenerate it when the source changes. Works offline; no network calls.
   Fictional training data: no real company, suppliers, or prices. &nbsp; <span id="selfcheck"></span>
 </footer>

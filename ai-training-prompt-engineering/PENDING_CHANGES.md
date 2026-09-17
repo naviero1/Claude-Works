@@ -1777,3 +1777,27 @@ Artifacts regenerated: 60-min deck, workbook, field guide, course PDF,
 legacy deck, dashboard. Agents_Link replies 02 (pass-01 results, slimmed per
 the no-detailed-data channel rule) and 03 (cleanup understanding) posted with
 owner approval; mirrored with iteration 03 in notes/agents/.
+
+## ITERATION 05 (2026-09-17, Beebop verifier round, owner-approved) · APPLIED
+
+The application block redesigned as the nine-step Excel-first sequence on one
+dataset (single intake at the very beginning — owner's rule). Deck slides 33–44
+rewritten (live 70 unchanged; 103 total; course-log → p102, quote extension →
+p103; answer keys off participant slides, into notes + KEY tabs). New exercise
+assets: Supplier_Data_Exercise.xlsx (participant input) · Supplier_Data_
+Analyzed.xlsx (prepared returned workbook, native charts, reconciled) ·
+Quote_Comparison_Workbook.xlsx (Raw Extraction verbatim-verified against the
+three Quote_*.pdf; Normalized Comparison with the engineered no-winner
+outcome) · research-pack/ + Research_Workbook.xlsx (planted cadence conflict
+kept visible) · two new instructor keys. course_prompts.json → 11 canonical
+prompts in training order; workbook tabs rebuilt + 4 new tabs (Excel-Charts,
+Quote-Extract, Quote-Compare, Research); builder 9 cards / configurator 9
+families (verbatim-tested); catalog +4 requirement families; dashboard input
+switched to the returned analyzed workbook; course PDF Part 4 → nine steps;
+facilitation plan → 72:50 full content + the owner-approved 60-minute flex
+rule (core = data arc + email; quotes/research skippable). Plain-language →
+reference layer, fourth topic (household budgeting) added. Iteration-04
+repairs included: slide-76 typography restored run-level; Yang citation
+canonical everywhere (0 stale). Behavioral evidence: builder 12/12 + verbatim
+19/19, dashboard 14/14 + reversed 4/4, configurator recalc 392 formulas /
+0 errors; renders of all rewritten slides QA'd.

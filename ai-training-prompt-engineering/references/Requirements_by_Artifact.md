@@ -141,6 +141,81 @@ Accessible language must preserve meaning, conditions, and useful detail.
 
 **Missing information and boundaries:** If [gap/conflict], [state it, ask, or stop]. Actions requiring review: [actions].
 
+## Excel analysis and charts: requirements to choose
+
+The assistant edits the uploaded workbook and returns it — charts must stay editable and every number traceable.
+
+| Requirement type | Example instruction | How to check it |
+|---|---|---|
+| Input contract | Work on the single uploaded data-only workbook; use its detail rows and note the TOTAL row and any missing values. | Compare the file the assistant describes with the one uploaded. |
+| Data preservation | Keep the original data sheet unchanged; add analysis on a new Summary sheet. | Diff the returned data sheet against the source. |
+| Summary content | The Summary sheet holds a supplier comparison table: units shipped, units returned, return rate, defect rate. | Check every listed column exists with a value per supplier. |
+| Metric definitions | State each metric's formula on the sheet; rates from sums, never averaged percentages; returns and defects separate. | Read the definitions and recompute one rate from the stated formula. |
+| Traceable logic | Use formulas, PivotTables, or other inspectable Excel logic — no hard-coded results. | Click a summary cell and follow its formula to the data rows. |
+| Native editable charts | Add a native Excel column chart (supplier comparison) and line chart (rate by month); no pasted images. | Click each chart and edit its source range or PivotTable. |
+| Reporting period | State the inclusive period the analysis covers on the Summary sheet. | Compare the stated period with the data's first and last months. |
+| Missing-value handling | Preserve missing values as missing; disclose them; never zero-fill. | Locate the known missing cell and its disclosure. |
+| Reconciliation | Reconcile summary totals to the source before returning the file. | Compare the summary totals with the source TOTAL row. |
+| Limitations note | Include one short note on what the analysis cannot claim (no causes; any absent denominators). | Read the note; challenge one unsupported claim. |
+| Delivery and naming | Return an editable Excel file with the agreed name (e.g. Supplier_Data_Analyzed.xlsx). | Open the returned file in Excel and edit a cell. |
+| Rounding and precision | Retain calculation precision; round only at display, stating the display precision. | Check a displayed rate against the underlying ratio. |
+
+## Quotation extraction: requirements to choose
+
+Step one is faithful extraction with provenance — no normalizing, ranking, or recommending yet.
+
+| Requirement type | Example instruction | How to check it |
+|---|---|---|
+| Source scope | Use only the attached quotation files; name each file used. | Compare the named files with those supplied. |
+| Row grain | One row per quotation on a Raw Extraction sheet. | Count rows against the number of quotations. |
+| Field coverage | Capture supplier, scope, currency, quantity basis, unit price, tooling/one-time charges, freight, taxes, lead time, payment terms, validity, exclusions. | Check every field column exists for every row. |
+| Verbatim fidelity | Copy values exactly as stated — original currencies, quantity bases, and units. | Compare three extracted values character-for-character with the source. |
+| No early normalization | Do not convert, rank, or recommend in this step. | Scan the sheet for any converted value or judgment. |
+| Gap honesty | Write "Not stated" where the quotation is silent — never infer. | Check known silent fields (e.g. a missing freight amount) read "Not stated". |
+| Source citation | Cite source file and page for every extracted commercial value. | Open one citation and find the value on that page. |
+| Exclusions captured | Record what each quote excludes (VAT, freight, duties) in its own field. | Compare exclusions with the source wording. |
+| Missing-information column | List per quotation what a fair comparison still needs. | Check the column names the real gaps, not "none" by default. |
+| Traceable structure | Keep one header row, filters on, and no merged data cells. | Sort and filter the sheet without breaking it. |
+| Delivery | Deliver an editable Excel workbook with the Raw Extraction sheet named. | Open and edit the returned file. |
+
+## Quotation comparison: requirements to choose
+
+Step two normalizes only what has a stated basis — and refuses a winner while the basis is incomplete.
+
+| Requirement type | Example instruction | How to check it |
+|---|---|---|
+| Basis continuity | Build the Normalized Comparison sheet from the Raw Extraction sheet, not from the PDFs again. | Trace one comparison cell to its extraction row. |
+| Conversion discipline | Normalize quantities, units, or currencies only where the conversion rule or basis is supplied; otherwise keep the original and flag it. | Find the unconverted currency and its flag. |
+| Visible originals | Keep every original extracted value visible alongside any normalized figure. | Toggle between sheets and match values. |
+| Comparable-total formulas | Show the formula for each comparable total (e.g. unit price + tooling amortized over the stated quantity). | Click the total and read its formula. |
+| Amortization basis | State the quantity over which one-time charges are spread. | Recompute one amortized total by hand. |
+| Scope flags | Flag differences in scope, assumptions, exclusions, and commercial terms per supplier. | Check the flags against the extraction sheet's exclusions. |
+| Commercial terms | Compare warranty, lead time, payment terms, and validity — not price alone. | Check the non-price terms appear for every supplier. |
+| Recommendation gate | Identify no best quote until the comparison basis is complete. | Confirm no winner is named while gaps remain. |
+| Blocking-gap list | List the missing information and unresolved questions that prevent a fair recommendation. | Check the list against the known gaps (conversion basis, freight, taxes). |
+| Traceability | Every normalized number traces to an extracted value plus a stated rule. | Pick one number and reproduce it. |
+| Delivery | Deliver the comparison in the same editable workbook as the extraction. | Open the workbook and find both sheets. |
+
+## Research workbooks: requirements to choose
+
+References in, one traceable spreadsheet out — provenance survives, conflicts stay visible.
+
+| Requirement type | Example instruction | How to check it |
+|---|---|---|
+| Source restriction | Use only information traceable to the supplied reference files. | Spot-check three claims against their cited sources. |
+| Evidence row grain | One claim, instruction, or finding per Evidence row. | Scan for rows that bundle multiple claims. |
+| Evidence columns | ID, topic, claim, source file, author/organization, date, page or section, short excerpt, plain-language interpretation, caveat, relevance to the research question, confidence/status, open question. | Check every column exists and is used. |
+| Excerpt fidelity | Keep supporting excerpts short and verbatim. | Compare one excerpt with the source text. |
+| Interpretation separation | Keep the plain-language interpretation separate from the quoted claim. | Check the two columns are not merged or blended. |
+| Caveat preservation | Carry each source's limits and conditions into the caveat column. | Compare a caveat with the source's own qualifier. |
+| Conflict handling | Keep conflicting claims as separate rows and surface the conflict in the Synthesis — never silently merge. | Find the known conflict and its Synthesis entry. |
+| Gap honesty | Write "Not stated" for missing dates, scales, or scopes; log open questions. | Check undated sources read "Not stated", not a guessed date. |
+| No invented citations | Every source row corresponds to a supplied file; no external references appear. | Compare the Sources sheet with the supplied pack. |
+| Synthesis ordering | Order findings from foundations to implications; identify agreements, conflicts, and gaps. | Read the Synthesis top to bottom against that order. |
+| Sources index | Index every supplied file with type, author, date, and a one-line description. | Count index rows against the pack. |
+| Usability | Add filters, freeze the header row, wrap long text. | Filter a column and scroll with the header visible. |
+| Delivery | Deliver an editable Excel workbook; if the tool cannot, separate CSV tables per sheet. | Open the file (or CSVs) and edit a cell. |
+
 ## How this catalog is used (maintenance map)
 
 This file is the shared source for every artifact that presents requirement

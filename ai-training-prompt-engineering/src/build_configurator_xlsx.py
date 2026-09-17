@@ -210,7 +210,7 @@ rows = [
     ('b', f"v{meta['meta']['version']} · {meta['meta']['date']} · owner {meta['meta']['owner']} · generated from prompt-library/taxonomy/ (the source of truth — edit there, rebuild with src/build_configurator_xlsx.py)"),
     ('s', ''),
     ('h2', 'How to use'),
-    ('b', 'START ON THE Tasks SHEET: pick one of the five course tasks, mark the requirements you need Yes, edit the yellow wording, and copy the assembled prompt (or the course prompt directly). The sheets below are the advanced, element-level builder.'),
+    ('b', 'START ON THE Tasks SHEET: pick one of the nine course task families (listed in training order), mark the requirements you need Yes, edit the yellow wording, and copy the assembled prompt (or the course prompt directly). The sheets below are the advanced, element-level builder.'),
     ('b', '1. Advanced: open Builder_Gen (chat prompts) or Builder_Agent (agent mission briefs).'),
     ('b', '2. Fill the YELLOW cells only: pick options from the dropdowns; add or override with custom text. Attributes marked "choice 1/2/3" accept several picks.'),
     ('b', '3. The prompt assembles itself on Prompt_Gen / Prompt_Agent — copy cell A4 into your AI tool.'),
@@ -257,7 +257,7 @@ for row in gb_ws.iter_rows(min_row=2, max_col=6):
         row[4].value = 'Example (replace): what is the return rate by site for Q2 vs the 2.0% target?'
         break
 
-# ---------------- R17: Tasks sheet (the five course task families) ----------------
+# ---------------- Tasks sheet (the course task families, training order) ----------------
 def parse_catalog_table(md, heading):
     i = md.find('## ' + heading)
     assert i >= 0, heading
@@ -276,15 +276,23 @@ catalog = open(os.path.join(here, '..', 'references', 'Requirements_by_Artifact.
 cps = json.load(open(os.path.join(here, 'assets', 'course_prompts.json')))
 TASKS_CFG = [
     ('Analyze spreadsheet data', 'analyze', 'Spreadsheet analysis: requirements to choose',
-     'Help [reader] decide [decision] using [file / sheet], period [range], detail rows only.'),
+     'Help [reader] decide [decision] using [file], detail rows only — inspect first, then wait.'),
+    ('Excel Analysis and Charts', 'excel_charts', 'Excel analysis and charts: requirements to choose',
+     'Update [workbook] and return it as [name].xlsx with a Summary sheet and native editable charts.'),
     ('Build an interactive dashboard', 'dashboard', 'HTML dashboards: requirements to choose',
-     'A self-contained offline dashboard for [audience] to explore [data] and answer [question].'),
+     'A self-contained offline dashboard from [returned workbook] for [audience] to answer [question].'),
     ('Prepare a presentation', 'present', 'Presentations: requirements to choose',
-     'A [n]-slide deck for [audience] to decide [decision], using only [verified source].'),
+     'A five-slide deck for [audience] to support [decision], using only the verified findings.'),
     ('Summarize an email conversation', 'email', 'Email summaries: requirements to choose',
-     'Brief the conversation about [topic] so [reader] knows the current state and what they owe.'),
+     'Organize the thread about [topic]: choose the result you need, then run the structured brief.'),
+    ('Quote Extraction', 'quote_extract', 'Quotation extraction: requirements to choose',
+     'Extract the attached quotation files into a Raw Extraction sheet — no normalizing or ranking yet.'),
+    ('Quote Comparison', 'quote_compare', 'Quotation comparison: requirements to choose',
+     'From the Raw Extraction sheet, build a Normalized Comparison — formulas visible, gaps listed.'),
+    ('Research Spreadsheet', 'research', 'Research workbooks: requirements to choose',
+     'Build a research workbook for [research question] from the attached references — traceable only.'),
     ('Explain a topic clearly', 'explain', 'Plain-language documents: requirements to choose',
-     'Explain [topic] from [source] for a reader at [reading level] who needs to [do / understand].'),
+     'Explain [topic] from [source] at about a fifth-grade reading level — fidelity preserved.'),
 ]
 ts = wb.create_sheet('Tasks', 1)
 ts.column_dimensions['A'].width = 10
@@ -296,7 +304,7 @@ ts.column_dimensions['F'].width = 2
 yn = DataValidation(type='list', formula1='"Yes,No"', allow_blank=True)
 ts.add_data_validation(yn)
 tr = 1
-c0 = ts.cell(tr, 1, 'THE FIVE COURSE TASKS — mark Include? = Yes, edit the yellow wording, copy the ASSEMBLED PROMPT (column E). A simple task needs only a few rows.')
+c0 = ts.cell(tr, 1, 'THE COURSE TASK FAMILIES, IN TRAINING ORDER — mark Include? = Yes, edit the yellow wording, copy the ASSEMBLED PROMPT (column E). A simple task needs only a few rows.')
 c0.font = Font(name='Arial', size=12, bold=True, color=TEAL_D); tr += 2
 for name, pid, heading, hint in TASKS_CFG:
     reqs = parse_catalog_table(catalog, heading)
@@ -306,9 +314,10 @@ for name, pid, heading, hint in TASKS_CFG:
         ts.cell(tr, c).fill = FILL_HEAD
     tr += 1
     ts.cell(tr, 2, 'The course prompt (copy-ready):').font = F_ATTR
-    pc = ts.cell(tr, 3, cps[pid]); pc.font = F_MONO; pc.alignment = WRAP
+    cp_text = cps[pid] if pid != 'analyze' else ('PROMPT 1 — INSPECT:\n' + cps['inspect'] + '\n\nPROMPT 2 — ANALYZE:\n' + cps['analyze'])
+    pc = ts.cell(tr, 3, cp_text); pc.font = F_MONO; pc.alignment = WRAP
     # row height sized to the prompt (~86 chars/line at this width) so no line clips
-    ts.row_dimensions[tr].height = max(88, 14 * (len(cps[pid]) // 86 + 2))
+    ts.row_dimensions[tr].height = max(88, 14 * (len(cp_text) // 86 + 2))
     tr += 1
     ts.cell(tr, 2, 'Your task line (edit):').font = F_ATTR
     tl = ts.cell(tr, 3, hint); tl.fill = FILL_INPUT; tl.alignment = WRAP; tl.border = THIN
@@ -350,5 +359,5 @@ ts.column_dimensions['G'].hidden = True
 ts.freeze_panes = 'A3'
 
 wb.save(out)
-print('configurator written:', out, '(Tasks sheet: 5 task families,',
+print('configurator written:', out, f'(Tasks sheet: {len(TASKS_CFG)} task families,',
       sum(len(parse_catalog_table(catalog, h)) for _, _, h, _ in TASKS_CFG), 'requirement rows)')

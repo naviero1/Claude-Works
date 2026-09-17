@@ -651,9 +651,146 @@ ORDER = ['INDEX', 'Data', 'Data_Clean', '1-Analyze-Data', '2-Build-Dashboard', '
 rest = [s.title for s in wb._sheets if s.title not in ORDER]
 wb._sheets = [wb[t] for t in ORDER + rest]
 
+# ===========================================================================
+# ITERATION-05 TAB REFRESH (verifier round, Sep 2026). The live application
+# block became a nine-step Excel-first sequence on one dataset. The task tabs
+# above are rebuilt here with the canonical prompts from assets/
+# course_prompts.json (single source, shared with the deck, the builder, and
+# the configurator), and four tabs are added under the exact names the deck
+# cites in its slide bands: Excel-Charts, Quote-Extract, Quote-Compare,
+# Research. The INDEX is rewritten to the training order.
+# ===========================================================================
+import json as _json
+cps = _json.load(open(os.path.join(os.path.dirname(__file__), 'assets', 'course_prompts.json')))
+
+for _t in ('1-Analyze-Data', '2-Build-Dashboard', '3-Present-Findings',
+           '4-Summarize-Email', '5-Explain-Clearly', 'INDEX'):
+    wb.remove(wb[_t])
+
+prompt_tab('1-Analyze-Data', 'Data analytics exercise · Analyze (deck slides 34–35) — inspect first, then the checked analysis (uses Supplier_Data_Exercise.xlsx)', [
+    ('PROMPT 1 · INSPECT', cps['inspect'],
+     'Inspect before calculating: structure, row grain, quirks. The TOTAL row and the one missing Inspection_Hours value must be FOUND, not stumbled over.'),
+    ('PROMPT 2 · ANALYZE', cps['analyze'],
+     'Each line fixes one named weakness: source scope · row grain · period · metric definition · denominator rule · missing-data rule · separate measures · reconciliation · limitation. (Requirement types: data & provenance, method & business rules, quality & acceptance.)'),
+    ('FOLLOW-UP', cps['followup'],
+     'One question deeper in the same chat — the context is already loaded and the scope stays pinned; a fresh chat would have to re-earn both.'),
+], note=f'Check yourself AFTER attempting: 144 detail rows · {TOT_U:,} shipped · {TOT_R} returns · {TOT_D:,} defect occurrences (a separate measure) · highest return rate Bravo Plastics ≈ {SUP_AGG["Bravo Plastics"]["ret"]/SUP_AGG["Bravo Plastics"]["u"]*100:.3f}%. Full worked key: tab KEY-Analysis (instructor). This analysis feeds every following step of the data arc — same dataset from intake to slides.')
+
+prompt_tab('Excel-Charts', 'Data analytics exercise · Analysis and charts in Excel (deck slide 36) — the assistant returns your workbook', [
+    ('THE PROMPT', cps['excel_charts'],
+     'The file-in, file-out contract: a Summary sheet, native editable charts, formulas that trace to the Data sheet — a returned workbook you can audit, not a screenshot.'),
+    ('THE CHECK', 'Open the returned file. The Summary numbers must reconcile with the Data sheet totals (the sheet carries a reconciliation check), and the charts must be real Excel charts you can retitle and recolor — not pasted pictures.',
+     'Editable-native is the acceptance test; an image of a chart fails it.'),
+], note='Prepared fallback: references/exercise-data/Supplier_Data_Analyzed.xlsx — the returned workbook this prompt produced. It is the INPUT for the dashboard and presentation steps.')
+
+prompt_tab('2-Build-Dashboard', 'Data analytics exercise · Dashboard (deck slides 37–38) — uses the returned Supplier_Data_Analyzed.xlsx', [
+    ('THE PROMPT', cps['dashboard'],
+     'Behavior in plain language — filters, views, states — and the assistant writes the code. The metric definitions carry over from the analyzed workbook unchanged.'),
+    ('THE CHECK', 'Filter to Site = Berlin, Supplier = Bravo Plastics, months 2026-03 to 2026-08. Expect exactly 6 records, 8,575 units shipped, 21 returns, return rate 0.245% — in the tiles, the chart, AND the table. Verify independently by filtering the workbook the same way.',
+     'One verified filtered result beats admiring the design. The prepared output runs this exact self-check in its footer.'),
+    ('STATES', 'An empty selection must say "no matching records" — distinguish it from a real zero. Missing values stay blank; a zero denominator shows "—", never an error.',
+     'Empty, missing, and zero are three different situations; the dashboard must say which one is on screen.'),
+], note='Prepared output: references/exercise-data/Supplier_Quality_Dashboard.html (open it offline; the footer self-check must say PASSED). Needs a code-capable tool — if yours only chats, hand the spec to IT.')
+
+prompt_tab('3-Present-Findings', 'Data analytics exercise · Presentation (deck slide 39) — the same verified findings become five slides', [
+    ('THE PROMPT', cps['present'],
+     'Requirement types: purpose & audience · scope & slide count · story structure · message hierarchy · data fidelity · chart semantics · speaker notes · editability & delivery.'),
+    ('THE SEPARATION RULE', 'Findings are what the workbook supports; recommendations are labeled proposals. No invented causes, benefits, or commitments anywhere.',
+     'The trust move that survives every audience question.'),
+    ('THE CHECKS', 'Count five slides and map each to the coverage list. Reconcile every displayed number to the analysis. Read only the titles — do they tell the story alone? Open the exported file: clipping, readability at projection size, notes present on every slide.',
+     'Acceptance evidence, artifact-shaped: coverage, fidelity, narrative, delivery.'),
+], note='Prepared output: references/exercise-data/Supplier_Quality_Mock_Presentation.pptx — the sample this prompt produced; audit it against THE CHECKS before reusing the prompt. Keep the mock business deck visually distinct from the course deck.')
+
+prompt_tab('4-Summarize-Email', 'Email exercise (deck slides 40–41) — choose the result you need, then run the structured brief (uses Packaging_Change_Thread.txt)', [
+    ('CHOOSE THE RESULT', 'Catch me up: "Summarize the current situation in three sentences." · What changed: "List changed dates or decisions and show the latest version." · Who owes what: "Create a table with task, owner, due date, and dependency." · What remains open: "List unanswered questions, approval conditions, and missing attachments." · Prepare my reply: "Draft a concise response. Use brackets where I still need to decide. Do not invent commitments."',
+     'Pick the outcome first; the prompt is one sentence once you have. Choosing the result IS the prompt.'),
+    ('THE STRUCTURED BRIEF', cps['email'],
+     'Requirement types: source scope · current state · decisions & conditions · actions & ownership · date meaning · evidence traceability · attachments · authority boundary.'),
+    ('THE TRAPS', 'A good brief catches all of these: the change date moved Sep 25 → Oct 2, conditional on quality sign-off · the trial date is Sep 25 (superseding Sep 18) · the 18,000 cap still applies and freight is NOT approved · Luis\'s revised plan is due Sep 16 · freight responsibility is unresolved · the drawing is referenced but not accessible.',
+     'Compare with the deck\'s answer key (slides 88–89) or tab KEY-Email — attempt first.'),
+], note='Native path, verified Sep 2026 (notes/research/r28): open the thread in Outlook, run "Summary by Copilot", then run THE STRUCTURED BRIEF in the Copilot chat pane scoped to that same conversation. Availability depends on your organization\'s Copilot license; the fallback that always works is pasting Packaging_Change_Thread.txt with the same prompt into any approved assistant. Never practice on real confidential threads.')
+
+prompt_tab('Quote-Extract', 'Quotation exercise · Extraction (deck slide 42) — uses the three Quote_*.pdf files in references/exercise-data/', [
+    ('THE PROMPT', cps['quote_extract'],
+     'Step one is faithful extraction and traceability: verbatim values, original currencies, "Not stated" for gaps, a source citation per commercial value. Judgment comes next.'),
+    ('THE CHECK', 'Every commercial value in the sheet must be findable, verbatim, in its cited source file and page. Nothing normalized, ranked, or recommended yet.',
+     'Extraction and judgment are separate steps — mixing them is how errors hide.'),
+], note='Check yourself AFTER attempting: instructor-keys/Quote_Comparison_Key.md. Prepared example: references/exercise-data/Quote_Comparison_Workbook.xlsx (sheet "Raw Extraction").')
+
+prompt_tab('Quote-Compare', 'Quotation exercise · Comparison (deck slide 43) — builds on the Raw Extraction sheet', [
+    ('THE PROMPT', cps['quote_compare'],
+     'Normalize ONLY what has a stated basis; every derived number is a visible formula; whatever blocks the comparison is listed, not papered over.'),
+    ('THE OUTCOME RULE', 'If any quote cannot be put on the same basis as the others (currency, delivery terms, freight, taxes), the correct deliverable is "cannot compare yet" plus the list of what is missing — not a winner.',
+     'A defensible "here is what is missing" beats a confident wrong recommendation. The three sample quotes are built to force this.'),
+], note='Check yourself AFTER attempting: instructor-keys/Quote_Comparison_Key.md — it carries the expected normalized values and the expected outcome. Prepared example: Quote_Comparison_Workbook.xlsx (sheet "Normalized Comparison").')
+
+prompt_tab('Research', 'Research exercise (deck slide 44) — reference files become a traceable workbook (uses references/exercise-data/research-pack/)', [
+    ('THE PROMPT', cps['research'],
+     'Evidence / Synthesis / Sources — every claim traceable to a file and section; conflicts stay visible instead of being silently resolved.'),
+    ('THE CONFLICT CHECK', 'The pack contains a genuine disagreement between two sources and one undated source. The finished workbook must SURFACE both — a synthesis that quietly picks a side is a defect, however tidy it looks.',
+     'Conflict handling is the skill being tested; agreement is the easy case.'),
+], note='Sources: references/exercise-data/research-pack/ (see its README). Check yourself AFTER attempting: instructor-keys/Research_Workbook_Key.md. Prepared example: references/exercise-data/Research_Workbook.xlsx.')
+
+prompt_tab('5-Explain-Clearly', 'Reference exercise · Explain a topic clearly — plain language with fidelity (self-study; uses references/exercise-data/plain-language/)', [
+    ('THE PROMPT', cps['explain'],
+     'Requirement types: reader & purpose · vocabulary · structure · examples & analogies · fidelity & caveats · tone · comprehension check.'),
+    ('TOPICS', 'inventory_replenishment.md (worked demonstration with a sample output and fidelity note) · household_budgeting.md · the water cycle · how an internet message travels — sources, sample outputs, and keys in references/exercise-data/plain-language/.',
+     'Different content, identical requirement types — that is the point.'),
+    ('THE CHECK', 'Main idea in the first sentence? Every surviving technical term defined at first use? Analogy limit stated? Conditions preserved (compare sentence by sentence)? Three questions answerable from the text alone? Clear adult tone?',
+     'Readability scores are supporting evidence; a human comprehension check is the real test.'),
+], note='This exercise lives in the reference layer of the current 60-minute run (deck appendix, page 100) — no live slot; the requirement types are unchanged. Respectful language for adult readers throughout — plain is not childish; simplifications that change meaning are defects, and finding them is part of the exercise.')
+
+# KEY-Analysis precision: the participant input file shows the missing value
+# as a genuinely blank cell; 'n/a' is this workbook's Data-tab rendering.
+for _row in wb['KEY-Analysis'].iter_rows():
+    for _c in _row:
+        if isinstance(_c.value, str) and _c.value.startswith('Exactly one Inspection_Hours cell is "n/a"'):
+            _c.value = ('Exactly one Inspection_Hours cell is missing — blank in Supplier_Data_Exercise.xlsx, '
+                        'shown as "n/a" on this workbook\'s Data tab. Missing ≠ zero; it does not affect '
+                        'return-rate math, and any analysis that excludes it must say so.')
+
+# -- INDEX (training order) --------------------------------------------------
+ix = wb.create_sheet('INDEX', 0)
+IX = [
+    ['FROM PROMPTS TO AGENTS — PACKAGE INDEX (60-minute facilitated course)'],
+    [''],
+    ['OPEN IN THIS ORDER', ''],
+    ['1', 'From_Prompts_to_Agents_Facilitated_60_Minute.pptx — the course (70 live slides + reference appendix; speaker notes carry MODE/TIME/purpose and the instructor answer keys).'],
+    ['2', 'This workbook — the live sequence in training order: 1-Analyze-Data (inspect · analyze · follow-up) → Excel-Charts → 2-Build-Dashboard → 3-Present-Findings → 4-Summarize-Email → Quote-Extract → Quote-Compare → Research. 5-Explain-Clearly is the reference exercise (self-study). Data = raw records; Data_Clean = the checked detail set.'],
+    ['3', 'Participant input (in references/exercise-data/) — Supplier_Data_Exercise.xlsx is the ONLY file open when the live exercise starts. Prepared fallbacks, same folder: Supplier_Data_Analyzed.xlsx (the returned workbook — input to the dashboard and presentation steps) · Supplier_Quality_Dashboard.html · Supplier_Quality_Mock_Presentation.pptx · Quote_Comparison_Workbook.xlsx · Research_Workbook.xlsx.'],
+    ['4', 'Sources (in references/exercise-data/) — Packaging_Change_Thread.txt · Quote_Alpha_Components.pdf / Quote_Bravo_Plastics.pdf / Quote_Cardinal_Metals.pdf · research-pack/ · plain-language/.'],
+    ['5', 'Companions (beside this workbook in deliverables/) — From_Prompts_to_Agents_Course.pdf (the extended course, cover to cover) · From_Prompts_to_Agents_Cheat_Sheet.pdf (one page) · Prompt_Template_Creator.html (the builder). Deeper reference in references/: Elements_of_Prompting_Field_Guide.pdf · Prompt_Element_Taxonomy_Reference.pdf · Requirements_by_Artifact.md.'],
+    [''],
+    ['INSTRUCTOR ONLY', 'Tabs KEY-Analysis and KEY-Email · references/exercise-data/instructor-keys/ (Packaging_Change_Expected_Brief.md · Quote_Comparison_Key.md · Research_Workbook_Key.md) · the facilitation plan (references/). Keep these out of participant hand-outs.'],
+    [''],
+    ['THE TRAINING SEQUENCE', 'Analyze → Excel analysis and charts → dashboard → presentation → email organization → quote extraction → quote comparison → research workbook. One fictional supplier dataset runs the whole data arc — the same records from intake to the five-slide mock-up. The builder (Prompt_Template_Creator.html) offers the same families, plus Explain-a-topic, in the same order.'],
+    [''],
+    ['LEGACY / OPTIONAL', 'Tabs README, EX1-TwoModes … EX7-MoE, G2-DataAnalysis, EX-Quotes, EX-Email, EX-Dashboard, EX-Report, BONUS-Ladder and PLAYBOOK belong to the long-format course and remain usable as optional extensions.'],
+    [''],
+    ['DATA NOTE', 'All data and names are fictional, generated for training (seeded — stable across rebuilds). The TOTAL row and one missing Inspection_Hours value are deliberate teaching quirks.'],
+]
+for row in IX:
+    ix.append(row)
+ix['A1'].font = Font(bold=True, size=13, color='0E7C7B')
+for rn in (3, 10, 12, 14, 16):
+    ix.cell(row=rn, column=1).font = Font(bold=True)
+    ix.cell(row=rn, column=2).font = Font(bold=True)
+ix.column_dimensions['A'].width = 20
+ix.column_dimensions['B'].width = 118
+for row in ix.iter_rows():
+    for c in row:
+        c.alignment = Alignment(vertical='top', wrap_text=True)
+
+ORDER = ['INDEX', 'Data', 'Data_Clean',
+         '1-Analyze-Data', 'Excel-Charts', '2-Build-Dashboard', '3-Present-Findings',
+         '4-Summarize-Email', 'Quote-Extract', 'Quote-Compare', 'Research', '5-Explain-Clearly',
+         'KEY-Analysis', 'KEY-Email', 'README']
+rest = [s.title for s in wb._sheets if s.title not in ORDER]
+wb._sheets = [wb[t] for t in ORDER + rest]
+
 xlsx_path = os.path.join(os.path.dirname(__file__), '..', 'deliverables', 'Course_Workbook.xlsx')
 wb.save(xlsx_path)
-print('wrote', xlsx_path, f'({n_data_rows} data rows · {len(wb.sheetnames)} tabs: INDEX + Data/Data_Clean + 5 tasks + 2 instructor keys + legacy)')
+print('wrote', xlsx_path, f'({n_data_rows} data rows · {len(wb.sheetnames)} tabs: INDEX + Data/Data_Clean + 9 exercise tabs (training order) + 2 instructor keys + legacy)')
 
 # NOTE (v1.13, owner request): the standalone Playbook_One_Pager.pdf was retired — the
 # playbook now lives merged in the Field Guide (part 5, the full works/myth/expired

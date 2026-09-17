@@ -1,0 +1,12 @@
+Source 3 - Supplier scorecard guideline (one-page internal aid)
+Fictional Manufacturing Co. - undated
+
+- Score each supplier on four measures: return rate, defect rate, on-time
+  percent, and responsiveness to corrective actions.
+- Weight by units shipped when combining periods; never average monthly
+  percentages.
+- Show numerator and denominator next to every rate.
+- Missing data is shown as missing, never as zero.
+- The scorecard states the reporting period and the data source on its face.
+- Responsiveness is scored from corrective-action closure dates; the guideline
+  does not define the scale.

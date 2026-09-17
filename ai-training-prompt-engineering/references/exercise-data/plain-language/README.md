@@ -1,6 +1,6 @@
-# Plain-language exercise pack (exercise 5 — Explain a topic clearly)
+# Plain-language exercise pack (reference exercise — Explain a topic clearly)
 
-One live demonstration topic plus two self-study variations. Each file contains a
+One worked demonstration topic plus three self-study variations. In the current 60-minute run this exercise lives in the reference layer (deck appendix; workbook tab 5-Explain-Clearly) — no live slot. Each file contains a
 short SOURCE text and a SAMPLE plain-language explanation produced with the
 reusable prompt below. All material is generic teaching content — no company data.
 
@@ -19,7 +19,8 @@ reusable prompt below. All material is generic teaching content — no company d
 
 | File | Topic | Use |
 |---|---|---|
-| inventory_replenishment.md | Reorder points and safety stock | Live demonstration (workplace-relevant) |
+| inventory_replenishment.md | Reorder points and safety stock | Worked demonstration (workplace-relevant) |
+| household_budgeting.md | Household budgeting | Self-study variation (everyday-life) |
 | water_cycle.md | The water cycle | Self-study variation |
 | internet_message.md | How an internet message travels | Self-study variation |
 

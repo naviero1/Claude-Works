@@ -60,7 +60,7 @@ for p in tax['presets']:
 n_attrs = sum(len(v) for v in paths.values())
 n_opts = sum(len(a.get('options', [])) for v in paths.values() for a in v.values())
 
-# ---- R17: the five task families (from the shared catalog + course prompts) ----
+# ---- The task families, in training order (shared catalog + course prompts) ----
 def parse_catalog_table(md, heading):
     """Return [(type, example, check)] from the pipe table under a '## heading'."""
     i = md.find('## ' + heading)
@@ -81,24 +81,41 @@ catalog = open(os.path.join(here, '..', 'references', 'Requirements_by_Artifact.
 prompts = json.load(open(os.path.join(here, 'assets', 'course_prompts.json')))
 TASKS = [
     {'id': 'analyze', 'name': 'Analyze spreadsheet data',
-     'blurb': 'One question, defined metrics, checked numbers. The supplier case is the worked example.',
-     'taskHint': 'Help [reader] decide [decision] using [file / sheet], period [range], detail rows only.',
-     'prompt': prompts['analyze'], 'reqs': parse_catalog_table(catalog, 'Spreadsheet analysis: requirements to choose')},
+     'blurb': 'Upload one data file, inspect before calculating, compute checked rates. The supplier case is the worked example.',
+     'taskHint': 'Help [reader] decide [decision] using [file], detail rows only — inspect first, then wait.',
+     'prompt': 'PROMPT 1 — INSPECT:\n' + prompts['inspect'] + '\n\nPROMPT 2 — ANALYZE:\n' + prompts['analyze'],
+     'reqs': parse_catalog_table(catalog, 'Spreadsheet analysis: requirements to choose')},
+    {'id': 'excel_charts', 'name': 'Excel Analysis and Charts',
+     'blurb': 'The assistant returns your workbook — Summary sheet, native editable charts, traceable formulas.',
+     'taskHint': 'Update [workbook] and return it as [name].xlsx with a Summary sheet and native editable charts.',
+     'prompt': prompts['excel_charts'], 'reqs': parse_catalog_table(catalog, 'Excel analysis and charts: requirements to choose')},
     {'id': 'dashboard', 'name': 'Build an interactive dashboard',
-     'blurb': 'Specify behavior in plain language: filters, grouping, metric switches, drill-down, states.',
-     'taskHint': 'A self-contained offline dashboard for [audience] to explore [data] and answer [question].',
+     'blurb': 'Feed the returned workbook in; describe behavior in plain language — filters, views, states.',
+     'taskHint': 'A self-contained offline dashboard from [returned workbook] for [audience] to answer [question].',
      'prompt': prompts['dashboard'], 'reqs': parse_catalog_table(catalog, 'HTML dashboards: requirements to choose')},
     {'id': 'present', 'name': 'Prepare a presentation',
-     'blurb': 'A decision audience, one message per slide, verified numbers, honest limitations.',
-     'taskHint': 'A [n]-slide deck for [audience] to decide [decision], using only [verified source].',
+     'blurb': 'Verified findings become a five-slide decision mock-up — findings separated from recommendations.',
+     'taskHint': 'A five-slide deck for [audience] to support [decision], using only the verified findings.',
      'prompt': prompts['present'], 'reqs': parse_catalog_table(catalog, 'Presentations: requirements to choose')},
     {'id': 'email', 'name': 'Summarize an email conversation',
-     'blurb': 'Current state, decisions with conditions, actions with owners — evidence-cited, nothing invented.',
-     'taskHint': 'Brief the conversation about [topic] so [reader] knows the current state and what they owe.',
+     'blurb': 'Status, decisions with conditions, actions with owners — “Not stated” for gaps, a citation per claim.',
+     'taskHint': 'Organize the thread about [topic]: choose the result you need, then run the structured brief.',
      'prompt': prompts['email'], 'reqs': parse_catalog_table(catalog, 'Email summaries: requirements to choose')},
+    {'id': 'quote_extract', 'name': 'Quote Extraction',
+     'blurb': 'Documents to spreadsheet, step one: verbatim values, original currencies, a citation per value.',
+     'taskHint': 'Extract the attached quotation files into a Raw Extraction sheet — no normalizing or ranking yet.',
+     'prompt': prompts['quote_extract'], 'reqs': parse_catalog_table(catalog, 'Quotation extraction: requirements to choose')},
+    {'id': 'quote_compare', 'name': 'Quote Comparison',
+     'blurb': 'Step two: normalize only what has a stated basis — and no best quote while gaps remain.',
+     'taskHint': 'From the Raw Extraction sheet, build a Normalized Comparison — formulas visible, gaps listed.',
+     'prompt': prompts['quote_compare'], 'reqs': parse_catalog_table(catalog, 'Quotation comparison: requirements to choose')},
+    {'id': 'research', 'name': 'Research Spreadsheet',
+     'blurb': 'Reference files become a traceable Evidence / Synthesis / Sources workbook — conflicts stay visible.',
+     'taskHint': 'Build a research workbook for [research question] from the attached references — traceable only.',
+     'prompt': prompts['research'], 'reqs': parse_catalog_table(catalog, 'Research workbooks: requirements to choose')},
     {'id': 'explain', 'name': 'Explain a topic clearly',
      'blurb': 'Plain language that preserves meaning, conditions, and caveats — with a comprehension check.',
-     'taskHint': 'Explain [topic] from [source] for a reader at [reading level] who needs to [do / understand].',
+     'taskHint': 'Explain [topic] from [source] at about a fifth-grade reading level — fidelity preserved.',
      'prompt': prompts['explain'], 'reqs': parse_catalog_table(catalog, 'Plain-language documents: requirements to choose')},
 ]
 
@@ -110,6 +127,6 @@ assert html != tpl, 'taxonomy placeholder not found'
 html2 = html.replace('/*__TASKS_JSON__*/', tasks_payload)
 assert html2 != html, 'tasks placeholder not found'
 open(out_path, 'w').write(html2)
-print(f'builder written: {out_path} ({len(html2)//1024} KB) — 5 task families '
+print(f'builder written: {out_path} ({len(html2)//1024} KB) — {len(TASKS)} task families '
       f'({sum(len(t["reqs"]) for t in TASKS)} requirement rows) + legacy: '
       f'{len(tax["elements"])} elements, {n_attrs} attributes, {n_opts} options, {len(tax["presets"])} presets')

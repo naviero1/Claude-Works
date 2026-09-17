@@ -51,7 +51,7 @@ module.exports = function buildClose(pres, H) {
     '2) LEFT card: three requirements forms this room may already write — user stories, Given-When-Then, the ISO characteristics — and each maps ONTO the anatomy. Read one mapping aloud (Given = Context, When = Task, Then = Format + checks is the cleanest).\n' +
     '3) RIGHT card: the callback number — 41.1% — and the software world’s move: spec-driven development (GitHub Spec Kit), then Grove’s line: whoever writes the spec is now the programmer. His stronger line if the room is technical: “code is 10–20% of the value; the other 80–90% is structured communication.”\n' +
     '4) Amber band — the point of the slide: SOPs, test protocols, acceptance criteria = the hardest 80%, already owned.\n' +
-    '5) One caution to respect (R7): the evidence is structural + measured on clarified PROMPTS (ClarifyGPT +7 pts; Yang +4.8%) — there is no study of requirements-trained PEOPLE prompting better; don’t claim one.\n' +
+    '5) One caution to respect (R7): the evidence is structural + measured on clarified PROMPTS (ClarifyGPT +7 pts; Yang et al., 2025; revised 2026 — +4.8%) — there is no study of requirements-trained PEOPLE prompting better; don’t claim one.\n' +
     '\n' +
     'BRIDGE —\n' +
     '“And when you can’t fill an element in — that gap has a name too: a question.”\n' +

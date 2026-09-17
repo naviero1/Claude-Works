@@ -212,15 +212,15 @@ story.append(Paragraph('From Prompts to Agents',
 story.append(Spacer(1, 6))
 story.append(Paragraph(
     'Writing prompts as small work specifications — and delegating work you can check. '
-    'The written edition of the facilitated course, complete with the five worked tasks: '
-    'analyze the data, build a dashboard, present the findings, summarize the thread, '
-    'and explain it clearly.',
+    'The written edition of the facilitated course, complete with the nine-step worked '
+    'sequence: analyze one dataset, return the workbook, build the dashboard, present the '
+    'findings, organize the thread, compare the quotes, and build the research workbook.',
     ParagraphStyle('coversub', parent=S['chintro'], fontSize=11.5, leading=17)))
 story.append(Spacer(1, 0.55 * inch))
 cover_rows = [
     ('THIS BOOK', 'The course, cover to cover, for self-study or review after the live session.'),
     ('THE DECK', 'From_Prompts_to_Agents_Facilitated_60_Minute.pptx — the 60-minute live course.'),
-    ('THE WORKBOOK', 'Course_Workbook.xlsx — the data and the five task tabs this book works through.'),
+    ('THE WORKBOOK', 'Course_Workbook.xlsx — the data and the exercise tabs, in training order, this book works through.'),
     ('THE BUILDER', 'Prompt_Template_Creator.html — assembles prompts from the same requirement menus.'),
     ('ONE PAGE', 'From_Prompts_to_Agents_Cheat_Sheet.pdf — the skeleton and the menus, printable.'),
 ]

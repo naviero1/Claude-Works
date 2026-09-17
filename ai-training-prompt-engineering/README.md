@@ -13,7 +13,7 @@ write) and **agentic AI** (prompts that work). Built August 2026 as the companio
 | File | What it is |
 |---|---|
 | `From_Prompts_to_Agents_Facilitated_60_Minute.pptx` | **The presentation** — the 60-minute facilitated course (70 live slides + 31 reference pages; full speaker notes). |
-| `Course_Workbook.xlsx` | **The course workbook** — the fictional supplier dataset + the five task tabs `1-Analyze-Data … 5-Explain-Clearly` (open INDEX first). |
+| `Course_Workbook.xlsx` | **The course workbook** — the fictional supplier dataset + the exercise tabs in training order, `1-Analyze-Data` … `Research` (open INDEX first). |
 | `Prompt_Template_Creator.html` | **The prompt creator** — task-first builder over the requirement menus; offline, single file; full taxonomy behind "Advanced". |
 | `From_Prompts_to_Agents_Course.pdf` | **The course PDF** — the extended written edition of the course, cover to cover, for self-study. |
 | `From_Prompts_to_Agents_Cheat_Sheet.pdf` | **The course cheat sheet** — one printable page: skeleton, 14-type menu, quality bar, before/after, ASK vs DELEGATE. |
@@ -28,7 +28,7 @@ configurator, and the long-format 69-slide deck — see `REFERENCES.md`.
 1. **Foundations** — how these systems produce answers; tokens, context, grounding; fast vs thinking; verification belongs in the task; failure patterns and the check they need.
 2. **Models & tools** — compare assistants on your task, not on rankings; the right workspace for the data.
 3. **Prompt engineering** — a prompt is a small work specification; good requirements make prompts testable; the elements as requirement types; the improvement loop.
-4. **Putting prompts to work** — the five worked tasks on one supplier case: spreadsheet analysis, HTML dashboard, presentation, email summary, plain-language explanation.
+4. **Putting prompts to work** — the nine-step sequence on one supplier dataset, uploaded once at intake: inspect + analyze, follow-up, the returned Excel workbook with native charts, dashboard, five-slide mock-up, email brief, quote extraction, quote comparison, research workbook (plain-language explanation as the reference exercise).
 5. **Agentic work** — ASK vs DELEGATE; the mission brief; instructions vs enforceable controls; diagnosing a failed run.
 6. **Reusable prompts** — the promotion ladder; where prompts live; a small review process; save one for Monday.
 
