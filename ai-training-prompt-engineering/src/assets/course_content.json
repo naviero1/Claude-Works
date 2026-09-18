@@ -23,8 +23,8 @@
      },
      {
       "type": "mono",
-      "text": "STEP 1: Write a short farewell card for a coworker who is leaving.\nSTEP 2: Now don't write it. Ask me everything you'd need to know to do this perfectly, then wait for my answers.",
-      "caption": "Tab EX1-TwoModes - run both steps in one chat, and keep that chat."
+      "text": "SEND 1: Use this chat as my course log. When I request a report, use only the conversation available to you and flag any gaps. Acknowledge briefly.\nSEND 2: Write a farewell message for a coworker in about 50 words.\nSEND 3: Before revising, ask up to three questions that would most improve the message. Wait for my answers, then revise it.",
+      "caption": "Tab EX1-TwoModes - run all three sends in one chat, and keep that chat: it is your course log."
      },
      {
       "type": "p",
@@ -123,7 +123,7 @@
      },
      {
       "type": "mono",
-      "text": "SEND 1: Finish this sentence 5 different ways: We should move the launch date because\nSEND 2: Now 5 more ways, knowing: B2B software firm, competitor launches May 3, our beta ends April 20.",
+      "text": "SEND 1: Finish this sentence five different ways: “We should review the launch date because…” Treat each ending as a hypothetical possibility.\nSEND 2: Repeat using these facts: we are a business-to-business software company; our beta ends April 20; a competitor launches May 3. Separate supplied facts from assumptions. End with one missing fact that could change the timing decision.",
       "caption": "Tab EX2-Guesses - two separate sends, in your course log."
      },
      {
@@ -151,7 +151,7 @@
      },
      {
       "type": "mono",
-      "text": "Explain AI tokens to a high-school student in under 80 words: use a LEGO-brick analogy, show one word splitting into tokens, and end with why tokens set my AI's cost and limits.",
+      "text": "Explain tokens to a new colleague using a LEGO-brick analogy, in about 100 words. Show an illustrative word split and explain why the actual split depends on the tokenizer. Connect token counts to context limits and charges when billing is based on tokens. End with one practical implication for working with long documents.",
       "caption": "Tab EX3-Tokens - the definition lands in your course log, from your own tool."
      }
     ]
@@ -188,7 +188,7 @@
      },
      {
       "type": "mono",
-      "text": "STEP 1: Explain your context window like I'm a 5th grader: the desk, what fits on it, and what happens when I close this chat. Under 100 words.\nSTEP 2: Summarize our chat so far in under 80 words, titled HANDOFF.",
+      "text": "SEND 1: Explain a context window using a desk analogy, in about 100 words. What occupies the desk, and what happens as it fills? Distinguish information available for the current response from saved chat history and optional memory. Identify what depends on the application. End with one useful habit for continuing a long task.\nHANDOFF FOLLOW-UP: Create a concise HANDOFF from the conversation currently available: goal, decisions, constraints, unresolved questions, and next action. Name any files needed to continue. Mark missing information rather than inventing it.",
       "caption": "Tab EX4-Handoff - later, paste the HANDOFF into a fresh chat and ask 'where was I?'"
      },
      {
@@ -260,7 +260,7 @@
      },
      {
       "type": "mono",
-      "text": "List the modes this app gives me - quick answer, thinking, web search, deep research, agent - one line each on what it does differently and its rough effort. Say 'unsure' rather than guess.",
+      "text": "Using the supplied screenshot or copied text of my app’s menu, explain each visible mode in one line: its purpose and a suitable workplace task. Mark anything the supplied information does not establish as needing verification. If the menu is missing, ask for it first.",
       "caption": "Tab EX6-FeatureMenu - self-updating: ask again the day a button changes."
      }
     ]
@@ -481,7 +481,7 @@
      },
      {
       "type": "mono",
-      "text": "Explain Mixture of Experts like a colleague: a specialist hospital where only the relevant departments wake up per question — and why that made AI dramatically cheaper in 2025. Under 120 words.",
+      "text": "Explain Mixture of Experts using a specialist-hospital analogy, in about 120 words. Describe how selected computational components handle each token and how activating only a subset can reduce computation. Explain one way the hospital analogy can mislead, and why lower computation alone does not determine customer prices.",
       "caption": "Copy from tab EX7-MoE of Course_Workbook.xlsx; the answer becomes the MoE cheat-note in your course log."
      }
     ]
