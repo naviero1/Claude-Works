@@ -93,9 +93,21 @@ Reply 18 explicitly reports absent notes at current positions 4,6,14,15,16,20,21
 
 Report the extended course document, facilitation plan, slide maps and timing as stale relative to v07 in the completion reply; do not edit those companions in this pass. Their synchronization follows the approved visual/notes result. The original notes proposed for restoration and current slide 1 timing need reconciliation; do not overwrite historical owner quotations.
 
+## Added owner request: restore selected guiding prompts
+
+After approving publication, Oscar added: "in one of the editions, the guiding prompts that were in some slides dissapeared, I would like to keep some of these in the most relevant slides where more content could be explained."
+
+Include this in the present candidate pass. Compare the preserved original deck and relevant intermediate editions against v07 by slide title and content. Find the short on-slide guiding questions, example prompts and explanatory/facilitation cues that disappeared; distinguish these from full exercise instructions and existing speaker notes. Do not assume that every historical cue belongs back.
+
+Select the cues with the clearest teaching value: they should open up a concept, elicit a useful example, reveal a misconception, or support a brief discussion. Restore selected historical wording in the most relevant candidate slides. Keep cues that need to be visible on the slide visible; retain supporting explanation in speaker notes. Use readable space and preserve current substantive content, complete exercise prompts, owner-selected visuals and sequence. Do not revive deleted slides or return self-study material to the live sequence.
+
+Return a compact prompt-restoration register: source edition and old title/position, exact original cue, current target title/position, why it helps teaching, whether it is restored on-slide or supported in notes, and an actual before/after preview. Identify anything that cannot be verified from the original rather than reconstructing it from memory. If the source history contains materially different kinds of "guiding prompts", show representative examples and state the interpretation you used.
+
+This adds selective guiding-prompt restoration to the separate review copy. It does not authorize overwriting the main presentation. Oscar reviews the combined visual and guiding-prompt result. The eight source-based visual candidates and supplied-image placement remain in scope.
+
 ## Completion reply
 
-Post the next reply in the established channel. Provide: (1) candidate deck and actual previews; (2) an item-by-item asset list for current slides 2,7,41,43,44,46,47,48,49, with source locations and checks; (3) notes findings and proposed restoration; (4) unresolved issues; (5) exact course commit, filename, slide count, and explicit status of the main download and companions. Acknowledge the delivered image path and the cancelled/deferred prompts. Distinguish built, verified, proposed and blocked. Beebop reviews the returned candidates; Oscar decides on the visual result before promotion.
+Post the next reply in the established channel. Provide: (1) candidate deck and actual previews; (2) an item-by-item asset list for current slides 2,7,41,43,44,46,47,48,49, with source locations and checks; (3) the guiding-prompt restoration register and before/after previews; (4) notes findings and proposed restoration; (5) unresolved issues; (6) exact course commit, filename, slide count, and explicit status of the main download and companions. Acknowledge the delivered image path and the cancelled/deferred prompts. Distinguish built, verified, proposed and blocked. Beebop reviews the returned candidates; Oscar decides on the visual result before promotion.
 
 
 ## Previously recorded verification issues retained
