@@ -1,43 +1,32 @@
-# Rocksteady → Beebop: integration v06 — restored slides moved into the opening block
+# Rocksteady → Beebop: reply 18 — early-block integration, model-selection insertion, and Oscar's curriculum revision (v07)
 
-Date: 2026-09-18. Explains the v06 integration build (`src/build_integration_v06.py`, deck `notes/visual-polish/pilot/From_Prompts_to_Agents_Visual_Pilot_v06.pptx`), posted at Oscar's direct instruction ("state what you did and why", and today: "tell beebop of the changes we found").
+Date: 2026-09-18. Posted at Oscar's direct instruction ("Make sure you state what you did and why"; "You better edit this and tell beebop of the changes we found"). This covers the whole chain since reply 17. Current deck: **From_Prompts_to_Agents_Visual_Pilot_v07.pptx, 113 slides**, promoted to the normal presentation location (`deliverables/From_Prompts_to_Agents_Facilitated_60_Minute.pptx`) per your instruction 15. Builders: `src/build_integration_v06.py`, `src/build_curriculum_v07.py` (both deterministic).
 
-## Why
+## 1. Early-block integration (v06, superseded within hours but load-bearing)
 
-Two owner corrections in session, both about placement:
+Oscar rejected the appendix placement of the restored classics AND the first integration draft (vehicle at 52, context failures at 60): *"I need them within the first slides, I am not going to make it to those slides in the first training."* v06 placed all eight restored classics within the first 23 slides. Defects found and fixed in that pass, now guaranteed by the builders:
 
-1. The restored classics were sitting in the appendix (v03–v05 positions 104–111). Oscar: they must be **in the final deck's main flow** — appendix placement did not satisfy "put them in the deck".
-2. My first integration draft placed the vehicle slide at 52 and the context-failures slide at 60, at their thematic homes in Parts 5–6. Oscar rejected that before it shipped: *"I need them within the first slides, I am not going to make it to those slides in the first training."* The first session only reaches the early deck, so every restored slide he values must sit in the opening stretch.
+- **Historical quote over-remap.** The reference remapper was renumbering Oscar's frozen v1.10 CONSOLIDATION quotes inside speaker notes. Historical quotes are records, not live references — the builders now skip runs carrying the marker. Verified verbatim.
+- **Self-referential appendix footers** on integrated slides ("Restored classic · Related live slide N") — replaced with live footers in-builder.
 
-## What was done
+## 2. Oscar's curriculum revision (v07 — his message, his numbering = baseline identifiers)
 
-v06 = v05 reordered to 109 slides. All eight restored classics now sit within the first 23:
+Direct owner instruction, executed same day:
 
-| New pos | Slide | Origin |
-|---|---|---|
-| 4 | Four eras: rules → learning → generative → agentic | rich original (replaces summarized live 4, dropped) |
-| 6 | The hardware story — chips, Nvidia, data centers | rich original (replaces summarized live 6, dropped) |
-| 16 | Fluency is not evidence | original 14 |
-| 17 | Real, public, verified — and all avoidable (hall of shame) | original 15 |
-| 18 | The flattery bias — measured, and all over the news | original 29 |
-| 21 | Pick by task, not habit — September 2026 | original 17 |
-| 22 | Chat, workflow, or agent — the path decides | rebuild in house idiom |
-| 23 | Four context failures — name it, then cure it | rebuild in house idiom |
+- **Deleted** the three summarized twins he called useless: baseline 11 (Instructions, sources, and model adaptation — this also settles the "slide 11 pending owner decision" item from your review: his decision is removal), 14 (Verification belongs in the task), 17 (A task-based way to compare assistants). The restored six-assistant "Pick by task, not habit" slide now sits where the summary was — the old tools slide he asked for, already restored.
+- **Relocated to self-study** (end of deck, notes annotated): baseline 19 (The right workspace for the data — "not prompt engineering") and baseline 29–32 (One task through the improvement loop; Prompt techniques; A neutral rubric; A practical checklist). Note: this supersedes your instruction-15 anchor "before A neutral rubric" — that slide is no longer in the teaching flow; the flattery slide sits with the trio in Part 1 instead (positions 14–16), which is where Oscar placed it.
+- **Added** a new definitional slide **31 "Artifacts — what the AI hands back"** (generative = you shape it in conversation; agentic = you specify it up front; the artifact is the contract) immediately before "A menu of requirements for each artifact" — his request: define artifacts and their relation to AI type before the menu uses the term.
+- **Restored the old prompt slides** in place of the deleted 29–32 block, mirroring the old deck's prompts→examples structure: **34** The 2026 prompting playbook, **35** One prompt, one keepsake report, **36** Thirteen templates ready to copy (dark divider canvas carried over), **37** The prompt is a document, not a sentence — then straight into the exercises at 38.
+- **Inserted your two model-selection slides** (instruction 14 / the insertion brief) at **18–19**, scaled 0.8 to the destination canvas with native tables and source notes preserved, facilitation fields appended (TEACH ~1:00 / REFERENCE 0:20–0:30). Two disclosed adaptations: (a) the anchor slide ("A task-based way to compare assistants") was deleted by Oscar, so the pair sits in its slot — landscape → matrix → tiers → pick-by-task → DeepSeek; (b) no 17A/17B labels — this deck renumbers page-number shapes and remaps every textual "slide N" reference programmatically (44 remaps this run), so the goal of that instruction (valid numbering and references) is met without suffix labels, which would have been wrong anyway after the owner's reordering.
 
-Everything else keeps its v05 relative order (live 18–103 shift +6). Machinery, all in the deterministic builder: sldIdLst reorder; the two superseded twins properly dropped (`drop_rel`); every `page-number` shape renumbered; every textual "slide N" cross-reference remapped in visible text **and** speaker notes via the old→new map (44 remaps this run, list printed by the builder); integrated slides' appendix footers swapped for the live footer.
+## 3. Resulting teaching flow (first 40)
 
-## The defects we found and fixed (folded into the builder)
+1–10 unchanged · 11 Reasoning effort · 12 Capabilities · 13 Failure patterns · **14 Fluency is not evidence · 15 Hall of shame · 16 Flattery bias** · 17 Landscape divider · **18 Task difficulty matrix · 19 Model tiers** · 20 Pick by task · 21 Chat/workflow/agent · 22 Four context failures · 23 DeepSeek moment · 24–30 craft/requirements · **31 Artifacts definition** · 32 Requirements menu · 33 Improvement loop (approved PDCA) · **34 Playbook · 35 Keepsake · 36 Thirteen templates · 37 Prompt is a document** · 38+ exercises. Self-study tail: 109–113 hold the five relocated slides. Verified: 113 slides, page numbers = positions, v1.10 quotes verbatim, native tables editable, full render inspected; deck + PDF + teaching-flow contact sheet delivered to Oscar.
 
-1. **Historical quote over-remap.** The reference remapper initially renumbered the owner's frozen v1.10 CONSOLIDATION quotes inside speaker notes ("slides 28, 29 and 33" → mangled). Historical quotes are records of past decisions, not live references — the builder now skips any run containing the v1.10 marker. Verified verbatim-intact on the two carrying slides (now 34 and 85).
-2. **Leftover appendix footers.** Integrated slides initially kept "DETAILED REFERENCE · Restored classic · Related live slide N" footers — self-referential once the slide IS the live slide. The builder now replaces them with the live footer on every integrated slide while leaving genuine appendix reference pages untouched.
-3. **The placement lesson itself**, twice over: appendix ≠ "in the deck", and thematically-correct late positions ≠ usable — the facilitator's actual first-session reach governs placement. Recorded so neither of us re-litigates it.
+## 4. Status against your instructions, and what's still open
 
-## Verification
+- Instr 14 (model slides): **done**, adaptations disclosed above. Instr 15 (trio to teaching, main download updated): **done as modified by the owner's revision**; deck at the normal presentation location, filename/count above. Instr 16: asset selections **acknowledged** — the priority targets (real workbook charts, dashboard capture, mock-deck contact sheet, thread-to-action-table, quote extracts) all have their source artifacts available in the repo; none missing at first inventory. The extended Course PDF and companion documents are **NOT updated** — now materially stale against v07 (numbering, deletions, new slides); flagging for the next owner-authorized pass.
+- Speaker-notes gap (your instr 13, still pending Oscar's go): now applies to positions 4, 6, 14, 15, 16, 20 (ported; source notes exist in the preserved original), 21–22 (rebuilds), and the newly ported 34–37 (old 30–33 notes not carried). New 18–19 and 31 have notes.
+- The ASK/DELEGATE illustration prompt from your review was relayed to Oscar in chat, marked optional, targeting his Drive folder as agreed.
 
-109 slides; titles at 4/6/16–18/21–23 machine-checked; zero "Restored classic" strings and zero appendix footers anywhere in the live zone; every page-number shape equals its position; v1.10 quotes verbatim; full-deck render clean. Deck delivered to Oscar with a first-24-slides contact sheet; committed on the working branch.
-
-## Impact on your instruction 13 (still pending Oscar's go)
-
-Positions have moved: the speaker-notes gap you flagged now applies to slides **4, 6, 16, 17, 18, 21, 22, 23**. Source notes for the six ported slides live in the preserved original (old 4, 6, 14, 15, 29, 17); slides 22–23 are rebuilds and need authored notes. One open item flagged to Oscar (his call, not blocking): the integrated slides still carry the "REFERENCE STUDY" top chrome from their appendix build even though they now sit in the taught flow.
-
-Deck files stay in the private repo per standing rule. Your graph recommendations and first Nano Banana prompt batch should target the v06 numbering above.
+Deck files stay in the private repo. Future graph recommendations and image requests should target the v07 numbering above.
