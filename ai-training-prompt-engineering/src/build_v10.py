@@ -93,6 +93,69 @@ def main():
                         if m and int(m.group(1)) >= min(first_reloc, 111):
                             r.text = live_fix.sub(r"slide \1 (self-study)", r.text)
 
+    # owner: Gemini tier cells must be bold like the other vendors
+    for slide in prs.slides:
+        title_hit = any(sh.has_text_frame and "Model tiers and task examples" in sh.text_frame.text
+                        for sh in slide.shapes)
+        if not title_hit:
+            continue
+        for sh in slide.shapes:
+            if sh.has_table:
+                tbl = sh.table
+                last = len(tbl.columns) - 1
+                fixed = 0
+                for ri, row in enumerate(tbl.rows):
+                    if ri == 0:
+                        continue
+                    cell = row.cells[last]
+                    for para in cell.text_frame.paragraphs:
+                        for run in para.runs:
+                            if run.text.strip():
+                                run.font.bold = True
+                                fixed += 1
+                print(f"gemini cells bolded: {fixed} runs")
+
+    # owner: bigger fonts on the four-context-failures slide
+    from pptx.util import Pt
+    SKIP_NAMES = {"detail-link", "page-number", "FACILITATION_MODE_LABEL",
+                  "FACILITATION_MODE_BAR"}
+    for slide in prs.slides:
+        if not any(sh.has_text_frame and "Four context failures" in sh.text_frame.text
+                   for sh in slide.shapes):
+            continue
+        bumped = 0
+        for sh in slide.shapes:
+            if not sh.has_text_frame or sh.name in SKIP_NAMES:
+                continue
+            if sh.text_frame.text.strip() in ("POISONING", "DRIFT", "CONFUSION", "CLASH"):
+                continue  # already large; wider would wrap mid-word
+            for para in sh.text_frame.paragraphs:
+                for run in para.runs:
+                    if run.font.size and 9 <= run.font.size.pt < 20:
+                        run.font.size = Pt(run.font.size.pt + 2)
+                        bumped += 1
+        print(f"context-failures fonts bumped: {bumped} runs")
+        break
+
+    # tiers slide: subtitle must clear the table top edge
+    from pptx.util import Inches
+    for slide in prs.slides:
+        if not any(sh.has_text_frame and "Model tiers and task examples" in sh.text_frame.text
+                   for sh in slide.shapes):
+            continue
+        for sh in slide.shapes:
+            if sh.name == "slide-title":
+                sh.top = Inches(0.60)
+                sh.height = Inches(0.50)
+            if sh.name == "slide-subtitle":
+                sh.top = Inches(1.14)
+                sh.height = Inches(0.34)
+                for para in sh.text_frame.paragraphs:
+                    for run in para.runs:
+                        run.font.size = Pt(12.5)
+        print("tiers title/subtitle repositioned")
+        break
+
     print(f"remapped {len(changed)} references")
     for w, a, b in changed:
         print(f"  {w}: '{a}' -> '{b}'")
