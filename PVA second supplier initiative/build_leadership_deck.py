@@ -98,7 +98,7 @@ panel(s,8.8,2.75,3.9,3.6,"Then — cost & fit",
 takeaway(s,"SNP Inc. is not just cheap — it is one of very few shops that can make this at all, and it does so as its core product.")
 
 # ================= 3 COST 1/2 — WHERE PRICES COME FROM =================
-s=slide(); title_bar(s,"Cost (1 of 2): where every price on the table comes from","2 · COST")
+s=slide(); title_bar(s,"Cost (1 of 3): where every price on the table comes from","2 · COST")
 rows=[["$/lb finished","Source","How it is built — and why"],
  ["$0.16–0.20","Material floor","Raw PVA resin $1.26–1.60/lb (ChemAnalyst / IMARC, N. America 2026) × 11% solids. Everything above this is conversion, freight and margin."],
  ["$0.75","SNP Inc. — real quote","Estimate 012726-1, delivered all-in. Below market because PVA cooking is their core product and their tanks are right-sized to our batch."],
@@ -116,7 +116,7 @@ panel(s,6.75,4.9,5.95,1.5,"Why SNP Inc. is cheap — specialization",
 takeaway(s,"$0.75/lb is a specialist's price. Every credible second source will sit at $2.50–5.00 — not because they are greedy, but because of batch economics.")
 
 # ================= 4 COST 2/2 — WHAT EACH OPTION COSTS US =================
-s=slide(); title_bar(s,"Cost (2 of 2): what each option costs us, per year and over five","2 · COST")
+s=slide(); title_bar(s,"Cost (2 of 3): what each option costs us, per year and over five","2 · COST")
 s.shapes.add_picture("chart_premium_by_price.png",Inches(0.6),Inches(1.15),width=Inches(7.6))
 rect(s,8.45,1.15,4.25,5.2,PALE,STEEL); tf=box(s,8.62,1.28,3.95,5.0)
 par(tf.paragraphs[0],"Options at one drum/week to PCI (~1/3)",13,NAVY,bold=True,after=6)
@@ -205,9 +205,9 @@ rows=[["","A · Second source (PCI Manufacturing, 1 drum/wk)","B · Single sourc
 fills=[None]+[[None,LRED,LGREEN] for _ in range(6)]
 table(s,0.6,1.2,12.1,3.2,rows,[2.3,4.9,4.9],size=11,fills=fills)
 panel(s,0.6,4.55,5.95,1.85,"Recommendation — in this order",
- ["1. Price discovery first: RFQ to PCI Manufacturing on the agreed spec — ~2 weeks, no cost. ≤ ~$1.50/lb → A. ≥ ~$2.50 → B unless the outage cost is large. In between → the outage number decides.",
-  "2. Either way, strengthen SNP Inc. now: forecast, hydrogel program, continuity terms, 8–12 weeks of shelf-stable RESIN on consignment, annual financial check.",
-  "3. If B: settle with PCI Manufacturing honestly — pay for the work, state the triggers."],GREEN,LGREEN,10.5)
+ ["1. Price discovery first: RFQ to PCI Manufacturing on the agreed spec (~2 weeks, no cost). ≤ $1.50/lb → A; ≥ $2.50 → B unless the outage cost is large; between → the outage number decides.",
+  "2. Either way, strengthen SNP Inc. now: forecast, hydrogel program, continuity terms, shelf-stable RESIN on consignment, annual financial check.",
+  "3. If B: settle with PCI Manufacturing honestly — pay for the work, state the triggers."],GREEN,LGREEN,10)
 panel(s,6.75,4.55,5.95,1.85,"Switch to A the moment any trigger fires",
  ["Finance's outage estimate clears the break-even  ·  an SNP Inc. risk signal (finances, key person, missed lot, odd price move)",
   "PCI Manufacturing quotes ≤ ~$1.50/lb (premium falls to ~$18k)  ·  a new hydrogel line makes PVA strategic  ·  SNP Inc. declines the partnership"],AMBER,LAMB,10.5)
