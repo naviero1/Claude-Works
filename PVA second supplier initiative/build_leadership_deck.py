@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Leadership deck: Liquid PVA — one supplier or two? (sequenced decision narrative)."""
+"""Leadership deck v3: Feasibility -> Cost (x2) -> Logistics + the PCI question -> Decision. Concise, one message per slide."""
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
@@ -26,12 +26,12 @@ def box(s,l,t,w,h):
 def par(p,text,size,color=NAVY,bold=False,italic=False,align=PP_ALIGN.LEFT,after=4):
     p.text=text; p.alignment=align; p.space_after=Pt(after)
     r=p.runs[0]; r.font.size=Pt(size); r.font.color.rgb=color; r.font.bold=bold; r.font.italic=italic; r.font.name="Calibri"; return p
-def title_bar(s,text,step=None,total=None):
+def title_bar(s,text,section=None):
     rect(s,0,0,13.333,1.0,NAVY)
-    tf=box(s,0.5,0.14,11.4,0.8); par(tf.paragraphs[0],text,26,WHITE,bold=True)
-    if step:
-        tf=box(s,11.9,0.3,1.2,0.5); par(tf.paragraphs[0],f"{step} / {total}",12,RGBColor(0xBD,0xD7,0xEE),align=PP_ALIGN.RIGHT)
-def bullets(s,l,t,w,h,items,size=15,gap=8,color=GREY):
+    tf=box(s,0.5,0.14,10.6,0.8); par(tf.paragraphs[0],text,26,WHITE,bold=True)
+    if section:
+        tf=box(s,10.9,0.3,2.2,0.5); par(tf.paragraphs[0],section,11,RGBColor(0xBD,0xD7,0xEE),align=PP_ALIGN.RIGHT)
+def bullets(s,l,t,w,h,items,size=14,gap=8,color=GREY):
     tf=box(s,l,t,w,h)
     for i,it in enumerate(items):
         p=tf.paragraphs[0] if i==0 else tf.add_paragraph(); p.space_after=Pt(gap)
@@ -42,273 +42,216 @@ def bullets(s,l,t,w,h,items,size=15,gap=8,color=GREY):
         else:
             r=p.add_run(); r.text="•  "+rest; r.font.size=Pt(size); r.font.color.rgb=color; r.font.name="Calibri"
     return tf
-def card(s,l,t,w,h,value,label,vcolor=NAVY,fill=LIGHT,vsize=26):
+def card(s,l,t,w,h,value,label,vcolor=NAVY,fill=LIGHT,vsize=24):
     rect(s,l,t,w,h,fill)
     tf=box(s,l+0.12,t+0.12,w-0.24,h-0.24); tf.vertical_anchor=MSO_ANCHOR.MIDDLE
     par(tf.paragraphs[0],value,vsize,vcolor,bold=True,align=PP_ALIGN.CENTER,after=2)
-    par(tf.add_paragraph(),label,11,GREY,align=PP_ALIGN.CENTER)
+    par(tf.add_paragraph(),label,10.5,GREY,align=PP_ALIGN.CENTER)
 def takeaway(s,text,t=6.55,fill=NAVY,color=WHITE):
     rect(s,0.6,t,12.1,0.62,fill)
     tf=box(s,0.8,t+0.08,11.7,0.5); tf.vertical_anchor=MSO_ANCHOR.MIDDLE; par(tf.paragraphs[0],text,14,color,bold=True)
-def table(s,l,t,w,h,rows,colw,size=12,hdr_fill=NAVY,first_col_bold=True,fills=None):
+def table(s,l,t,w,h,rows,colw,size=11,hdr_fill=NAVY,fills=None,align_first_left=True):
     tbl=s.shapes.add_table(len(rows),len(rows[0]),Inches(l),Inches(t),Inches(w),Inches(h)).table
     for i,cw in enumerate(colw): tbl.columns[i].width=Inches(cw)
     for ri,row in enumerate(rows):
         for ci,val in enumerate(row):
             c=tbl.cell(ri,ci); c.text=str(val); p=c.text_frame.paragraphs[0]
-            p.alignment=PP_ALIGN.LEFT if ci==0 else PP_ALIGN.CENTER
+            p.alignment=PP_ALIGN.LEFT if (ci==0 and align_first_left) or ci==len(row)-1 and len(row)>3 else PP_ALIGN.CENTER
             r=(p.runs[0] if p.runs else p.add_run()); r.font.size=Pt(size); r.font.name="Calibri"; c.fill.solid()
             if ri==0: r.font.bold=True; r.font.color.rgb=WHITE; c.fill.fore_color.rgb=hdr_fill
             else:
                 r.font.color.rgb=NAVY; c.fill.fore_color.rgb=(fills[ri][ci] if fills and fills[ri] and fills[ri][ci] else WHITE)
-                if ci==0 and first_col_bold: r.font.bold=True
+                if ci==0: r.font.bold=True
     return tbl
+def panel(s,l,t,w,h,title,items,tcolor,fill,size=12):
+    rect(s,l,t,w,h,fill); tf=box(s,l+0.2,t+0.15,w-0.4,h-0.3); par(tf.paragraphs[0],title,14,tcolor,bold=True,after=7)
+    for it in items: par(tf.add_paragraph(),"•  "+it,size,GREY,after=6)
+    return tf
 
-N=13  # numbered content slides
-
-# ---------- 1 TITLE ----------
+# ================= 1 TITLE =================
 s=slide(); rect(s,0,0,13.333,7.5,NAVY); rect(s,0,4.85,13.333,0.06,STEEL)
-tf=box(s,0.8,1.7,11.7,2.6)
+tf=box(s,0.8,1.6,11.7,2.8)
 par(tf.paragraphs[0],"Liquid PVA: One Supplier or Two?",42,WHITE,bold=True)
-par(tf.add_paragraph(),"What a second source really costs, what the alternative looks like, and whether our volume justifies it today",20,RGBColor(0xBD,0xD7,0xEE))
+par(tf.add_paragraph(),"Feasibility  ·  Cost  ·  Logistics  ·  Decision",22,RGBColor(0xBD,0xD7,0xEE))
 tf=box(s,0.8,5.1,11.7,1.6)
-par(tf.paragraphs[0],"PVA = polyvinyl alcohol, the liquid we buy in 55-gallon drums to make our hydrogels",14,WHITE)
+par(tf.paragraphs[0],"PVA = polyvinyl alcohol — the liquid we buy in 55-gallon drums from SNP Inc. (Durham, NC) to make our hydrogels. Sole-sourced today.",14,WHITE)
 par(tf.add_paragraph(),"Oscar Penny  ·  Supply Chain  ·  22 September 2026  ·  Decision requested",12,RGBColor(0x9D,0xC3,0xE6))
 
-# ---------- 2 EXEC SUMMARY ----------
-s=slide(); title_bar(s,"The decision in one slide",1,N)
-tf=box(s,0.6,1.2,12.1,0.8)
-par(tf.paragraphs[0],"Should we carry a second supplier for liquid PVA now — or stay with SNP and invest in making that single source resilient?",16,NAVY,bold=True)
-card(s,0.6,2.15,2.9,1.5,"$50.7k/yr","Today's entire PVA spend (SNP, $0.75/lb)")
-card(s,3.7,2.15,2.9,1.5,"+$39–96k/yr","A 2nd supplier at 1/3 of volume, $2.50–5.00/lb",vcolor=RED,fill=LRED)
-card(s,6.8,2.15,2.9,1.5,"$240–585k","5-year cumulative premium (volume +10%/yr)",vcolor=RED,fill=LRED)
-card(s,9.9,2.15,2.8,1.5,"~$6–14k/yr","A 'warm' backup at 5% instead",vcolor=GREEN,fill=LGREEN)
-bullets(s,0.6,3.95,12.1,2.5,[
- ("The honest headline: ","a full second source would cost 80–190% of what we spend on PVA today — 4–8× the '$6–12k' insurance we described in July, because realistic pricing is $2.50–5.00/lb, not $1.00–1.25."),
- ("What we learned the hard way: ","six months and 94 suppliers to get one candidate (PCI) close to qualified. That is our real time-to-recover if SNP ever fails — and it is the strongest argument for NOT starting from zero."),
- ("Recommendation: ","strengthen SNP now (forecast sharing, joint hydrogel development, continuity terms) AND finish qualifying PCI as a warm backup at ~5% — keeping the option alive for ~$10k/yr. Move to a full split only when defined triggers are hit."),
-],size=14,gap=9)
-takeaway(s,"Ask today: approve the SNP partnership steps, the warm-backup budget, and give us one number — what a 6-month PVA outage would cost the business.")
+# ================= 2 FEASIBILITY =================
+s=slide(); title_bar(s,"Feasibility: two things limited the field — temperature, then expertise","1 · FEASIBILITY")
+card(s,0.6,1.2,2.9,1.3,"94","US suppliers screened")
+card(s,3.7,1.2,2.9,1.3,"~10","could hold 90–95 °C",vcolor=AMBER,fill=LAMB)
+card(s,6.8,1.2,2.9,1.3,"1","proved the expertise (PCI Manufacturing)",vcolor=GREEN,fill=LGREEN)
+card(s,9.9,1.2,2.8,1.3,"~6 months","to get there",vcolor=RED,fill=LRED)
+panel(s,0.6,2.75,3.95,3.6,"Limit 1 — Temperature",
+ ["Super-hydrolyzed, high-molecular-weight PVA only dissolves with a 30–45 min hold at 90–95 °C",
+  "Most toll blenders top out lower. ArroChem Inc. (85 °C ceiling), ILC Dover and Columbus Chemical Industries all failed here",
+  "This single gate removed most of the 94"],RED,LRED,11.5)
+panel(s,4.7,2.75,3.95,3.6,"Limit 2 — Expertise",
+ ["Getting through the gate is not the same as making the product: no fisheyes, no gels, viscosity on target",
+  "Brenntag's trial: viscosity 'too high to read'. PCI Manufacturing's first batch: 2,420 cP vs ~1,000 target — fixed only after finding the solids root cause",
+  "Handful of shops in the US have done this before"],AMBER,LAMB,11.5)
+panel(s,8.8,2.75,3.9,3.6,"Then — cost & fit",
+ ["The one toll quote through the gate (CJB Applied Technologies): ~11× SNP Inc.",
+  "18-day shelf life ⇒ small batches; suppliers with 220–250 gal minimums (Royal Chemical, CORECHEM) overshoot it",
+  "Every viable supplier needs ≥1 drum/week to engage"],NAVY,LIGHT,11.5)
+takeaway(s,"SNP Inc. is not just cheap — it is one of very few shops that can make this at all, and it does so as its core product.")
 
-# ---------- 3 WHY WE'RE HERE ----------
-s=slide(); title_bar(s,"Why we're here: a small spend with an outsized failure mode",2,N)
-bullets(s,0.6,1.25,6.6,4.6,[
- ("Single point of failure. ","Liquid PVA (P/N 666438) is sole-sourced from SNP, a ~$4M specialist for whom PVA cooking is the core product."),
- ("No buffer is possible. ","18-day shelf life means every drum is made fresh. If SNP stops, we have roughly 2½ weeks of material — our 'time-to-survive'."),
- ("Recovery is slow. ","Qualifying a replacement from zero has taken us ~6 months and counting — our 'time-to-recover'. When recovery time exceeds survival time, the exposure is real."),
- ("Small money, critical input. ","$50.7k/yr is a rounding error in spend, but it gates a product line. In procurement terms this is a 'bottleneck' item: low spend, high supply risk — the category where the textbook answer is to secure supply, not to chase price."),
-],size=14,gap=10)
-rect(s,7.5,1.25,5.2,4.6,PALE,STEEL)
-tf=box(s,7.75,1.4,4.7,4.3)
-par(tf.paragraphs[0],"What we told you in July — and what changed",14,NAVY,bold=True,after=8)
-par(tf.add_paragraph(),"July: 'qualify a capped ~35% second source as low-cost insurance, ~$6–12k/yr' — priced at $1.00–1.25/lb.",12,GREY,after=8)
-par(tf.add_paragraph(),"Since then: the first toll blender that got through our technical gate quoted ~11× SNP. The candidate now in testing (PCI) will realistically land at $2.50–5.00/lb.",12,GREY,after=8)
-par(tf.add_paragraph(),"Same plan, real prices: +$39–96k/yr, not $6–12k. We owe you the corrected picture before you decide.",12,NAVY,bold=True)
-takeaway(s,"The risk is unchanged. The price of insuring it turned out to be much higher than we first estimated.")
+# ================= 3 COST 1/2 — WHERE PRICES COME FROM =================
+s=slide(); title_bar(s,"Cost (1 of 2): where every price on the table comes from","2 · COST")
+rows=[["$/lb finished","Source","How it is built — and why"],
+ ["$0.16–0.20","Material floor","Raw PVA resin $1.26–1.60/lb (ChemAnalyst / IMARC, N. America 2026) × 11% solids. Everything above this is conversion, freight and margin."],
+ ["$0.75","SNP Inc. — real quote","Estimate 012726-1, delivered all-in. Below market because PVA cooking is their core product and their tanks are right-sized to our batch."],
+ ["$0.85 / $1.40 / $2.55","Market low / base / high (triangulated)","Resin floor + loaded labor (~$40/hr, 25% margin) + QC + 1-drum freight ($0.22–0.55/lb). High case anchored by a retail comp (~$2.03/lb bulk PVA solution)."],
+ ["$2.50 – $5.00","PCI Manufacturing — our forecast","Not yet quoted. Range reflects a capable but non-specialist shop pricing a small, unfamiliar, high-temperature batch — with risk built in."],
+ ["$8.42","CJB Applied Technologies — real quote","$8.00–8.50/lb toll EXCLUDING materials (+~$75/drum resin). ~50× the material floor, ~11× SNP: an outlier, shown for scale."]]
+fills=[None,None,[None,LGREEN,None],None,[None,LAMB,None],[None,LRED,None]]
+table(s,0.6,1.2,12.1,3.55,rows,[1.7,2.9,7.5],size=11,fills=fills)
+panel(s,0.6,4.9,5.95,1.5,"Why a new supplier carries a premium at our volume",
+ ["Conversion cost is mostly FIXED per batch — setup, heat-up, hold, cleaning, QC, paperwork (~$400–900/batch). Spread over one 450-lb drum that alone is $0.90–2.00/lb.",
+  "Add one-drum freight and a 'learning our product' risk margin, and $2.50–5.00 is what a good shop will ask."],NAVY,LIGHT,10.5)
+panel(s,6.75,4.9,5.95,1.5,"Why SNP Inc. is cheap — specialization",
+ ["PVA solution is their product line, not a side job: process dialed-in, no learning premium.",
+  "Multiple tank sizes let them right-size each batch to our order — the fixed cost per pound stays low. A generalist runs our drum in whatever tank is free."],GREEN,LGREEN,10.5)
+takeaway(s,"$0.75/lb is a specialist's price. Every credible second source will sit at $2.50–5.00 — not because they are greedy, but because of batch economics.")
 
-# ---------- 4 WHAT WE LEARNED ----------
-s=slide(); title_bar(s,"What six months of searching taught us",3,N)
-card(s,0.6,1.25,2.9,1.35,"94","US suppliers screened")
-card(s,3.7,1.25,2.9,1.35,"~6 mo","to get one candidate close to qualified",vcolor=AMBER,fill=LAMB)
-card(s,6.8,1.25,2.9,1.35,"~11×","the one toll quote we got vs SNP (CJB)",vcolor=RED,fill=LRED)
-card(s,9.9,1.25,2.8,1.35,"1","credible candidate today (PCI)",vcolor=GREEN,fill=LGREEN)
-bullets(s,0.6,2.85,12.1,3.5,[
- ("Most suppliers cannot make this product. ","The 90–95 °C dissolution cook eliminated the majority; batch minimums that overshoot an 18-day shelf life eliminated most of the rest."),
- ("The market price for this work is not $0.75/lb. ","Triangulated market range: $0.85 low / $1.40 base / $2.55 high per lb. SNP is cheap because this is their core competence. Any second source is a premium supplier by definition."),
- ("PCI is promising but not yet there. ","Viscosity root cause found (solids content), spec agreed (11% solids, 900–1,100 cP), new batch in work. Still open: shelf-life study, hydrogel performance, cleaning."),
- ("The real lesson: ","if SNP failed tomorrow with no preparation, we would be looking at 6–12 months of exposure and crisis-priced material. That number — not the price per pound — is what a second source is insurance against."),
-],size=14,gap=9)
-takeaway(s,"We now own the spec, the RFQ package, and a screened longlist. Even without a second supplier, our recovery time is already shorter than it was in March.")
+# ================= 4 COST 2/2 — WHAT EACH OPTION COSTS US =================
+s=slide(); title_bar(s,"Cost (2 of 2): what each option costs us, per year and over five","2 · COST")
+s.shapes.add_picture("chart_premium_by_price.png",Inches(0.6),Inches(1.15),width=Inches(7.6))
+rect(s,8.45,1.15,4.25,5.2,PALE,STEEL); tf=box(s,8.62,1.28,3.95,5.0)
+par(tf.paragraphs[0],"Options at one drum/week to PCI (~1/3)",13,NAVY,bold=True,after=6)
+rows=[["","Per year","5 years*"],["All-SNP (today)","$50.7k","—"],["A @ $2.50","+$41k","+$242k"],["A @ $3.75 (mid)","+$70k","+$415k"],["A @ $5.00","+$99k","+$588k"],["CJB, for scale","+$179k","—"]]
+tb=s.shapes.add_table(6,3,Inches(8.62),Inches(1.75),Inches(3.95),Inches(2.3)).table
+tb.columns[0].width=Inches(1.75); tb.columns[1].width=Inches(1.05); tb.columns[2].width=Inches(1.15)
+for ri,row in enumerate(rows):
+    for ci,v in enumerate(row):
+        c=tb.cell(ri,ci); c.text=v; p=c.text_frame.paragraphs[0]; p.alignment=PP_ALIGN.LEFT if ci==0 else PP_ALIGN.CENTER
+        r=(p.runs[0] if p.runs else p.add_run()); r.font.size=Pt(10.5); r.font.name="Calibri"; c.fill.solid()
+        if ri==0: r.font.bold=True; r.font.color.rgb=WHITE; c.fill.fore_color.rgb=NAVY
+        else:
+            r.font.color.rgb=NAVY; c.fill.fore_color.rgb=(LAMB if ri==3 else (LRED if ri==5 else WHITE))
+            if ci==0: r.font.bold=True
+tf=box(s,8.62,4.15,3.95,2.1)
+par(tf.paragraphs[0],"*volume +10%/yr; plus ~$15k one-time qualification",9.5,GREY,italic=True,after=6)
+par(tf.add_paragraph(),"There is no smaller version: 1 drum/week is the least any supplier will take. July's '$6–12k' assumed a price and a share that don't exist.",11,NAVY,bold=True,after=6)
+par(tf.add_paragraph(),"If SNP Inc. re-prices the ~2/3 it keeps (+10–20%): add $3–7k/yr.",10.5,GREY)
+takeaway(s,"A second source costs 80–195% of today's entire PVA spend, every year, growing with volume. That is the price of the insurance.")
 
-# ---------- 5 ANNUAL COST ----------
-s=slide(); title_bar(s,"What a second supplier really costs — per year",4,N)
-s.shapes.add_picture("chart_premium_by_price.png",Inches(0.6),Inches(1.15),width=Inches(8.4))
-rect(s,9.25,1.15,3.45,5.2,PALE,STEEL)
-tf=box(s,9.45,1.3,3.1,5.0)
-par(tf.paragraphs[0],"How to read this",14,NAVY,bold=True,after=6)
-par(tf.add_paragraph(),"Each bar = the EXTRA we pay per year if a second source takes 1/3 of volume at that price. The drums are bought either way; the premium is the decision number.",11.5,GREY,after=8)
-par(tf.add_paragraph(),"PCI range ($2.50–5.00): +$39k to +$96k/yr — i.e., 80–190% of today's whole PVA bill.",12,NAVY,bold=True,after=8)
-par(tf.add_paragraph(),"Green bar = what we described in July. Red bar = the CJB quote, shown for scale.",11.5,GREY,after=8)
-par(tf.add_paragraph(),"Not shown: if SNP re-prices the 2/3 it keeps (+10–20%), add another $3–7k/yr.",11.5,GREY)
-takeaway(s,"At realistic prices, a one-third second source roughly doubles what we spend on PVA. That is the cost of the insurance.")
+# ================= 4b COST 3/3 — THE UPSIDE CASE =================
+s=slide(); title_bar(s,"Cost (3 of 3): what if the price comes in below $2.50?","2 · COST")
+tf=box(s,0.6,1.15,12.1,0.7)
+par(tf.paragraphs[0],"Everything so far assumes a non-specialist price. The market base is $1.40/lb — so a capable shop at $1.00–2.50 is plausible, not wishful. If one exists, the picture changes completely.",13.5,NAVY,bold=True)
+rows=[["Price / lb","Premium per year","5-year premium","Outage cost that justifies it (5% / 10% per yr)","What it would mean"],
+ ["$1.00","+$6k","+$35k","~$120k / ~$60k","The July plan, as described. Clear yes — insurance cheaper than almost any outage."],
+ ["$1.25","+$12k","+$69k","~$235k / ~$120k","Clear yes."],
+ ["$1.40  (market base)","+$15k","+$90k","~$305k / ~$150k","Likely yes — the premium is a rounding error against a product line."],
+ ["$1.50","+$18k","+$104k","~$350k / ~$175k","Likely yes. This is the trigger already in the plan."],
+ ["$2.00","+$29k","+$173k","~$585k / ~$295k","Borderline — the outage-cost number decides."],
+ ["$2.50","+$41k","+$242k","~$820k / ~$410k","Needs a large outage cost to justify (today's base case)."]]
+fills=[None,[None,LGREEN,LGREEN,None,LGREEN],[None,LGREEN,LGREEN,None,LGREEN],[None,LGREEN,LGREEN,None,LGREEN],[None,LGREEN,LGREEN,None,LGREEN],[None,LAMB,LAMB,None,LAMB],[None,LRED,LRED,None,LRED]]
+table(s,0.6,1.95,12.1,3.15,rows,[1.8,1.6,1.6,3.0,4.1],size=10.5,fills=fills)
+panel(s,0.6,5.25,5.95,1.2,"The opportunity cost of not looking",
+ ["If a $1–1.50/lb source exists and we stop, we forgo insurance that costs less than one bad week — and a live price reference that alone would discipline SNP Inc.'s pricing."],RED,LRED,11)
+panel(s,6.75,5.25,5.95,1.2,"How we find out — cheaply",
+ ["Issue the RFQ to PCI Manufacturing against the agreed spec (11% solids, 900–1,100 cP) now. A real number in ~2 weeks, at no cost, decides which side of the table we are on."],GREEN,LGREEN,11)
+takeaway(s,"Below ~$1.50/lb this is an easy yes; above ~$2.50 it needs a big outage cost. Price discovery is the cheapest decision we can make.")
 
-# ---------- 6 FIVE-YEAR ----------
-s=slide(); title_bar(s,"The five-year view: the premium grows with our volume",5,N)
-s.shapes.add_picture("chart_five_year.png",Inches(0.6),Inches(1.15),width=Inches(8.4))
-rect(s,9.25,1.15,3.45,5.2,PALE,STEEL)
-tf=box(s,9.45,1.3,3.1,5.0)
-par(tf.paragraphs[0],"Why it compounds",14,NAVY,bold=True,after=6)
-par(tf.add_paragraph(),"The premium is share × price gap × pounds. Volume grows ~10%/yr, so the premium does too.",11.5,GREY,after=8)
-par(tf.add_paragraph(),"Five-year cost of a 1/3 split: $240k (at $2.50) to $585k (at $5.00). Mid case ~$413k.",12,NAVY,bold=True,after=8)
-par(tf.add_paragraph(),"A 5% 'warm' backup over the same period: ~$62k.",12,GREEN,bold=True,after=8)
-par(tf.add_paragraph(),"Plus a one-time qualification cost (~$15k placeholder: engineering time, samples, hydrogel tests, quality agreement) for ANY second source, warm or active.",11.5,GREY)
-takeaway(s,"Over five years the difference between a full split and a warm backup is roughly $180–520k.")
+# ================= 5 LOGISTICS =================
+s=slide(); title_bar(s,"Logistics: what two suppliers look like under an 18–30 day shelf life","3 · LOGISTICS")
+panel(s,0.6,1.2,5.95,2.55,"The rhythm",
+ ["Every drum is made to order — an 18–30 day shelf life means no safety stock, from either supplier",
+  "PCI Manufacturing: 1 drum/week (its minimum). SNP Inc.: ~2 drums/week. Each drum consumed within ~2 weeks of receipt, first-in-first-out by production date",
+  "Two lead times, two ship lanes (Durham NC vs St. Louis MO), two order calendars to keep in phase"],NAVY,LIGHT,11.5)
+panel(s,6.75,1.2,5.95,2.55,"The control we would need — and how",
+ ["One harmonized spec for both: 11% solids, 900–1,100 cP fresh, pH target — and ONE viscometer method, or the numbers cannot be compared",
+  "Incoming test on every lot (viscosity, solids, pH) against a Certificate of Analysis (CoA) from each supplier; lot traceability to source so hydrogel performance can be tracked by supplier",
+  "Two cleaning procedures (PCI's residual-film issue is open), two Supplier Quality Agreements with change-notification and audit rights, quarterly scorecards"],NAVY,LIGHT,11.5)
+panel(s,0.6,3.95,5.95,2.4,"What it costs to run",
+ ["A standing overhead: ~1 extra incoming-QC lot per week, dual documentation, two relationships, annual re-check of each",
+  "A written ramp plan for PCI Manufacturing (1 → 3 drums/week) — without it, the second source cannot actually cover an SNP Inc. outage",
+  "If PCI's shelf-life study shows 30 days rather than 18, cadence loosens slightly; it does not create a buffer"],AMBER,LAMB,11.5)
+panel(s,6.75,3.95,5.95,2.4,"What it buys",
+ ["Recovery in weeks, not months, if SNP Inc. fails — provided the ramp plan is real",
+  "A live price reference and a second set of process knowledge",
+  "It does NOT remove the exposure: ~2/3 of volume still stops until the ramp completes"],GREEN,LGREEN,11.5)
+takeaway(s,"Running two suppliers is manageable — but it is a permanent operating discipline, not a one-time qualification.")
 
-# ---------- 7 WHAT IT BUYS ----------
-s=slide(); title_bar(s,"What that money buys — and what it doesn't",6,N)
-rect(s,0.6,1.25,5.95,5.1,LGREEN); tf=box(s,0.8,1.4,5.6,4.9)
-par(tf.paragraphs[0],"What a 1/3 second source BUYS",15,GREEN,bold=True,after=8)
-for it in ["A qualified, practiced supplier — recovery in weeks, not months, if SNP fails",
-           "Price discipline on SNP (a credible alternative at the table)",
-           "A defensible supplier-control story for auditors (though not required — see appendix)",
-           "Two sets of production knowledge on a product only a handful of shops can make",
-           "Real-world hydrogel performance data from a second process"]:
-    par(tf.add_paragraph(),"•  "+it,12.5,GREY,after=7)
-rect(s,6.75,1.25,5.95,5.1,LRED); tf=box(s,6.95,1.4,5.6,4.9)
-par(tf.paragraphs[0],"What it DOESN'T buy",15,RED,bold=True,after=8)
-for it in ["Full protection: 2/3 of volume still stops if SNP fails, until PCI can ramp (unknown capacity)",
-           "A better price: every pound moved to PCI costs 3–7× more; SNP may re-price the volume it keeps",
-           "Simplicity: two specs, two Certificates of Analysis (CoA), two cleaning procedures, two relationships to manage",
-           "Goodwill: taking a third of a small partner's core product line is a signal SNP will read — at the moment we are asking them to co-develop new hydrogels",
-           "Certainty on cost: PCI is not yet quoted; $2.50–5.00 is our forecast, not their number"]:
-    par(tf.add_paragraph(),"•  "+it,12.5,GREY,after=7)
-takeaway(s,"Dual-sourcing reduces the worst case — it does not eliminate it, and it changes the relationship we most depend on.")
+# ================= 6 THE PCI QUESTION =================
+s=slide(); title_bar(s,"The PCI question: if we deem them capable and then don't buy, what happens?","3 · LOGISTICS")
+bullets(s,0.6,1.2,6.6,5.0,[
+ ("What PCI Manufacturing has already invested — unpaid. ","Two lab batches, a dilution study, viscosity-method work, a revised process; shelf-life and hydrogel studies queued. Months of engineering time on a ~$25–50k/yr account."),
+ ("Yes, walking away carries a real risk. ","Small and mid-size shops remember. The realistic outcomes: they decline to re-engage, deprioritize us behind paying customers, or require paid development and a volume commitment next time. Our 'cold-start' plan would lose its most valuable part — a willing, proven supplier."),
+ ("It is also a soft cost that Option B does not show. ","Choosing B is not free: it spends goodwill we may need in a crisis. That belongs on the ledger next to the $41–99k/yr."),
+ ("How to handle it honestly. ","Decide BEFORE asking them to run the shelf-life and hydrogel studies. If we lean B: be transparent about the volume reality and the triggers, and offer to pay for the qualification work done (~$15k — the same money any second source would cost to qualify). If we lean A: commit to the drum a week now, not after another round of free experiments."),
+],size=12.5,gap=9)
+rect(s,7.5,1.2,5.2,5.0,PALE,STEEL); tf=box(s,7.7,1.35,4.8,4.8)
+par(tf.paragraphs[0],"Three ways to leave the door open",13.5,NAVY,bold=True,after=8)
+for k,v in [("Pay for the work","Fund the qualification already done. Converts 'free experiments' into a paid development engagement they can justify internally."),
+            ("Be explicit about the triggers","Tell them when we would switch (outage-cost threshold, an SNP Inc. risk signal, their price at ≤ ~$1.50/lb). A defined path is a relationship; silence is not."),
+            ("Keep the file warm, not the orders","Approved-source documentation, agreed spec, their test record — refreshed annually with a call, so a restart is months, not a year.")]:
+    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(12); r.font.color.rgb=NAVY; r.font.name="Calibri"
+    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(11.5); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(9)
+takeaway(s,"If the answer is 'not now', we owe PCI Manufacturing a candid conversation and a cheque — before the next round of experiments, not after.",fill=AMBER)
 
-# ---------- 8 ALTERNATIVE: SINGLE + STRENGTHEN ----------
-s=slide(); title_bar(s,"The alternative: one supplier, done deliberately",7,N)
-tf=box(s,0.6,1.15,12.1,0.6); par(tf.paragraphs[0],"Keep SNP as sole source, but convert an informal dependency into a managed partnership with a written continuity plan.",14,NAVY,bold=True)
-rows=[["Lever","What it means in practice","Cost / effort","Risk it reduces"],
- ["Share our forecast","Rolling 12-month volume + growth plan; quarterly review","Low — a meeting","Capacity surprises; gives SNP reason to invest"],
- ["Co-develop new hydrogels","Already scheduled — make it a standing joint program","Low — engineering time","Lock-in works both ways; makes us their most interesting customer"],
- ["Continuity terms in a Supplier Quality Agreement (SQA)","Second line/site plan, key-person cover, advance change notice, right to audit","Low–medium — legal + quality","Silent process changes; single-line outages"],
- ["Buffer the RESIN, not the solution","Dry PVA resin is shelf-stable for years; hold 8–12 weeks at SNP (consignment) or with us","Low — ~$2–3k tied up","Raw-material shortages; the most common upstream failure"],
- ["Process escrow + bench-cook capability","SNP's recipe/process on file; our lab can cook small batches in a crisis","Low — documentation + a lab day","Total knowledge loss; buys weeks in an emergency"],
- ["Financial-health check","Annual review of a ~$4M private supplier's viability","Low","Sudden business failure — the one risk that gives no warning"],
- ["Keep the cold-start kit current","Spec, RFQ package, screened longlist maintained annually","Low","Cuts recovery from 6–12 months toward 3–4"]]
-table(s,0.6,1.8,12.1,4.3,rows,[2.6,4.2,2.1,3.2],size=10.5)
-takeaway(s,"Total cost of Option B: a few thousand dollars and some engineering time — versus $39–96k/yr. Residual risk: a true SNP failure still means months of exposure.")
+# ================= 7 DECISION =================
+s=slide(); title_bar(s,"Decision: A or B — and the one number that settles it","4 · DECISION")
+rows=[["","A · Second source (PCI Manufacturing, 1 drum/wk)","B · Single source (SNP Inc.), strengthened"],
+ ["Annual premium","+$70k mid  ($41–99k)","~$0 + a few $k continuity spend"],
+ ["5-year premium","~$415k  ($242–588k)","~$0"],
+ ["Exposure if SNP Inc. fails","~2/3 of volume until PCI ramps","100%"],
+ ["Time to recover","weeks (with a ramp plan)","6–12 months; 3–4 with the cold-start kit current"],
+ ["Relationship","Takes a third of SNP Inc.'s line; PCI engaged","Deeper SNP partnership; PCI door kept open (paid)"],
+ ["Pays off when…","6-month outage cost > ~$700k (10%/yr risk) or ~$1.4M (5%)","outage cost below that, and SNP Inc. stays healthy and engaged"]]
+fills=[None]+[[None,LRED,LGREEN] for _ in range(6)]
+table(s,0.6,1.2,12.1,3.2,rows,[2.3,4.9,4.9],size=11,fills=fills)
+panel(s,0.6,4.55,5.95,1.85,"Recommendation — in this order",
+ ["1. Price discovery first: RFQ to PCI Manufacturing on the agreed spec — ~2 weeks, no cost. ≤ ~$1.50/lb → A. ≥ ~$2.50 → B unless the outage cost is large. In between → the outage number decides.",
+  "2. Either way, strengthen SNP Inc. now: forecast, hydrogel program, continuity terms, 8–12 weeks of shelf-stable RESIN on consignment, annual financial check.",
+  "3. If B: settle with PCI Manufacturing honestly — pay for the work, state the triggers."],GREEN,LGREEN,10.5)
+panel(s,6.75,4.55,5.95,1.85,"Switch to A the moment any trigger fires",
+ ["Finance's outage estimate clears the break-even  ·  an SNP Inc. risk signal (finances, key person, missed lot, odd price move)",
+  "PCI Manufacturing quotes ≤ ~$1.50/lb (premium falls to ~$18k)  ·  a new hydrogel line makes PVA strategic  ·  SNP Inc. declines the partnership"],AMBER,LAMB,10.5)
+takeaway(s,"The ask: (1) the cost of a 6-month PVA outage, from Finance/Ops; (2) go-ahead to get PCI's real price now; (3) approval to formalize SNP Inc. — then A or B by the table.")
 
-# ---------- 9 MIDDLE PATH: WARM BACKUP ----------
-s=slide(); title_bar(s,"A middle path: finish PCI, then keep it warm",8,N)
-bullets(s,0.6,1.25,6.6,4.8,[
- ("The idea. ","Complete PCI's qualification (we are most of the way there), then give them a small, steady trickle — about 5% of volume, one drum every ~7 weeks — so the process, people and paperwork stay current."),
- ("What it costs. ","~$6–14k/yr at $2.50–5.00/lb, plus the one-time qualification. Five-year total ~$62k at the mid price."),
- ("What it buys. ","Recovery in weeks instead of months if SNP fails; a real quote on file; leverage without taking a third of SNP's business; the six months already invested becomes a standing option instead of a sunk cost."),
- ("Where it can fail. ","5% may be too little for PCI to care — this needs an explicit 'readiness' understanding, not just orders. Capacity to ramp from 5% to 100% in a crisis must be confirmed in writing. And a dormant supplier drifts: annual re-check batch required."),
-],size=13.5,gap=10)
-rect(s,7.5,1.25,5.2,4.8,PALE,STEEL); tf=box(s,7.7,1.4,4.8,4.6)
-par(tf.paragraphs[0],"Option C by the numbers (mid price $3.75)",14,NAVY,bold=True,after=8)
-for k,v in [("Share to PCI","~5%  (~8 drums/yr)"),("Annual premium","~$10k"),("5-year premium","~$62k"),("One-time qualification","~$15k (placeholder)"),("Volume exposed if SNP fails","95% — until PCI ramps"),("Time to recover","weeks–months (re-activate), not 6–12 months")]:
-    p=tf.add_paragraph(); r=p.add_run(); r.text=k+":  "; r.font.bold=True; r.font.size=Pt(12); r.font.color.rgb=NAVY; r.font.name="Calibri"
-    r2=p.add_run(); r2.text=v; r2.font.size=Pt(12); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(7)
-takeaway(s,"For roughly a fifth of the cost of a full split, we keep the option to switch — which is the thing we actually need.",fill=GREEN)
-
-# ---------- 10 BREAK-EVEN ----------
-s=slide(); title_bar(s,"Does the volume justify it? The break-even test",9,N)
-s.shapes.add_picture("chart_breakeven.png",Inches(0.6),Inches(1.15),width=Inches(8.4))
-rect(s,9.25,1.15,3.45,5.2,PALE,STEEL); tf=box(s,9.45,1.3,3.1,5.0)
-par(tf.paragraphs[0],"The test",14,NAVY,bold=True,after=6)
-par(tf.add_paragraph(),"Insurance pays when: annual premium ≤ (probability of an SNP outage in a year) × (loss the backup would avoid).",11.5,GREY,after=8)
-par(tf.add_paragraph(),"Mid case, 1/3 split ($68k/yr): at a 5%-a-year outage risk, the avoided loss must exceed ~$1.35M; at 10%, ~$680k.",12,NAVY,bold=True,after=8)
-par(tf.add_paragraph(),"Warm backup ($10k/yr): at 5%, ~$200k; at 10%, ~$100k — a far easier bar to clear.",12,GREEN,bold=True,after=8)
-par(tf.add_paragraph(),"The number we don't have: what a 6-month PVA outage costs us (lost revenue, expedite, line-down). That single figure decides this.",11.5,RED,bold=True)
-takeaway(s,"At today's volume, a full split only pays if an SNP failure would cost us well over half a million dollars. A warm backup pays at a fraction of that.")
-
-# ---------- 11 SIDE BY SIDE ----------
-s=slide(); title_bar(s,"The three options, side by side",10,N)
-rows=[["","A · Dual-source now (1/3 to PCI)","B · Single source + strengthen SNP","C · Warm backup (finish PCI, ~5%)"],
- ["Annual premium (mid $3.75)","+$68k  (range $39–96k)","~$0  (+ small continuity spend)","~$10k  (range $6–14k)"],
- ["5-year premium (+10%/yr)","~$413k  ($240–585k)","~$0","~$62k"],
- ["One-time qualification","~$15k","none (document only)","~$15k"],
- ["Volume exposed if SNP fails","2/3 until PCI ramps","100%","95% until PCI ramps"],
- ["Time to recover","weeks","6–12 months (3–4 with cold-start kit)","weeks–months"],
- ["Signal to SNP","We took a third of their line","Deeper partnership","Minor"],
- ["Compliance posture","Strong","Defensible if risk + plan documented","Strong"],
- ["Best when…","outage cost > ~$700k–1.4M and we can't fix SNP's fragility","SNP is healthy, engaged, and we can document the plan","we want the option without paying full price for it"]]
-fills=[None]+[[None,LRED,LGREEN,LAMB] for _ in range(8)]
-table(s,0.6,1.25,12.1,4.95,rows,[2.5,3.2,3.2,3.2],size=11,fills=fills)
-takeaway(s,"B and C are not alternatives to each other — together they are the balanced answer at our current volume.")
-
-# ---------- 12 RECOMMENDATION ----------
-s=slide(); title_bar(s,"Recommendation: B + C now; A when the triggers say so",11,N)
-rect(s,0.6,1.25,5.95,5.1,LGREEN); tf=box(s,0.8,1.4,5.6,4.9)
-par(tf.paragraphs[0],"Do now (next 90 days)",15,GREEN,bold=True,after=8)
-for it in ["Formalize the SNP partnership: share the forecast, make the hydrogel co-development a standing program, add continuity terms to a Supplier Quality Agreement",
-           "Put 8–12 weeks of dry PVA resin on consignment at SNP (or with us) — resin is shelf-stable; the solution is not",
-           "Finish PCI qualification (shelf-life, hydrogel, cleaning) and lock a written per-drum price",
-           "Start the 5% warm trickle with an explicit readiness understanding and a confirmed ramp plan",
-           "Keep the cold-start kit (spec, RFQ, longlist) current — annual refresh"]:
-    par(tf.add_paragraph(),"•  "+it,12.5,GREY,after=7)
-rect(s,6.75,1.25,5.95,5.1,LAMB); tf=box(s,6.95,1.4,5.6,4.9)
-par(tf.paragraphs[0],"Move to a full split (A) if any of these hit",15,AMBER,bold=True,after=8)
-for it in ["Finance puts the cost of a 6-month PVA outage above ~$700k (10% risk) or ~$1.4M (5% risk)",
-           "A credible SNP risk signal: financial stress, key-person loss, capacity strain, a missed lot, or an unexplained price move",
-           "PCI's real price comes in at or below ~$1.50/lb — the premium then drops to ~$17k/yr and the calculus flips",
-           "Volume growth or a new hydrogel line makes PVA a larger, more strategic spend",
-           "SNP declines the partnership or continuity terms"]:
-    par(tf.add_paragraph(),"•  "+it,12.5,GREY,after=7)
-takeaway(s,"We keep the option, strengthen the source we depend on, and spend ~$10k/yr instead of ~$68k — with clear triggers to escalate.")
-
-# ---------- 13 ASKS ----------
-s=slide(); title_bar(s,"What we need from you",12,N)
-items=[("1","A number: what does a 6-month liquid-PVA outage cost the business?","Finance + Ops · this is the input that makes the break-even rigorous"),
-       ("2","Approval to formalize the SNP partnership (forecast sharing, continuity terms in the SQA)","Leadership · signals intent to SNP; legal/quality support"),
-       ("3","Budget for the warm backup: ~$15k one-time + ~$10k/yr","Leadership · small, reversible"),
-       ("4","Confirm the volume outlook (+10%/yr) and any new hydrogel lines in plan","Product/R&D · drives both the premium and the strategic weight of PVA"),
-       ("5","Agreement on the escalation triggers on the previous slide","Leadership · so we don't re-litigate this each quarter")]
-y=1.35
-for n,a,who in items:
-    rect(s,0.6,y,0.7,0.85,NAVY); tf=box(s,0.6,y+0.18,0.7,0.5); par(tf.paragraphs[0],n,20,WHITE,bold=True,align=PP_ALIGN.CENTER)
-    rect(s,1.4,y,7.3,0.85,LIGHT); tf=box(s,1.55,y+0.1,7.1,0.7); tf.vertical_anchor=MSO_ANCHOR.MIDDLE; par(tf.paragraphs[0],a,13,NAVY,bold=True)
-    rect(s,8.8,y,3.9,0.85,PALE); tf=box(s,8.9,y+0.1,3.7,0.7); tf.vertical_anchor=MSO_ANCHOR.MIDDLE; par(tf.paragraphs[0],who,11,GREY)
-    y+=0.98
-takeaway(s,"With #1 in hand, we can restate the recommendation in one line: the premium is, or is not, cheaper than the expected loss.")
-
-# ---------- 14 APPENDIX: EVIDENCE ----------
-s=slide(); title_bar(s,"Appendix · What the evidence says about dual vs single sourcing",13,N)
-EVIDENCE = [
- ("Bottleneck items call for securing supply, not splitting it. ","Kraljic's portfolio model classifies low-spend/high-risk items as 'bottleneck'; the prescribed strategies are volume insurance, vendor control, contingency planning and security of supply — a second source is one tool among several. (Kraljic, Harvard Business Review, 1983)"),
- ("Exposure = recovery time vs survival time. ","Simchi-Levi's Time-to-Recover / Time-to-Survive model (MIT; Harvard Business Review 2014, Ford case) quantifies risk as the gap between how long we can run without a supplier and how long it takes to replace them — here ~2.5 weeks vs 6–12 months."),
- ("Mitigation vs contingency depends on disruption profile. ","Tomlin (Management Science, 2006) shows that for rare, long disruptions a contingent backup is often preferable to carrying a dual source continuously — the theoretical basis for the 'warm backup' option."),
- ("Dual-sourcing surged after 2020, then cooled on cost. ","McKinsey's supply-chain surveys reported the majority of companies pursued dual-sourcing for critical inputs in 2021–22; later surveys show many scaling resilience investments back as the cost became visible. Resilience is bought, not free."),
- ("Being a preferred customer is a risk lever. ","Customer-attractiveness research (Schiele et al.) shows suppliers allocate capacity, innovation and attention to customers they value — forecast sharing and joint development are the documented ways to earn that status."),
- ("Regulators require controlled, risk-proportionate suppliers — not two of them. ","FDA's QMSR (21 CFR 820, incorporating ISO 13485:2016 clause 7.4) and GHTF/SG3/N17 require supplier evaluation and controls proportionate to risk; a documented risk assessment and contingency plan is the expectation for a sole source."),
-]
-bullets(s,0.6,1.2,12.1,5.3,EVIDENCE,size=12,gap=8)
-tf=box(s,0.6,6.65,12.1,0.5); par(tf.paragraphs[0],"Sources listed on the next page. Claims were fact-checked independently; see the accompanying research memo for the verification record.",10,GREY,italic=True)
-
-# ---------- 15 APPENDIX: ASSUMPTIONS + GLOSSARY ----------
-s=slide(); title_bar(s,"Appendix · Assumptions, sources and acronyms")
+# ================= 8 APPENDIX =================
+s=slide(); title_bar(s,"Appendix: assumptions, sources, suppliers, acronyms")
 rows=[["Assumption","Value","Basis"],
- ["Demand today","1,300 lb/week ≈ 150 drums/yr","Confirmed 2026-06-26"],
- ["SNP price","$0.75/lb delivered, $337.50/drum","SNP Estimate 012726-1"],
- ["PCI price forecast","$2.50 low · $3.75 mid · $5.00 high per lb","Leadership range; PCI not yet quoted"],
- ["Share to second source","1/3 (Option A) · 5% (Option C)","Leadership assumption"],
- ["Volume growth","+10% per year","Leadership assumption"],
+ ["Demand today","1,300 lb/wk ≈ 150 drums/yr","Confirmed 2026-06-26"],
+ ["SNP Inc. price","$0.75/lb delivered = $337.50/drum","SNP Estimate 012726-1"],
+ ["PCI Manufacturing price","$2.50 / $3.75 / $5.00 per lb","Leadership range; not yet quoted"],
+ ["Supplier minimum","1 drum/week (52/yr ≈ 35% today)","Supplier condition"],
+ ["Volume growth","+10%/yr","Leadership assumption"],
  ["Market reference","$0.85 / $1.40 / $2.55 per lb","Resin floor + labor build-up + retail ceiling"],
- ["CJB quote","$8.00–8.50/lb toll excl. materials ≈ $8.42/lb landed","CJB email 'RE: mix test'"],
- ["Qualification cost","~$15k one-time","PLACEHOLDER — to confirm"],
- ["Outage cost","not yet estimated","NEEDED from Finance/Ops"]]
-table(s,0.6,1.2,7.4,4.7,rows,[2.2,2.9,2.3],size=10.5)
-rect(s,8.25,1.2,4.45,5.6,PALE,STEEL); tf=box(s,8.4,1.3,4.2,5.4)
-par(tf.paragraphs[0],"Acronyms",13,NAVY,bold=True,after=6)
-for k,v in [("PVA","polyvinyl alcohol"),("SNP","our incumbent PVA supplier"),("PCI","candidate second supplier (in testing)"),("CJB","toll blender that quoted ~11× SNP"),
-            ("cP","centipoise — viscosity unit"),("CoA","Certificate of Analysis"),("SQA","Supplier Quality Agreement"),("RFQ","Request for Quotation"),
-            ("TTS / TTR","Time-to-Survive / Time-to-Recover"),("QMSR","FDA Quality Management System Regulation"),("ISO 13485","medical-device quality standard"),("GHTF","Global Harmonization Task Force")]:
-    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
-    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(10.5); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(4)
-tf=box(s,0.6,6.05,7.4,0.9); par(tf.paragraphs[0],"Full model: PVA_Second_Supplier_Leadership_Model.xlsx (all inputs editable). Research memo with verified sources accompanies this deck.",10,GREY,italic=True)
+ ["CJB quote","$8.00–8.50/lb toll excl. materials ≈ $8.42 landed","CJB email 'RE: mix test'"],
+ ["Qualification cost","~$15k one-time","PLACEHOLDER — confirm"],
+ ["Outage cost","not yet estimated","NEEDED from Finance / Ops"]]
+table(s,0.6,1.15,6.9,3.9,rows,[2.0,2.7,2.2],size=9.5)
+tf=box(s,0.6,5.15,6.9,1.4)
+par(tf.paragraphs[0],"Frameworks behind the analysis",11,NAVY,bold=True,after=3)
+par(tf.add_paragraph(),"Kraljic portfolio model (HBR 1983): low-spend/high-risk 'bottleneck' items → secure supply. Simchi-Levi, Time-to-Recover vs Time-to-Survive (HBR 2014): exposure = recovery time beyond survival time. Tomlin (Management Science 2006): for rare, long disruptions a prepared contingency can beat continuous dual-sourcing. FDA QMSR / ISO 13485 §7.4 and GHTF/SG3/N17: supplier controls proportionate to risk — a documented sole-source risk assessment and contingency plan, not a mandated second supplier.",9.5,GREY)
+rect(s,7.75,1.15,4.95,5.4,PALE,STEEL); tf=box(s,7.9,1.22,4.7,5.3)
+par(tf.paragraphs[0],"Suppliers named",12,NAVY,bold=True,after=3)
+for k,v in [("SNP Inc.","Durham, NC — incumbent, sole source"),("PCI Manufacturing","St. Louis, MO — CMS Manufacturing group; candidate in testing"),("CJB Applied Technologies","Valdosta, GA — quoted ~11×"),("ArroChem Inc.","Mount Holly, NC — 85 °C ceiling"),("ILC Dover","Frederica, DE — could not hold temperature"),("Columbus Chemical Industries","Columbus, WI — could not hold temperature"),("Brenntag","distributor — trial viscosity unreadable"),("Piedmont Chemical Industries","High Point, NC — reserve"),("APV Engineered Coatings","Akron, OH — reserve")]:
+    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(9.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
+    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(9.5); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(2)
+p=tf.add_paragraph(); par(p,"Acronyms",12,NAVY,bold=True,after=3); p.space_before=Pt(6)
+for k,v in [("PVA","polyvinyl alcohol"),("cP","centipoise — viscosity unit"),("CoA","Certificate of Analysis"),("SQA","Supplier Quality Agreement"),("QMSR","FDA Quality Management System Regulation"),("GHTF","Global Harmonization Task Force"),("HBR","Harvard Business Review")]:
+    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(9.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
+    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(9.5); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(2)
+tf=box(s,0.6,6.6,12.1,0.5); par(tf.paragraphs[0],"Full model: PVA_Second_Supplier_Leadership_Model.xlsx — every input editable, including the supplier minimum.",9.5,GREY,italic=True)
 
-
-# ---------- SPEAKER NOTES (talk track, in sequence) ----------
+# ================= SPEAKER NOTES =================
 NOTES = [
- "Today I am asking for a decision on one supply-risk item: liquid PVA. About 12 minutes: what changed since July, what a second supplier truly costs, the alternative, and a recommendation with clear triggers.",
- "Headline first. A full second source would cost 80-190% of today's PVA spend - far more than the ~$6-12k we estimated in July. The reason is price: realistic $2.50-5.00/lb versus the $1.00-1.25 we assumed. My recommendation: strengthen SNP AND keep PCI as a warm backup, escalating to a full split only on defined triggers. The one number I need from you is what a six-month outage would cost the business.",
- "The risk itself has not changed. Sole source; 18-day shelf life, so about two and a half weeks of survival if SNP stops. Recovery - qualifying a replacement - has taken us six months. When recovery time exceeds survival time, that is the definition of exposure. In procurement terms this is a bottleneck item: small spend, critical input. The textbook answer is to secure supply, not chase price.",
- "94 suppliers screened. Most cannot hold the 90-95 C cook; most of the rest have batch minimums that overshoot an 18-day shelf life. The one toll quote we got was about 11 times SNP. PCI is promising - viscosity root cause found, spec agreed - but not yet qualified. The lesson: from zero, an SNP failure means 6-12 months of exposure at crisis prices. THAT is what a second source insures against.",
- "Each bar is the extra we would pay per year if a second source takes a third of volume at that price. The drums are bought either way; the premium is the decision number. PCI at $2.50-5.00 means +$39k to +$96k a year. Green is what we described in July. Red is the CJB quote, for scale. Not on the chart: if SNP re-prices the two-thirds it keeps, add $3-7k.",
- "Volume grows about 10% a year, so the premium compounds: $240k to $585k over five years for a full split, versus about $62k for a warm backup. Any second source also carries a one-time qualification cost - roughly $15k as a placeholder.",
- "Let me be honest about what the money buys and does not. It buys a practiced supplier and price discipline. It does NOT buy full protection - two-thirds of our volume still stops unless PCI can ramp, and we have not confirmed they can. And it sends SNP a signal at exactly the moment we are asking them to co-develop new hydrogels with us.",
- "Option B: keep SNP but manage the dependency deliberately. Share the forecast; make the hydrogel co-development a standing program; write continuity terms into the quality agreement; and the lever people miss - buffer the RESIN, not the solution. Dry PVA resin is shelf-stable for years; the solution is not. Total cost: a few thousand dollars and some engineering time. Residual risk: a true SNP failure still means months of exposure.",
- "Option C: finish PCI's qualification, then keep them warm at about 5% - one drum every seven weeks. Roughly $10k a year. It turns six months of sunk effort into a standing option. Two failure modes to manage: 5% may be too little for PCI to care, so we need an explicit readiness understanding; and we must confirm in writing that they can ramp.",
- "Here is the test leadership can apply: the premium is worth paying only if it is less than the probability of an outage times the loss the backup would avoid. Mid case, a full split at $68k a year: at a 5% annual risk the outage must cost more than $1.35M to justify it; at 10%, about $680k. The warm backup clears the bar at $200k and $100k. I do not have the outage cost - that is the input I need from Finance and Operations.",
- "Side by side. B and C are not alternatives to each other - together they are the balanced answer at our current volume. A full split is right only if the outage cost is well over half a million dollars, or if SNP shows real fragility.",
- "The recommendation. Do now: formalize the SNP partnership, put resin on consignment, finish PCI, start the 5% trickle, keep the cold-start kit current. Escalate to a full split on any of these triggers: an outage-cost number above the threshold, an SNP risk signal, PCI pricing at or below $1.50, volume growth or a new hydrogel line, or SNP declining the partnership.",
- "Five asks. The first is the one that matters: with the outage-cost number, I can restate this whole recommendation in one line.",
- "For the record, the frameworks and evidence: Kraljic on bottleneck items; Simchi-Levi's time-to-recover versus time-to-survive; Tomlin on when a contingent backup beats continuous dual-sourcing; McKinsey's surveys showing dual-sourcing surged after 2020 and then cooled as the cost became visible; customer-attractiveness research on earning preferred-customer status; and what FDA and ISO actually require of a sole source - controls proportionate to risk, not two suppliers.",
- "Assumptions, sources, and acronyms for reference. The full model is in the workbook; every input is editable.",
+ "One supply-risk item, one decision. Four parts: was a second supplier even feasible; what it costs; what running two would look like day to day, including what we owe the candidate; and the decision itself.",
+ "Feasibility. Two things limited the field. First, temperature: this PVA only dissolves with a 30 to 45 minute hold at 90 to 95 degrees C, and most toll blenders cannot get there - ArroChem, ILC Dover and Columbus Chemical all failed on that alone. Second, expertise: getting through the gate is not the same as making the product. Brenntag's trial came back with viscosity too high to read; PCI's first batch was more than double our target until we found the solids root cause. Then cost and fit: the one quote through the gate was eleven times SNP, and everyone viable needs at least a drum a week. The point: SNP is not just cheap - it is one of very few shops that can make this at all.",
+ "Cost, part one - where every number comes from, because you will be asked. The material floor is 16 to 20 cents a pound - resin at market price times 11 percent solids. SNP's 75 cents is a real quote. The market range - 85 cents, a dollar forty, two fifty-five - is built bottom-up from resin, labor, QC and freight, with the high end anchored by a retail comparable. PCI's 2.50 to 5 dollars is our forecast, not their number. CJB's 8.42 is real, and it is an outlier. Why does a new supplier cost more? Because conversion cost is fixed per batch, and spread over one drum that alone is one to two dollars a pound. Why is SNP cheap? Specialization: it is their product line, and they have tank sizes that fit our batch - so the fixed cost per pound stays low.",
+ "Cost, part two - what it means for us. Each bar is the extra we pay per year at one drum a week. PCI at 2.50 to 5 dollars: 41 to 99 thousand a year - roughly today's entire PVA bill again, every year, growing with volume. Five years: 242 to 588 thousand. There is no smaller version of this, because a drum a week is the least any supplier will take. And if SNP re-prices the volume it keeps, add a few thousand more.",
+ "Cost, part three - the upside case, because it changes everything. Everything so far assumed a non-specialist price. But the market base is a dollar forty, so a capable shop at one to two-fifty is plausible. At a dollar to a dollar fifty the premium is 6 to 18 thousand a year and it pays off against almost any outage - that is the July plan, as described. At two dollars it is borderline. At two-fifty it needs a big outage cost. So the opportunity cost of not looking is real: we could be leaving cheap insurance on the table, plus a live price reference on SNP. And finding out is free - an RFQ to PCI on the spec we have already agreed, about two weeks.",
+ "Logistics. With an 18 to 30 day shelf life nothing is stockpiled - every drum is made to order from both suppliers. That means one harmonized spec and one viscometer method, an incoming test on every lot from both, lot traceability so we can see hydrogel performance by source, two cleaning procedures, two quality agreements. It is manageable, but it is a permanent discipline. And one thing it needs that we do not yet have: a written ramp plan for PCI. Without that, the second source cannot actually cover an outage - two-thirds of our volume still stops.",
+ "The PCI question - because it is a fair one. They have put months of unpaid engineering into a small account. If we deem them capable and then do not buy, the realistic outcomes are that they decline to re-engage, deprioritize us, or demand paid development and a commitment next time. That is a real soft cost of Option B that the spreadsheet does not show. The honest way to handle it: decide before the next round of free experiments; if we lean B, be transparent about the triggers and pay for the work done - about the same 15 thousand any second source would cost to qualify; if we lean A, commit to the drum a week now.",
+ "The decision. A costs about 70 thousand a year at the mid price and buys recovery in weeks - if the ramp plan is real. B costs almost nothing and leaves us exposed for months if SNP fails. A pays off only if a six-month outage would cost us more than about 700 thousand at a 10 percent annual risk, or 1.4 million at 5 percent. My recommendation, in order: first, price discovery - get PCI's real number, it is free and it decides this; at or below a dollar fifty we go to A, at two-fifty and above we stay B unless the outage cost is large, and in between the outage number decides. Second, either way, strengthen SNP now. Third, if it is B, settle with PCI honestly. Three asks: the outage-cost number from Finance and Ops; the go-ahead to get PCI's price now; and approval to formalize SNP.",
+ "Assumptions, sources, suppliers by full name, and acronyms. The model is in the workbook; every input is editable, including the supplier minimum.",
 ]
-for sl, txt in zip(prs.slides, NOTES):
-    sl.notes_slide.notes_text_frame.text = txt
+for sl, txt in zip(prs.slides, NOTES): sl.notes_slide.notes_text_frame.text = txt
 
 prs.save("PVA_Second_Supplier_Leadership_Deck.pptx"); print("saved deck:", len(prs.slides._sldIdLst), "slides")
