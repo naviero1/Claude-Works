@@ -203,12 +203,12 @@ rows=[["","A · Second source (PCI Manufacturing, 1 drum/wk)","B · Single sourc
  ["Relationship","Takes a third of SNP Inc.'s line; PCI engaged","Deeper SNP partnership; PCI door kept open (paid)"],
  ["Pays off when…","6-month outage cost > ~$700k (10%/yr risk) or ~$1.4M (5%)","outage cost below that, and SNP Inc. stays healthy and engaged"]]
 fills=[None]+[[None,LRED,LGREEN] for _ in range(6)]
-table(s,0.6,1.2,12.1,2.85,rows,[2.3,4.9,4.9],size=10.5,fills=fills)
-panel(s,0.6,4.2,5.95,2.25,"Recommendation — in this order",
+table(s,0.6,1.2,12.1,2.75,rows,[2.3,4.9,4.9],size=10.5,fills=fills)
+panel(s,0.6,4.05,5.95,2.4,"Recommendation — in this order",
  ["1. Price discovery first: RFQ to PCI Manufacturing on the agreed spec (~2 weeks, no cost). ≤ $1.50/lb → A; ≥ $2.50 → B unless the outage cost is large; between → the outage number decides.",
   "2. Either way, strengthen SNP Inc. now: forecast, hydrogel program, continuity terms, shelf-stable RESIN on consignment, annual financial check; confirm their capacity headroom for +10%/yr; say plainly that continuity planning is a quality-system requirement, not a loss of confidence.",
   "3. If B: settle with PCI Manufacturing honestly — pay for the work, state the triggers. Waiting is not passive: growth widens the feasible supplier set (minimum share 35% → 24% by year 5)."],GREEN,LGREEN,9.2)
-panel(s,6.75,4.2,5.95,2.25,"Switch to A the moment any trigger fires",
+panel(s,6.75,4.05,5.95,2.4,"Switch to A the moment any trigger fires",
  ["Finance's outage estimate clears the break-even  ·  an SNP Inc. risk signal (finances, key person, missed lot, odd price move)",
   "PCI Manufacturing quotes ≤ ~$1.50/lb (premium falls to ~$18k)  ·  a new hydrogel line makes PVA strategic  ·  SNP Inc. declines the partnership",
   "SNP Inc.'s capacity headroom falls short of year-5 volume (~99k lb) — then this is a capacity question, not an insurance one"],AMBER,LAMB,9.5)
@@ -227,7 +227,7 @@ rows=[["Assumption","Value","Basis"],
  ["Qualification cost","~$15k one-time","PLACEHOLDER — confirm"],
  ["Outage cost","not yet estimated","NEEDED from Finance / Ops"]]
 table(s,0.6,1.15,6.9,3.3,rows,[2.0,2.7,2.2],size=9)
-tf=box(s,0.6,4.55,6.9,2.05)
+tf=box(s,0.6,4.5,6.9,2.3)
 par(tf.paragraphs[0],"Frameworks behind the analysis (independently fact-checked)",11,NAVY,bold=True,after=3)
 par(tf.add_paragraph(),"Kraljic (HBR 1983), bottleneck items: 'Volume insurance (at cost premium if necessary). Control of vendors. Security of inventories. Backup plans' — pay for a backup when the premium is proportionate. Gelderman & van Weele (2003): 'hold' vs 'move' — move only when economically worthwhile. Simchi-Levi et al. (Interfaces 2015, Ford): disruption impact is uncorrelated with spend. Sheffi & Rice (MIT SMR 2005): single sourcing is legitimate only with a deep, managed relationship. Tomlin (2006); Chopra & Sodhi (2014): assuming zero disruption probability is the expensive mistake. Pulles, Schiele et al. (2016): preferential treatment follows attractiveness, not volume. Deloitte CPO 2025: 'active alternative sources' rated most effective (74%); McKinsey 2024 (secondary): 46% cutting risk buffers. QMSR / ISO 13485 §7.4 / GHTF N17: controls proportionate to risk — no second source required. In-house make: a ~$30–60k bench cook is a bridge only. Six research lenses; four refuted claims excluded; memo in the repo.",8.5,GREY)
 rect(s,7.75,1.15,4.95,5.4,PALE,STEEL); tf=box(s,7.9,1.22,4.7,5.3)
@@ -239,7 +239,7 @@ p=tf.add_paragraph(); par(p,"Acronyms",12,NAVY,bold=True,after=3); p.space_befor
 for k,v in [("PVA","polyvinyl alcohol"),("cP","centipoise — viscosity unit"),("CoA","Certificate of Analysis"),("SQA","Supplier Quality Agreement"),("QMSR","FDA Quality Management System Regulation"),("GHTF","Global Harmonization Task Force"),("HBR","Harvard Business Review")]:
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(9.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(9.5); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(2)
-tf=box(s,0.6,6.6,12.1,0.5); par(tf.paragraphs[0],"Full model: PVA_Second_Supplier_Leadership_Model.xlsx — every input editable, including the supplier minimum.",9.5,GREY,italic=True)
+tf=box(s,0.6,6.85,12.1,0.45); par(tf.paragraphs[0],"Full model: PVA_Second_Supplier_Leadership_Model.xlsx — every input editable, including the supplier minimum.",9,GREY,italic=True)
 
 # ================= SPEAKER NOTES =================
 NOTES = [
