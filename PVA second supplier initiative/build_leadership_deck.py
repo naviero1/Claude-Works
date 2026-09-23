@@ -47,9 +47,9 @@ def card(s,l,t,w,h,value,label,vcolor=NAVY,fill=LIGHT,vsize=24):
     tf=box(s,l+0.12,t+0.12,w-0.24,h-0.24); tf.vertical_anchor=MSO_ANCHOR.MIDDLE
     par(tf.paragraphs[0],value,vsize,vcolor,bold=True,align=PP_ALIGN.CENTER,after=2)
     par(tf.add_paragraph(),label,10.5,GREY,align=PP_ALIGN.CENTER)
-def takeaway(s,text,t=6.55,fill=NAVY,color=WHITE):
+def takeaway(s,text,t=6.55,fill=NAVY,color=WHITE,size=14):
     rect(s,0.6,t,12.1,0.62,fill)
-    tf=box(s,0.8,t+0.08,11.7,0.5); tf.vertical_anchor=MSO_ANCHOR.MIDDLE; par(tf.paragraphs[0],text,14,color,bold=True)
+    tf=box(s,0.8,t+0.08,11.7,0.5); tf.vertical_anchor=MSO_ANCHOR.MIDDLE; par(tf.paragraphs[0],text,size,color,bold=True)
 def table(s,l,t,w,h,rows,colw,size=11,hdr_fill=NAVY,fills=None,align_first_left=True):
     tbl=s.shapes.add_table(len(rows),len(rows[0]),Inches(l),Inches(t),Inches(w),Inches(h)).table
     for i,cw in enumerate(colw): tbl.columns[i].width=Inches(cw)
@@ -159,21 +159,21 @@ takeaway(s,"Below ~$1.50/lb this is an easy yes; above ~$2.50 it needs a big out
 # ================= 5 LOGISTICS =================
 s=slide(); title_bar(s,"Logistics: what two suppliers look like under an 18–30 day shelf life","3 · LOGISTICS")
 panel(s,0.6,1.2,5.95,2.55,"The rhythm",
- ["Every drum is made to order — an 18–30 day shelf life means no safety stock, from either supplier",
+ ["Every drum is made to order — an 18–30 day shelf life means no safety stock from either supplier. Drums arrive already aged, so real time-to-survive is ~1–1.5 weeks, not 2½",
   "PCI Manufacturing: 1 drum/week (its minimum). SNP Inc.: ~2 drums/week. Each drum consumed within ~2 weeks of receipt, first-in-first-out by production date",
-  "Two lead times, two ship lanes (Durham NC vs St. Louis MO), two order calendars to keep in phase"],NAVY,LIGHT,11.5)
+  "Two lead times, two ship lanes (Durham NC vs St. Louis MO), two order calendars to keep in phase"],NAVY,LIGHT,11)
 panel(s,6.75,1.2,5.95,2.55,"The control we would need — and how",
  ["One harmonized spec for both: 11% solids, 900–1,100 cP fresh, pH target — and ONE viscometer method, or the numbers cannot be compared",
   "Incoming test on every lot (viscosity, solids, pH) against a Certificate of Analysis (CoA) from each supplier; lot traceability to source so hydrogel performance can be tracked by supplier",
   "Two cleaning procedures (PCI's residual-film issue is open), two Supplier Quality Agreements with change-notification and audit rights, quarterly scorecards"],NAVY,LIGHT,11.5)
 panel(s,0.6,3.95,5.95,2.4,"What it costs to run",
- ["A standing overhead: ~1 extra incoming-QC lot per week, dual documentation, two relationships, annual re-check of each",
+ ["A standing overhead: ~1 extra incoming-QC lot per week, dual documentation, two relationships — plus R&D and Quality time for hydrogel equivalence by source and CAPA across two streams. Two suppliers also means two chances of a quality escape",
   "A written ramp plan for PCI Manufacturing (1 → 3 drums/week) — without it, the second source cannot actually cover an SNP Inc. outage",
-  "If PCI's shelf-life study shows 30 days rather than 18, cadence loosens slightly; it does not create a buffer"],AMBER,LAMB,11.5)
-panel(s,6.75,3.95,5.95,2.4,"What it buys",
- ["Recovery in weeks, not months, if SNP Inc. fails — provided the ramp plan is real",
-  "A live price reference and a second set of process knowledge",
-  "It does NOT remove the exposure: ~2/3 of volume still stops until the ramp completes"],GREEN,LGREEN,11.5)
+  "Sub-tier check: if both cook the same producer's resin, a second cooker hedges cooking, not resin — the shelf-stable resin buffer is the hedge either way"],AMBER,LAMB,10.5)
+panel(s,6.75,3.95,5.95,2.4,"What it buys — and the cheapest lever of all",
+ ["Recovery in weeks, not months, if SNP Inc. fails — provided the ramp plan is real; a live price reference; a second set of process knowledge",
+  "It does NOT remove the exposure: ~2/3 of volume still stops until the ramp completes",
+  "Under either option, a validated 30–45-day shelf-life study (biocide / refrigeration) lengthens time-to-survive for a lab study's cost — worth doing first"],GREEN,LGREEN,10.5)
 takeaway(s,"Running two suppliers is manageable — but it is a permanent operating discipline, not a one-time qualification.")
 
 # ================= 6 THE PCI QUESTION =================
@@ -196,22 +196,23 @@ takeaway(s,"If the answer is 'not now', we owe PCI Manufacturing a candid conver
 # ================= 7 DECISION =================
 s=slide(); title_bar(s,"Decision: A or B — and the one number that settles it","4 · DECISION")
 rows=[["","A · Second source (PCI Manufacturing, 1 drum/wk)","B · Single source (SNP Inc.), strengthened"],
- ["Annual premium","+$70k mid  ($41–99k)","~$0 + a few $k continuity spend"],
- ["5-year premium","~$415k  ($242–588k)","~$0"],
+ ["Annual premium","+$70k mid  ($41–99k)","~$3–12k/yr continuity bundle"],
+ ["5-year premium","~$415k  ($242–588k)","~$15–60k, plus ~$5–10k one-time"],
  ["Exposure if SNP Inc. fails","~2/3 of volume until PCI ramps","100%"],
  ["Time to recover","weeks (with a ramp plan)","6–12 months; 3–4 with the cold-start kit current"],
  ["Relationship","Takes a third of SNP Inc.'s line; PCI engaged","Deeper SNP partnership; PCI door kept open (paid)"],
  ["Pays off when…","6-month outage cost > ~$700k (10%/yr risk) or ~$1.4M (5%)","outage cost below that, and SNP Inc. stays healthy and engaged"]]
 fills=[None]+[[None,LRED,LGREEN] for _ in range(6)]
-table(s,0.6,1.2,12.1,3.2,rows,[2.3,4.9,4.9],size=11,fills=fills)
-panel(s,0.6,4.55,5.95,1.85,"Recommendation — in this order",
+table(s,0.6,1.2,12.1,2.85,rows,[2.3,4.9,4.9],size=10.5,fills=fills)
+panel(s,0.6,4.2,5.95,2.25,"Recommendation — in this order",
  ["1. Price discovery first: RFQ to PCI Manufacturing on the agreed spec (~2 weeks, no cost). ≤ $1.50/lb → A; ≥ $2.50 → B unless the outage cost is large; between → the outage number decides.",
-  "2. Either way, strengthen SNP Inc. now: forecast, hydrogel program, continuity terms, shelf-stable RESIN on consignment, annual financial check.",
-  "3. If B: settle with PCI Manufacturing honestly — pay for the work, state the triggers."],GREEN,LGREEN,10)
-panel(s,6.75,4.55,5.95,1.85,"Switch to A the moment any trigger fires",
+  "2. Either way, strengthen SNP Inc. now: forecast, hydrogel program, continuity terms, shelf-stable RESIN on consignment, annual financial check — and confirm their capacity headroom for +10%/yr. Say plainly that continuity planning is a quality-system requirement, not a loss of confidence.",
+  "3. If B: settle with PCI Manufacturing honestly — pay for the work, state the triggers. Waiting is not passive: growth widens the feasible supplier set and shrinks the minimum share (35% → 24% by year 5)."],GREEN,LGREEN,9.5)
+panel(s,6.75,4.2,5.95,2.25,"Switch to A the moment any trigger fires",
  ["Finance's outage estimate clears the break-even  ·  an SNP Inc. risk signal (finances, key person, missed lot, odd price move)",
-  "PCI Manufacturing quotes ≤ ~$1.50/lb (premium falls to ~$18k)  ·  a new hydrogel line makes PVA strategic  ·  SNP Inc. declines the partnership"],AMBER,LAMB,10.5)
-takeaway(s,"The ask: (1) the cost of a 6-month PVA outage, from Finance/Ops; (2) go-ahead to get PCI's real price now; (3) approval to formalize SNP Inc. — then A or B by the table.")
+  "PCI Manufacturing quotes ≤ ~$1.50/lb (premium falls to ~$18k)  ·  a new hydrogel line makes PVA strategic  ·  SNP Inc. declines the partnership",
+  "SNP Inc.'s capacity headroom falls short of year-5 volume (~99k lb) — then this is a capacity question, not an insurance one"],AMBER,LAMB,9.5)
+takeaway(s,"Asks: (1) the outage cost — per hydrogel SKU: revenue, contribution margin, deferrable vs lost demand (fallback: more or less than $1M? $3M?); (2) get PCI's price now; (3) formalize SNP Inc.",size=12)
 
 # ================= 8 APPENDIX =================
 s=slide(); title_bar(s,"Appendix: assumptions, sources, suppliers, acronyms")
@@ -228,7 +229,7 @@ rows=[["Assumption","Value","Basis"],
 table(s,0.6,1.15,6.9,3.9,rows,[2.0,2.7,2.2],size=9.5)
 tf=box(s,0.6,5.15,6.9,1.4)
 par(tf.paragraphs[0],"Frameworks behind the analysis",11,NAVY,bold=True,after=3)
-par(tf.add_paragraph(),"Kraljic portfolio model (HBR 1983): low-spend/high-risk 'bottleneck' items → secure supply. Simchi-Levi, Time-to-Recover vs Time-to-Survive (HBR 2014): exposure = recovery time beyond survival time. Tomlin (Management Science 2006): for rare, long disruptions a prepared contingency can beat continuous dual-sourcing. FDA QMSR / ISO 13485 §7.4 and GHTF/SG3/N17: supplier controls proportionate to risk — a documented sole-source risk assessment and contingency plan, not a mandated second supplier.",9.5,GREY)
+par(tf.add_paragraph(),"Kraljic (HBR 1983) — bottleneck items: 'Volume insurance (at cost premium if necessary). Control of vendors. Security of inventories. Backup plans.' — pay for a backup when the premium is proportionate; decide at leadership level. Gelderman & van Weele (2003): 'hold' (accept dependence, reduce consequences) vs 'move' (new supplier) — move only when economically worthwhile. Simchi-Levi et al. (Interfaces 2015, Ford): disruption impact is not correlated with spend; low-spend/high-impact suppliers are the hardest to dual-source. Sheffi & Rice (MIT SMR 2005): single sourcing is legitimate only with a deep, actively managed relationship. Tomlin (Mgmt Sci 2006); Chopra & Sodhi (MIT SMR 2014): assuming zero disruption probability is the expensive mistake. Pulles, Schiele et al. (2016, n=91 suppliers): preferential treatment follows customer attractiveness, not volume. Deloitte CPO Survey 2025: 'maintaining active alternative sources' rated most effective (74%); McKinsey 2024 (secondary coverage): 73% progressing on dual sourcing while 46% were cutting risk buffers. FDA QMSR / ISO 13485 §7.4 / GHTF SG3/N17: controls proportionate to risk — no regulation requires a second source. Make in-house: a ~$30–60k bench cook is a days-to-weeks bridge only; full in-house production is uneconomic at $50k/yr of spend. Research: six lenses, independently fact-checked; four refuted claims excluded; full memo in the repo.",8.5,GREY)
 rect(s,7.75,1.15,4.95,5.4,PALE,STEEL); tf=box(s,7.9,1.22,4.7,5.3)
 par(tf.paragraphs[0],"Suppliers named",12,NAVY,bold=True,after=3)
 for k,v in [("SNP Inc.","Durham, NC — incumbent, sole source"),("PCI Manufacturing","St. Louis, MO — CMS Manufacturing group; candidate in testing"),("CJB Applied Technologies","Valdosta, GA — quoted ~11×"),("ArroChem Inc.","Mount Holly, NC — 85 °C ceiling"),("ILC Dover","Frederica, DE — could not hold temperature"),("Columbus Chemical Industries","Columbus, WI — could not hold temperature"),("Brenntag","distributor — trial viscosity unreadable"),("Piedmont Chemical Industries","High Point, NC — reserve"),("APV Engineered Coatings","Akron, OH — reserve")]:
@@ -247,9 +248,9 @@ NOTES = [
  "Cost, part one - where every number comes from, because you will be asked. The material floor is 16 to 20 cents a pound - resin at market price times 11 percent solids. SNP's 75 cents is a real quote. The market range - 85 cents, a dollar forty, two fifty-five - is built bottom-up from resin, labor, QC and freight, with the high end anchored by a retail comparable. PCI's 2.50 to 5 dollars is our forecast, not their number. CJB's 8.42 is real, and it is an outlier. Why does a new supplier cost more? Because conversion cost is fixed per batch, and spread over one drum that alone is one to two dollars a pound. Why is SNP cheap? Specialization: it is their product line, and they have tank sizes that fit our batch - so the fixed cost per pound stays low.",
  "Cost, part two - what it means for us. Each bar is the extra we pay per year at one drum a week. PCI at 2.50 to 5 dollars: 41 to 99 thousand a year - roughly today's entire PVA bill again, every year, growing with volume. Five years: 242 to 588 thousand. There is no smaller version of this, because a drum a week is the least any supplier will take. And if SNP re-prices the volume it keeps, add a few thousand more.",
  "Cost, part three - the upside case, because it changes everything. Everything so far assumed a non-specialist price. But the market base is a dollar forty, so a capable shop at one to two-fifty is plausible. At a dollar to a dollar fifty the premium is 6 to 18 thousand a year and it pays off against almost any outage - that is the July plan, as described. At two dollars it is borderline. At two-fifty it needs a big outage cost. So the opportunity cost of not looking is real: we could be leaving cheap insurance on the table, plus a live price reference on SNP. And finding out is free - an RFQ to PCI on the spec we have already agreed, about two weeks.",
- "Logistics. With an 18 to 30 day shelf life nothing is stockpiled - every drum is made to order from both suppliers. That means one harmonized spec and one viscometer method, an incoming test on every lot from both, lot traceability so we can see hydrogel performance by source, two cleaning procedures, two quality agreements. It is manageable, but it is a permanent discipline. And one thing it needs that we do not yet have: a written ramp plan for PCI. Without that, the second source cannot actually cover an outage - two-thirds of our volume still stops.",
+ "Logistics. With an 18 to 30 day shelf life nothing is stockpiled - every drum is made to order from both suppliers, and because drums arrive already aged, our real time-to-survive is one to one-and-a-half weeks, not two and a half. One check we have not done: whether SNP and PCI cook the same producer's resin - if so, a second cooker hedges cooking, not resin, and the resin buffer is the hedge either way. And the cheapest lever of all under either option is a validated 30-to-45-day shelf-life study. That means one harmonized spec and one viscometer method, an incoming test on every lot from both, lot traceability so we can see hydrogel performance by source, two cleaning procedures, two quality agreements. It is manageable, but it is a permanent discipline. And one thing it needs that we do not yet have: a written ramp plan for PCI. Without that, the second source cannot actually cover an outage - two-thirds of our volume still stops.",
  "The PCI question - because it is a fair one. They have put months of unpaid engineering into a small account. If we deem them capable and then do not buy, the realistic outcomes are that they decline to re-engage, deprioritize us, or demand paid development and a commitment next time. That is a real soft cost of Option B that the spreadsheet does not show. The honest way to handle it: decide before the next round of free experiments; if we lean B, be transparent about the triggers and pay for the work done - about the same 15 thousand any second source would cost to qualify; if we lean A, commit to the drum a week now.",
- "The decision. A costs about 70 thousand a year at the mid price and buys recovery in weeks - if the ramp plan is real. B costs almost nothing and leaves us exposed for months if SNP fails. A pays off only if a six-month outage would cost us more than about 700 thousand at a 10 percent annual risk, or 1.4 million at 5 percent. My recommendation, in order: first, price discovery - get PCI's real number, it is free and it decides this; at or below a dollar fifty we go to A, at two-fifty and above we stay B unless the outage cost is large, and in between the outage number decides. Second, either way, strengthen SNP now. Third, if it is B, settle with PCI honestly. Three asks: the outage-cost number from Finance and Ops; the go-ahead to get PCI's price now; and approval to formalize SNP.",
+ "The decision. A costs about 70 thousand a year at the mid price and buys recovery in weeks - if the ramp plan is real. B costs almost nothing and leaves us exposed for months if SNP fails. A pays off only if a six-month outage would cost us more than about 700 thousand at a 10 percent annual risk, or 1.4 million at 5 percent. My recommendation, in order: first, price discovery - get PCI's real number, it is free and it decides this; at or below a dollar fifty we go to A, at two-fifty and above we stay B unless the outage cost is large, and in between the outage number decides. Second, either way, strengthen SNP now. Third, if it is B, settle with PCI honestly. Three asks: the outage-cost number from Finance and Ops - per hydrogel SKU, trailing revenue, contribution margin, and how much demand would be deferred versus lost; if they will not commit, two yes-or-no answers place us on the table: is a six-month stop more or less than a million dollars, more or less than three; the go-ahead to get PCI's price now; and approval to formalize SNP. LIKELY QUESTIONS. One: 'In July you said six to twelve thousand; now it is seventy.' Both were honest: July assumed a dollar to a dollar twenty-five and a share no supplier will accept; this is the same plan at real prices - and if PCI comes in at a dollar fifty, July's number is back. Two: 'If SNP burns down tomorrow, what actually happens?' Today, production stops for six to twelve months. Under A with a signed ramp, a gap of two to six weeks. Under B with the resin buffer and the cold-start kit, months rather than a year. No option closes the gap without PCI's written capacity commitment - which is why getting it is step one. Three: 'Why not just pay the seventy thousand - it is a rounding error against the device line?' Because at that price it covers a third of supply, not all of it; it drops us below one percent of SNP's revenue at the moment we want first call on their capacity and innovation; and standing risk lines are the first thing cut in a budget cycle - nearly half of companies in McKinsey's 2024 survey were cutting risk buffers. If the outage cost clears the break-even, we pay it; the triggers make that automatic.",
  "Assumptions, sources, suppliers by full name, and acronyms. The model is in the workbook; every input is editable, including the supplier minimum.",
 ]
 for sl, txt in zip(prs.slides, NOTES): sl.notes_slide.notes_text_frame.text = txt
