@@ -2,6 +2,8 @@
 
 Research snapshot: September 28, 2026.
 
+**Latest comparison:** [Second supplier check](round2-2026-09-28/README.md) adds a cross-reference against Claude's current workbook, revised qualification priorities, additional location screens and source conflicts. In particular, the earlier Neese Burlington listing is now marked unresolved. The original files below remain as the first-pass snapshot.
+
 This folder contains the workbook and supporting data developed in the ChatGPT tissue-supplier investigation. It is a separate snapshot alongside the existing project files. It contains no assignments or instructions for Claude.
 
 ## Files
