@@ -50,9 +50,10 @@ spec with our training (**Model B-T**).
   the real crew departure point is still to be confirmed); 120 road miles; preferred scale
   2,000-5,000 pigs/week (no new in-radius plant meets it — the strategy stays cat-2 clusters plus
   the incumbents); live weight ≈ **140-220 lb**, which puts sow-only plants outside the spec.
-- **Volume is a ceiling to confirm, never a figure.** FSIS `slaughter_volume_category` bands
-  (all species): cat 1 <19/wk · cat 2 19-192 · cat 3 192-1,917 · cat 4 ≥1,917. Client brackets:
-  0-300 · >300-700 · 750-1,200 · 1,250-5,000 · >5,000 hogs/week.
+- **Volume is a historical bound to confirm, never a figure.** FSIS `slaughter_volume_category`
+  bands are head over the prior 360 days, all species (×7/360 → cat 1 <19/wk · cat 2 19-194 ·
+  cat 3 194-1,944 · cat 4 ≥1,944). They bound what a plant *did* kill, not its capacity. Client
+  brackets: 0-300 · >300-700 · 750-1,200 · 1,250-5,000 · >5,000 hogs/week.
 - **Welfare** is a discussion item, not an auto-exclusion; "none found" in enforcement is a narrow
   negative, and state plants are outside federal reporting entirely (site-visit finding).
 - **Roles only.** The workbook names the Supplier Engineer and the Purchasing Manager; no
@@ -86,5 +87,9 @@ the workbook.
 - **2026-09-28** Durham origin and 140-220 lb parameters applied; Beebop snapshot folded in;
   EcoFriendly Foods (VA, cat 3) enters the radius; Quaqua Creek and Cool Springs promoted to
   their own rows.
+- **2026-09-28 (round 2)** Beebop's fact review of this workbook cross-checked: band arithmetic
+  corrected to ×7/360; exact-address distances at the boundary (EcoFriendly 120.4, McLaughlin's
+  119.4); Farmington P-381 and three small federal Virginia plants (Easternview, The Butcher's
+  Block, KC Farms — all cat 1) added; Godwin, Piedmont and Nahunta wording tightened.
 
 Everything earlier is in git history and in `Deep_Study_Synthesis.pdf`.
