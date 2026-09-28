@@ -243,13 +243,14 @@ rows=[["Assumption","Value","Basis"],
  ["SNP Inc. price","$0.75/lb delivered = $337.50/drum","SNP Estimate 012726-1"],
  ["PCI price","$3.50/lb per 5-drum batch; $6.00/lb below a batch","Quote 2026-09-28 — confirm terms in writing"],
  ["Option 1 share","1/3 = 50 drums/yr = 10 batches (22,500 lb)","Every chart bar; five-year uses an exact third"],
- ["Option 3 keep-alive","1–2 batches/yr = 5–10 drums = 3–7% of demand; +$6.2–12.4k/yr","$7.9k gross per batch ($3.50/lb × 2,250 lb)"],
+ ["Option 3 keep-alive","1–3 batches/yr = 5–15 drums = 3–10% of demand; +$6.2–18.6k/yr","$7.9k per batch ($3.50/lb × 2,250 lb); no volume term on the price so far"],
  ["Market reference",f"{T('high')} / {T('competitive')} / {T('low')} per lb","Market study: high / competitive / low quantity"],
  ["CJB quote","$8.00–8.50/lb toll excl. materials ≈ $8.42 landed","$6,400 trial declined; email 'RE: mix test'"],
- ["Qualification cost","~$15k to date (sunk); ~$15–40k to production release; PCI fee ~$5–10k","Memo §2.3; placeholders"],
- ["Outage risk / avoided loss","2–5%/yr planning band (10% upper case); avoided loss not estimated","Memo §5.2; NEEDED from Finance"]]
-table(s,0.6,1.15,6.9,3.0,rows,[1.7,3.0,2.2],size=8)
-tf=box(s,0.6,5.0,6.9,1.8)
+ ["APV estimate","≥ $3.00/lb — never confirmed","Called $1.50/lb too cheap for our volume on our call"],
+ ["Qualification cost","~$15k of internal hours to date (sunk); ~$15–40k more to production release","Placeholders; not in the purchase totals"],
+ ["Restart time if SNP fails","Option 1 weeks (if ramp confirmed); Option 3 weeks to months; Option 2 ~3–6 months","Estimates; a cold start decays after ~12 months idle"]]
+table(s,0.6,1.15,6.9,3.2,rows,[1.7,3.0,2.2],size=8)
+tf=box(s,0.6,5.1,6.9,1.7)
 par(tf.paragraphs[0],"Frameworks (independently fact-checked)",10.5,NAVY,bold=True,after=2)
 par(tf.add_paragraph(),"Kraljic (HBR 1983), bottleneck items: 'Volume insurance (at cost premium if necessary). Control of vendors. Security of inventories. Backup plans.' Gelderman & van Weele (2003): 'hold' vs 'move'. Simchi-Levi et al. (Interfaces 2015): disruption impact is uncorrelated with spend. Sheffi & Rice (MIT SMR 2005): single sourcing is legitimate only with a deep, managed relationship. Tomlin (2006); Chopra & Sodhi (2014): assuming zero disruption probability is the expensive mistake. Pulles, Schiele et al. (2016): preferential treatment follows attractiveness, not volume. Deloitte Chief Procurement Officer (CPO) Survey 2025: 'active alternative sources' rated most effective (74%). No standard or regulation we work under requires a second source; controls are proportionate to risk. Six lenses; four refuted claims excluded; memo in the repo.",7.6,GREY)
 rect(s,7.75,1.15,4.95,5.65,PALE,STEEL); tf=box(s,7.9,1.22,4.7,5.55)
@@ -258,7 +259,7 @@ for k,v in [("SNP Inc.","Durham, NC — incumbent, sole source"),("PCI Manufactu
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(9); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(9); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(1)
 p=tf.add_paragraph(); par(p,"Acronyms",12,NAVY,bold=True,after=2); p.space_before=Pt(5)
-for k,v in [("PVA","polyvinyl alcohol"),("cP","centipoise — viscosity unit"),("CoA","Certificate of Analysis"),("SQA","Supplier Quality Agreement"),("NRE","non-recurring engineering"),("NDA","non-disclosure agreement"),("PPAP","Production Part Approval Process"),("SKU","stock-keeping unit"),("CPO","Chief Procurement Officer"),("HBR / MIT SMR","Harvard Business Review / MIT Sloan Management Review")]:
+for k,v in [("PVA","polyvinyl alcohol"),("cP","centipoise — viscosity unit"),("SQA","Supplier Quality Agreement"),("NDA","non-disclosure agreement"),("CPO","Chief Procurement Officer (Deloitte survey)"),("HBR / MIT SMR","Harvard Business Review / MIT Sloan Management Review")]:
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(9); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(9); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(1)
 tf=box(s,0.6,6.85,7.0,0.45); par(tf.paragraphs[0],"Workbook: PVA_Second_Supplier_Leadership_Model.xlsx — 'Summary' holds every slide figure as a formula; 'Supplier Quotes', 'Market Study', 'PCI Quote Scenarios', 'PCI Experiment' hold the compiled data.",9,GREY,italic=True)
