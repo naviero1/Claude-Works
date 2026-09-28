@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Leadership deck v4.1: PCI's real quote ($3.50/lb at 5-drum batches; $6 below) — chronology, side-by-side cost, logistics, three options, timing.
+"""Leadership deck v4.2 (11 slides; the pre-quote "what changed" slide removed): PCI's real quote ($3.50/lb at 5-drum batches; $6 below) — chronology, side-by-side cost, logistics, three options, timing.
 Succinct slides; the detail lives in the speaker notes. Reads market_tiers.json (market study) when present."""
 from pptx import Presentation
 from pptx.util import Inches, Pt
@@ -97,37 +97,20 @@ par(tf.add_paragraph(),"Oscar Penny  ·  Supply Chain  ·  28 September 2026  ·
 # ===== 2 OUTLINE =====
 s=slide(); title_bar(s,"Outline — what each slide establishes","OUTLINE")
 rows=[["#","Slide","What it establishes"],
- ["3","What changed","PCI Manufacturing's experiment succeeded; the real quote is $3.50/lb at 5-drum batches ($6.00 below a batch); a decision is due before our next SNP Inc. conversation"],
- ["4","Price per pound, side by side","What comparable pre-mixed PVA solution sells for at high, competitive and low quantity (market study), then the four real quotes: SNP, PCI per batch, PCI below batch, CJB"],
- ["5","Annual cost, side by side","Same 67,600 lb/yr and the same one-third second source in every bar: +$62k/yr at PCI's batch price, +$118k below batch size, CJB for scale"],
- ["6","How we got here","Nov 2025 → Sep 2026 as a series of events: Brenntag never met viscosity; heat-gate failures; CJB cleared the gate, then priced out (trial declined); PCI: batches, root cause, spec met, quote — and what it cost"],
- ["7","What 5-drum batches mean operationally","Block rotation under an 18-day shelf life; two cadence choices for SNP Inc.; the controls; what a longer validated life would change"],
- ["8","Three options","1 · second supplier at one-third  ·  2 · strengthen SNP Inc. only, no volume moved  ·  3 · keep-alive: 1–2 batches of 5 drums a year — cost, what each buys, what each supplier sees"],
- ["9","Keeping a qualified supplier you barely use","Five instruments buyers use (Option 3 is the last two made routine) and the conduct that keeps the relationship intact"],
- ["10","Why decide now","The posture for our next SNP Inc. conversation must match the decision; what to settle in it; what not to do"],
- ["11","Recommendation & asks","Option 3 at one batch a year with Option 2's partnership terms; Option 1 only if Finance's avoided-loss estimate clears the break-even; three asks with amounts"],
- ["12","Appendix","Assumptions, suppliers by full name, acronyms, frameworks (fact-checked)"]]
+ ["3","Price per pound, side by side","What comparable pre-mixed PVA solution sells for at high, competitive and low quantity (market study), then the four real quotes: SNP, PCI per batch, PCI below batch, CJB"],
+ ["4","Annual cost, side by side","Same 67,600 lb/yr and the same one-third second source in every bar: +$62k/yr at PCI's batch price, +$118k below batch size, CJB for scale"],
+ ["5","How we got here","Nov 2025 → Sep 2026 as a series of events: Brenntag never met viscosity; heat-gate failures; CJB cleared the gate, then priced out (trial declined); PCI: batches, root cause, spec met, quote — and what it cost"],
+ ["6","What 5-drum batches mean operationally","Block rotation under an 18-day shelf life; two cadence choices for SNP Inc.; the controls; what a longer validated life would change"],
+ ["7","Three options","1 · second supplier at one-third  ·  2 · strengthen SNP Inc. only, no volume moved  ·  3 · keep-alive: 1–2 batches of 5 drums a year — cost, what each buys, what each supplier sees"],
+ ["8","Keeping a qualified supplier you barely use","Five instruments buyers use (Option 3 is the last two made routine) and the conduct that keeps the relationship intact"],
+ ["9","Why decide now","The posture for our next SNP Inc. conversation must match the decision; what to settle in it; what not to do"],
+ ["10","Recommendation & asks","Option 3 at one batch a year with Option 2's partnership terms; Option 1 only if Finance's avoided-loss estimate clears the break-even; three asks with amounts"],
+ ["11","Appendix","Assumptions, suppliers by full name, acronyms, frameworks (fact-checked)"]]
 table(s,0.6,1.2,12.1,5.25,rows,[0.5,3.0,8.6],size=10)
 takeaway(s,"Sequence: feasibility is settled → cost is real → logistics are specific → options → timing → decision.")
 
-# ===== 3 WHAT CHANGED =====
-s=slide(); title_bar(s,"What changed: the experiment worked, and we have a real price","1 · WHAT CHANGED")
-card(s,0.6,1.2,3.95,1.5,"Spec met","11% solids · 900–1,100 centipoise (cP), on PCI's instrument",vcolor=GREEN,fill=LGREEN)
-card(s,4.7,1.2,3.95,1.5,"$3.50 / lb","one batch of 5 drums (2,250 lb) · $6.00/lb for anything smaller",vcolor=NAVY)
-card(s,8.8,1.2,3.9,1.5,"Decide now","before our next SNP Inc. conversation — the posture must match the decision",vcolor=AMBER,fill=LAMB)
-bullets(s,0.6,2.95,7.4,3.45,[
- ("Capability: closed. ","Ten months and ~94 suppliers produced one shop that holds the 90–95 °C cook and makes the product to spec: PCI Manufacturing (St. Louis, MO)."),
- ("Price: closed. ","$3.50 is within 7% of our September mid-case ($3.75) and well above the competitive market (slide 4). Below a 5-drum batch it is $6.00 — whole batches, or nothing."),
- ("Batch size is the new fact. ","5 drums = 12 days of full demand. With an 18-day life counted from manufacture, drums are used at full rate on receipt (slide 7)."),
-],size=12.5,gap=9)
-rect(s,8.25,2.95,4.45,3.45,PALE,STEEL); tf=box(s,8.4,3.05,4.15,3.3)
-par(tf.paragraphs[0],"Still to confirm with PCI",12.5,NAVY,bold=True,after=5)
-for it in ["The $3.50 batch price carries no volume commitment so far — put that in writing, with how long the quote holds","Batch lead time; delivered and all-in (drum, freeze-protected freight)?","~10 batches/yr on a ~5-week rhythm — or 1–2 a year: both fine for them?","Crisis ramp to ~3 batches a month, same kettle?","Which resin producer (overlap with SNP)?","Split-sample viscometer cross-check before any production batch"]:
-    par(tf.add_paragraph(),"•  "+it,10.5,GREY,after=4)
-takeaway(s,"We know it can be done and what it costs. The open question is strategy — and it has a deadline.")
-
 # ===== 4 PRICE SIDE BY SIDE =====
-s=slide(); title_bar(s,"Price per pound, side by side — and where each number comes from","2 · COST")
+s=slide(); title_bar(s,"Price per pound, side by side — and where each number comes from","1 · COST")
 s.shapes.add_picture("chart_price_side_by_side.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
 rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
 par(tf.paragraphs[0],"Where each number comes from",13,NAVY,bold=True,after=5)
@@ -143,7 +126,7 @@ p=tf.add_paragraph(); par(p,"Why a non-specialist sits far above the market: bat
 takeaway(s,f"At competitive quantity the market sells comparable PVA solution around {T('competitive')}/lb. SNP Inc. is below it; PCI is well above it; CJB is off the scale.")
 
 # ===== 5 ANNUAL COST SIDE BY SIDE =====
-s=slide(); title_bar(s,"Annual cost, side by side — what each option adds to today's $50.7k","2 · COST")
+s=slide(); title_bar(s,"Annual cost, side by side — what each option adds to today's $50.7k","1 · COST")
 s.shapes.add_picture("chart_annual_side_by_side.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
 rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
 par(tf.paragraphs[0],"Reading the chart (one year)",13,NAVY,bold=True,after=5)
@@ -154,13 +137,13 @@ for k,v in [("Demand","67,600 lb = 150 drums — identical in every bar"),
             ("PCI $6.00","same third, ordered below batch size → $168.8k; +$118.1k (233%)"),
             ("CJB $8.42","same third, for scale → $223.3k; +$172.6k (340%)"),
             ("Why the bars differ","SNP Inc.'s part never changes; only the second source's price does"),
-            ("Not in the chart","Option 3 (1–2 batches/yr, +$6–12k) is a different quantity — slide 8; internal hours and one-time costs — slide 8")]:
+            ("Not in the chart","Option 3 (1–2 batches/yr, +$6–12k) is a different quantity — slide 7; internal hours and one-time costs — slide 7")]:
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(10); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(5)
 takeaway(s,"Same demand, same one-third split in every option — only the second source's price changes. At PCI's $3.50 the PVA bill more than doubles (2.2×), every year.")
 
 # ===== 6 HOW WE GOT HERE — SERIES OF EVENTS =====
-s=slide(); title_bar(s,"How we got here — a series of events, and what the PCI experiment cost","3 · PCI")
+s=slide(); title_bar(s,"How we got here — a series of events, and what the PCI experiment cost","2 · PCI")
 timeline(s,0.6,1.12,12.1,[
  ("Nov 2025","Brenntag never meets viscosity","Above range, unreadable on their viscometer. They stalled — no quote ever received. Mar 2026: a resin sample instead",RED),
  ("Mar–Apr 2026","~94 US suppliers screened","ArroChem Inc., Piedmont Chemical Industries, ILC Dover approached. One gate: hold 90–95 °C",NAVY),
@@ -186,7 +169,7 @@ panel(s,8.8,3.55,3.9,2.85,"Use it · walk away · the middle",
 takeaway(s,"Ten months, nine suppliers, one shop that can make it — and now a real price. Whether we buy is a separate decision, with a real price on both sides.")
 
 # ===== 7 LOGISTICS OF 5-DRUM BATCHES =====
-s=slide(); title_bar(s,"What 5-drum batches mean operationally","4 · LOGISTICS")
+s=slide(); title_bar(s,"What 5-drum batches mean operationally","3 · LOGISTICS")
 tf=box(s,0.6,1.08,12.1,0.4); par(tf.paragraphs[0],"Block rotation at one-third: one 5-drum batch every ~5 weeks. The 18-day shelf life is counted from manufacture.",12.5,NAVY,bold=True)
 TOT=36
 l2,w2=lane(s,0.6,1.55,12.1,0.4,"PCI batch clock",[(0,4,LGT,"cook → ship ~4 d",NAVY),(4,16.1,NAVY,"12.1 days used at full rate",WHITE),(16.1,18,LAMB,"slack ~2 d",AMBER),(18,36,PALE,"",GREY)],TOT)
@@ -211,7 +194,7 @@ panel(s,8.8,3.6,3.9,2.8,"What it buys",
 takeaway(s,"Two suppliers is workable as a permanent discipline; SNP Inc.'s cadence can stay level if we carry a few drums of margin — the shelf-life study decides.")
 
 # ===== 8 THREE OPTIONS =====
-s=slide(); title_bar(s,"Three options","5 · STRATEGY")
+s=slide(); title_bar(s,"Three options","4 · STRATEGY")
 s.shapes.add_picture("chart_options_year1.png",Inches(0.6),Inches(1.08),width=Inches(12.1))
 rows=[["","Option 1 · Second supplier at one-third","Option 2 · Strengthen SNP Inc. only — no volume moved","Option 3 · Keep-alive: 1–2 batches of 5 drums a year"],
  ["What it is","10 PCI batches/yr; SNP Inc. keeps ~2/3","SNP Inc. sole source with partnership terms; PCI a quoted option; pay a development fee","Option 2, plus 1–2 PCI batches a year — the minimum that keeps a qualified supplier alive"],
@@ -226,7 +209,7 @@ table(s,0.6,3.1,12.1,3.3,rows,[1.35,3.35,3.55,3.85],size=9,fills=fills)
 takeaway(s,"Option 3 keeps a paid, practiced supplier for ~$8–16k a year gross — with one or two pre-announced 12-day pauses for SNP Inc., or none with a small rolling stock.",fill=GREEN)
 
 # ===== 9 KEEPING A QUALIFIED SUPPLIER YOU BARELY USE =====
-s=slide(); title_bar(s,"Keeping a qualified supplier you barely use — how it is done","5 · STRATEGY")
+s=slide(); title_bar(s,"Keeping a qualified supplier you barely use — how it is done","4 · STRATEGY")
 tf=box(s,0.6,1.12,12.1,0.55); par(tf.paragraphs[0],"Routine in medical devices, pharma and aerospace. What spoils the relationship is not the 'no' — it is silence and unpaid work. Five instruments, rising commitment; Option 3 is instruments 3 and 5 made routine.",12,NAVY,bold=True)
 rows=[["Instrument","What it is","Cost here","What it does for the relationship"],
  ["1 · Pay for the qualification (NRE — non-recurring engineering)","Fund the lots, testing and documentation already done","Development fee, ~$5–10k placeholder — PCI to invoice","Free experiments become a paid engagement; an approved-source file"],
@@ -241,7 +224,7 @@ panel(s,0.6,5.5,12.1,0.95,"Conduct that keeps it intact",
 takeaway(s,"Barely using a qualified supplier is normal. Pay for the work, sign the terms, state the triggers, order a batch or two a year — and the door stays open.",fill=GREEN)
 
 # ===== 10 WHY DECIDE NOW =====
-s=slide(); title_bar(s,"Why decide now","6 · TIMING")
+s=slide(); title_bar(s,"Why decide now","5 · TIMING")
 bullets(s,0.6,1.2,6.6,5.1,[
  ("Our next conversation with SNP Inc. is where the strategy becomes real. ","Continuity terms, forecast sharing, resin consignment, a resin-indexed price, capacity headroom, succession — settled in conversation, not by email."),
  ("The posture has to match the decision. ","We cannot ask for a deeper partnership and, in the same period, plan to move a third of their core line without telling them. Announcing it afterwards would undo the partnership conversation."),
@@ -260,7 +243,7 @@ for it in ["Give first: rolling 12-month forecast, refreshed monthly; the hydrog
 takeaway(s,"Decide the strategy first; then use the SNP Inc. conversation to execute it — not to discover it.",fill=AMBER)
 
 # ===== 11 RECOMMENDATION & ASKS =====
-s=slide(); title_bar(s,"Recommendation & asks","7 · DECISION")
+s=slide(); title_bar(s,"Recommendation & asks","6 · DECISION")
 panel(s,0.6,1.2,5.95,3.15,"Recommendation: Option 3 at one batch a year, with Option 2's partnership terms",
  ["Decide now; order the first 5-drum batch from PCI Manufacturing ($7.9k) once SNP Inc. has been told a continuity verification lot will run",
   "Go into the SNP Inc. conversation as a partner: continuity terms, forecast, resin consignment, capacity headroom, succession, shelf-life study",
@@ -308,15 +291,14 @@ tf=box(s,0.6,6.85,7.0,0.45); par(tf.paragraphs[0],"Workbook: PVA_Second_Supplier
 NOTES=[
  "Update on the liquid PVA decision. Since last time, two things happened: PCI Manufacturing's experiment met our spec, and they gave us a real price. Today: the cost side by side, how we got here and what the experiment cost, what running two suppliers would look like, then three options - because we need to choose one before our next conversation with SNP.",
  "The outline. Feasibility is settled, cost is real, logistics are specific, then options, timing and the decision. Each slide establishes one thing.",
- "What changed. Capability is closed: PCI hit 11 percent solids and the viscosity window on their instrument after we found the solids root cause together; a split-sample cross-check on our viscometer is still open. Price is closed: 3.50 a pound for a five-drum batch, 6 dollars for anything smaller - whole batches or nothing. 3.50 is within 7 percent of our September mid-case but well above the competitive market, for the reasons on the next slide. Batch size is the new fact: five drums is twelve days of our full demand, and with an eighteen-day life counted from manufacture those drums are used at full rate as soon as they land. To confirm with PCI, first: the 3.50 batch price carries no volume commitment so far - nothing in the quote or any contract ties it to an annual volume - and that is the economic core of Option 3, so we put it in writing together with how long the quote holds; then lead time, delivered and all-in, the crisis ramp, and which resin producer they use.",
  "Price per pound, side by side. Colors: greys are the market, green is SNP, the two ambers are PCI - dark for the batch price, light for below batch - and red is CJB. The three bars on the left are the market: what comparable pre-mixed PVA solution sells for today at high quantity - totes and bulk - at competitive quantity - drum scale, the one that matters - and at low quantity - small packs; ranges and counts are in the workbook's Market Study tab. Green is SNP's real quote at 75 cents, below the competitive market: a specialist's price. Navy and red are PCI's real numbers: 3.50 for a batch, 6 for anything smaller. Red on the far right is CJB, for scale. Why is a non-specialist so far above the market? Batch-fixed conversion cost spread over few pounds, drum-scale freight, and risk priced in. SNP's tanks are right-sized to our order and this is their core line.",
- "Annual cost side by side, apples to apples. The same 67,600 pounds a year in every bar - 150 drums - and the second source takes exactly one third in every option: 22,500 pounds, 50 drums, ten batches of five. SNP's part is identical everywhere: 45,100 pounds at 75 cents, 33.8 thousand. Only the second source's price changes. At PCI's 3.50 batch price: 78.8 thousand for that third, 112.6 total, plus 61.9 thousand a year - 122 percent of today's bill. At the 6-dollar below-batch price: 168.8 total, plus 118. CJB, for scale: 223 total. Option 3 is not a bar because it is a different quantity - one or two batches a year, plus 6 to 12 thousand - it is on slide 8 with the one-time costs.",
+ "Annual cost side by side, apples to apples. The same 67,600 pounds a year in every bar - 150 drums - and the second source takes exactly one third in every option: 22,500 pounds, 50 drums, ten batches of five. SNP's part is identical everywhere: 45,100 pounds at 75 cents, 33.8 thousand. Only the second source's price changes. At PCI's 3.50 batch price: 78.8 thousand for that third, 112.6 total, plus 61.9 thousand a year - 122 percent of today's bill. At the 6-dollar below-batch price: 168.8 total, plus 118. CJB, for scale: 223 total. Option 3 is not a bar because it is a different quantity - one or two batches a year, plus 6 to 12 thousand - it is on slide 7 with the one-time costs.",
  "How we got here, as a series of events. November last year: Brenntag, a distributor, tried our formula - the viscosity came out above range, unreadable on their viscometer; they stalled and we never received a quote; in March they sent us a resin sample instead. March to April: we screened about 94 US suppliers and reached out to ArroChem, Piedmont and ILC Dover with one hard gate - hold 90 to 95 degrees. May: ArroChem and ILC Dover failed that gate. June 26: CJB cleared it and became the front-runner; APV confirmed heat; we confirmed demand at 1,300 pounds a week. July: Columbus Chemical told us they cannot hold the temperature. August 4: CJB's quote came in at 8 to 8.50 a pound for toll processing alone - eleven times SNP - and their trial would have cost 6,400 dollars; we declined, so we never corroborated whether they could actually make it. August to September: PCI Manufacturing ran two-plus lab batches and a dilution study, unpaid. September 22: the viscosity root cause - elevated solids - and a locked spec. September 28: spec met, and a real quote of 3.50 a pound per five-drum batch. What it is worth: a cold start is now months, not a year. What it cost: PCI's unpaid engineering, and about 15 thousand of our own hours, sunk. Using it costs 62 thousand a year plus a permanent discipline; walking away costs goodwill; the middle is one or two batches a year.",
  "Logistics. The shelf-life clock starts at manufacture. PCI cooks on day zero, the five drums land around day four, we run on them at full rate through about day sixteen, and they expire on day eighteen - about two days of slack. Then three and a half weeks on SNP, repeat every five weeks; ten batches in year one, about fifteen by year five. We cannot run PCI alongside SNP at a third of rate: a batch would last thirty-six days; even at two-thirds it takes eighteen. A validated twenty-one-day life gives block rotation real margin; a thirty-day life still needs PCI at about half of rate. For SNP: a third less volume, and a choice of cadence - a twelve-day pause every cycle, or a steady two drums a week if we carry about three drums of rolling stock and use them first; the shelf-life study decides. What SNP reads is the signal, not the dollars. For us: one spec, one viscometer method, freeze-protected freight, five drums on site, a written failover with SNP's lead time, PCI's residual-film issue closed before any production batch, two quality agreements. What it buys - recovery in weeks - only if PCI confirms in writing that they can ramp.",
  "Three options. The chart shows the first twelve months all-in and each year after, as ranges; the table says what each buys and what each supplier sees. Option 1, a second supplier at a third of volume: 62 thousand a year of premium plus a few thousand of quality overhead, plus 15 to 40 thousand of internal hours to reach production release - about 80 to 110 thousand in year one; a practiced second source, but strain with SNP at the wrong moment. Option 2, strengthen SNP only, no volume moved: a development fee to PCI, a few thousand to formalize SNP, 3 to 12 thousand a year - 13 to 32 thousand in year one; deeper partnership, but SNP failure still means months. Option 3, keep-alive: Option 2's partnership plus one or two five-drum batches a year from PCI, 7,900 dollars each gross, 6,200 of premium each - 31 to 70 thousand in year one at one batch, 39 to 78 at two, of which 13 to 26 thousand is cash to suppliers. Everything Option 2 buys plus production scale proven and a qualification that never goes stale; SNP sees one or two pre-announced twelve-day pauses, or none if we carry a small rolling stock. The economic advantage of Option 3: the 3.50 batch price has no volume string attached - nothing in the quote or any contract ties it to a yearly volume - so we can order a batch when we choose; we should get that in writing, and if PCI ever attaches a minimum, Option 3 collapses to Option 2. Internal hours already spent - about 15 thousand - are sunk and excluded everywhere. Option 3 at one batch a year is my recommendation.",
  "How companies keep a qualified supplier they barely use - because you will be asked whether Option 3 is realistic. It is routine in medical devices, pharma and aerospace. What spoils the relationship is silence and unpaid work, not the 'no'. The instruments, in rising order of commitment: pay a development fee for the qualification work already done; sign a master agreement with price, spec and terms but no volume commitment, if PCI accepts one; place one production-scale order; a readiness fee, which is rare at our scale; and a planned re-check, because an idle supplier goes stale after about a year - the Production Part Approval Process rule of thumb is twelve months. Option 3 is the last two made routine. And the conduct: tell PCI the triggers, pay promptly, share results, keep a quarterly touchpoint. The research is clear that suppliers allocate goodwill on trust and growth prospects, not current volume.",
  "Why decide now. Our next conversation with SNP is where the strategy becomes real - continuity terms, forecast sharing, resin consignment, capacity headroom, succession. The posture has to match the decision: we cannot ask for a deeper partnership and, in the same period, plan to move a third of their core line without telling them - announcing it afterwards would undo the partnership conversation. If the answer is Option 1, bring a package, not a cut: a three-year commitment on about a hundred drums a year growing ten percent - back to today's absolute volume by about year five - a level cadence, forecast sharing, a joint hydrogel roadmap; reason given, a quality-system continuity requirement. If it is Option 2 or 3, that is the partnership conversation: our continuity file includes a qualified alternate cooker and, under Option 3, a verification lot or two a year - the supplier is not named and the quote is not shown - the same continuity discipline we are asking SNP to document. Give first, then ask. Decide first; use the conversation to execute, not to discover.",
- "Recommendation: Option 3 at one batch a year, with Option 2's partnership terms and the existing triggers. Decide now; place the first batch order once SNP has been told a continuity verification lot will run; go into the SNP conversation as a partner and settle the items on the previous slide; tell PCI the triggers candidly; a second batch a year if an SNP risk signal appears. Switch to Option 1 if Finance's estimate of the loss a second source would avoid clears about 620 thousand at a ten percent yearly risk or 1.24 million at five - counting full avoidance only with PCI's written ramp commitment - or if SNP shows a risk signal, or PCI's price falls toward a dollar fifty, or SNP declines the terms. Three asks: the strategy call before the SNP conversation, Option 3 recommended; Finance's avoided-loss number by a date, with Option 1 re-tested against it at the next quarterly review; and under Option 3 about 8 thousand cash per PCI batch, 5 to 10 thousand to formalize SNP, and 15 to 40 thousand of internal hours - 31 to 70 thousand all-in in the first twelve months.",
+ "Recommendation: Option 3 at one batch a year, with Option 2's partnership terms and the existing triggers. Decide now; place the first batch order once SNP has been told a continuity verification lot will run; go into the SNP conversation as a partner and settle the items on the previous slide; tell PCI the triggers candidly; a second batch a year if an SNP risk signal appears. Switch to Option 1 if Finance's estimate of the loss a second source would avoid clears about 620 thousand at a ten percent yearly risk or 1.24 million at five - counting full avoidance only with PCI's written ramp commitment - or if SNP shows a risk signal, or PCI's price falls toward a dollar fifty, or SNP declines the terms. Before the first order, confirm with PCI in writing: the 3.50 batch price carries no volume commitment and how long it holds; batch lead time; delivered and all-in with freeze-protected freight; a crisis ramp to about three batches a month in the same kettle; which resin producer they use; and a split-sample viscometer cross-check. Three asks: the strategy call before the SNP conversation, Option 3 recommended; Finance's avoided-loss number by a date, with Option 1 re-tested against it at the next quarterly review; and under Option 3 about 8 thousand cash per PCI batch, 5 to 10 thousand to formalize SNP, and 15 to 40 thousand of internal hours - 31 to 70 thousand all-in in the first twelve months.",
  "Assumptions, suppliers by full name, acronyms, and the fact-checked frameworks. The workbook's Summary tab holds every slide figure as a formula; Supplier Quotes, Market Study, PCI Quote Scenarios and the PCI Experiment record hold the compiled data.",
 ]
 for sl,txt in zip(prs.slides,NOTES): sl.notes_slide.notes_text_frame.text=txt
