@@ -161,11 +161,11 @@ def year_strip(l,t,w,h,blocks,col):
     for st,d in blocks:
         rect(s,l+w*st/365,t,w*d/365,h,col); rect(s,l+w*st/365-0.02,t,0.02,h,WHITE); rect(s,l+w*(st+d)/365,t,0.02,h,WHITE)
 OPTS=[("Option 1","Second supplier at one-third","10 PCI batches a year: ~12 days on PCI material every ~5 weeks",[(wk*5.19*7,12.1) for wk in range(10)],A_OPT,
-       [("Total PVA cost, first 12 months","$131–161k"),("Each year after","$116–121k"),("Volume to PCI a year","50 drums (33% of demand)"),("SNP Inc. sees","10 pauses of ~12 days, or a level cadence with a rolling stock"),("If SNP fails, restart in","weeks — if PCI's ramp is confirmed in writing")]),
+       [("Total, first 12 months","$131–161k"),("Each year after","$116–121k"),("Volume to PCI a year","50 drums (33% of demand)"),("SNP Inc. sees","10 pauses of ~12 days, or a level cadence with a rolling stock"),("If SNP fails, restart in","weeks — if PCI's ramp is confirmed in writing")]),
       ("Option 3","Keep-alive: 1–2 batches a year","one ~12-day block per batch, when we choose",[(120,12.1),(300,12.1)],B_OPT,
-       [("Total PVA cost, first 12 months","$80–125k"),("Each year after","$60–75k"),("Volume to PCI a year","5–10 drums (3–7% of demand)"),("SNP Inc. sees","1–2 pre-announced pauses, or none"),("If SNP fails, restart in","weeks to a few months")]),
+       [("Total, first 12 months","$80–125k"),("Each year after","$60–75k"),("Volume to PCI a year","5–10 drums (3–7% of demand)"),("SNP Inc. sees","1–2 pre-announced pauses, or none"),("If SNP fails, restart in","weeks to a few months")]),
       ("Option 2","Strengthen SNP Inc. only","all year on SNP Inc.; PCI kept as a quoted option",[],GREEN,
-       [("Total PVA cost, first 12 months","$64–83k"),("Each year after","$54–63k"),("Volume to PCI a year","none"),("SNP Inc. sees","a strengthened partner"),("If SNP fails, restart in","~3–6 months; a cold start decays after ~12 idle")])]
+       [("Total, first 12 months","$64–83k"),("Each year after","$54–63k"),("Volume to PCI a year","none"),("SNP Inc. sees","a strengthened partner"),("If SNP fails, restart in","~3–6 months; a cold start decays after ~12 idle")])]
 tf=box(s,3.3,1.08,6.6,0.3); par(tf.paragraphs[0],"The year, week by week — green: SNP Inc. material · colored blocks: PCI batches (5 drums = ~12 days)",10,NAVY,bold=True,after=0)
 for i,(name,sub,how,blocks,col,metrics) in enumerate(OPTS):
     t=1.45+i*1.6

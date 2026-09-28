@@ -326,6 +326,6 @@ ax.set_xlabel("Total PVA cost, first 12 months, all-in ($k)   →  more expensiv
 ax.xaxis.set_major_formatter(FuncFormatter(lambda v,_: f"${v:.0f}k")); ax.set_yticks([0,2,4,6,8]); ax.tick_params(colors="#595959",labelsize=8.5)
 for sp in ["top","right"]: ax.spines[sp].set_visible(False)
 ax.spines["left"].set_color("#BFBFBF"); ax.spines["bottom"].set_color("#BFBFBF"); ax.grid(axis="y",color="#EEEEEE"); ax.set_axisbelow(True)
-ax.set_title("Cost against protection — total yearly PVA cost vs. time to restart; each box is one option's range",fontsize=11.5,color=NAV,loc="left",fontweight="bold")
+ax.set_title("Total yearly PVA cost vs. time to restart — each box is one option's range",fontsize=11.5,color=NAV,loc="left",fontweight="bold")
 ax.annotate("better: cheaper and faster to restart",xy=(4,0.4),fontsize=8.5,color="#595959",style="italic")
 plt.tight_layout(); plt.savefig("chart_cost_vs_protection.png",dpi=180); plt.close(); print("chart D saved")
