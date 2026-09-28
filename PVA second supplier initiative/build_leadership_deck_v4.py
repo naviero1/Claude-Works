@@ -121,7 +121,7 @@ for k,v in [("Left to right","quantity per order, from a 1-gallon jug to 150 dru
             ("Grey points","verified market prices of pre-mixed PVA solution at each pack size (composites-grade in the US; ton-scale offers offshore, before freight)"),
             ("Navy line",f"the market curve fitted through them: price falls ~{pc('per_doubling','{:.0%}')} for every doubling of the lot. At SNP's lot size the market would charge ~${pc('mkt_at_snp_lot')}; at a 5-drum batch ~${pc('mkt_at_batch')}"),
             ("SNP Inc., green",f"$0.75 at ~3 drums a week — on or below the curve even though the market points are not delivered and not medical-grade"),
-            ("Green dashed","the same slope through SNP's price: if we ever bought smaller lots from SNP, expect ~${pc('snp_at_drum')} at one drum, ~${pc('snp_at_5gal')} at 5 gallons — a regression, not a quote"),
+            ("Green dashed",f"the same slope through SNP's price: if we ever bought smaller lots from SNP, expect ~${pc('snp_at_drum')} at one drum, ~${pc('snp_at_5gal')} at 5 gallons — a regression, not a quote"),
             ("PCI, ambers","$3.50 at a 5-drum batch and $6.00 below it — 4× and 6× the curve at those quantities: batch-fixed cost and drum freight priced in"),
             ("CJB, red · APV, hollow","$8.42 at a 40-gallon minimum, off the curve entirely; APV ≥$3 is an estimate from our call, never confirmed")]:
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
