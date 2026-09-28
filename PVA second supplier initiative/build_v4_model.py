@@ -354,7 +354,7 @@ ax.plot(xl,A*xl**b,color=NAV,lw=2,label=f"Market trend, US data (~{per_doubling:
 xb=np.concatenate([xl,xh]) if xl[-1]!=xh[0] else np.concatenate([xl,xh[1:]]); lo_b=np.maximum(A*xb**b*p10,0.75)
 ax.fill_between(xb,lo_b,upper[:len(xb)],color=NAV,alpha=0.13,lw=0,label="Market band: where 80% of the points fall; floored at SNP's $0.75",zorder=1)
 ax.plot(xh,np.maximum(A*xh**b*p10,0.75),color=NAV,lw=1,ls=":",zorder=3); ax.plot(xh,up_h,color=NAV,lw=1,ls=":",zorder=3)
-ax.text(9000,0.9,"floor: no US-delivered lot seen below SNP's $0.75",fontsize=7.5,color="#595959",style="italic")
+ax.text(2900,0.93,"floor = SNP's $0.75: no US-delivered lot seen cheaper",fontsize=7.5,color="#595959",style="italic")
 ax.plot(xs,snp_curve,color=GRN,lw=2,ls="--",label="SNP-shaped curve (same slope through SNP's price)",zorder=3)
 ax.scatter([snp_lot],[snp_p],s=110,color=GRN,edgecolor="white",zorder=5); ax.annotate("SNP Inc. $0.75\n~3 drums a week (1,350 lb/order)",(snp_lot,snp_p),xytext=(2600,2.3),arrowprops=dict(arrowstyle="->",color=GRN,lw=1),fontsize=8.5,color=GRN,fontweight="bold")
 ax.scatter([5*DRUM],[3.50],s=110,color=PCI_D,edgecolor="white",zorder=5); ax.annotate("PCI $3.50\n5-drum batch (2,250 lb)",(5*DRUM,3.5),xytext=(4200,4.4),arrowprops=dict(arrowstyle="->",color=PCI_D,lw=1),fontsize=8.5,color=PCI_D,fontweight="bold")

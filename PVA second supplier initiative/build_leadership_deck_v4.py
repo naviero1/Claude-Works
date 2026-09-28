@@ -118,9 +118,9 @@ s.shapes.add_picture("chart_price_vs_volume.png",Inches(0.6),Inches(1.15),width=
 rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
 par(tf.paragraphs[0],"Reading the chart",13,NAVY,bold=True,after=5)
 for k,v in [("Left to right","quantity per order, 1-gallon jug to 150 drums, log scale"),
-            ("Grey points","verified prices of pre-mixed PVA solution by pack size: US composites grade up to 20 gal; ton-scale offshore offers before freight"),
-            ("Navy line and band",f"the trend: ~{pc('per_doubling','{:.0%}')} lower per doubling of the lot. The band is where 80% of the verified points fall around it; beyond 20 gal its top follows the flattening in vendors' ladders, and its floor is SNP's $0.75 — no US-delivered lot has been seen cheaper (offshore ton offers are before freight and duty). One drum ${pc('band_drum','{}')}; SNP's lot ${pc('band_snp','{}')}; a 5-drum batch ${pc('band_batch','{}')}"),
-            ("SNP Inc., green","$0.75 at ~3 drums a week — the floor of the band, and delivered, to our spec: the cheapest price in the market for a better product"),
+            ("Grey points","verified prices of pre-mixed PVA solution by pack size (US up to 20 gal; offshore ton offers before freight)"),
+            ("Navy line and band",f"trend ~{pc('per_doubling','{:.0%}')} lower per doubling of the lot; the band is where 80% of the points fall. Beyond 20 gal its top follows the flattening in vendors' ladders; its floor is SNP's $0.75 — no US-delivered lot has been seen cheaper. One drum ${pc('band_drum','{}')}; SNP's lot ${pc('band_snp','{}')}; 5-drum batch ${pc('band_batch','{}')}"),
+            ("SNP Inc., green","$0.75 at ~3 drums a week — the floor of the band, delivered and to our spec: the market's cheapest price for a better product"),
             ("Green dashed",f"the same slope through SNP's price: if we ever bought smaller lots from SNP, expect ~${pc('snp_at_drum')} at one drum, ~${pc('snp_at_5gal')} at 5 gallons — a regression, not a quote"),
             ("PCI, ambers","$3.50 at a 5-drum batch, $6.00 below it — above the band: batch-fixed cost and drum freight priced in"),
             ("CJB, red · APV, hollow","CJB $8.42 at a 40-gal minimum sits far above the band; APV ≥$3 (estimate from our call, never confirmed) sits at the band's top")]:
