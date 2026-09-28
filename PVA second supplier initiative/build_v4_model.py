@@ -139,7 +139,7 @@ for c,w in zip("BCDEFG",[44,13,58,14,34,30]): ws.column_dimensions[c].width=w
 ws=wb.create_sheet("PCI Quote Scenarios",2)
 title(ws,"What PCI's real quote means — Year 1 and five years","Second source at one-third of demand = 50 drums/yr = 10 batches of 5. Formulas reference Inputs.")
 hdr(ws,5,["Scenario","Drums to PCI / yr","PCI $/lb","PCI annual $","SNP annual $ (retained)","Total $","Premium vs all-SNP","x today's spend"])
-sc=[("All-SNP (today) = Option 2 purchase cost","0","SNPlb"),("Option 1 — PCI at 1/3 (50 drums = 10 batches of 5) at $3.50 — chart bar","50","PCIq"),("Option 1 — same 1/3 but ordered below batch size ($6.00) — chart bar","50","PCIsub"),("CJB at the same 1/3 (for scale) — chart bar","50","CJBlb"),("Option 3 — keep-alive: 1 batch of 5 drums / yr at $3.50","5","PCIq"),("Option 3 — keep-alive: 2 batches (10 drums) / yr at $3.50","10","PCIq"),("Reference: 1 drum/week (52 drums) at the below-batch price","52","PCIsub")]
+sc=[("All-SNP (today) = Option 2 purchase cost","0","SNPlb"),("Option 1 — PCI at 1/3 (50 drums = 10 batches of 5) at $3.50 — chart bar","50","PCIq"),("Option 1 — same 1/3 but ordered below batch size ($6.00) — reference","50","PCIsub"),("CJB at the same 1/3 (for scale) — chart bar","50","CJBlb"),("Option 3 — keep-alive: 1 batch of 5 drums / yr at $3.50","5","PCIq"),("Option 3 — keep-alive: 2 batches (10 drums) / yr at $3.50","10","PCIq"),("Option 3 — keep-alive: 3 batches (15 drums) / yr at $3.50","15","PCIq"),("PCI $6.00 at 1 drum/week (52 drums, 23,400 lb ≈ 35% ≈ almost one-third) — chart bar","52","PCIsub")]
 for i,(lab,d,p) in enumerate(sc):
     r=6+i; ws.cell(row=r,column=2,value=lab).font=F(True); ws.cell(row=r,column=3,value=int(d)).number_format=NUM
     ws.cell(row=r,column=4,value=f"={p}").number_format=CUR2
@@ -151,7 +151,7 @@ for i,(lab,d,p) in enumerate(sc):
     for c in range(2,10): ws.cell(row=r,column=c).border=BORD
     if i==1:
         for c in range(2,10): ws.cell(row=r,column=c).fill=AMB
-r=14; ws.cell(row=r,column=2,value="Five years at 1/3 share (Option 1), PCI $3.50, volume +10%/yr").font=F(True,11,NAVY); r+=1
+r=15; ws.cell(row=r,column=2,value="Five years at 1/3 share (Option 1), PCI $3.50, volume +10%/yr").font=F(True,11,NAVY); r+=1
 hdr(ws,r,["Year","Volume (lb)","Lb to PCI (1/3)","Batches of 5 (rounded)","Premium ($2.75/lb x lb to PCI)","Cumulative"]); r+=1
 for y in range(1,6):
     ws.cell(row=r,column=2,value=y).font=F(True)
@@ -270,26 +270,30 @@ for lab,b,v in zip(labels,bars,vals):
 ax.set_ylabel("$ per lb of finished solution"); ax.set_title("Price per pound, side by side — market price of comparable PVA solutions by quantity, then the real quotes",fontsize=12,color=NAV,loc="left",fontweight="bold")
 ax.spines[["top","right"]].set_visible(False); ax.set_ylim(0,9.6); plt.tight_layout(); plt.savefig("chart_price_side_by_side.png",dpi=180); plt.close()
 
-# Chart B: annual cost side by side — SAME demand and SAME one-third second-source quantity in every option
+# Chart B: annual cost side by side — same demand in every bar; Option 3 at 1/2/3 batches; one-third for PCI $3.50 and CJB; $6.00 at one drum a week
 share_lb=pci_drums*DRUM; snp_keep=LB1-share_lb          # 22,500 lb (50 drums) / 45,100 lb
-scen=[("All-SNP\n(today)",LB1*SNP,0,None),
-      ("PCI $3.50\n5-drum batches",snp_keep*SNP,share_lb*PCI_Q,PCI_Q),
-      ("PCI $6.00\nordered below batch size",snp_keep*SNP,share_lb*PCI_SUB,PCI_SUB),
-      ("CJB $8.42\n(for scale)",snp_keep*SNP,share_lb*CJB,CJB)]
-fig,ax=plt.subplots(figsize=(11,5.4)); x=range(len(scen))
+wk_lb=52*DRUM                                          # one drum a week = 52 drums = 23,400 lb ≈ 35% of demand
+B1,B2,B3="#9DC3E6","#4E79A7","#1F3864"                 # Option 3 blues, light -> dark
+scen=[("All-SNP\n(today)",LB1*SNP,0,None,GRN,LB1),
+      ("Option 3\n1 batch/yr",(LB1-batch_lb)*SNP,batch_lb*PCI_Q,PCI_Q,B1,batch_lb),
+      ("Option 3\n2 batches/yr",(LB1-2*batch_lb)*SNP,2*batch_lb*PCI_Q,PCI_Q,B2,2*batch_lb),
+      ("Option 3\n3 batches/yr",(LB1-3*batch_lb)*SNP,3*batch_lb*PCI_Q,PCI_Q,B3,3*batch_lb),
+      ("PCI $3.50\none-third, 10 batches",snp_keep*SNP,share_lb*PCI_Q,PCI_Q,PCI_D,share_lb),
+      ("PCI $6.00\n1 drum/week (~1/3)",(LB1-wk_lb)*SNP,wk_lb*PCI_SUB,PCI_SUB,PCI_L,wk_lb),
+      ("CJB $8.42\none-third (for scale)",snp_keep*SNP,share_lb*CJB,CJB,REDc,share_lb)]
+fig,ax=plt.subplots(figsize=(11.5,5.4)); x=range(len(scen))
 ax.bar(x,[s[1] for s in scen],color=GRN,label="SNP Inc. at $0.75/lb")
-second_cols=[NAV,PCI_D,PCI_L,REDc]
-ax.bar(x,[s[2] for s in scen],bottom=[s[1] for s in scen],color=second_cols,label="Second source — one-third of demand (22,500 lb, 50 drums): PCI amber, CJB red")
+ax.bar(x,[s[2] for s in scen],bottom=[s[1] for s in scen],color=[s[4] for s in scen],label="Second source (Option 3 blues · PCI ambers · CJB red)")
 for i,s in enumerate(scen):
     tot=s[1]+s[2]; prem=tot-LB1*SNP
-    ax.text(i,tot+4500,f"${tot/1000:,.1f}k"+(f"\n+${prem/1000:,.1f}k  ({prem/(LB1*SNP):.0%})" if prem>0 else ""),ha="center",va="bottom",fontsize=9.5,fontweight="bold")
-    lb_snp=LB1 if s[2]==0 else snp_keep
-    ax.text(i,s[1]/2,f"{lb_snp:,.0f} lb\n${s[1]/1000:,.1f}k",ha="center",va="center",fontsize=8.5,color="white",fontweight="bold")
-    if s[2]>0: ax.text(i,s[1]+s[2]/2,f"{share_lb:,.0f} lb × ${s[3]:.2f}\n${s[2]/1000:,.1f}k",ha="center",va="center",fontsize=8.5,color=(NAV if second_cols[i]==PCI_L else "white"),fontweight="bold")
-ax.set_xticks(list(x)); ax.set_xticklabels([s[0] for s in scen]); ax.yaxis.set_major_formatter(money); ax.set_ylabel("Annual PVA spend (one year)")
-ax.set_title(f"Annual cost side by side — demand {LB1:,.0f} lb/yr ({DRUMS1:.0f} drums); second source at one-third in every option",fontsize=11.5,color=NAV,loc="left",fontweight="bold")
-ax.legend(frameon=False,loc="upper left",fontsize=9); ax.spines[["top","right"]].set_visible(False); ax.set_ylim(0,max(s[1]+s[2] for s in scen)*1.24); plt.tight_layout(); plt.savefig("chart_annual_side_by_side.png",dpi=180); plt.close()
-print(f"apples-to-apples @1/3: PCI$6 total ${snp_keep*SNP+share_lb*PCI_SUB:,.0f} (+${share_lb*(PCI_SUB-SNP):,.0f}); CJB total ${snp_keep*SNP+share_lb*CJB:,.0f} (+${share_lb*(CJB-SNP):,.0f})")
+    ax.text(i,tot+4000,f"${tot/1000:,.1f}k"+(f"\n+${prem/1000:,.1f}k ({prem/(LB1*SNP):.0%})" if prem>0 else ""),ha="center",va="bottom",fontsize=8.8,fontweight="bold")
+    lb_snp=LB1-s[5] if s[2]>0 else LB1
+    ax.text(i,s[1]/2,f"{lb_snp:,.0f} lb\n${s[1]/1000:,.1f}k",ha="center",va="center",fontsize=7.8,color="white",fontweight="bold")
+    if s[2]>=25000: ax.text(i,s[1]+s[2]/2,f"{s[5]:,.0f} lb × ${s[3]:.2f}\n${s[2]/1000:,.1f}k",ha="center",va="center",fontsize=7.8,color=(NAV if s[4] in (PCI_L,B1) else "white"),fontweight="bold")
+ax.set_xticks(list(x)); ax.set_xticklabels([s[0] for s in scen],fontsize=8.5); ax.yaxis.set_major_formatter(money); ax.set_ylabel("Annual PVA spend (one year)")
+ax.set_title(f"Annual cost side by side — demand {LB1:,.0f} lb/yr ({DRUMS1:.0f} drums) in every bar; second-source quantity as labelled",fontsize=11,color=NAV,loc="left",fontweight="bold")
+ax.legend(frameon=False,loc="upper left",fontsize=8.5); ax.spines[["top","right"]].set_visible(False); ax.set_ylim(0,max(s[1]+s[2] for s in scen)*1.24); plt.tight_layout(); plt.savefig("chart_annual_side_by_side.png",dpi=180); plt.close()
+for s in scen: print(f"{s[0].replace(chr(10),' ')}: total ${s[1]+s[2]:,.0f} premium ${s[1]+s[2]-LB1*SNP:,.0f} ({(s[1]+s[2]-LB1*SNP)/(LB1*SNP):.0%})")
 
 # Chart C: the three options — first 12 months all-in (range) and each year after (range), $k
 opts=[("Option 1\nSecond supplier at 1/3",(80,110),(65,70),PCI_D),
