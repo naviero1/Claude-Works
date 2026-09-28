@@ -109,6 +109,7 @@ rows=[("SNP Inc. (Durham, NC) — incumbent",0.75,"Delivered, all-in. 1/450-lb d
       ("PCI Manufacturing (St. Louis, MO) — one 5-drum batch",3.50,"One batch = 5 drums (2,250 lb). Confirm delivered/all-in and validity.","REAL QUOTE","Capable — experiment successful; not yet contracted","2026-09-28"),
       ("PCI Manufacturing — below one batch",6.00,"Any order smaller than 5 drums (e.g. 1 drum/week).","REAL QUOTE","Uneconomic version","2026-09-28"),
       ("CJB Applied Technologies (Valdosta, GA)",8.42,"$8.00–8.50/lb toll EXCLUDING materials + ~$75/drum resin = ~$8.42 landed. Their trial would have cost $6,400 (per Oscar, 28 Sep; the email thread recorded a $4,900 qualification fee + $700 x 7 batch credit) — we declined, so their capability was never corroborated.","REAL QUOTE","Eliminated on price 2026-08-04 (~11x SNP); trial declined","CJB email 'RE: mix test'"),
+      ("APV Engineered Coatings (Akron, OH) — no quote",3.00,"On our call they considered $1.50/lb too cheap for our volume; we estimate at least $3.00/lb — NEVER CONFIRMED. Heat capability confirmed.","ESTIMATE","No quote received; reserve","APV call (2026)"),
       ("Brenntag (distributor) — trial blends, Nov 2025 onward",None,"Tried our formula (125 grade and the requested grade): viscosity above range, unreadable on their viscometer. They stalled; no quote was ever received. Mar 2026: sent us a 125-grade resin sample instead.","NO QUOTE","Never met viscosity; no quote","Sam (Brenntag) emails"),
       ("Market — COMPETITIVE quantity (drum scale, 30–55 gal)",tier("competitive"),f"Inferred from comparable pre-mixed PVA solutions sold today; range {TIERS.get('competitive_range','—')}; n={TIERS.get('n_competitive','—')}","MARKET STUDY","Reference — see Market Study tab","Verified market study 2026-09-28"),
       ("Market — LOW quantity (pints to 5-gal pails)",tier("low"),f"Retail/lab packs; range {TIERS.get('low_range','—')}; n={TIERS.get('n_low','—')}","MARKET STUDY","Reference — see Market Study tab","Verified market study 2026-09-28"),
@@ -192,7 +193,7 @@ ws=wb.create_sheet("PCI Experiment",3)
 title(ws,"PCI Manufacturing — qualification experiment record","What was tested, what was found, what is still open. Source: email-chain summary 2026-09-22 + quote 2026-09-28.")
 hdr(ws,5,["Attribute","Status","Result / detail"])
 exp=[("Capability — 90–95 °C cook","PROVEN","Lab batches produced; dissolution achieved"),
-     ("Viscosity (primary concern)","ROOT CAUSE FOUND","First sample 2,420 cP vs ~1,000 target; dilution to 10.8% solids -> 1,590 cP; cause = elevated solids from water loss during processing; fix = water adjustment at end of mix"),
+     ("Viscosity (primary concern)","ADJUSTED IN TEST","First sample 2,420 cP vs ~1,000 target; dilution to 10.8% solids -> 1,590 cP; brought on target within the test by adjusting solids/water at end of mix (part of the test, not a separate root-cause finding)"),
      ("Agreed fresh-material spec","LOCKED","11% total solids; 900–1,100 cP fresh (Brookfield #3, 10 rpm, 25 °C); <2,500 cP ceiling"),
      ("Colour","NOT A CRITERION","No formal spec; minor mismatch acceptable"),
      ("Shelf-life study","REQUESTED","Viscosity every 3–5 days; trend to usable life (18 vs 30 days matters for batch logistics)"),
@@ -203,7 +204,7 @@ exp=[("Capability — 90–95 °C cook","PROVEN","Lab batches produced; dissolut
      ("Commercial — terms to confirm","OPEN","Delivered/all-in? Validity? ~10 batches/yr on a ~5-week rhythm acceptable? Crisis ramp to ~3 batches/month? Resin grade/producer (sub-tier convergence with SNP)?"),
      ("What PCI has invested (unpaid)","NOTED","Two+ lab batches, dilution study, method work, revised process — months of engineering on a ~$50k/yr account")]
 for i,(a,b,c_) in enumerate(exp):
-    r=6+i; fill=GOOD if b in ("PROVEN","LOCKED","ROOT CAUSE FOUND","QUOTED") else (AMB if b in ("REQUESTED","PLANNED","NOTED","NOT A CRITERION") else BAD)
+    r=6+i; fill=GOOD if b in ("PROVEN","LOCKED","ADJUSTED IN TEST","QUOTED") else (AMB if b in ("REQUESTED","PLANNED","NOTED","NOT A CRITERION") else BAD)
     wrow(ws,r,[a,b,c_],fill=fill,wrap=True); ws.row_dimensions[r].height=32
 for c,w in zip("BCD",[34,20,100]): ws.column_dimensions[c].width=w
 
