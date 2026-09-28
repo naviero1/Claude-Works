@@ -1,0 +1,50 @@
+{
+  "snapshot_date": "2026-09-28",
+  "authoring_agent": "Beebop (ChatGPT)",
+  "repository": "naviero1/Claude-Works",
+  "branch": "claude/tissue-supplier-research-vm6uxg",
+  "folder": "Tissue Supplier Research/Beebop",
+  "contact_count": 30,
+  "new_plant_prospects": 20,
+  "existing_suppliers": 5,
+  "sourcing_businesses": 3,
+  "referral_organizations": 2,
+  "social_evidence_entries": 12,
+  "businesses_with_social_evidence": 8,
+  "preferred_weekly_pigs": {
+    "min": 2000,
+    "max": 5000,
+    "basis": "Preferred plant scale; not verified for new prospects"
+  },
+  "approximate_live_weight_lb": {
+    "min": 140,
+    "max": 220
+  },
+  "maximum_radius_miles": 120,
+  "distance_screen": "Estimated road miles used conservatively; radial miles also present",
+  "origin": {
+    "rank": 0,
+    "name": "Durham City Hall",
+    "address": "101 City Hall Plaza, Durham, NC 27701",
+    "geocode_url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=101+City+Hall+Plaza%2C+Durham%2C+NC+27701&benchmark=Public_AR_Current&format=json",
+    "matched_address": "101 CITY HALL PLZ, DURHAM, NC, 27701",
+    "lon": -78.899683775957,
+    "lat": 35.99606867413,
+    "geocode_status": "Census address match",
+    "road_miles": 0.0,
+    "drive_minutes": 0.0,
+    "radial_miles": 0.0,
+    "routing_url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.899684,35.996069?overview=false",
+    "map_url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&travelmode=driving"
+  },
+  "road_routing_provider": "Open Source Routing Machine",
+  "route_meters_per_mile": 1609.344,
+  "current_weekly_counts_verified_by_supplier": false,
+  "supplier_outreach_performed": false,
+  "inspection_directory_date": "2026-09-18",
+  "code_terms": {
+    "FSIS": "Food Safety and Inspection Service",
+    "TA": "Talmadge-Aiken",
+    "OSRM": "Open Source Routing Machine"
+  }
+}

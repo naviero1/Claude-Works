@@ -1,0 +1,1306 @@
+[
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "source",
+    "url": "https://www.piedmontcustommeats.com/contact-us",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "source2",
+    "url": "https://www.piedmontcustommeats.com/customer-manual",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "source3",
+    "url": "https://www.piedmontcustommeats.com/terms-of-service/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "source4",
+    "url": "https://www.piedmontcustommeats.com/uploads/porkcutsheets12024.pdf",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "web",
+    "url": "https://www.piedmontcustommeats.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=9683+Kerr+Chapel+Road%2C+Gibsonville%2C+NC+27249&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-79.529419,36.255039?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=9683%20Kerr%20Chapel%20Road%2C%20Gibsonville%2C%20NC%2027249&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "social_url",
+    "url": "https://www.facebook.com/PiedmontCustomMeatsNC/videos/you-raise-it-we-process-it-you-bring-it-to-market-thats-the-whole-model-piedmont/1637823381097926/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "social_cross",
+    "url": "https://localmeat.org/processors/north-carolina/piedmont-custom-meats-inc-gibsonville-m7975",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "social_support",
+    "url": "https://www.piedmontcustommeats.com/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "social_url",
+    "url": "https://www.facebook.com/northcarolinafarmbureau/videos/increasing-meat-processing-capacity-at-piedmont-custom-meats/235909158270778/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "social_cross",
+    "url": "https://localmeat.org/processors/north-carolina/piedmont-custom-meats-inc-gibsonville-m7975",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Piedmont Custom Meats",
+    "call_priority": 1,
+    "source_role": "social_support",
+    "url": "https://www.piedmontcustommeats.com/contact-us",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "source",
+    "url": "https://leesfreshmarketnc.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "web",
+    "url": "https://leesfreshmarketnc.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=623+Benson+Hardee+Road%2C+Benson%2C+NC+27504&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.569592,35.395867?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=623%20Benson%20Hardee%20Road%2C%20Benson%2C%20NC%2027504&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "social_url",
+    "url": "https://www.facebook.com/leesfreshmarket/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "social_cross",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "social_support",
+    "url": "https://www.facebook.com/leesfreshmarket/posts/1720826206712885/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "social_url",
+    "url": "https://www.instagram.com/leesfreshmarket/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "social_cross",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "McLamb's Abattoir / Lee's Fresh Market",
+    "call_priority": 2,
+    "source_role": "social_support",
+    "url": "https://www.facebook.com/leesfreshmarket/posts/1720826206712885/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Flowers Slaughter House",
+    "call_priority": 3,
+    "source_role": "source",
+    "url": "https://localmeat.org/processors/north-carolina/flowers-slaughter-house-sims-m21747",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Flowers Slaughter House",
+    "call_priority": 3,
+    "source_role": "web",
+    "url": "https://www.facebook.com/p/Flowers-Slaughterhouse-Page-100063690244587/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Flowers Slaughter House",
+    "call_priority": 3,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=5154+A+Saint+Rose+Church+Road%2C+Sims%2C+NC+27880&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Flowers Slaughter House",
+    "call_priority": 3,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.031924,35.742948?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Flowers Slaughter House",
+    "call_priority": 3,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=5154%20A%20Saint%20Rose%20Church%20Road%2C%20Sims%2C%20NC%2027880&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Flowers Slaughter House",
+    "call_priority": 3,
+    "source_role": "social_url",
+    "url": "https://www.facebook.com/100063690244587/about/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Flowers Slaughter House",
+    "call_priority": 3,
+    "source_role": "social_cross",
+    "url": "https://localmeat.org/processors/north-carolina/flowers-slaughter-house-sims-m21747",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Flowers Slaughter House",
+    "call_priority": 3,
+    "source_role": "social_support",
+    "url": "https://www.bbb.org/us/nc/sims/profile/meat-retail/flowers-beef-slaughter-llc-0593-90184804",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Contentnea Farms",
+    "call_priority": 4,
+    "source_role": "source",
+    "url": "https://contentneafarms.com/processing/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Contentnea Farms",
+    "call_priority": 4,
+    "source_role": "web",
+    "url": "https://contentneafarms.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Contentnea Farms",
+    "call_priority": 4,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=737+Beaman+Farm+Road%2C+Walstonburg%2C+NC+27888&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Contentnea Farms",
+    "call_priority": 4,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-77.718676,35.562992?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Contentnea Farms",
+    "call_priority": 4,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=737%20Beaman%20Farm%20Road%2C%20Walstonburg%2C%20NC%2027888&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Contentnea Farms",
+    "call_priority": 4,
+    "source_role": "social_url",
+    "url": "https://www.facebook.com/ContentneaFarms/posts/take-a-quick-tour-of-our-walstonburg-retail-location-this-is-where-the-magic-hap/122227399094321770/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Contentnea Farms",
+    "call_priority": 4,
+    "source_role": "social_cross",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Contentnea Farms",
+    "call_priority": 4,
+    "source_role": "social_support",
+    "url": "https://contentneafarms.com/processing/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Gale McLamb Meats",
+    "call_priority": 5,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=4216+US+301+North%2C+Dunn%2C+NC+28334&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Gale McLamb Meats",
+    "call_priority": 5,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.574212,35.353057?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Gale McLamb Meats",
+    "call_priority": 5,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=4216%20US%20301%20North%2C%20Dunn%2C%20NC%2028334&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Key Packing Company",
+    "call_priority": 6,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=596+Maness+Road%2C+Robbins%2C+NC+27325&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Key Packing Company",
+    "call_priority": 6,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-79.590723,35.475198?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Key Packing Company",
+    "call_priority": 6,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=596%20Maness%20Road%2C%20Robbins%2C%20NC%2027325&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Quaqua Creek Farm",
+    "call_priority": 7,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=429+Estes+Road%2C+Ruffin%2C+NC+27326&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Quaqua Creek Farm",
+    "call_priority": 7,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-79.566669,36.443493?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Quaqua Creek Farm",
+    "call_priority": 7,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=429%20Estes%20Road%2C%20Ruffin%2C%20NC%2027326&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Cool Springs Farm and Meat",
+    "call_priority": 8,
+    "source_role": "source",
+    "url": "https://www.csmpfarmstore.com/service-page/hog-slaughter-custom",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Cool Springs Farm and Meat",
+    "call_priority": 8,
+    "source_role": "web",
+    "url": "https://www.csmpfarmstore.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Cool Springs Farm and Meat",
+    "call_priority": 8,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1041+Disher+Road%2C+Yadkinville%2C+NC+27055&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Cool Springs Farm and Meat",
+    "call_priority": 8,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-80.655752,36.089566?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Cool Springs Farm and Meat",
+    "call_priority": 8,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=1041%20Disher%20Road%2C%20Yadkinville%2C%20NC%2027055&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Cool Springs Farm and Meat",
+    "call_priority": 8,
+    "source_role": "social_url",
+    "url": "https://nextdoor.com/pages/cool-springs-meat-processing-elkin-nc/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Cool Springs Farm and Meat",
+    "call_priority": 8,
+    "source_role": "social_cross",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Cool Springs Farm and Meat",
+    "call_priority": 8,
+    "source_role": "social_support",
+    "url": "https://www.csmpfarmstore.com/service-page/hog-slaughter-custom",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "source",
+    "url": "https://www.mitchellsmeatnc.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "web",
+    "url": "https://www.mitchellsmeatnc.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=401+Mitchell+Street%2C+Walnut+Cove%2C+NC+27052&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-80.144862,36.296102?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=401%20Mitchell%20Street%2C%20Walnut%20Cove%2C%20NC%2027052&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "social_url",
+    "url": "https://www.instagram.com/mitchellsmeatnc/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "social_cross",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "social_support",
+    "url": "https://www.mitchellsmeatnc.com/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "social_url",
+    "url": "https://www.instagram.com/reel/DcwwDNPlE-3/",
+    "checked_date": "2026-09-28",
+    "post_date": "2026-09-01"
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "social_cross",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "checked_date": "2026-09-28",
+    "post_date": "2026-09-01"
+  },
+  {
+    "supplier": "Mitchell's Meat Processing",
+    "call_priority": 9,
+    "source_role": "social_support",
+    "url": "https://www.facebook.com/MitchellsMeatNC/videos/safe-meat-it-is-what-we-docome-with-us-for-a-little-learning-on-how-we-work-at-m/1008750858880932/",
+    "checked_date": "2026-09-28",
+    "post_date": "2026-09-01"
+  },
+  {
+    "supplier": "Schrock's Slaughter House",
+    "call_priority": 10,
+    "source_role": "source",
+    "url": "https://schrockssh.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Schrock's Slaughter House",
+    "call_priority": 10,
+    "source_role": "source2",
+    "url": "https://localmeat.org/processors/virginia/schrocks-slaughter-house-gladys-m44217",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Schrock's Slaughter House",
+    "call_priority": 10,
+    "source_role": "web",
+    "url": "https://schrockssh.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Schrock's Slaughter House",
+    "call_priority": 10,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=4141+Pigeon+Run+Road%2C+Gladys%2C+VA+24554&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Schrock's Slaughter House",
+    "call_priority": 10,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-79.004417,37.169915?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Schrock's Slaughter House",
+    "call_priority": 10,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=4141%20Pigeon%20Run%20Road%2C%20Gladys%2C%20VA%2024554&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Martin's Pork Products",
+    "call_priority": 11,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=6657+Godwin+Street%2C+Falcon%2C+NC&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Martin's Pork Products",
+    "call_priority": 11,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.653881,35.190459?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Martin's Pork Products",
+    "call_priority": 11,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=6657%20King%20Street%2C%20Falcon%2C%20NC%2028342&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Custom Quality Packers",
+    "call_priority": 12,
+    "source_role": "source",
+    "url": "https://deanstreetprocessing.com/about/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Custom Quality Packers",
+    "call_priority": 12,
+    "source_role": "web",
+    "url": "https://www.deanstreetprocessing.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Custom Quality Packers",
+    "call_priority": 12,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=3571+Friday+Road%2C+Sims%2C+NC+27880&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Custom Quality Packers",
+    "call_priority": 12,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.069227,35.784538?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Custom Quality Packers",
+    "call_priority": 12,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=3571%20Friday%20Road%2C%20Sims%2C%20NC%2027880&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Nahunta Slaughter House / Pork Center",
+    "call_priority": 13,
+    "source_role": "source",
+    "url": "https://www.nahuntapork.com/specimen-permits1",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Nahunta Slaughter House / Pork Center",
+    "call_priority": 13,
+    "source_role": "web",
+    "url": "https://www.nahuntapork.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Nahunta Slaughter House / Pork Center",
+    "call_priority": 13,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=200+Bertie+Pierce+Road%2C+Pikeville%2C+NC+27863&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Nahunta Slaughter House / Pork Center",
+    "call_priority": 13,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.082994,35.508186?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Nahunta Slaughter House / Pork Center",
+    "call_priority": 13,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=200%20Bertie%20Pierce%20Road%2C%20Pikeville%2C%20NC%2027863&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Parks Family Meats",
+    "call_priority": 14,
+    "source_role": "source",
+    "url": "https://parkslivestock.com/services/harvest-processing/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Parks Family Meats",
+    "call_priority": 14,
+    "source_role": "web",
+    "url": "https://parkslivestock.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Parks Family Meats",
+    "call_priority": 14,
+    "source_role": "geocode_url",
+    "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=1618+Highway+24+50%2C+Warsaw%2C+NC+28398&f=json&outFields=Match_addr%2CAddr_type&maxLocations=2",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Parks Family Meats",
+    "call_priority": 14,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.063898,34.997550?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Parks Family Meats",
+    "call_priority": 14,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=1618%20Highway%2024%2050%2C%20Warsaw%2C%20NC%2028398&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Villari / The Pork Company",
+    "call_priority": 15,
+    "source_role": "source",
+    "url": "https://www.ams.usda.gov/sites/default/files/media/LSOfficialListingNeverFedBetaAgonistsProgram.pdf",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Villari / The Pork Company",
+    "call_priority": 15,
+    "source_role": "source2",
+    "url": "https://www.villarifood.com/about/our-story/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Villari / The Pork Company",
+    "call_priority": 15,
+    "source_role": "web",
+    "url": "https://www.villarifood.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Villari / The Pork Company",
+    "call_priority": 15,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=892+Penny+Branch+Road%2C+Warsaw%2C+NC+28398&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Villari / The Pork Company",
+    "call_priority": 15,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.122584,35.006391?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Villari / The Pork Company",
+    "call_priority": 15,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=892%20Penny%20Branch%20Road%2C%20Warsaw%2C%20NC%2028398&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Bass Farms",
+    "call_priority": 16,
+    "source_role": "source",
+    "url": "https://bassfarmsausage.com/contact-bass-farm-sausage/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Bass Farms",
+    "call_priority": 16,
+    "source_role": "web",
+    "url": "https://bassfarmsausage.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Bass Farms",
+    "call_priority": 16,
+    "source_role": "geocode_url",
+    "url": "https://goo.gl/maps/z2N6FxNVa5x",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Bass Farms",
+    "call_priority": 16,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.081674,35.955457?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Bass Farms",
+    "call_priority": 16,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=6685%20Highway%2064%20Alternate%2C%20Spring%20Hope%2C%20NC%2027882&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Select Meats",
+    "call_priority": 17,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=203+East+29th+Street%2C+Kannapolis%2C+NC+28081&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Select Meats",
+    "call_priority": 17,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-80.611766,35.530424?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Select Meats",
+    "call_priority": 17,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=203%20East%2029th%20Street%2C%20Kannapolis%2C%20NC%2028081&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Cruse Meat Processing",
+    "call_priority": 18,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=4701+Rimer+Road%2C+Concord%2C+NC+28025&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Cruse Meat Processing",
+    "call_priority": 18,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-80.481125,35.479747?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Cruse Meat Processing",
+    "call_priority": 18,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=4701%20Rimer%20Road%2C%20Concord%2C%20NC%2028025&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Larry's Sausage Company",
+    "call_priority": 19,
+    "source_role": "source",
+    "url": "https://larryssausage.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Larry's Sausage Company",
+    "call_priority": 19,
+    "source_role": "web",
+    "url": "https://larryssausage.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Larry's Sausage Company",
+    "call_priority": 19,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1624+Middle+River+Loop+Road%2C+Fayetteville%2C+NC+28312&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Larry's Sausage Company",
+    "call_priority": 19,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.848092,35.060441?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Larry's Sausage Company",
+    "call_priority": 19,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=1624%20Middle%20River%20Loop%20Road%2C%20Fayetteville%2C%20NC%2028312&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Neese Country Sausage, Burlington plant",
+    "call_priority": 20,
+    "source_role": "source",
+    "url": "https://openagriculturetechnology.com/resources/processors/nc/neese-country-sausage-inc-alamance-county-nc/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Neese Country Sausage, Burlington plant",
+    "call_priority": 20,
+    "source_role": "source2",
+    "url": "https://www.ncmpa.com/processor-members/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Neese Country Sausage, Burlington plant",
+    "call_priority": 20,
+    "source_role": "web",
+    "url": "https://neesesausage.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Neese Country Sausage, Burlington plant",
+    "call_priority": 20,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=1177+Anthony+Road%2C+Burlington%2C+NC+27215&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Neese Country Sausage, Burlington plant",
+    "call_priority": 20,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-79.437103,36.058273?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Neese Country Sausage, Burlington plant",
+    "call_priority": 20,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=1177%20Anthony%20Road%2C%20Burlington%2C%20NC%2027215&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "AAA Abattoir",
+    "call_priority": 21,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2301+Austin+Quarter+Road%2C+Graham%2C+NC+27253&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "AAA Abattoir",
+    "call_priority": 21,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-79.304370,35.948055?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "AAA Abattoir",
+    "call_priority": 21,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=2301%20Austin%20Quarter%20Road%2C%20Graham%2C%20NC%2027253&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Coletown",
+    "call_priority": 22,
+    "source_role": "source",
+    "url": "https://www.coletowndeerprocessing.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Coletown",
+    "call_priority": 22,
+    "source_role": "web",
+    "url": "https://www.coletowndeerprocessing.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Coletown",
+    "call_priority": 22,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=4611+NC+Highway+47%2C+Lexington%2C+NC+27292&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Coletown",
+    "call_priority": 22,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-80.196243,35.724230?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Coletown",
+    "call_priority": 22,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=4611%20NC%20Highway%2047%2C%20Lexington%2C%20NC%2027292&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Coletown",
+    "call_priority": 22,
+    "source_role": "social_url",
+    "url": "https://www.facebook.com/coletown-deer-processing-103814394366421/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Coletown",
+    "call_priority": 22,
+    "source_role": "social_cross",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Coletown",
+    "call_priority": 22,
+    "source_role": "social_support",
+    "url": "https://www.coletowndeerprocessing.com/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "source",
+    "url": "https://www.findglocal.com/US/Archdale/106758341737041/Homestead-Custom-Meat-Processing",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "web",
+    "url": "https://www.facebook.com/p/Homestead-Custom-Meat-Processing-100076254697818/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=6192+Muddy+Creek+Road%2C+Archdale%2C+NC+27263&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-79.894478,35.890006?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=6192%20Muddy%20Creek%20Road%2C%20Archdale%2C%20NC%2027263&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "social_url",
+    "url": "https://www.facebook.com/p/Homestead-Custom-Meat-Processing-100076254697818/",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "social_cross",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "social_support",
+    "url": "https://www.findglocal.com/US/Archdale/106758341737041/Homestead-Custom-Meat-Processing",
+    "checked_date": "2026-09-28",
+    "post_date": null
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "social_url",
+    "url": "https://www.findglocal.com/US/Archdale/106758341737041/Homestead-Custom-Meat-Processing",
+    "checked_date": "2026-09-28",
+    "post_date": "2026-03-03"
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "social_cross",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "checked_date": "2026-09-28",
+    "post_date": "2026-03-03"
+  },
+  {
+    "supplier": "Homestead Custom Meat Processing",
+    "call_priority": 23,
+    "source_role": "social_support",
+    "url": "https://www.youtube.com/watch?v=0sRUUTFoqqA",
+    "checked_date": "2026-09-28",
+    "post_date": "2026-03-03"
+  },
+  {
+    "supplier": "Miller Meat Processing",
+    "call_priority": 24,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2381+Big+Johns+Store+Road%2C+Seaboard%2C+NC+27876&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Miller Meat Processing",
+    "call_priority": 24,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-77.433003,36.537385?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Miller Meat Processing",
+    "call_priority": 24,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=2381%20Big%20Johns%20Store%20Road%2C%20Seaboard%2C%20NC%2027876&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Smithfield Fresh Meats, Clinton plant",
+    "call_priority": 25,
+    "source_role": "source",
+    "url": "https://www.fsis.usda.gov/inspection/fsis-inspected-establishments/smithfield-fresh-meats-corp.-2",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Smithfield Fresh Meats, Clinton plant",
+    "call_priority": 25,
+    "source_role": "source2",
+    "url": "https://localmeat.org/processors/north-carolina/smithfield-fresh-meats-corp-clinton-m413",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Smithfield Fresh Meats, Clinton plant",
+    "call_priority": 25,
+    "source_role": "web",
+    "url": "https://www.smithfieldfoods.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Smithfield Fresh Meats, Clinton plant",
+    "call_priority": 25,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=424+East+Railroad+Street%2C+Clinton%2C+NC+28328&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Smithfield Fresh Meats, Clinton plant",
+    "call_priority": 25,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.311065,34.994426?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Smithfield Fresh Meats, Clinton plant",
+    "call_priority": 25,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=424%20East%20Railroad%20Street%2C%20Clinton%2C%20NC%2028328&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Firsthand Foods",
+    "call_priority": 26,
+    "source_role": "source",
+    "url": "https://firsthandfoods.com/contact-us/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Firsthand Foods",
+    "call_priority": 26,
+    "source_role": "source2",
+    "url": "https://firsthandfoods.com/our-products/pork/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Firsthand Foods",
+    "call_priority": 26,
+    "source_role": "web",
+    "url": "https://firsthandfoods.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Firsthand Foods",
+    "call_priority": 26,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2210+East+Pettigrew+Street%2C+Durham%2C+NC+27703&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Firsthand Foods",
+    "call_priority": 26,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.878062,35.979026?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Firsthand Foods",
+    "call_priority": 26,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=2210%20East%20Pettigrew%20Street%2C%20Durham%2C%20NC%2027703&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Heritage Farms Cheshire Pork",
+    "call_priority": 27,
+    "source_role": "source",
+    "url": "https://www.cheshirepork.com/contact-us",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Heritage Farms Cheshire Pork",
+    "call_priority": 27,
+    "source_role": "source2",
+    "url": "https://buypork.com/pages/contact.html/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Heritage Farms Cheshire Pork",
+    "call_priority": 27,
+    "source_role": "web",
+    "url": "https://www.cheshirepork.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Heritage Farms Cheshire Pork",
+    "call_priority": 27,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=340+Dollard+Town+Road%2C+Goldsboro%2C+NC+27534&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Heritage Farms Cheshire Pork",
+    "call_priority": 27,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-77.915269,35.320388?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Heritage Farms Cheshire Pork",
+    "call_priority": 27,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=340%20Dollard%20Town%20Road%2C%20Goldsboro%2C%20NC%2027534&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Carolina Packers",
+    "call_priority": 28,
+    "source_role": "source",
+    "url": "https://carolinapackers.com/pages/franks-for-thanks",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Carolina Packers",
+    "call_priority": 28,
+    "source_role": "web",
+    "url": "https://carolinapackers.com/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Carolina Packers",
+    "call_priority": 28,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2999+South+Brightleaf+Boulevard%2C+Smithfield%2C+NC+27577&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Carolina Packers",
+    "call_priority": 28,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.374919,35.478248?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Carolina Packers",
+    "call_priority": 28,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=2999%20South%20Brightleaf%20Boulevard%2C%20Smithfield%2C%20NC%2027577&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Choices, Sarah Blacklin",
+    "call_priority": 29,
+    "source_role": "source",
+    "url": "https://cefs.ncsu.edu/contacts/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Choices, Sarah Blacklin",
+    "call_priority": 29,
+    "source_role": "source2",
+    "url": "https://cefs.ncsu.edu/food-system-initiatives/nc-choices/about/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Choices, Sarah Blacklin",
+    "call_priority": 29,
+    "source_role": "web",
+    "url": "https://cefs.ncsu.edu/food-system-initiatives/nc-choices/",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Choices, Sarah Blacklin",
+    "call_priority": 29,
+    "source_role": "geocode_url",
+    "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?SingleLine=840+Oval+Drive%2C+Raleigh%2C+NC+27606&f=json&outFields=Match_addr%2CAddr_type&maxLocations=2",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Choices, Sarah Blacklin",
+    "call_priority": 29,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.673533,35.773772?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Choices, Sarah Blacklin",
+    "call_priority": 29,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=840%20Oval%20Drive%2C%20Raleigh%2C%20NC%2027606&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Meat and Poultry Inspection Division",
+    "call_priority": 30,
+    "source_role": "source",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/contact",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Meat and Poultry Inspection Division",
+    "call_priority": 30,
+    "source_role": "web",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Meat and Poultry Inspection Division",
+    "call_priority": 30,
+    "source_role": "geocode_url",
+    "url": "https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=2+West+Edenton+Street%2C+Raleigh%2C+NC+27601&benchmark=Public_AR_Current&format=json",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Meat and Poultry Inspection Division",
+    "call_priority": 30,
+    "source_role": "routing_url",
+    "url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.639101,35.781269?overview=false",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "NC Meat and Poultry Inspection Division",
+    "call_priority": 30,
+    "source_role": "map_url",
+    "url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=2%20West%20Edenton%20Street%2C%20Raleigh%2C%20NC%2027601&travelmode=driving",
+    "checked_date": "2026-09-28"
+  },
+  {
+    "supplier": "Multiple establishments",
+    "source_role": "official_state_plant_directory",
+    "url": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+    "document_date": "2026-09-18",
+    "checked_date": "2026-09-28",
+    "local_copy": "sources/NC_Plant_Directory_2026-09-18.pdf"
+  }
+]
