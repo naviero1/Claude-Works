@@ -161,24 +161,24 @@ def year_strip(l,t,w,h,blocks,col):
     for st,d in blocks:
         rect(s,l+w*st/365,t,w*d/365,h,col); rect(s,l+w*st/365-0.02,t,0.02,h,WHITE); rect(s,l+w*(st+d)/365,t,0.02,h,WHITE)
 OPTS=[("Option 1","Second supplier at one-third","10 PCI batches a year: ~12 days on PCI material every ~5 weeks",[(wk*5.19*7,12.1) for wk in range(10)],A_OPT,
-       [("Drums a year","150 = SNP Inc. 100 + PCI 50 (33%)"),("Money a year","$112.6k = SNP Inc. $33.8k + PCI $78.8k"),("SNP Inc. sees","10 pauses of ~12 days, or a level cadence with a rolling stock"),("If SNP fails, restart in","weeks — if PCI's ramp is confirmed in writing")]),
+       [("Drums a year","150 = SNP 100 + PCI 50 (33%)"),("Money a year","$112.6k = SNP $33.8k + PCI $78.8k"),("SNP Inc. sees","10 pauses of ~12 days, or level with a rolling stock"),("If SNP fails, restart in","weeks, if PCI's ramp is confirmed in writing")]),
       ("Option 3","Keep-alive: 1–3 batches a year","one ~12-day block per batch, when we choose",[(75,12.1),(190,12.1),(305,12.1)],B_OPT,
-       [("Drums a year","150 = SNP Inc. 145 / 140 / 135 + PCI 5 / 10 / 15 (1, 2 or 3 batches)"),("Money a year","$56.9k / $63.1k / $69.3k = SNP Inc. $49.0k / $47.3k / $45.6k + PCI $7.9k / $15.8k / $23.6k"),("SNP Inc. sees","1–3 pre-announced pauses, or none"),("If SNP fails, restart in","weeks to a few months")]),
+       [("Drums a year","150 = SNP 145/140/135 + PCI 5/10/15 (1/2/3 batches)"),("Money a year","$56.9k / $63.1k / $69.3k = SNP $49.0k/$47.3k/$45.6k + PCI $7.9k/$15.8k/$23.6k"),("SNP Inc. sees","1–3 pre-announced pauses, or none"),("If SNP fails, restart in","weeks to a few months")]),
       ("Option 2","Strengthen SNP Inc. only","all year on SNP Inc.; PCI kept as a quoted option",[],GREEN,
-       [("Drums a year","150 = SNP Inc. 150"),("Money a year","$50.7k = SNP Inc. $50.7k — what we pay today"),("SNP Inc. sees","a strengthened partner"),("If SNP fails, restart in","~3–6 months; a cold start decays after ~12 idle")])]
-tf=box(s,3.3,1.08,6.6,0.3); par(tf.paragraphs[0],"The year, week by week — green: SNP Inc. material · colored blocks: PCI batches (5 drums = ~12 days)",10,NAVY,bold=True,after=0)
+       [("Drums a year","150 = SNP 150"),("Money a year","$50.7k = SNP $50.7k — what we pay today"),("SNP Inc. sees","a strengthened partner"),("If SNP fails, restart in","~3–6 months; decays after ~12 months idle")])]
+tf=box(s,3.2,1.08,6.3,0.3); par(tf.paragraphs[0],"The year, week by week — green: SNP Inc. material · colored blocks: PCI batches (5 drums = ~12 days)",9.5,NAVY,bold=True,after=0)
 for i,(name,sub,how,blocks,col,metrics) in enumerate(OPTS):
     t=1.45+i*1.6
     tf=box(s,0.6,t,2.6,1.4); par(tf.paragraphs[0],name,15,col,bold=True,after=2); par(tf.add_paragraph(),sub,11,NAVY,bold=True,after=2); par(tf.add_paragraph(),how,9,GREY,after=0)
-    year_strip(3.3,t+0.18,6.6,0.62,blocks,col)
+    year_strip(3.2,t+0.18,6.1,0.62,blocks,col)
     if i==2:
         for d,lab in [(0,"Jan"),(91,"Apr"),(182,"Jul"),(274,"Oct"),(365,"Dec")]:
-            tf=box(s,3.3+6.6*d/365-0.3,t+0.82,0.6,0.25); par(tf.paragraphs[0],lab,8.5,GREY,align=PP_ALIGN.CENTER,after=0)
-    tf=box(s,10.05,t-0.02,2.7,1.5)
+            tf=box(s,3.2+6.1*d/365-0.3,t+0.82,0.6,0.25); par(tf.paragraphs[0],lab,8.5,GREY,align=PP_ALIGN.CENTER,after=0)
+    tf=box(s,9.45,t-0.05,3.3,1.55)
     for j,(k,v) in enumerate(metrics):
-        p=tf.paragraphs[0] if j==0 else tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.size=Pt(8.5); r.font.color.rgb=GREY; r.font.name="Calibri"
-        r2=p.add_run(); r2.text=v; r2.font.size=Pt(9); r2.font.color.rgb=NAVY; r2.font.bold=(j==0); r2.font.name="Calibri"; p.space_after=Pt(2)
-tf=box(s,0.6,6.15,12.1,0.35); par(tf.paragraphs[0],"Demand: 150 drums a year (1 drum = 450 lb of PVA), ~3 drums a week. Block rotation: PCI drums land ~4 days old and expire on day 18, so a 5-drum batch is used at full rate in one ~12-day block. Purchases at today's volume: SNP Inc. $0.75/lb ($337.50 a drum), PCI $3.50/lb ($1,575 a drum); all grow ~10%/yr with volume. Not included: internal hours to finish PCI's qualification (Options 1 and 3, ~$15–40k once).",9,GREY,after=0)
+        p=tf.paragraphs[0] if j==0 else tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.size=Pt(8); r.font.color.rgb=GREY; r.font.name="Calibri"
+        r2=p.add_run(); r2.text=v; r2.font.size=Pt(8.5); r2.font.color.rgb=NAVY; r2.font.bold=(j<2); r2.font.name="Calibri"; p.space_after=Pt(1)
+tf=box(s,0.6,6.0,12.1,0.5); par(tf.paragraphs[0],"Demand: 150 drums a year (1 drum = 450 lb of PVA), ~3 a week. A 5-drum PCI batch is used in one ~12-day block (drums land ~4 days old, expire on day 18). Purchases at today's volume: SNP $337.50 a drum, PCI $1,575 a drum; all grow ~10%/yr. Internal hours to finish PCI's qualification (~$15–40k once) are not included.",8.5,GREY,after=0)
 takeaway(s,"Option 3 keeps a paid, practiced supplier for $6–19k a year on top of today's $50.7k, with one to three pre-announced pauses for SNP Inc. — Option 1 more than doubles the bill and changes SNP's year.",fill=GREEN)
 
 # ===== COST AGAINST PROTECTION =====
@@ -192,7 +192,7 @@ for k,v in [("Left to right","PVA purchases in a year: SNP Inc. at $0.75/lb plus
             ("Option 2, green","$50.7k, what we pay today; least protected — a cold start of ~3–6 months, longer as the file goes stale"),
             ("Option 3, blue","$56.9–69.3k (1–3 batches); a practiced supplier restarts in weeks to a few months — $43–56k a year less than Option 1"),
             ("Option 1, amber","$112.6k; most protected — weeks, if PCI's ramp is confirmed in writing — and the same every year, growing with volume"),
-            ("Not shown","what SNP Inc. experiences: 10 pauses a year under Option 1, 1–2 under Option 3, none under Option 2")]:
+            ("Not shown","what SNP Inc. experiences: 10 pauses a year under Option 1, 1–3 under Option 3, none under Option 2")]:
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(10); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(6)
 takeaway(s,"Option 3 buys most of Option 1's protection for ~$50k a year less. Option 1 pays every year for weeks of extra speed — worth it only if the outage would cost far more.")

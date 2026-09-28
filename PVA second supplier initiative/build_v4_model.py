@@ -321,7 +321,7 @@ pts=[("Option 2\nStrengthen SNP Inc. only",48.7,52.7,3,6,GRN,"$50.7k"),("Option 
 for name,x0,x1,y0,y1,col,where in pts:
     ax.add_patch(Rectangle((x0,y0),x1-x0,y1-y0,facecolor=col,alpha=0.9,lw=0))
     ax.text((x0+x1)/2,y1+0.2,name,ha="center",va="bottom",fontsize=10,color=NAV,fontweight="bold")
-    ax.text((x0+x1)/2,(y0+y1)/2,f"{where}\n{y0:g}–{y1:g} mo",ha="center",va="center",fontsize=8,color="white",fontweight="bold")
+    ax.text(x1+1.5,(y0+y1)/2,f"{where}\nrestart {y0:g}–{y1:g} months",ha="left",va="center",fontsize=8.5,color="#1F2933")
 ax.set_xlim(0,130); ax.set_ylim(0,8); ax.axvline(50.7,color="#BFBFBF",lw=1,ls="-"); ax.text(52,7.6,"today: $50.7k",fontsize=8,color="#595959")
 ax.set_xlabel("PVA purchases per year ($k)   →  more expensive",color="#595959",fontsize=9.5); ax.set_ylabel("Months to restart supply if SNP Inc. fails   →  less protected",color="#595959",fontsize=9.5)
 ax.xaxis.set_major_formatter(FuncFormatter(lambda v,_: f"${v:.0f}k")); ax.set_yticks([0,2,4,6,8]); ax.tick_params(colors="#595959",labelsize=8.5)
