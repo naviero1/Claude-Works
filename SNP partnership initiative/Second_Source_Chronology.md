@@ -1,6 +1,6 @@
 # Second-source search — chronology (Nov 2025 → Sep 2026)
 
-Same series of events as slide 6 of `../PVA second supplier initiative/PVA_Second_Supplier_Leadership_Deck.pptx`. Sources: Notion page *PVA Secondary Supplier* (progress log), supplier email threads, Oscar's corrections of 2026-09-28.
+Same series of events as the chronology slide of `../PVA second supplier initiative/PVA_Second_Supplier_Leadership_Deck.pptx`. Sources: Notion page *PVA Secondary Supplier* (progress log), supplier email threads, Oscar's corrections of 2026-09-28.
 
 | When | Event | Outcome | Source |
 |---|---|---|---|
@@ -14,6 +14,6 @@ Same series of events as slide 6 of `../PVA second supplier initiative/PVA_Secon
 | Aug–Sep 2026 (approx.) | PCI Manufacturing (St. Louis, MO; CMS Manufacturing group) lab batches | Two-plus batches, a dilution study, viscometer method work, a revised process — unpaid | PCI email-chain summary (logged 2026-09-22) |
 | Sep 22, 2026 | Viscosity root cause found | Elevated total solids from water loss in process; fix = water adjustment at end of mix. Spec locked: 11% total solids, 900–1,100 cP fresh (Brookfield #3, 10 rpm, 25 °C) | Notion log |
 | Sep 28, 2026 | PCI production experiment and quote | **Spec met.** Quote: **$3.50/lb for one 5-drum batch (2,250 lb); $6.00/lb for anything smaller** | Oscar; deck v4 |
-| Next | Conversation with SNP Inc. | Strategy to be decided before it (B-plus recommended) | Deck v4, slides 10–11 |
+| Next | Conversation with SNP Inc. | Strategy to be decided before it (Option 3 recommended: partnership terms plus 1–2 keep-alive batches a year) | Deck v4.3, recommendation slide |
 
 **Still open from the chronology:** PCI's first-contact date (approximate above); whether $6,400 or $4,900 + credit is the right CJB figure to quote; Brenntag's exact November 2025 dates.
