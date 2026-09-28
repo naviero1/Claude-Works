@@ -310,3 +310,21 @@ ax.set_xlim(0,150); ax.xaxis.set_major_formatter(FuncFormatter(lambda v,_: f"${v
 ax.spines[["top","right","left"]].set_visible(False); ax.set_title("What each option costs — internal hours, supplier payments and material premium (excludes ~$15k already spent)",fontsize=10.5,color=NAV,loc="left",fontweight="bold")
 plt.tight_layout(); plt.savefig("chart_options_year1.png",dpi=180); plt.close()
 print("charts saved")
+
+# Chart D: cost against protection — box = the range of each option
+from matplotlib.patches import Rectangle
+A_OPT="#C9741A"; B_OPT="#2F6DB5"
+fig,ax=plt.subplots(figsize=(8.2,5.2)); fig.patch.set_facecolor("white")
+pts=[("Option 2\nStrengthen SNP Inc. only",13,32,3,6,GRN,"above"),("Option 3\nKeep-alive: 1–2 batches/yr",31,78,1,3,B_OPT,"above"),("Option 1\nSecond supplier at one-third",80,110,0.5,2,A_OPT,"above")]
+for name,x0,x1,y0,y1,col,where in pts:
+    ax.add_patch(Rectangle((x0,y0),x1-x0,y1-y0,facecolor=col,alpha=0.9,lw=0))
+    ax.text((x0+x1)/2,y1+0.2,name,ha="center",va="bottom",fontsize=10,color=NAV,fontweight="bold")
+    ax.text((x0+x1)/2,(y0+y1)/2,f"${x0}–{x1}k\n{y0:g}–{y1:g} months",ha="center",va="center",fontsize=8.5,color="white",fontweight="bold")
+ax.set_xlim(0,125); ax.set_ylim(0,8)
+ax.set_xlabel("Cost, first 12 months all-in ($k)   →  more expensive",color="#595959",fontsize=9.5); ax.set_ylabel("Months to restart supply if SNP Inc. fails   →  less protected",color="#595959",fontsize=9.5)
+ax.xaxis.set_major_formatter(FuncFormatter(lambda v,_: f"${v:.0f}k")); ax.set_yticks([0,2,4,6,8]); ax.tick_params(colors="#595959",labelsize=8.5)
+for sp in ["top","right"]: ax.spines[sp].set_visible(False)
+ax.spines["left"].set_color("#BFBFBF"); ax.spines["bottom"].set_color("#BFBFBF"); ax.grid(axis="y",color="#EEEEEE"); ax.set_axisbelow(True)
+ax.set_title("Cost against protection — each box is the range of one option",fontsize=11.5,color=NAV,loc="left",fontweight="bold")
+ax.annotate("better: cheaper and faster to restart",xy=(4,0.4),fontsize=8.5,color="#595959",style="italic")
+plt.tight_layout(); plt.savefig("chart_cost_vs_protection.png",dpi=180); plt.close(); print("chart D saved")
