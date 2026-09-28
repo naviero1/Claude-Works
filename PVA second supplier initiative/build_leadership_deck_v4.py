@@ -120,10 +120,10 @@ par(tf.paragraphs[0],"Reading the chart",13,NAVY,bold=True,after=5)
 for k,v in [("Left to right","quantity per order, 1-gallon jug to 150 drums, log scale"),
             ("Grey points","verified prices of pre-mixed PVA solution by pack size (US up to 20 gal; offshore ton offers before freight)"),
             ("Navy line and band",f"trend ~{pc('per_doubling','{:.0%}')} lower per doubling of the lot; the band is where 80% of the points fall. Beyond 20 gal its top follows the flattening in vendors' ladders; its floor is SNP's $0.75 — no US-delivered lot has been seen cheaper. One drum ${pc('band_drum','{}')}; SNP's lot ${pc('band_snp','{}')}; 5-drum batch ${pc('band_batch','{}')}"),
-            ("SNP Inc., green","$0.75 at ~3 drums a week — the floor of the band, delivered and to our spec: the market's cheapest price for a better product"),
+            ("SNP Inc., green","$0.75 at ~3 drums a week — the floor of the band, delivered and to our spec"),
             ("Green dashed",f"the same slope through SNP's price: if we ever bought smaller lots from SNP, expect ~${pc('snp_at_drum')} at one drum, ~${pc('snp_at_5gal')} at 5 gallons — a regression, not a quote"),
             ("PCI, ambers","$3.50 at a 5-drum batch, $6.00 below it — above the band: batch-fixed cost and drum freight priced in"),
-            ("CJB, red · APV, hollow","CJB $8.42 at a 40-gal minimum sits far above the band; APV ≥$3 (estimate from our call, never confirmed) sits at the band's top")]:
+            ("CJB, red · APV, hollow","CJB $8.42 far above the band; APV ≥$3 (estimate, never confirmed) at its top")]:
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(9.5); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(5)
 takeaway(s,"Price follows lot size across this market. SNP Inc. is its floor — drum lots at $0.75, delivered to our spec; every other supplier that can make it charges the top of the band, or more.")
