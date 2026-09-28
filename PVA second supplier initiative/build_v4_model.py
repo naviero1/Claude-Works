@@ -256,7 +256,8 @@ def rng(k):
     except Exception: return None
 labels=["Market —\nhigh quantity\n(bulk / tote)","Market —\ncompetitive quantity\n(drum scale)","Market —\nlow quantity\n(small packs)","SNP Inc.\n(real quote)","PCI 5-drum\nbatch (real)","PCI below\nbatch (real)","CJB\n(real quote)"]
 vals=[tier("high"),tier("competitive"),tier("low"),0.75,3.50,6.00,8.42]
-cols=[LGT,STL,LGT,GRN,NAV,REDc,REDc]
+PCI_D="#B9770E"; PCI_L="#E3B24A"; G1="#8E9BA7"; G2="#B5BFC9"; G3="#D6DCE5"   # PCI: two shades of one amber; market: three greys
+cols=[G3,G1,G2,GRN,PCI_D,PCI_L,REDc]
 keep=[i for i,v in enumerate(vals) if v is not None]
 labels=[labels[i] for i in keep]; vals=[vals[i] for i in keep]; cols=[cols[i] for i in keep]
 fig,ax=plt.subplots(figsize=(11,5.4)); bars=ax.bar(labels,vals,color=cols,edgecolor="white")
@@ -277,22 +278,23 @@ scen=[("All-SNP\n(today)",LB1*SNP,0,None),
       ("CJB $8.42\n(for scale)",snp_keep*SNP,share_lb*CJB,CJB)]
 fig,ax=plt.subplots(figsize=(11,5.4)); x=range(len(scen))
 ax.bar(x,[s[1] for s in scen],color=GRN,label="SNP Inc. at $0.75/lb")
-ax.bar(x,[s[2] for s in scen],bottom=[s[1] for s in scen],color=NAV,label="Second source — one-third of demand (22,500 lb, 50 drums)")
+second_cols=[NAV,PCI_D,PCI_L,REDc]
+ax.bar(x,[s[2] for s in scen],bottom=[s[1] for s in scen],color=second_cols,label="Second source — one-third of demand (22,500 lb, 50 drums): PCI amber, CJB red")
 for i,s in enumerate(scen):
     tot=s[1]+s[2]; prem=tot-LB1*SNP
     ax.text(i,tot+4500,f"${tot/1000:,.1f}k"+(f"\n+${prem/1000:,.1f}k  ({prem/(LB1*SNP):.0%})" if prem>0 else ""),ha="center",va="bottom",fontsize=9.5,fontweight="bold")
     lb_snp=LB1 if s[2]==0 else snp_keep
     ax.text(i,s[1]/2,f"{lb_snp:,.0f} lb\n${s[1]/1000:,.1f}k",ha="center",va="center",fontsize=8.5,color="white",fontweight="bold")
-    if s[2]>0: ax.text(i,s[1]+s[2]/2,f"{share_lb:,.0f} lb × ${s[3]:.2f}\n${s[2]/1000:,.1f}k",ha="center",va="center",fontsize=8.5,color="white",fontweight="bold")
+    if s[2]>0: ax.text(i,s[1]+s[2]/2,f"{share_lb:,.0f} lb × ${s[3]:.2f}\n${s[2]/1000:,.1f}k",ha="center",va="center",fontsize=8.5,color=(NAV if second_cols[i]==PCI_L else "white"),fontweight="bold")
 ax.set_xticks(list(x)); ax.set_xticklabels([s[0] for s in scen]); ax.yaxis.set_major_formatter(money); ax.set_ylabel("Annual PVA spend (one year)")
 ax.set_title(f"Annual cost side by side — demand {LB1:,.0f} lb/yr ({DRUMS1:.0f} drums); second source at one-third in every option",fontsize=11.5,color=NAV,loc="left",fontweight="bold")
 ax.legend(frameon=False,loc="upper left",fontsize=9); ax.spines[["top","right"]].set_visible(False); ax.set_ylim(0,max(s[1]+s[2] for s in scen)*1.24); plt.tight_layout(); plt.savefig("chart_annual_side_by_side.png",dpi=180); plt.close()
 print(f"apples-to-apples @1/3: PCI$6 total ${snp_keep*SNP+share_lb*PCI_SUB:,.0f} (+${share_lb*(PCI_SUB-SNP):,.0f}); CJB total ${snp_keep*SNP+share_lb*CJB:,.0f} (+${share_lb*(CJB-SNP):,.0f})")
 
 # Chart C: the three options — first 12 months all-in (range) and each year after (range), $k
-opts=[("Option 1\nSecond supplier at 1/3",(80,110),(65,70),REDc),
+opts=[("Option 1\nSecond supplier at 1/3",(80,110),(65,70),PCI_D),
       ("Option 2\nStrengthen SNP Inc. only",(13,32),(3,12),GRN),
-      ("Option 3\nKeep-alive: 1–2 batches/yr",(31,78),(9,24),AMBc)]
+      ("Option 3\nKeep-alive: 1–2 batches/yr",(31,78),(9,24),STL)]
 fig,ax=plt.subplots(figsize=(12,2.0)); y=list(range(len(opts)))[::-1]
 for yi,(lab,y1,yr,col) in zip(y,opts):
     ax.barh(yi+0.18,y1[1]-y1[0],left=y1[0],height=0.32,color=col,alpha=0.95)
