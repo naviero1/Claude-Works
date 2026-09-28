@@ -331,22 +331,27 @@ ax.set_title("Yearly PVA purchases vs. time to restart if SNP Inc. fails",fontsi
 ax.annotate("better: cheaper and faster to restart",xy=(4,0.4),fontsize=8.5,color="#595959",style="italic")
 plt.tight_layout(); plt.savefig("chart_cost_vs_protection.png",dpi=180); plt.close(); print("chart D saved")
 
-# Chart E: price per lb vs quantity per order — market curve, SNP-shaped curve, real quotes
+# Chart E: price per lb vs quantity per order — market band, SNP-shaped curve, real quotes
 import numpy as np
 comp=[(float(p["pack_lb"]),float(p["usd_per_lb"])) for p in TIERS.get("points",[]) if p.get("pack_lb") and p.get("usd_per_lb") and p["quantity_tier"].startswith(("LOW","COMPETITIVE")) and p["pack_lb"]>=2 and p["usd_per_lb"]<=12]
 ton=[(2205.0,float(p["usd_per_lb"])) for p in TIERS.get("points",[]) if p["quantity_tier"].startswith("HIGH") and p.get("usd_per_lb")]
 fit=comp+ton; fx=np.array([f[0] for f in fit]); fy=np.array([f[1] for f in fit])
-b,a=np.polyfit(np.log(fx),np.log(fy),1); A=np.exp(a)
-per_doubling=1-2**b
+b,a=np.polyfit(np.log(fx),np.log(fy),1); A=np.exp(a); per_doubling=1-2**b
+US_MAX=170.0                      # largest openly priced US lot (20 gal)
+b_flat=np.log(1-0.08)/np.log(2)   # upper edge: vendors' ladders flatten to ~8% per doubling beyond 20 gal
+anchor=2.32                       # largest US lot price at 20 gal
 snp_lot=3*DRUM; snp_p=0.75
-xs=np.logspace(np.log10(4),np.log10(80000),200)
-mkt=A*xs**b; snp_curve=snp_p*(xs/snp_lot)**b
+xs=np.logspace(np.log10(4),np.log10(80000),300); xl=xs[xs<=US_MAX]; xh=xs[xs>=US_MAX]
+lower=A*xh**b; upper=anchor*(xh/US_MAX)**b_flat
+snp_curve=snp_p*(xs/snp_lot)**b
 fig,ax=plt.subplots(figsize=(8.2,5.3)); fig.patch.set_facecolor("white")
 ax.scatter([f[0] for f in comp],[f[1] for f in comp],s=16,color="#B5BFC9",label=f"Market points — pre-mixed PVA solution, US packs (n={len(comp)})",zorder=2)
-ax.scatter([f[0] for f in ton],[f[1] for f in ton],s=22,color="#8E9BA7",marker="s",label=f"Market points — ton-scale offers, before freight (n={len(ton)})",zorder=2)
-ax.plot(xs,mkt,color=NAV,lw=2,label=f"Market curve: price falls ~{per_doubling:.0%} per doubling of lot size",zorder=3)
-ax.plot(xs,snp_curve,color=GRN,lw=2,ls="--",label="SNP-shaped curve: same slope through SNP's price (what to expect if we bought smaller lots)",zorder=3)
-ax.scatter([snp_lot],[snp_p],s=110,color=GRN,edgecolor="white",zorder=5); ax.annotate("SNP Inc. $0.75\n~3 drums a week (1,350 lb/order)",(snp_lot,snp_p),xytext=(2600,2.1),arrowprops=dict(arrowstyle="->",color=GRN,lw=1),fontsize=8.5,color=GRN,fontweight="bold")
+ax.scatter([f[0] for f in ton],[f[1] for f in ton],s=22,color="#8E9BA7",marker="s",label=f"Ton-scale offers offshore, before freight (n={len(ton)})",zorder=2)
+ax.plot(xl,A*xl**b,color=NAV,lw=2,label=f"Market trend where US data exists: ~{per_doubling:.0%} lower per doubling of lot",zorder=3)
+ax.fill_between(xh,lower,upper,color=NAV,alpha=0.13,lw=0,label="Market band beyond 20 gal: trend (low edge) to flattening vendor ladders (high edge)",zorder=1)
+ax.plot(xh,lower,color=NAV,lw=1,ls=":",zorder=3); ax.plot(xh,upper,color=NAV,lw=1,ls=":",zorder=3)
+ax.plot(xs,snp_curve,color=GRN,lw=2,ls="--",label="SNP-shaped curve: same slope through SNP's price (if we bought smaller lots)",zorder=3)
+ax.scatter([snp_lot],[snp_p],s=110,color=GRN,edgecolor="white",zorder=5); ax.annotate("SNP Inc. $0.75\n~3 drums a week (1,350 lb/order)",(snp_lot,snp_p),xytext=(2600,2.3),arrowprops=dict(arrowstyle="->",color=GRN,lw=1),fontsize=8.5,color=GRN,fontweight="bold")
 ax.scatter([5*DRUM],[3.50],s=110,color=PCI_D,edgecolor="white",zorder=5); ax.annotate("PCI $3.50\n5-drum batch (2,250 lb)",(5*DRUM,3.5),xytext=(4200,4.4),arrowprops=dict(arrowstyle="->",color=PCI_D,lw=1),fontsize=8.5,color=PCI_D,fontweight="bold")
 ax.scatter([DRUM],[6.00],s=110,color=PCI_L,edgecolor="white",zorder=5); ax.annotate("PCI $6.00\nbelow a batch (1 drum)",(DRUM,6.0),xytext=(700,6.9),arrowprops=dict(arrowstyle="->",color=PCI_D,lw=1),fontsize=8.5,color=PCI_D,fontweight="bold")
 ax.scatter([340],[8.42],s=110,color=REDc,edgecolor="white",zorder=5); ax.annotate("CJB $8.42\n40-gal minimum",(340,8.42),xytext=(90,9.3),arrowprops=dict(arrowstyle="->",color=REDc,lw=1),fontsize=8.5,color=REDc,fontweight="bold")
@@ -356,8 +361,9 @@ ax.set_xticks([8.5,42.5,170,450,2250,22500,67600]); ax.set_xticklabels(["1 gal",
 ax.set_xlabel("Quantity per order — lb of PVA solution (log scale)",color="#595959",fontsize=9.5); ax.set_ylabel("$ per lb of finished solution",color="#595959",fontsize=9.5)
 ax.yaxis.set_major_formatter(FuncFormatter(lambda v,_: f"${v:.0f}")); ax.grid(axis="y",color="#EEEEEE"); ax.set_axisbelow(True)
 for sp in ["top","right"]: ax.spines[sp].set_visible(False)
-ax.legend(frameon=False,fontsize=7.2,loc="upper right",bbox_to_anchor=(1.0,1.0))
-ax.set_title("Price per lb vs. quantity per order — the market curve, and where each supplier sits",fontsize=11,color=NAV,loc="left",fontweight="bold")
+ax.legend(frameon=False,fontsize=7,loc="upper right")
+ax.set_title("Price per lb vs. quantity per order — the market, and where each supplier sits",fontsize=11,color=NAV,loc="left",fontweight="bold")
 plt.tight_layout(); plt.savefig("chart_price_vs_volume.png",dpi=180); plt.close()
-print(f"chart E saved: market fit price = {A:.2f} * lb^{b:.3f}; ~{per_doubling:.0%} per doubling; SNP-shaped at 1 drum ${snp_p*(DRUM/snp_lot)**b:.2f}, at 5 gal ${snp_p*(42.5/snp_lot)**b:.2f}; market at SNP lot ${A*snp_lot**b:.2f}, at 2,250 lb ${A*2250**b:.2f}")
-json.dump({"A":A,"b":b,"per_doubling":per_doubling,"snp_at_drum":snp_p*(DRUM/snp_lot)**b,"snp_at_5gal":snp_p*(42.5/snp_lot)**b,"mkt_at_snp_lot":A*snp_lot**b,"mkt_at_batch":A*2250**b},open("price_curve.json","w"))
+lo_b=A*2250**b; hi_b=anchor*(2250/US_MAX)**b_flat; lo_s=A*snp_lot**b; hi_s=anchor*(snp_lot/US_MAX)**b_flat; lo_d=A*DRUM**b; hi_d=anchor*(DRUM/US_MAX)**b_flat
+print(f"chart E saved: trend {A:.2f}*lb^{b:.3f} (~{per_doubling:.0%}/doubling); band at 1 drum ${lo_d:.2f}–{hi_d:.2f}, at SNP lot ${lo_s:.2f}–{hi_s:.2f}, at 5-drum batch ${lo_b:.2f}–{hi_b:.2f}; SNP-shaped at 1 drum ${snp_p*(DRUM/snp_lot)**b:.2f}, at 5 gal ${snp_p*(42.5/snp_lot)**b:.2f}")
+json.dump({"A":A,"b":b,"per_doubling":per_doubling,"snp_at_drum":snp_p*(DRUM/snp_lot)**b,"snp_at_5gal":snp_p*(42.5/snp_lot)**b,"band_drum":f"{lo_d:.2f}–{hi_d:.2f}","band_snp":f"{lo_s:.2f}–{hi_s:.2f}","band_batch":f"{lo_b:.2f}–{hi_b:.2f}"},open("price_curve.json","w"))
