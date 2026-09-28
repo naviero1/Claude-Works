@@ -114,7 +114,7 @@ takeaway(s,f"At competitive quantity the market sells comparable PVA solution ar
 PC=json.load(open("price_curve.json")) if os.path.exists("price_curve.json") else {}
 def pc(k,f="{:.2f}"): return (f.format(PC[k]) if k in PC else "—")
 s=slide(); title_bar(s,"Price per lb of PVA vs. quantity per order — the curve, and where each supplier sits","1 · COST")
-s.shapes.add_picture("chart_price_vs_volume.png",Inches(0.6),Inches(1.12),height=Inches(5.35))
+s.shapes.add_picture("chart_price_vs_volume.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
 rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
 par(tf.paragraphs[0],"Reading the chart",13,NAVY,bold=True,after=5)
 for k,v in [("Left to right","quantity per order, 1-gallon jug to 150 drums, log scale"),
