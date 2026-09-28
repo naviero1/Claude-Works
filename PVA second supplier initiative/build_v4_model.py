@@ -291,7 +291,7 @@ for i,s in enumerate(scen):
     ax.text(i,s[1]/2,f"{lb_snp/DRUM:,.0f} drums\n${s[1]/1000:,.1f}k",ha="center",va="center",fontsize=7.8,color="white",fontweight="bold")
     if s[2]>=25000: ax.text(i,s[1]+s[2]/2,f"{s[5]/DRUM:,.0f} drums × ${s[3]:.2f}/lb\n${s[2]/1000:,.1f}k",ha="center",va="center",fontsize=7.8,color=(NAV if s[4] in (PCI_L,B1) else "white"),fontweight="bold")
 ax.set_xticks(list(x)); ax.set_xticklabels([s[0] for s in scen],fontsize=8.5); ax.yaxis.set_major_formatter(money); ax.set_ylabel("Annual PVA spend (one year)")
-ax.set_title(f"Annual cost side by side — demand {DRUMS1:.0f} drums a year in every bar (1 drum = 450 lb of PVA); second-source drums as labelled",fontsize=11,color=NAV,loc="left",fontweight="bold")
+ax.set_title(f"Annual cost, one year — demand {DRUMS1:.0f} drums in every bar (1 drum = 450 lb of PVA)",fontsize=11,color=NAV,loc="left",fontweight="bold")
 ax.legend(frameon=False,loc="upper left",fontsize=8.5); ax.spines[["top","right"]].set_visible(False); ax.set_ylim(0,max(s[1]+s[2] for s in scen)*1.24); plt.tight_layout(); plt.savefig("chart_annual_side_by_side.png",dpi=180); plt.close()
 for s in scen: print(f"{s[0].replace(chr(10),' ')}: total ${s[1]+s[2]:,.0f} premium ${s[1]+s[2]-LB1*SNP:,.0f} ({(s[1]+s[2]-LB1*SNP)/(LB1*SNP):.0%})")
 
