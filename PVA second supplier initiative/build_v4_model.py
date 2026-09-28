@@ -275,21 +275,21 @@ share_lb=pci_drums*DRUM; snp_keep=LB1-share_lb          # 22,500 lb (50 drums) /
 wk_lb=52*DRUM                                          # one drum a week = 52 drums = 23,400 lb ≈ 35% of demand
 B1,B2,B3="#9DC3E6","#4E79A7","#1F3864"                 # Option 3 blues, light -> dark
 scen=[("All-SNP\n(today)",LB1*SNP,0,None,GRN,LB1),
-      ("Option 3\n1 batch: 5 drums",(LB1-batch_lb)*SNP,batch_lb*PCI_Q,PCI_Q,B1,batch_lb),
-      ("Option 3\n2 batches: 10 drums",(LB1-2*batch_lb)*SNP,2*batch_lb*PCI_Q,PCI_Q,B2,2*batch_lb),
-      ("Option 3\n3 batches: 15 drums",(LB1-3*batch_lb)*SNP,3*batch_lb*PCI_Q,PCI_Q,B3,3*batch_lb),
-      ("PCI $3.50\none-third: 50 drums",snp_keep*SNP,share_lb*PCI_Q,PCI_Q,PCI_D,share_lb),
-      ("PCI $6.00\n1 drum/week: 52 drums",(LB1-wk_lb)*SNP,wk_lb*PCI_SUB,PCI_SUB,PCI_L,wk_lb),
-      ("CJB $8.42\none-third: 50 drums",snp_keep*SNP,share_lb*CJB,CJB,REDc,share_lb)]
+      ("Option 3 $3.50/lb\n1 batch: 5 drums",(LB1-batch_lb)*SNP,batch_lb*PCI_Q,PCI_Q,B1,batch_lb),
+      ("Option 3 $3.50/lb\n2 batches: 10 drums",(LB1-2*batch_lb)*SNP,2*batch_lb*PCI_Q,PCI_Q,B2,2*batch_lb),
+      ("Option 3 $3.50/lb\n3 batches: 15 drums",(LB1-3*batch_lb)*SNP,3*batch_lb*PCI_Q,PCI_Q,B3,3*batch_lb),
+      ("PCI $3.50/lb\none-third: 50 drums",snp_keep*SNP,share_lb*PCI_Q,PCI_Q,PCI_D,share_lb),
+      ("PCI $6.00/lb\n1 drum/week: 52 drums",(LB1-wk_lb)*SNP,wk_lb*PCI_SUB,PCI_SUB,PCI_L,wk_lb),
+      ("CJB $8.42/lb\none-third: 50 drums",snp_keep*SNP,share_lb*CJB,CJB,REDc,share_lb)]
 fig,ax=plt.subplots(figsize=(11.5,5.4)); x=range(len(scen))
-ax.bar(x,[s[1] for s in scen],color=GRN,label="SNP Inc. at $0.75/lb")
-ax.bar(x,[s[2] for s in scen],bottom=[s[1] for s in scen],color=[s[4] for s in scen],label="Second source, in drums (Option 3 blues · PCI ambers · CJB red)")
+ax.bar(x,[s[1] for s in scen],color=GRN,width=0.82,label="SNP Inc. at $0.75/lb")
+ax.bar(x,[s[2] for s in scen],bottom=[s[1] for s in scen],color=[s[4] for s in scen],width=0.82,label="Second source: PCI in blues (Option 3) and ambers (one-third; one drum a week) · CJB in red")
 for i,s in enumerate(scen):
     tot=s[1]+s[2]; prem=tot-LB1*SNP
     ax.text(i,tot+4000,f"${tot/1000:,.1f}k"+(f"\n+${prem/1000:,.1f}k ({prem/(LB1*SNP):.0%})" if prem>0 else ""),ha="center",va="bottom",fontsize=8.8,fontweight="bold")
     lb_snp=LB1-s[5] if s[2]>0 else LB1
-    ax.text(i,s[1]/2,f"{lb_snp/DRUM:,.0f} drums\n${s[1]/1000:,.1f}k",ha="center",va="center",fontsize=7.8,color="white",fontweight="bold")
-    if s[2]>=25000: ax.text(i,s[1]+s[2]/2,f"{s[5]/DRUM:,.0f} drums × ${s[3]:.2f}/lb\n${s[2]/1000:,.1f}k",ha="center",va="center",fontsize=7.8,color=(NAV if s[4] in (PCI_L,B1) else "white"),fontweight="bold")
+    ax.text(i,s[1]/2,f"{lb_snp/DRUM:,.0f} drums\n${s[1]/1000:,.1f}k",ha="center",va="center",fontsize=7.5,color="white",fontweight="bold")
+    if s[2]>=25000: ax.text(i,s[1]+s[2]/2,f"{s[5]/DRUM:,.0f} drums\n${s[2]/1000:,.1f}k",ha="center",va="center",fontsize=7.5,color=(NAV if s[4] in (PCI_L,B1) else "white"),fontweight="bold")
 ax.set_xticks(list(x)); ax.set_xticklabels([s[0] for s in scen],fontsize=8.5); ax.yaxis.set_major_formatter(money); ax.set_ylabel("Annual PVA spend (one year)")
 ax.set_title(f"Annual cost, one year — demand {DRUMS1:.0f} drums in every bar (1 drum = 450 lb of PVA)",fontsize=11,color=NAV,loc="left",fontweight="bold")
 ax.legend(frameon=False,loc="upper left",fontsize=8.5); ax.spines[["top","right"]].set_visible(False); ax.set_ylim(0,max(s[1]+s[2] for s in scen)*1.24); plt.tight_layout(); plt.savefig("chart_annual_side_by_side.png",dpi=180); plt.close()
