@@ -344,7 +344,7 @@ snp_lot=3*DRUM; snp_p=0.75
 xs=np.logspace(np.log10(4),np.log10(80000),300); xl=xs[xs<=US_MAX]; xh=xs[xs>=US_MAX]
 lower=A*xh**b; upper=anchor*(xh/US_MAX)**b_flat
 snp_curve=snp_p*(xs/snp_lot)**b
-fig,ax=plt.subplots(figsize=(8.2,5.3)); fig.patch.set_facecolor("white")
+fig,ax=plt.subplots(figsize=(8.2,5.9)); fig.patch.set_facecolor("white")
 ax.scatter([f[0] for f in comp],[f[1] for f in comp],s=16,color="#B5BFC9",label=f"Market points — pre-mixed PVA solution, US packs (n={len(comp)})",zorder=2)
 ax.scatter([f[0] for f in ton],[f[1] for f in ton],s=22,color="#8E9BA7",marker="s",label=f"Ton-scale offers offshore, before freight (n={len(ton)})",zorder=2)
 ax.plot(xl,A*xl**b,color=NAV,lw=2,label=f"Market trend where US data exists: ~{per_doubling:.0%} lower per doubling of lot",zorder=3)
@@ -361,7 +361,7 @@ ax.set_xticks([8.5,42.5,170,450,2250,22500,67600]); ax.set_xticklabels(["1 gal",
 ax.set_xlabel("Quantity per order — lb of PVA solution (log scale)",color="#595959",fontsize=9.5); ax.set_ylabel("$ per lb of finished solution",color="#595959",fontsize=9.5)
 ax.yaxis.set_major_formatter(FuncFormatter(lambda v,_: f"${v:.0f}")); ax.grid(axis="y",color="#EEEEEE"); ax.set_axisbelow(True)
 for sp in ["top","right"]: ax.spines[sp].set_visible(False)
-ax.legend(frameon=False,fontsize=7,loc="upper right")
+ax.legend(frameon=False,fontsize=7.2,loc="upper center",bbox_to_anchor=(0.5,-0.16),ncol=2)
 ax.set_title("Price per lb vs. quantity per order — the market, and where each supplier sits",fontsize=11,color=NAV,loc="left",fontweight="bold")
 plt.tight_layout(); plt.savefig("chart_price_vs_volume.png",dpi=180); plt.close()
 lo_b=A*2250**b; hi_b=anchor*(2250/US_MAX)**b_flat; lo_s=A*snp_lot**b; hi_s=anchor*(snp_lot/US_MAX)**b_flat; lo_d=A*DRUM**b; hi_d=anchor*(DRUM/US_MAX)**b_flat

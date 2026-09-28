@@ -114,16 +114,16 @@ takeaway(s,f"At competitive quantity the market sells comparable PVA solution ar
 PC=json.load(open("price_curve.json")) if os.path.exists("price_curve.json") else {}
 def pc(k,f="{:.2f}"): return (f.format(PC[k]) if k in PC else "—")
 s=slide(); title_bar(s,"Price per lb of PVA vs. quantity per order — the curve, and where each supplier sits","1 · COST")
-s.shapes.add_picture("chart_price_vs_volume.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
+s.shapes.add_picture("chart_price_vs_volume.png",Inches(0.6),Inches(1.12),height=Inches(5.35))
 rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
 par(tf.paragraphs[0],"Reading the chart",13,NAVY,bold=True,after=5)
-for k,v in [("Left to right","quantity per order, from a 1-gallon jug to 150 drums, on a log scale"),
-            ("Grey points","verified market prices of pre-mixed PVA solution at each pack size (composites-grade in the US up to 20 gal; ton-scale offers offshore, before freight)"),
-            ("Navy line and band",f"solid where US data exists: price falls ~{pc('per_doubling','{:.0%}')} per doubling of the lot. Beyond 20 gal no US vendor publishes a price, so the market is a band: from that trend (low edge) up to the flattening seen in vendors' own volume ladders (high edge). At one drum ${pc('band_drum','{}')}; at SNP's lot ${pc('band_snp','{}')}; at a 5-drum batch ${pc('band_batch','{}')}"),
+for k,v in [("Left to right","quantity per order, 1-gallon jug to 150 drums, log scale"),
+            ("Grey points","verified prices of pre-mixed PVA solution by pack size: US composites grade up to 20 gal; ton-scale offshore offers before freight"),
+            ("Navy line and band",f"solid where US data exists: ~{pc('per_doubling','{:.0%}')} lower per doubling of the lot. Beyond 20 gal no US vendor publishes a price, so the market is a band from that trend up to the flattening in vendors' own ladders: one drum ${pc('band_drum','{}')}, SNP's lot ${pc('band_snp','{}')}, a 5-drum batch ${pc('band_batch','{}')}"),
             ("SNP Inc., green",f"$0.75 at ~3 drums a week — at or below the bottom of the band, delivered and to our spec"),
             ("Green dashed",f"the same slope through SNP's price: if we ever bought smaller lots from SNP, expect ~${pc('snp_at_drum')} at one drum, ~${pc('snp_at_5gal')} at 5 gallons — a regression, not a quote"),
-            ("PCI, ambers","$3.50 at a 5-drum batch and $6.00 below it — above the top of the band at those quantities: batch-fixed cost and drum freight priced in"),
-            ("CJB, red · APV, hollow","$8.42 at a 40-gallon minimum, off the curve entirely; APV ≥$3 is an estimate from our call, never confirmed")]:
+            ("PCI, ambers","$3.50 at a 5-drum batch, $6.00 below it — above the band: batch-fixed cost and drum freight priced in"),
+            ("CJB, red · APV, hollow","$8.42 at a 40-gal minimum, off the chart's logic; APV ≥$3 is an estimate from our call, never confirmed")]:
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(9.5); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(5)
 takeaway(s,"Price follows lot size everywhere in this market — except at SNP Inc., who sells us drum lots at a bulk price. Every other supplier charges what its lot size implies, or more.")
