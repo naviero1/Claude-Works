@@ -11,6 +11,11 @@ WHITE=RGBColor(0xFF,0xFF,0xFF); GREEN=RGBColor(0x2E,0x7D,0x46); RED=RGBColor(0xB
 AMBER=RGBColor(0x9C,0x5A,0x0C); LIGHT=RGBColor(0xEE,0xF2,0xF7); PALE=RGBColor(0xF6,0xF8,0xFB)
 LGREEN=RGBColor(0xE2,0xEF,0xDA); LRED=RGBColor(0xFC,0xE4,0xD6); LAMB=RGBColor(0xFF,0xF2,0xCC)
 
+import json, os
+TIERS=json.load(open("market_tiers.json")) if os.path.exists("market_tiers.json") else {}
+def T(k): return (f"${TIERS[k]:.2f}" if TIERS.get(k) is not None else "pending")
+def TR(k): return TIERS.get(k+"_range","—")
+def TN(k): return TIERS.get("n_"+k,"—")
 prs=Presentation(); prs.slide_width=Inches(13.333); prs.slide_height=Inches(7.5)
 BLANK=prs.slide_layouts[6]
 def slide(): return prs.slides.add_slide(BLANK)
@@ -73,7 +78,7 @@ par(tf.add_paragraph(),"Oscar Penny  ·  Supply Chain  ·  28 September 2026  ·
 s=slide(); title_bar(s,"Outline — what each slide establishes","OUTLINE")
 rows=[["#","Slide","What it establishes"],
  ["3","What changed","PCI Manufacturing's experiment succeeded; their real quote is $3.50/lb at 5-drum batches ($6.00 below a batch); a decision is due before our next SNP Inc. conversation"],
- ["4","Price per pound, side by side","Every $/lb on the table and where it comes from — real quotes (SNP, PCI, CJB) vs market references vs the superseded July assumption"],
+ ["4","Price per pound, side by side","The market price of comparable pre-mixed PVA solutions at competitive, low and high quantities (verified study), then the four real quotes: SNP, PCI per batch, PCI below batch, CJB"],
  ["5","Annual cost, side by side","What each option adds to today's $50.7k: +$62k/yr for PCI at one-third; +$123k at the below-batch price; five-year and break-even"],
  ["6","The PCI experiment — a success, at what cost","What was proven, what PCI invested, what that knowledge is worth, and the standing price of using it vs. the price of walking away"],
  ["7","What 5-drum batches mean operationally","Block rotation under an 18-day shelf life: 12 days on 100% PCI material, then SNP; lumpy demand to SNP; the control needed; the 30-day shelf-life lever"],
@@ -102,17 +107,17 @@ takeaway(s,"We now know it can be done and what it costs. The open question is s
 s=slide(); title_bar(s,"Price per pound, side by side — and where each number comes from","2 · COST")
 s.shapes.add_picture("chart_price_side_by_side.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
 rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
-par(tf.paragraphs[0],"Provenance",13,NAVY,bold=True,after=5)
-for k,v in [("SNP Inc. $0.75","real quote (Estimate 012726-1), delivered all-in; a specialist's price"),
+par(tf.paragraphs[0],"Where each number comes from",13,NAVY,bold=True,after=5)
+for k,v in [(f"Market, competitive quantity {T('competitive')}",f"comparable pre-mixed PVA solutions at drum scale; range {TR('competitive')}, n={TN('competitive')} — verified against vendor pages"),
+            (f"Market, low quantity {T('low')}",f"small packs (pints to 5-gal); range {TR('low')}, n={TN('low')} — retail margin and packaging"),
+            (f"Market, high quantity {T('high')}",f"totes / bulk / tonnage; range {TR('high')}, n={TN('high')} — different quality and regulatory context"),
+            ("SNP Inc. $0.75","real quote (Estimate 012726-1), delivered all-in — a specialist's price"),
             ("PCI $3.50 / $6.00","real quote, 28 Sept: one 5-drum batch / anything smaller"),
-            ("CJB $8.42","real quote: $8.00–8.50 toll excluding materials, + resin; eliminated"),
-            ("Market $0.85 / $1.40 / $2.55","triangulated: resin floor + labor + freight; retail comp at the top"),
-            ("Material floor $0.18","resin $1.26–1.60/lb × 11% solids"),
-            ("July $1.00–1.25","assumption in the KPI deck — superseded")]:
+            ("CJB $8.42","real quote: $8.00–8.50 toll excluding materials, plus resin; eliminated")]:
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(10); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(6)
-p=tf.add_paragraph(); par(p,"Why PCI is 4–5× SNP: batch-fixed conversion cost spread over few pounds, 1-drum-scale freight, and a non-specialist pricing in risk. SNP's tanks are right-sized to our order and PVA cooking is their core line.",10,NAVY,bold=True); p.space_before=Pt(4)
-takeaway(s,"PCI's real number landed on the forecast mid-case. The market range was right; the July assumption was not.")
+p=tf.add_paragraph(); par(p,"Why a non-specialist is far above the competitive market: batch-fixed conversion cost spread over few pounds, drum-scale freight, and risk priced in. SNP Inc.'s tanks are right-sized to our order and PVA cooking is their core line.",10,NAVY,bold=True); p.space_before=Pt(4)
+takeaway(s,f"At competitive quantity the market sells comparable PVA solution around {T('competitive')}/lb. SNP Inc. is below it; PCI is well above it; CJB is off the scale.")
 
 # ===== 5 ANNUAL COST SIDE BY SIDE =====
 s=slide(); title_bar(s,"Annual cost, side by side — what each option adds to today's $50.7k","2 · COST")

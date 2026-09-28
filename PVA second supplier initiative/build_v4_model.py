@@ -12,6 +12,11 @@ PCI_Q=3.50; PCI_SUB=6.00; BATCH=5
 MKT=(0.85,1.40,2.55); CJB=8.42; JULY=(1.00,1.25); FORECAST=(2.50,3.75,5.00)
 LB1=LBWK*WEEKS; DRUMS1=LB1/DRUM
 def vol(y): return LB1*(1+GROWTH)**(y-1)
+# Market tiers from the verified market study (market_tiers.json). Keys: low, competitive, high (+ *_range, n_*, points[]).
+import json, os
+TIERS=json.load(open("market_tiers.json")) if os.path.exists("market_tiers.json") else {}
+def tier(k): return TIERS.get(k)
+def tier_txt(k): return (f"${TIERS[k]:.2f}" if TIERS.get(k) is not None else "PENDING — market study running")
 
 # ---------- economics ----------
 pci_drums=50; pci_lb=pci_drums*DRUM                       # 10 batches of 5
@@ -73,15 +78,29 @@ rows=[("SNP Inc. (Durham, NC) — incumbent",0.75,"Delivered, all-in. 1/450-lb d
       ("PCI Manufacturing (St. Louis, MO) — one 5-drum batch",3.50,"One batch = 5 drums (2,250 lb). Confirm delivered/all-in and validity.","REAL QUOTE","Capable — experiment successful; not yet contracted","2026-09-28"),
       ("PCI Manufacturing — below one batch",6.00,"Any order smaller than 5 drums (e.g. 1 drum/week).","REAL QUOTE","Uneconomic version","2026-09-28"),
       ("CJB Applied Technologies (Valdosta, GA)",8.42,"$8.00–8.50/lb toll EXCLUDING materials + ~$75/drum resin = ~$8.42 landed. Qual fee $4,900.","REAL QUOTE","Eliminated on price (~11x SNP)","CJB email 'RE: mix test'"),
-      ("Market reference — LOW",0.85,"Resin floor + lean labor ($40/hr, 25% margin) + regional 1-drum freight","TRIANGULATED","Reference","Market Research tab (cost-scenarios workbook)"),
-      ("Market reference — BASE",1.40,"Same build-up at typical conversion","TRIANGULATED","Reference",""),
-      ("Market reference — HIGH",2.55,"Anchored by retail comp ~$2.03/lb bulk PVA solution + freight","TRIANGULATED","Reference",""),
-      ("Material floor",0.18,"PVA resin $1.26–1.60/lb x 11% solids = $0.16–0.20","DERIVED","Reference","ChemAnalyst / IMARC 2026"),
+      ("Market — COMPETITIVE quantity (drum scale, 30–55 gal)",tier("competitive"),f"Inferred from comparable pre-mixed PVA solutions sold today; range {TIERS.get('competitive_range','—')}; n={TIERS.get('n_competitive','—')}","MARKET STUDY","Reference — see Market Study tab","Verified market study 2026-09-28"),
+      ("Market — LOW quantity (pints to 5-gal pails)",tier("low"),f"Retail/lab packs; range {TIERS.get('low_range','—')}; n={TIERS.get('n_low','—')}","MARKET STUDY","Reference — see Market Study tab","Verified market study 2026-09-28"),
+      ("Market — HIGH quantity (totes / bulk / tonnage)",tier("high"),f"Bulk and contract pricing; range {TIERS.get('high_range','—')}; n={TIERS.get('n_high','—')}. Quality/regulatory context differs.","MARKET STUDY","Reference — see Market Study tab","Verified market study 2026-09-28"),
+      ("— Superseded / historical references (kept for the record) —",None,"","","",""),
+      ("Triangulated market LOW / BASE / HIGH (Sept)",1.40,"$0.85 / $1.40 / $2.55 — resin floor + labor build-up + retail ceiling","TRIANGULATED","SUPERSEDED by market study","Market Research tab (cost-scenarios workbook)"),
+      ("Material floor",0.18,"PVA resin $1.26–1.60/lb x 11% solids = $0.16–0.20","DERIVED","Reference only","ChemAnalyst / IMARC 2026"),
       ("July 2026 assumption (KPI deck)",1.125,"'$1.00–1.25/lb, ~35% share, ~$6–12k/yr insurance'","ASSUMPTION","SUPERSEDED by PCI quote","KPI review deck 2026-07-09"),
       ("Pre-quote forecast (this deck, Sept)",3.75,"$2.50 low / $3.75 mid / $5.00 high","ASSUMPTION","SUPERSEDED by PCI quote (quote = mid)","2026-09-22")]
 for i,(a,b,c,d,e,f) in enumerate(rows):
-    rr=6+i; fill=GOOD if d=="REAL QUOTE" else (AMB if d=="ASSUMPTION" else OUT)
-    wrow(ws,rr,[a,b,c,d,e,f],[None,CUR2,None,None,None,None],fill=fill,wrap=True)
+    rr=6+i; fill=GOOD if d=="REAL QUOTE" else (AMB if d=="ASSUMPTION" else (SUB if d=="MARKET STUDY" else OUT))
+    wrow(ws,rr,[a,(b if b is not None else ("" if a.startswith("—") else "pending")),c,d,e,f],[None,CUR2,None,None,None,None],fill=fill,wrap=True)
+
+# ---- Market Study (data points + tiers) ----
+if "Market Study" in wb.sheetnames: del wb["Market Study"]
+ms=wb.create_sheet("Market Study",2)
+title(ms,"Market study — comparable pre-mixed PVA solutions, by quantity tier","Every data point verified against its URL; $/lb of SOLUTION (8.5 lb/gal unless weight given). Polyvinyl ALCOHOL only — acetate glues, resin powder and films excluded.")
+hdr(ms,5,["Tier","Recommended $/lb for chart","Range","n","Basis"])
+for i,(k,lab) in enumerate([("competitive","COMPETITIVE quantity — drum scale (30–55 gal)"),("low","LOW quantity — pints to 5-gal pails"),("high","HIGH quantity — totes / bulk / tonnage")]):
+    r=6+i; wrow(ms,r,[lab,(tier(k) if tier(k) is not None else "pending"),TIERS.get(k+"_range","—"),TIERS.get("n_"+k,"—"),TIERS.get(k+"_basis","")],[None,CUR2,None,None,None],wrap=True)
+hdr(ms,11,["Product","Vendor","Chemistry","Solids %","Pack","Pack lb","Price $","$ / lb","Tier","Verdict","URL"])
+for i,p in enumerate(TIERS.get("points",[])):
+    r=12+i; wrow(ms,r,[p.get("product"),p.get("vendor"),p.get("chemistry"),p.get("solids_pct"),p.get("pack_size"),p.get("pack_lb"),p.get("price_usd"),p.get("usd_per_lb"),p.get("quantity_tier"),p.get("verdict"),p.get("url")],[None,None,None,None,None,NUM,CUR2,CUR2,None,None,None],wrap=False,bold_first=False)
+for c,w in zip("BCDEFGHIJKL",[40,22,14,9,14,9,10,9,13,11,60]): ms.column_dimensions[c].width=w
 for c,w in zip("BCDEFG",[44,13,58,14,34,30]): ws.column_dimensions[c].width=w
 
 # ---- PCI Quote Scenarios ----
@@ -158,13 +177,24 @@ NAV="#1F3864"; STL="#4E79A7"; REDc="#B23A2E"; GRN="#2E7D46"; LGT="#D6DCE5"; AMBc
 money=FuncFormatter(lambda v,_: (f"${v/1e6:,.1f}M" if v>=1e6 else f"${v/1000:,.0f}k"))
 
 # Chart A: $/lb side by side
-labels=["Material\nfloor","Market\nLOW","SNP Inc.\n(real)","July\nassumption","Market\nBASE","Market\nHIGH","PCI 5-drum\nbatch (real)","PCI below\nbatch (real)","CJB\n(real)"]
-vals=[0.18,0.85,0.75,1.125,1.40,2.55,3.50,6.00,8.42]
-cols=[LGT,LGT,GRN,AMBc,LGT,LGT,NAV,REDc,REDc]
-order=sorted(range(len(vals)),key=lambda i:vals[i]); labels=[labels[i] for i in order]; vals=[vals[i] for i in order]; cols=[cols[i] for i in order]
-fig,ax=plt.subplots(figsize=(11,5.2)); bars=ax.bar(labels,vals,color=cols,edgecolor="white")
-for b,v in zip(bars,vals): ax.text(b.get_x()+b.get_width()/2,v+0.12,f"${v:.2f}",ha="center",va="bottom",fontsize=9.5,fontweight="bold")
-ax.set_ylabel("$ per lb of finished solution"); ax.set_title("Price per pound, side by side — real quotes in colour, references in grey, July assumption in amber",fontsize=12,color=NAV,loc="left",fontweight="bold")
+def rng(k):
+    s=TIERS.get(k+"_range");
+    try:
+        lo,hi=[float(x.replace("$","").strip()) for x in s.replace("–","-").split("-")[:2]]; return lo,hi
+    except Exception: return None
+labels=["Market —\nhigh quantity\n(bulk / tote)","Market —\ncompetitive quantity\n(drum scale)","Market —\nlow quantity\n(small packs)","SNP Inc.\n(real quote)","PCI 5-drum\nbatch (real)","PCI below\nbatch (real)","CJB\n(real quote)"]
+vals=[tier("high"),tier("competitive"),tier("low"),0.75,3.50,6.00,8.42]
+cols=[LGT,STL,LGT,GRN,NAV,REDc,REDc]
+keep=[i for i,v in enumerate(vals) if v is not None]
+labels=[labels[i] for i in keep]; vals=[vals[i] for i in keep]; cols=[cols[i] for i in keep]
+fig,ax=plt.subplots(figsize=(11,5.4)); bars=ax.bar(labels,vals,color=cols,edgecolor="white")
+for lab,b,v in zip(labels,bars,vals):
+    ax.text(b.get_x()+b.get_width()/2,v+0.12,f"${v:.2f}",ha="center",va="bottom",fontsize=9.5,fontweight="bold")
+    key={"high":"high","competitive":"competitive","low":"low"}
+    for k in key:
+        if lab.startswith("Market") and k in lab.split("\n")[1] and rng(k):
+            lo,hi=rng(k); ax.vlines(b.get_x()+b.get_width()/2,lo,hi,color="#7A8A99",lw=1.4); ax.hlines([lo,hi],b.get_x()+b.get_width()*0.35,b.get_x()+b.get_width()*0.65,color="#7A8A99",lw=1.4)
+ax.set_ylabel("$ per lb of finished solution"); ax.set_title("Price per pound, side by side — market price of comparable PVA solutions by quantity, then the real quotes",fontsize=12,color=NAV,loc="left",fontweight="bold")
 ax.spines[["top","right"]].set_visible(False); ax.set_ylim(0,9.6); plt.tight_layout(); plt.savefig("chart_price_side_by_side.png",dpi=180); plt.close()
 
 # Chart B: annual cost side by side (stacked SNP + second source), premium labelled
