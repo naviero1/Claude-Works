@@ -132,9 +132,9 @@ s=slide(); title_bar(s,"How we got here — a series of events, and what the PCI
 timeline(s,0.6,1.12,12.1,[
  ("Nov 2025","Brenntag never meets viscosity","Above range, unreadable on their viscometer. They stalled — no quote ever received. Mar 2026: a resin sample instead",RED),
  ("Mar–Apr 2026","~94 US suppliers screened","ArroChem Inc., Piedmont Chemical Industries, ILC Dover approached. One gate: hold 90–95 °C",NAVY),
- ("May 2026","ArroChem, ILC Dover fail the heat gate","ArroChem: the right kind of company, but could not get past 90 °C. ILC Dover could not reach it either",RED),
- ("26 Jun 2026","CJB Applied Technologies clears the gate","Front-runner. APV Engineered Coatings confirms heat, but on our call called $1.50/lb too cheap for the volume — likely $3/lb or more, never confirmed. Demand: ~3 drums a week",GREEN),
- ("Jul 2026","Columbus Chemical Industries cannot hold temperature","The right kind of company; reached out to us, then told us directly they cannot hold 90–95 °C. Eliminated; never quoted",RED),
+ ("May 2026","ArroChem, ILC Dover fail the heat gate","ArroChem: right kind of company, could not get past 90 °C. ILC Dover could not reach it either",RED),
+ ("26 Jun 2026","CJB Applied Technologies clears the gate","Front-runner. APV Engineered Coatings confirms heat but calls $1.50/lb too cheap — likely ≥$3/lb, unconfirmed. Demand: ~3 drums/week",GREEN),
+ ("Jul 2026","Columbus Chemical Industries cannot hold temperature","Right kind of company; reached out to us, then said they cannot hold 90–95 °C. Eliminated; never quoted",RED),
  ("4 Aug 2026","CJB priced out","$8.00–8.50/lb toll excl. materials (~11× SNP). Their $6,400 trial declined — capability never corroborated",RED),
  ("Aug–Sep 2026","PCI Manufacturing lab batches","Two-plus batches, a dilution study, method work — unpaid",AMBER),
  ("22 Sep 2026","PCI test results","Viscosity brought on target within the test (solids / water adjustment). Spec agreed: 11% / 900–1,100 cP",GREEN),
