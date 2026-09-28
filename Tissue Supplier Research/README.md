@@ -16,6 +16,7 @@ spec with our training (**Model B-T**).
 |---|---|
 | `Tissue_Supplier_Study.xlsx` | **The working workbook** — everything lives here (tabs below) |
 | `Supplier_Strategy_Meeting.pptx` | 8-slide deck from the 2026-08 alignment meeting (slide 8 = the summary) |
+| `Tissue_Supplier_Qualification_Plan.pptx` | **The plan on one slide** (final, owner-edited 2026-09-28): five stages with entry gates, deliverables, exit gates and dates |
 | `Supplier_Selection_Meeting_Agenda.md` | The agenda that deck followed |
 | `Deep_Study_Synthesis.md` / `.pdf` | Narrative report from the August verification passes (historical; the workbook supersedes it where they differ) |
 | `Beebop/` | **Collaborator snapshot (ChatGPT, 2026-09-28)** — see below |
