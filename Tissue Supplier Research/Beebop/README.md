@@ -2,6 +2,8 @@
 
 Research snapshot: September 28, 2026.
 
+**Latest recommendations:** [Revised call order and rationale](round2-2026-09-28/RECOMMENDATIONS_FOR_ROCKSTEADY.md). EcoFriendly is #4 and Select #6; the current spreadsheet supersedes earlier call rankings.
+
 **Latest comparison:** [Second supplier check](round2-2026-09-28/README.md) adds a cross-reference against Claude's current workbook, revised qualification priorities, additional location screens and source conflicts. In particular, the earlier Neese Burlington listing is now marked unresolved. The original files below remain as the first-pass snapshot.
 
 This folder contains the workbook and supporting data developed in the ChatGPT tissue-supplier investigation. It is a separate snapshot alongside the existing project files. It contains no assignments or instructions for Claude.
@@ -21,7 +23,7 @@ This folder contains the workbook and supporting data developed in the ChatGPT t
 
 ## Scope of this snapshot
 
-- Mandatory geography: within 120 miles of Durham, North Carolina. Road distance is the conservative planning screen; radial distance is also recorded.
+- Mandatory geography: within 120 miles of Durham, North Carolina. The 120-mile radius governs eligibility. Road distance measures logistics and is not a separate exclusion.
 - Planning origin: Durham City Hall, 101 City Hall Plaza. The actual crew departure location is not established.
 - Preferred plant scale: 2,000–5,000 pigs per week.
 - Approximate animal size: 140–220 pounds live weight.

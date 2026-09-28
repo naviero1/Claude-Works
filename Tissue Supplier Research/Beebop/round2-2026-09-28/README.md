@@ -1,8 +1,10 @@
 # Second supplier check — September 28, 2026
 
-This comparison covers Claude's current 14-sheet `Tissue_Supplier_Study.xlsx`, the historical `Deep_Study_Synthesis.md`, and the previous Beebop 30-contact list. Claude updated the branch during this research pass. That update was retrieved and reconciled before publication. It already incorporates Beebop's earlier Durham origin, live-weight target and contact data. This folder records findings and source data only. No supplier was contacted and no new supplier is fully qualified.
+The baseline comparison covers Claude's 14-sheet `Tissue_Supplier_Study.xlsx`, the historical `Deep_Study_Synthesis.md`, and the previous Beebop 30-contact list. Claude updated the branch during this research pass. That update was retrieved and reconciled before publication. It already incorporates Beebop's earlier Durham origin, live-weight target and contact data. This folder records findings and source data only. No supplier was contacted and no new supplier is fully qualified.
 
-## Findings that change the list
+**Recommendation update, September 28, 2026 (version 2.1):** the first-ten order now prioritizes documented fit. EcoFriendly is #4 and Select #6. See [recommendations shared with Rocksteady](RECOMMENDATIONS_FOR_ROCKSTEADY.md). The original comparison below is retained as history; later commits addressed several findings. The new state-level volume evidence in commit `1cb841f` was checked against its official source and is recorded in the spreadsheet.
+
+## Baseline findings
 
 1. **The main distance mismatch is now resolved.** Claude's concurrent update replaces Pikeville with Durham in the principal distance fields and adopts Beebop's earlier exact-address results. Piedmont is approximately 47.8 road miles, Mitchell's 85.0, Select 114.5 and Cruse 119.6. Old Pikeville language remains in some source/narrative cells, while the README explicitly makes the older synthesis historical. An outstanding refinement is EcoFriendly: Claude's city-level point gives about 112 road miles, but this pass's exact facility address gives 120.4. Distances are estimates from City Hall, not the actual crew base.
 2. **Historical inspection volume is useful evidence, but not a hard capacity ceiling.** The Food Safety and Inspection Service's [March 24, 2026 notice](https://www.federalregister.gov/documents/2026/03/24/2026-05746/revising-establishment-size-definitions) confirms that the numbered slaughter categories cover aggregate heads during the previous 360 days. They do not establish current weekly pig kills, spare capacity or the number of suitable pigs. This also narrows Beebop's earlier criticism: the category boundaries themselves are real. A category-3 boundary converts to about 1,944 total heads per average week, using 7/360, rather than 1,917. That remains a historical aggregate, not capacity.
@@ -34,15 +36,19 @@ Animal Biotech Industries and Sustainable Swine Resources remain useful out-of-a
 
 ## Revised first ten
 
-The accompanying workbook prioritizes Piedmont, McLamb's / Lee's, Flowers, Contentnea, Farmington, Easternview, Gale McLamb, Key Packing, Quaqua Creek and Cool Springs for qualification. This is a judgment about which calls can resolve useful unknowns, not a finding that they meet the 2,000–5,000 pigs/week preference. Farmington and Easternview replace Mitchell's and Schrock's in the initial ten; both displaced plants remain documented for follow-up. No available room or specimen agreement is confirmed at any new prospect.
+The current order is Piedmont, McLamb’s / Lee’s, Gale McLamb, EcoFriendly, Flowers, Select, Key Packing, Quaqua Creek, Farmington and Contentnea. EcoFriendly and Select enter; Easternview and Cool Springs move to follow-up. Missing data do not improve a supplier’s position. The order is an early-call judgment, not a verified volume ranking.
+
+EcoFriendly is within the user’s 120-mile radius. Its 120.4-mile drive affects logistics only. Rank #4 is for exploring supplier-performed collection after training. The newly verified 2025 statewide hog total weakens any argument that its aggregate category proves Martin’s-scale pig volume. Current operation, suitable live weights, tissue access and commercial feasibility remain open.
 
 ## Files and evidence limits
 
-- [Cross-reference spreadsheet](Tissue_Supplier_Cross_Reference_2026-09-28.xlsx): revised first ten, 23 fact reviews, prior 30-contact comparison, 23 additional location screens and four alternative-provider records.
+- [Cross-reference spreadsheet](Tissue_Supplier_Cross_Reference_2026-09-28.xlsx): revised first ten, 26 fact reviews, prior 30-contact comparison, 23 additional location screens and four alternative-provider records.
 - [Structured research data](research_data.json): evidence, source links, geocoding/routing requests, limitations and comparison file identifiers.
 
-Latest comparison snapshot: branch head `5c3d1693ad477cd712115bdd2f3f4db3c1c0f47b`; Claude workbook blob `6424d515fca55c50980b9b63ad398754ed5aaddc`. The initial snapshot was head `4b1527fa40ce9b529be425c151ce97c4b78d1f98`, workbook blob `200c1b4cfb3db64acbd01fee8d157b2367863679`. The unchanged historical synthesis blob is `78400e2f89aaf1a6c329be3c86547ed20e27b2ab`. All 30 prior Beebop contacts now have individual records in Claude's updated roster.
+Baseline comparison snapshot: branch head `5c3d1693ad477cd712115bdd2f3f4db3c1c0f47b`; Claude workbook blob `6424d515fca55c50980b9b63ad398754ed5aaddc`. The initial snapshot was head `4b1527fa40ce9b529be425c151ce97c4b78d1f98`, workbook blob `200c1b4cfb3db64acbd01fee8d157b2367863679`. The unchanged historical synthesis blob is `78400e2f89aaf1a6c329be3c86547ed20e27b2ab`. All 30 prior Beebop contacts now have individual records in Claude's updated roster.
 
 The current North Carolina directory was read directly. Some federal pages and bulk files were inaccessible; federal-directory mirrors are labelled rather than described as freshly downloaded primary data. Social descriptions were sometimes available only as indexed excerpts. A crawl date is not a post date. Virginia state-only and custom permits were not exhaustively enumerated, so this is an expanded screen rather than a complete regional census. Export approvals and intended-use permit requirements were not revalidated.
 
 The economic opportunity remains plausible. A disposal fee, unused catalogue slot, custom cutting service or long-tenured staff does not establish organ ownership, zero opportunity cost, spare room or willingness to enter a tissue-supply agreement.
+
+Revision 2.1 reviewed later commits `a403954` and `1cb841f`. The latter was the repository head at the start of this update. Claude’s main workbook is preserved. Recommendations are shared analysis, not assignments or instructions.

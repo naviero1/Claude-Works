@@ -16,9 +16,9 @@
       "lon": -78.899683775957,
       "lat": 35.99606867413,
       "geocode_status": "Census address match",
-      "road_miles": 0.0,
-      "drive_minutes": 0.0,
-      "radial_miles": 0.0,
+      "road_miles": 0,
+      "drive_minutes": 0,
+      "radial_miles": 0,
       "routing_url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.899684,35.996069?overview=false",
       "map_url": "https://www.google.com/maps/dir/?api=1&origin=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&destination=101%20City%20Hall%20Plaza%2C%20Durham%2C%20NC%2027701&travelmode=driving"
     },
@@ -27,13 +27,14 @@
       "preferred_pigs_per_week_min": 2000,
       "preferred_pigs_per_week_max": 5000,
       "live_weight_lb_min": 140,
-      "live_weight_lb_max": 220
+      "live_weight_lb_max": 220,
+      "distance_rule": "120-mile radial distance from the planning origin; road mileage is a logistics measure only."
     },
     "coverage": {
       "previous_contacts_compared": 30,
       "additional_geocoded_records": 23,
       "alternative_providers": 4,
-      "fact_reviews": 23,
+      "fact_reviews": 26,
       "new_qualified_suppliers": 0
     },
     "method": "North Carolina September 18, 2026 directory; current company pages; indexed social evidence; federal-directory mirrors where direct federal data blocked; Census or Esri geocoding; Open Source Routing Machine driving routes; Haversine radial distances, earth radius 3958.7613 miles.",
@@ -46,7 +47,67 @@
     ],
     "initial_comparison_head": "4b1527fa40ce9b529be425c151ce97c4b78d1f98",
     "initial_claude_workbook_blob": "200c1b4cfb3db64acbd01fee8d157b2367863679",
-    "concurrent_update": "Claude incorporated first-pass Beebop data at 16:29:04 UTC on September 28. Updated workbook and README reread before publication. No instructions were sent."
+    "concurrent_update": "Claude incorporated first-pass Beebop data at 16:29:04 UTC on September 28. Updated workbook and README reread before publication. No instructions were sent.",
+    "ranking_revision": {
+      "date": "2026-09-28",
+      "version": "2.1",
+      "trigger": "User requested file and recommendations update after reviewing Rocksteady feedback.",
+      "latest_repo_head_reviewed": "1cb841f6a14f602f2cf23a879c81a5f541aee6f1",
+      "latest_claude_workbook_blob": "f9d6dc509b985f7e67907258216b6e83a94ffe9e",
+      "baseline_comparison_preserved": "5c3d1693ad477cd712115bdd2f3f4db3c1c0f47b",
+      "previous_first_10": [
+        {
+          "name": "Piedmont Custom Meats",
+          "priority": 1
+        },
+        {
+          "name": "McLamb's Abattoir / Lee's Fresh Market",
+          "priority": 2
+        },
+        {
+          "name": "Flowers Slaughter House",
+          "priority": 3
+        },
+        {
+          "name": "Contentnea Farms",
+          "priority": 4
+        },
+        {
+          "name": "Farmington Meat Processing",
+          "priority": 5
+        },
+        {
+          "name": "Easternview Farms",
+          "priority": 6
+        },
+        {
+          "name": "Gale McLamb Meats",
+          "priority": 7
+        },
+        {
+          "name": "Key Packing Company",
+          "priority": 8
+        },
+        {
+          "name": "Quaqua Creek Farm",
+          "priority": 9
+        },
+        {
+          "name": "Cool Springs Farm and Meat",
+          "priority": 10
+        }
+      ],
+      "method": "Order calls by evidence of fit, then logistics and harvest arrangement. Unknowns are qualification gaps, not favorable evidence. The 120-mile radius is the geography rule; road miles measure effort, not a separate exclusion.",
+      "ecofriendly": "Rank 4 is an early supplier-performed harvesting qualification call, not a volume-replacement recommendation. New state-level historical evidence is recorded separately.",
+      "complementary_three": {
+        "conditional_on": "Purchasing choosing Piedmont, McLamb’s Benson and Gale McLamb; no owner assignment is confirmed.",
+        "names": [
+          "EcoFriendly Foods",
+          "Select Meats",
+          "Farmington Meat Processing"
+        ]
+      }
+    }
   },
   "first_10": [
     {
@@ -58,9 +119,10 @@
       "website": "https://www.piedmontcustommeats.com/",
       "weekly_pigs": "Unknown",
       "room": "Unknown",
-      "reason": "47.8 road miles from Durham, not Claude’s 116 from Pikeville. Published 150 lb live minimum overlaps only the 150–220 lb portion of the target. Disposal fee does not establish ownership or availability of particular organs.",
+      "reason": "Published 150-pound live minimum overlaps the target; custom processing and nearby slaughter site.",
       "source": "https://www.piedmontcustommeats.com/terms-of-service/",
-      "claude_location": "Supplier Roster, row 9"
+      "claude_location": "Supplier Roster, row 9",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
     },
     {
       "priority": 2,
@@ -71,64 +133,13 @@
       "website": "https://leesfreshmarketnc.com/",
       "weekly_pigs": "Unknown",
       "room": "Unknown",
-      "reason": "P-247 identity, address and phone match Lee’s Fresh Market. Claude has no website; Beebop identified leesfreshmarketnc.com. Pig volume and room unknown.",
+      "reason": "Nearby inspected swine plant with matching company identity. Practical early qualification prospect.",
       "source": "https://leesfreshmarketnc.com/",
-      "claude_location": "Supplier Roster, row 79"
+      "claude_location": "Supplier Roster, row 79",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
     },
     {
       "priority": 3,
-      "name": "Flowers Slaughter House",
-      "road_miles": 63.30834178398154,
-      "radial_miles": 51.63749846644421,
-      "phone": "252-237-2982",
-      "website": "https://www.facebook.com/p/Flowers-Slaughterhouse-Page-100063690244587/",
-      "weekly_pigs": "Unknown",
-      "room": "Unknown",
-      "reason": "One Flowers establishment, M21747. Claude correctly labels its George Flowers row as duplicate. Count once. No actual weekly volume published.",
-      "source": "https://localmeat.org/processors/north-carolina/flowers-slaughter-house-sims-m21747",
-      "claude_location": "Supplier Roster, row 72"
-    },
-    {
-      "priority": 4,
-      "name": "Contentnea Farms",
-      "road_miles": 90.29008092738407,
-      "radial_miles": 72.64760579541328,
-      "phone": "252-289-3083",
-      "website": "https://contentneafarms.com/",
-      "weekly_pigs": "Unknown",
-      "room": "Unknown",
-      "reason": "State directory corroborates TA-2583, swine and Walstonburg kill site. Company public phone differs from directory: retain 252-289-3083 and 252-717-9229. Claude category-1-derived weekly figure is historical aggregate, not current pig count.",
-      "source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
-      "claude_location": "Supplier Roster, row 69"
-    },
-    {
-      "priority": 5,
-      "name": "Farmington Meat Processing",
-      "road_miles": 102.58086524695776,
-      "radial_miles": 91.65576089158736,
-      "phone": "336-998-7092",
-      "website": "https://www.facebook.com/FarmingtonMeat/",
-      "weekly_pigs": "Unknown",
-      "room": "Unknown",
-      "reason": "State-inspected swine slaughter plus Facebook and Instagram pig-processing descriptions.",
-      "source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
-      "claude_location": "Claude row 74 grouped mention; absent from prior Beebop 30"
-    },
-    {
-      "priority": 6,
-      "name": "Easternview Farms",
-      "road_miles": 75.973440109759,
-      "radial_miles": 65.18257538646907,
-      "phone": "434-208-8602",
-      "website": "https://easternviewfarmsllc.com/",
-      "weekly_pigs": "Unknown",
-      "room": "Unknown",
-      "reason": "Own site advertises pork processing, sourced animals and M1908. Directly describes on-site slaughter handling.",
-      "source": "https://localmeat.org/processors/virginia/easternview-farms-llc-drakes-branch-m1908",
-      "claude_location": "Not named in reviewed Claude roster or prior Beebop 30"
-    },
-    {
-      "priority": 7,
       "name": "Gale McLamb Meats",
       "road_miles": 59.73757009067048,
       "radial_miles": 48.036921080446234,
@@ -136,12 +147,55 @@
       "website": "",
       "weekly_pigs": "Unknown",
       "room": "Unknown",
-      "reason": "Current state directory corroborates swine slaughter and contact identity. Durham distance replaces Pikeville distance. Exact weekly pigs, suitable weights and room remain unknown.",
+      "reason": "Nearby state-inspected swine slaughter; practical Benson/Dunn visit grouping. No volume advantage assumed.",
       "source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
-      "claude_location": "Supplier Roster, row 80"
+      "claude_location": "Supplier Roster, row 80",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
     },
     {
-      "priority": 8,
+      "name": "EcoFriendly Foods",
+      "road_miles": 120.44771037143083,
+      "radial_miles": 92.57037085355904,
+      "phone": "540-525-0352",
+      "website": "https://www.ecofriendly.com/services",
+      "weekly_pigs": "Unknown",
+      "room": "Unknown",
+      "source": "https://www.ecofriendly.com/_files/ugd/052161_5117723c9f1044eb8b0cda50b73d524f.pdf",
+      "claude_location": "Claude row 41; September 28 revision gives ~112 road miles using city-level point. This pass refines exact plant address.",
+      "priority": 4,
+      "reason": "Custom harvest supports an early supplier-performed collection discussion. Within radius; pig volume unverified.",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
+    },
+    {
+      "priority": 5,
+      "name": "Flowers Slaughter House",
+      "road_miles": 63.30834178398154,
+      "radial_miles": 51.63749846644421,
+      "phone": "252-237-2982",
+      "website": "https://www.facebook.com/p/Flowers-Slaughterhouse-Page-100063690244587/",
+      "weekly_pigs": "Unknown",
+      "room": "Unknown",
+      "reason": "Nearby documented hog slaughter. George Flowers is the same plant and is counted once.",
+      "source": "https://localmeat.org/processors/north-carolina/flowers-slaughter-house-sims-m21747",
+      "claude_location": "Supplier Roster, row 72",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
+    },
+    {
+      "name": "Select Meats",
+      "road_miles": 114.4866479758212,
+      "radial_miles": 101.23457410318274,
+      "phone": "704-933-7550",
+      "website": "",
+      "weekly_pigs": "Unknown",
+      "room": "Unknown",
+      "source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+      "claude_location": "Supplier Roster, row 83",
+      "priority": 6,
+      "reason": "Inspected market-hog prospect inside the radius. Documented fit merits priority despite limited web presence.",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
+    },
+    {
+      "priority": 7,
       "name": "Key Packing Company",
       "road_miles": 69.72269446432833,
       "radial_miles": 52.88887432349344,
@@ -149,12 +203,13 @@
       "website": "",
       "weekly_pigs": "Unknown",
       "room": "Unknown",
-      "reason": "Current state directory corroborates swine slaughter and contact identity. Durham distance replaces Pikeville distance. Exact weekly pigs, suitable weights and room remain unknown.",
+      "reason": "State-inspected swine slaughter within practical driving distance. Space and suitable volume unconfirmed.",
       "source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
-      "claude_location": "Supplier Roster, row 15"
+      "claude_location": "Supplier Roster, row 15",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
     },
     {
-      "priority": 9,
+      "priority": 8,
       "name": "Quaqua Creek Farm",
       "road_miles": 67.20309641692515,
       "radial_miles": 48.35204925832898,
@@ -162,22 +217,38 @@
       "website": "",
       "weekly_pigs": "Unknown",
       "room": "Unknown",
-      "reason": "Current state directory corroborates swine slaughter and contact identity. Durham distance replaces Pikeville distance. Exact weekly pigs, suitable weights and room remain unknown.",
+      "reason": "State-inspected swine listing and short drive. Missing volume data does not earn a higher score.",
       "source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
-      "claude_location": "Supplier Roster, row 131"
+      "claude_location": "Supplier Roster, row 131",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
+    },
+    {
+      "priority": 9,
+      "name": "Farmington Meat Processing",
+      "road_miles": 102.58086524695776,
+      "radial_miles": 91.65576089158736,
+      "phone": "336-998-7092",
+      "website": "https://www.facebook.com/FarmingtonMeat/",
+      "weekly_pigs": "Unknown",
+      "room": "Unknown",
+      "reason": "State directory and social descriptions corroborate pig processing. Volume remains unknown.",
+      "source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
+      "claude_location": "Claude row 74 grouped mention; absent from prior Beebop 30",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
     },
     {
       "priority": 10,
-      "name": "Cool Springs Farm and Meat",
-      "road_miles": 106.77114401892945,
-      "radial_miles": 98.31805633055046,
-      "phone": "336-835-5377",
-      "website": "https://www.csmpfarmstore.com/",
+      "name": "Contentnea Farms",
+      "road_miles": 90.29008092738407,
+      "radial_miles": 72.64760579541328,
+      "phone": "252-289-3083",
+      "website": "https://contentneafarms.com/",
       "weekly_pigs": "Unknown",
       "room": "Unknown",
-      "reason": "Current state directory corroborates swine slaughter and contact identity. Durham distance replaces Pikeville distance. Exact weekly pigs, suitable weights and room remain unknown.",
+      "reason": "Inspected pork processing is documented. Follow stronger-fit calls while qualifying suitable pig availability.",
       "source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
-      "claude_location": "Supplier Roster, row 132"
+      "claude_location": "Supplier Roster, row 69",
+      "ranking_basis": "Judgment from documented fit, practical access and harvest model; unknown data receive no positive credit."
     }
   ],
   "previous_30_cross_reference": [
@@ -212,12 +283,13 @@
       "claude_location": "Supplier Roster, row 9",
       "claude_distance": "YES · ~48 mi\n(Pikeville: ~116 mi)",
       "claude_weekly_claim": "~19-192/wk\n(FSIS cat 2 ceiling)",
-      "review_status": "Retain qualification lead",
-      "review_finding": "Claude’s new Durham value (~48 road miles) agrees with Beebop’s 47.8. Published 150 lb live minimum only partly overlaps target. Disposal fee does not establish ownership or availability of particular organs.",
+      "review_status": "First 10: #1",
+      "review_finding": "Claude’s new Durham value (~48 road miles) agrees with Beebop’s 47.8. Published 150 lb live minimum only partly overlaps target. Disposal fee does not establish ownership or availability of particular organs. Revised priority: Published 150-pound live minimum overlaps the target; custom processing and nearby slaughter site.",
       "new_source": "https://www.piedmontcustommeats.com/terms-of-service/",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~116 mi\n(borderline)",
-      "initial_claude_weekly_claim": "~19-192/wk\n(FSIS cat 2 ceiling)"
+      "initial_claude_weekly_claim": "~19-192/wk\n(FSIS cat 2 ceiling)",
+      "current_first_10_rank": 1
     },
     {
       "rank": 2,
@@ -247,12 +319,13 @@
       "claude_location": "Supplier Roster, row 79",
       "claude_distance": "YES · ~58 mi\n(Pikeville: ~37 mi)",
       "claude_weekly_claim": "unknown — state plants\npublish no volumes",
-      "review_status": "Retain qualification lead",
-      "review_finding": "State P-247 identity, address and phone match Lee’s Fresh Market. Durham distance now agrees. Company website and social signals support processing activity; pig volume and room remain unknown.",
+      "review_status": "First 10: #2",
+      "review_finding": "State P-247 identity, address and phone match Lee’s Fresh Market. Durham distance now agrees. Company website and social signals support processing activity; pig volume and room remain unknown. Revised priority: Nearby inspected swine plant with matching company identity. Practical early qualification prospect.",
       "new_source": "https://leesfreshmarketnc.com/",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~37 mi",
-      "initial_claude_weekly_claim": "unknown — state plants\npublish no volumes"
+      "initial_claude_weekly_claim": "unknown — state plants\npublish no volumes",
+      "current_first_10_rank": 2
     },
     {
       "rank": 3,
@@ -282,12 +355,13 @@
       "claude_location": "Supplier Roster, row 72",
       "claude_distance": "YES · ~63 mi\n(Pikeville: ~45 mi)",
       "claude_weekly_claim": "~19-192/wk\n(FSIS cat 2 ceiling)",
-      "review_status": "Retain qualification lead",
-      "review_finding": "One Flowers establishment, M21747. Claude correctly labels its George Flowers row as duplicate. Count once. No actual weekly volume published.",
+      "review_status": "First 10: #5",
+      "review_finding": "One Flowers establishment, M21747. Claude correctly labels its George Flowers row as duplicate. Count once. No actual weekly volume published. Revised priority: Nearby documented hog slaughter. George Flowers is the same plant and is counted once.",
       "new_source": "https://localmeat.org/processors/north-carolina/flowers-slaughter-house-sims-m21747",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~45 mi",
-      "initial_claude_weekly_claim": "~19-192/wk\n(FSIS cat 2 ceiling)"
+      "initial_claude_weekly_claim": "~19-192/wk\n(FSIS cat 2 ceiling)",
+      "current_first_10_rank": 5
     },
     {
       "rank": 4,
@@ -318,12 +392,13 @@
       "claude_location": "Supplier Roster, row 69",
       "claude_distance": "YES · ~90 mi\n(Pikeville: ~35 mi)",
       "claude_weekly_claim": "<19/wk\n(FSIS cat 1)",
-      "review_status": "Retain qualification lead",
-      "review_finding": "State directory corroborates TA-2583, swine and Walstonburg kill site. Company public phone differs from directory: retain 252-289-3083 and 252-717-9229. Claude category-1-derived weekly figure is historical aggregate, not current pig count.",
+      "review_status": "First 10: #10",
+      "review_finding": "State directory corroborates TA-2583, swine and Walstonburg kill site. Company public phone differs from directory: retain 252-289-3083 and 252-717-9229. Claude category-1-derived weekly figure is historical aggregate, not current pig count. Revised priority: Inspected pork processing is documented. Follow stronger-fit calls while qualifying suitable pig availability.",
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~35 mi",
-      "initial_claude_weekly_claim": "<19/wk\n(FSIS cat 1)"
+      "initial_claude_weekly_claim": "<19/wk\n(FSIS cat 1)",
+      "current_first_10_rank": 10
     },
     {
       "rank": 5,
@@ -352,12 +427,13 @@
       "claude_location": "Supplier Roster, row 80",
       "claude_distance": "YES · ~60 mi\n(Pikeville: ~44 mi)",
       "claude_weekly_claim": "unknown — likely small\nretail-butcher scale",
-      "review_status": "Retain qualification lead",
-      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown.",
+      "review_status": "First 10: #3",
+      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown. Revised priority: Nearby state-inspected swine slaughter; practical Benson/Dunn visit grouping. No volume advantage assumed.",
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~44 mi",
-      "initial_claude_weekly_claim": "unknown — likely small\nretail-butcher scale"
+      "initial_claude_weekly_claim": "unknown — likely small\nretail-butcher scale",
+      "current_first_10_rank": 3
     },
     {
       "rank": 6,
@@ -386,12 +462,13 @@
       "claude_location": "Supplier Roster, row 15",
       "claude_distance": "YES · ~70 mi\n(Pikeville: ~116 mi)",
       "claude_weekly_claim": "unknown (small)",
-      "review_status": "Retain qualification lead",
-      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown.",
+      "review_status": "First 10: #7",
+      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown. Revised priority: State-inspected swine slaughter within practical driving distance. Space and suitable volume unconfirmed.",
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~116 mi",
-      "initial_claude_weekly_claim": "unknown (small)"
+      "initial_claude_weekly_claim": "unknown (small)",
+      "current_first_10_rank": 7
     },
     {
       "rank": 7,
@@ -420,12 +497,13 @@
       "claude_location": "Supplier Roster, row 131",
       "claude_distance": "YES · ~67 mi\n(Pikeville: n/m)",
       "claude_weekly_claim": "unknown — state plants publish no volumes",
-      "review_status": "Retain qualification lead",
-      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown.",
+      "review_status": "First 10: #8",
+      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown. Revised priority: State-inspected swine listing and short drive. Missing volume data does not earn a higher score.",
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "mixed — confirm",
-      "initial_claude_weekly_claim": "Grouped row; not a plant-specific pig count"
+      "initial_claude_weekly_claim": "Grouped row; not a plant-specific pig count",
+      "current_first_10_rank": 8
     },
     {
       "rank": 8,
@@ -455,12 +533,13 @@
       "claude_location": "Supplier Roster, row 132",
       "claude_distance": "YES · ~107 mi\n(Pikeville: n/m)",
       "claude_weekly_claim": "<19/wk (FSIS cat 1)",
-      "review_status": "Retain qualification lead",
-      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown.",
+      "review_status": "Follow-up: outside first 10",
+      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown. Moved out of the first ten. Useful small-volume alternative; public booking capability does not establish target volume.",
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "NO · 170-283 mi",
-      "initial_claude_weekly_claim": "Grouped row; not a plant-specific pig count"
+      "initial_claude_weekly_claim": "Grouped row; not a plant-specific pig count",
+      "current_first_10_rank": null
     },
     {
       "rank": 9,
@@ -496,7 +575,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "NO · ~160 mi",
-      "initial_claude_weekly_claim": "<19/wk\n(FSIS cat 1)"
+      "initial_claude_weekly_claim": "<19/wk\n(FSIS cat 1)",
+      "current_first_10_rank": null
     },
     {
       "rank": 10,
@@ -533,7 +613,8 @@
       "new_source": "https://schrockssh.com/",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "mixed — confirm",
-      "initial_claude_weekly_claim": "Grouped row; not a plant-specific pig count"
+      "initial_claude_weekly_claim": "Grouped row; not a plant-specific pig count",
+      "current_first_10_rank": null
     },
     {
       "rank": 11,
@@ -567,7 +648,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~45 mi",
-      "initial_claude_weekly_claim": "192–1,917/wk (FSIS cat 3 ceiling)"
+      "initial_claude_weekly_claim": "192–1,917/wk (FSIS cat 3 ceiling)",
+      "current_first_10_rank": null
     },
     {
       "rank": 12,
@@ -602,7 +684,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~45 mi",
-      "initial_claude_weekly_claim": "~500/wk\n(company-stated, mtg 2026-08)\nFSIS cat 3 → 192-1,917/wk"
+      "initial_claude_weekly_claim": "~500/wk\n(company-stated, mtg 2026-08)\nFSIS cat 3 → 192-1,917/wk",
+      "current_first_10_rank": null
     },
     {
       "rank": 13,
@@ -637,7 +720,8 @@
       "new_source": "https://www.nahuntapork.com/specimen-permits1",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~0 mi",
-      "initial_claude_weekly_claim": "~150/day claimed peak;\n500+/wk (mid-2010s figure).\nCurrent kill UNVERIFIED — ask Brandon"
+      "initial_claude_weekly_claim": "~150/day claimed peak;\n500+/wk (mid-2010s figure).\nCurrent kill UNVERIFIED — ask Brandon",
+      "current_first_10_rank": null
     },
     {
       "rank": 14,
@@ -673,7 +757,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~45 mi",
-      "initial_claude_weekly_claim": "~400-1,000/wk (client mtg 2026-08);\nstated 400/day capacity —\ncat-3 actuals confirm headroom exists"
+      "initial_claude_weekly_claim": "~400-1,000/wk (client mtg 2026-08);\nstated 400/day capacity —\ncat-3 actuals confirm headroom exists",
+      "current_first_10_rank": null
     },
     {
       "rank": 15,
@@ -709,7 +794,8 @@
       "new_source": "https://www.ams.usda.gov/sites/default/files/media/LSOfficialListingNeverFedBetaAgonistsProgram.pdf",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~45 mi",
-      "initial_claude_weekly_claim": "~7,500/wk (1,500 hd/day, EMI 2017)"
+      "initial_claude_weekly_claim": "~7,500/wk (1,500 hd/day, EMI 2017)",
+      "current_first_10_rank": null
     },
     {
       "rank": 16,
@@ -744,7 +830,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~40 mi",
-      "initial_claude_weekly_claim": "<19/wk today\n(FSIS cat 1) — but the GRANT IS\nBRAND NEW (2/17/2026) and the\ncompany just expanded"
+      "initial_claude_weekly_claim": "<19/wk today\n(FSIS cat 1) — but the GRANT IS\nBRAND NEW (2/17/2026) and the\ncompany just expanded",
+      "current_first_10_rank": null
     },
     {
       "rank": 17,
@@ -774,12 +861,13 @@
       "claude_location": "Supplier Roster, row 83",
       "claude_distance": "YES · ~114 mi (borderline)\n(Pikeville: ~190 mi)",
       "claude_weekly_claim": "~19-192/wk all species\n(FSIS cat 2)",
-      "review_status": "Retain qualification lead",
-      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown.",
+      "review_status": "First 10: #6",
+      "review_finding": "State directory corroborates swine slaughter and identity. Claude’s updated Durham distance agrees. Exact weekly pigs, suitable weights and room remain unknown. Revised priority: Inspected market-hog prospect inside the radius. Documented fit merits priority despite limited web presence.",
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "NO · ~190 mi",
-      "initial_claude_weekly_claim": "~19-192/wk all species\n(FSIS cat 2)"
+      "initial_claude_weekly_claim": "~19-192/wk all species\n(FSIS cat 2)",
+      "current_first_10_rank": 6
     },
     {
       "rank": 18,
@@ -813,7 +901,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "NO · ~168 mi",
-      "initial_claude_weekly_claim": "<19/wk\n(FSIS cat 1)"
+      "initial_claude_weekly_claim": "<19/wk\n(FSIS cat 1)",
+      "current_first_10_rank": null
     },
     {
       "rank": 19,
@@ -848,7 +937,8 @@
       "new_source": "https://larryssausage.com/",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "YES · ~65 mi",
-      "initial_claude_weekly_claim": "~19-192/wk ceiling\n(FSIS slaughter cat 2 = 1,000-9,999 hd / 360 d).\nEarlier '200-800/wk' REFUTED"
+      "initial_claude_weekly_claim": "~19-192/wk ceiling\n(FSIS slaughter cat 2 = 1,000-9,999 hd / 360 d).\nEarlier '200-800/wk' REFUTED",
+      "current_first_10_rank": null
     },
     {
       "rank": 20,
@@ -885,7 +975,8 @@
       "new_source": "https://www.meatpoultry.com/articles/33655-neeses-country-sausage-to-return-under-new-ownership",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "n/a",
-      "initial_claude_weekly_claim": "Grouped row; not a plant-specific pig count"
+      "initial_claude_weekly_claim": "Grouped row; not a plant-specific pig count",
+      "current_first_10_rank": null
     },
     {
       "rank": 21,
@@ -919,7 +1010,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     },
     {
       "rank": 22,
@@ -954,7 +1046,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     },
     {
       "rank": 23,
@@ -989,7 +1082,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     },
     {
       "rank": 24,
@@ -1023,7 +1117,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     },
     {
       "rank": 25,
@@ -1059,7 +1154,8 @@
       "new_source": "https://www.smithfieldbioscience.com/products/porcine/",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     },
     {
       "rank": 26,
@@ -1095,7 +1191,8 @@
       "new_source": "https://firsthandfoods.com/contact-us/",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     },
     {
       "rank": 27,
@@ -1132,7 +1229,8 @@
       "new_source": "https://www.cheshirepork.com/contact-us",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     },
     {
       "rank": 28,
@@ -1167,7 +1265,8 @@
       "new_source": "https://carolinapackers.com/pages/franks-for-thanks",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     },
     {
       "rank": 29,
@@ -1203,7 +1302,8 @@
       "new_source": "https://cefs.ncsu.edu/contacts/",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     },
     {
       "rank": 30,
@@ -1238,7 +1338,8 @@
       "new_source": "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
       "claude_match_type": "Individual record in September 28 update",
       "initial_claude_distance": "",
-      "initial_claude_weekly_claim": ""
+      "initial_claude_weekly_claim": "",
+      "current_first_10_rank": null
     }
   ],
   "additional_leads": [
@@ -1256,8 +1357,8 @@
       "drive_minutes": 126.89166666666667,
       "radial_miles": 91.65576089158736,
       "routing_url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-80.539345,35.998190?overview=false",
-      "priority": "High: additional qualification call",
-      "claude_cross_reference": "Claude row 74 grouped mention; absent from prior Beebop 30",
+      "priority": "First 10: #9",
+      "claude_cross_reference": "Initially a grouped mention; Claude added an individual record in a403954 after Beebop round 2.",
       "signal": "State-inspected swine slaughter plus Facebook and Instagram pig-processing descriptions.",
       "website": "https://www.facebook.com/FarmingtonMeat/",
       "source2": "https://www.instagram.com/farmington_meat_processing/",
@@ -1286,8 +1387,8 @@
       "routing_url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-78.547081,36.895820?overview=false",
       "drive_minutes": 104.13333333333334,
       "radial_miles": 65.18257538646907,
-      "priority": "High: additional qualification call",
-      "claude_cross_reference": "Not named in reviewed Claude roster or prior Beebop 30",
+      "priority": "Follow-up: small-volume supplement",
+      "claude_cross_reference": "New in Beebop round 2; Claude added an individual record in a403954.",
       "signal": "Own site advertises pork processing, sourced animals and M1908. Directly describes on-site slaughter handling.",
       "website": "https://easternviewfarmsllc.com/",
       "source2": "https://localmeat.org/processors/virginia/easternview-farms-llc-drakes-branch-m1908",
@@ -1316,8 +1417,8 @@
       "routing_url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-79.460852,36.745555?overview=false",
       "drive_minutes": 103.625,
       "radial_miles": 60.467235561790346,
-      "priority": "Medium: additional qualification call",
-      "claude_cross_reference": "Not named in reviewed Claude roster or prior Beebop 30",
+      "priority": "Follow-up: small-volume supplement",
+      "claude_cross_reference": "Newly documented in round 2; Claude added an individual record in a403954.",
       "signal": "Directory mirror lists hog slaughter M763; Virginia processor list independently matches address, phone and Facebook page.",
       "website": "https://www.facebook.com/p/The-Butchers-Block-100057234168268/",
       "source2": "https://localmeat.org/processors/virginia/the-butchers-block-dry-fork-m763",
@@ -1376,13 +1477,13 @@
       "drive_minutes": 164.00333333333336,
       "radial_miles": 92.57037085355904,
       "routing_url": "https://router.project-osrm.org/route/v1/driving/-78.899684,35.996069;-79.593530,37.214599?overview=false",
-      "priority": "Medium: radius qualifies; longer drive",
-      "claude_cross_reference": "Claude row 41; September 28 revision gives ~112 road miles using city-level point. This pass refines exact plant address.",
+      "priority": "First 10: #4; supplier-performed harvesting discussion",
+      "claude_cross_reference": "Claude row 41. Exact 120.4 road / 92.6 radial miles incorporated in a403954; 1cb841f adds state-total volume caution.",
       "signal": "Own services page offers slaughter and pork processing; published 2025 sheet includes small whole-hog harvest.",
       "website": "https://www.ecofriendly.com/services",
-      "source2": "https://www.ecofriendly.com/_files/ugd/052161_5117723c9f1044eb8b0cda50b73d524f.pdf",
-      "volume_evidence": "M21938 reported by September 1 federal mirror; company claims federal inspection.",
-      "limitation": "92.6 radial miles but 120.4 road miles. Broad category 3 includes other species including poultry. Pig-only count unknown; price-sheet carcass weights are not live weights.",
+      "source2": "https://esmis.nal.usda.gov/sites/default/release-files/795870/lsan0426.txt",
+      "volume_evidence": "Category 3 is historical aggregate slaughter, not pigs/week. National Agricultural Statistics Service reports 7,841 federally inspected hogs across 16 Virginia plants in 2025. This is not EcoFriendly’s count or current capacity.",
+      "limitation": "Inside the 120-mile radius. Road distance affects logistics only. Current suitable pigs/week, operation, tissue rights and harvesting arrangements all remain unconfirmed.",
       "source1": "https://www.ecofriendly.com/_files/ugd/052161_5117723c9f1044eb8b0cda50b73d524f.pdf",
       "weekly_pigs": null,
       "space_available": "Unknown",
@@ -1437,7 +1538,7 @@
       "drive_minutes": 144.925,
       "radial_miles": 90.80099265741168,
       "priority": "Low: pig activity needs clarification",
-      "claude_cross_reference": "Not individually named in reviewed Claude roster or prior Beebop 30",
+      "claude_cross_reference": "Newly documented in round 2; Claude added an individual record in a403954.",
       "signal": "Own website confirms inspected on-farm processing but emphasizes beef; federal mirror lists hogs.",
       "website": "https://www.kcfarmsva.com/kc-farms-meats",
       "source2": "https://localmeat.org/processors/virginia/kc-farms-meats-llc-ferrum-m1502",
@@ -1998,9 +2099,9 @@
       "topic": "Radius versus driving distance",
       "claude_location": "Supplier Roster column E; earlier Beebop screen",
       "claude_claim": "120 miles used as a road-distance gate.",
-      "finding": "Literal 120-mile radius and a 120-mile drive are different. Both are now shown.",
-      "implication": "EcoFriendly: 92.6 radial / 120.4 road. Acre: 119.7 / 141.1; boundary depends on actual base.",
-      "status": "Clarified definition",
+      "finding": "The user specified a 120-mile radius. Road mileage measures logistics and must not independently exclude an in-radius supplier.",
+      "implication": "EcoFriendly qualifies geographically at 92.6 radial miles. Its 120.4-mile drive informs collection cost and inspection planning.",
+      "status": "Ranking rule corrected",
       "sources": [
         "https://project-osrm.org/"
       ],
@@ -2044,11 +2145,11 @@
     {
       "id": "F06",
       "topic": "Weekly arithmetic",
-      "claude_location": "Sources & Confidence row 7",
+      "claude_location": "Sources & Confidence row 7 (baseline comparison)",
       "claude_claim": "Category 3 upper ceiling ~1,917/week.",
-      "finding": "A 360-day interval contains 360/7 weeks. 100,000 * 7/360 = 1,944.4 total heads/week at the exclusive boundary. Category 1 boundary 19.4; category 2 194.4.",
+      "finding": "A 360-day interval contains 360/7 weeks. 100,000 * 7/360 = 1,944.4 total heads/week at the exclusive boundary. Category 1 boundary 19.4; category 2 194.4. Subsequent Claude commit a403954 incorporated a related correction; this row preserves the original comparison.",
       "implication": "Even corrected average bounds cannot cap current capacity or quantify pigs at a multi-species plant.",
-      "status": "Corrected calculation",
+      "status": "Addressed in later Claude update",
       "sources": [
         "https://www.federalregister.gov/documents/2026/03/24/2026-05746/revising-establishment-size-definitions"
       ],
@@ -2109,11 +2210,11 @@
     {
       "id": "F11",
       "topic": "Farmington visibility",
-      "claude_location": "Supplier Roster row 74; absent from Beebop 30",
+      "claude_location": "Supplier Roster row 74; absent from Beebop 30 (baseline comparison)",
       "claude_claim": "Only buried in state-plant group.",
-      "finding": "State P-381 includes swine slaughter; Facebook and Instagram describe pig processing. 102.6 road miles from Durham.",
+      "finding": "State P-381 includes swine slaughter; Facebook and Instagram describe pig processing. 102.6 road miles from Durham. Subsequent Claude commit a403954 incorporated a related correction; this row preserves the original comparison.",
       "implication": "Elevated to an individually documented qualification prospect. Not a newly discovered company relative to Claude.",
-      "status": "Expanded known lead",
+      "status": "Addressed in later Claude update",
       "sources": [
         "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
         "https://www.facebook.com/FarmingtonMeat/",
@@ -2124,11 +2225,11 @@
     {
       "id": "F12",
       "topic": "Easternview and Butcher’s Block",
-      "claude_location": "Not named in reviewed Claude roster",
+      "claude_location": "Not named in reviewed Claude roster (baseline comparison)",
       "claude_claim": "No individual records.",
-      "finding": "Two additional Virginia candidates within 76 road miles. Easternview has direct company corroboration; Butcher’s Block has directory mirror plus Virginia processor listing.",
+      "finding": "Two additional Virginia candidates within 76 road miles. Easternview has direct company corroboration; Butcher’s Block has directory mirror plus Virginia processor listing. Subsequent Claude commit a403954 incorporated a related correction; this row preserves the original comparison.",
       "implication": "Potential small-scale supplements. Current pig volume and research operations remain unverified.",
-      "status": "New documented leads",
+      "status": "Addressed in later Claude update",
       "sources": [
         "https://easternviewfarmsllc.com/",
         "https://localmeat.org/processors/virginia/the-butchers-block-dry-fork-m763",
@@ -2153,11 +2254,11 @@
     {
       "id": "F14",
       "topic": "Godwin closure claim",
-      "claude_location": "Supplier Roster row 122",
+      "claude_location": "Supplier Roster row 122 (baseline comparison)",
       "claude_claim": "Inactive Altoona, Iowa M760A used alongside directory absence to declare Godwin closed.",
-      "finding": "Claude’s latest workbook retains the Godwin closure conclusion. Iowa M760A cannot establish North Carolina site closure. Carrier and association listings cannot prove current slaughter either.",
+      "finding": "Claude’s latest workbook retains the Godwin closure conclusion. Iowa M760A cannot establish North Carolina site closure. Carrier and association listings cannot prove current slaughter either. Subsequent Claude commit a403954 incorporated a related correction; this row preserves the original comparison.",
       "implication": "Godwin remains unresolved and outside the priority shortlist; no reopening or closure conclusion in this pass.",
-      "status": "Unsupported cross-site inference",
+      "status": "Addressed in later Claude update",
       "sources": [
         "https://www.ncmpa.com/associate-members/",
         "https://safer.fmcsa.dot.gov/query.asp?original_query_param=NAME&original_query_string=COASTAL+PROTEIN&query_param=USDOT&query_string=2484052&query_type=queryCarrierSnapshot&searchtype=ANY"
@@ -2167,11 +2268,11 @@
     {
       "id": "F15",
       "topic": "Mitchell facility identity",
-      "claude_location": "Supplier Roster rows 14 and 86",
+      "claude_location": "Supplier Roster rows 14 and 86 (baseline comparison)",
       "claude_claim": "King M46822B inactive and Walnut Cove historical concern.",
-      "finding": "September state directory lists Walnut Cove TA-46822. King and Walnut Cove are separate establishment identities. Historical handling allegation not independently revalidated.",
+      "finding": "September state directory lists Walnut Cove TA-46822. King and Walnut Cove are separate establishment identities. Historical handling allegation not independently revalidated. Subsequent Claude commit a403954 incorporated a related correction; this row preserves the original comparison.",
       "implication": "Separate current plant status from other-site closure and from unresolved historical quality evidence.",
-      "status": "Identity clarified; concern unresolved",
+      "status": "Addressed in later Claude update",
       "sources": [
         "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment=",
         "https://www.mitchellsmeatnc.com/"
@@ -2181,11 +2282,11 @@
     {
       "id": "F16",
       "topic": "Bass internal inconsistency",
-      "claude_location": "Supplier Roster row 23 D/F; Rated Candidates row 12",
+      "claude_location": "Supplier Roster row 23 D/F; Rated Candidates row 12 (baseline comparison)",
       "claude_claim": "Both category 1 and category 2 appear; grant date treated as new kill floor.",
-      "finding": "Current state directory confirms slaughter only. Category change not independently verified. Grant dates may reflect administrative changes.",
+      "finding": "Current state directory confirms slaughter only. Category change not independently verified. Grant dates may reflect administrative changes. Subsequent Claude commit a403954 incorporated a related correction; this row preserves the original comparison.",
       "implication": "No verified growth rate, new floor date or current weekly count.",
-      "status": "Workbook conflict unresolved",
+      "status": "Addressed in later Claude update",
       "sources": [
         "https://www.ncagr.gov/divisions/meat-poultry-inspection/wplants/download?attachment="
       ],
@@ -2270,13 +2371,53 @@
     {
       "id": "F23",
       "topic": "EcoFriendly exact facility distance",
-      "claude_location": "Supplier Roster row 41; Rated Candidates",
+      "claude_location": "Supplier Roster row 41; Rated Candidates (baseline comparison)",
       "claude_claim": "Updated Claude: approximately 112 road miles, city-level geocode.",
-      "finding": "Exact address 3397 Stony Fork Road routes to 120.4 road miles and 92.6 radial miles from Durham City Hall.",
+      "finding": "Exact address 3397 Stony Fork Road routes to 120.4 road miles and 92.6 radial miles from Durham City Hall. Subsequent Claude commit a403954 incorporated a related correction; this row preserves the original comparison.",
       "implication": "Inside literal radius; just beyond a strict 120-road-mile screen. City-level distance is not sufficient near a boundary.",
-      "status": "Facility-specific distance refinement",
+      "status": "Addressed in later Claude update",
       "sources": [
         "https://www.ecofriendly.com/services"
+      ],
+      "checked_date": "2026-09-28"
+    },
+    {
+      "id": "F24",
+      "topic": "Call ranking and missing-data bias",
+      "claude_location": "Beebop first ten; Rocksteady feedback supplied by user",
+      "claude_claim": "EcoFriendly and Select were under-prioritized; small or unknown-volume plants received too much weight.",
+      "finding": "Accepted. EcoFriendly enters at #4 and Select at #6. Easternview and Cool Springs move to follow-up. Gale rises to #3. Missing information gives no positive ranking credit.",
+      "implication": "Priorities reflect documented fit and practical access. They do not imply confirmed scale or an accepted commercial agreement.",
+      "status": "Recommendation revised",
+      "sources": [
+        "User-provided Rocksteady comparison, September 28, 2026",
+        "https://www.ecofriendly.com/services"
+      ],
+      "checked_date": "2026-09-28"
+    },
+    {
+      "id": "F25",
+      "topic": "New statewide historical hog evidence",
+      "claude_location": "Claude commit 1cb841f; volume inference update",
+      "claude_claim": "Virginia: 7,841 hogs across 16 federal plants in 2025. South Carolina: 14,070 across 8. Applied as hard caps.",
+      "finding": "The official 2025 table confirms those annual counts, in head. They are historical state aggregates. They are not current weekly plant volume, suitable-weight supply or capacity.",
+      "implication": "Weakens EcoFriendly’s volume-replacement case. Keep #4 as a supplier-performed harvesting discussion. No statewide total is entered as a plant count.",
+      "status": "Source confirmed; inference limited",
+      "sources": [
+        "https://esmis.nal.usda.gov/sites/default/release-files/795870/lsan0426.txt"
+      ],
+      "checked_date": "2026-09-28"
+    },
+    {
+      "id": "F26",
+      "topic": "Qualification questions and selection split",
+      "claude_location": "Revised recommendation for Rocksteady",
+      "claude_claim": "Suggested complementary selections: EcoFriendly, Select and Farmington.",
+      "finding": "Conditional on Purchasing selecting Piedmont, McLamb’s Benson and Gale. No assignments or contact results are recorded.",
+      "implication": "Ask current weekly pigs, 140–220-pound live-weight availability, organ ownership, trained harvesting or crew space, timing and chilling.",
+      "status": "Conditional recommendation",
+      "sources": [
+        "User requirements and September 28 recommendation review"
       ],
       "checked_date": "2026-09-28"
     }
