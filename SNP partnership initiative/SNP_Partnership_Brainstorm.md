@@ -25,7 +25,7 @@ Everything below is "what else" — organised by the direction of value, because
 
 ## 3. Learn — what we need to know, framed as continuity, not distrust
 
-Ask these as **quality-system continuity requirements** (ISO 13485 clause 7.4; GHTF SG3/N17 business-risk documentation), preferably as Supplier Quality Agreement (SQA) clauses:
+Ask these as **supply-continuity requirements**, preferably as Supplier Quality Agreement (SQA) clauses:
 
 - Capacity headroom at Year-5 volume (~99k lb/yr, ~1,900 lb/week): kettles, shifts, drum handling.
 - Second line / second site plan; what happens if the PVA kettle is down for a month.
