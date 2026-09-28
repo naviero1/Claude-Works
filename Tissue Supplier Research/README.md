@@ -54,6 +54,11 @@ spec with our training (**Model B-T**).
   bands are head over the prior 360 days, all species (×7/360 → cat 1 <19/wk · cat 2 19-194 ·
   cat 3 194-1,944 · cat 4 ≥1,944). They bound what a plant *did* kill, not its capacity. Client
   brackets: 0-300 · >300-700 · 750-1,200 · 1,250-5,000 · >5,000 hogs/week.
+- **Inferring hogs/week.** No public source states a plant's weekly hog kill. The ladder (Instructions
+  §4): company figure → FSIS band × species flags × HACCP size → NASS state totals as hard caps
+  (Virginia's 16 federal plants killed 7,841 hogs in 2025; South Carolina's 8 killed 14,070; NC is
+  withheld) → business-type class for NC state plants → FOIA / NCDA / the call. Within reach, only
+  the incumbents and Smithfield are cat-3/4 hog-dominant plants; the nearest others are in Tennessee.
 - **Welfare** is a discussion item, not an auto-exclusion; "none found" in enforcement is a narrow
   negative, and state plants are outside federal reporting entirely (site-visit finding).
 - **Roles only.** The workbook names the Supplier Engineer and the Purchasing Manager; no
