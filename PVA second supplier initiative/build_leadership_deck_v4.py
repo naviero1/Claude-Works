@@ -90,9 +90,6 @@ def lane(s,l,t,w,h,label,segs,total):
 s=slide(); rect(s,0,0,13.333,7.5,NAVY); rect(s,0,4.85,13.333,0.06,STEEL)
 tf=box(s,0.8,1.5,11.7,2.9); par(tf.paragraphs[0],"Liquid PVA: Dual Supplier Discussion",40,WHITE,bold=True)
 par(tf.add_paragraph(),"Update: PCI Manufacturing has proven it can make our product — and told us what it costs",20,RGBColor(0xBD,0xD7,0xEE))
-tf=box(s,0.8,5.1,11.7,1.6)
-par(tf.paragraphs[0],"PVA = polyvinyl alcohol — the liquid we buy in 55-gallon drums (450 lb of PVA each) from SNP Inc. (Durham, NC) to make our hydrogels. Sole-sourced today. Volumes on these slides are in drums and percent of demand.",13.5,WHITE)
-par(tf.add_paragraph(),"Oscar Penny  ·  Supply Chain  ·  28 September 2026  ·  Decision requested",12,RGBColor(0x9D,0xC3,0xE6))
 
 # ===== 6 HOW WE GOT HERE — SERIES OF EVENTS =====
 s=slide(); title_bar(s,"How we got here — a series of events, and what the PCI experiment cost","1 · HOW WE GOT HERE")
@@ -102,8 +99,8 @@ timeline(s,0.6,1.12,12.1,[
  ("May 2026","ArroChem, ILC Dover fail the heat gate","ArroChem: right kind of company, could not get past 90 °C. ILC Dover could not reach it either",RED),
  ("26 Jun 2026","CJB Applied Technologies clears the gate","Front-runner. APV Engineered Coatings confirms heat but calls $1.50/lb too cheap — likely ≥$3/lb, unconfirmed. Demand: ~3 drums/week",GREEN),
  ("Jul 2026","Columbus Chemical Industries cannot hold temperature","Right kind of company; reached out to us, then said they cannot hold 90–95 °C. Eliminated; never quoted",RED),
- ("4 Aug 2026","CJB priced out","$8.00–8.50/lb toll excl. materials (~11× SNP). Their $6,400 trial declined — capability never corroborated",RED),
- ("Aug–Sep 2026","PCI Manufacturing lab batches","Two-plus batches, a dilution study, method work — unpaid",AMBER),
+ ("4 Aug 2026","CJB capable but priced out","$8.00–8.50/lb toll excl. materials (~11× SNP). Their $6,400 trial declined — capability never corroborated",RED),
+ ("Aug–Sep 2026","PCI Manufacturing lab batches","Two-plus batch tank (110 gal), a dilution study, method work — unpaid",AMBER),
  ("22 Sep 2026","PCI test results","Viscosity brought on target within the test (solids / water adjustment). Spec agreed: 11% / 900–1,100 cP",GREEN),
  ("28 Sep 2026","Spec met — real quote","$3.50/lb per 5-drum batch; $6.00 below a batch",GREEN)])
 # funnel: what the search taught us
