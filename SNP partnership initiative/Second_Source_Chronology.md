@@ -5,7 +5,7 @@ Same series of events as the chronology slide of `../PVA second supplier initiat
 | When | Event | Outcome | Source |
 |---|---|---|---|
 | Nov 2025 | **Brenntag** (distributor) tries our formula with the requested grade and with 125-grade resin | Viscosity above range — unreadable on their viscometer. They stalled; **no quote was ever received**. Mar 16, 2026: they sent a 125-grade resin sample for us to evaluate instead | Sam (Brenntag) emails; Oscar 2026-09-28 |
-| Mar–Apr 2026 | ~94 US suppliers screened; outreach to ArroChem Inc., Piedmont Chemical Industries, ILC Dover (week of Apr 2) | One hard gate: hold 90–95 °C for the dissolution cook | Notion log |
+| Mar–Apr 2026 | ~15–20 serious candidates screened; outreach to ArroChem Inc., Piedmont Chemical Industries, ILC Dover (week of Apr 2) | One hard gate: hold 90–95 °C for the dissolution cook | Notion log |
 | Apr 30, 2026 | Project on hold pending supplier responses; ArroChem NDA signed, testing | — | Notion log |
 | May 2026 | ArroChem trial (May 12) | The right kind of company, but **could not get past 90 °C** — eliminated. ILC Dover: could not reach the cook temperature either — closed out | Notion log (2026-06-26 update) |
 | Jun 26, 2026 | CJB Applied Technologies interviewed | **Cleared the heat gate**; front-runner. APV Engineered Coatings confirms 90–95 °C (twice); on our call APV called $1.50/lb too cheap for the volume — estimated at ≥ $3.00/lb, never confirmed. Demand confirmed: 1,300 lb/week = ~150 drums/yr | Notion log; CJB Interview tab |

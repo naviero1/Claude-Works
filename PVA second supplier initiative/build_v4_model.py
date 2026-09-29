@@ -372,3 +372,26 @@ plt.tight_layout(); plt.savefig("chart_price_vs_volume.png",dpi=180); plt.close(
 lo_b=max(A*2250**b*p10,0.75); hi_b=anchor*(2250/US_MAX)**b_flat*p90; lo_s=max(A*snp_lot**b*p10,0.75); hi_s=anchor*(snp_lot/US_MAX)**b_flat*p90; lo_d=max(A*DRUM**b*p10,0.75); hi_d=anchor*(DRUM/US_MAX)**b_flat*p90
 print(f"band ratios p10={p10:.2f} p90={p90:.2f}"); print(f"chart E saved: trend {A:.2f}*lb^{b:.3f} (~{per_doubling:.0%}/doubling); band at 1 drum ${lo_d:.2f}–{hi_d:.2f}, at SNP lot ${lo_s:.2f}–{hi_s:.2f}, at 5-drum batch ${lo_b:.2f}–{hi_b:.2f}; SNP-shaped at 1 drum ${snp_p*(DRUM/snp_lot)**b:.2f}, at 5 gal ${snp_p*(42.5/snp_lot)**b:.2f}")
 json.dump({"A":A,"b":b,"per_doubling":per_doubling,"snp_at_drum":snp_p*(DRUM/snp_lot)**b,"snp_at_5gal":snp_p*(42.5/snp_lot)**b,"band_drum":f"{lo_d:.2f}–{hi_d:.2f}","band_snp":f"{lo_s:.2f}–{hi_s:.2f}","band_batch":f"{lo_b:.2f}–{hi_b:.2f}"},open("price_curve.json","w"))
+
+# ---- Price Curve tab (matches the price-vs-quantity slide) ----
+wb2=openpyxl.load_workbook("PVA_Second_Supplier_Leadership_Model.xlsx")
+if "Price Curve" in wb2.sheetnames: del wb2["Price Curve"]
+pcs=wb2.create_sheet("Price Curve",4)
+def _f(bold=False,size=10,color="000000",italic=False): return Font(name="Arial",bold=bold,size=size,color=color,italic=italic)
+pcs["B2"]="Price per lb vs. quantity per order — market trend, band and where each supplier sits"; pcs["B2"].font=_f(True,14,NAVY)
+pcs["B3"]="Fit: log-log regression of verified market points (US packs 2 lb–20 gal, ≤$12/lb, plus ton-scale offers at 2,205 lb). Band = 10th–90th percentile of points around the trend; beyond 20 gal the top follows vendors' volume ladders flattening (~8%/doubling from $2.32 at 20 gal); floor = SNP's $0.75 (no US-delivered lot seen cheaper)."; pcs["B3"].font=_f(False,9,GREY,True)
+rows=[("Trend coefficient A ($/lb at 1 lb)",A,'0.00'),("Trend exponent b",b,'0.000'),("Price change per doubling of lot",per_doubling*-1,'0.0%'),("Band: 10th-percentile ratio to trend",p10,'0.00'),("Band: 90th-percentile ratio to trend",p90,'0.00'),("Points used in fit",len(fit),'0')]
+for i,(k,v,fmt) in enumerate(rows):
+    r=5+i; pcs.cell(row=r,column=2,value=k).font=_f(True); c=pcs.cell(row=r,column=3,value=float(v) if fmt!='0' else int(v)); c.number_format=fmt; c.border=BORD
+r=12
+for i,h in enumerate(["Quantity per order","lb","Trend $/lb","Band low $/lb","Band high $/lb","Real quote / point"]):
+    c=pcs.cell(row=r,column=2+i,value=h); c.fill=HDR; c.font=_f(True,10,"FFFFFF"); c.alignment=Alignment(horizontal="center",wrap_text=True); c.border=BORD
+qty=[("1 gal",8.5,""),("5 gal",42.5,""),("20 gal (largest US lot)",170,"$2.32 US Composites"),("1 drum",450,"PCI $6.00 below batch; APV ≥$3 est."),("SNP lot (~3 drums/week)",1350,"SNP $0.75 delivered"),("5-drum batch",2250,"PCI $3.50"),("50 drums",22500,""),("150 drums (a year)",67600,"")]
+for i,(lab,lb_,note) in enumerate(qty):
+    rr=r+1+i; tr=A*lb_**b; lo=max(tr*p10,0.75); hi=(tr*p90 if lb_<=US_MAX else anchor*(lb_/US_MAX)**b_flat*p90)
+    vals=[lab,lb_,tr,lo,hi,note]; fmts=[None,NUM,CUR2,CUR2,CUR2,None]
+    for j,v in enumerate(vals):
+        c=pcs.cell(row=rr,column=2+j,value=v); c.border=BORD; c.font=_f(j==0)
+        if fmts[j]: c.number_format=fmts[j]
+for cidx,w in zip("BCDEFG",[30,10,12,14,14,40]): pcs.column_dimensions[cidx].width=w
+wb2.save("PVA_Second_Supplier_Leadership_Model.xlsx"); print("Price Curve tab added:", wb2.sheetnames)
