@@ -76,7 +76,7 @@ ws["B11"]="Legacy: pre-quote supplier minimum (drums/week) — superseded by bat
 ws["D12"]="Legacy (34.6%). Not used by any headline figure."
 ws["D13"]="One-third of demand is the target share for Option A."
 ws["C14"]="=ROUNDDOWN(Share*LbWk*Weeks/(DrumLb*PCIbatch),0)*DrumLb*PCIbatch/(LbWk*Weeks)"; ws["D14"]="One-third rounded DOWN to whole 5-drum batches: Year 1 = 10 batches = 50 drums = 22,500 lb = 33.3% — the figure on the slides."
-ws["C16"]="=PCIq"; ws["D16"]="= the real quote (row 27). Every 'MID' figure in the legacy tabs now uses $3.50."
+ws["C16"]="=PCIq"; ws["D16"]="Points to the real quote (row 27). Every 'MID' figure in the legacy tabs now uses $3.50."
 ws["D15"]="Sensitivity band below the quote"; ws["D17"]="Sensitivity band above the quote"
 ws["B30"]="The $2.50 / $5.00 rows are kept as a sensitivity band; MID points at the real quote ($3.50), within 7% of the pre-quote mid-case ($3.75)."
 if tier("high") is not None:
@@ -99,7 +99,7 @@ be=wb["Break-even"]; be["B6"]="Sensitivity $2.50"; be["B7"]="PCI quote $3.50"; b
 be["B3"]="Option A is justified only if: annual premium <= P(SNP disruption in a year) x loss the second source would AVOID. Full avoidance counts only with PCI's written ramp commitment; with ~1/3 coverage, the outage must be ~3x larger."
 op=wb["Options"]; op["B2"]="The options, side by side (Year 1, PCI quote $3.50; second source = 10 whole 5-drum batches = 50 drums)"
 op["B3"]="Legacy A/B layout = Option 1 / Option 2. Option 3 (keep-alive: 1–2 batches of 5 drums a year at $3.50, no volume term so far) is on the PCI Quote Scenarios and Summary tabs."
-op["D11"]="~3-6 months cold start (decays after ~12 months idle); ~2-3 with a yearly re-check batch"; op["C12"]="Lost a third of its volume; cadence level only if we carry a small rolling stock"
+op["C7"]="=C6-LbWk*Weeks*SNPlb"; op["D11"]="~3-6 months cold start (decays after ~12 months idle); ~2-3 with a yearly re-check batch"; op["C12"]="Lost a third of its volume; cadence level only if we carry a small rolling stock"
 
 # ---- Supplier Quotes ----
 ws=wb.create_sheet("Supplier Quotes",1)
@@ -170,17 +170,17 @@ for j,p in enumerate([0.02,0.05,0.10,0.20]): ws.cell(row=r,column=3+j,value=f"=B
 for c in range(2,7): ws.cell(row=r,column=c).border=BORD
 r+=2; ws.cell(row=r,column=2,value="Block-rotation logistics of a 5-drum batch (shelf life 18 days)").font=F(True,11,NAVY); r+=1
 for lab,f,fmt,note in [("Batch size (lb)","=PCIbatch*DrumLb",NUM,""),
-                       ("Days of FULL demand in one batch","=B{r0}/(LbWk/7)",'0.0',"12.1 days — must be consumed within the shelf life -> use at full rate on receipt"),
-                       ("Cycle length at 1/3 share (weeks)","=B{r0}/(LbWk/3)",'0.0',"One PCI batch every ~5 weeks (Year 1: 10 batches; ~15 by Year 5)"),
-                       ("Weeks on SNP material per cycle","=B{r2}-B{r0}/LbWk",'0.0',"Cadence is a choice: (i) block rotation = a ~12-day pause in SNP orders per cycle; (ii) SNP keeps ~2 drums/wk and we hold ~3 drums of rolling stock (peak ~8 drums, strict first-in-first-out) — the shelf-life study decides"),
+                       ("Days of FULL demand in one batch","=C{r0}/(LbWk/7)",'0.0',"12.1 days — must be consumed within the shelf life -> use at full rate on receipt"),
+                       ("Cycle length at 1/3 share (weeks)","=C{r0}/(LbWk/3)",'0.0',"One PCI batch every ~5 weeks (Year 1: 10 batches; ~15 by Year 5)"),
+                       ("Weeks on SNP material per cycle","=C{r2}-C{r0}/LbWk",'0.0',"Cadence is a choice: (i) block rotation = a ~12-day pause in SNP orders per cycle; (ii) SNP keeps ~2 drums/wk and we hold ~3 drums of rolling stock (peak ~8 drums, strict first-in-first-out) — the shelf-life study decides"),
                        ("Age of PCI drums on receipt (days: cook, release, transit) — INPUT",4,'0',"Assumption: the 18-day clock starts at manufacture. Confirm PCI lead time and transit St. Louis -> site"),
-                       ("Usable days on receipt (18-day life)","=18-B{r4}",'0.0',""),
-                       ("Slack in block rotation (days)","=B{r5}-B{r1}",'0.0',"~1–2 days: block rotation has almost no margin at 18 days; a validated 21-day life gives real margin"),
-                       ("Days to consume a batch at 2/3 rate","=B{r0}/(LbWk*2/3/7)",'0.0',"18.2 days — needs a validated life longer than 18.2 days plus the age on receipt"),
-                       ("Days to consume a batch at an exact 1/3 rate","=B{r0}/(LbWk/3/7)",'0.0',"36.3 days — a true one-third blend needs a ~40-day validated life"),
-                       ("Minimum PCI share of rate under a 30-day life","=B{r0}/((30-B{r4})*LbWk/7)",PCT,"~47% at 4 days' age: even a 30-day life does not allow a one-third blend"),
-                       ("One qualification batch — cost","=B{r0}*PCIq",CUR,"A single production-scale batch (Option B-plus); $7.9k gross"),
-                       ("One qualification batch — premium over SNP","=B{r0}*(PCIq-SNPlb)",CUR,"3.3% of annual volume (2,250 of 67,600 lb); one ~12-day pause in SNP orders")]:
+                       ("Usable days on receipt (18-day life)","=18-C{r4}",'0.0',""),
+                       ("Slack in block rotation (days)","=C{r5}-C{r1}",'0.0',"~1–2 days: block rotation has almost no margin at 18 days; a validated 21-day life gives real margin"),
+                       ("Days to consume a batch at 2/3 rate","=C{r0}/(LbWk*2/3/7)",'0.0',"18.2 days — needs a validated life longer than 18.2 days plus the age on receipt"),
+                       ("Days to consume a batch at an exact 1/3 rate","=C{r0}/(LbWk/3/7)",'0.0',"36.3 days — a true one-third blend needs a ~40-day validated life"),
+                       ("Minimum PCI share of rate under a 30-day life","=C{r0}/((30-C{r4})*LbWk/7)",PCT,"~47% at 4 days' age: even a 30-day life does not allow a one-third blend"),
+                       ("One qualification batch — cost","=C{r0}*PCIq",CUR,"A single production-scale batch (Option B-plus); $7.9k gross"),
+                       ("One qualification batch — premium over SNP","=C{r0}*(PCIq-SNPlb)",CUR,"3.3% of annual volume (2,250 of 67,600 lb); one ~12-day pause in SNP orders")]:
     r0=r if lab.startswith("Batch size") else r0
     ws.cell(row=r,column=2,value=lab).font=F(True)
     c=ws.cell(row=r,column=3,value=(f.format(r0=r0,r1=r0+1,r2=r0+2,r4=r0+4,r5=r0+5) if isinstance(f,str) else f)); c.number_format=fmt; c.border=BORD
@@ -220,14 +220,14 @@ srows=[("Demand, Year 1 (lb)","=LbWk*Weeks",NUM,"Annual-cost slide — identical
  ("All-SNP annual spend (today)","=LbWk*Weeks*SNPlb",CUR,"Annual-cost slide"),
  ("SNP Inc. retained spend (2/3) — same in every option","=(1-EffShare)*LbWk*Weeks*SNPlb",CUR,"Annual-cost slide"),
  ("Option A annual — PCI $3.50","=(1-EffShare)*LbWk*Weeks*SNPlb+EffShare*LbWk*Weeks*PCIq",CUR,"Annual-cost and options slides"),
- ("Premium vs today (Year 1)","=B12-B10",CUR,"Annual-cost, chronology, options, recommendation slides"),
- ("Premium as % of today's spend","=B13/B10",PCT,"Annual-cost slide"),
+ ("Premium vs today (Year 1)","=C12-C10",CUR,"Annual-cost, chronology, options, recommendation slides"),
+ ("Premium as % of today's spend","=C13/C10",PCT,"Annual-cost slide"),
  ("Same 1/3 at PCI's below-batch price $6.00","=(1-EffShare)*LbWk*Weeks*SNPlb+EffShare*LbWk*Weeks*PCIsub",CUR,"Annual-cost slide"),
  ("Same 1/3 at CJB $8.42 (for scale)","=(1-EffShare)*LbWk*Weeks*SNPlb+EffShare*LbWk*Weeks*CJBlb",CUR,"Annual-cost slide"),
  ("Five-year premium at $3.50 (exact third, +10%/yr, undiscounted)","='5-Year'!L11",CUR,"Chronology and options slides"),
- ("Break-even avoided loss @ p = 10%/yr","=B13/0.10",CUR,"Recommendation slide"),
- ("Break-even avoided loss @ p = 5%/yr","=B13/0.05",CUR,"Recommendation slide"),
- ("Break-even avoided loss @ p = 2%/yr","=B13/0.02",CUR,"Appendix"),
+ ("Break-even avoided loss @ p = 10%/yr","=C13/0.10",CUR,"Recommendation slide"),
+ ("Break-even avoided loss @ p = 5%/yr","=C13/0.05",CUR,"Recommendation slide"),
+ ("Break-even avoided loss @ p = 2%/yr","=C13/0.02",CUR,"Appendix"),
  ("One 5-drum batch — cost (gross)","=PCIbatch*DrumLb*PCIq",CUR,"Chronology, options, keep-alive, recommendation slides"),
  ("One 5-drum batch — premium over SNP","=PCIbatch*DrumLb*(PCIq-SNPlb)",CUR,"Chronology and keep-alive slides"),
  ("One batch as % of annual volume","=PCIbatch*DrumLb/(LbWk*Weeks)",'0.0%',"Chronology and options slides"),
