@@ -66,7 +66,7 @@ An interactive dashboard needs behavior and state requirements as well as visual
 | Empty, missing, and zero states | Distinguish no matching records from a valid zero; avoid division by zero. | Exercise all three cases. |
 | Reset and visible state | Show active selections and restore the default state with Reset. | Change multiple controls, reset, and compare the initial view. |
 | Accessibility and layout | Use labeled controls, visible focus, readable contrast, and a usable narrow layout. | Navigate by keyboard and test a smaller window. |
-| Portability and dependencies | Deliver one self-contained HyperText Markup Language (.html) file with embedded data and no required network calls. | Open offline and inspect for missing assets. |
+| Portability and dependencies | Deliver one self-contained HTML (.html) file with embedded data and no required network calls. | Open offline and inspect for missing assets. |
 | Performance | Choose a measurable response target on the training laptop for this dataset. | Time a representative filter change; do not invent a universal target. |
 | Export and reconciliation | If export is needed, export the filtered data and retain the chosen scope. | Compare exported rows with the displayed selection. |
 

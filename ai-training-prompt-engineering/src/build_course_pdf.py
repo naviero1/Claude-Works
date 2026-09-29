@@ -260,16 +260,20 @@ story.append(Paragraph(sanitize(
     'parts, sections follow the slides in their live order, and the deck\u2019s reference appendix is '
     'folded into each chapter at the matching section \u2014 so the book reads in the same sequence the '
     'course is taught, with the depth the live hour has no room for.'), S['chintro']))
+# Slide ranges computed from the owner-final decks (2026-09-29): the main deck is cited by
+# physical slide position (its Part dividers sit at 3, 16, 22; the Part 4 block dividers at
+# 36, 43, 46; the unnumbered reference appendix at 49; closing 64-69), the Reference Deck
+# by its printed numbers (Part 5 divider 47, Part 6 divider 59, reference pages 67-72).
 map_rows = [
-    ('Part 1 \u00b7 Foundations', 'Slides 2\u201315 (+ detail pages 72\u201374)', 'Chapter 1'),
-    ('Part 2 \u00b7 Models and tools', 'Slides 16\u201319', 'Chapter 2'),
-    ('Part 3 \u00b7 Prompt engineering', 'Slides 20\u201332 (+ detail pages 75\u201381, 90\u201391, 102)', 'Chapter 3'),
-    ('Part 4 \u00b7 The application block', 'Slides 33\u201344, the nine-step sequence (+ pages 82, 87\u201389, 92\u2013101, 103)', 'Chapter 4'),
-    ('Part 5 \u00b7 Agentic work', 'Slides 45\u201356 (+ detail pages 83\u201386)', 'Chapter 5'),
-    ('Part 6 \u00b7 Reusable prompts + close', 'Slides 57\u201364 and 70', 'Chapter 6'),
-    ('Reference block', 'Slides 65\u201369 \u2014 closing with the full bibliography', 'Chapter 7'),
+    ('Part 1 \u00b7 Foundations', 'Slides 2\u201315 (+ detail pages 50\u201352)', 'Chapter 1'),
+    ('Part 2 \u00b7 Models and tools', 'Slides 16\u201321', 'Chapter 2'),
+    ('Part 3 \u00b7 Prompt engineering', 'Slides 22\u201335 (+ detail pages 53\u201358)', 'Chapter 3'),
+    ('Part 4 \u00b7 The application block', 'Slides 36\u201348, steps 1\u20138 of the nine-step sequence (+ detail page 59); step 9 and the reference exercise are Reference Deck slides 112 and 102', 'Chapter 4'),
+    ('Part 5 \u00b7 Agentic work', 'Reference Deck slides 47\u201358 (+ main-deck detail pages 60\u201363)', 'Chapter 5'),
+    ('Part 6 \u00b7 Reusable prompts + close', 'Reference Deck slides 59\u201366 and 72', 'Chapter 6'),
+    ('Reference block', 'Reference Deck slides 67\u201371 and main-deck slides 64\u201369 \u2014 glossary, criteria, sources, the making-of', 'Chapter 7'),
     ('Practice material', 'Every exercise source, verbatim: dataset, thread, quotations, research pack, plain-language', 'Appendix A'),
-    ('Answer keys', 'The worked keys \u2014 attempt each exercise first', 'Appendix B'),
+    ('Answer keys', 'Self-check material: the expected result for every exercise \u2014 attempt each exercise first', 'Appendix B'),
     ('The cheat sheet', 'The printable one-page course cheat sheet, unchanged from the separate file', 'Appendix C'),
 ]
 mt = Table([[Paragraph(a, ParagraphStyle('mpa', parent=S['cellh'], textColor=TEAL_D)),
@@ -330,9 +334,21 @@ doc.multiBuild(story)
 # ---- merge the cheat sheet as the final page(s) -------------------------
 cheat = os.path.join(here, '..', 'deliverables', 'From_Prompts_to_Agents_Cheat_Sheet.pdf')
 if os.path.exists(cheat):
+    import shutil
     import subprocess
     merged = out + '.merged'
-    subprocess.run(['pdfunite', out, cheat, merged], check=True)
+    if shutil.which('pdfunite'):
+        subprocess.run(['pdfunite', out, cheat, merged], check=True)
+        how = 'pdfunite'
+    else:  # same result without poppler: append the cheat-sheet page(s) with pymupdf
+        try:
+            import pymupdf
+        except ImportError:  # older installs expose the module only as fitz
+            import fitz as pymupdf
+        with pymupdf.open(out) as book, pymupdf.open(cheat) as sheet:
+            book.insert_pdf(sheet)
+            book.save(merged)
+        how = 'pymupdf (pdfunite not installed)'
     os.replace(merged, out)
-    print('cheat sheet merged as the final page')
+    print(f'cheat sheet merged as the final page ({how})')
 print(f'course pdf written: {out} ({doc.page}+ pages, {len(chapters)} chapters)')

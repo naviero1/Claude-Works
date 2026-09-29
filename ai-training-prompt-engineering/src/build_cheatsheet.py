@@ -67,7 +67,7 @@ def header_footer(cv, doc):
     cv.setFillColor(MUTE); cv.setFont('DV', 6.2)
     # measured at 6.2pt: left+right leave a >15pt gap — the two lines cannot collide
     cv.drawString(M, 0.18 * inch, 'Verification = meets the written criteria · Validation = serves the actual need.')
-    cv.drawRightString(W - M, 0.18 * inch, 'Menus: references/Requirements_by_Artifact.md · source: src/build_cheatsheet.py')
+    cv.drawRightString(W - M, 0.18 * inch, 'Full menus per artifact: references/Requirements_by_Artifact.md')
     cv.restoreState()
 
 
@@ -90,7 +90,7 @@ E.append(box('THE SKELETON — EVERY PROMPT', [
     ('Sources & scope:', 'use [source / version / period]; include [scope]; exclude [items].'),
     ('Selected requirements:', 'only the types that resolve ambiguity for THIS artifact — a simple task needs a few, not all.'),
     ('Acceptance evidence:', 'check [specific result] against [source, calculation, or observable test].'),
-    ('Missing info & boundaries:', 'if [gap or conflict]: state it, ask, or stop. Actions needing review: [actions].'),
+    ('Missing info & finish line:', 'if [gap]: write “Not stated” and list it; if [conflict]: ask or stop. Answer, report limitations, then stop. Actions needing review: [actions].'),
 ], TEAL_T))
 E.append(gap)
 
@@ -119,8 +119,9 @@ E.append(gap)
 
 E.append(box('BEFORE / AFTER — THE SUPPLIER CASE', [
     ('Before:', '“Analyze the supplier data and tell me which supplier is worst.” — the model picks the rows, the metric, and “worst” for you, silently.'),
-    ('After:', '“Supplier_Data_Exercise.xlsx, Data sheet, detail rows only (exclude the TOTAL row; one blank Inspection_Hours cell is missing, not zero). Return rate = total returns ÷ total shipped per supplier, 2025-09 to 2026-08 — sums, never averaged percentages; defects stay separate. Rank, show numerator and denominator, reconcile to the TOTAL row, state one limitation, stop.”'),
-    ('Why it wins:', 'each added line is a requirement type fixing one named weakness.'),
+    ('After — inspect:', '“Before calculating anything, inspect the file. Tell me what one row represents, how many detail rows it contains, whether any values are missing, and whether any total or summary row could be counted twice. Tell me what you would include or exclude, then wait.”'),
+    ('After — analyze:', '“Using detail rows only, calculate each supplier’s return rate as total Units_Returned divided by total Units_Shipped. Rank suppliers from highest to lowest. Show the totals used, reconcile the overall totals to the source file, and state one limitation of the comparison.”'),
+    ('Why it wins:', 'each added line is a requirement type fixing one named weakness — and nothing is calculated before the scope is agreed.'),
 ], AMBER_T, AMBER))
 
 # ---------------- RIGHT: the tasks + checking + delegation ----------------
@@ -128,17 +129,20 @@ E.append(FrameBreak())
 E.append(Paragraph('RUN IT — the course tasks, one habit', S_mode))
 E.append(Paragraph('produce the artifact, then check it against its own acceptance evidence', S_modesub))
 
-E.append(box('THE CORE COURSE TASKS (workbook tabs, training order)', [
-    ('1 Analyze data', '— define the metric and denominator; reconcile; state limits.'),
-    ('2 Build a dashboard', '— specify behavior in plain language: range, filters, grouping, metric switch, drill-down, Reset; one selection re-scopes every view.'),
-    ('3 Present findings', '— one message per slide; findings separated from recommendations; nothing invented.'),
-    ('4 Summarize email', '— current state; decisions WITH conditions; owners and dates; “Not stated” for gaps; replies stay drafts.'),
-    ('5 Explain clearly', '— fifth-grade reading level, adult tone; analogy limits stated; meaning preserved; 3-question check.'),
-    ('+ the extensions', '— Excel charts (returned workbook) · quote extraction · quote comparison · research workbook — same discipline; tabs named in the workbook INDEX.'),
+E.append(box('THE COURSE TASKS (deck order · workbook tab)', [
+    ('Analyze data', '— inspect first, then wait; return rate from totals, detail rows only; rank, reconcile to the source, state one limitation; follow-up = findings, not causes · 1-Analyze-Data.'),
+    ('Excel charts', '— the returned workbook: Summary sheet, native editable charts, traceable formulas, totals reconciled before it returns · Excel-Charts.'),
+    ('Build a dashboard', '— describe the behavior: date range, supplier and site filters, metric selector, trend chart, sortable table, reset; every filter updates every view · 2-Build-Dashboard.'),
+    ('Present findings', '— five slides, one main message each; findings separated from recommendations; no invented causes or commitments · 3-Present-Findings.'),
+    ('Summarize email', '— current status; decisions WITH conditions; owners and due dates; “Not stated” for gaps; cite sender and date; send nothing · 4-Summarize-Email.'),
+    ('Extract quotes', '— values verbatim, original currencies, “Not stated” when absent, source file and page per value; no ranking yet · Quote-Extract.'),
+    ('Compare quotes', '— normalize only with a supplied basis; formulas visible; no best quote until the basis is complete · Quote-Compare.'),
+    ('Self-study', '— research workbook (Research) · explain a topic clearly (5-Explain-Clearly) — same discipline; Reference Deck.'),
 ], TEAL_T))
 E.append(gap)
 
 E.append(box('ACCEPTANCE CHECKS — BEFORE YOU TRUST IT', [
+    ('The loop', '— PLAN the task and the success check · DO run the prompt against the supplied source · CHECK the result against evidence or a known calculation · ACT: fix the specific failure and rerun the affected check.'),
     ('Trace', '— one output number back to its source records.'),
     ('Recompute', '— one calculation independently (code or by hand).'),
     ('Reconcile', '— totals against a number you already trust.'),
@@ -152,13 +156,13 @@ E.append(gap)
 E.append(box('ASK vs DELEGATE', [
     ('ASK', '— request an answer or draft; you read, check, decide. The specification above is enough.'),
     ('DELEGATE', '— assign bounded work: add the inputs register, the checks that stop the run, permissions, gates for irreversible steps, and the finished-report format.'),
-    ('The boundary:', 'prompt instructions request compliance — actual permissions and configured controls determine what a tool can DO. Reversible → proceed; irreversible → ask.'),
+    ('The boundary:', 'a prompt requests behavior; configured permissions and approvals restrict available actions. Reversible? proceed. Irreversible? ask.'),
 ], AMBER_T, AMBER))
 E.append(gap)
 
 E.append(box('SAVE WHAT WORKS', [
     ('Each reusable prompt:', 'name · owner · version · the example that proved it · its acceptance check.'),
-    ('Where:', 'the Course Workbook carries every course prompt in a named tab, in training order (including the Excel-charts, quotation, and research steps); the Template Creator and Configurator offer the same task families with their requirement menus.'),
+    ('Where:', 'the Course Workbook carries every course prompt in a named tab, in deck order; the Prompt Template Creator (one HTML file) offers the same task families, plus explain-a-topic, with their requirement menus.'),
     ('Refresh:', 'facts about products and models expire — date them and re-verify before big reuse.'),
 ], GREEN_T, GREEN))
 

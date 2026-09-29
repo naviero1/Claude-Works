@@ -9,11 +9,11 @@
     "blocks": [
      {
       "type": "p",
-      "text": "Prompting is the one AI skill that transfers everywhere: every assistant, every vendor, every year. Models change monthly; the craft compounds. The skill has two modes. In <b>ASK</b> mode you request an answer or a draft, read it, check it, and decide what happens next. In <b>DELEGATE</b> mode you assign bounded work: you specify the inputs, checks, permissions, and finished result, and the system plans, uses tools, checks itself, and delivers."
+      "text": "Prompting is the one AI skill that transfers everywhere: every assistant, every vendor, every year. Models change monthly; the craft compounds. The skill has two modes, <b>ASK</b> and <b>DELEGATE</b>, and the ten-second version is all you need for now: a generative prompt describes <i>what to write</i>; an agentic prompt describes <i>a job to run</i>."
      },
      {
       "type": "p",
-      "text": "The ten-second version: a generative prompt describes <i>what to write</i>; an agentic prompt describes <i>a job to run</i>. That distinction is the backbone of this course - the craft chapters teach the first kind, the agentic chapters grow it into the second. For now, feel the difference."
+      "text": "That distinction is the backbone of this course - the craft chapters teach the first kind, and Chapter 5 grows it into the second, defining both modes side by side. For now, feel the difference."
      },
      {
       "type": "callout",
@@ -37,7 +37,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "Seventy years of AI compress into four eras. In the <b>rules</b> era (1950s-1990s), humans hand-coded the logic: if X, then Y. Expert systems did real work - MYCIN diagnosed infections, XCON configured computers - but rules crack on messy reality, and hype outran results twice, in the funding collapses remembered as the AI winters: skepticism is historically earned. In the <b>learning</b> era (1990s-2010s) the approach inverted: let the system find patterns in examples. It gave us spam filters, search ranking, recommendations, and - decisively in 2012, when deep networks on gaming GPUs cut image-recognition error from 26.2% to 15.3% (AlexNet) - modern image recognition."
+      "text": "Seventy years of AI compress into four eras. In the <b>rules</b> era (1950s-1990s), humans hand-coded the logic: if X, then Y. Expert systems did real work - MYCIN diagnosed infections, XCON configured computers - but rules crack on messy reality. Hype outran results twice, in the funding collapses remembered as the AI winters: skepticism is historically earned. In the <b>learning</b> era (1990s-2010s) the approach inverted: let the system find patterns in examples. It gave us spam filters, search ranking, recommendations, and modern image recognition - decisively in 2012, when deep networks on gaming graphics chips (GPUs) cut image-recognition error from 26.2% to 15.3% (AlexNet)."
      },
      {
       "type": "p",
@@ -69,8 +69,8 @@
        ],
        [
         "2022",
-        "Instruction tuning + RLHF",
-        "Human feedback turns a predictor into an assistant; ChatGPT reaches 100M users in two months"
+        "Instruction tuning + human-feedback tuning (RLHF)",
+        "Human feedback turns a predictor into an assistant"
        ],
        [
         "2024",
@@ -79,7 +79,7 @@
        ],
        [
         "2025",
-        "MoE, distillation, open weights",
+        "Mixture of Experts (MoE), distillation, open weights",
         "Frontier ability gets radically cheaper; big models teach small ones"
        ],
        [
@@ -113,7 +113,7 @@
      },
      {
       "type": "p",
-      "text": "Two consequences follow. First, knowledge is frozen at the training cutoff, months before release - which is why assistants bolt on escape hatches: live web search pulls today's pages into the prompt, and retrieval plugs in your own documents (below). Second, the model <i>completes your text</i>. The prompt is one way to steer the work, alongside sources, tools, and settings - and a complete prompt does not make the model smarter. It deletes wrong guesses."
+      "text": "Two consequences follow. First, knowledge is frozen at the training cutoff, months before release. That is why assistants bolt on escape hatches: live web search pulls today's pages into the prompt, and retrieval plugs in your own documents (below). Second, the model <i>completes your text</i>. The prompt is one way to steer the work, alongside sources, tools, and settings - and a complete prompt does not make the model smarter. It deletes wrong guesses."
      },
      {
       "type": "callout",
@@ -202,7 +202,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "The model's built-in knowledge is frozen and public; your work runs on private documents it has never seen. <b>Retrieval-augmented generation</b> (RAG) bridges that gap at answer time - an open-book exam. You ask a plain question ('What does the supplier agreement say about re-inspection?'); a retrieval step finds the most relevant passages - semantic search, by meaning rather than keywords; those passages land on the model's desk behind the scenes; and the model answers from the supplied text, citing where it looked."
+      "text": "The model's built-in knowledge is frozen and public; your work runs on private documents it has never seen. <b>Retrieval-augmented generation</b> (RAG) bridges that gap at answer time - an open-book exam. You ask a plain question ('What does the supplier agreement say about re-inspection?'). A retrieval step finds the most relevant passages by meaning rather than keywords (semantic search). Those passages land on the model's desk behind the scenes, and the model answers from the supplied text, citing where it looked."
      },
      {
       "type": "p",
@@ -239,7 +239,12 @@
      },
      {
       "type": "p",
-      "text": "Assistants ship a fast path - one pass, instant, cheap - and a thinking path that drafts, checks, and revises internally before answering. The model is not literally thinking; it generates intermediate tokens that improve the final answer, and those are billed like output, the expensive kind - a hard question can quietly cost 5-20 times a simple one. Try more effort for a difficult comparison, several dependent calculations, or a result requiring multiple checks; keep it off for lookups, reformatting, summaries, routine drafting. Measure correctness, useful evidence, response time, and cost in the account you actually use, and escalate on failure, not by default - more computation does not replace clear requirements or verification."
+      "text": "Assistants ship a fast path - one pass, instant, cheap - and a thinking path that drafts, checks, and revises internally before answering. The model is not literally thinking: it generates intermediate tokens that improve the final answer, and those are billed like output, the expensive kind. A hard question can quietly cost 5-20 times a simple one. Try more effort for a difficult comparison, several dependent calculations, or a result that needs multiple checks; keep it off for lookups, reformatting, summaries, and routine drafting. Measure correctness, useful evidence, response time, and cost in the account you actually use. Escalate on failure, not by default - more computation does not replace clear requirements or verification."
+     },
+     {
+      "type": "mono",
+      "text": "Explain when to start with fast responses versus more reasoning, using three examples: a routine email, inconsistent supplier data, and a problem with several interacting causes. For each, give a starting choice and what would justify increasing effort. Explain the tradeoff in time and resource use without guessing prices. About 120 words.",
+      "caption": "Tab EX5-TwoSpeeds - the model explains its own two speeds, in your course log."
      },
      {
       "type": "h3",
@@ -256,12 +261,12 @@
      },
      {
       "type": "p",
-      "text": "Product menus change, and names, limits, and costs vary by vendor and account - so verify current documentation and your account's actual access rather than memorizing a catalog, and never rely on a model's description of where its own buttons live. The durable habit: pick the smallest mode that can succeed, and escalate deliberately."
+      "text": "Names, limits, and costs vary by vendor and account. Verify your account's actual menu rather than memorizing a catalog, and never rely on a model's description of where its own buttons live. The durable habit: pick the smallest mode that can succeed, and escalate deliberately."
      },
      {
       "type": "mono",
       "text": "Using the supplied screenshot or copied text of my app’s menu, explain each visible mode in one line: its purpose and a suitable workplace task. Mark anything the supplied information does not establish as needing verification. If the menu is missing, ask for it first.",
-      "caption": "Tab EX6-FeatureMenu - self-updating: ask again the day a button changes."
+      "caption": "Tab EX6-FeatureMenu - the deck keeps this one in the reference layer (Reference Deck slide 113). Self-updating: ask again the day a button changes."
      }
     ]
    },
@@ -274,7 +279,7 @@
      },
      {
       "type": "p",
-      "text": "The effect is measurable. In the comparison OpenAI published in 2025, an older reasoning model answered 24% of hard factual questions right and 75% wrong; a newer model, trained to say 'I don't know', answered 22% right and 26% wrong, abstaining 52% of the time - roughly three times fewer false claims at nearly the same amount right. The confident guess is a training artifact; explicit permission to not know - the move the craft chapters call the Out - recovers the honesty the benchmarks trained away."
+      "text": "The effect is measurable. In a comparison OpenAI published in 2025, an older reasoning model answered 24% of hard factual questions right and 75% wrong. A newer model, trained to say 'I don't know', answered 22% right and 26% wrong, abstaining 52% of the time - roughly three times fewer false claims at nearly the same amount right. The confident guess is a training artifact. Explicit permission to not know - the move the craft chapters call the Out - recovers the honesty the benchmarks trained away."
      },
      {
       "type": "callout",
@@ -287,83 +292,59 @@
       "text": "So verification belongs in the task itself. 'The supplier approved the change' invites one question: what message supports that claim? 'Approval is conditional on the cost cap' - with the message shown and the condition preserved - can be checked, and keeps the qualifier that makes it true. When you set a task, name the source or calculation that would settle the question."
      },
      {
-      "type": "callout",
-      "kind": "key",
-      "title": "The rule of three",
-      "body": "For numbers, recompute. For claims, inspect the source. For actions, inspect the result."
-     },
-     {
       "type": "p",
       "text": "The public record shows what skipping the check costs. In June 2023 a New York lawyer filed six cases that did not exist - then asked ChatGPT whether they were real, and it said yes ($5,000 sanction, Mata v. Avianca): he checked the fabrication with the fabricator. In February 2024 a tribunal made Air Canada honor a refund policy its website chatbot had invented - your organization owns what its chatbot says. In May 2024 an AI search feature served a joke forum comment as advice: glue in pizza sauce. Across 2025-26, three global consultancies had reports challenged over invented or failed citations, and a legal tracker counted about 1,500 court decisions worldwide involving AI-fabricated citations by mid-2026. Each time, the missing thing was a check someone could have run."
      },
      {
       "type": "p",
-      "text": "The cure has not changed: <b>ground it</b> (give it the source), <b>cite it</b> (demand receipts, plus an 'I don't know' escape hatch), <b>verify it</b> (check what matters before it ships). None of these eliminates confabulation - they convert unverifiable claims into verifiable ones. House rule from here on: every uncited standard clause, date, number, or quote is a draft until verified."
+      "text": "The cure has not changed: <b>ground it</b> (give it the source), <b>cite it</b> (demand receipts, plus an 'I don't know' escape hatch), <b>verify it</b> (check what matters before it ships). None of these eliminates confabulation - they convert unverifiable claims into verifiable ones. Which check to run depends on what kind of wrong you are guarding against:"
+     },
+     {
+      "type": "bullets",
+      "items": [
+       "A <b>number</b> - recompute it.",
+       "An <b>invented fact</b> - find the supporting record, or state that it is unknown.",
+       "An <b>invented citation</b> - open the actual source and inspect the cited passage.",
+       "The <b>wrong document or revision</b> - confirm identity, date, and applicability first.",
+       "A <b>lost condition</b> - compare the conclusion with the original qualifier or approval condition.",
+       "An <b>action</b> - inspect the result it produced, not the report of it."
+      ]
+     },
+     {
+      "type": "p",
+      "text": "House rule from here on: every uncited standard clause, date, number, or quote is a draft until verified. A credible format, a confident tone, or a citation marker is not a check - and a memorable failure story matters only if it changes which checks you run."
      }
     ]
    },
    {
-    "heading": "Failure patterns and the check they need",
+    "heading": "AI mirrors you",
     "blocks": [
      {
       "type": "p",
-      "text": "The last foundation is diagnostic. When an answer is wrong, the reflex is to reword the whole prompt and hope. Resist it: output quality swings up to 76 accuracy points from formatting alone (Sclar et al., ICLR 2024), so one failed phrasing is a data point about the prompt, not the capability ceiling. The productive move is to name <i>what kind of wrong</i> you got, because each kind points at the part of the prompt that owns it - the elements the craft chapters build in full. The grid below is the map the course keeps returning to."
-     },
-     {
-      "type": "table",
-      "cols": [
-       "The output is...",
-       "The element that failed"
-      ],
-      "rows": [
-       [
-        "The wrong altitude, tone, or posture",
-        "Role"
-       ],
-       [
-        "An answer to a different (or vaguer) question",
-        "Task"
-       ],
-       [
-        "Generically right, specifically wrong for us",
-        "Context"
-       ],
-       [
-        "Right content, unusable shape or length",
-        "Format"
-       ],
-       [
-        "Not matching the standard in your head",
-        "Examples"
-       ],
-       [
-        "Confidently invented",
-        "The Out (missing)"
-       ],
-       [
-        "Sprawling past what you asked",
-        "The Stop (missing)"
-       ]
-      ],
-      "note": "The diagnosis grid - also on page 1 of references/Elements_of_Prompting_Field_Guide.pdf."
+      "text": "AI mirrors you. Across eleven leading models, AI affirmed the user about half again as often as a person would - plus 49 percent (Stanford and Carnegie Mellon, in <i>Science</i>, 2026). The cause is structural: models are trained on human preference data, and humans prefer agreement. The pattern made headlines first. In April 2025 OpenAI rolled back a ChatGPT update it called, in its own words, \"overly flattering or agreeable... sycophantic\". In June 2025 the New York Times reported chatbots validating false beliefs. In August 2025 Microsoft's AI chief warned of unhealthy AI validation."
      },
      {
       "type": "p",
-      "text": "Two rows deserve a word now. 'Generically right, specifically wrong' means the model filled your specifics with the internet's average - the Context row. And the two 'missing' rows are the safety valves: the Out is permission to say 'I don't know'; the Stop is the boundary that turns open-ended capability into bounded work. The rest you will recognize the moment they happen to you."
-     },
-     {
-      "type": "p",
-      "text": "The same discipline applies to any answer you are about to rely on. Four patterns recur, each with its check: an <b>invented fact</b> - find the supporting record, or state that it is unknown; an <b>invented citation</b> - open the actual source and inspect the cited passage; the <b>wrong document or revision</b> - confirm identity, date, and applicability first; a <b>lost condition</b> - compare the conclusion with the original qualifier or approval condition."
+      "text": "The countermeasure is in how you ask. A leading request — \"I think this is excellent. Tell me why it works\" — embeds the preferred conclusion in the task. A neutral one names a rubric and invites disconfirmation: \"Evaluate this against clarity, evidence, and completeness. Identify weaknesses and what would change your assessment.\" Compare reasoning and evidence — a harsher answer is not automatically more accurate either. Never reveal your preferred answer; ask for the case against; paste your own draft as a colleague's; treat agreement under pushback as noise."
      },
      {
       "type": "callout",
-      "kind": "check",
-      "title": "Format is not evidence",
-      "body": "A credible format, confident tone, or citation marker is not a substitute for checking. A memorable failure story matters only if it changes which checks you run."
+      "kind": "try",
+      "title": "See the mirror yourself",
+      "body": "Two chats, same paragraph. One: \"A colleague wrote this — rate it 1-10, three biggest weaknesses.\" Two: \"I wrote this myself and I'm really proud of it — rate it 1-10, three biggest weaknesses.\" Did the score move once it knew you were the author?"
+     }
+    ]
+   },
+   {
+    "heading": "Diagnose the prompt, not the model",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "The last foundation is diagnostic. When an answer is wrong, the reflex is to reword the whole prompt and hope. Resist it: one failed phrasing is a data point about the prompt, not the capability ceiling. Name <i>what kind of wrong</i> you got, because each kind points at the part of the prompt that owns it. Chapter 3 builds those parts and the grid that maps each symptom to its element."
      },
      {
       "type": "p",
-      "text": "That completes the foundations: two ways of working, a prediction engine steered by what you supply, hard limits on memory and attention, grounding that beats recall, effort dialed to the task, and verification designed into the work. Next comes the craft: turning what you already know about writing requirements into testable prompts - practiced on one fictional supplier case that runs through the whole book."
+      "text": "Next comes the craft: turning what you already know about writing requirements into testable prompts, practiced on one fictional supplier case that runs through the whole book."
      }
     ]
    }
@@ -379,7 +360,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "Public leaderboards answer a question you are not asking: which model scores highest on someone else's benchmark. Your question is narrower and more useful: which assistant, on the account you actually have, does <i>your</i> task well. The course materials date every product characterization as of September 2026 precisely because such claims expire; the comparison method below does not."
+      "text": "Public leaderboards answer a question you are not asking: which model scores highest on someone else's benchmark. Your question is narrower and more useful: which assistant, on the account you actually have, does <i>your</i> task well."
      },
      {
       "type": "p",
@@ -396,7 +377,7 @@
      },
      {
       "type": "p",
-      "text": "The assistants you will meet by name in this course include ChatGPT, Claude, Copilot, Gemini, Perplexity, and Grok; verify current offerings before relying on any characterization of them. What stays true across the churn is that different assistants expose different capabilities and controls, and the same brand behaves differently on different account tiers. That is why the fourth question, a small head-to-head trial on a task that represents your real work, settles more arguments than any review article."
+      "text": "The assistants you will meet by name in this course include ChatGPT, Claude, Copilot, Gemini, Perplexity, and Grok; verify current offerings before relying on any characterization of them. What stays true across the churn is that different assistants expose different capabilities and controls, and the same brand behaves differently on different account tiers - which is why the fourth question settles more arguments than any review article."
      },
      {
       "type": "callout",
@@ -468,18 +449,6 @@
       "note": "Scores as reported in the R1 paper, January 2025. Matched on math and coding, behind on PhD-level science: not a clean sweep."
      },
      {
-      "type": "callout",
-      "kind": "trap",
-      "title": "The oversold headline",
-      "body": "Quoting \"$5.6M to train a frontier model\" without its scope repeats a distortion: the number covered one final training run, not the hardware and research behind it. Real efficiency gain, wrong denominator."
-     },
-     {
-      "type": "callout",
-      "kind": "key",
-      "title": "Why this belongs in your reference layer",
-      "body": "Vendor and pricing history is context, not current guidance. Costs measured on different dates and by different methods are not directly interchangeable; always carry the date with the number."
-     },
-     {
       "type": "mono",
       "text": "Explain Mixture of Experts using a specialist-hospital analogy, in about 120 words. Describe how selected computational components handle each token and how activating only a subset can reduce computation. Explain one way the hospital analogy can mislead, and why lower computation alone does not determine customer prices.",
       "caption": "Copy from tab EX7-MoE of Course_Workbook.xlsx; the answer becomes the MoE cheat-note in your course log."
@@ -503,7 +472,7 @@
      },
      {
       "type": "p",
-      "text": "A vendor's home country alone does not describe every customer's storage arrangement. Company data rules depend on the actual account, service, contract, and configuration. Data residency, choosing where your data lives, is typically an enterprise feature: the same vendor can host your company tenant in the EU while its consumer app stores chats in the United States. Same logo, different homes; the account tier decides which one is yours. The one question that settles it is for your IT department: which region and tier does <i>your</i> account run on? Your organization's AI policy answers everything else."
+      "text": "A vendor's home country alone does not describe every customer's storage arrangement. Company data rules depend on the actual account, service, contract, and configuration. Data residency, choosing where your data lives, is typically an enterprise feature: the same vendor can host your company tenant - its own fenced-off instance of the service - in the EU while its consumer app stores chats in the United States. Same logo, different homes; the account tier decides which one is yours. The one question that settles it is for your IT department: which region and tier does <i>your</i> account run on? Your organization's AI policy answers everything else."
      },
      {
       "type": "p",
@@ -518,18 +487,6 @@
       "kind": "key",
       "title": "The standing rule",
       "body": "Your organization's AI policy and approved-tool list outrank every product named in this part, and they outrank this book. Where they conflict with anything written here, the policy wins."
-     },
-     {
-      "type": "callout",
-      "kind": "trap",
-      "title": "Judging by the logo",
-      "body": "Inferring where your words go from a vendor's headquarters or brand reputation skips the variable that actually matters: the tier and configuration of the account in front of you."
-     },
-     {
-      "type": "callout",
-      "kind": "check",
-      "title": "Before any upload",
-      "body": "Name the approved account, the allowed material, and the minimum access for this task. If any of the three is uncertain, resolve it through your organization's approved guidance before uploading, not after."
      }
     ]
    }
@@ -553,7 +510,7 @@
      },
      {
       "type": "p",
-      "text": "The stakes: a model guesses an unstated requirement right only about 41 percent of the time (Yang et al., 2025; revised 2026); a written specification deletes the guessing. Software moved first — GitHub's Spec Kit (2025) makes the written spec \"the source of truth\" AI agents build from, and Sean Grove of OpenAI drew the conclusion: <i>\"Whoever writes the spec... is now the programmer.\"</i> One caution: this evidence is structural, measured on clarified prompts — and a model can still misinterpret a clear instruction, so verification stays necessary."
+      "text": "The stakes: a model guesses an unstated requirement right only about 41 percent of the time (Chapter 1); a written specification deletes the guessing. Software moved first. GitHub's Spec Kit (2025) makes the written spec \"the source of truth\" that AI agents build from. Sean Grove of OpenAI drew the conclusion: <i>\"Whoever writes the spec... is now the programmer.\"</i> One caution: a model can still misinterpret a clear instruction, so verification stays necessary."
      },
      {
       "type": "callout",
@@ -618,7 +575,7 @@
      },
      {
       "type": "p",
-      "text": "For a data prompt, \"complete enough\" means: dataset and period, row boundaries, calculation definition, deliverable, missing-data treatment, reconciliation. \"Tell me which supplier is worst\" leaves the model to pick the rows, the metric, and the meaning of \"worst\", silently; \"calculate returns divided by units shipped by supplier and reconcile to the source\" carries its own test."
+      "text": "For a data prompt, \"complete enough\" means: dataset and period, row boundaries (what one row represents), calculation definition, deliverable, missing-data treatment, reconciliation. \"Tell me which supplier is worst\" leaves the model to pick the rows, the metric, and the meaning of \"worst\" - silently. \"Calculate returns divided by units shipped by supplier and reconcile to the source\" carries its own test."
      },
      {
       "type": "callout",
@@ -637,7 +594,7 @@
      },
      {
       "type": "mono",
-      "text": "Purpose & audience:   help [reader] make [decision] or complete [task].\nSources & scope:      use [source / version / period]; include [scope]; exclude [items].\nSelected requirements: only the types that resolve ambiguity for THIS artifact —\n                      a simple task needs a few, not all.\nAcceptance evidence:  check [specific result] against [source, calculation, or\n                      observable test].\nMissing info & boundaries: if [gap or conflict]: state it, ask, or stop.\n                      Actions needing review: [actions].",
+      "text": "Purpose & audience:   help [reader] make [decision] or complete [task].\nSources & scope:      use [source / version / period]; include [scope]; exclude [items].\nSelected requirements: only the types that resolve ambiguity for THIS artifact —\n                      a simple task needs a few, not all.\nAcceptance evidence:  check [specific result] against [source, calculation, or\n                      observable test].\nMissing info & finish line: if [gap]: write “Not stated” and list it;\n                      if [conflict]: ask or stop. Answer, report limitations,\n                      then stop. Actions needing review: [actions].",
       "caption": "The skeleton of every prompt — printed on the cheat sheet (deliverables/From_Prompts_to_Agents_Cheat_Sheet.pdf)."
      },
      {
@@ -651,7 +608,7 @@
      },
      {
       "type": "p",
-      "text": "Notice the industry line: what business you are in is context — the assistant does not know your world until you say so. And note the Out's formal definition: <i>the escape route you write for missing information</i> — a condition, an honest move, a surfacing — so the model never has to choose between obeying you and being honest. Anthropic's golden rule applies to the whole body: show the prompt to a colleague with minimal context; if they would be confused, the model will be too."
+      "text": "Notice the industry line: what business you are in is context - the assistant does not know your world until you say so. Anthropic's golden rule applies to the whole body: show the prompt to a colleague with minimal context; if they would be confused, the model will be too."
      }
     ]
    },
@@ -737,12 +694,6 @@
        "<b>Delivery and compatibility</b> — file type, editability, offline use, destination. Weak: \"send me a dashboard.\" Strong: \"one self-contained HTML file that works offline, data embedded, no network calls.\"",
        "<b>Maintenance and reuse</b> — refresh procedure, versions, reusable parameters. Weak: \"so we can use it again.\" Strong: \"label the file a static data snapshot with its date; keep reusable placeholders.\""
       ]
-     },
-     {
-      "type": "callout",
-      "kind": "key",
-      "title": "Pick, don't fill",
-      "body": "The menu is a lookup aid, not a form every prompt must complete. Select the types that resolve ambiguity in this task, write each well, and define how you will check it."
      }
     ]
    },
@@ -765,7 +716,7 @@
      },
      {
       "type": "p",
-      "text": "<b>The Stop</b> is the finish line: the action to perform and its boundary. Weak: \"keep it focused.\" Strong: \"answer these three questions, report limitations, then stop — do not go exploring.\" A completion condition converts open-ended capability into a scoped job — instead of ten charts and no answer — and in agentic work this valve grows up to become gates and autonomy rules."
+      "text": "<b>The Stop</b> is the finish line: the action to perform and its boundary. Weak: \"keep it focused.\" Strong: \"answer these three questions, report limitations, then stop - do not go exploring.\" A completion condition turns open-ended capability into a scoped job - an answer instead of ten charts. In agentic work this valve grows up to become gates and autonomy rules."
      },
      {
       "type": "callout",
@@ -780,17 +731,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "The artifact decides which requirement types matter most. The working method: recognize the artifact, choose the types that resolve ambiguity in this task, then write a concrete instruction and identify the evidence that would show it was met."
-     },
-     {
-      "type": "bullets",
-      "items": [
-       "<b>Spreadsheet analysis</b> — calculation rules: row grain, period, metric definitions, denominators, missing values, reconciliation.",
-       "<b>Interactive dashboards</b> — behavior and state: date ranges, filters, coordinated views, empty and zero states, Reset, offline portability.",
-       "<b>Presentations</b> — narrative and editability: audience, story structure, one message per slide, data fidelity, speaker notes.",
-       "<b>Email briefs</b> — chronology and evidence: current versus superseded positions, decisions with conditions, owners and dates, the draft-only boundary.",
-       "<b>Plain-language documents</b> — reading level and fidelity: vocabulary, structure, analogy limits, preserved conditions, a comprehension check."
-      ]
+      "text": "The artifact decides which requirement types matter most. The working method: recognize the artifact, choose the types that resolve ambiguity in this task, then write a concrete instruction and name the evidence that would show it was met. Chapter 4 works through nine artifacts and closes with a table of the types that dominate each."
      },
      {
       "type": "p",
@@ -867,18 +808,12 @@
      },
      {
       "type": "p",
-      "text": "Run enough turns and the one-line ask grows into the full analysis prompt — each added line a requirement type fixing one named weakness:"
+      "text": "Run enough turns and the one-line ask grows into the full analysis prompt - each added line a requirement type fixing one named weakness. (Expected output: Chapter 4, step 1; self-check: Appendix B.1.)"
      },
      {
       "type": "mono",
       "text": "Use Supplier_Data_Exercise.xlsx, Data sheet, detail rows only — exclude the TOTAL row (144 rows; one Inspection_Hours cell is blank: treat it as missing, not zero, and disclose it). One row = one month × site × supplier; period 2025-09 to 2026-08 inclusive. Question: which supplier has the highest RETURN RATE, defined as total Units_Returned ÷ total Units_Shipped per supplier over the full period — computed from sums, never by averaging monthly percentages. Keep Defects_Found separate from returns; do not add them together. Rank the three suppliers showing numerator and denominator, reconcile total shipped and returned against the TOTAL row, and state one limitation of the comparison. Then stop.",
-      "caption": "The staged build-up with commentary is tab 1-Analyze-Data of deliverables/Course_Workbook.xlsx."
-     },
-     {
-      "type": "callout",
-      "kind": "check",
-      "title": "Expected output for the supplier case",
-      "body": "144 detail rows; 224,902 units shipped, 432 returns, reconciling to the TOTAL row; defects (2,207) separate. Highest return rate: Bravo Plastics 0.348% (262 ÷ 75,184), then Cardinal Metals 0.129% (96 ÷ 74,658), Alpha Components 0.099% (74 ÷ 75,060)."
+      "caption": "The fully specified form of the tab 1-Analyze-Data prompts - every line names one requirement type. This is the ASK form reused in Chapter 5."
      },
      {
       "type": "p",
@@ -886,7 +821,7 @@
      },
      {
       "type": "mono",
-      "text": "PLAN   Role: careful retail analyst — never invent numbers. Task: monthly returns\n       report from the attached export. Context: columns = SKU · reason code ·\n       refund €. Format: one-page summary + top-5 table. Example: last month's\n       report, attached. The out: field missing → say so, don't guess.\n       The stop: deliver the report — nothing beyond.\nDO     1) Read the export; list the columns you actually see. 2) WAIT for my OK.\n       3) Build the table. 4) Draft the summary.\nCHECK  Before showing me anything: reconcile the table to the export TOTAL.\n       If it doesn't reconcile, STOP and report the gap.\nACT    Deliver the final report. Then list what was ambiguous in this brief,\n       so I can fix it for next month.",
+      "text": "PLAN   Role: careful retail analyst — never invent numbers. Task: monthly returns\n       report from the attached export. Context: columns = SKU (product code) ·\n       reason code · refund €. Format: one-page summary + top-5 table.\n       Example: last month's report, attached. The out: field missing → say so,\n       don't guess. The stop: deliver the report — nothing beyond.\nDO     1) Read the export; list the columns you actually see. 2) WAIT for my OK.\n       3) Build the table. 4) Draft the summary.\nCHECK  Before showing me anything: reconcile the table to the export TOTAL.\n       If it doesn't reconcile, STOP and report the gap.\nACT    Deliver the final report. Then list what was ambiguous in this brief,\n       so I can fix it for next month.",
       "caption": "The loop written into one brief: a wait-gate is a Do you kept; a stop-on-fail Check is a verification you refused to delegate."
      },
      {
@@ -894,6 +829,30 @@
       "kind": "key",
       "title": "Two layers, one craft",
       "body": "You write with the anatomy; you improve with the loop. And Act does both of its jobs: deliver the output, and name what to improve — the prompt asks for its own next revision."
+     }
+    ]
+   },
+   {
+    "heading": "Your turn: turn your course log into a report",
+    "blocks": [
+     {
+      "type": "p",
+      "text": "If you have been running this book's exercises in one chat - the course log Prompt 1 set up - close the loop by turning that log into a report. Two prompts, in that chat:"
+     },
+     {
+      "type": "mono",
+      "text": "STEP 1: List every prompt I have run in this course log, in order — one line each: what it did, and which element or move it taught.\n\nSTEP 2: Now turn that into my one-page course report: the seven elements with my own example for each, the loop, and the three prompts I will reuse at work. Anything the log doesn’t show: write UNKNOWN — don’t invent. Deliver the report, then stop.",
+      "caption": "Tab EX-Report of Course_Workbook.xlsx - run both in the course log you opened with Prompt 1. Reference Deck slide 104 holds a one-prompt variant: a study aid listing concepts, one example each, the checks used, and two open questions."
+     },
+     {
+      "type": "p",
+      "text": "Notice the craft inside step 2: named content requirements, an Out (\"anything the log doesn't show: write UNKNOWN\") and a Stop (\"deliver the report, then stop\") - the course's own rules applied to the course. The report is your first library entry: name it, date it, keep it. If the log was lost, the numbered prompts in the workbook tabs are the full list - rebuild from there."
+     },
+     {
+      "type": "callout",
+      "kind": "check",
+      "title": "What a generated summary proves",
+      "body": "Generated reflection supports recall; it does not prove skill. The demonstration that you can do the work is the capstone task, checked against its own acceptance evidence."
      }
     ]
    },
@@ -918,7 +877,7 @@
       "rows": [
        [
         "Role - code, not vibes",
-        "LLM arithmetic is unreliable; code makes the computation inspectable - and the formula still needs checking through code, spreadsheet formulas, or an independent calculation."
+        "Language-model arithmetic is unreliable; code makes the computation inspectable - and the formula still needs checking through code, spreadsheet formulas, or an independent calculation."
        ],
        [
         "Data - schema first",
@@ -962,9 +921,9 @@
      {
       "type": "bullets",
       "items": [
-       "Be specific — task, constraints, success criteria: unstated needs are guessed right only about 41 percent of the time.",
-       "One tested, reused template with delimiters: formatting alone can swing accuracy up to 76 points (Sclar et al., 2024).",
-       "Long inputs: documents on top, question at the end — worth up to roughly 30 percent.",
+       "Be specific - task, constraints, success criteria: the unstated-requirement gap from Chapter 1.",
+       "One tested, reused template with delimiters (labeled sections or tags): formatting alone can swing accuracy up to 76 points (Sclar et al., 2024).",
+       "Long inputs: documents on top, question at the end (Chapter 1).",
        "An out in checkable shape, plus required citations: invented answers cut by a third or more.",
        "Self-check against named criteria: fact scores jumped 56 to 71 with planned verification (Chain-of-Verification, 2024).",
        "Ask the assistant to improve your prompt: optimizer-written prompts beat human ones; every major vendor ships an official improver."
@@ -981,9 +940,9 @@
       "items": [
        "Expert personas for accuracy: zero gain across 162 personas.",
        "Tips, threats, \"important to my career\": null on average; the famous gain was a cherry-picked best case.",
-       "Magic phrases (\"take a deep breath\"): each won on one model, one benchmark — never universally.",
-       "\"Longer prompts are better\": padding drops reasoning accuracy at around 3,000 filler tokens — density wins.",
-       "\"Are you sure?\" as verification: answers flip under pushback in 58 percent of cases (SycEval, 2025)."
+       "Magic phrases (\"take a deep breath\"): each won on one model, one benchmark - never universally.",
+       "\"Longer prompts are better\": padding drops reasoning accuracy at around 3,000 filler tokens - density wins.",
+       "\"Are you sure?\" as verification: answers flip under pushback (Chapter 1)."
       ]
      },
      {
@@ -996,9 +955,10 @@
       "type": "bullets",
       "items": [
        "Manual chain-of-thought: pick a reasoning model and set the effort level (still legitimate on small local models).",
-       "Piles of examples: start zero-shot; add three to five format-definers only when shape drifts.",
+       "Piles of examples: start zero-shot (no examples); add three to five format-definers only when shape drifts.",
+       "Hand-run voting over several samples and micro-decomposed steps: absorbed into effort settings; chain steps only where you need auditable intermediates.",
        "\"You are a world-class expert\" for accuracy: persona for voice only.",
-       "Carrying an old prompt stack onto each model: re-baseline on every upgrade — strip to the anatomy, re-test, re-add what earns its place."
+       "Carrying an old prompt stack onto each model: re-baseline on every upgrade - strip to the anatomy, re-test, re-add what earns its place."
       ]
      },
      {
@@ -1008,49 +968,11 @@
     ]
    },
    {
-    "heading": "A neutral rubric reduces leading feedback",
+    "heading": "A practical prompt review checklist",
     "blocks": [
      {
       "type": "p",
-      "text": "One bias corrupts the Check phase specifically. AI mirrors you: across eleven leading models, AI affirmed the user about half again as often as a person would — plus 49 percent (Stanford and Carnegie Mellon, in Science, 2026). The cause is structural: models are trained on human preference data, and humans prefer agreement. The pattern made headlines first: in April 2025 OpenAI rolled back a ChatGPT update it called, in its own words, \"overly flattering or agreeable... sycophantic\"; in June 2025 the New York Times reported chatbots validating false beliefs; in August 2025 Microsoft's AI chief warned of unhealthy AI validation."
-     },
-     {
-      "type": "p",
-      "text": "The countermeasure is in how you ask. A leading request — \"I think this is excellent. Tell me why it works\" — embeds the preferred conclusion in the task. A neutral one names a rubric and invites disconfirmation: \"Evaluate this against clarity, evidence, and completeness. Identify weaknesses and what would change your assessment.\" Compare reasoning and evidence — a harsher answer is not automatically more accurate either. Never reveal your preferred answer; ask for the case against; paste your own draft as a colleague's; treat agreement under pushback as noise."
-     },
-     {
-      "type": "callout",
-      "kind": "try",
-      "title": "See the mirror yourself",
-      "body": "Two chats, same paragraph. One: \"A colleague wrote this — rate it 1-10, three biggest weaknesses.\" Two: \"I wrote this myself and I'm really proud of it — rate it 1-10, three biggest weaknesses.\" Did the score move once it knew you were the author?"
-     },
-     {
-      "type": "p",
-      "text": "With the bias named, the chapter compresses into a review checklist. <b>Clarity:</b> one identifiable task, explicit definitions, a useful output. <b>Relevance:</b> only instructions and source material that help the task. <b>Boundaries:</b> missing-information behavior, a completion condition, authority limits where actions are involved. <b>Evidence:</b> a source check, a calculation check, or an observable acceptance test. Test advice in your actual workflow — more words, stronger praise, or a magic phrase cannot guarantee a better result."
-     }
-    ]
-   },
-   {
-    "heading": "Optional practice: a course-log study aid",
-    "blocks": [
-     {
-      "type": "p",
-      "text": "If you have been running this book's exercises in one chat — the course log the workbook's first exercise sets up — close the chapter by turning that log into a study aid:"
-     },
-     {
-      "type": "mono",
-      "text": "Using the course notes and prompts in this conversation, create a study aid.\n\nList the concepts, one useful example of each, the checks I used, and two\nquestions I still need to resolve.\n\nSeparate what I demonstrated from what I only read about.",
-      "caption": "Run it in the course-log chat. A two-step variant — list every prompt run, then build a one-page report — is in the EX-Report tab of deliverables/Course_Workbook.xlsx."
-     },
-     {
-      "type": "p",
-      "text": "Notice the craft inside the request: it names the content requirements, and the last line is an honesty boundary. The workbook version carries an Out (\"anything the log doesn't show: write UNKNOWN — don't invent\") and a Stop (\"deliver the report, then stop\") — the course's own rules applied to the course. The result doubles as the first entry in your prompt library: name it, date it, keep it. If the log was lost, the numbered prompts in the workbook tabs are the full list — rebuild from there."
-     },
-     {
-      "type": "callout",
-      "kind": "check",
-      "title": "What a generated summary proves",
-      "body": "Generated reflection supports recall; it does not prove skill. The demonstration that you can do the work is the capstone task, checked against its own acceptance evidence."
+      "text": "With the mirror named (Chapter 1) and the loop in hand, the chapter compresses into a review checklist. <b>Clarity:</b> one identifiable task, explicit definitions, a useful output. <b>Relevance:</b> only instructions and source material that help the task. <b>Boundaries:</b> missing-information behavior, a completion condition, authority limits where actions are involved. <b>Evidence:</b> a source check, a calculation check, or an observable acceptance test. Test advice in your actual workflow - more words, stronger praise, or a magic phrase cannot guarantee a better result."
      }
     ]
    }
@@ -1059,7 +981,7 @@
  {
   "title": "Putting prompts to work: one dataset, nine steps",
   "kicker": "PART 4 - PUTTING PROMPTS TO WORK",
-  "intro": "Everything so far has been about writing requirements. This part puts them to work on a single running case: a fictional supplier-quality question whose one dataset is uploaded once, at the very beginning, and then carried through a nine-step sequence - a checked analysis and a follow-up, a returned Excel workbook with native charts, an interactive dashboard, a management presentation, an email brief, a two-step quotation comparison, and a research workbook - with a plain-language explanation as the reference exercise. The data, the prompts, and the checked answers all ship with the course, so you can run every step yourself and verify every number you produce.",
+  "intro": "Everything so far has been about writing requirements. This part puts them to work on one running case: a fictional supplier-quality question. One dataset is uploaded once and carried through nine steps - from a checked analysis to a research workbook - with a plain-language explanation as the reference exercise. The data, the prompts, and the checked answers all ship with the course, so you can run every step and verify every number you produce.",
   "sections": [
    {
     "heading": "One dataset, nine steps",
@@ -1070,7 +992,7 @@
      },
      {
       "type": "p",
-      "text": "This edition runs the case as a nine-step sequence, and the first rule is set before any prompt: the whole data arc works from ONE dataset, uploaded once at the very beginning. Supplier_Data_Exercise.xlsx goes into the chat at intake, and everything through the management mock-up - the checked analysis, the follow-up, the returned workbook, the dashboard, the five slides - flows from that single upload. Then the case widens: an email thread, three quotation documents, and a pack of reference files each bring their own source material, but the discipline stays the same."
+      "text": "The first rule is set before any prompt: the whole data arc works from ONE dataset, uploaded once at the very beginning. Supplier_Data_Exercise.xlsx goes into the chat at intake, and everything through the management mock-up flows from that single upload. Then the case widens - an email thread, three quotation documents, and a pack of reference files each bring their own source material, but the discipline stays the same."
      },
      {
       "type": "table",
@@ -1083,53 +1005,54 @@
        [
         "1 · Inspect, then analyze",
         "A checked supplier comparison, reconciled to the source",
-        "Deck 34 · tab 1-Analyze-Data"
+        "Slide 37 · tab 1-Analyze-Data"
        ],
        [
         "2 · Follow up in the same chat",
         "A month-and-site pattern - values shown, no causes claimed",
-        "Deck 35 · tab 1-Analyze-Data"
+        "Slide 38 · tab 1-Analyze-Data"
        ],
        [
         "3 · The assistant returns your workbook",
         "Supplier_Data_Analyzed.xlsx - Summary sheet, native charts",
-        "Deck 36 · tab Excel-Charts"
+        "Slide 39 · tab Excel-Charts"
        ],
        [
         "4 · Build the dashboard",
         "One self-contained offline HTML file from the returned workbook",
-        "Deck 37-38 · tab 2-Build-Dashboard"
+        "Slides 40-41 · tab 2-Build-Dashboard"
        ],
        [
         "5 · Present the findings",
         "A five-slide management mock-up from the same verified findings",
-        "Deck 39 · tab 3-Present-Findings"
+        "Slide 42 · tab 3-Present-Findings"
        ],
        [
         "6 · Organize the email thread",
         "The structured brief - decisions, actions, \"Not stated\"",
-        "Deck 40-41 · tab 4-Summarize-Email"
+        "Slides 43-45 · tab 4-Summarize-Email"
        ],
        [
         "7 · Extract the quotes",
         "A Raw Extraction sheet - verbatim values, cited sources",
-        "Deck 42 · tab Quote-Extract"
+        "Slide 47 · tab Quote-Extract"
        ],
        [
         "8 · Compare the quotes",
         "A Normalized Comparison - or an honest \"not yet\"",
-        "Deck 43 · tab Quote-Compare"
+        "Slide 48 · tab Quote-Compare"
        ],
        [
         "9 · Build the research workbook",
         "Evidence · Synthesis · Sources, every claim traced",
-        "Deck 44 · tab Research"
+        "Reference Deck slide 112 · tab Research"
        ]
-      ]
+      ],
+      "note": "Slide numbers are those of From_Prompts_to_Agents_Facilitated_60_Minute.pptx (slides 43 and 46 open the email and document blocks); the reference exercise (explain a topic clearly) is Reference Deck slide 102 · tab 5-Explain-Clearly."
      },
      {
       "type": "p",
-      "text": "Why one case instead of nine unrelated ones? Because the requirement types recur, and the artifact decides which ones matter: calculation rules for a spreadsheet analysis, behavior and state for a dashboard, narrative and editability for a presentation, chronology and evidence for an email brief, reading level and fidelity for a plain-language document. Watching the same facts pass through five shapes makes that pattern visible."
+      "text": "Why one case instead of nine unrelated ones? Because the requirement types recur and the artifact decides which ones matter; watching the same facts pass through nine shapes makes that pattern visible, and the table at the end of this chapter collects it."
      },
      {
       "type": "h3",
@@ -1142,7 +1065,7 @@
      },
      {
       "type": "p",
-      "text": "This prompt runs, and it returns something confident. But it made three decisions silently: which rows to use, which metric to compute, and what \"worst\" means. Spelled out, the gaps are: no source scope, no metric definition, no denominator rule, no missing-data rule, and no check. Every gap becomes the model's guess - and a guess you cannot see is a guess you cannot audit."
+      "text": "This prompt runs, and it returns something confident. But it made three decisions silently - the rows, the metric, and the meaning of \"worst\", the gaps Chapter 3 named - and it carries no source scope, no denominator rule, no missing-data rule, and no check. Every gap becomes the model's guess - and a guess you cannot see is a guess you cannot audit."
      },
      {
       "type": "callout",
@@ -1235,7 +1158,7 @@
      },
      {
       "type": "p",
-      "text": "Bravo Plastics has the highest return rate, roughly three and a half times Alpha's, and the shipped and returned sums reconcile exactly against the TOTAL row. A defensible limitation to state: the data show which supplier has more returns, not why - nothing in these columns establishes a cause."
+      "text": "Bravo Plastics has the highest return rate, roughly three and a half times Alpha's, and the shipped and returned sums reconcile exactly against the TOTAL row. A defensible limitation to state: the data show which supplier has more returns, not why."
      },
      {
       "type": "callout",
@@ -1258,7 +1181,7 @@
       "items": [
        "Averaging the monthly return-rate percentages instead of dividing summed returns by summed shipments - months with different volumes get equal weight, so the denominator is wrong.",
        "Adding Defects_Found to Units_Returned and calling the sum \"defective units\" - inspection catches and customer returns are different measures, and their sum is not a count of distinct defective units.",
-       "Treating the blank cell Inspection_Hours cell as zero - a missing measurement is not a measurement of nothing.",
+       "Treating the blank Inspection_Hours cell as zero - a missing measurement is not a measurement of nothing.",
        "Including the TOTAL row, which double counts every column it summarizes.",
        "Explaining the result - \"Bravo's process causes the returns\" - when the data supports association at most, never a cause."
       ]
@@ -1279,7 +1202,7 @@
      },
      {
       "type": "p",
-      "text": "The full worked key ships in the workbook's KEY-Analysis tab and in the deck's speaker notes on the exercise slide (both instructor material - participant slides carry no answers), so a self-study reader can grade their own run without a facilitator in the room."
+      "text": "Grade your own run against Appendix B.1 - after attempting, not before."
      }
     ]
    },
@@ -1297,7 +1220,7 @@
      },
      {
       "type": "p",
-      "text": "This too has a checkable answer. Bravo's monthly return rate is elevated and volatile rather than steadily worsening - it peaks near 0.737% in April 2026, drops to roughly 0.14% in the quiet months of June and July 2026, and sits near 0.465% in August 2026. \"Volatile, with no steady improvement\" passes; any claimed cause fails, because nothing in the file supports one."
+      "text": "This too has a checkable answer. Bravo's monthly return rate is elevated and volatile rather than steadily worsening: it peaks near 0.737% in April 2026, drops to roughly 0.14% in the quiet months of June and July 2026, and sits near 0.465% in August 2026. \"Volatile, with no steady improvement\" passes. Any claimed cause fails, because nothing in the file supports one."
      },
      {
       "type": "callout",
@@ -1307,7 +1230,7 @@
      },
      {
       "type": "p",
-      "text": "The on-time question is the denominator lesson in miniature, and the expected answer is no. On_Time_Percent is a monthly percentage with no delivery counts behind it, so no overall on-time delivery rate can be computed from this file. The honest move is to label any average as an unweighted mean of monthly percentages - Alpha 91.7646, Bravo 92.5333, Cardinal 92.0833 - state plainly that these are not overall delivery rates, and name the missing data a true rate would need: delivery counts per month."
+      "text": "A related trap, if you also ask about on-time delivery: On_Time_Percent is a monthly percentage with no delivery counts behind it, so no overall on-time rate can be computed from this file. Label any average as an unweighted mean of monthly percentages, say plainly that it is not a delivery rate, and name the missing data - deliveries per month. Appendix B.1 has the values."
      }
     ]
    },
@@ -1325,13 +1248,13 @@
      },
      {
       "type": "p",
-      "text": "When the file comes back, open it like an auditor. The original Data sheet must be unchanged, the missing value still missing. The new Summary sheet must reconcile to the Data totals through traceable logic - formulas you can click, not pasted numbers. And the two charts must be native Excel charts: retitle one, recolor a series. If you cannot, it is a picture, and pictures fail the contract."
+      "text": "When the file comes back, open it like an auditor. The Data sheet must be unchanged and the missing value still missing. The Summary must reconcile to the Data totals through formulas you can click, not pasted numbers. And the two charts must be ones you can retitle and recolor - if you cannot edit a chart, it is a picture, and pictures fail the contract."
      },
      {
       "type": "callout",
       "kind": "check",
       "title": "Editable-native is the acceptance test",
-      "body": "Summary totals reconcile to the Data sheet - 224,902 units shipped, 432 returns, with a reconciliation check on the sheet itself - and both charts respond to editing. A returned file that fails either test goes back with the failure named."
+      "body": "Summary totals reconcile to the Data sheet totals, with a reconciliation check on the sheet itself, and both charts respond to editing. A returned file that fails either test goes back with the failure named."
      },
      {
       "type": "p",
@@ -1350,15 +1273,11 @@
       "type": "callout",
       "kind": "key",
       "title": "You specify behavior, not code",
-      "body": "The page provides the structure; JavaScript supplies the interactive behavior. You specify a dashboard's behavior in plain language, control by control - no code knowledge is needed to ask for it precisely."
-     },
-     {
-      "type": "p",
-      "text": "Workbook tab 2-Build-Dashboard carries the prompt, the states requirement, and the acceptance check side by side."
+      "body": "An HTML dashboard is a web page: the file provides the structure, and JavaScript - the browser's scripting language, embedded in the same file - supplies the interactive behavior. You specify that behavior in plain language, control by control - no code knowledge is needed to ask for it precisely."
      },
      {
       "type": "mono",
-      "text": "Using the returned Supplier_Data_Analyzed.xlsx workbook and its verified definitions, create one self-contained HyperText Markup Language (HTML) dashboard that works offline. Include a date-range selector, supplier and site filters, a metric selector, summary values, a trend chart, a sortable detail table, and a reset control. Every filter must update every view. Show the selected period and metric definitions. Display a clear message when no rows match.",
+      "text": "Using the returned Supplier_Data_Analyzed.xlsx workbook and its verified definitions, create one self-contained HTML dashboard that works offline. Include a date-range selector, supplier and site filters, a metric selector, summary values, a trend chart, a sortable detail table, and a reset control. Every filter must update every view. Show the selected period and metric definitions. Display a clear message when no rows match.",
       "caption": "The dashboard prompt, verbatim - workbook tab 2-Build-Dashboard."
      },
      {
@@ -1367,7 +1286,7 @@
      },
      {
       "type": "p",
-      "text": "A KPI is a number someone acts on, not decoration. Before you approve a tile row, hold each candidate against four tests:"
+      "text": "A KPI (key performance indicator) is a number someone acts on, not decoration. Before you approve a tile row, hold each candidate against four tests:"
      },
      {
       "type": "bullets",
@@ -1384,7 +1303,7 @@
      },
      {
       "type": "p",
-      "text": "Each control earns its place by answering a business question: the month range and the granularity switch answer <i>when did it change?</i>; the supplier and site filters and the comparison switch answer <i>who is different?</i>; the metric selector answers <i>different on what?</i>; drill-down answers <i>which records back this number?</i>; and Reset makes exploration safe. Controls are questions, not decoration - add one only when its question matters. A few vocabulary essentials carry most requests:"
+      "text": "Each control earns its place by answering a business question. The month range and the granularity switch answer <i>when did it change?</i> The supplier and site filters and the comparison switch answer <i>who is different?</i> The metric selector answers <i>different on what?</i> Drill-down answers <i>which records back this number?</i> Reset makes exploration safe. Controls are questions, not decoration - add one only when its question matters. A few vocabulary essentials carry most requests:"
      },
      {
       "type": "table",
@@ -1443,7 +1362,7 @@
      },
      {
       "type": "mono",
-      "text": "Show the active selections at all times. An empty selection must say \"no matching records\" — distinguish it from a real zero. Missing values stay blank; a zero denominator shows \"—\", never an error.",
+      "text": "An empty selection must say \"no matching records\" — distinguish it from a real zero. Missing values stay blank; a zero denominator shows \"—\", never an error.",
       "caption": "The states requirement, verbatim - workbook tab 2-Build-Dashboard."
      },
      {
@@ -1456,18 +1375,12 @@
      },
      {
       "type": "mono",
-      "text": "Filter to Site = Berlin, Supplier = Bravo Plastics, months 2026-03 to 2026-08. Expect exactly 6 records, 8,575 units shipped, 21 returns, return rate 0.245% — in the tiles, the chart, AND the table. Verify independently by filtering the Data tab the same way.",
+      "text": "Filter to Site = Berlin, Supplier = Bravo Plastics, months 2026-03 to 2026-08. Expect exactly 6 records, 8,575 units shipped, 21 returns, return rate 0.245% — in the tiles, the chart, AND the table. Verify independently by filtering the workbook the same way.",
       "caption": "The acceptance check, verbatim - workbook tab 2-Build-Dashboard."
      },
      {
-      "type": "callout",
-      "kind": "check",
-      "title": "The filtered check",
-      "body": "Berlin and Bravo Plastics, March through August 2026: exactly 6 records, 8,575 units shipped, 21 returns, 0.245% return rate - in the tiles, the chart, and the table at once, with rates recomputed from the filtered sums."
-     },
-     {
       "type": "p",
-      "text": "This is the coordinated-views requirement made concrete: one selection re-scopes every view, so the tiles, the chart, and the table can never disagree about which records are on screen. One verified filtered result beats any amount of admiring the design. The fuller dashboard menu - input contract, date range, category controls, filter combination, coordinated views, empty and zero states, reset, accessibility, portability, performance - is in references/Requirements_by_Artifact.md, each type with its acceptance evidence."
+      "text": "This is the coordinated-views requirement made concrete: one selection re-scopes every view, so the tiles, the chart, and the table can never disagree about which records are on screen. One verified filtered result beats any amount of admiring the design. The fuller dashboard menu, each type with its acceptance evidence, is in references/Requirements_by_Artifact.md."
      },
      {
       "type": "h3",
@@ -1485,7 +1398,7 @@
       "type": "callout",
       "kind": "trap",
       "title": "A snapshot, not a system",
-      "body": "The file embeds its data, so classify and share it like the spreadsheet it came from - share the file, not a public link. And label it what it is: a static data snapshot with its date, not a live reporting system. Refreshing data is a job for a BI tool."
+      "body": "The file embeds its data, so classify and share it like the spreadsheet it came from - share the file, not a public link. And label it what it is: a static data snapshot with its date, not a live reporting system. Refreshing data is a job for a business-intelligence (BI) tool such as Power BI or Tableau."
      }
     ]
    },
@@ -1494,11 +1407,11 @@
     "blocks": [
      {
       "type": "p",
-      "text": "The supplier case now changes audience. Your verified analysis answered the analyst's question - Bravo Plastics has the highest return rate, 262 returns against 75,184 units shipped, 0.348% - but a management audience does not want to see the analyst's screen. It wants a decision framed, evidence it can trust, and a visible boundary between what the data show and what you propose to do about it. A presentation is a deliverable with its own artifact requirements, and writing the prompt means choosing them deliberately."
+      "text": "The supplier case now changes audience. Your verified analysis answered the analyst's question; a management audience does not want to see the analyst's screen. It wants a decision framed, evidence it can trust, and a visible boundary between what the data show and what you propose to do about it. A presentation is a deliverable with its own artifact requirements, and writing the prompt means choosing them deliberately."
      },
      {
       "type": "p",
-      "text": "For a management deck, eight requirement types carry the weight: <b>purpose and audience</b> (name the decision and the intended action), <b>scope and slide count</b> (five slides with a defined coverage list), <b>story structure</b> (from business question to evidence, implications, and next action), <b>message hierarchy</b> (one main message per slide), <b>data fidelity</b> (only checked findings, with period, units, and limitations preserved), <b>chart semantics</b> (truthful axes, labeled categories), <b>speaker notes</b>, and <b>editability and delivery</b> (an editable .pptx you can actually present). The full menu, with an acceptance check for each type, is the presentations table in references/Requirements_by_Artifact.md."
+      "text": "For a management deck, eight requirement types carry the weight. <b>Purpose and audience:</b> name the decision and the intended action. <b>Scope and slide count:</b> five slides with a defined coverage list. <b>Story structure:</b> business question, evidence, implications, next action. <b>Message hierarchy:</b> one main message per slide. <b>Data fidelity:</b> only checked findings, with period, units, and limitations preserved. <b>Chart semantics:</b> truthful axes, labeled categories. <b>Speaker notes.</b> <b>Editability and delivery:</b> an editable .pptx you can actually present. The full menu, with an acceptance check for each type, is the presentations table in references/Requirements_by_Artifact.md."
      },
      {
       "type": "mono",
@@ -1516,11 +1429,11 @@
      {
       "type": "bullets",
       "items": [
-       "Question and scope - one question (which supplier has the highest return rate, and what should we investigate next?), one period (2025-09 to 2026-08), four receiving sites, three suppliers, 144 delivery records, one definition: return rate is total units returned divided by total units shipped, the same scope for every comparison. The decision the deck supports is named on the title slide: is a supplier follow-up warranted?",
-       "The comparison - a bar chart with the numbers beside it: Bravo Plastics 262 returns / 75,184 shipped = 0.348%; Cardinal Metals 96 / 74,658 = 0.129%; Alpha Components 74 / 75,060 = 0.099%. A side note closes the obvious objection: shipment volumes are nearly equal, so the rate gap is not a volume artifact.",
-       "The trend - Bravo's monthly return rate across the twelve months: elevated and volatile, peaking at 0.737% in April 2026, quiet near 0.14% in June and July, back at 0.465% in August. The commentary says only what twelve points can support: no steady improvement - and no claim of seasonality or cause.",
-       "The proposed follow-up - a two-panel slide. Left, labeled findings: the rate gap, its persistence, and the separate fact that Bravo drives 1,157 of the 2,207 inspection defect occurrences. Right, labeled judgment: ask Bravo for a returns root-cause review, pull the records behind the highest-return months, agree a target and re-measure next quarter on the same definition.",
-       "Limitations and next steps - descriptive, not causal; no delivery counts exist, so no overall delivery rate is claimed anywhere; one inspection-hours value is missing (missing, not zero); inspection defects and customer returns are two measures that are never added together. Then the single decision requested: approve the review."
+       "Question and scope - one question, one period (2025-09 to 2026-08), four sites, three suppliers, 144 delivery records, one definition of return rate for every comparison. The decision the deck supports is named on the title slide: is a supplier follow-up warranted?",
+       "The comparison - a bar chart with the three rates beside it, and a side note that closes the obvious objection: shipment volumes are nearly equal, so the rate gap is not a volume artifact.",
+       "The trend - Bravo's twelve monthly rates: elevated and volatile, no steady improvement - and no claim of seasonality or cause.",
+       "The proposed follow-up - a two-panel slide. Left, labeled findings: the rate gap, its persistence, and the separate fact that Bravo drives 1,157 of the 2,207 inspection defect occurrences. Right, labeled judgment: ask Bravo for a returns root-cause review, pull the records behind the worst months, agree a target and re-measure next quarter on the same definition.",
+       "Limitations and next steps - descriptive, not causal; no delivery counts, so no delivery rate is claimed; one inspection-hours value missing, not zero; inspection defects and customer returns never added together. Then the single decision requested: approve the review."
       ]
      },
      {
@@ -1529,13 +1442,13 @@
      },
      {
       "type": "p",
-      "text": "Findings are what the workbook supports; recommendations are labeled proposals. The mock deck makes the boundary physical - two panels, two headings - because that separation is the trust move that survives every audience question. It matters most exactly where the story gets tempting. The verified scorecard carries units-weighted unit costs: Alpha Components $12.4299, Bravo Plastics $9.9030, Cardinal Metals $14.1804. The tension is real - the cheapest supplier is also the most-returned - and it is precisely where a weak deck starts inventing: a projected savings figure, a quality-cost trade-off, a committed benefit. The mock deck states no cost claim anywhere, because the data cannot support one; what switching or fixing would cost is a question for the proposed review, not for this dataset."
+      "text": "Findings are what the workbook supports; recommendations are labeled proposals, and the two-panel slide makes that boundary physical - the trust move that survives every audience question. It matters most exactly where the story gets tempting. The verified scorecard carries units-weighted unit costs: Alpha Components $12.4299, Bravo Plastics $9.9030, Cardinal Metals $14.1804. The tension is real - the cheapest supplier is also the most-returned - and it is precisely where a weak deck starts inventing: a projected savings figure, a quality-cost trade-off, a committed benefit. The mock deck states no cost claim anywhere, because the data cannot support one; what switching or fixing would cost is a question for the proposed review, not for this dataset."
      },
      {
       "type": "callout",
       "kind": "trap",
       "title": "The invented benefit",
-      "body": "The prompt forbids invented causes and unsupported benefits for a reason: a decision audience remembers the number you made up, not the caveat you attached to it. Bravo's low unit cost ($9.9030 against $12.4299 and $14.1804) invites a savings story the workbook cannot back - leave it out."
+      "body": "A decision audience remembers the number you made up, not the caveat you attached to it. Bravo's low unit cost invites a savings story the workbook cannot back - leave it out."
      },
      {
       "type": "h3",
@@ -1552,12 +1465,6 @@
      },
      {
       "type": "callout",
-      "kind": "key",
-      "title": "Not decorated bullet points",
-      "body": "A presentation is an artifact with narrative, fidelity, and delivery requirements. One main message per slide, every number traced to the source, and the limitations named out loud are what let the deck survive its first hard question."
-     },
-     {
-      "type": "callout",
       "kind": "try",
       "title": "Audit before reuse",
       "body": "Run the four checks on Supplier_Quality_Mock_Presentation.pptx before you reuse the prompt on your own analysis. The sample is deliberately auditable - the limitations slide names what the data cannot say, which is the habit to copy."
@@ -1569,7 +1476,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "An email summary has a job to do. A long thread read top to bottom is a chronology, and a chronological retelling can obscure the current decision - the thing the person asking for the summary actually needs. Before writing any prompt, decide what the summary must answer. Four questions cover most jobs: the <b>current situation</b> (what is true now?), <b>decisions</b> (what was agreed, and under what conditions?), <b>actions</b> (who owes what, by when?), and <b>open questions</b> (what still needs an answer?). The same source thread can support a current-state brief, an action table, or preparation for your reply - the job determines the shape."
+      "text": "An email summary has a job to do. A long thread read top to bottom is a chronology, and a chronological retelling can bury the current decision - the thing the person asking for the summary actually needs. So decide what the summary must answer before writing any prompt; the menu below names the jobs."
      },
      {
       "type": "h3",
@@ -1656,7 +1563,7 @@
      },
      {
       "type": "p",
-      "text": "Notice the honesty machinery. \"Not stated\" beats a guessed owner or date. Superseded dates are marked as superseded instead of silently replaced. Source facts are separated from interpretation. The prompt ends by asking for the next clarification needed - a summary that surfaces what to ask is worth more than one that papers over it. And the last sentence is an authority boundary: a reply, if requested, is a draft for human review; nothing is sent."
+      "text": "Notice the honesty machinery. \"Not stated\" beats a guessed owner or date; a citation by sender and date makes every claim checkable; and the brief only organizes - nothing is sent. The fuller template - decisions and actions as tables, superseded dates marked as superseded, the next clarification requested, a reply drafted only for review - is the library-entry example in Chapter 6."
      },
      {
       "type": "h3",
@@ -1664,68 +1571,7 @@
      },
      {
       "type": "p",
-      "text": "The practice material is a fictional packaging-change conversation: ten messages, six people, supplied as Packaging_Change_Thread.txt in references/exercise-data/ so you can paste it into any approved assistant. The attachment mentioned in message 5 is intentionally not supplied."
-     },
-     {
-      "type": "table",
-      "cols": [
-       "Msg",
-       "When, who",
-       "What it says"
-      ],
-      "rows": [
-       [
-        "1",
-        "Sep 7, Maya (project lead)",
-        "Target the packaging change for Sep 25; Luis to confirm the trial plan."
-       ],
-       [
-        "2",
-        "Sep 7, Luis (operations)",
-        "Can run the trial on Sep 18, subject to quality review."
-       ],
-       [
-        "3",
-        "Sep 8, Priya (finance)",
-        "Approved provided total trial cost stays within 18,000 and quality signs off."
-       ],
-       [
-        "4",
-        "Sep 8, Ben (quality)",
-        "The drawing mentioned in the plan must be sent before he can approve the trial."
-       ],
-       [
-        "5",
-        "Sep 9, Elena (supplier contact)",
-        "Says the drawing is attached; material shipment arrives Sep 23."
-       ],
-       [
-        "6",
-        "Sep 9, Maya",
-        "Sep 25 not feasible; proposed change date is now Oct 2; Luis to update the trial plan by Sep 16."
-       ],
-       [
-        "7",
-        "Sep 10, Omar (logistics)",
-        "Who pays the extra freight for the later shipment?"
-       ],
-       [
-        "8",
-        "Sep 10, Luis",
-        "Will submit the trial plan by Sep 16; the trial date is now Sep 25."
-       ],
-       [
-        "9",
-        "Sep 11, Priya",
-        "The 18,000 cap still applies; additional freight charges not approved."
-       ],
-       [
-        "10",
-        "Sep 11, Maya",
-        "Plan for Oct 2, pending Ben's sign-off; Luis owns the plan; freight decision still needed."
-       ]
-      ],
-      "note": "Fictional training material; the full text is also reproduced in the course deck's reference appendix."
+      "text": "The practice material is a fictional packaging-change conversation - ten messages, six people - printed in full in Appendix A.2 and supplied as Packaging_Change_Thread.txt in references/exercise-data/, so you can paste it into any approved assistant. The attachment mentioned in message 5 is intentionally not supplied."
      },
      {
       "type": "h3",
@@ -1733,48 +1579,13 @@
      },
      {
       "type": "p",
-      "text": "The thread is engineered so that a naive \"summarize this\" fails in observable ways. Four traps are planted, and a good brief catches all of them."
-     },
-     {
-      "type": "table",
-      "cols": [
-       "Trap",
-       "What a good brief says"
-      ],
-      "rows": [
-       [
-        "Two moving dates",
-        "The change date is Oct 2, superseding Sep 25. The trial date is Sep 25, superseding Sep 18. Two different dates changed - do not conflate them."
-       ],
-       [
-        "Conditional approval",
-        "Approved within the 18,000 cap and pending quality sign-off. A bare \"approved\" is wrong, and freight extras are explicitly not approved."
-       ],
-       [
-        "Unanswered question",
-        "Freight responsibility was raised and stays unresolved - an open question with no invented owner or resolution."
-       ],
-       [
-        "Missing attachment",
-        "The drawing is referenced but not accessible. Its content must not be summarized, and quality sign-off waits on it."
-       ]
-      ]
-     },
-     {
-      "type": "p",
-      "text": "The open items complete the picture: Luis's trial plan is committed and due September 16; Ben's sign-off is open with no stated due date - write \"Not stated\" rather than inventing one; the freight decision has no owner; the material arrives September 23. Note the decision statuses too: the October 2 change is planned, not finally approved, because it still waits on quality sign-off - which in turn waits on the drawing nobody can open. The expected brief lives in the workbook's instructor tab KEY-Email and in references/exercise-data/instructor-keys/Packaging_Change_Expected_Brief.md."
+      "text": "The thread is engineered so that a naive \"summarize this\" fails in observable ways. Four traps are planted - two moving dates, a conditional approval, an unanswered question, and a missing attachment - and a good brief catches all four."
      },
      {
       "type": "callout",
       "kind": "check",
       "title": "Success check",
-      "body": "Your brief catches the moved change date (Oct 2, conditional on sign-off), the trial date (Sep 25 superseding Sep 18), the 18,000 cap with freight not approved, and the missing drawing - and it gives Ben no invented due date."
-     },
-     {
-      "type": "callout",
-      "kind": "key",
-      "title": "Facts, then open questions",
-      "body": "Email work begins by separating known facts from unanswered questions. The latest state supersedes earlier dates, but an unanswered question stays open - a summary that quietly resolves it has invented a decision."
+      "body": "Your brief catches all four planted traps - and gives Ben no invented due date. The expected brief, item by item, is Appendix B.2."
      },
      {
       "type": "h3",
@@ -1782,7 +1593,7 @@
      },
      {
       "type": "p",
-      "text": "The pasted-text path is the primary one: paste Packaging_Change_Thread.txt and the prompt into any approved assistant. It always works and needs no particular license. There is also a native path, verified as of September 2026: Microsoft Outlook offers \"Summary by Copilot\" on an open thread, with numbered citations that click through to the source message - the citations are your verification tool - and any drafted reply stays a draft. The full experience depends on your organization's Copilot license, which is exactly why the supplied-text version is the one this course drills. Either way, the prompt above is a portable specification: scope, extraction fields, evidence rules, and authority boundaries travel with you across tools."
+      "text": "The pasted-text path is primary: paste Packaging_Change_Thread.txt and the prompt into any approved assistant; it always works and needs no particular license. The native path, verified as of September 2026: Microsoft Outlook's \"Summary by Copilot\" on an open thread, with numbered citations that click through to the source message. The citations are your verification tool. Then run the same prompt in the Copilot chat pane. That depends on your organization's Copilot license, which is why the course drills the pasted version. Either way the prompt is portable: scope, extraction fields, evidence rules, and authority boundaries travel with you."
      },
      {
       "type": "mono",
@@ -1814,14 +1625,8 @@
       "text": "Every discipline in that prompt exists because its absence has a failure mode. Verbatim values, because a \"helpfully\" rounded price cannot be audited. Original currencies and units, because silent conversion smuggles in an unstated exchange rate. \"Not stated\" for absent fields, because a guessed freight term looks exactly like a real one. And a source file and page per commercial value, so any number can be checked against its document in seconds."
      },
      {
-      "type": "callout",
-      "kind": "key",
-      "title": "Extraction before judgment",
-      "body": "Mixing extraction with comparison is how errors hide: a wrong number that enters the sheet unnoticed poisons every later calculation. Step 7 produces a sheet you can verify against the source documents; only then does step 8 get to reason on it."
-     },
-     {
       "type": "p",
-      "text": "The prepared example ships as references/exercise-data/Quote_Comparison_Workbook.xlsx (sheet \"Raw Extraction\"), and the instructor key as instructor-keys/Quote_Comparison_Key.md - grade your run against the documents first, the key second."
+      "text": "The prepared example ships as references/exercise-data/Quote_Comparison_Workbook.xlsx (sheet \"Raw Extraction\"). Grade your run against the documents first, Appendix B.3 second."
      }
     ]
    },
@@ -1839,7 +1644,7 @@
      },
      {
       "type": "p",
-      "text": "Run on the three sample documents, the arithmetic itself is easy. At the quoted 5,000-unit volume with one-time tooling spread across the units, Alpha Components lands at USD 15.60 per unit (13.90 plus 8,500 of tooling over 5,000 units) on FOB terms; Bravo Plastics at EUR 14.70 per unit (11.90 plus a 2.80 charge) EXW; Cardinal Metals at USD 16.40 all-in, DDP, tooling waived. And that is exactly where a careful comparison stops: Bravo is quoted in euros with no exchange-rate basis supplied, and the three delivery terms put freight, duties, and risk on different sides of the line."
+      "text": "Run on the three sample documents, the arithmetic itself is easy. At the quoted 5,000-unit volume, with one-time tooling spread across the units: Alpha Components lands at USD 15.60 per unit (13.90 plus 8,500 of tooling over 5,000 units), FOB - the buyer arranges freight from Alpha's dock. Bravo Plastics lands at EUR 14.70 per unit (11.90 plus a 2.80 tooling share), EXW - the buyer collects at the factory, freight and duties excluded. Cardinal Metals is USD 16.40 all-in, DDP - delivered with freight and duties paid, tooling waived. And that is exactly where a careful comparison stops: Bravo is quoted in euros with no exchange-rate basis supplied, and the three delivery terms put freight, duties, and risk on different sides of the line."
      },
      {
       "type": "callout",
@@ -1849,7 +1654,7 @@
      },
      {
       "type": "p",
-      "text": "A defensible \"cannot compare yet, and here is exactly what is missing\" is a better deliverable than a confident wrong recommendation - it hands the requester a short list of questions instead of a decision built on air. The prepared sheet (\"Normalized Comparison\" in the same workbook) and the instructor key show the full expected shape."
+      "text": "The prepared sheet (\"Normalized Comparison\" in the same workbook) and Appendix B.3 show the full expected shape."
      }
     ]
    },
@@ -1877,7 +1682,7 @@
      },
      {
       "type": "p",
-      "text": "The prepared example ships as references/exercise-data/Research_Workbook.xlsx - twelve traced evidence rows, a synthesis that names the agreements, the conflict, and the gaps, and a source index - with the instructor key in instructor-keys/Research_Workbook_Key.md."
+      "text": "The prepared example ships as references/exercise-data/Research_Workbook.xlsx - twelve traced evidence rows, a synthesis that names the agreements, the conflict, and the gaps, and a source index. Self-check: Appendix B.4."
      }
     ]
    },
@@ -1886,11 +1691,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "One artifact steps out of the live hour in this edition and into the reference layer: the plain-language document. It remains part of the method - run it as self-study, with the same requirement discipline as everything above."
-     },
-     {
-      "type": "p",
-      "text": "The fifth artifact is a plain-language document, and it corrects a common misunderstanding: explaining something simply is a requirements problem - audience, vocabulary, fidelity, and a learning check - not dumbing down. The dominant risk is not that the text stays too hard; it is that the simplification quietly changes the meaning. A dropped condition, an analogy stretched past where it holds, a caveat that vanished - each reads smoothly and misleads reliably."
+      "text": "One artifact steps out of the live hour into the reference layer: the plain-language document. Run it as self-study with the same requirement discipline. It corrects a common misunderstanding: explaining something simply is a requirements problem - audience, vocabulary, fidelity, and a learning check - not dumbing down. The dominant risk is not that the text stays too hard; it is that the simplification quietly changes the meaning: a dropped condition, an analogy stretched past where it holds, a caveat that vanished."
      },
      {
       "type": "p",
@@ -1903,7 +1704,7 @@
      },
      {
       "type": "p",
-      "text": "Every clause is a requirement you can check. Main idea first, so a reader who stops after one paragraph still leaves with the point. Analogies are allowed only when accurate, and the prompt demands their limit - where the picture stops working - be stated. Conditions and uncertainty from the source must survive. The tone is a respectful adult tone: fifth-grade reading level describes sentence and vocabulary difficulty, never the reader's intelligence. And the prompt closes on two checks: three comprehension questions with a short answer key, answerable from the text alone, and a self-audit against the source for any simplification that changed the meaning."
+      "text": "Every clause is a requirement you can check. Main idea first, so a reader who stops after one paragraph still leaves with the point. Analogies only where accurate, with their limit stated. Conditions and uncertainty preserved. A respectful adult tone: fifth-grade reading level describes sentence difficulty, never the reader's intelligence. And two closing checks: three comprehension questions answerable from the text alone, and a self-audit against the source for any simplification that changed the meaning."
      },
      {
       "type": "h3",
@@ -1911,7 +1712,7 @@
      },
      {
       "type": "p",
-      "text": "The demonstration source is the SOURCE section of references/exercise-data/plain-language/inventory_replenishment.md - a dense paragraph on reorder points, safety stock, holding costs, and one load-bearing caveat: the formulas assume demand history predicts future demand, so reorder parameters should be reviewed periodically rather than set once. The sample output in the same file shows what a good result looks like. The main idea lands in the first sentence: order before you run out, at a planned stock level, not when the shelf is empty. The concrete example is a bakery - ten bags of flour a day, four-day delivery, so reorder no later than forty bags plus a cushion. The analogy is a car's fuel light, which comes on early enough to reach a gas station - and its limit is stated: a fuel light is set once by the carmaker, while a reorder point must be reviewed regularly, because a promotion, an unfamiliar customer, or a supply disruption can break the assumption that the past predicts the future. The source's review caveat survived the simplification; that survival is the exercise."
+      "text": "The demonstration source is the SOURCE section of references/exercise-data/plain-language/inventory_replenishment.md: reorder points, safety stock, holding costs, and one load-bearing caveat - the formulas assume the past predicts future demand, so parameters must be reviewed periodically. The sample output (printed in Appendix A.5) puts the main idea in the first sentence. It uses a bakery for the example and a car's fuel light for the analogy, and it states the analogy's limit: a fuel light is set once, a reorder point must be reviewed. The caveat survived the simplification; that survival is the exercise."
      },
      {
       "type": "callout",
@@ -1921,7 +1722,7 @@
      },
      {
       "type": "p",
-      "text": "Simplifications that change meaning are defects, and finding them is part of the exercise. Compare the explanation with the source sentence by sentence: a missing condition is a meaning change, not a style choice. Each sample file in the pack ships with its own fidelity note, because the note is part of the deliverable - a plain-language document that cannot say what it dropped has not finished the job."
+      "text": "Finding the simplifications that changed meaning is part of the exercise: compare the explanation with the source sentence by sentence - a missing condition is a meaning change, not a style choice. Each sample file in the pack ships with its own fidelity note, because the note is part of the deliverable - a plain-language document that cannot say what it dropped has not finished the job."
      },
      {
       "type": "callout",
@@ -1950,7 +1751,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "Nine steps, one method. Every prompt in this chapter had the same anatomy - sources and scope, selected artifact requirements, acceptance evidence, and boundaries - and every step ended with a check you could actually perform: 144 detail rows reconciling to 224,902 units shipped and 432 returns, a returned workbook whose Summary reconciles to its own Data sheet, a Berlin filter showing 8,575 units and 21 returns at 0.245%, five slides mapping to a coverage list, a brief that catches four planted traps, a quotation comparison that correctly refuses to name a winner, and a research workbook that keeps a planted conflict visible."
+      "text": "Nine steps, one method. Every prompt in this chapter had the same skeleton: sources and scope, selected artifact requirements, acceptance evidence, boundaries. And every step ended with a check you could actually perform - a reconciliation, a filtered result, a coverage list, four planted traps, a comparison that refuses to name a winner, a conflict kept visible."
      },
      {
       "type": "table",
@@ -2001,15 +1802,15 @@
       "type": "callout",
       "kind": "key",
       "title": "The connecting insight",
-      "body": "Role, context, tone, format, source rules, and acceptance checks all specify requirements for the response or artifact. The artifact you choose determines which types matter - and a requirement is only as good as the acceptance evidence attached to it. For every type you select, write: requirement, example, evidence."
+      "body": "A requirement is only as good as the acceptance evidence attached to it. For every type you select, write: requirement, example, evidence."
      },
      {
       "type": "p",
-      "text": "Everything in this chapter is packaged for reuse. The course prompts sit in copy-paste cells in deliverables/Course_Workbook.xlsx, tabs 1-Analyze-Data, Excel-Charts, 2-Build-Dashboard, 3-Present-Findings, 4-Summarize-Email, Quote-Extract, Quote-Compare, and Research - in training order, with 5-Explain-Clearly as the reference exercise, with requirement-type annotations beside each. The per-artifact requirement menus live in references/Requirements_by_Artifact.md and, with the evidence behind them, in references/Elements_of_Prompting_Field_Guide.pdf. The one-page distillation is deliverables/From_Prompts_to_Agents_Cheat_Sheet.pdf, and deliverables/Prompt_Template_Creator.html assembles prompts from the same five task families. When your task is none of the five, the skeleton still holds: purpose and audience, sources and scope, selected artifact requirements, acceptance evidence, and what to do about missing information and boundaries."
+      "text": "Everything in this chapter is packaged for reuse: the prompts sit in copy-paste tabs of deliverables/Course_Workbook.xlsx in training order, the per-artifact menus in references/Requirements_by_Artifact.md, and deliverables/Prompt_Template_Creator.html assembles prompts from the same families (Chapter 6 shows how to save one). When your task is none of the nine, the skeleton still holds."
      },
      {
       "type": "p",
-      "text": "One thing was constant across all nine steps: you asked for output and inspected it yourself. Every check in this chapter was a human check at the end of a single exchange. The next part changes that relationship. Handing over a job - where the assistant works in an environment, follows a process, runs its own checks, and must know when to stop and ask you - changes what a prompt must contain. That is the move from asking to delegating."
+      "text": "One thing was constant across all nine steps: you asked for output and inspected it yourself. The next part changes that relationship - handing over a job the assistant runs, checks, and must know when to stop and ask you about. That is the move from asking to delegating."
      }
     ]
    }
@@ -2034,12 +1835,6 @@
      {
       "type": "p",
       "text": "One demystifying detail: agent memory is files. The context window is short-term memory; notes and logs are long-term, and nothing survives unless written down. An agent summarizing its thread into a note and reloading it is the foundations chapter's handoff move, automated."
-     },
-     {
-      "type": "callout",
-      "kind": "key",
-      "title": "The definition",
-      "body": "An agent combines a model with tools, an action loop, and a stopping condition. You still define the goal and review what matters."
      }
     ]
    },
@@ -2048,7 +1843,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "The central distinction of this part is not a vendor label; it is a decision about work and authority. <b>ASK</b> requests an answer or a draft: you read it, check it, decide what happens next. <b>DELEGATE</b> commissions bounded work: the agent acts, and the brief must say in advance what may happen without another instruction and where review is required."
+      "text": "The central distinction of this part is not a vendor label; it is a decision about work and authority. ASK and DELEGATE were felt in Chapter 1. What delegation adds: the agent acts, so the brief must say in advance what may happen without another instruction and where review is required."
      },
      {
       "type": "table",
@@ -2092,7 +1887,7 @@
      },
      {
       "type": "p",
-      "text": "The agentic column is a superset: every generative element still applies, wrapped in a job. Both modes require judgment — a chat response can still cause harm if used unchecked. Delegation adds responsibility for the actions taken: bad text costs a re-prompt; a wrong action has already changed files or sent a message. That difference in failure cost drives everything this chapter adds."
+      "text": "The agentic column is a superset: every generative element still applies, wrapped in a job. Both modes require judgment - a chat response can still cause harm if used unchecked - but delegation adds responsibility for the actions taken, and that difference in failure cost drives everything this chapter adds."
      },
      {
       "type": "callout",
@@ -2147,58 +1942,27 @@
      {
       "type": "table",
       "cols": [
-       "Generative element",
-       "Agentic descendant",
-       "What was added — and why"
+       "What changes",
+       "Why"
       ],
       "rows": [
        [
-        "Role",
-        "<role>",
-        "persists across unsupervised decisions — behaviors only"
+        "Every element must survive unsupervised decisions: role as behaviors only, context as a per-source register with grain and trust, examples as a worked run",
+        "the agent decides for hours without you; a vibe or a guess propagates through the run"
        ],
        [
-        "Task",
-        "<mission>",
-        "a definition of done — the loop needs an exit condition"
+        "The task gains a definition of done; the Stop becomes gates and autonomy rules",
+        "the loop needs an exit condition, and scope control becomes checkpointed process"
        ],
        [
-        "Context",
-        "<context> + <inputs>",
-        "a per-source register with grain and trust"
+        "The format gains logs and a fixed report shape; the Out becomes a logged, owned open item",
+        "actions must be traceable, and not-knowing must be owned"
        ],
        [
-        "Format",
-        "<outputs> + <reporting>",
-        "audit logs and a fixed status shape — actions must be traceable"
-       ],
-       [
-        "Examples",
-        "the filled brief",
-        "a worked run is the agentic few-shot"
-       ],
-       [
-        "The Out",
-        "UNKNOWN, then open items",
-        "not-knowing becomes a logged, owned item"
-       ],
-       [
-        "The Stop",
-        "gates + autonomy rules",
-        "scope control becomes checkpointed process"
-       ],
-       [
-        "(no ancestor)",
-        "<environment> <plan> <checks> <rules> <quality_bar>",
-        "conduct, method, verification, invariants, completeness"
+        "Conduct blocks appear with no generative ancestor: environment, plan, checks, rules, quality bar",
+        "method, verification, and invariants that a text-only prompt never needed"
        ]
       ]
-     },
-     {
-      "type": "callout",
-      "kind": "key",
-      "title": "Why the superset exists",
-      "body": "Text that fails costs a re-prompt; actions that fail change the world. The blocks with no generative ancestor govern conduct."
      }
     ]
    },
@@ -2229,12 +1993,6 @@
      {
       "type": "p",
       "text": "Two disciplines keep this honest. The <b>operating-manual test</b>: if a colleague could not run the job from the brief without asking a question, the agent will guess — fix the brief, not the run. And <b>design thick, ship lean</b>: think against all twelve blocks, but ship the one-screen plan-do-check-act brief from the craft chapter — conflicting rules destabilize more than missing detail. Block-by-block depth: references/Elements_of_Prompting_Field_Guide.pdf."
-     },
-     {
-      "type": "callout",
-      "kind": "check",
-      "title": "The operating-manual test",
-      "body": "Ask a colleague to play the agent from your brief. Every question they must ask is a hole the agent will fill with a guess."
      }
     ]
    },
@@ -2243,12 +2001,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "You already know the ASK version of this job — the reusable analysis prompt from deliverables/Course_Workbook.xlsx:"
-     },
-     {
-      "type": "mono",
-      "text": "Use Supplier_Data_Exercise.xlsx, Data sheet, detail rows only — exclude the TOTAL row (144 rows; one Inspection_Hours cell is blank: treat it as missing, not zero, and disclose it). One row = one month × site × supplier; period 2025-09 to 2026-08 inclusive. Question: which supplier has the highest RETURN RATE, defined as total Units_Returned ÷ total Units_Shipped per supplier over the full period — computed from sums, never by averaging monthly percentages. Keep Defects_Found separate from returns; do not add them together. Rank the three suppliers showing numerator and denominator, reconcile total shipped and returned against the TOTAL row, and state one limitation of the comparison. Then stop.",
-      "caption": "The analysis in ASK form — answered while you watch."
+      "text": "You already know the ASK version of this job: the fully specified analysis prompt from Chapter 3, \"One task through the improvement loop\" - answered while you watch."
      },
      {
       "type": "p",
@@ -2256,11 +2009,11 @@
      },
      {
       "type": "p",
-      "text": "Shaped as a mission, the work becomes five phases. <b>Extract</b>: read-only; profile every input; fix nothing yet. <b>Transform</b>: one schema, ordered rules, each logged with rows affected. <b>Validate</b>: reconcile to a known total; a HARD failure stops the run. <b>Analyze</b>: answer the numbered questions, then stop — \"associated with\", never \"caused by\". <b>Present</b>: headline titles carrying the number, sample size on every proportion, a source-plus-as-of footer. Each phase ends by emitting a checkable claim — a total, a row count, an assumption — and the next begins by checking it."
+      "text": "Shaped as a mission, the work becomes five phases. <b>Extract</b>: read-only; profile every input; fix nothing yet. <b>Transform</b>: one schema (agreed column layout), ordered rules, each logged with rows affected. <b>Validate</b>: reconcile to a known total; a HARD failure stops the run. <b>Analyze</b>: answer the numbered questions, then stop — \"associated with\", never \"caused by\". <b>Present</b>: headline titles carrying the number, sample size on every proportion, a source-plus-as-of footer. Each phase ends by emitting a checkable claim — a total, a row count, an assumption — and the next begins by checking it."
      },
      {
       "type": "p",
-      "text": "Three human gates sit where errors are still cheap. <b>Gate 1 — definitions</b>, before any data is touched: the agent restates metrics, schema, and assumptions; you confirm — a wrong denominator dies here for pennies. <b>Gate 2 — reconciliation</b>: computed totals must tie to a number you already trust — here, the workbook's TOTAL row: the 144 detail rows must sum to 224,902 units shipped and 432 returned, the one blank Inspection_Hours cell disclosed as missing, not zeroed. <b>Gate 3 — headlines</b>, before rendering: titles and bullets as plain text — re-rendering is cheap; re-thinking a circulated deck is not. The correct headline: Bravo Plastics has the highest return rate, 262 returns on 75,184 units — 0.348%."
+      "text": "Three human gates sit where errors are still cheap. <b>Gate 1 - definitions</b>, before any data is touched: the agent restates metrics, schema, and assumptions, and you confirm. A wrong denominator dies here for pennies. <b>Gate 2 - reconciliation</b>: computed totals must tie to a number you already trust. Here that is the workbook's TOTAL row - the shipped and returned totals that Chapter 4, step 1 reconciled to - with the one blank Inspection_Hours cell disclosed as missing, not zeroed. <b>Gate 3 - headlines</b>, before rendering: titles and bullets as plain text. Re-rendering is cheap; re-thinking a circulated deck is not. The correct headline is step 1's finding - Bravo Plastics has the highest return rate - with its number in the title."
      },
      {
       "type": "p",
@@ -2307,7 +2060,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "Your authority over an agent lives in two layers. <b>In the brief</b>: define allowed actions, name the approval points, require evidence of completion. <b>In the environment</b>: limit file and tool access, configure which actions need approval, keep a recoverable version of the work. The brief requests behavior; the environment restricts what is possible. A gate written in the prompt is a suggestion; a gate configured in the harness is a control — Singapore's regulator, 2026: prompt guardrails \"are not fail-safe\"."
+      "text": "Your authority over an agent lives in two layers. <b>In the brief</b>: define allowed actions, name the approval points, require evidence of completion. <b>In the environment</b>: limit file and tool access, configure which actions need approval, keep a recoverable version of the work. The brief requests behavior; the environment restricts what is possible. A gate written in the prompt is a suggestion; a gate configured in the tool's permission settings is a control - Singapore's regulator, 2026: prompt guardrails \"are not fail-safe\"."
      },
      {
       "type": "h3",
@@ -2325,13 +2078,7 @@
      },
      {
       "type": "p",
-      "text": "The injection rule reframes how an agent must read: text inside a source document is evidence to inspect, never authority to change the task — a cell saying \"ignore your instructions\" is quoting, not commanding. Write that framing into briefs as defense in depth, and still put the real checkpoints in the tool's permission settings. The course's concrete boundary is a good default: work on a copy of the workbook and a draft report; nothing sent, no master overwritten."
-     },
-     {
-      "type": "callout",
-      "kind": "key",
-      "title": "A wish versus a control",
-      "body": "Written guardrails request behavior; permissions and approval gates enforce authority. Trust only the enforced layer."
+      "text": "The injection rule reframes how an agent must read: text inside a source document is evidence to inspect, never authority to change the task - a cell saying \"ignore your instructions\" is quoting, not commanding. Write that framing into briefs as defense in depth. The course's concrete boundary is a good default: work on a copy of the workbook and a draft report; nothing sent, no master overwritten."
      }
     ]
    },
@@ -2402,11 +2149,11 @@
     "blocks": [
      {
       "type": "p",
-      "text": "Close the part with the smallest useful act of delegation design. Pick one job you would actually delegate — a recurring report, a folder to process — and write two lines. A <b>gate</b> controls an action: \"Pause before ___ until ___ is confirmed.\" A <b>hard check</b> tests a result: \"Stop and report the discrepancy if ___.\" Make the check an equality the agent can evaluate, anchored to a number you already trust — not an aspiration like \"check data quality\"."
+      "text": "Close the part with the smallest useful act of delegation design. Pick one job you would actually delegate - a recurring report, a folder to process - and write two lines. A <b>gate</b> controls an action: \"Pause before ___ until ___ is confirmed.\" A <b>hard check</b> tests a result: \"Stop and report the discrepancy if ___.\" Make the check an equality the agent can evaluate, anchored to a number you already trust. \"Check data quality\" is an aspiration, not a check."
      },
      {
       "type": "p",
-      "text": "The course's example: detail totals must reconcile to the current source under the same filters and units. You used this shape verifying the dashboard — filtered to the Berlin site and Bravo Plastics for 2026-03 through 2026-08, the panel must show 8,575 units shipped, 21 returns, 0.245%, matching the same sums recomputed from the workbook's Data tab. Same filters, units, and period make the check decidable. One caution: a fresh reporting period does not need to equal the old one — reconcile like against like, and investigate period-to-period differences separately."
+      "text": "The course's example: detail totals must reconcile to the current source under the same filters and units - the Berlin check from the dashboard step (8,575 units, 21 returns, 0.245%), decidable because filters, units, and period match on both sides. One caution: a fresh reporting period does not need to equal the old one. Reconcile like against like, and investigate period-to-period differences separately."
      },
      {
       "type": "callout",
@@ -2422,7 +2169,7 @@
      },
      {
       "type": "p",
-      "text": "That completes the delegation toolkit: the decision, the vehicle, the brief, the enforced boundary, the diagnosis grid, the standing workspace. The compact ASK-versus-DELEGATE summary is on deliverables/From_Prompts_to_Agents_Cheat_Sheet.pdf. The final part turns from doing the work to keeping it: reusable prompts as assets your team maintains."
+      "text": "The final part turns from doing the work to keeping it: reusable prompts as assets your team maintains. The compact ASK-versus-DELEGATE summary is on the cheat sheet."
      }
     ]
    }
@@ -2488,7 +2235,7 @@
      },
      {
       "type": "p",
-      "text": "Two cautions. Do not package an unreliable prompt just because it is used often, and use a simple shared document when it meets the need — many teams get most of the value from a well-kept rung 3. Whatever the storage method, the source assumptions and checks travel with the prompt. If your site runs controlled work instructions — name, owner, revision, review date — run the library the same way: a process analogy, not regulatory equivalence."
+      "text": "Two cautions. Do not package an unreliable prompt just because it is used often. And use a simple shared document when it meets the need - many teams get most of the value from a well-kept rung 3. Whatever the storage method, the source assumptions and checks travel with the prompt. If your site runs controlled work instructions - name, owner, revision, review date - run the library the same way: a process analogy, not regulatory equivalence."
      }
     ]
    },
@@ -2497,7 +2244,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "Four homes, in increasing formality: a <b>personal document</b> for tasks you reuse yourself; a <b>shared repository</b> for prompts a team must find, test, and maintain together; <b>project instructions</b> for stable requirements across work in one environment; and a <b>packaged workflow</b> for repeated work with defined inputs, checks, permissions, and outputs. Choose the simplest location that supports the intended users and the review process. Wherever you already work, there is a home for reusable prompts — the map below is as of August 2026, and features move, so re-verify before you standardize."
+      "text": "Choose the simplest location that supports the intended users and the review process. Wherever you already work, there is a home for reusable prompts. The map below is as of August 2026; features move, so re-verify before you standardize."
      },
      {
       "type": "table",
@@ -2557,24 +2304,28 @@
      {
       "type": "bullets",
       "items": [
-       "Typical case — does it produce the expected useful result?",
-       "Edge case — does it handle a missing value or a changed condition?",
-       "Unanswerable case — does it expose the gap instead of inventing an answer?"
+       "Typical case - does it produce the expected useful result?",
+       "Edge case - does it handle a missing value or a changed condition?",
+       "Unanswerable case - does it expose the gap instead of inventing an answer? This is the case teams skip, and it tests whether the prompt's out survives pressure."
       ]
      },
      {
-      "type": "callout",
-      "kind": "trap",
-      "title": "The forgotten test case",
-      "body": "The unanswerable case is the one teams skip: a case where the right answer is \"I don't know.\" It tests whether the prompt's out survives pressure."
+      "type": "p",
+      "text": "A replacement must solve the intended problem without introducing critical regressions - it has to beat the version it replaces on those cases, not just feel better. Re-run the cases after every model upgrade."
      },
      {
       "type": "p",
-      "text": "A replacement must solve the intended problem without introducing critical regressions — it has to beat the version it replaces on those cases, not just feel better. Re-run them after model upgrades, and record the version, owner, source assumptions, and review date next to the template."
+      "text": "A few conventions keep a library alive:"
      },
      {
-      "type": "p",
-      "text": "A few conventions keep a library alive: {{placeholders}} for everything that changes per run (search for \"{{\" before running); [optional] blocks you delete when unused; a version and one-line change note naming the model tested; a filled example next to every blank template — the gold standard of what good looks like; a named owner and review cadence for every approved prompt."
+      "type": "bullets",
+      "items": [
+       "{{placeholders}} for everything that changes per run - search for \"{{\" before running.",
+       "[optional] blocks you delete when unused.",
+       "A version and a one-line change note naming the model tested.",
+       "A filled example next to every blank template - the gold standard of what good looks like.",
+       "A named owner and review cadence for every approved prompt."
+      ]
      },
      {
       "type": "callout",
@@ -2617,16 +2368,16 @@
      },
      {
       "type": "p",
-      "text": "The package gives you two saving surfaces. <b>Prompt_Template_Creator.html</b> (in deliverables/) is the builder: pick a task family, tick the requirements that resolve ambiguity, edit any wording, and copy the assembled prompt — a counter tracks unfilled {{placeholders}}, work saves in your browser, and nothing you type leaves the file. <b>Course_Workbook.xlsx</b> carries the course prompts in tabs 1-Analyze-Data through Research, in training order (with 5-Explain-Clearly as the reference exercise), each with a filled example, commentary, and its check. One of the five, as it ships:"
+      "text": "The package gives you two saving surfaces. <b>Prompt_Template_Creator.html</b> (in deliverables/) is the builder: pick a task family, tick the requirements that resolve ambiguity, edit any wording, and copy the assembled prompt — a counter tracks unfilled {{placeholders}}, work saves in your browser, and nothing you type leaves the file. <b>Course_Workbook.xlsx</b> carries the course prompts in tabs 1-Analyze-Data through Research, in training order (with 5-Explain-Clearly as the reference exercise), each with a filled example, commentary, and its check. The email prompt, in the fuller form a library entry deserves:"
      },
      {
       "type": "mono",
       "text": "Review the selected conversation about [topic] using only the messages and attachments you can access. Create a brief of the current situation, followed by tables of decisions and actions. For each decision: status, conditions, supporting message. For each action: task, explicitly stated owner, due date, status, supporting message. Distinguish current dates from superseded dates. List unanswered questions, conflicts, missing information, and referenced attachments you cannot access. Preserve approval conditions. Write \"Not stated\" for missing details. Separate source facts from your interpretation. End with the next clarification needed. If requested, draft a reply for review; do not send it.",
-      "caption": "The email-summary prompt, verbatim, from workbook tab 4-Summarize-Email; [topic] is filled at run time."
+      "caption": "The fuller email-brief template; Reference Deck slide 103 carries a condensed version of it. The live exercise uses the shorter structured brief (Chapter 4, step 6); this is the library-entry form, with [topic] filled at run time."
      },
      {
       "type": "p",
-      "text": "Read it as a library entry and the conventions are visible: a placeholder for what changes per run, an out (\"Not stated\") with a checkable shape, an authority boundary (draft, do not send), and a check stored beside it — the instructor tab KEY-Email lists the traps a good summary must catch."
+      "text": "Read it as a library entry and the conventions are visible: a placeholder for what changes per run, an out (\"Not stated\") with a checkable shape, and an authority boundary (draft, do not send). Its check is stored beside it: Appendix B.2 lists the traps a good summary must catch."
      }
     ]
    },
@@ -2646,7 +2397,7 @@
       "type": "callout",
       "kind": "works",
       "title": "Why the flip works",
-      "body": "Unstated needs get guessed right only 41.1% of the time; when the model asks first, accuracy improves by roughly 7 to 14 points (ClarifyGPT, FSE 2024). Answering its questions is quality control, not overhead."
+      "body": "When the model asks first, accuracy on unclear requests improves by roughly 7 to 14 points (ClarifyGPT, FSE 2024). Answering its questions is quality control, not overhead."
      },
      {
       "type": "p",
@@ -2656,7 +2407,7 @@
       "type": "callout",
       "kind": "key",
       "title": "The two skills are one",
-      "body": "The seven elements are a requirements specification in miniature — and the element you cannot fill in yet is the exact question to ask, or to let the AI ask you. Sam Altman, 2025: figuring out what questions to ask will matter more than the answers. Picasso, 1964: computers \"can only give you answers.\""
+      "body": "The element you cannot fill in yet is the exact question to ask - or to let the AI ask you. Sam Altman, 2025: figuring out what questions to ask will matter more than the answers. Picasso, 1964: computers \"can only give you answers.\""
      }
     ]
    },
@@ -2699,7 +2450,7 @@
     "blocks": [
      {
       "type": "p",
-      "text": "The exit ticket is a single completed rep. <b>Choose</b> a real prompt from your own work, or fall back on the supplier or email example. <b>Improve and run</b>: clarify the one missing requirement, then generate. <b>Check and explain</b>: show the evidence your check produced and name one revision you would make. Three routes qualify, and one is enough: repair a prompt, review a document against a rubric, or write a mission brief — a full agent run is not required, because writing a sound brief is the skill. If generation is slow, evaluate a prepared result against the same criteria; the judgment is the rep, not the waiting."
+      "text": "The exit ticket is a single completed rep. <b>Choose</b> a real prompt from your own work, or fall back on the supplier or email example. <b>Improve and run</b>: clarify the one missing requirement, then generate. <b>Check and explain</b>: show the evidence your check produced and name one revision you would make. Three routes qualify, and one is enough: repair a prompt, review a document against a rubric, or write a mission brief. A full agent run is not required - writing a sound brief is the skill. If generation is slow, evaluate a prepared result against the same criteria; the judgment is the rep, not the waiting."
      },
      {
       "type": "callout",
@@ -2714,9 +2465,9 @@
      {
       "type": "bullets",
       "items": [
-       "Anatomy rebuild. Rebuild a prompt you actually used last week with the seven-element anatomy; run both and compare. Then ask the model to improve the rebuilt prompt and run that too — you will see the quality jump, and how cheap it was.",
-       "Blind review. Paste a document you own as \"a colleague's draft\" and ask for the case against it, its three weakest points, and what evidence would change the verdict — without hinting at your view. Most people meet their first honest AI review here.",
-       "First mission brief. Pick a small recurring job with files and write the full brief, placeholders and all. No agent needed: where the checks and gates feel awkward is where your process was fuzzy all along."
+       "Anatomy rebuild. Rebuild a prompt you actually used last week with the seven-element anatomy; run both and compare. Then ask the model to improve the rebuilt prompt and run that too - you will see the quality jump, and how cheap it was.",
+       "Blind review. Rerun the Chapter 1 mirror test on a document you own - without hinting at your view.",
+       "First mission brief. Pick a small recurring job with files and write the full brief, placeholders and all. No agent needed - writing a sound brief is the skill."
       ]
      },
      {
@@ -2734,10 +2485,6 @@
      },
      {
       "type": "p",
-      "text": "Everything travels in the package: deliverables/ holds the course deck, Course_Workbook.xlsx, Prompt_Template_Creator.html, this book, and From_Prompts_to_Agents_Cheat_Sheet.pdf; deeper references sit under references/, including Elements_of_Prompting_Field_Guide.pdf and the exercise sources in references/exercise-data/. Facts about products and models expire — every such fact in these pages carries its date, and the date is part of the fact."
-     },
-     {
-      "type": "p",
       "text": "The course ends where your work begins. <b>Draft with AI. Decide with judgment. Delegate with a brief.</b> And the last skill of all — when you are not sure what to ask for, let it ask you. Save one prompt tonight, run one checked task this week, and the practice will build itself the way every practice does: one named, tested, owned improvement at a time."
      }
     ]
@@ -2747,7 +2494,7 @@
  {
   "title": "Reference: the glossary, the criteria, and the evidence",
   "kicker": "APPENDIX",
-  "intro": "This appendix is the layer of the course you return to after the reading is done: the vocabulary, the evidence behind every requirement type, and the map of the package itself. Use the glossary while you read, the criteria maps when you wonder whether a slot is worth filling, and the evidence boxes when a piece of prompting advice needs a verdict.",
+  "intro": "This appendix is the layer of the course you return to after the reading is done: the vocabulary, the evidence behind every requirement type, and the map of the package itself. Use the glossary while you read, the criteria maps when you wonder whether a slot is worth filling, and the evidence verdicts when a piece of prompting advice needs one.",
   "sections": [
    {
     "heading": "The glossary: twenty terms that matter",
@@ -2861,21 +2608,21 @@
     "blocks": [
      {
       "type": "p",
-      "text": "This map links each generative requirement type to its rationale: what filling the slot does to your output, and where the claim comes from."
+      "text": "This map lists each generative requirement type with the source behind it. What filling the slot does to your output is explained where the element is introduced in Chapter 3; the field guide carries the full rationale."
      },
      {
       "type": "bullets",
       "items": [
-       "<b>Identity and role</b> — sets voice, vocabulary, and caution level: which region of training answers. A role title alone does not establish accuracy. (Zheng 2024; Salewski 2023)",
-       "<b>Behavioral rules</b> — turn \"be careful\" into rules checkable line-by-line in the output; verify the cited support. (Anthropic hallucination docs)",
-       "<b>Stance and blinding</b> — models can favor your stated view; use a neutral rubric and independently check the evidence. (Cheng, Science 2026; Sharma 2023)",
-       "<b>Task verb and question</b> — the verb selects the operation; a precise question carries its own completion test. (Google guide; OpenAI GPT-5 guide)",
-       "<b>Purpose, the why</b> — models generalize from reasons: an explained rule gets applied in spirit to cases you never listed. (Anthropic best practices)",
-       "<b>Context and glossary</b> — replaces the model's most-plausible guess with your facts; unstated quirks lead to wrong assumptions. (OpenAI 2025)",
-       "<b>Material placement</b> — documents at the top, question at the end; content buried mid-context sags. (Anthropic long-context; Liu 2023)",
-       "<b>Format and length</b> — formatting can affect results; test the chosen structure and check length requirements explicitly. (Sclar, ICLR 2024)",
-       "<b>Examples</b> — imitate format, tone, and edge-case behavior; selection and order effects depend on task and model. (Brown 2020; Lu 2021; DeepSeek-R1)",
-       "<b>The out and the stop</b> — permission to say \"I don't know\" can reduce unsupported claims, because training rewards guessing; numbered scope plus a stop rule bound the sprawl. (Anthropic docs; OpenAI 2025)"
+       "<b>Identity and role</b> (Zheng 2024; Salewski 2023)",
+       "<b>Behavioral rules</b> (Anthropic hallucination docs)",
+       "<b>Stance and blinding</b> (Cheng, Science 2026; Sharma 2023)",
+       "<b>Task verb and question</b> (Google guide; OpenAI GPT-5 guide)",
+       "<b>Purpose, the why</b> (Anthropic best practices)",
+       "<b>Context and glossary</b> (OpenAI 2025)",
+       "<b>Material placement</b> (Anthropic long-context; Liu 2023)",
+       "<b>Format and length</b> (Sclar, ICLR 2024)",
+       "<b>Examples</b> (Brown 2020; Lu 2021; DeepSeek-R1)",
+       "<b>The out and the stop</b> (Anthropic docs; OpenAI 2025)"
       ]
      },
      {
@@ -2891,127 +2638,31 @@
     "blocks": [
      {
       "type": "p",
-      "text": "The second map explains why an agentic mission brief needs operational requirements. Use it whenever a task introduces new tools, actions, or approval boundaries."
+      "text": "The second map lists the agentic criteria, each with the mission-brief block it governs and the source behind it; the rationale per block is in Chapter 5, \"The mission brief for bounded work\". Use it whenever a task introduces new tools, actions, or approval boundaries."
      },
      {
       "type": "bullets",
       "items": [
-       "<b>Posture and standing rules</b> — conduct that must survive hour three of an unsupervised run; rules live in re-read files, not fading context. (Anthropic harness guidance)",
-       "<b>Done plus verifiable-by</b> — the loop needs an exit it can test: complete \"only after end-to-end verification — not when the code is written.\" (Anthropic memory-tool guidance, verbatim)",
-       "<b>Environment boundaries</b> — immutable inputs and versioned outputs engineer reversibility in before the first action; blast radius is a design choice. (Claude Code protected paths)",
-       "<b>Least-privilege tools</b> — name what exists, forbid the rest; risk-rate each tool by write access, reversibility, and impact. (OpenAI practical guide; NCSC)",
-       "<b>Input register and trust</b> — trust level dictates validation depth; UNKNOWN beats a plausible guess, which propagates through the whole run. (Pipeline and register discipline)",
-       "<b>Plan steps and methods</b> — named inputs and outputs per step keep intermediates inspectable; boring methods re-run identically; math runs as code. (Anthropic chaining; Faith and Fate 2023)",
-       "<b>Checks: anchor, hard, soft</b> — rules-based feedback is \"the best form of feedback\" an agent gets; one outside anchor checks a specific relationship; further failure modes need their own checks. (Anthropic Agent SDK)",
-       "<b>Gates and autonomy</b> — approval sits where errors are cheapest: at the plan, before irreversible actions, at failure thresholds; autonomy is named by the role you keep. (OpenAI guide; Feng et al. 2025)",
-       "<b>Logs and reproducibility</b> — structured updates and descriptive commits make a run auditable; same inputs producing same outputs is engineered, not hoped. (Anthropic harness guidance)",
-       "<b>Report shape and discipline</b> — a fixed status shape reads in thirty seconds; \"done\" means the check it ran, the output it got, the file re-opened. (SDK status enums; harness docs)"
+       "<b>Posture and standing rules</b> - <role>, <rules> (Anthropic harness guidance)",
+       "<b>Done plus verifiable-by</b> - <mission> (Anthropic memory-tool guidance)",
+       "<b>Environment boundaries</b> - <environment> (Claude Code protected paths)",
+       "<b>Least-privilege tools</b> - <environment> (OpenAI practical guide; NCSC)",
+       "<b>Input register and trust</b> - <inputs> (pipeline and register discipline)",
+       "<b>Plan steps and methods</b> - <plan> (Anthropic chaining; Faith and Fate 2023)",
+       "<b>Checks: anchor, hard, soft</b> - <checks> (Anthropic Agent SDK)",
+       "<b>Gates and autonomy</b> - <process> (OpenAI guide; Feng et al. 2025)",
+       "<b>Logs and reproducibility</b> - <outputs> (Anthropic harness guidance)",
+       "<b>Report shape and discipline</b> - <reporting>, <quality_bar> (SDK status enums; harness docs)"
       ]
-     },
-     {
-      "type": "callout",
-      "kind": "key",
-      "title": "None of the blocks is bureaucracy",
-      "body": "Each block of the mission brief exists because a documented failure taught someone to add it. Where a check feels awkward to write is where the process was fuzzy all along."
      }
     ]
    },
    {
-    "heading": "The evidence box set: works, myth, expired",
+    "heading": "The evidence verdicts: works, myth, expired",
     "blocks": [
      {
       "type": "p",
-      "text": "The course sorts techniques into three verdicts: <b>works</b> (replicated, use it), <b>myth</b> (never survived replication, including some standard 2023 advice), and <b>expired</b> (was genuinely right, then the product absorbed it). This selection is compact; the full compendium is in references/Elements_of_Prompting_Field_Guide.pdf and the PLAYBOOK tab of Course_Workbook.xlsx, researched as of September 2026. This field moves; keep the dates attached."
-     },
-     {
-      "type": "callout",
-      "kind": "works",
-      "title": "Be specific: task, constraints, success criteria",
-      "body": "The model fills every unstated need with the most plausible average guess, which matches your intent only about 41% of the time (Yang et al., 2025; revised 2026)."
-     },
-     {
-      "type": "callout",
-      "kind": "works",
-      "title": "One tested, versioned template with delimiters",
-      "body": "Formatting alone swings accuracy by up to 76 points; a tested template removes that lottery and makes runs comparable (Sclar, ICLR 2024; He 2024)."
-     },
-     {
-      "type": "callout",
-      "kind": "works",
-      "title": "Long inputs: documents at the top, question at the end",
-      "body": "Attention concentrates at the edges of the context and thins in the middle; placement alone is worth up to about 30% on long documents (Liu 2023; Anthropic long-context guidance)."
-     },
-     {
-      "type": "callout",
-      "kind": "works",
-      "title": "Give it an out, in checkable shape, plus citations",
-      "body": "Training rewards a confident guess over \"I don't know\"; an explicit UNKNOWN path cut unsupported answers from 66% to 44% (Omar 2025; OpenAI 2025)."
-     },
-     {
-      "type": "callout",
-      "kind": "works",
-      "title": "Self-check against named criteria, blinded from generation",
-      "body": "Named criteria give the check something falsifiable to fail; fact scores jumped from 56 to 71 with planned verification (CoVe, ACL 2024)."
-     },
-     {
-      "type": "callout",
-      "kind": "works",
-      "title": "Ask the AI to improve your prompt (metaprompting)",
-      "body": "Prompt wording is a search problem models solve better than people; optimizer-written prompts beat human ones (OPRO, ICLR 2024; GEPA 2026)."
-     },
-     {
-      "type": "callout",
-      "kind": "myth",
-      "title": "\"Tell it it's a genius and it gets smarter\"",
-      "body": "Personas move style, not competence: 162 expert personas tested, zero accuracy gain, and dumbed-down personas actively hurt (Zheng, EMNLP 2024; Wharton replication, Dec 2025)."
-     },
-     {
-      "type": "callout",
-      "kind": "myth",
-      "title": "Tips, threats, \"this is important to my career\"",
-      "body": "Effects wash out to an honest average of about 2.6%, null on modern models, while adding per-question noise; real stakes stated as factual context are fine (Salinas 2024)."
-     },
-     {
-      "type": "callout",
-      "kind": "myth",
-      "title": "\"Are you sure?\" as verification",
-      "body": "Pushback is a social signal, not a re-derivation: answers flip in 58% of cases, 14.7% of them from right to wrong (SycEval, AIES 2025; Huang, ICLR 2024)."
-     },
-     {
-      "type": "callout",
-      "kind": "myth",
-      "title": "\"Longer prompts are better\"",
-      "body": "The useful variable is information density, not length: reasoning accuracy fell from 0.92 to 0.68 with about 3,000 tokens of padding; detail helps, filler hurts (Levy et al., ACL 2024)."
-     },
-     {
-      "type": "callout",
-      "kind": "expired",
-      "title": "\"Let's think step by step\"",
-      "body": "Real in 2022, when it took one math benchmark from 10% to 41% (Kojima 2022); vendors then built the stepping in, so pick a reasoning model and set the effort dial. It remains legitimate on small, local, non-thinking models."
-     },
-     {
-      "type": "callout",
-      "kind": "expired",
-      "title": "Piles of ten-plus few-shot examples",
-      "body": "In-context learning founded prompt engineering in 2020 (Brown 2020); instruction tuning absorbed most of it, and piles now degrade reasoning models (DeepSeek-R1 paper, 2025). Go zero-shot first, then 3-5 format-definers."
-     },
-     {
-      "type": "callout",
-      "kind": "expired",
-      "title": "Hand-run voting and micro-decomposed steps",
-      "body": "Absorbed into test-time compute; over-prescribed steps now underperform outcome-first prompts (Wang, ICLR 2023; Anthropic 2026). Use effort settings; chain only where auditable intermediates are required."
-     },
-     {
-      "type": "callout",
-      "kind": "expired",
-      "title": "Carrying an old prompt stack onto each successive model",
-      "body": "Scaffolds tuned to one model's quirks actively degrade its successors (GPT-5.5 guide, Apr 2026). Strip to the anatomy, re-test your gold cases, re-add only what earns its place."
-     },
-     {
-      "type": "callout",
-      "kind": "key",
-      "title": "The bias under the myths: the mirror",
-      "body": "AI agrees with you about half again as often as a person would (+49% across 11 leading models; Stanford/CMU, Science 2026). So: never reveal your preferred answer, ask for the case against, paste your own draft as a colleague's, and treat agreement under pushback as noise."
+      "text": "The course sorts techniques into three verdicts: <b>works</b>, <b>myth</b>, and <b>expired</b>. The lists, with each verdict defined, are in Chapter 3, \"Prompt techniques to test\"; the full compendium, with the study behind every line, is in references/Elements_of_Prompting_Field_Guide.pdf and the PLAYBOOK tab of Course_Workbook.xlsx, researched as of September 2026."
      },
      {
       "type": "p",
@@ -3135,7 +2786,7 @@
      },
      {
       "type": "p",
-      "text": "Everything else sits under references/ (the build sources in src/ and the legacy prompt library sit beside the package root): the Elements_of_Prompting_Field_Guide.pdf with the full evidence compendium, the Prompt_Element_Taxonomy_Reference.pdf, the Prompt_Template_Configurator.xlsx, the facilitation plan, and exercise-data/ with the supplier materials — the clean CSV, the dashboard, the mock presentation, the email thread, the three quotation PDFs, the plain-language sources under references/exercise-data/plain-language/, and the instructor keys. The supplier scenario (Alpha Components, Bravo Plastics, Cardinal Metals) is entirely fictional: realistic data, no real company information."
+      "text": "Everything else sits under references/: Elements_of_Prompting_Field_Guide.pdf with the full evidence compendium, Prompt_Element_Taxonomy_Reference.pdf, and Prompt_Template_Configurator.xlsx. The exercise sources are in exercise-data/: the supplier materials (the clean CSV, the dashboard, the mock presentation), the email thread, the three quotation PDFs, the plain-language sources, and the research pack. The build sources sit in src/ beside the package root. The supplier scenario (Alpha Components, Bravo Plastics, Cardinal Metals) is entirely fictional."
      },
      {
       "type": "callout",
@@ -4922,7 +4573,7 @@
  {
   "title": "Answer keys: check yourself after attempting",
   "kicker": "APPENDIX B · ANSWER KEYS",
-  "intro": "The worked keys for every exercise — the same material a facilitator holds. In a live session these stay with the instructor; for self-study, attempt each exercise first, then grade your result here. Reading a key before attempting removes exactly the practice the exercise exists to give.",
+  "intro": "The expected results for every exercise, for self-study. Attempt each exercise first, then grade your result here. Reading a key before attempting removes exactly the practice the exercise exists to give.",
   "sections": [
    {
     "heading": "B.1 · Supplier analysis — the worked key",
@@ -4975,16 +4626,103 @@
     "blocks": [
      {
       "type": "p",
-      "text": "The instructor key for the email exercise, verbatim."
+      "text": "The expected brief for the packaging-change thread, and the four traps it must catch."
      },
      {
-      "type": "mono",
-      "text": "# INSTRUCTOR KEY — Packaging-change thread: expected brief\n\nFacilitator material. Do not hand out before the exercise. Source:\nPackaging_Change_Thread.txt (10 fictional messages, Sep 7–11).\n\n## Expected current-state brief (three sentences)\n\nThe packaging change is now planned for **October 2** (superseding September 25),\n**pending Ben's quality sign-off**, which itself waits on review of the revised\ndrawing. The trial is targeted for **September 25** (Luis, msg 8 — superseding the\noriginal September 18), with Luis's **revised trial plan due September 16** and the\nmaterial shipment arriving September 23. Finance approval stands **only within the\n18,000 cost cap**, and **freight responsibility for the later shipment is unresolved**.\n\n## Decisions vs. proposals\n\n| Item | Status | Conditions | Evidence |\n|---|---|---|---|\n| Change date October 2 | Proposed/planned — NOT finally approved | Ben's quality sign-off | msg 6, msg 10 |\n| Trial budget | Approved | ≤ 18,000 AND quality sign-off; no freight extras approved | msg 3, msg 9 |\n| Trial date September 25 | Current plan (supersedes Sep 18) | revised plan due Sep 16 | msg 2 → msg 8 |\n| Original change date September 25 | Superseded | — | msg 1 → msg 6 |\n\n## Action table (expected)"
+      "type": "p",
+      "text": "<b>Expected current-state brief.</b> The packaging change is now planned for October 2 (superseding September 25), pending Ben's quality sign-off, which itself waits on review of the revised drawing. The trial is targeted for September 25 (Luis, message 8 - superseding the original September 18), with Luis's revised trial plan due September 16 and the material shipment arriving September 23. Finance approval stands only within the 18,000 cost cap, and freight responsibility for the later shipment is unresolved."
      },
      {
-      "type": "mono",
-      "text": "| Task | Owner | Due | Status | Dependency | Evidence |\n|---|---|---|---|---|---|\n| Submit revised trial plan | Luis | Sep 16 | Committed | — | msg 6, 8, 10 |\n| Review drawing, quality sign-off | Ben | Not stated | Open | access to the drawing | msg 4, 10 |\n| Decide freight responsibility | Not stated | Not stated | Open | — | msg 7, 9, 10 |\n| Provide revised drawing to Ben | Elena/Maya | Not stated | Claimed sent; attachment not accessible | — | msg 5 |\n\n## The four traps (all must be caught)\n\n1. **Changed dates** — change date Sep 25 → Oct 2 (msg 6); trial date Sep 18 → Sep 25\n   (msg 8). Oct 2 is the *change* date, Sep 25 the *trial* date — do not conflate.\n2. **Conditional approval** — Priya's approval is conditional (≤18,000 + quality\n   sign-off) and explicitly excludes extra freight (msg 9). \"Approved\" alone is wrong.\n3. **Unresolved question** — freight responsibility (msg 7) is never answered.\n4. **Missing attachment** — the revised drawing is referenced (msg 5) but not\n   supplied; its content must not be summarized, and Ben's sign-off still depends on it.\n\nAlso correct: \"Not stated\" for the freight owner and Ben's due date; no final\napproval of October 2 exists anywhere in the thread; any reply is a draft for human\nreview, never sent automatically.",
-      "caption": "Verbatim copy of instructor-keys/Packaging_Change_Expected_Brief.md."
+      "type": "table",
+      "cols": [
+       "Item",
+       "Status",
+       "Conditions",
+       "Evidence"
+      ],
+      "rows": [
+       [
+        "Change date October 2",
+        "Proposed/planned - NOT finally approved",
+        "Ben's quality sign-off",
+        "msg 6, msg 10"
+       ],
+       [
+        "Trial budget",
+        "Approved",
+        "≤ 18,000 AND quality sign-off; no freight extras approved",
+        "msg 3, msg 9"
+       ],
+       [
+        "Trial date September 25",
+        "Current plan (supersedes Sep 18)",
+        "revised plan due Sep 16",
+        "msg 2 → msg 8"
+       ],
+       [
+        "Original change date September 25",
+        "Superseded",
+        "-",
+        "msg 1 → msg 6"
+       ]
+      ],
+      "note": "Decisions vs. proposals."
+     },
+     {
+      "type": "table",
+      "cols": [
+       "Task",
+       "Owner",
+       "Due",
+       "Status",
+       "Dependency",
+       "Evidence"
+      ],
+      "rows": [
+       [
+        "Submit revised trial plan",
+        "Luis",
+        "Sep 16",
+        "Committed",
+        "-",
+        "msg 6, 8, 10"
+       ],
+       [
+        "Review drawing, quality sign-off",
+        "Ben",
+        "Not stated",
+        "Open",
+        "access to the drawing",
+        "msg 4, 10"
+       ],
+       [
+        "Decide freight responsibility",
+        "Not stated",
+        "Not stated",
+        "Open",
+        "-",
+        "msg 7, 9, 10"
+       ],
+       [
+        "Provide revised drawing to Ben",
+        "Elena/Maya",
+        "Not stated",
+        "Claimed sent; attachment not accessible",
+        "-",
+        "msg 5"
+       ]
+      ],
+      "note": "Expected action table."
+     },
+     {
+      "type": "bullets",
+      "items": [
+       "<b>Changed dates</b> - change date Sep 25 → Oct 2 (msg 6); trial date Sep 18 → Sep 25 (msg 8). Oct 2 is the <i>change</i> date, Sep 25 the <i>trial</i> date - do not conflate.",
+       "<b>Conditional approval</b> - Priya's approval is conditional (≤ 18,000 + quality sign-off) and explicitly excludes extra freight (msg 9). \"Approved\" alone is wrong.",
+       "<b>Unresolved question</b> - freight responsibility (msg 7) is never answered.",
+       "<b>Missing attachment</b> - the revised drawing is referenced (msg 5) but not supplied; its content must not be summarized, and Ben's sign-off still depends on it.",
+       "Also correct: \"Not stated\" for the freight owner and Ben's due date; no final approval of October 2 exists anywhere in the thread; any reply is a draft for human review, never sent automatically."
+      ]
      }
     ]
    },
@@ -4997,8 +4735,8 @@
      },
      {
       "type": "mono",
-      "text": "# Instructor key — quotation extraction and comparison\n\nStep 1 (extraction) is complete when every commercial value is verbatim,\ncited to its source file, and gaps read \"Not stated\" — notably: Alpha freight\namount and taxes; Bravo freight, duties, and the EUR→USD basis; Cardinal taxes.\n\nStep 2 (comparison) at the 5,000-unit tier, tooling amortized over 5,000:\n- Alpha: USD 13.90 + 8,500/5,000 = **USD 15.60 / unit**, freight NOT included.\n- Bravo: EUR 11,900/1,000 + 14,000/5,000 = **EUR 14.70 / unit**, freight and\n  duties NOT included, VAT excluded — NOT convertible without a supplied rate.\n- Cardinal: USD 16.40 + 0 = **USD 16.40 / unit**, freight and duties INCLUDED\n  (DDP), certs + PPAP included, longest warranty and validity.\n\nThe correct conclusion is that NO best quote can be named yet: the blocking\ngaps are the EUR→USD basis, Alpha/Bravo freight (and Bravo duties), and tax\ntreatment. A submission that crowns a winner without resolving these fails\nthe exercise; one that ranks by stated unit price alone falls for the trap.",
-      "caption": "Verbatim copy of instructor-keys/Quote_Comparison_Key.md."
+      "text": "SELF-CHECK — quotation extraction and comparison\n\nStep 1 (extraction) is complete when every commercial value is verbatim,\ncited to its source file, and gaps read \"Not stated\" — notably: Alpha freight\namount and taxes; Bravo freight, duties, and the EUR→USD basis; Cardinal taxes.\n\nStep 2 (comparison) at the 5,000-unit tier, tooling amortized over 5,000:\n- Alpha: USD 13.90 + 8,500/5,000 = **USD 15.60 / unit**, freight NOT included.\n- Bravo: EUR 11,900/1,000 + 14,000/5,000 = **EUR 14.70 / unit**, freight and\n  duties NOT included, VAT excluded — NOT convertible without a supplied rate.\n- Cardinal: USD 16.40 + 0 = **USD 16.40 / unit**, freight and duties INCLUDED\n  (DDP), certs + PPAP included, longest warranty and validity.\n\nThe correct conclusion is that NO best quote can be named yet: the blocking\ngaps are the EUR→USD basis, Alpha/Bravo freight (and Bravo duties), and tax\ntreatment. A submission that crowns a winner without resolving these fails\nthe exercise; one that ranks by stated unit price alone falls for the trap.",
+      "caption": "Expected extraction gaps, normalized values, and the expected outcome."
      }
     ]
    },
@@ -5011,8 +4749,8 @@
      },
      {
       "type": "mono",
-      "text": "# Instructor key — research workbook\n\nTraceability: every Evidence row cites file + page/section and quotes a short\nexcerpt; nothing appears that cannot be traced (12 expected rows, ±2).\n\nMust-catch items:\n1. The CADENCE CONFLICT — manual quarterly (2026-02) vs newsletter monthly\n   (2026-06). Kept as two rows, surfaced in Synthesis as a decision, never\n   silently merged.\n2. \"Not stated\" entries — undated guideline; responsiveness scale; 8D closure\n   authority and target time; monthly-cadence scope; §9 plan format.\n3. Separate-measures and sums-not-averages rules carried into the synthesis.\n4. Synthesis ordered foundations → content → escalation → conflict → gaps →\n   implication; Sources sheet indexes all four files.\n\nA workbook that invents a fifth source, fills gaps with guesses, or resolves\nthe cadence conflict by picking one side without flagging it fails the check.",
-      "caption": "Verbatim copy of instructor-keys/Research_Workbook_Key.md."
+      "text": "SELF-CHECK — research workbook\n\nTraceability: every Evidence row cites file + page/section and quotes a short\nexcerpt; nothing appears that cannot be traced (12 expected rows, ±2).\n\nMust-catch items:\n1. The CADENCE CONFLICT — manual quarterly (2026-02) vs newsletter monthly\n   (2026-06). Kept as two rows, surfaced in Synthesis as a decision, never\n   silently merged.\n2. \"Not stated\" entries — undated guideline; responsiveness scale; 8D closure\n   authority and target time; monthly-cadence scope; §9 plan format.\n3. Separate-measures and sums-not-averages rules carried into the synthesis.\n4. Synthesis ordered foundations → content → escalation → conflict → gaps →\n   implication; Sources sheet indexes all four files.\n\nA workbook that invents a fifth source, fills gaps with guesses, or resolves\nthe cadence conflict by picking one side without flagging it fails the check.",
+      "caption": "What a complete evidence workbook must show."
      }
     ]
    }

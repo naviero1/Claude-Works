@@ -9,7 +9,14 @@
 #   references/exercise-data/Quote_Cardinal_Metals.pdf         glance: currency/per-1000/EXW traps)
 #   references/exercise-data/Email_Thread_Packaging_Change.txt / .pdf  (messy 10-message thread)
 # Deterministic (seeded) so the numbers on the walkthrough slides stay true after a rebuild.
-# Prompt texts in the tabs MUST match the deck (R10/R11) - edit deck_pt*.js and this file together.
+# Prompt texts in the tabs MUST match the deck - the numbered prompts EX1..EX7 are the constants
+# P1..P7 in build_v08.py (verified by AST at build time: a mismatch aborts the build); the live
+# application prompts come from assets/course_prompts.json (shared with the builder).
+#
+# Side outputs: set the environment variable EXERCISE_PACK_OUT=<dir> to write the quotation PDFs
+# and the legacy email thread (.txt/.pdf) somewhere else (e.g. a scratch folder) while the
+# workbook still lands in deliverables/. Unset, the default is references/exercise-data/.
+import ast
 import os
 import random
 from openpyxl import Workbook
@@ -21,7 +28,7 @@ from reportlab.lib.colors import HexColor
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 
-OUT = os.path.join(os.path.dirname(__file__), '..', 'references', 'exercise-data')
+OUT = os.environ.get('EXERCISE_PACK_OUT') or os.path.join(os.path.dirname(__file__), '..', 'references', 'exercise-data')
 os.makedirs(OUT, exist_ok=True)
 random.seed(42)
 
@@ -40,6 +47,7 @@ rd = wb.active
 rd.title = 'README'
 readme = [
     ['Course Workbook — "From Prompts to Agents" training'],
+    ['Legacy front page — the current index and training order are in tab INDEX.'],
     [''],
     ['WHAT THIS IS', 'Your one take-home workbook: every exercise prompt from the course in a named tab (copy-paste, don\'t retype), the practice dataset for the Part 4 data walkthrough, and the full 2026 prompting playbook.'],
     ['HOW TO USE IT', 'During the course: when a slide points at a tab (e.g. "tab EX3-Tokens"), open it and copy the prompt. For the data walkthrough: upload this whole workbook to your AI and follow tab G2-DataAnalysis - profile first, then numbered questions.'],
@@ -70,7 +78,10 @@ for row in readme:
 rd.column_dimensions['A'].width = 22
 rd.column_dimensions['B'].width = 105
 rd['A1'].font = Font(bold=True, size=13, color='0E7C7B')
-for r in (10, 21):
+rd['A2'].font = Font(italic=True, size=9, color='7A8790')
+_readme_bold = [i + 1 for i, row in enumerate(readme) if row and row[0] in ('COLUMN', 'KNOWN QUIRKS (left in on purpose — a good analysis finds them)')]
+assert len(_readme_bold) == 2, _readme_bold
+for r in _readme_bold:
     rd.cell(row=r, column=1).font = Font(bold=True)
     rd.cell(row=r, column=2).font = Font(bold=True)
 for row in rd.iter_rows():
@@ -258,31 +269,63 @@ def prompt_tab(name, title, rows, note=None):
             c.alignment = Alignment(vertical='top', wrap_text=True)
     t.freeze_panes = 'A4'
 
-prompt_tab('EX1-TwoModes', 'Prompt 1/7 · Two modes, felt — this chat becomes your course log', [
-    ('STEP 1', 'Write a short farewell card for a coworker who is leaving.',
-     'Generative mode — it writes instantly, guessing every detail it doesn\'t know.'),
-    ('STEP 2', 'Now don\'t write it. Ask me everything you\'d need to know to do this perfectly, then wait for my answers.',
-     'The seed of delegate mode — the AI turns around and interviews YOU.'),
-], note='Run both steps in ONE chat and keep that chat all course — it is your course log.')
+# -- The seven numbered course prompts. The prompt texts below are copies of the constants
+#    P1..P7 in build_v08.py (the deck builder); the check right after them parses build_v08.py
+#    and aborts the build if any text drifted, so the workbook can never disagree with the deck.
+P1 = [("SEND 1", "Use this chat as my course log. When I request a report, use only the conversation available to you and flag any gaps. Acknowledge briefly."),
+      ("SEND 2", "Write a farewell message for a coworker in about 50 words."),
+      ("SEND 3", "Before revising, ask up to three questions that would most improve the message. Wait for my answers, then revise it.")]
+P2 = [("SEND 1", "Finish this sentence five different ways: “We should review the launch date because…” Treat each ending as a hypothetical possibility."),
+      ("SEND 2", "Repeat using these facts: we are a business-to-business software company; our beta ends April 20; a competitor launches May 3. Separate supplied facts from assumptions. End with one missing fact that could change the timing decision.")]
+P3 = [(None, "Explain tokens to a new colleague using a LEGO-brick analogy, in about 100 words. Show an illustrative word split and explain why the actual split depends on the tokenizer. Connect token counts to context limits and charges when billing is based on tokens. End with one practical implication for working with long documents.")]
+P4 = [("SEND 1", "Explain a context window using a desk analogy, in about 100 words. What occupies the desk, and what happens as it fills? Distinguish information available for the current response from saved chat history and optional memory. Identify what depends on the application. End with one useful habit for continuing a long task."),
+      ("HANDOFF FOLLOW-UP", "Create a concise HANDOFF from the conversation currently available: goal, decisions, constraints, unresolved questions, and next action. Name any files needed to continue. Mark missing information rather than inventing it.")]
+P5 = [(None, "Explain when to start with fast responses versus more reasoning, using three examples: a routine email, inconsistent supplier data, and a problem with several interacting causes. For each, give a starting choice and what would justify increasing effort. Explain the tradeoff in time and resource use without guessing prices. About 120 words.")]
+P6 = [(None, "Using the supplied screenshot or copied text of my app’s menu, explain each visible mode in one line: its purpose and a suitable workplace task. Mark anything the supplied information does not establish as needing verification. If the menu is missing, ask for it first.")]
+P7 = [(None, "Explain Mixture of Experts using a specialist-hospital analogy, in about 120 words. Describe how selected computational components handle each token and how activating only a subset can reduce computation. Explain one way the hospital analogy can mislead, and why lower computation alone does not determine customer prices.")]
 
-prompt_tab('EX2-Guesses', 'Prompt 2/7 · Narrowing the guesses — two separate sends', [
-    ('SEND 1', 'Finish this sentence 5 different ways: We should move the launch date because',
-     'No facts yet — watch it scatter across guesses (budget, staffing, quality...).'),
-    ('SEND 2', 'Now 5 more ways, knowing: B2B software firm, competitor launches May 3, our beta ends April 20.',
-     'Your facts didn\'t make it smarter — they deleted wrong guesses. Grade the directions, not the sentences.'),
-])
+def _deck_prompts():
+    """P1..P7 exactly as build_v08.py defines them (parsed, not imported: importing would run the deck build)."""
+    src = open(os.path.join(os.path.dirname(__file__), 'build_v08.py'), encoding='utf-8').read()
+    found = {}
+    for node in ast.parse(src).body:
+        if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name) \
+                and node.targets[0].id in ('P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7'):
+            found[node.targets[0].id] = ast.literal_eval(node.value)
+    assert sorted(found) == ['P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7'], sorted(found)
+    return found
 
-prompt_tab('EX3-Tokens', 'Prompt 3/7 · Bricks, not letters', [
-    ('STEP 1', 'Explain AI tokens to a high-school student in under 80 words: use a LEGO-brick analogy, show one word splitting into tokens, and end with why tokens set my AI\'s cost and limits.',
-     'The definition lands in your course log — and the brick analogy is the one the best explainers use.'),
-])
+for _name, _local in (('P1', P1), ('P2', P2), ('P3', P3), ('P4', P4), ('P5', P5), ('P6', P6), ('P7', P7)):
+    _deck = _deck_prompts()[_name]
+    assert [tuple(x) for x in _deck] == _local, f'{_name} in this file differs from build_v08.py — copy it verbatim'
 
-prompt_tab('EX4-Handoff', 'Prompt 4/7 · The desk — explained, then carried', [
-    ('STEP 1', 'Explain your context window like I\'m a 5th grader: the desk, what fits on it, and what happens when I close this chat. Under 100 words.',
-     'The AI describes its own working memory, plainly.'),
-    ('STEP 2 (homework)', 'Summarize our chat so far in under 80 words, titled HANDOFF.',
-     'Tonight: paste the HANDOFF into a fresh chat, ask "where was I?" — and watch it pick up your course.'),
-])
+prompt_tab('EX1-TwoModes', 'Prompt 1/7 · Your course log — and the first rep (deck slide 2)', [
+    ('SEND 1', P1[0][1],
+     'Opens your course log: the AI is told to use only this conversation when you later ask for a report, and to flag gaps — the one sentence that makes the closing report rep (tab EX-Report) possible.'),
+    ('SEND 2', P1[1][1],
+     'ASK mode: a bounded request, drafted instantly from whatever the model guesses about the coworker — you read it, check it, and decide what happens next.'),
+    ('SEND 3', P1[2][1],
+     'The DELEGATE seed: the model interviews you with up to three questions and waits — the questions come to you before the revision, not after.'),
+], note='Run all three sends in ONE chat and keep that chat open all course — it is your course log; the closing rep in tab EX-Report runs there.')
+
+prompt_tab('EX2-Guesses', 'Prompt 2/7 · Narrowing the guesses — two separate sends (deck slide 7)', [
+    ('SEND 1', P2[0][1],
+     'No facts yet — every ending is a hypothesis, so watch it scatter across guesses (budget, staffing, quality...).'),
+    ('SEND 2', P2[1][1],
+     'Your facts did not make it smarter — they deleted wrong guesses: the endings now orbit April 20 and May 3, supplied facts sit apart from assumptions, and one missing fact is named; grade the directions, not the sentences.'),
+], note='Two separate sends in the same course-log chat: read SEND 1 before you paste SEND 2.')
+
+prompt_tab('EX3-Tokens', 'Prompt 3/7 · Tokens, explained by the model (deck slide 8)', [
+    ('STEP 1', P3[0][1],
+     'The model teaches the concept into your log: text arrives as bricks, the split depends on the tokenizer, and token counts drive context limits and charges — ending with one habit for long documents.'),
+], note='One send. Answers differ across tools — every vendor has its own brick set; the bricks are always there, the letters never are.')
+
+prompt_tab('EX4-Handoff', 'Prompt 4/7 · The desk — explained, then the HANDOFF (deck slide 9)', [
+    ('SEND 1', P4[0][1],
+     'The model describes its own working memory plainly — and separates active context from saved chat history and optional cross-chat memory, which is the distinction this slide lands.'),
+    ('HANDOFF FOLLOW-UP', P4[1][1],
+     'The habit for long tasks: a compact HANDOFF (goal, decisions, constraints, open questions, next action, files) that you paste into a fresh chat when the desk fills — missing items are marked, never invented.'),
+], note='SEND 1 in class; the HANDOFF FOLLOW-UP is homework in the same thread — paste the HANDOFF into a fresh chat and check that the work continues.')
 
 prompt_tab('BONUS-Ladder', 'Bonus drill · The escalation ladder — see the rungs sort themselves (self-study)', [
     ('STEP 1', 'Give me three everyday AI problems: one fixed by a better prompt, one by giving it the right documents, one only fixable by retraining it. One line each on why.',
@@ -291,30 +334,32 @@ prompt_tab('BONUS-Ladder', 'Bonus drill · The escalation ladder — see the run
      'The stretch drill. Problem 6 is deliberately arguable — the argument is the lesson.'),
 ])
 
-prompt_tab('EX5-TwoSpeeds', 'Prompt 5/7 · Same brain, two speeds', [
-    ('STEP 1', 'Describe your fast mode vs your thinking mode like I\'m choosing between them for real work: when is each worth it, and roughly how much more does thinking cost? Under 120 words.',
-     'The model explains its own two speeds — and its own bill.'),
-    ('EXTENDED 1', 'Answer instantly, in one line: Five colleagues (Ana, Ben, Chloe, Dev, Ema) each present on a different weekday. Ben presents Monday. Dev presents Friday. Chloe can\'t do Monday or Wednesday. Ema presents the day after Chloe. Ana presents later in the week than Chloe. Who presents when?',
-     'The fast pass — quick, cheap, and often wrong on logic like this.'),
-    ('EXTENDED 2', 'Now solve the same puzzle carefully: check every rule one by one, show your reasoning, then give the final schedule.',
-     'The slow pass — drafts and checks. (Unique solution exists.)'),
-    ('EXTENDED 3', 'Estimate the word count of your two answers above and compute the multiple. That ratio is roughly how a thinking tier bills compared to a fast one.',
-     'Most rooms land on 10-20x — the bill, felt.'),
-])
+prompt_tab('EX5-TwoSpeeds', 'Prompt 5/7 · Fast responses vs more reasoning — three examples (deck slide 11 · self-study)', [
+    ('STEP 1', P5[0][1],
+     'Start fast and escalate on evidence: for each of the three examples the model names a starting choice and what would justify more effort, and explains the time-and-resource tradeoff without inventing prices — then compare on the task and account you actually use.'),
+], note='Reference slide (self-study, 0:10 in the live run): reasoning effort can improve some tasks while increasing latency or cost — compare on the task and account you actually use.')
 
-prompt_tab('EX6-FeatureMenu', 'Prompt 6/7 · Ask your own product for its menu', [
-    ('STEP 1', 'List the modes this app gives me — quick answer, thinking, web search, deep research, agent — one line each on what it does differently and its rough effort. Say \'unsure\' rather than guess.',
-     'Your own product hands you its menu; ask again the day it changes.'),
-    ('EXTENDED', 'Build a table of every mode and toggle this app offers: name · what it does differently · when to use it · relative cost or effort · does it work with uploaded files? · does it need a paid tier? Say \'unsure\' where you don\'t know.',
-     'The six-column version — a personal reference card that never goes stale.'),
-])
+prompt_tab('EX6-FeatureMenu', 'Prompt 6/7 · Your app’s menu, explained (Reference Deck slide 113 · self-study)', [
+    ('STEP 1', P6[0][1],
+     'Product menus change: the model explains only the modes you actually supplied (a screenshot or copied text), marks what that material does not establish as needing verification, and asks for the menu if it is missing — verify in the product, not from the model\'s memory of itself.'),
+], note='Self-study: this prompt lives in the Reference Deck (slide 113), not in the live run. Paste a screenshot or the copied text of your app’s mode menu before sending; feature names and availability change, so check current documentation and your own account’s access.')
 
-prompt_tab('EX7-MoE', 'Prompt 7/7 · The specialist hospital, explained', [
-    ('STEP 1', 'Explain Mixture of Experts like a colleague: a specialist hospital where only the relevant departments wake up per question — and why that made AI dramatically cheaper in 2025. Under 120 words.',
-     'The MoE cheat-note lands in your course log, told by your own assistant.'),
-])
+prompt_tab('EX7-MoE', 'Prompt 7/7 · The specialist hospital, explained (deck slide 20 · self-study)', [
+    ('STEP 1', P7[0][1],
+     'The MoE cheat-note lands in your log: how only a subset of components handles each token, where the hospital analogy misleads, and why lower computation alone does not set customer prices.'),
+], note='Reference slide (self-study, 0:10 in the live run): a historical shift in model economics — costs from different dates and measurement methods are not directly interchangeable.')
 
-prompt_tab('G2-DataAnalysis', 'Part 4 walkthrough · AI data analysis on the Data tab of THIS workbook', [
+# The blank G2 template, verbatim from the prompt library (the first ```text fence of the file).
+_g2_md = open(os.path.join(os.path.dirname(__file__), '..', 'prompt-library', 'generative', 'G2_data_analysis.md'),
+              encoding='utf-8').read()
+_g2_start = _g2_md.index('```text\n') + len('```text\n')
+_g2_end = _g2_md.index('\n```', _g2_start)
+G2_TEMPLATE = _g2_md[_g2_start:_g2_end]
+assert G2_TEMPLATE.startswith('<role>') and G2_TEMPLATE.rstrip().endswith('</format>'), G2_TEMPLATE[:60]
+
+prompt_tab('G2-DataAnalysis', 'Part 4 walkthrough · AI data analysis on the Data tab of THIS workbook (template: deck slide 34)', [
+    ('TEMPLATE · BLANKS', G2_TEMPLATE,
+     'The generic G2 template (deck slide 34): role / data / task / method / format blocks with {{blanks}}. Fill the blanks for your own dataset; the five steps below are this template filled in for the Data tab.'),
     ('STEP 0', 'Work only with the Data tab of this workbook. Before any analysis: profile it — rows, columns, types, missing or odd values, and anything that would trip a calculation. Show me the profile and STOP. Do not analyze yet.',
      'Profile first, analyze second. A good profile finds the TOTAL row and the "n/a" cell.'),
     ('STEP 1', 'Working only on the 144 data rows (exclude the TOTAL row; treat the "n/a" as missing and say so): 1) Which supplier has the highest defect rate — Defects_Found ÷ Units_Shipped; returns are a separate measure, never added — overall, and is it getting better or worse across the year? 2) Is there a relationship between Inspection_Hours and Units_Returned? Compute the correlation by running code, show your working, and describe it as an association, not a cause. 3) Rank the sites by On_Time_Percent. Answer in that order, then stop.',
@@ -325,14 +370,14 @@ prompt_tab('G2-DataAnalysis', 'Part 4 walkthrough · AI data analysis on the Dat
      'The trust check — one reconciliation anchor beats ten spot checks.'),
     ('STEP 4', 'Turn the supplier scorecard into a one-sheet spreadsheet I can circulate: a README tab explaining every column and where the numbers came from, the scorecard tab with formulas visible — not pasted values — and a short caveats section (the "n/a" cell, the excluded TOTAL row, any assumptions). Use only numbers from this chat; if one is missing, leave the cell blank and say so — do not invent it.',
      'Ship the artifact, not just the answer. Verify two formulas before it circulates.'),
-], note='The generic G2 template (role/data/task/method/format blocks with blanks) is in prompt-library/ — these five steps are G2, filled in for this dataset.')
+], note='The TEMPLATE · BLANKS row is the generic G2 template exactly as the prompt library states it — these five steps are G2, filled in for this dataset.')
 
-prompt_tab('EX-Quotes', 'Part 4 walkthrough · Three quotes, one table (uses the three Quote_*.pdf files in your pack)', [
+prompt_tab('EX-Quotes', 'Optional self-study · Three quotes, one table — legacy one-step version (Reference Deck slide 105)', [
     ('STEP 1', 'Extract every commercial term from these three quotations into one table: supplier, unit price, tooling, MOQ, lead time, payment terms, warranty, shipping terms, validity. Normalize prices to USD per unit at 5,000 units — state the EUR rate you use and flag it as an assumption — include tooling amortized over the 5,000 units, and note what shipping does and doesn\'t include. Flag anything that is still not comparable.',
      'Extract & normalize — the "cheapest" quote stops looking cheapest once currency, per-1000 pricing, tooling and freight are normalized.'),
     ('STEP 2', 'Now: which quote has the lowest true landed cost at 5,000 units? Which is the best overall value once warranty, lead time and payment terms count? And what would you negotiate with each supplier before deciding? Keep it to one page; separate facts from judgment.',
      'Recommendation with caveats — and the exchange rate stays a flagged assumption YOU verify.'),
-], note='Attach Quote_Alpha_Components.pdf, Quote_Bravo_Plastics.pdf and Quote_Cardinal_Metals.pdf before sending STEP 1.')
+], note='Attach Quote_Alpha_Components.pdf, Quote_Bravo_Plastics.pdf and Quote_Cardinal_Metals.pdf (in your pack) before sending STEP 1. The live course runs the two-step version — tabs Quote-Extract (verbatim extraction, original currencies) then Quote-Compare (normalize only what has a stated basis) — which never assumes an exchange rate; this legacy one-step version asks the model to state and flag one, so treat its USD figures as illustrations you must verify.')
 
 prompt_tab('EX-Email', 'Part 4 walkthrough · The inbox play (uses Email_Thread_Packaging_Change.txt / .pdf)', [
     ('THE BRIEF', 'Summarize the email thread below under four headers, in order: 1) OVERVIEW — two sentences. 2) DECISIONS — bullets; write "None" if nothing was decided. 3) ACTION ITEMS — task — owner — due date; leave a slot blank rather than guess. 4) OPEN QUESTIONS — raised but never answered. Rules: use only facts in the thread · work oldest-first and flag anywhere a decision or date CHANGED later — show both, mark the latest · do not invent owners or dates. Thread: [paste, oldest first]',
@@ -343,7 +388,7 @@ prompt_tab('EX-Email', 'Part 4 walkthrough · The inbox play (uses Email_Thread_
      'The reply — conditions survive, commitments stay yours.'),
     ('OTHER SHAPES', 'Shape 1 TL;DR: "One sentence, max 30 words: current state or decision needed — not the history." · Shape 3 Actions table: "Task | Owner | Due | Blocked by — blank cells beat guessed ones." · Shape 4 Decisions log: "Decision | Decided by | Reasoning | Date — settled only, proposals flagged." · Shape 5 Who-owes-what: "Every unanswered question + X owes Y: [thing], latest state only."',
      'Picking the shape IS the skill — the brief is the default.'),
-], note='The practice thread has four planted traps: a moved date, an approval WITH a condition, an unanswered question, and a mentioned attachment that isn\'t there. A good brief catches all four.')
+], note='The practice thread has four planted traps: a moved date, an approval WITH a condition, an unanswered question, and a mentioned attachment that isn\'t there. A good brief catches all four. Which thread: this legacy tab uses Email_Thread_Packaging_Change.txt / .pdf (ten messages, Maya Chen and colleagues, September 2026 dates) — NOT the live course thread Packaging_Change_Thread.txt used by tab 4-Summarize-Email and Reference Deck slides 90–91, which has different people, dates and traps. Do not check one thread against the other\'s key.')
 
 prompt_tab('EX-Dashboard', 'Part 4 follow-on · A dashboard from data — shape it, build it, check it, refine it (uses the Data tab of THIS workbook)', [
     ('STEP 0 · SHAPE', 'Work with the Data tab of this workbook (144 data rows; exclude the TOTAL row; one Inspection_Hours cell is "n/a" — treat it as missing and say so). I want a monthly supplier-quality dashboard for a plant manager who has 60 seconds. Before you build ANYTHING, propose the shape: 1) the 3-4 KPIs worth tracking — for each: a name, its exact formula from these columns, its current value for the latest month in the data, and a sensible target; for any percentage column, state whether your formula weights by Units_Shipped or takes a simple average; 2) one chart per question the manager will actually ask — name the chart type and what is on each axis; 3) a one-line layout sketch: what sits top-left, and why. Show me the proposal and STOP — no code yet.',
@@ -451,9 +496,9 @@ PB_EXP = [
     ('8', 'Carrying your GPT-4-era prompt stack to each new model → re-baseline and re-test on every upgrade (PDCA)', 'GPT-5.5 guide via Willison, Apr 2026'),
 ]
 pb = wb.create_sheet('PLAYBOOK')
-pb.append(['The 2026 prompting playbook — Do / Don\'t / Expired (full 8+8+8; top five of each are on the course slide)'])
+pb.append(['The 2026 prompting playbook — Do / Don\'t / Expired (full 8+8+8; the course slide shows five of each)'])
 pb['A1'].font = Font(bold=True, size=12, color='0E7C7B')
-pb.append(['Researched Sep 9, 2026 — full sources: notes/research/r20_do_dont_expired.md in the training repo. Re-verify before major reuse; this field moves.'])
+pb.append(['Researched Sep 9, 2026 — the evidence anchor for each line is in column C; the full compendium with the why per line is the evidence chapter of Elements_of_Prompting_Field_Guide.pdf. Re-verify before major reuse; this field moves.'])
 pb['A2'].font = Font(italic=True, size=9, color='7A8790')
 SECTION_FILLS = {'TO DO — reliably helps today': '1E7B34', 'NOT TO DO — hurts or wastes effort today': 'B3261E', 'EXPIRED — was right in 2022-23; do the replacement instead': '5A6570'}
 for title, rows in (('TO DO — reliably helps today', PB_TODO),
@@ -574,11 +619,11 @@ prompt_tab('5-Explain-Clearly', 'Task 5 of 5 · Explain a topic clearly — plai
      'Readability scores are supporting evidence; a human comprehension check is the real test.'),
 ], note='Respectful language for adult readers throughout — plain is not childish. Simplifications that change meaning are defects, and finding them is part of the exercise.')
 
-# -- instructor keys (clearly separated)
+# -- learner self-check keys (the same expected results are public in Reference Deck slides 89–91)
 def key_tab(name, title, rows):
     t = wb.create_sheet(name)
     t.append([title]); t['A1'].font = Font(bold=True, size=12, color='AF3230')
-    t.append(['INSTRUCTOR MATERIAL — do not distribute before the exercise.'])
+    t.append(['SELF-CHECK — open only after you have attempted the exercise'])
     t['A2'].font = Font(bold=True, color='AF3230')
     t.append([])
     for r in rows:
@@ -595,22 +640,22 @@ _sup_line = lambda s: (f'{SUP_AGG[s]["u"]:,} units · {SUP_AGG[s]["ret"]} return
                        f'{SUP_AGG[s]["ret"]/SUP_AGG[s]["u"]*100:.3f}% · {SUP_AGG[s]["def"]:,} defect occurrences · '
                        f'units-weighted cost ${SUP_AGG[s]["cost_w"]/SUP_AGG[s]["u"]:.4f} · '
                        f'unweighted mean monthly on-time {sum(SUP_AGG[s]["ot"])/len(SUP_AGG[s]["ot"]):.2f}% (NOT an overall delivery rate)')
-key_tab('KEY-Analysis', 'Instructor key · Task 1 — supplier analysis (all values computed from the Data tab at build time)', [
+key_tab('KEY-Analysis', 'Self-check key · 1-Analyze-Data — supplier analysis (all values computed from the Data tab at build time; also Reference Deck slide 89)', [
     ('TOTALS', f'{TOT_U:,} units shipped · {TOT_R} returns (overall {TOT_R/TOT_U*100:.3f}%) · {TOT_D:,} defect occurrences. 144 detail rows; the TOTAL row reconciles exactly.'),
     ('Alpha Components', _sup_line('Alpha Components')),
     ('Bravo Plastics', _sup_line('Bravo Plastics')),
     ('Cardinal Metals', _sup_line('Cardinal Metals')),
-    ('STEP 2 · TREND', 'Bravo Plastics monthly return rate is elevated and volatile — peak ≈0.737% (2026-04), quiet months ≈0.14% (2026-06/07), most recent ≈0.465% (2026-08). Accept "volatile, no steady improvement"; reject any causal claim.'),
-    ('STEP 4 · DENOMINATORS', 'Correct answer: an overall on-time delivery rate CANNOT be computed — On_Time_Percent has no delivery counts to weight by. Needed: deliveries (or shipments) per month as the denominator. An averaged percentage must be labeled "unweighted mean of monthly percentages".'),
+    ('FOLLOW-UP', 'Bravo Plastics monthly return rate is elevated and volatile — peak ≈0.737% (2026-04), quiet months ≈0.14% (2026-06/07), most recent ≈0.465% (2026-08). A good answer says "volatile, no steady improvement" and shows the monthly values; any causal claim is a wrong turn — the data cannot support one.'),
+    ('ON-TIME RATE', 'An overall on-time delivery rate CANNOT be computed — On_Time_Percent has no delivery counts to weight by. Needed: deliveries (or shipments) per month as the denominator. An averaged percentage must be labeled "unweighted mean of monthly percentages". (The denominator lesson; also on Reference Deck slide 89.)'),
     ('COMMON WRONG TURNS', 'Averaging monthly return-rate percentages (wrong denominator) · adding defects + returns as "defective units" (double counting different measures) · treating the "n/a" as zero · including the TOTAL row (double counting) · claiming Bravo\'s packaging CAUSES returns (not in the data).'),
     ('MISSING VALUE', 'Exactly one Inspection_Hours cell is "n/a". Missing ≠ zero; it does not affect return-rate math, and any analysis that excludes it must say so.'),
 ])
-key_tab('KEY-Email', 'Instructor key · Task 4 — packaging-change thread', [
+key_tab('KEY-Email', 'Self-check key · 4-Summarize-Email — packaging-change thread (Packaging_Change_Thread.txt; also Reference Deck slides 90–91)', [
     ('EXPECTED BRIEF', 'Change planned for Oct 2 (supersedes Sep 25), pending Ben\'s quality sign-off, which waits on the drawing. Trial targeted Sep 25 (supersedes Sep 18); Luis\'s revised plan due Sep 16; material arrives Sep 23. Finance approval only within the 18,000 cap; freight responsibility unresolved.'),
     ('DECISIONS', 'Oct 2 change: proposed/planned, NOT finally approved (conditional on sign-off) · budget: approved ≤18,000 + quality condition, freight extras explicitly not approved · trial Sep 25: current plan.'),
     ('ACTIONS', 'Luis — revised trial plan — Sep 16 — committed · Ben — quality sign-off — "Not stated" — open, depends on drawing access · freight decision — owner "Not stated" — open · drawing to Ben — claimed sent, attachment not accessible.'),
     ('THE FOUR TRAPS', '1) Two different date changes (change date vs trial date — do not conflate Oct 2 and Sep 25). 2) Conditional approval (18,000 + sign-off; bare "approved" is wrong). 3) Freight question never answered. 4) Drawing referenced but not supplied — its content must not be summarized.'),
-    ('FULL VERSION', 'references/exercise-data/instructor-keys/Packaging_Change_Expected_Brief.md and deck slides 88–89.'),
+    ('FULL VERSION', 'Reference Deck slides 90–91 — the ten messages annotated, with the key on slide 91.'),
 ])
 
 # -- INDEX tab, placed first
@@ -667,32 +712,32 @@ for _t in ('1-Analyze-Data', '2-Build-Dashboard', '3-Present-Findings',
            '4-Summarize-Email', '5-Explain-Clearly', 'INDEX'):
     wb.remove(wb[_t])
 
-prompt_tab('1-Analyze-Data', 'Data analytics exercise · Analyze (deck slides 34–35) — inspect first, then the checked analysis (uses Supplier_Data_Exercise.xlsx)', [
+prompt_tab('1-Analyze-Data', 'Data analytics exercise · Analyze (deck slides 37–38) — inspect first, then the checked analysis (uses Supplier_Data_Exercise.xlsx)', [
     ('PROMPT 1 · INSPECT', cps['inspect'],
      'Inspect before calculating: structure, row grain, quirks. The TOTAL row and the one missing Inspection_Hours value must be FOUND, not stumbled over.'),
     ('PROMPT 2 · ANALYZE', cps['analyze'],
      'Each line fixes one named weakness: source scope · row grain · period · metric definition · denominator rule · missing-data rule · separate measures · reconciliation · limitation. (Requirement types: data & provenance, method & business rules, quality & acceptance.)'),
     ('FOLLOW-UP', cps['followup'],
      'One question deeper in the same chat — the context is already loaded and the scope stays pinned; a fresh chat would have to re-earn both.'),
-], note=f'Check yourself AFTER attempting: 144 detail rows · {TOT_U:,} shipped · {TOT_R} returns · {TOT_D:,} defect occurrences (a separate measure) · highest return rate Bravo Plastics ≈ {SUP_AGG["Bravo Plastics"]["ret"]/SUP_AGG["Bravo Plastics"]["u"]*100:.3f}%. Full worked key: tab KEY-Analysis (instructor). This analysis feeds every following step of the data arc — same dataset from intake to slides.')
+], note=f'Check yourself AFTER attempting: 144 detail rows · {TOT_U:,} shipped · {TOT_R} returns · {TOT_D:,} defect occurrences (a separate measure) · highest return rate Bravo Plastics ≈ {SUP_AGG["Bravo Plastics"]["ret"]/SUP_AGG["Bravo Plastics"]["u"]*100:.3f}%. Full worked self-check: tab KEY-Analysis (after attempting) or Reference Deck slide 89. This analysis feeds every following step of the data arc — same dataset from intake to slides.')
 
-prompt_tab('Excel-Charts', 'Data analytics exercise · Analysis and charts in Excel (deck slide 36) — the assistant returns your workbook', [
+prompt_tab('Excel-Charts', 'Data analytics exercise · Analysis and charts in Excel (deck slide 39) — the assistant returns your workbook', [
     ('THE PROMPT', cps['excel_charts'],
      'The file-in, file-out contract: a Summary sheet, native editable charts, formulas that trace to the Data sheet — a returned workbook you can audit, not a screenshot.'),
     ('THE CHECK', 'Open the returned file. The Summary numbers must reconcile with the Data sheet totals (the sheet carries a reconciliation check), and the charts must be real Excel charts you can retitle and recolor — not pasted pictures.',
      'Editable-native is the acceptance test; an image of a chart fails it.'),
 ], note='Prepared fallback: references/exercise-data/Supplier_Data_Analyzed.xlsx — the returned workbook this prompt produced. It is the INPUT for the dashboard and presentation steps.')
 
-prompt_tab('2-Build-Dashboard', 'Data analytics exercise · Dashboard (deck slides 37–38) — uses the returned Supplier_Data_Analyzed.xlsx', [
+prompt_tab('2-Build-Dashboard', 'Data analytics exercise · Dashboard (deck slides 40–41) — uses the returned Supplier_Data_Analyzed.xlsx', [
     ('THE PROMPT', cps['dashboard'],
      'Behavior in plain language — filters, views, states — and the assistant writes the code. The metric definitions carry over from the analyzed workbook unchanged.'),
     ('THE CHECK', 'Filter to Site = Berlin, Supplier = Bravo Plastics, months 2026-03 to 2026-08. Expect exactly 6 records, 8,575 units shipped, 21 returns, return rate 0.245% — in the tiles, the chart, AND the table. Verify independently by filtering the workbook the same way.',
      'One verified filtered result beats admiring the design. The prepared output runs this exact self-check in its footer.'),
     ('STATES', 'An empty selection must say "no matching records" — distinguish it from a real zero. Missing values stay blank; a zero denominator shows "—", never an error.',
      'Empty, missing, and zero are three different situations; the dashboard must say which one is on screen.'),
-], note='Prepared output: references/exercise-data/Supplier_Quality_Dashboard.html (open it offline; the footer self-check must say PASSED). Needs a code-capable tool — if yours only chats, hand the spec to IT.')
+], note='Prepared output: references/exercise-data/Supplier_Quality_Dashboard.html (open it offline; the footer self-check must say PASSED). Needs a code-capable tool — if yours only chats, hand the spec to IT. Extended dashboard vocabulary and the shape → build → check → refine version: tab EX-Dashboard.')
 
-prompt_tab('3-Present-Findings', 'Data analytics exercise · Presentation (deck slide 39) — the same verified findings become five slides', [
+prompt_tab('3-Present-Findings', 'Data analytics exercise · Presentation (deck slide 42) — the same verified findings become five slides', [
     ('THE PROMPT', cps['present'],
      'Requirement types: purpose & audience · scope & slide count · story structure · message hierarchy · data fidelity · chart semantics · speaker notes · editability & delivery.'),
     ('THE SEPARATION RULE', 'Findings are what the workbook supports; recommendations are labeled proposals. No invented causes, benefits, or commitments anywhere.',
@@ -701,35 +746,35 @@ prompt_tab('3-Present-Findings', 'Data analytics exercise · Presentation (deck 
      'Acceptance evidence, artifact-shaped: coverage, fidelity, narrative, delivery.'),
 ], note='Prepared output: references/exercise-data/Supplier_Quality_Mock_Presentation.pptx — the sample this prompt produced; audit it against THE CHECKS before reusing the prompt. Keep the mock business deck visually distinct from the course deck.')
 
-prompt_tab('4-Summarize-Email', 'Email exercise (deck slides 40–41) — choose the result you need, then run the structured brief (uses Packaging_Change_Thread.txt)', [
+prompt_tab('4-Summarize-Email', 'Email exercise (deck slides 43–45) — choose the result you need, then run the structured brief (uses Packaging_Change_Thread.txt)', [
     ('CHOOSE THE RESULT', 'Catch me up: "Summarize the current situation in three sentences." · What changed: "List changed dates or decisions and show the latest version." · Who owes what: "Create a table with task, owner, due date, and dependency." · What remains open: "List unanswered questions, approval conditions, and missing attachments." · Prepare my reply: "Draft a concise response. Use brackets where I still need to decide. Do not invent commitments."',
      'Pick the outcome first; the prompt is one sentence once you have. Choosing the result IS the prompt.'),
     ('THE STRUCTURED BRIEF', cps['email'],
      'Requirement types: source scope · current state · decisions & conditions · actions & ownership · date meaning · evidence traceability · attachments · authority boundary.'),
     ('THE TRAPS', 'A good brief catches all of these: the change date moved Sep 25 → Oct 2, conditional on quality sign-off · the trial date is Sep 25 (superseding Sep 18) · the 18,000 cap still applies and freight is NOT approved · Luis\'s revised plan is due Sep 16 · freight responsibility is unresolved · the drawing is referenced but not accessible.',
-     'Compare with the deck\'s answer key (slides 88–89) or tab KEY-Email — attempt first.'),
-], note='Native path, verified Sep 2026 (notes/research/r28): open the thread in Outlook, run "Summary by Copilot", then run THE STRUCTURED BRIEF in the Copilot chat pane scoped to that same conversation. Availability depends on your organization\'s Copilot license; the fallback that always works is pasting Packaging_Change_Thread.txt with the same prompt into any approved assistant. Never practice on real confidential threads.')
+     'Compare with the answer key in Reference Deck slides 90–91 or tab KEY-Email — attempt first.'),
+], note='Native path, verified Sep 2026: open the thread in Outlook, run "Summary by Copilot", then run THE STRUCTURED BRIEF in the Copilot chat pane scoped to that same conversation. Availability depends on your organization\'s Copilot license; the fallback that always works is pasting Packaging_Change_Thread.txt with the same prompt into any approved assistant. Never practice on real confidential threads.')
 
-prompt_tab('Quote-Extract', 'Quotation exercise · Extraction (deck slide 42) — uses the three Quote_*.pdf files in references/exercise-data/', [
+prompt_tab('Quote-Extract', 'Quotation exercise · Extraction (deck slide 47) — uses the three Quote_*.pdf files in references/exercise-data/', [
     ('THE PROMPT', cps['quote_extract'],
      'Step one is faithful extraction and traceability: verbatim values, original currencies, "Not stated" for gaps, a source citation per commercial value. Judgment comes next.'),
     ('THE CHECK', 'Every commercial value in the sheet must be findable, verbatim, in its cited source file and page. Nothing normalized, ranked, or recommended yet.',
      'Extraction and judgment are separate steps — mixing them is how errors hide.'),
-], note='Check yourself AFTER attempting: instructor-keys/Quote_Comparison_Key.md. Prepared example: references/exercise-data/Quote_Comparison_Workbook.xlsx (sheet "Raw Extraction").')
+], note='Check yourself AFTER attempting against the prepared example: references/exercise-data/Quote_Comparison_Workbook.xlsx (sheet "Raw Extraction") — every value there is verbatim from its cited PDF page.')
 
-prompt_tab('Quote-Compare', 'Quotation exercise · Comparison (deck slide 43) — builds on the Raw Extraction sheet', [
+prompt_tab('Quote-Compare', 'Quotation exercise · Comparison (deck slide 48) — builds on the Raw Extraction sheet', [
     ('THE PROMPT', cps['quote_compare'],
      'Normalize ONLY what has a stated basis; every derived number is a visible formula; whatever blocks the comparison is listed, not papered over.'),
     ('THE OUTCOME RULE', 'If any quote cannot be put on the same basis as the others (currency, delivery terms, freight, taxes), the correct deliverable is "cannot compare yet" plus the list of what is missing — not a winner.',
      'A defensible "here is what is missing" beats a confident wrong recommendation. The three sample quotes are built to force this.'),
-], note='Check yourself AFTER attempting: instructor-keys/Quote_Comparison_Key.md — it carries the expected normalized values and the expected outcome. Prepared example: Quote_Comparison_Workbook.xlsx (sheet "Normalized Comparison").')
+], note='Check yourself AFTER attempting against the prepared example: Quote_Comparison_Workbook.xlsx (sheet "Normalized Comparison") — it shows the expected outcome: what can be normalized from a stated basis, and the list of what is missing before a fair recommendation.')
 
-prompt_tab('Research', 'Research exercise (deck slide 44) — reference files become a traceable workbook (uses references/exercise-data/research-pack/)', [
+prompt_tab('Research', 'Research exercise · self-study (Reference Deck slide 112) — reference files become a traceable workbook (uses references/exercise-data/research-pack/)', [
     ('THE PROMPT', cps['research'],
      'Evidence / Synthesis / Sources — every claim traceable to a file and section; conflicts stay visible instead of being silently resolved.'),
     ('THE CONFLICT CHECK', 'The pack contains a genuine disagreement between two sources and one undated source. The finished workbook must SURFACE both — a synthesis that quietly picks a side is a defect, however tidy it looks.',
      'Conflict handling is the skill being tested; agreement is the easy case.'),
-], note='Sources: references/exercise-data/research-pack/ (see its README). Check yourself AFTER attempting: instructor-keys/Research_Workbook_Key.md. Prepared example: references/exercise-data/Research_Workbook.xlsx.')
+], note='Self-study — not in the 60-minute live run. Sources: references/exercise-data/research-pack/ (see its README). Check yourself AFTER attempting against the prepared example: references/exercise-data/Research_Workbook.xlsx — its Synthesis sheet keeps the planted conflict and the undated source visible.')
 
 prompt_tab('5-Explain-Clearly', 'Reference exercise · Explain a topic clearly — plain language with fidelity (self-study; uses references/exercise-data/plain-language/)', [
     ('THE PROMPT', cps['explain'],
@@ -738,7 +783,7 @@ prompt_tab('5-Explain-Clearly', 'Reference exercise · Explain a topic clearly �
      'Different content, identical requirement types — that is the point.'),
     ('THE CHECK', 'Main idea in the first sentence? Every surviving technical term defined at first use? Analogy limit stated? Conditions preserved (compare sentence by sentence)? Three questions answerable from the text alone? Clear adult tone?',
      'Readability scores are supporting evidence; a human comprehension check is the real test.'),
-], note='This exercise lives in the reference layer of the current 60-minute run (deck appendix, page 100) — no live slot; the requirement types are unchanged. Respectful language for adult readers throughout — plain is not childish; simplifications that change meaning are defects, and finding them is part of the exercise.')
+], note='This exercise lives in the reference layer of the current 60-minute run (Reference Deck slide 102) — no live slot; the requirement types are unchanged. Respectful language for adult readers throughout — plain is not childish; simplifications that change meaning are defects, and finding them is part of the exercise.')
 
 # KEY-Analysis precision: the participant input file shows the missing value
 # as a genuinely blank cell; 'n/a' is this workbook's Data-tab rendering.
@@ -755,24 +800,28 @@ IX = [
     ['FROM PROMPTS TO AGENTS — PACKAGE INDEX (60-minute facilitated course)'],
     [''],
     ['OPEN IN THIS ORDER', ''],
-    ['1', 'From_Prompts_to_Agents_Facilitated_60_Minute.pptx — the course (70 live slides + reference appendix; speaker notes carry MODE/TIME/purpose and the instructor answer keys).'],
-    ['2', 'This workbook — the live sequence in training order: 1-Analyze-Data (inspect · analyze · follow-up) → Excel-Charts → 2-Build-Dashboard → 3-Present-Findings → 4-Summarize-Email → Quote-Extract → Quote-Compare → Research. 5-Explain-Clearly is the reference exercise (self-study). Data = raw records; Data_Clean = the checked detail set.'],
+    ['1', 'From_Prompts_to_Agents_Facilitated_60_Minute.pptx — the course: 48 live slides + the reference appendix from slide 49 (speaker notes carry MODE/TIME/purpose). Companion: From_Prompts_to_Agents_Reference_Deck.pptx (slides 47–113) — answer keys 89–91 · requirements references 92–98 · full exercises 100–103 · research 112 · feature menu 113.'],
+    ['2', 'This workbook — the live sequence in training order: 1-Analyze-Data (inspect · analyze · follow-up) → Excel-Charts → 2-Build-Dashboard → 3-Present-Findings → 4-Summarize-Email → Quote-Extract → Quote-Compare. Research and 5-Explain-Clearly are self-study (Reference Deck). Data = raw records; Data_Clean = the checked detail set.'],
     ['3', 'Participant input (in references/exercise-data/) — Supplier_Data_Exercise.xlsx is the ONLY file open when the live exercise starts. Prepared fallbacks, same folder: Supplier_Data_Analyzed.xlsx (the returned workbook — input to the dashboard and presentation steps) · Supplier_Quality_Dashboard.html · Supplier_Quality_Mock_Presentation.pptx · Quote_Comparison_Workbook.xlsx · Research_Workbook.xlsx.'],
     ['4', 'Sources (in references/exercise-data/) — Packaging_Change_Thread.txt · Quote_Alpha_Components.pdf / Quote_Bravo_Plastics.pdf / Quote_Cardinal_Metals.pdf · research-pack/ · plain-language/.'],
     ['5', 'Companions (beside this workbook in deliverables/) — From_Prompts_to_Agents_Course.pdf (the extended course, cover to cover) · From_Prompts_to_Agents_Cheat_Sheet.pdf (one page) · Prompt_Template_Creator.html (the builder). Deeper reference in references/: Elements_of_Prompting_Field_Guide.pdf · Prompt_Element_Taxonomy_Reference.pdf · Requirements_by_Artifact.md.'],
     [''],
-    ['INSTRUCTOR ONLY', 'Tabs KEY-Analysis and KEY-Email · references/exercise-data/instructor-keys/ (Packaging_Change_Expected_Brief.md · Quote_Comparison_Key.md · Research_Workbook_Key.md) · the facilitation plan (references/). Keep these out of participant hand-outs.'],
+    ['SELF-CHECK KEYS', 'Tabs KEY-Analysis and KEY-Email — open only after you have attempted the exercise. The same expected results are public in Reference Deck slides 89 (analysis) and 90–91 (email thread).'],
     [''],
-    ['THE TRAINING SEQUENCE', 'Analyze → Excel analysis and charts → dashboard → presentation → email organization → quote extraction → quote comparison → research workbook. One fictional supplier dataset runs the whole data arc — the same records from intake to the five-slide mock-up. The builder (Prompt_Template_Creator.html) offers the same families, plus Explain-a-topic, in the same order.'],
+    ['THE TRAINING SEQUENCE', 'Analyze → Excel analysis and charts → dashboard → presentation → email organization → quote extraction → quote comparison; the research workbook and Explain-a-topic are self-study. One fictional supplier dataset runs the whole data arc — the same records from intake to the five-slide mock-up. The builder (Prompt_Template_Creator.html) offers the same families, plus Explain-a-topic, in the same order.'],
     [''],
-    ['LEGACY / OPTIONAL', 'Tabs README, EX1-TwoModes … EX7-MoE, G2-DataAnalysis, EX-Quotes, EX-Email, EX-Dashboard, EX-Report, BONUS-Ladder and PLAYBOOK belong to the long-format course and remain usable as optional extensions.'],
+    ['NUMBERED PROMPTS', 'Tabs EX1-TwoModes … EX7-MoE = the seven TYPE THIS prompts of the course (deck slides 2, 7, 8, 9, 11, 20 and Reference Deck slide 113) · EX-Report = the closing rep, your course log turned into a report (deck slide 32) · G2-DataAnalysis = the G2 template anatomy (deck slide 34) · PLAYBOOK = Do / Don\'t / Expired, full 8+8+8 (deck slide 35 shows five of each).'],
+    [''],
+    ['LONG-FORMAT / OPTIONAL', 'Tabs README, EX-Quotes, EX-Email, EX-Dashboard and BONUS-Ladder belong to the long-format course and remain usable as optional self-study extensions.'],
     [''],
     ['DATA NOTE', 'All data and names are fictional, generated for training (seeded — stable across rebuilds). The TOTAL row and one missing Inspection_Hours value are deliberate teaching quirks.'],
 ]
 for row in IX:
     ix.append(row)
 ix['A1'].font = Font(bold=True, size=13, color='0E7C7B')
-for rn in (3, 10, 12, 14, 16):
+_ix_bold = [i + 1 for i, row in enumerate(IX) if row and row[0] in ('OPEN IN THIS ORDER', 'SELF-CHECK KEYS', 'THE TRAINING SEQUENCE', 'NUMBERED PROMPTS', 'LONG-FORMAT / OPTIONAL', 'DATA NOTE')]
+assert len(_ix_bold) == 6, _ix_bold
+for rn in _ix_bold:
     ix.cell(row=rn, column=1).font = Font(bold=True)
     ix.cell(row=rn, column=2).font = Font(bold=True)
 ix.column_dimensions['A'].width = 20
@@ -790,7 +839,7 @@ wb._sheets = [wb[t] for t in ORDER + rest]
 
 xlsx_path = os.path.join(os.path.dirname(__file__), '..', 'deliverables', 'Course_Workbook.xlsx')
 wb.save(xlsx_path)
-print('wrote', xlsx_path, f'({n_data_rows} data rows · {len(wb.sheetnames)} tabs: INDEX + Data/Data_Clean + 9 exercise tabs (training order) + 2 instructor keys + legacy)')
+print('wrote', xlsx_path, f'({n_data_rows} data rows · {len(wb.sheetnames)} tabs: INDEX + Data/Data_Clean + 9 exercise tabs (training order) + 2 self-check keys + numbered prompts + legacy)')
 
 # NOTE (v1.13, owner request): the standalone Playbook_One_Pager.pdf was retired — the
 # playbook now lives merged in the Field Guide (part 5, the full works/myth/expired
