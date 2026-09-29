@@ -88,65 +88,14 @@ def lane(s,l,t,w,h,label,segs,total):
 
 # ===== 1 TITLE =====
 s=slide(); rect(s,0,0,13.333,7.5,NAVY); rect(s,0,4.85,13.333,0.06,STEEL)
-tf=box(s,0.8,1.5,11.7,2.9); par(tf.paragraphs[0],"Liquid PVA: One Supplier or Two?",40,WHITE,bold=True)
+tf=box(s,0.8,1.5,11.7,2.9); par(tf.paragraphs[0],"Liquid PVA: Dual Supplier Discussion",40,WHITE,bold=True)
 par(tf.add_paragraph(),"Update: PCI Manufacturing has proven it can make our product — and told us what it costs",20,RGBColor(0xBD,0xD7,0xEE))
 tf=box(s,0.8,5.1,11.7,1.6)
 par(tf.paragraphs[0],"PVA = polyvinyl alcohol — the liquid we buy in 55-gallon drums (450 lb of PVA each) from SNP Inc. (Durham, NC) to make our hydrogels. Sole-sourced today. Volumes on these slides are in drums and percent of demand.",13.5,WHITE)
 par(tf.add_paragraph(),"Oscar Penny  ·  Supply Chain  ·  28 September 2026  ·  Decision requested",12,RGBColor(0x9D,0xC3,0xE6))
 
-# ===== 4 PRICE SIDE BY SIDE =====
-s=slide(); title_bar(s,"Price per pound, side by side — and where each number comes from","1 · COST")
-s.shapes.add_picture("chart_price_side_by_side.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
-rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
-par(tf.paragraphs[0],"Where each number comes from",13,NAVY,bold=True,after=5)
-for k,v in [(f"Market, competitive quantity {T('competitive')}",f"comparable pre-mixed PVA solution at drum scale; range {TR('competitive')}, n={TN('competitive')}"),
-            (f"Market, low quantity {T('low')}",f"small packs; range {TR('low')}, n={TN('low')}"),
-            (f"Market, high quantity {T('high')}",f"totes / bulk; range {TR('high')}, n={TN('high')}"),
-            ("SNP Inc. $0.75","real quote, delivered all-in — a specialist's price"),
-            ("PCI $3.50 / $6.00","real quote, 28 Sept: one 5-drum batch / anything smaller"),
-            ("CJB $8.42","real quote: $8.00–8.50 toll excluding materials, plus resin")]:
-    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
-    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(10); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(6)
-p=tf.add_paragraph(); par(p,"Why a non-specialist sits far above the market: batch-fixed conversion cost over few pounds, drum-scale freight, risk priced in. SNP Inc.'s tanks are right-sized to our order and PVA is their core line.",10,NAVY,bold=True); p.space_before=Pt(4)
-takeaway(s,f"At competitive quantity the market sells comparable PVA solution around {T('competitive')}/lb. SNP Inc. is below it; PCI is well above it; CJB is off the scale.")
-
-# ===== PRICE VS QUANTITY =====
-PC=json.load(open("price_curve.json")) if os.path.exists("price_curve.json") else {}
-def pc(k,f="{:.2f}"): return (f.format(PC[k]) if k in PC else "—")
-s=slide(); title_bar(s,"Price per lb of PVA vs. quantity per order — the curve, and where each supplier sits","1 · COST")
-s.shapes.add_picture("chart_price_vs_volume.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
-rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
-par(tf.paragraphs[0],"Reading the chart",13,NAVY,bold=True,after=5)
-for k,v in [("Left to right","quantity per order, 1-gallon jug to 150 drums, log scale"),
-            ("Grey points","verified prices of pre-mixed PVA solution by pack size (US up to 20 gal; offshore ton offers before freight)"),
-            ("Navy line and band",f"trend ~{pc('per_doubling','{:.0%}')} lower per doubling of the lot; the band is where 80% of the points fall. Beyond 20 gal its top follows the flattening in vendors' ladders; its floor is SNP's $0.75 — no US-delivered lot has been seen cheaper. One drum ${pc('band_drum','{}')}; SNP's lot ${pc('band_snp','{}')}; 5-drum batch ${pc('band_batch','{}')}"),
-            ("SNP Inc., green","$0.75 at ~3 drums a week — the floor of the band, delivered and to our spec"),
-            ("Green dashed",f"the same slope through SNP's price: if we ever bought smaller lots from SNP, expect ~${pc('snp_at_drum')} at one drum, ~${pc('snp_at_5gal')} at 5 gallons — a regression, not a quote"),
-            ("PCI, ambers","$3.50 at a 5-drum batch, $6.00 below it — above the band: batch-fixed cost and drum freight priced in"),
-            ("CJB, red · APV, hollow","CJB $8.42 far above the band; APV ≥$3 (estimate, never confirmed) at its top")]:
-    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
-    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(9.5); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(5)
-takeaway(s,"Price follows lot size across this market. SNP Inc. is its floor — drum lots at $0.75, delivered to our spec; every other supplier that can make it charges the top of the band, or more.")
-
-# ===== 5 ANNUAL COST SIDE BY SIDE =====
-s=slide(); title_bar(s,"Annual cost, side by side — what each option adds to today's $50.7k","1 · COST")
-s.shapes.add_picture("chart_annual_side_by_side.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
-rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
-par(tf.paragraphs[0],"Reading the chart (one year)",13,NAVY,bold=True,after=5)
-for k,v in [("Demand","150 drums a year in every bar (1 drum = 450 lb of PVA); SNP Inc. at $0.75/lb keeps whatever the second source does not take"),
-            ("All-SNP","150 drums × $337.50 = $50.7k"),
-            ("Option 3, blues","1 / 2 / 3 batches of 5 drums a year (3% / 7% / 10% of demand) at $3.50/lb: +$6.2k / +$12.4k / +$18.6k"),
-            ("PCI $3.50","one-third = 50 drums (10 batches, 33%) at $3.50/lb = $78.8k → $112.6k; +$61.9k (122%)"),
-            ("PCI $6.00","one drum a week = 52 drums (35%, almost one-third), ordered below batch size → $173.6k; +$122.9k (242%)"),
-            ("CJB $8.42","one-third = 50 drums, for scale → $223.3k; +$172.6k (340%)"),
-            ("Why the bars differ","only the second source's quantity and price change"),
-            ("Not in the chart","internal hours and one-time costs — the options slide")]:
-    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
-    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(10); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(5)
-takeaway(s,"Option 3 adds $6–19k a year. A one-third second source at PCI's $3.50 more than doubles the bill (2.2×); one drum a week at $6.00 costs more still.")
-
 # ===== 6 HOW WE GOT HERE — SERIES OF EVENTS =====
-s=slide(); title_bar(s,"How we got here — a series of events, and what the PCI experiment cost","2 · PCI")
+s=slide(); title_bar(s,"How we got here — a series of events, and what the PCI experiment cost","1 · HOW WE GOT HERE")
 timeline(s,0.6,1.12,12.1,[
  ("Nov 2025","Brenntag never meets viscosity","Above range, unreadable on their viscometer. They stalled — no quote ever received. Mar 2026: a resin sample instead",RED),
  ("Mar–Apr 2026","~15–20 serious candidates screened","ArroChem Inc., Piedmont Chemical Industries, ILC Dover approached. One gate: hold 90–95 °C",NAVY),
@@ -165,13 +114,64 @@ for i,(n,lab,col,fill) in enumerate(stages):
     rect(s,l+0.04,tp,sw-0.08,hgt,fill)
     tf=box(s,l+0.08,tp+0.02,0.85,hgt-0.04); tf.vertical_anchor=MSO_ANCHOR.MIDDLE; par(tf.paragraphs[0],n,18,col,bold=True,align=PP_ALIGN.CENTER,after=0)
     tf=box(s,l+0.9,tp+0.02,sw-1.0,hgt-0.04); tf.vertical_anchor=MSO_ANCHOR.MIDDLE; par(tf.paragraphs[0],lab,9,NAVY,bold=(i==4),after=0)
-panel(s,0.6,4.65,3.95,1.75,"Capability is rare",
+panel(s,0.6,4.65,3.95,1.75,"Capability is not common",
  ["The 90–95 °C dissolution cook at 55-gallon scale eliminated most of the market. One shop passed in ten months; the rest failed on heat, on viscosity, or on price"],NAVY,LIGHT,10)
 panel(s,4.7,4.65,3.95,1.75,"Capability is expensive",
  ["Everyone who can do it charges 4× to 11× SNP: PCI $3.50, APV ≥$3 (est.), CJB $8.42 — against $0.75. Small batches, drum freight and risk are priced in"],AMBER,LAMB,10)
 panel(s,8.8,4.65,3.9,1.75,"SNP Inc. is an outlier, not a benchmark",
  ["A specialist, close by, right-sized tanks, PVA as its core line, and a price below the whole US market. We cannot replicate that price; we can only protect it"],GREEN,LGREEN,10)
 takeaway(s,"Ten months, seven suppliers engaged, one shop that can make it — at 4.7× SNP's price. SNP Inc. is an outlier we cannot replicate, only protect.")
+
+# ===== 4 PRICE SIDE BY SIDE =====
+s=slide(); title_bar(s,"Price per pound, side by side — and where each number comes from","2 · COST")
+s.shapes.add_picture("chart_price_side_by_side.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
+rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
+par(tf.paragraphs[0],"Where each number comes from",13,NAVY,bold=True,after=5)
+for k,v in [(f"Market, competitive quantity {T('competitive')}",f"comparable pre-mixed PVA solution at drum scale; range {TR('competitive')}, n={TN('competitive')}"),
+            (f"Market, low quantity {T('low')}",f"small packs; range {TR('low')}, n={TN('low')}"),
+            (f"Market, high quantity {T('high')}",f"totes / bulk; range {TR('high')}, n={TN('high')}"),
+            ("SNP Inc. $0.75","real quote, delivered all-in — a specialist's price"),
+            ("PCI $3.50 / $6.00","real quote, 28 Sept: one 5-drum batch / anything smaller"),
+            ("CJB $8.42","real quote: $8.00–8.50 toll excluding materials, plus resin")]:
+    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
+    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(10); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(6)
+p=tf.add_paragraph(); par(p,"Why a non-specialist sits far above the market: batch-fixed conversion cost over few pounds, drum-scale freight, risk priced in. SNP Inc.'s tanks are right-sized to our order and PVA is their core line.",10,NAVY,bold=True); p.space_before=Pt(4)
+takeaway(s,f"At competitive quantity the market sells comparable PVA solution around {T('competitive')}/lb. SNP Inc. is below it; PCI is well above it; CJB is off the scale.")
+
+# ===== PRICE VS QUANTITY =====
+PC=json.load(open("price_curve.json")) if os.path.exists("price_curve.json") else {}
+def pc(k,f="{:.2f}"): return (f.format(PC[k]) if k in PC else "—")
+s=slide(); title_bar(s,"Price per lb of PVA vs. quantity per order — the curve, and where each supplier sits","2 · COST")
+s.shapes.add_picture("chart_price_vs_volume.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
+rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
+par(tf.paragraphs[0],"Reading the chart",13,NAVY,bold=True,after=5)
+for k,v in [("Left to right","quantity per order, 1-gallon jug to 150 drums, log scale"),
+            ("Grey points","verified prices of pre-mixed PVA solution by pack size (US up to 20 gal; offshore ton offers before freight)"),
+            ("Navy line and band",f"trend ~{pc('per_doubling','{:.0%}')} lower per doubling of the lot; the band is where 80% of the points fall. Beyond 20 gal its top follows the flattening in vendors' ladders; its floor is SNP's $0.75 — no US-delivered lot has been seen cheaper. One drum ${pc('band_drum','{}')}; SNP's lot ${pc('band_snp','{}')}; 5-drum batch ${pc('band_batch','{}')}"),
+            ("SNP Inc., green","$0.75 at ~3 drums a week — the floor of the band, delivered and to our spec"),
+            ("Green dashed",f"the same slope through SNP's price: if we ever bought smaller lots from SNP, expect ~${pc('snp_at_drum')} at one drum, ~${pc('snp_at_5gal')} at 5 gallons — a regression, not a quote"),
+            ("PCI, ambers","$3.50 at a 5-drum batch, $6.00 below it — above the band: batch-fixed cost and drum freight priced in"),
+            ("CJB, red · APV, hollow","CJB $8.42 far above the band; APV ≥$3 (estimate, never confirmed) at its top")]:
+    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
+    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(9.5); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(5)
+takeaway(s,"Price follows lot size across this market. SNP Inc. is its floor — drum lots at $0.75, delivered to our spec; every other supplier that can make it charges the top of the band, or more.")
+
+# ===== 5 ANNUAL COST SIDE BY SIDE =====
+s=slide(); title_bar(s,"Annual cost, side by side — what each option adds to today's $50.7k","2 · COST")
+s.shapes.add_picture("chart_annual_side_by_side.png",Inches(0.6),Inches(1.15),width=Inches(8.1))
+rect(s,8.95,1.15,3.75,5.2,PALE,STEEL); tf=box(s,9.1,1.25,3.5,5.05)
+par(tf.paragraphs[0],"Reading the chart (one year)",13,NAVY,bold=True,after=5)
+for k,v in [("Demand","150 drums a year in every bar (1 drum = 450 lb of PVA); SNP Inc. at $0.75/lb keeps whatever the second source does not take"),
+            ("All-SNP","150 drums × $337.50 = $50.7k"),
+            ("Option 3, blues","1 / 2 / 3 batches of 5 drums a year (3% / 7% / 10% of demand) at $3.50/lb: +$6.2k / +$12.4k / +$18.6k"),
+            ("PCI $3.50","one-third = 50 drums (10 batches, 33%) at $3.50/lb = $78.8k → $112.6k; +$61.9k (122%)"),
+            ("PCI $6.00","one drum a week = 52 drums (35%, almost one-third), ordered below batch size → $173.6k; +$122.9k (242%)"),
+            ("CJB $8.42","one-third = 50 drums, for scale → $223.3k; +$172.6k (340%)"),
+            ("Why the bars differ","only the second source's quantity and price change"),
+            ("Not in the chart","internal hours and one-time costs — the options slide")]:
+    p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
+    r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(10); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(5)
+takeaway(s,"Option 3 adds $6–19k a year. A one-third second source at PCI's $3.50 more than doubles the bill (2.2×); one drum a week at $6.00 costs more still.")
 
 # ===== THREE OPTIONS — YEAR AT A GLANCE (logistics + options merged) =====
 s=slide(); title_bar(s,"Three options — what each costs, how the year runs, what each supplier sees","3 · OPTIONS")
@@ -237,31 +237,29 @@ panel(s,0.6,5.6,12.1,0.85,"Conduct that keeps it intact",
  ["Tell PCI the volume reality and the exact triggers · pay promptly · share the test results · a quarterly touchpoint. Suppliers allocate goodwill on trust and growth prospects, not on current volume (Pulles, Schiele et al. 2016)."],NAVY,PALE,9.5)
 takeaway(s,"Order a batch or two a year and put the terms in writing — that is what keeps the door open. A fee for the work done is the fallback if we order nothing.",fill=GREEN)
 
-# ===== THE SNP CONVERSATION — OUTLINE AND DECISIONS =====
-s=slide(); title_bar(s,"The SNP Inc. conversation — outline, and what we decide before it","5 · TIMING")
-items=[("1  Why we are here","Years of growth, a sole source we depend on, and the intent to run it as a partnership.","They hear investment, not audit"),
-       ("2  Our business, shown","Volume history, the forecast (150 drums this year, +10%/yr), our delivery record, what the product does for our mission.","A growing account worth planning for"),
-       ("3  What we bring","Rolling 12-month forecast refreshed monthly; a level weekly cadence through a blanket order; the hydrogel program as a written joint roadmap.","Predictability for their kettle and resin buys"),
-       ("4  Growing together","Explore, not commit: their other hydrogel lines — sodium alginate, guar gum — as possibilities for future projects.","We learn what else they can make; no promise either way"),
-       ("5  Running it as partners","Resin supply and a consignment buffer; capacity for Year-5 volume; cover for the people who run the PVA cook; advance notice of changes; a shelf-life study together.","Continuity agreed as a shared discipline, not a demand"),
-       ("6  Price","A resin-indexed formula in place of ad hoc increases.","Predictability for both sides"),
-       ("7  Close","Quarterly business review, named contacts, an updated Supplier Quality Agreement (SQA).","A cadence that keeps it alive")]
-tf=box(s,0.6,1.1,7.6,0.35); par(tf.paragraphs[0],"The meeting, in order — what we say, and what we want out of each part",12,NAVY,bold=True,after=0)
-tf=box(s,0.6,1.45,7.6,5.0)
+# ===== THE SNP VISIT, 6 OCTOBER — AGENDA AND DECISIONS TO FILL IN =====
+s=slide(); title_bar(s,"The SNP Inc. visit, Tuesday 6 October — agenda, and what we decide before it","5 · TIMING")
+items=[("1  Growth, and the synthetics room","Years of growth. How could we grow the relationship? Projects, partnership. What the synthetics room does — it is where we freeze their PVA into our plates.","They hear investment, not audit"),
+       ("2  Walkthrough of the synthetics room","Show the synthetic plate we make with their PVA, and where it goes from there.","They see the end product their material becomes"),
+       ("3  Back in the conference room","SNP talks about their other synthetics. Our R&D talks about projects, what they see in the future, how we could partner more — possibilities, not commitments.","We learn what else they can make; they hear where we are going"),
+       ("4  Forecasts","Sharing our forecast, and how that would help their orders and planning.","Agreement on what we share, and how often")]
+tf=box(s,0.6,1.1,7.6,0.35); par(tf.paragraphs[0],"Tentative agenda — what we do, and what we want out of each part",12,NAVY,bold=True,after=0)
+tf=box(s,0.6,1.5,7.6,4.9)
 for i,(h,say,out) in enumerate(items):
-    p=tf.paragraphs[0] if i==0 else tf.add_paragraph(); r=p.add_run(); r.text=h+"   "; r.font.bold=True; r.font.size=Pt(12); r.font.color.rgb=NAVY; r.font.name="Calibri"
+    p=tf.paragraphs[0] if i==0 else tf.add_paragraph(); r=p.add_run(); r.text=h+"   "; r.font.bold=True; r.font.size=Pt(12.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text=say+"  "; r2.font.size=Pt(11); r2.font.color.rgb=GREY; r2.font.name="Calibri"
-    r3=p.add_run(); r3.text="→ "+out; r3.font.size=Pt(11); r3.font.color.rgb=GREEN; r3.font.bold=True; r3.font.name="Calibri"; p.space_after=Pt(9)
+    r3=p.add_run(); r3.text="→ "+out; r3.font.size=Pt(11); r3.font.color.rgb=GREEN; r3.font.bold=True; r3.font.name="Calibri"; p.space_after=Pt(12)
+p=tf.add_paragraph(); r=p.add_run(); r.text="Pending: align with R&D on what they present · align with Purchasing on what we bring and say"; r.font.size=Pt(10.5); r.font.italic=True; r.font.color.rgb=AMBER; r.font.name="Calibri"
 rect(s,8.45,1.1,4.25,5.3,PALE,STEEL); tf=box(s,8.6,1.2,3.95,5.1)
-par(tf.paragraphs[0],"Decide before we walk in",13,NAVY,bold=True,after=6)
-for k,v in [("The strategy — Option 1, 2 or 3","sets the whole posture. Under Option 3 we say a continuity verification lot runs once a year; the supplier is not named. (Leadership)"),
-            ("How much forecast, what commitment","12-month rolling and a 3-year outlook; whether a multi-year commitment or letter of intent is on the table. (Leadership, Legal)"),
-            ("The give","blanket order — yes or no; payment terms as a lever — yes or no. (Finance, Supply Chain)"),
-            ("The other hydrogels","whether to ask about alginate and guar at all, as possibilities only — no project named, no commitment. (R&D, before the meeting)"),
-            ("Continuity money","fund the resin buffer (~$2–6k tied up) and the shelf-life study — or not. (Supply Chain)")]:
+par(tf.paragraphs[0],"Decisions to fill in before 6 October",13,NAVY,bold=True,after=6)
+for k,v in [("The strategy — Option 1, 2 or 3","sets the posture for the whole visit. Under Option 3: do we mention a continuity verification lot, or not yet? — ________ (Leadership)"),
+            ("What R&D presents","which projects, how far into the future, what we are willing to show — ________ (R&D)"),
+            ("What Purchasing brings","forecast format and refresh cadence; blanket order or not; anything on terms — ________ (Purchasing)"),
+            ("How much forecast we share","12-month rolling; a 3-year outlook or not — ________ (Leadership)"),
+            ("Their other synthetics","listen only, or ask for samples and data — ________ (R&D, Supply Chain)")]:
     p=tf.add_paragraph(); r=p.add_run(); r.text=k+"  "; r.font.bold=True; r.font.size=Pt(10.5); r.font.color.rgb=NAVY; r.font.name="Calibri"
     r2=p.add_run(); r2.text="— "+v; r2.font.size=Pt(10); r2.font.color.rgb=GREY; r2.font.name="Calibri"; p.space_after=Pt(7)
-takeaway(s,"Decide the strategy and the give before the meeting; the meeting is where we execute the partnership, not where we discover it.",fill=AMBER)
+takeaway(s,"Decide the strategy and what R&D and Purchasing bring before 6 October; the visit is where we grow the relationship, not where we discover our own position.",fill=AMBER)
 
 # ===== 12 APPENDIX =====
 s=slide(); title_bar(s,"Appendix: assumptions, suppliers, acronyms, frameworks")
@@ -294,14 +292,14 @@ tf=box(s,0.6,6.85,7.0,0.45); par(tf.paragraphs[0],"Workbook: PVA_Second_Supplier
 # ===== SPEAKER NOTES (the detail lives here) =====
 NOTES=[
  "Update on the liquid PVA decision. Since last time, two things happened: PCI Manufacturing's experiment met our spec, and they gave us a real price. Today: the cost side by side, how we got here and what the experiment cost, what running two suppliers would look like, then three options - because we need to choose one before our next conversation with SNP.",
+ "How we got here, as a series of events. November last year: Brenntag, a distributor, tried our formula - the viscosity came out above range, unreadable on their viscometer; they stalled and we never received a quote; in March they sent us a resin sample instead. March to April: we screened fifteen to twenty serious candidates and reached out to ArroChem, Piedmont and ILC Dover with one hard gate - hold 90 to 95 degrees. May: ArroChem - the right kind of company - could not get past 90 degrees, and ILC Dover could not reach it either. June 26: CJB cleared it and became the front-runner; APV confirmed heat but, on our call, called a dollar fifty a pound too cheap for our volume - so we estimate APV at three dollars or more, never confirmed; we confirmed demand at about three drums a week - 150 a year. July: Columbus Chemical, also the right kind of company, reached out to us and then told us directly they cannot hold the temperature - eliminated, never quoted. August 4: CJB's quote came in at 8 to 8.50 a pound for toll processing alone - eleven times SNP - and their trial would have cost 6,400 dollars; we declined, so we never corroborated whether they could actually make it. August to September: PCI Manufacturing ran two-plus lab batches and a dilution study, unpaid. September 22: PCI's test results - the viscosity was brought on target within the test by adjusting solids and water - and the spec was agreed. September 28: spec met, and a real quote of 3.50 a pound per five-drum batch. What it is worth: a cold start is now months, not a year. What it cost: PCI's unpaid engineering, and about 15 thousand of our own hours, sunk. Using it costs 62 thousand a year plus a permanent discipline; walking away costs goodwill; the middle is one or two batches a year.",
  "Price per pound, side by side. Colors: greys are the market, green is SNP, the two ambers are PCI - dark for the batch price, light for below batch - and red is CJB. The three bars on the left are the market: what comparable pre-mixed PVA solution sells for today at high quantity - totes and bulk - at competitive quantity - drum scale, the one that matters - and at low quantity - small packs; ranges and counts are in the workbook's Market Study tab. Green is SNP's real quote at 75 cents, below the competitive market: a specialist's price. Navy and red are PCI's real numbers: 3.50 for a batch, 6 for anything smaller. Red on the far right is CJB, for scale. Why is a non-specialist so far above the market? Batch-fixed conversion cost spread over few pounds, drum-scale freight, and risk priced in. SNP's tanks are right-sized to our order and this is their core line.",
  "Price per pound against quantity per order. The grey points are the verified market prices of pre-mixed PVA solution at every pack size we found - one-gallon jugs, cases, pails, a twenty-gallon lot, and ton-scale offers offshore before freight. The navy line is the curve fitted through them: price falls about eighteen percent every time the lot doubles where we have US data, up to twenty gallons. The band is where eighty percent of the verified points fall around that trend; beyond twenty gallons, where no US vendor publishes a price, its top follows the flattening seen in vendors' own volume ladders, and its floor is SNP's 75 cents - no US-delivered lot has been seen cheaper; the offshore ton offers are before freight and duty. SNP, green, sells us about three drums a week at 75 cents - the floor of that band, and delivered, to our spec, even though the market points are neither delivered nor medical-grade. The green dashed line is the same slope drawn through SNP's price: it is what to expect if we ever bought smaller lots from them - about a dollar at one drum, about two dollars at five gallons. It is a regression from the market's behaviour, not a quote from SNP. PCI, in amber, sits above the top of the band at its quantities - the batch-fixed cost and drum freight of a non-specialist. CJB is off the curve entirely; APV's three dollars is an estimate from our call, never confirmed. The message: price follows lot size everywhere in this market, except at SNP.",
  "Annual cost side by side. The same 150 drums a year in every bar - a drum is 450 pounds of PVA; SNP at 75 cents a pound keeps whatever the second source does not take. Green alone is today: 50.7 thousand. The three blues are Option 3: one, two or three five-drum batches a year at 3.50 - plus 6, 12 or 19 thousand. Dark amber is a one-third second source at PCI's batch price: 50 drums, ten batches, 112.6 thousand total, plus 61.9 - 122 percent of today's bill. Light amber is one drum a week at the 6-dollar below-batch price: 52 drums, 35 percent, almost a third - 173.6 thousand, plus 122.9; the small-order version is the expensive one. Red is CJB at one third, for scale: 223 thousand. Internal hours and one-time costs are on the options slide.",
- "How we got here, as a series of events. November last year: Brenntag, a distributor, tried our formula - the viscosity came out above range, unreadable on their viscometer; they stalled and we never received a quote; in March they sent us a resin sample instead. March to April: we screened fifteen to twenty serious candidates and reached out to ArroChem, Piedmont and ILC Dover with one hard gate - hold 90 to 95 degrees. May: ArroChem - the right kind of company - could not get past 90 degrees, and ILC Dover could not reach it either. June 26: CJB cleared it and became the front-runner; APV confirmed heat but, on our call, called a dollar fifty a pound too cheap for our volume - so we estimate APV at three dollars or more, never confirmed; we confirmed demand at about three drums a week - 150 a year. July: Columbus Chemical, also the right kind of company, reached out to us and then told us directly they cannot hold the temperature - eliminated, never quoted. August 4: CJB's quote came in at 8 to 8.50 a pound for toll processing alone - eleven times SNP - and their trial would have cost 6,400 dollars; we declined, so we never corroborated whether they could actually make it. August to September: PCI Manufacturing ran two-plus lab batches and a dilution study, unpaid. September 22: PCI's test results - the viscosity was brought on target within the test by adjusting solids and water - and the spec was agreed. September 28: spec met, and a real quote of 3.50 a pound per five-drum batch. What it is worth: a cold start is now months, not a year. What it cost: PCI's unpaid engineering, and about 15 thousand of our own hours, sunk. Using it costs 62 thousand a year plus a permanent discipline; walking away costs goodwill; the middle is one or two batches a year.",
  "Three options on one page: what each costs, how the year runs, what each supplier sees. The strips are the year, week by week: green is SNP material, colored blocks are PCI batches - each five-drum batch is about twelve days at full rate, because the drums land about four days old and the eighteen-day life is counted from manufacture, so a batch is used in one block. Option 1: ten blocks a year, one every five weeks - SNP sees ten pauses, or a level cadence if we carry about three drums of rolling stock; PVA purchases of 112.6 thousand a year, growing with volume; recovery in weeks only if PCI confirms the ramp in writing. Option 3: one or two blocks a year, when we choose - 56.9 thousand with one batch, 63.1 with two, 69.3 with three - SNP keeps 145, 140 or 135 drums; SNP sees one or two pre-announced pauses or none; restart in weeks to a few months. Option 2: the whole year on SNP, PCI a quoted option - 50.7 thousand, what we pay today; if SNP fails, three to six months, and a cold start decays after a year idle. Why not run PCI alongside SNP at a third of rate instead of blocks? A batch would last thirty-six days - twice the life; even at two-thirds it takes eighteen. A validated twenty-one-day life gives margin; a thirty-day life still needs PCI at about half of rate. For us, two suppliers means one spec and one viscometer method, freeze-protected freight, a written failover with SNP's lead time, PCI's residual-film issue closed before any production batch, and two quality agreements. Purchases only: internal hours to finish PCI's qualification - fifteen to forty thousand once, under Options 1 and 3 - are not in these numbers.",
  "Cost against protection. Left to right is what each option means in PVA purchases for a year - SNP at 75 cents plus PCI at 3.50; today's 50.7 thousand is the grey line; bottom to top is how long we would be without PVA if SNP stopped tomorrow. Each box is the range of one option. Green, Option 2, 50.7 thousand, is the cheapest and the least protected: a cold start of three to six months, and longer as the file goes stale. Blue, Option 3, 57 to 69 thousand for one to three batches, sits in the middle: a practiced supplier restarts in weeks to a few months, about fifty thousand a year less than Option 1. Amber, Option 1, 112.6 thousand, is the most protected - weeks, if PCI confirms the ramp in writing - and the most expensive, every year. The chart does not show what SNP experiences: ten pauses a year under Option 1, one or two under Option 3, none under Option 2. The question for Finance is whether the extra weeks of speed under Option 1 are worth about 62 thousand a year.",
  "How companies keep a qualified supplier they barely use - because you will be asked whether Option 3 is realistic. It is routine in medical devices, pharma and aerospace. What spoils the relationship is silence and unpaid work, not the 'no'. Three instruments, weighted. First and essential: place a real order - one five-drum batch, one to three times a year; it is the only thing that pays PCI with revenue and proves production scale, and it is Option 3. Second and essential: sign terms with no volume commitment - the 3.50 batch price, spec, lead time, change notification, twelve to twenty-four months, zero minimum; it locks the economic core of Option 3 in writing and costs only legal time. Third, only under Option 2: pay a development fee for the work already done, to repair the goodwill if we order nothing; under Option 3 the first batch is the payment. Capacity-reservation fees and formal re-approval programs are pharma-scale practices that do not apply to us. And the conduct: tell PCI the triggers, pay promptly, share results, keep a quarterly touchpoint. The research is clear that suppliers allocate goodwill on trust and growth prospects, not current volume.",
- "The SNP conversation, in order. One: why we are here - growth, a sole source we depend on, and the intent to run it as a partnership; they should hear investment, not audit. Two: our business, shown - volume history, the forecast of 150 drums this year growing ten percent a year, our delivery record, what the product does for our mission. Three: what we bring - a rolling twelve-month forecast refreshed monthly, a level weekly cadence through a blanket order, and the hydrogel program as a written joint roadmap. Four: growing together, as an exploration and not a commitment - their other hydrogel lines, sodium alginate and guar gum, as possibilities for future projects; we learn what else they can make and promise nothing either way. Five: running it as partners - resin supply and a consignment buffer, capacity for year-five volume, cover for the people who run the PVA cook, advance notice of changes, a shelf-life study together; continuity agreed as a shared discipline. Six: a resin-indexed price formula instead of ad hoc increases. Seven: close with a quarterly business review, named contacts and an updated quality agreement. Before we walk in we decide five things: the strategy, which sets the posture - under Option 3 we say a continuity verification lot runs once a year and we do not name the supplier; how much forecast we share and whether a multi-year commitment is on the table; the give - blanket order and payment terms; whether to raise the other hydrogels at all, as possibilities only; and whether we fund the resin buffer and the shelf-life study.",
+ "The SNP visit on Tuesday the sixth of October, tentative agenda. One: in the conference room, growth - years of it - and how we could grow the relationship: projects, partnership; and what the synthetics room does, which is where we freeze their PVA into our plates. They should hear investment, not audit. Two: walk them through the synthetics room and show them the synthetic plate we make with their PVA - a supplier rarely sees what its material becomes. Three: back in the conference room, let SNP talk about their other synthetics, and have our R&D talk about projects, what they see in the future, and how we could partner more - possibilities, not commitments. Four: forecasts - what we would share and how that helps their orders and planning; we want agreement on what we share and how often. Still pending: aligning with R&D on what they present, and with Purchasing on what we bring. Before the sixth we fill in five decisions: the strategy, which sets the posture - and under Option 3 whether we mention a continuity verification lot yet; what R&D presents; what Purchasing brings; how much forecast we share; and whether we only listen about their other synthetics or ask for samples and data.",
  "Assumptions, suppliers by full name, acronyms, and the fact-checked frameworks. The workbook's Summary tab holds every slide figure as a formula; Supplier Quotes, Market Study, PCI Quote Scenarios and the PCI Experiment record hold the compiled data.",
 ]
 for sl,txt in zip(prs.slides,NOTES): sl.notes_slide.notes_text_frame.text=txt
