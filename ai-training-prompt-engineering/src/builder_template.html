@@ -172,6 +172,20 @@
   .taskcard b{display:block; font-size:13.5px; margin-bottom:3px;}
   .taskcard span{font-size:11.5px; color:var(--mute); line-height:1.35; display:block;}
   .taskcard.on{border-color:var(--teal); background:rgba(14,124,123,.10);}
+
+  /* ---------- home (landing) view: every way in, on one page ---------- */
+  body[data-view="home"] .steps, body[data-view="home"] .layout, body[data-view="home"] #taskView,
+  body[data-view="home"] #modeBtns, body[data-view="home"] #galleryBtn, body[data-view="home"] #mbar{display:none !important;}
+  body:not([data-view="home"]) #homeView{display:none;}
+  body[data-view="home"] #homeBtn{display:none;}
+  #homeView{padding:16px 22px 30px; max-width:1500px;}
+  #homeView .hint{font-size:12.5px; color:var(--mute); margin:2px 0 12px;}
+  #homeView .hsec{font-family:Cambria, Georgia, serif; font-size:17px; color:var(--ink); margin:18px 0 2px;}
+  #homeView .hsec .n{display:inline-flex; width:21px; height:21px; border-radius:50%; background:var(--teal); color:#fff; font-size:12px; font-weight:700; align-items:center; justify-content:center; margin-right:7px; vertical-align:2px; font-family:'Segoe UI',Calibri,Arial,sans-serif;}
+  #homeView .hsub{font-size:11.5px; color:var(--mute); margin-bottom:9px;}
+  #homeView .resume{display:flex; align-items:center; gap:10px; flex-wrap:wrap; background:var(--teal-t); border:1px solid var(--teal); border-radius:10px; padding:10px 14px; margin-bottom:12px; font-size:12.5px; color:var(--teal-d); font-weight:600;}
+  #homeView .resume button{border:none; background:var(--teal); color:#fff; border-radius:8px; padding:7px 14px; font-weight:700; font-size:12px; cursor:pointer;}
+  #homeView .resume button.ghost{background:transparent; color:var(--teal-d); text-decoration:underline;}
   .tlayout{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:16px; align-items:start;}
   @media (max-width:1000px){ .tlayout{grid-template-columns:1fr;} }
   .tpanel{border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:var(--panel);}
@@ -206,10 +220,29 @@
   </div>
   <div class="modes" id="modeBtns"></div>
   <div class="hbtns">
+    <button id="homeBtn">⌂ Home</button>
     <button class="primary" id="galleryBtn">📋 Templates</button>
     <button id="helpBtn">How it works</button>
   </div>
 </header>
+
+<!-- ==== Home: the landing page — all the ways in, on one screen ==== -->
+<div id="homeView">
+  <div class="hint">Everything this tool holds, on one page. Pick any starting point — the <b>⌂ Home</b> button up top always brings you back here.</div>
+  <div class="resume" id="resumeBar" hidden><span>Welcome back — your last session's picks and text were restored.</span><button id="resumeBtn">Continue where I left off</button><button class="ghost" id="resumeFresh">Start fresh</button></div>
+  <div class="hsec"><span class="n">1</span>Start from a task</div>
+  <div class="hsub">The guided flow from the workshop: describe the task, tick the requirements that resolve ambiguity, copy the prompt.</div>
+  <div class="taskcards" id="hTasks"></div>
+  <div class="hsec"><span class="n">2</span>Eighteen ready templates</div>
+  <div class="hsub">Each one pre-selects the right pieces in the advanced builder — adjust anything, fill the placeholders, copy.</div>
+  <div class="gh">Prompts that write <span style="font-size:11px; color:var(--mute); font-weight:400">— for chat assistants: Claude, ChatGPT, Gemini, Copilot…</span></div>
+  <div class="tgrid" id="hGen"></div>
+  <div class="gh">Briefs that run a job <span style="font-size:11px; color:var(--mute); font-weight:400">— for agentic tools: Claude Code, Cowork, agent modes</span></div>
+  <div class="tgrid" id="hAgn"></div>
+  <div class="hsec"><span class="n">3</span>Build from scratch</div>
+  <div class="hsub">The full element taxonomy — every piece, every option, each with its “why it matters” note.</div>
+  <div class="tgrid" id="hBlank"></div>
+</div>
 
 <!-- ==== R17: task-first view (primary). The full taxonomy stays available as Advanced. ==== -->
 <div id="taskView">
@@ -681,6 +714,34 @@ function renderGallery(){
 function openGallery(){ document.getElementById('galleryOvl').hidden=false; }
 function closeGallery(){ document.getElementById('galleryOvl').hidden=true; }
 
+/* ---------- home (landing) ---------- */
+function go(view){ document.body.dataset.view=view; window.scrollTo({top:0}); }
+function renderHome(){
+  const g=document.getElementById('hGen'), a=document.getElementById('hAgn');
+  g.innerHTML=''; a.innerHTML='';
+  TAX.presets.forEach(p=>{
+    const c=tplCard(p);
+    const base=c.onclick;
+    c.onclick=()=>{ go('legacy'); base(); };
+    (p.mode==='agentic'?a:g).appendChild(c);
+  });
+  const b=document.getElementById('hBlank'); b.innerHTML='';
+  [['generative','Blank prompt — pick the pieces yourself'],
+   ['agentic','Blank brief — build a job brief from scratch']].forEach(([mode,label])=>{
+    const c=el('button','tcard blank');
+    c.appendChild(el('span','tn','✎ '+label));
+    c.appendChild(el('span','td','Nothing pre-selected; the core pieces are switched on for you.'));
+    c.onclick=()=>{ S.sel={}; S.custom={}; S.enabled={}; S.ext={}; S.open={}; setMode(mode); go('legacy'); };
+    b.appendChild(c);
+  });
+  const h=el('button','tcard blank');
+  h.appendChild(el('span','tn','？ How this works'));
+  h.appendChild(el('span','td','The idea, the flow, and what every button does — a two-minute read.'));
+  h.onclick=()=>{ document.getElementById('helpOvl').hidden=false; };
+  b.appendChild(h);
+}
+document.getElementById('homeBtn').onclick=()=>go('home');
+
 function renderAll(){ renderModes(); renderSide(); renderMain(); renderOut(); }
 
 /* ---------- wiring ---------- */
@@ -746,6 +807,7 @@ document.getElementById('footer').innerHTML = esc(TAX.meta.name)+' · v'+esc(TAX
 
 /* ---------- boot ---------- */
 renderGallery();
+renderHome();
 let hadSave=false;
 try{
   const saved=localStorage.getItem('ptc-state-v2');
@@ -755,23 +817,29 @@ document.getElementById('techToggle').checked=!!S.tech;
 setMode(S.mode||TAX.modes[0].id, hadSave);
 if(hadSave && (Object.keys(S.sel).length||Object.keys(S.custom).length)){
   document.getElementById('restored').hidden=false;
-} else if(!hadSave){
-  /* R17: the task-first view is the landing screen; the gallery no longer auto-opens. */
+  document.getElementById('resumeBar').hidden=false;
 }
+/* the home page is the landing screen; every path in is one click from it */
+document.getElementById('resumeBtn').onclick=()=>go('legacy');
+document.getElementById('resumeFresh').onclick=()=>{
+  document.getElementById('resumeBar').hidden=true;
+  document.getElementById('freshBtn').click();
+  go('home'); closeGallery();
+};
 
 /* ================= R17: task-first view ================= */
 const TASKS = /*__TASKS_JSON__*/;
 (function(){
   const $$ = id => document.getElementById(id);
   const T = { id:null, on:{}, text:{}, free:'', desc:'', gen:'', edited:false };
-  document.body.dataset.view = 'task';
+  document.body.dataset.view = 'home';
 
   /* view switcher */
   $$('advBtn') && ($$('advBtn').onclick = () => { document.body.dataset.view='legacy'; ensureBack(); });
   function ensureBack(){
     if($$('backTasks')) return;
     const b = document.createElement('button');
-    b.id='backTasks'; b.textContent='← Back to the five tasks';
+    b.id='backTasks'; b.textContent='← Back to the tasks';
     b.onclick = () => { document.body.dataset.view='task'; };
     document.querySelector('header .hbtns').prepend(b);
   }
@@ -784,6 +852,15 @@ const TASKS = /*__TASKS_JSON__*/;
     b.innerHTML = '<b>'+esc(t.name)+'</b><span>'+esc(t.blurb)+'</span>';
     b.onclick = () => pick(t.id, b);
     cards.appendChild(b);
+  });
+  /* the same five tasks on the home page: jump into the task view with that task picked */
+  const hc = $$('hTasks');
+  TASKS.forEach((t,i) => {
+    const b = document.createElement('button');
+    b.className='taskcard'; b.type='button';
+    b.innerHTML = '<b>'+esc(t.name)+'</b><span>'+esc(t.blurb)+'</span>';
+    b.onclick = () => { go('task'); cards.children[i].click(); };
+    hc.appendChild(b);
   });
   function pick(id, btn){
     T.saved = T.saved || {};
