@@ -236,6 +236,11 @@ srows=[("Demand, Year 1 (lb)","=LbWk*Weeks",NUM,"Annual-cost slide — identical
  ("Premium if PCI were $1.50/lb (trigger)","=EffShare*LbWk*Weeks*(1.5-SNPlb)",CUR,"Recommendation slide"),
  ("Option 3 — one batch/yr: gross / premium","=PCIbatch*DrumLb*PCIq&\" / \"&PCIbatch*DrumLb*(PCIq-SNPlb)",None,"Chronology, options, keep-alive, recommendation slides"),
  ("Option 3 — two batches/yr: gross / premium","=2*PCIbatch*DrumLb*PCIq&\" / \"&2*PCIbatch*DrumLb*(PCIq-SNPlb)",None,"Options and keep-alive slides"),
+ ("Blended $/lb, all our PVA — today","=C10/C6",'"$"0.000',"Blended-cost slide"),
+ ("Blended $/lb — 1 PCI batch a year","=((C6-PCIbatch*DrumLb)*SNPlb+PCIbatch*DrumLb*PCIq)/C6",'"$"0.000',"Blended-cost slide"),
+ ("Blended $/lb — 2 PCI batches a year","=((C6-2*PCIbatch*DrumLb)*SNPlb+2*PCIbatch*DrumLb*PCIq)/C6",'"$"0.000',"Blended-cost slide"),
+ ("Blended $/lb — 3 PCI batches a year","=((C6-3*PCIbatch*DrumLb)*SNPlb+3*PCIbatch*DrumLb*PCIq)/C6",'"$"0.000',"Blended-cost slide"),
+ ("Blended $/lb — Option 1 (one-third from PCI)","=C12/C6",'"$"0.000',"Blended-cost slide"),
  ("Option 3 — share of volume at 1 / 2 batches","=TEXT(PCIbatch*DrumLb/(LbWk*Weeks),\"0.0%\")&\" / \"&TEXT(2*PCIbatch*DrumLb/(LbWk*Weeks),\"0.0%\")",None,"Options slide")]
 for i,(a,f,fmt,u) in enumerate(srows):
     rr=6+i; wrow(sm,rr,[a,f,u],[None,fmt,None],fill=(AMB if a.startswith("Premium vs today") else None))
@@ -372,6 +377,30 @@ plt.tight_layout(); plt.savefig("chart_price_vs_volume.png",dpi=180); plt.close(
 lo_b=max(A*2250**b*p10,0.75); hi_b=anchor*(2250/US_MAX)**b_flat*p90; lo_s=max(A*snp_lot**b*p10,0.75); hi_s=anchor*(snp_lot/US_MAX)**b_flat*p90; lo_d=max(A*DRUM**b*p10,0.75); hi_d=anchor*(DRUM/US_MAX)**b_flat*p90
 print(f"band ratios p10={p10:.2f} p90={p90:.2f}"); print(f"chart E saved: trend {A:.2f}*lb^{b:.3f} (~{per_doubling:.0%}/doubling); band at 1 drum ${lo_d:.2f}–{hi_d:.2f}, at SNP lot ${lo_s:.2f}–{hi_s:.2f}, at 5-drum batch ${lo_b:.2f}–{hi_b:.2f}; SNP-shaped at 1 drum ${snp_p*(DRUM/snp_lot)**b:.2f}, at 5 gal ${snp_p*(42.5/snp_lot)**b:.2f}")
 json.dump({"A":A,"b":b,"per_doubling":per_doubling,"snp_at_drum":snp_p*(DRUM/snp_lot)**b,"snp_at_5gal":snp_p*(42.5/snp_lot)**b,"band_drum":f"{lo_d:.2f}–{hi_d:.2f}","band_snp":f"{lo_s:.2f}–{hi_s:.2f}","band_batch":f"{lo_b:.2f}–{hi_b:.2f}"},open("price_curve.json","w"))
+
+
+# Chart F: blended cost per lb of all our PVA with 0/1/2/3 PCI batches a year (Option 3), Option 1 for scale
+B1,B2,B3="#9DC3E6","#4E79A7","#1F3864"
+cases=[("All SNP\n(today)",0,GRN),("Option 3\n1 batch (5 drums)",1,B1),("Option 3\n2 batches (10 drums)",2,B2),("Option 3\n3 batches (15 drums)",3,B3)]
+blend=[]
+for lab,nb,col in cases:
+    pci=nb*batch_lb; tot=(LB1-pci)*SNP+pci*PCI_Q; blend.append((lab,tot/LB1,tot,col))
+opt1=(snp_keep*SNP+share_lb*PCI_Q)/LB1
+fig,ax=plt.subplots(figsize=(8.2,5.2)); fig.patch.set_facecolor("white")
+xs_=range(len(blend)); ax.bar(xs_,[b_[1] for b_ in blend],color=[b_[3] for b_ in blend],width=0.62)
+for i,(lab,ppl,tot,col) in enumerate(blend):
+    ax.text(i,ppl+0.02,f"${ppl:.3f}/lb",ha="center",va="bottom",fontsize=11,fontweight="bold",color=NAV)
+    ax.text(i,ppl/2,f"${ppl*DRUM:,.0f}\nper drum\n\n${tot/1000:,.1f}k\na year",ha="center",va="center",fontsize=8.5,color=("white" if col!=B1 else NAV),fontweight="bold")
+    if i>0: ax.text(i,ppl+0.11,f"+${ppl-0.75:.3f}/lb  (+{(ppl-0.75)/0.75:.0%})",ha="center",va="bottom",fontsize=9,color="#595959")
+ax.axhline(0.75,color=GRN,lw=1,ls="--"); ax.text(3.35,0.76,"today $0.75",fontsize=8,color=GRN,ha="right",va="bottom")
+ax.axhline(opt1,color=PCI_D,lw=1,ls=":"); ax.text(3.35,opt1+0.01,f"Option 1, one-third from PCI: ${opt1:.3f}/lb",fontsize=8,color=PCI_D,ha="right",va="bottom")
+ax.set_xticks(list(xs_)); ax.set_xticklabels([b_[0] for b_ in blend],fontsize=9); ax.set_ylim(0,1.85)
+ax.yaxis.set_major_formatter(FuncFormatter(lambda v,_: f"${v:.2f}")); ax.set_ylabel("Blended cost, $ per lb of all our PVA (150 drums a year)")
+ax.spines[["top","right"]].set_visible(False); ax.grid(axis="y",color="#EEEEEE"); ax.set_axisbelow(True)
+ax.set_title("What one, two or three PCI batches a year do to our cost per lb of PVA",fontsize=11.5,color=NAV,loc="left",fontweight="bold")
+plt.tight_layout(); plt.savefig("chart_blended_cost.png",dpi=180); plt.close()
+json.dump({"blend":[{"label":b_[0].replace("\n"," "),"per_lb":b_[1],"per_drum":b_[1]*DRUM,"total":b_[2]} for b_ in blend],"opt1_per_lb":opt1},open("blended_cost.json","w"))
+print("chart F:",[(b_[0].replace(chr(10),' '),round(b_[1],4)) for b_ in blend],"opt1",round(opt1,4))
 
 # ---- Price Curve tab (matches the price-vs-quantity slide) ----
 wb2=openpyxl.load_workbook("PVA_Second_Supplier_Leadership_Model.xlsx")
