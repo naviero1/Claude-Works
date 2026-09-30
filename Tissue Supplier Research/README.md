@@ -120,5 +120,13 @@ the workbook.
 - **2026-09-30 (owner decisions)** Scoring stays as built (Beebop's caps declined); **road miles only**
   (the radial reading is dropped and radial figures removed); EcoFriendly kept with its disputed-status
   note. Still open: boar gate hard vs soft (currently soft), sow acceptability and the aorta.
+- **2026-09-30 (instruction 24)** Beebop's five consistency issues verified and applied
+  (`Reviews/2026-09-30-i24-register.md`): the TCO comparison and verdict now run on the cost per
+  *accepted* block with guards at zero production; Piedmont's stun request and "viscera discarded"
+  inference removed from every current field; section A restated as the 120-road-mile screen with
+  status per column P and SCR moved to F; tier narratives reconciled and the score snapshot recomputed
+  with Excel rounding (section A re-sorted, IDs re-issued, mapping in the register); NASS totals as
+  "upper bounds"; the EU rule corrected to APHIS recognition + TRACES listing + per-consignment
+  certificate. No score, weight or owner decision changed.
 
 Everything earlier is in git history and in `Deep_Study_Synthesis.pdf`.
