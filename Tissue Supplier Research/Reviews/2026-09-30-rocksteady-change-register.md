@@ -47,7 +47,9 @@ as one source.
 | B10 | Instructions §6, Anatomical Spec r24, APHIS & EU Export tab | Export guidance phrased differently across tabs | One statement everywhere: two paths (we harvest → plant needs USDA/FSIS or NC state; direct supplier → APHIS-endorsed certificate per shipment); vendor export statements are COMPANY CLAIMS until documented for the exact product, site, destination and use. | Consistency. |
 | B11 | Rated Candidates V9; Visit Agenda B3 | Proposes asking Piedmont to skip a second/cardiac stun on our hogs | Replace with: "document the plant's existing stunning process; qualified plant staff and the inspector assess thoracic tissue suitability" — see D1 (owner decision). | Removes a welfare-sensitive request from our script. |
 
-## Part C — Scoring treatment (owner approval required; no ranking changed)
+## Part C — Scoring treatment (DECLINED by the owner 2026-09-30: scores stand as built)
+
+> Owner decision: "do it your way." C1–C3 are not applied; the sub-scores keep their existing values with "bounded" wording where evidence is thin. C4 (wording) and C5 (a gates column) may still be done as housekeeping.
 
 | # | Proposal | Rationale | Effect if approved |
 |---|---|---|---|
@@ -62,7 +64,7 @@ as one source.
 | # | Decision | Options | My recommendation |
 |---|---|---|---|
 | D1 | Stunning: ask plants to skip a second stun on our designated hogs, or document their process and assess suitability? | Ask / Don't ask | Don't ask — adopt Beebop's wording (B11). A welfare-sensitive request undermines the relationship gate. |
-| D2 | Geography: eligibility by **road** miles (the August meeting rule: "120-mile road radius for Model A") or by **radial** distance (Beebop's reading of the ChatGPT brief) with road as logistics? | Road / Radial | Keep road for Model A (the crew drives it); state both figures; distance is a sub-score, not a gate, for Model B-T. If radial is chosen: EcoFriendly (92.6), McLaughlin's (106.1), Tar Heel (86.3) and Acre (119.7) all read "inside". |
+| D2 | Geography: eligibility by **road** miles (the August meeting rule: "120-mile road radius for Model A") or by **radial** distance (Beebop's reading of the ChatGPT brief) with road as logistics? | Road / Radial | **DECIDED 2026-09-30: road miles only.** The radial reading is dropped and radial figures were removed from the roster's distance column. Distance is a sub-score, not a gate, for Model B-T. |
 | D3 | Boar/stag rule: hard exclusion, or soft gate cleared by a separate-days answer on the call? | Hard / Soft | Soft — two incumbents (Martin's, Villari) carry the flag. |
 | D4 | Anatomical scope: aorta explicit in the thoracic column; sow acceptability under the 140–220 lb target? | Confirm | Add aorta; sow = No unless the spec says otherwise. |
 | D5 | Combined rows: split the western trio (B5)? | Yes / No | Yes. |
@@ -84,11 +86,12 @@ as one source.
 
 - **Volume bands and NASS totals.** They are used as historical bounds, never as capacity; I agree the word "cap" overstates it and propose "bound" (C4). I do not agree that they should be dropped: for federal plants they are the only quantitative per-plant public signal, and they falsified two cat-3 readings.
 - **Radial versus road.** The client's own meeting rule was a road radius for Model A; treating radial as the eligibility screen is a policy change, so it is an owner decision (D2), not a correction.
-- **EcoFriendly's rank.** Beebop v2.1 had it #4; with the boar/stag flag and a disputed operating status it stays Tier 3 until the call.
+- **EcoFriendly's rank.** Beebop v2.1 had it #4; with the boar/stag flag and a disputed operating status it stays Tier 3 until the call. **Owner decision 2026-09-30: keep it on the list with the disputed-status note.**
 - **Cool Springs / McLaughlin's "conflicting history."** Resolved: 1976 is Cool Springs (company site), 1962 is McLaughlin's (company site); the "1971 / federal grant 2024" passage in T67 was my error (A7), not a genuine conflict.
 
 ## Status
 
-- Research completed: A1–A10 verified against the sources cited; B1–B2 and B4 verified in the file; B5–B11 and Part C are proposals.
+- Research completed: A1–A10 verified against the sources cited; B1–B2 and B4 verified in the file.
 - Checks still pending: Part E.
-- Nothing has been edited, contacted or re-ranked. On the owner's approval I will apply Parts A and B in one commit, then Part C as approved, and record each in the Instructions change log.
+- **Applied 2026-09-30** (commit b8085b4 and the follow-up): Parts A and B in full, recorded in the Instructions change log (2026-09-30 b). On the same day the owner narrowed the workbook to the supplier list (three context tabs retired; roster rebuilt as one prioritized list with Priority IDs).
+- **Owner decisions 2026-09-30:** Part C declined (scores stand as built); D2 road miles only; EcoFriendly kept with its note. D1 (don't ask about stunning) and D5/D6 were applied with Part B. D3 (boar gate hard vs soft, currently soft) and D4 (sow / aorta) remain open.

@@ -116,7 +116,9 @@ the workbook.
   an unverified signal; EcoFriendly status DISPUTED) and mechanical repairs (TCO prose-as-formula cells,
   "n/a" at zero production, cost per accepted block, full filter ranges, the western trio split into
   three rated rows, the stunning request dropped). Then, on the owner's direction, three context tabs
-  retired and the roster rebuilt as one prioritized list with Priority IDs. Scoring changes and the
-  owner decisions Beebop raised (road vs radial, boar gate hard/soft, sow/aorta) remain open.
+  retired and the roster rebuilt as one prioritized list with Priority IDs.
+- **2026-09-30 (owner decisions)** Scoring stays as built (Beebop's caps declined); **road miles only**
+  (the radial reading is dropped and radial figures removed); EcoFriendly kept with its disputed-status
+  note. Still open: boar gate hard vs soft (currently soft), sow acceptability and the aorta.
 
 Everything earlier is in git history and in `Deep_Study_Synthesis.pdf`.
