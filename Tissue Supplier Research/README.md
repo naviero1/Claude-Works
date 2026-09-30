@@ -97,5 +97,11 @@ the workbook.
   corrected to ×7/360; exact-address distances at the boundary (EcoFriendly 120.4, McLaughlin's
   119.4); Farmington P-381 and three small federal Virginia plants (Easternview, The Butcher's
   Block, KC Farms — all cat 1) added; Godwin, Piedmont and Nahunta wording tightened.
+- **2026-09-28 (later)** Volume-inference ladder with NASS state caps; Beebop v2.1 converged on the
+  call order; the client's boar/stag rule (gate G4) applied — Select Meats to Tier 1, Piedmont to Tier 2.
+- **2026-09-30** Social and other-sources pass (Facebook, Yelp, reviews, BBB, Indeed, OpenCorporates,
+  NCDA county directories): contact names for twelve plants; McLamb's under Lee-family ownership;
+  McLaughlin's 2026 leadership change; Cool Springs since 1971; EcoFriendly "closed" listing; then an
+  accuracy sweep of every primary field and a dated change log on the Instructions tab (section 10).
 
 Everything earlier is in git history and in `Deep_Study_Synthesis.pdf`.
