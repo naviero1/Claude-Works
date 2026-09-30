@@ -5,10 +5,13 @@ slaughterhouse partners beyond the current base (**Nahunta, Martin's, Parks, Cus
 Packers, Villari**) that can either host our harvesting techs (**Model A**) or harvest to our
 spec with our training (**Model B-T**).
 
-> **Status 2026-09-28.** One working workbook, 14 tabs. Distances now run from the client's
-> **Durham** origin (the earlier Pikeville figures are kept alongside). The ChatGPT research
-> snapshot in `Beebop/` has been cross-checked and folded in. Next step is the process on the
-> workbook's Instructions tab: each role picks 3, meet, the Purchasing Manager calls.
+> **Status 2026-09-30.** One working workbook, now 11 tabs, narrowed on the owner's direction to
+> the supplier list itself. The Supplier Roster is one prioritized list in six sections (A
+> in-radius candidates first, sorted by tier and fit score; B eligible plants farther out in
+> NC / SC / TN / VA; C current suppliers; D referral contacts; E national and Midwest; F excluded
+> and history) with a Priority ID and the rated tier on every row. Distances run from the client's
+> **Durham** origin. Beebop's instruction-23 review has been answered in `Reviews/`. Next step is
+> the process on the Instructions tab: each role picks 3, meet, the Purchasing Manager calls.
 
 ## Files
 
@@ -20,23 +23,26 @@ spec with our training (**Model B-T**).
 | `Supplier_Selection_Meeting_Agenda.md` | The agenda that deck followed |
 | `Deep_Study_Synthesis.md` / `.pdf` | Narrative report from the August verification passes (historical; the workbook supersedes it where they differ) |
 | `Beebop/` | **Collaborator snapshot (ChatGPT, 2026-09-28)** — see below |
+| `Reviews/` | Dated change registers answering collaborator reviews (2026-09-30: Beebop instruction 23 — what was applied, what is the owner's call, where we disagree) |
 
 ### The workbook
 
 | Tab | What's in it |
 |---|---|
-| Instructions | **Start here.** The process (5 steps, two roles), the profile and hard gates, the client parameters, volume brackets, scoring, every legend and acronym, sources policy |
-| Overview & Method / Meeting Notes 2026-08 | Study context and the meeting record (incl. the two-path APHIS rule) |
+| Instructions | **Start here.** The process (5 steps, two roles), the profile and hard gates, the client parameters, volume brackets, scoring, the two-path APHIS rule and export essentials, every legend and acronym, sources policy, and the dated change log (§10) |
 | Current Base (benchmarks) | The five suppliers we work with today — the pattern to replicate and the gaps to fill |
-| Supplier Roster | Every plant assessed (NC / SC / VA / TN / Midwest + national vendors): volume band, Durham road miles, FSIS species flags, inspection, enforcement, export path, welfare, why / why-not, website, confidence with source |
+| Supplier Roster | **The complete prioritized list** in six sections — A in-radius candidates (tier → fit score → distance) · B eligible but farther out (Model B-T only) · C current suppliers · D referral contacts · E national & Midwest (anywhere) · F excluded / duplicate / history. Every row: volume band, Durham road miles, FSIS species flags, inspection, enforcement, export path, welfare, why / why-not, website, confidence, Priority ID (col U) and rated tier + fit scores (col V) |
 | Rated Candidates | The shortlist scored on eight sub-scores → **A-FIT** (we go there) and **B-FIT** (their crew, our training), tiers, and the Beebop call rank for comparison. Weights are editable |
 | Call Questionnaire | Stage 1 — the call script (three questions; no business-model talk) + call log |
 | Visit Agenda | Stage 2 — run on site after the NDA: model, floor walk, spec & training, culture, commercial, close |
 | Anatomical Spec | The per-block spec sheet — the sow-vs-market decision (the 140-220 lb parameter now points to market / light hogs) |
-| TCO Calculator / Models & Make-vs-Buy | Economics: cost to self-harvest vs buy, and the three operating models compared |
-| APHIS & EU Export | The two-path rule, APHIS vs FSIS vs state inspection, EU by-product and device rules |
-| National Direct Suppliers | Buy-direct vendors (deprioritized) with EU-export fit |
+| TCO Calculator / Models & Make-vs-Buy | Economics: cost to self-harvest vs buy (now also cost per *accepted* block), and the three operating models compared |
+| National Direct Suppliers | Buy-direct vendors (deprioritized) with EU-export fit — vendor export statements are recorded as company claims |
 | Sources & Confidence | Every source class with a confidence rating, the verification method, and what was retired when |
+
+Retired 2026-09-30 on the owner's direction: *Overview & Method*, *Meeting Notes 2026-08* and
+*APHIS & EU Export* (their decisions and export essentials live on Instructions §3 and §6; the full
+text is in git history and `Deep_Study_Synthesis.pdf`).
 
 ## The rules the study is built against
 
@@ -103,5 +109,14 @@ the workbook.
   NCDA county directories): contact names for twelve plants; McLamb's under Lee-family ownership;
   McLaughlin's 2026 leadership change; Cool Springs since 1971; EcoFriendly "closed" listing; then an
   accuracy sweep of every primary field and a dated change log on the Instructions tab (section 10).
+- **2026-09-30 (later)** Beebop's instruction-23 review answered (`Reviews/2026-09-30-rocksteady-change-register.md`):
+  factual corrections applied (Gilbert Key d. 2026-04-06; Piedmont's cut sheet offers organs to the
+  customer, so the "viscera discarded" inference was wrong; TissueSource and LAMPIRE export statements
+  recorded as company claims; Cool Springs 1976, not 1971; McLaughlin's leadership change downgraded to
+  an unverified signal; EcoFriendly status DISPUTED) and mechanical repairs (TCO prose-as-formula cells,
+  "n/a" at zero production, cost per accepted block, full filter ranges, the western trio split into
+  three rated rows, the stunning request dropped). Then, on the owner's direction, three context tabs
+  retired and the roster rebuilt as one prioritized list with Priority IDs. Scoring changes and the
+  owner decisions Beebop raised (road vs radial, boar gate hard/soft, sow/aorta) remain open.
 
 Everything earlier is in git history and in `Deep_Study_Synthesis.pdf`.
