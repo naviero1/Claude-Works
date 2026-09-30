@@ -128,5 +128,14 @@ the workbook.
   with Excel rounding (section A re-sorted, IDs re-issued, mapping in the register); NASS totals as
   "upper bounds"; the EU rule corrected to APHIS recognition + TRACES listing + per-consignment
   certificate. No score, weight or owner decision changed.
+- **2026-09-30 (QC pass)** Full quality-control and logic evaluation (`Reviews/2026-09-30-qc-pass.md`),
+  then applied on the owner's instruction: Cruse Meat Processing rated (federal, market-only, no boar
+  flag, 120 mi boundary — Tier 3, now A-07); Sessoms, 601 Deer & Hog and Caughman's moved from B to F
+  as G1-unverified; the boar/stag qualifier added to six fit cells; the VOL legend restated to the scale
+  actually used and four outliers aligned (no tier changed); Path 1's dependence on ATM's own
+  APHIS/TRACES status made explicit and flagged TO CONFIRM; Swaggerty CAUTION (sow-only); placeholder
+  reasons replaced; stale Anatomical Spec, Make-vs-Buy and Sources text corrected; roll-up rows n/m and
+  REFERENCE; Rated Candidates sorted like section A with a Priority ID column. This is the final copy
+  handed to the Purchasing Manager for step 1 (each role picks 3).
 
 Everything earlier is in git history and in `Deep_Study_Synthesis.pdf`.
