@@ -1,0 +1,143 @@
+Record ID,Paper ID,Oligo Name,legacy_Training_Ready,scientist_adjudication,immunomodulatory_direction,human_relevance,has_modification_positions,conflict,exclusion_reason
+P18_001,P18,siRNA-1,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_002,P18,siRNA-2,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_003,P18,siRNA-3,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_004,P18,siRNA-4,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_005,P18,siRNA-5,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_006,P18,siRNA-6,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_007,P18,siRNA-7,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_008,P18,siRNA-8,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_009,P18,siRNA-9,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_010,P18,siRNA-10,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_011,P18,siRNA-11,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_012,P18,siRNA-12,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_013,P18,siRNA-13,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_014,P18,siRNA-14,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_015,P18,siRNA-15,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_016,P18,siRNA-16,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_017,P18,siRNA-17,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_018,P18,siRNA-18,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_019,P18,siRNA-19,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_020,P18,siRNA-20,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_021,P18,siRNA-21,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_022,P18,siRNA-22,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_023,P18,siRNA-23,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_024,P18,siRNA-24,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_025,P18,siRNA-25,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_026,P18,siRNA-26,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_027,P18,siRNA-27,NO,APPROVED_CORE_HUMAN,Agonist/response-positive,High,no,FLAG_EXCLUDES_APPROVED,scientist-approved record flagged not-ready
+P18_028,P18,siRNA-28,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_029,P18,siRNA-29,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_030,P18,siRNA-30,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_031,P18,siRNA-31,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P18_032,P18,siRNA-32,NO,APPROVED_CORE_HUMAN,Inert/low-response,High,no,FLAG_EXCLUDES_APPROVED,scientist-approved record flagged not-ready
+P05_001,P05,R-1075,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P05_002,P05,R-1263,YES,APPROVED_PATHWAY_CONTROL,Inert/low-response,High,no,,
+P05_003,P05,R-0001,YES,APPROVED_PATHWAY_CONTROL,Unknown,High,no,,
+P05_004,P05,R-0002,YES,APPROVED_PATHWAY_CONTROL,Unknown,High,no,,
+P05_005,P05,R-0003,YES,APPROVED_PATHWAY_CONTROL,Unknown,High,no,,
+P05_006,P05,R-0004,YES,APPROVED_PATHWAY_CONTROL,Unknown,High,no,,
+P05_007,P05,R-0005,YES,APPROVED_PATHWAY_CONTROL,Unknown,High,no,,
+P05_008,P05,R-0006,YES,APPROVED_PATHWAY_CONTROL,Unknown,High,no,,
+P05_009,P05,R-0007,YES,APPROVED_PATHWAY_CONTROL,Unknown,High,no,,
+P05_010,P05,R-0008,YES,APPROVED_PATHWAY_CONTROL,Unknown,High,no,,
+P05_011,P05,Control ORN 1,YES,APPROVED_PATHWAY_CONTROL,Inert/low-response,High,no,,
+P05_012,P05,Control ORN 2,YES,APPROVED_PATHWAY_CONTROL,Inert/low-response,High,no,,
+P05_013,P05,R-1211,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_014,P05,R-1212,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_015,P05,R-1213,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_016,P05,R-1214,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_017,P05,R-1215,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_018,P05,R-1216,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_019,P05,R-1312,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_020,P05,R-1321,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_021,P05,R-1322,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_022,P05,R-1323,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P05_023,P05,R-1324,NO,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,,
+P02_001,P02,CpG 2006,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P02_002,P02,CpG M362,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P02_003,P02,C20-DNA,YES,APPROVED_PATHWAY_CONTROL,Inert/low-response,High,no,,
+P02_004,P02,9.2s,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P02_005,P02,ss-eGFP-sense,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P02_006,P02,ss-eGFP-s3methylated,YES,APPROVED_PATHWAY_CONTROL,Inert/low-response,High,no,,
+P02_007,P02,ss-eGFP-as,YES,HOLD_OUTCOME_EXTRACTION,Unknown,High,no,FLAG_LEAKS_HELD,held record flagged training-ready
+P02_008,P02,A20-RNA,YES,APPROVED_PATHWAY_CONTROL,Inert/low-response,High,no,,
+P09_001,P09,RNA63,YES,APPROVED_CORE_HUMAN,Agonist/response-positive,High,yes,,
+P09_002,P09,RNA63M,YES,APPROVED_CORE_HUMAN,Mixed,High,yes,,
+P09_003,P09,RNA63D,YES,APPROVED_CORE_HUMAN,Agonist/response-positive,High,yes,,
+P09_004,P09,RNA63F,YES,APPROVED_CORE_HUMAN,Agonist/response-positive,High,yes,,
+P06_001,P06,β-gal 728 guide,YES,HOLD_SUPPLEMENT,Agonist/response-positive,High,no,FLAG_LEAKS_HELD,held record flagged training-ready
+P06_002,P06,β-gal 728 passenger,YES,HOLD_SUPPLEMENT,Agonist/response-positive,High,no,FLAG_LEAKS_HELD,held record flagged training-ready
+P06_003,P06,β-gal control guide,YES,HOLD_SUPPLEMENT,Agonist/response-positive,High,no,FLAG_LEAKS_HELD,held record flagged training-ready
+P06_004,P06,β-gal control passenger,YES,HOLD_SUPPLEMENT,Agonist/response-positive,High,no,FLAG_LEAKS_HELD,held record flagged training-ready
+P06_005,P06,ApoB guide,YES,HOLD_SUPPLEMENT,Unknown,High,no,FLAG_LEAKS_HELD,held record flagged training-ready
+P06_006,P06,ApoB passenger,YES,HOLD_SUPPLEMENT,Unknown,High,no,FLAG_LEAKS_HELD,held record flagged training-ready
+P07_001,P07,RNA40,YES,APPROVED_PATHWAY_CONTROL,Unknown,High,no,,
+P07_002,P07,RNA33,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P07_003,P07,RNA34,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P13_001,P13,2088,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_002,P13,2114,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_003,P13,4024,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_004,P13,4084F,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_005,P13,INH-1,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_006,P13,INH-4,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_007,P13,INH-13,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_008,P13,INH-18,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_009,P13,Poly-G,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_010,P13,A151,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_011,P13,GpG,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_012,P13,G-ODN,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_013,P13,IRS-869,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_014,P13,IRS-661,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P13_015,P13,IRS-954,NO,SUPPORT_ONLY_REVIEW,Antagonist,Mixed,no,,
+P10_001,P10,Antagonist 1,YES,APPROVED_AUXILIARY,Antagonist,High,no,,
+P10_002,P10,Antagonist 2,YES,APPROVED_AUXILIARY,Antagonist,High,no,,
+P10_003,P10,Antagonist 3,YES,APPROVED_AUXILIARY,Antagonist,High,no,,
+P10_004,P10,Control 4,YES,APPROVED_AUXILIARY,Control/unknown,High,no,,
+P10_005,P10,Control 5,YES,APPROVED_AUXILIARY,Control/unknown,High,no,,
+P15_001,P15,ODN1668,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,no,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_002,P15,ODN1668LNA,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_003,P15,ODN1668mCflanks,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_004,P15,ODN1668mCpG,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_005,P15,ODN1668mCpGLNA,YES,SUPPORT_ONLY_ANIMAL,Unknown,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_006,P15,ODN1668fmC,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_007,P15,ODN1668fmCLNA,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_008,P15,SECA028,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_009,P15,SECA028nLNA,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,no,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_010,P15,SECA028mCpG,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_011,P15,SECA028mCpGnLNA,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_012,P15,SECA028fmCnLNA,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_013,P15,SECA028fmC,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_014,P15,SECA120,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_015,P15,SECA120nLNA,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,no,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_016,P15,SECA120mCpGnLNA,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_017,P15,SECA120fmCnLNA,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_018,P15,SECA120mCpG,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_019,P15,SECA120fmC,YES,SUPPORT_ONLY_ANIMAL,Unknown,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_020,P15,SECA064,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_021,P15,SECA064nLNA,YES,SUPPORT_ONLY_ANIMAL,Agonist/response-positive,Low for direct human ground truth,no,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_022,P15,SECA064mCpG,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_023,P15,SECA064fmC,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_024,P15,SECA064mCpGnLNA,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_025,P15,SECA064fmCnLNA,YES,SUPPORT_ONLY_ANIMAL,Inert/low-response,Low for direct human ground truth,yes,FLAG_LEAKS_ANIMAL,animal-only support record flagged training-ready
+P15_026,P15,ODN2006,YES,APPROVED_CORE_HUMAN,Control/unknown,High,no,,
+P15_027,P15,ODN2006mCflanks,YES,APPROVED_CORE_HUMAN,Agonist/response-positive,High,yes,,
+P15_028,P15,ODN2006LNA,YES,APPROVED_CORE_HUMAN,Unknown,High,yes,,
+P15_029,P15,ODN2006fmC,YES,APPROVED_CORE_HUMAN,Agonist/response-positive,High,yes,,
+P15_030,P15,ODN2006fmCLNA,YES,APPROVED_CORE_HUMAN,Inert/low-response,High,yes,,
+P15_031,P15,SECA166,YES,APPROVED_CORE_HUMAN,Inert/low-response,High,yes,,
+P15_032,P15,SECA166fmC,YES,APPROVED_CORE_HUMAN,Inert/low-response,High,yes,,
+P15_033,P15,SECA141,YES,APPROVED_CORE_HUMAN,Agonist/response-positive,High,yes,,
+P15_034,P15,SECA141fmC,YES,APPROVED_CORE_HUMAN,Agonist/response-positive,High,yes,,
+P15_035,P15,SECA083,YES,APPROVED_CORE_HUMAN,Inert/low-response,High,yes,,
+P15_036,P15,SECA083fmC,YES,APPROVED_CORE_HUMAN,Inert/low-response,High,yes,,
+P15_037,P15,SECA138,YES,APPROVED_CORE_HUMAN,Agonist/response-positive,High,yes,,
+P15_038,P15,SECA138fmC,YES,APPROVED_CORE_HUMAN,Agonist/response-positive,High,yes,,
+P15_039,P15,104838,YES,APPROVED_CORE_HUMAN,Unknown,High,yes,,
+P15_040,P15,353512,YES,APPROVED_CORE_HUMAN,Unknown,High,yes,,
+P15_041,P15,Negative control 1,YES,APPROVED_CORE_HUMAN,Inert/low-response,High,yes,,
+P15_042,P15,Negative control 2,YES,APPROVED_CORE_HUMAN,Inert/low-response,High,yes,,
+P20_001,P20,ODN2006,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P20_002,P20,ODN2216,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P20_003,P20,ODN2395,YES,APPROVED_PATHWAY_CONTROL,Agonist/response-positive,High,no,,
+P20_004,P20,ODN1982,YES,APPROVED_PATHWAY_CONTROL,Control/unknown,High,no,,
